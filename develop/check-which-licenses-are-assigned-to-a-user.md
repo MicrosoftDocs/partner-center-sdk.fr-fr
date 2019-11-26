@@ -1,6 +1,6 @@
 ---
-title: Get licenses assigned to a user
-description: Get a list of licenses assigned to a user within a customer account.
+title: Obtenir les licences attribuées à un utilisateur
+description: Obtenir la liste des licences attribuées à un utilisateur au sein d’un compte client.
 ms.assetid: 87DC74A1-92E2-4639-BC4C-168A677F5F52
 ms.date: 05/22/2019
 ms.service: partner-dashboard
@@ -13,23 +13,23 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488959"
 ---
-# <a name="get-licenses-assigned-to-a-user"></a>Get licenses assigned to a user
+# <a name="get-licenses-assigned-to-a-user"></a>Obtenir les licences attribuées à un utilisateur
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-How to get a list of licenses assigned to a user within a customer account. The examples shown here return licenses assigned from group1, the default license group that represents licenses managed by Azure Active Directory. To get licenses assigned from specified license groups, see [Get licenses assigned to a user by license group](get-licenses-assigned-to-a-user-by-license-group.md).
+Comment obtenir la liste des licences attribuées à un utilisateur au sein d’un compte client. Les exemples indiqués ici renvoient les licences attribuées à partir de Group1, le groupe de licences par défaut qui représente les licences gérées par Azure Active Directory. Pour obtenir les licences attribuées à partir de groupes de licences spécifiés, consultez [obtenir des licences attribuées à un utilisateur par groupe de licences](get-licenses-assigned-to-a-user-by-license-group.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A user identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Identificateur du client.
+- Identificateur d’utilisateur.
 
 ## <a name="c"></a>C#
 
-To check which licenses are assigned to a user from the default group1 license group, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then call the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the user ID to identify the user. Next, get an interface to customer user license operations from the [**Licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) property. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) or the [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) method to retrieve the collection of licenses assigned to the user.
+Pour vérifier quelles licences sont attribuées à un utilisateur à partir du groupe de licences Group1 par défaut, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Appelez ensuite la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’utilisateur pour identifier l’utilisateur. Ensuite, récupérez une interface pour les opérations de licence utilisateur client à partir de la propriété [**licences**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) . Enfin, appelez la méthode [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) pour récupérer la collection de licences assignée à l’utilisateur.
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -39,28 +39,28 @@ To check which licenses are assigned to a user from the default group1 license g
 var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CustomerUserAssignedLicenses.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CustomerUserAssignedLicenses.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenses http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following path parameters to identify the customer and user.
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’utilisateur.
 
-| Nom        | Tapez   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID formatted string that identifies the customer. |
-| user-id     | chaîne | Oui      | A GUID formatted string that identifies the user.     |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
+| ID utilisateur     | chaîne | Oui      | Chaîne au format GUID qui identifie l’utilisateur.     |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -78,13 +78,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains the collection of [License](license-resources.md#license) resources.
+En cas de réussite, le corps de la réponse contient la collection de ressources de [licence](license-resources.md#license) .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

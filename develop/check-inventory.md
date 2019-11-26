@@ -1,6 +1,6 @@
 ---
-title: Check inventory
-description: Check the inventory for a specific set of catalog items.
+title: Vérifier l’inventaire
+description: Vérifiez l’inventaire pour un ensemble spécifique d’éléments de catalogue.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488969"
 ---
-# <a name="check-inventory"></a>Check inventory
+# <a name="check-inventory"></a>Vérifier l’inventaire
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-How to check the inventory for a specific set of catalog items.
+Comment vérifier l’inventaire pour un ensemble spécifique d’éléments de catalogue.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- One or more product IDs. Optionally, SKU IDs can also be specified.
-- Any additional context needed for verifying the inventory of the SKU(s) referenced by the provided product/SKU ID(s). These requirements may vary by type of product/SKU and can be determined from the [SKU's](product-resources.md#sku) **InventoryVariables** property. 
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Un ou plusieurs ID de produit. Vous pouvez également spécifier des ID de référence (SKU).
+- Tout contexte supplémentaire nécessaire pour vérifier l’inventaire des références (SKU) référencées par le ou les ID de produit/SKU fournis. Ces exigences peuvent varier selon le type de produit/référence et peuvent être déterminées à partir de la propriété **InventoryVariables** [de la référence SKU](product-resources.md#sku) . 
 
 ## <a name="c"></a>C#
 
 
-To check the inventory, build an [InventoryCheckRequest](product-resources.md#inventorycheckrequest) object using an [InventoryItem](product-resources.md#inventoryitem) object for each item to be checked. Then, use an **IAggregatePartner.Extensions** accessor, scope it down to **Product** and then select the country using the **ByCountry()** method. Finally, call the **CheckInventory()** method with your **InventoryCheckRequest** object.
+Pour vérifier l’inventaire, générez un objet [InventoryCheckRequest](product-resources.md#inventorycheckrequest) à l’aide d’un objet [InventoryItem](product-resources.md#inventoryitem) pour chaque élément à vérifier. Utilisez ensuite un accesseur **collection iaggregatepartner. extensions** , délimitez-le à **Product** , puis sélectionnez le pays à l’aide de la méthode **ByCountry ()** . Enfin, appelez la méthode **CheckInventory ()** avec votre objet **InventoryCheckRequest** .
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -55,29 +55,29 @@ var inventoryCheckRequest = new InventoryCheckRequest()
 var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCode).CheckInventory(inventoryCheckRequest);
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/product/checkInventory?country={country-code} HTTP/1.1                        |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/Product/checkInventory ? pays = {country-code} http/1.1                        |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to check the inventory.
+Utilisez le paramètre de requête suivant pour vérifier l’inventaire.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                     |
+| Nom                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| country-code           | chaîne   | Oui      | A country/region ID.                                            |
+| pays-code           | chaîne   | Oui      | ID de pays/région.                                            |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-The inventory request details, consisting of an [InventoryCheckRequest](product-resources.md#inventorycheckrequest) resource containing one or more [InventoryItem](product-resources.md#inventoryitem) resources. 
+Détails de la demande d’inventaire, comprenant une ressource [InventoryCheckRequest](product-resources.md#inventorycheckrequest) contenant une ou plusieurs ressources [InventoryItem](product-resources.md#inventoryitem) . 
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -96,21 +96,21 @@ Content-Type: application/json
 
 ## <a name="response"></a>Réponse
 
-If successful, the response body contains a collection of [InventoryItem](product-resources.md#inventoryitem) objects populated with the restriction details, if any apply.
+En cas de réussite, le corps de la réponse contient une collection d’objets [InventoryItem](product-resources.md#inventoryitem) renseignés avec les détails de la restriction, le cas échéant.
 
 >[!NOTE]
->If an input InventoryItem represents an item that could not be found in the catalog, it will not be included in the output collection.
+>Si un InventoryItem d’entrée représente un élément qui est introuvable dans le catalogue, il n’est pas inclus dans la collection de sortie.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2001         | The request body is missing.                                                                              |
-| 400                  | 400026       | A required inventory context item is missing.                                                             |
+| 400                  | 2001         | Le corps de la demande est manquant.                                                                              |
+| 400                  | 400026       | Un élément de contexte d’inventaire requis est manquant.                                                             |
 
 ### <a name="response-example"></a>Exemple de réponse
 

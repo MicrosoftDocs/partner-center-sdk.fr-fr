@@ -1,6 +1,6 @@
 ---
-title: Subscription resources
-description: Subscription resources can provide further information about subscriptions throughout the life cycle, such as support, refunds, Azure entitlements.
+title: Ressources d’abonnement
+description: Les ressources d’abonnement peuvent fournir des informations supplémentaires sur les abonnements tout au long du cycle de vie, telles que la prise en charge, les remboursements, les droits Azure.
 ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,129 +13,129 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486699"
 ---
-# <a name="subscription-resources"></a>Subscription resources
+# <a name="subscription-resources"></a>Ressources d’abonnement
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-A subscription lets a customer use a service for a certain period of time. Not all fields will apply to all subscriptions. Many fields only apply at certain points in the life cycle, such as if a subscription is suspended or cancelled.
+Un abonnement permet à un client d’utiliser un service pendant un certain laps de temps. Tous les champs ne s’appliquent pas à tous les abonnements. De nombreux champs s’appliquent uniquement à certains points du cycle de vie, par exemple si un abonnement est suspendu ou annulé.
 
 ## <a name="subscription"></a>Abonnement
 
 >[!NOTE]
->The **Subscription** resource has a rate limit of 500 requests per minute per tenant identifier.
+>La ressource d' **abonnement** a une limite de 500 de demandes par minute et par identificateur de locataire.
 
-The **Subscription** resource represents the life cycle of a subscription and includes properties that define the states throughout the subscription life cycle.
+La ressource d' **abonnement** représente le cycle de vie d’un abonnement et comprend des propriétés qui définissent les États tout au long du cycle de vie de l’abonnement.
 
-| Propriété             | Tapez                                                          | Description                                                                                                                                                                   |
+| Propriété             | Type                                                          | Description                                                                                                                                                                   |
 |----------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | chaîne                                                        | The subscription identifier.                                                                                                                                                  |
-| offerId              | chaîne                                                        | The offer identifier.                                                                                                                                                         |
-| entitlementId        | chaîne                                                        | The entitlement identifier (an Azure subscription ID).                                                                                                                        |
-| offerName            | chaîne                                                        | The offer name.                                                                                                                                                               |
-| friendlyName         | chaîne                                                        | The friendly name for the subscription defined by the partner to help disambiguate.                                                                                           |
-| quantity             | nombre                                                        | The quantity. For example, in case of license-based billing, this property is set to the license count.                                                            |
-| unitType             | chaîne                                                        | The units defining quantity for the subscription.                                                                                                                             |
-| parentSubscriptionId | chaîne                                                        | Gets or sets the parent subscription identifier.                                                                                                                              |
-| creationDate         | chaîne                                                        | Gets or sets the creation date, in date-time format.                                                                                                                          |
-| effectiveStartDate   | string in UTC date time format                                | Gets or sets the effective start date for this subscription, in date-time format. It is used to back date a migrated subscription or to align it with another.                |
-| commitmentEndDate    | string in UTC date time format                                | The commitment end date for this subscription, in date-time format. For subscriptions which are not auto-renewable, this represents a date far, far away in the future.       |
-| status               | chaîne                                                        | The subscription status: "none", "active", "pending", "suspended", or "deleted".                                                                                                         |
-| autoRenewEnabled     | booléen                                                       | Gets a value indicating whether the subscription is renewed automatically.                                                                                                    |
-| billingType          | chaîne                                                        | Specifies how the subscription is billed: "none", "usage", or "license".                                                                                                      |
-| billingCycle         | chaîne                                                        | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [**BillingCycleType**](product-resources.md#billingcycletype). |
-| hasPurchasableAddons | booléen                                                       | Gets or sets a value indicating whether the subscription has purchasable add-ons.                                                                                             |
-| isTrial              | booléen                                                       | A value indicating whether this is a trial subscription.                                                                                                                      |
-| isMicrosoftProduct   | booléen                                                       | A value indicating whether this is a Microsoft product.                                                                                                                       |
-| publisherName        | chaîne                                                        | The publisher name.                                                                                                                                                           |
-| actions              | array of strings                                              | Gets or sets the actions that are allowed. Possible values: "edit", "cancel"                                                                                                  |
-| partnerId            | chaîne                                                        | The MPN ID of the reseller of record, used in the indirect partner model.                                                                                                     |
-| suspensionReasons    | array of strings                                              | Read-only. If the subscription was suspended, indicates why.                                                                                                                  |
-| contractType         | chaîne                                                        | Read-only. The type of contract: "subscription", "productKey", or "redemptionCode".                                                                                           |
-| refundOptions        | array of [RefundOption](#refundoption) resources   | Read-Only. The set of refund options available for this subscription.                                                                                              |
-| liens                | [SubscriptionLinks](#subscriptionlinks)                       | Gets or sets the subscription links.                                                                                                                                          |
-| orderId              | chaîne                                                        | The ID of the order that was placed to begin the subscription.                                                                                                                |
-| termDuration         | chaîne                                                        | An ISO 8601 representation of the term's duration. The current supported values are **P1M** (1 month), **P1Y** (1 year) and **P3Y** (3 years).                                                        |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the subscription.                                                                                                                    |
-| renewalTermDuration  | chaîne                                                        | An ISO 8601 representation of the term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year).                                                        |
+| id                   | chaîne                                                        | Identificateur d’abonnement.                                                                                                                                                  |
+| offerId              | chaîne                                                        | Identificateur de l’offre.                                                                                                                                                         |
+| entitlementId        | chaîne                                                        | L’identificateur d’habilitation (ID d’abonnement Azure).                                                                                                                        |
+| offerName            | chaîne                                                        | Nom de l’offre.                                                                                                                                                               |
+| friendlyName         | chaîne                                                        | Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté.                                                                                           |
+| quantity             | nombre                                                        | Quantité. Par exemple, dans le cas d’une facturation basée sur une licence, cette propriété est définie sur le nombre de licences.                                                            |
+| Unité             | chaîne                                                        | Unités définissant la quantité pour l’abonnement.                                                                                                                             |
+| ParentSubscriptionId | chaîne                                                        | Obtient ou définit l’identificateur d’abonnement parent.                                                                                                                              |
+| CreationDate         | chaîne                                                        | Obtient ou définit la date de création, au format date-heure.                                                                                                                          |
+| effectiveStartDate   | chaîne au format date/heure UTC                                | Obtient ou définit la date de début effective de cet abonnement, au format date-heure. Il est utilisé pour mettre à jour un abonnement migré ou pour l’aligner avec un autre.                |
+| commitmentEndDate    | chaîne au format date/heure UTC                                | Date de fin d’engagement de cet abonnement, au format date-heure. Pour les abonnements qui ne sont pas renouvelés automatiquement, il s’agit d’une date éloignée à l’avenir.       |
+| status               | chaîne                                                        | État de l’abonnement : « None », « active », « pending », « Suspended » ou « Deleted ».                                                                                                         |
+| autoRenewEnabled     | booléen                                                       | Obtient une valeur indiquant si l’abonnement est renouvelé automatiquement.                                                                                                    |
+| billingType          | chaîne                                                        | Spécifie la manière dont l’abonnement est facturé : « aucun », « utilisation » ou « licence ».                                                                                                      |
+| billingCycle         | chaîne                                                        | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [**BillingCycleType**](product-resources.md#billingcycletype). |
+| hasPurchasableAddons | booléen                                                       | Obtient ou définit une valeur indiquant si l’abonnement a acheté des modules complémentaires.                                                                                             |
+| isTrial              | booléen                                                       | Valeur indiquant s’il s’agit d’un abonnement d’évaluation.                                                                                                                      |
+| isMicrosoftProduct   | booléen                                                       | Valeur indiquant s’il s’agit d’un produit Microsoft.                                                                                                                       |
+| publisherName        | chaîne                                                        | Nom de l’éditeur.                                                                                                                                                           |
+| Interventions              | Tableau de chaînes                                              | Obtient ou définit les actions autorisées. Valeurs possibles : « modifier », « annuler »                                                                                                  |
+| Partenaire            | chaîne                                                        | ID MPN du revendeur de l’enregistrement, utilisé dans le modèle de partenaire indirect.                                                                                                     |
+| suspensionReasons    | Tableau de chaînes                                              | Lecture seule. Si l’abonnement a été suspendu, indique pourquoi.                                                                                                                  |
+| contractType         | chaîne                                                        | Lecture seule. Type de contrat : « Subscription », « productKey » ou « redemptionCode ».                                                                                           |
+| refundOptions        | Tableau de ressources [RefundOption](#refundoption)   | Lecture seule. Ensemble d’options de remboursement disponibles pour cet abonnement.                                                                                              |
+| liens                | [SubscriptionLinks](#subscriptionlinks)                       | Obtient ou définit les liens d’abonnement.                                                                                                                                          |
+| orderId              | chaîne                                                        | ID de la commande qui a été placée pour commencer l’abonnement.                                                                                                                |
+| termDuration         | chaîne                                                        | Représentation ISO 8601 de la durée du terme. Les valeurs actuellement prises en charge sont **p1m** (1 mois), **P1Y** (1 an) et **P3Y** (3 ans).                                                        |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant à l’abonnement.                                                                                                                    |
+| renewalTermDuration  | chaîne                                                        | Représentation ISO 8601 de la durée du terme. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an).                                                        |
 
 ## <a name="subscriptionlinks"></a>SubscriptionLinks
 
-The **SubscriptionLinks** resource describes the collection of links attached to a subscription resource.
+La ressource **SubscriptionLinks** décrit la collection de liens attachés à une ressource d’abonnement.
 
-| Propriété           | Tapez                               | Description                           |
+| Propriété           | Type                               | Description                           |
 |--------------------|------------------------------------|---------------------------------------|
-| offer              | [Link](utility-resources.md#link) | Gets or sets the offer.               |
-| parentSubscription | [Link](utility-resources.md#link) | Gets or sets the parent subscription. |
-| product            | [Link](utility-resources.md#link) | Gets the product associated with the subscription. |
-| sku                | [Link](utility-resources.md#link) | Gets the product sku associated with the subscription. |
-| disponibilité       | [Link](utility-resources.md#link) | Gets the product sku availability associated with the subscription. |
-| activationLinks    | [Link](utility-resources.md#link) | Gets the list of activation links associated with the subscription. |
-| self               | [Link](utility-resources.md#link) | The self URI.                         |
-| suivant               | [Link](utility-resources.md#link) | The next page of items.               |
-| previous           | [Link](utility-resources.md#link) | The previous page of items.           |
+| mettent              | [Lien](utility-resources.md#link) | Obtient ou définit l’offre.               |
+| parentSubscription | [Lien](utility-resources.md#link) | Obtient ou définit l’abonnement parent. |
+| production            | [Lien](utility-resources.md#link) | Obtient le produit associé à l’abonnement. |
+| paire                | [Lien](utility-resources.md#link) | Obtient la référence SKU du produit associée à l’abonnement. |
+| disponibilité       | [Lien](utility-resources.md#link) | Obtient la disponibilité de la référence SKU du produit associée à l’abonnement. |
+| activationLinks    | [Lien](utility-resources.md#link) | Obtient la liste des liens d’activation associés à l’abonnement. |
+| rythme               | [Lien](utility-resources.md#link) | URI auto.                         |
+| suivant               | [Lien](utility-resources.md#link) | Page suivante des éléments.               |
+| Premier           | [Lien](utility-resources.md#link) | Page d’éléments précédente.           |
 
 ## <a name="subscriptionprovisioningstatus"></a>SubscriptionProvisioningStatus
 
-The **SubscriptionProvisioningStatus** resource provides information about the provisioning status of a subscription.
+La ressource **SubscriptionProvisioningStatus** fournit des informations sur l’état de provisionnement d’un abonnement.
 
-| Propriété   | Tapez                                                           | Description                                                          |
+| Propriété   | Type                                                           | Description                                                          |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
-| skuId      | chaîne                                                         | A GUID formatted string that identifies the product SKU.             |
-| status     | chaîne                                                         | Indicates the provisioning status: "success", "pending" or "failed". |
-| quantity   | nombre                                                         | Provides the subscription quantity after provisioning.               |
-| endDate    | string in UTC date time format                                 | The end date of the subscription.                                    |
-| attributs | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                             |
+| skuId      | chaîne                                                         | Chaîne au format GUID qui identifie la référence SKU du produit.             |
+| status     | chaîne                                                         | Indique l’état de provisionnement : « réussite », « en attente » ou « échec ». |
+| quantity   | nombre                                                         | Fournit la quantité d’abonnement après l’approvisionnement.               |
+| endDate    | chaîne au format date/heure UTC                                 | Date de fin de l’abonnement.                                    |
+| attributs | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                             |
 
 ## <a name="subscriptionregistrationstatus"></a>SubscriptionRegistrationStatus
 
-The **SubscriptionRegistrationStatus** resource describes the collection of links attached to a subscription resource.
+La ressource **SubscriptionRegistrationStatus** décrit la collection de liens attachés à une ressource d’abonnement.
 
-| Propriété           | Tapez                               | Description                                                                           |
+| Propriété           | Type                               | Description                                                                           |
 |--------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| subscriptionId     | chaîne                             | The subscription identifier.                                                          |
-| status             | chaîne                             | Indicates the registration status: "registered", "registering" or "notregistered".    |
+| subscriptionId     | chaîne                             | Identificateur d’abonnement.                                                          |
+| status             | chaîne                             | Indique l’état de l’inscription : « Registered », « Registering » ou « notregistered ».    |
 
 ## <a name="supportcontact"></a>SupportContact
 
-The **SupportContact** resource represents a support contact for a customer's subscription.
+La ressource **SupportContact** représente un contact de support pour l’abonnement d’un client.
 
-| Propriété        | Tapez                                                           | Description                                                                     |
+| Propriété        | Type                                                           | Description                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
-| supportTenantId | chaîne                                                         | A GUID formatted string that indicates the support contact's tenant identifier. |
-| supportMpnId    | chaîne                                                         | The contact's Microsoft Partner Network (MPN) identifier.                       |
-| name            | chaîne                                                         | The name of the support contact.                                                |
-| liens           | [ResourceLinks](utility-resources.md#resourcelinks)            | The support contact related links.                                              |
-| attributs      | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes. Contains "objectType": " SupportContact".              |
+| supportTenantId | chaîne                                                         | Chaîne au format GUID qui indique l’identificateur de locataire du contact de support. |
+| supportMpnId    | chaîne                                                         | Identificateur Microsoft Partner Network (MPN) du contact.                       |
+| name            | chaîne                                                         | Nom du contact du support technique.                                                |
+| liens           | [ResourceLinks](utility-resources.md#resourcelinks)            | Liens associés au contact du support technique.                                              |
+| attributs      | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées. Contient « objectType » : « SupportContact ».              |
 
 ## <a name="registersubscription"></a>RegisterSubscription
 
-The **RegisterSubscription** resource returns a link that can be used to query the registration status of a subscription. The registration status is returned in the response body of a successfully accepted request to register an Azure subscription.
+La ressource **RegisterSubscription** retourne un lien qui peut être utilisé pour interroger l’état d’inscription d’un abonnement. L’état de l’inscription est renvoyé dans le corps de la réponse d’une demande acceptée avec succès pour inscrire un abonnement Azure.
 
-| Propriété                | Tapez                               | Description                                                                           |
+| Propriété                | Type                               | Description                                                                           |
 |-------------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| httpResponseMessage     | object                             | Returns HTTP Status Code 202 "Accepted", with a Location header containing a link to query the registration status. Par exemple, `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"`. |
+| httpResponseMessage     | objet                             | Retourne le code d’état HTTP 202 « accepté », avec un en-tête d’emplacement contenant un lien pour interroger l’état de l’inscription. Par exemple, `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"`. |
 
 ## <a name="refundoption"></a>RefundOption
 
-The **RefundOption** resource represents a possible refund option for the subscription.
+La ressource **RefundOption** représente une option de remboursement possible pour l’abonnement.
 
-| Propriété          | Tapez | Description                                                                         |
+| Propriété          | Type | Description                                                                         |
 |-------------------|--------|-------------------------------------------------------------------------------------|
-| type | chaîne | The type of refund. The supported values are "Partial" and "Full" |
-| expiresAfter      | string in UTC date time format | The timestamp when this option expires. If null, this means it has no expiration. |
+| type | chaîne | Type de remboursement. Les valeurs prises en charge sont « partial » et « Full » |
+| expiresAfter      | chaîne au format date/heure UTC | Horodateur de l’expiration de cette option. Si la valeur est null, cela signifie qu’elle n’a pas d’expiration. |
 
 ## <a name="azureentitlement"></a>AzureEntitlement
 
-The **AzureEntitlement** resource represents the Azure entitlements for the subscription.
+La ressource **AzureEntitlement** représente les droits Azure pour l’abonnement.
 
-| Propriété          | Tapez | Description                                                                         |
+| Propriété          | Type | Description                                                                         |
 |-------------------|--------|-------------------------------------------------------------------------------------|
-| id | chaîne | The entitlement identifier |
-| friendlyName      | chaîne | The friendly name of the entitlement. |
-| status | chaîne | The status of entitlement. |
-| subscriptionId | chaîne | The subscription identifier the entitlement belongs to. |
+| id | chaîne | L’identificateur d’habilitation |
+| friendlyName      | chaîne | Nom convivial du droit. |
+| status | chaîne | État du droit. |
+| subscriptionId | chaîne | Identificateur d’abonnement auquel le droit appartient. |

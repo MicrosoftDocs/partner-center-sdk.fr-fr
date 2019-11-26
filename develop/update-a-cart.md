@@ -1,6 +1,6 @@
 ---
-title: Update a cart
-description: How to update an order for a customer in a cart.
+title: Mettre à jour un panier
+description: Procédure de mise à jour d’une commande pour un client dans un panier.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,30 +12,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487949"
 ---
-# <a name="update-a-cart"></a>Update a cart
+# <a name="update-a-cart"></a>Mettre à jour un panier
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
 
-How to update an order for a customer in a cart. 
+Procédure de mise à jour d’une commande pour un client dans un panier. 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A Cart ID for an existing cart.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID de panier d’un panier existant.
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update an order for a customer, get the cart using the **Get()** method by passing the customer and cart ID's using the **ById()** function. Make the necessary changes to the cart. Now call the **Put** method by using customer and cart ID's using the **ById()** method.
+Pour mettre à jour une commande pour un client, récupérez le panier à l’aide de la méthode **obtenir ()** en transmettant l’ID du client et du panier à l’aide de la fonction **méthode BYID ()** . Apportez les modifications nécessaires au panier. À présent, appelez la méthode **put** à l’aide de la méthode **méthode BYID ()** à l’aide de l’ID du client et du panier.
 
-Finally, call the **Put()** or **PutAsync()** method to create the order.
+Enfin, appelez la méthode **put ()** ou **PutAsync ()** pour créer la commande.
 
 
 
@@ -51,63 +51,63 @@ cart.LineItems.ToArray()[0].Quantity++;
 var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Put(cart);
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
+| **POSÉ** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts/{Cart-ID} http/1.1              |
 
  
 
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following path parameters to identify the customer, and specify the cart to be updated.
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et spécifiez le panier à mettre à jour.
 
-| Nom            | Tapez     | Obligatoire | Description                                                            |
+| Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | chaîne   | Oui      | A GUID formatted customer-id that identifies the customer.             |
-| **cart-id**     | chaîne   | Oui      | A GUID formatted cart-id that identifies the cart.                     |
+| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
+| **Cart-ID**     | chaîne   | Oui      | GUID-ID au format GUID qui identifie le panier.                     |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-This table describes the [Cart](cart-resources.md) properties in the request body.
+Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps de la demande.
 
-| Propriété              | Tapez             | Obligatoire        | Description                                                                                               |
+| Propriété              | Type             | Obligatoire        | Description                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | chaîne           | non              | A cart identifier that is supplied upon successful creation of the cart.                                  |
-| creationTimeStamp     | DateTime         | non              | The date the cart was created, in date-time format. Applied upon successful creation of the cart.        |
-| lastModifiedTimeStamp | DateTime         | non              | The date the cart was last updated, in date-time format. Applied upon successful creation of the cart.    |
-| expirationTimeStamp   | DateTime         | non              | The date the cart will expire, in date-time format.  Applied upon successful creation of cart.            |
-| lastModifiedUser      | chaîne           | non              | The user who last updated the cart. Applied upon successful creation of cart.                             |
-| lineItems             | Array of objects | Oui             | An Array of [CartLineItem](cart-resources.md#cartlineitem) resources.                                               |
+| id                    | chaîne           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.        |
+| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| LineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                               |
 
 
-This table describes the [CartLineItem](cart-resources.md#cartlineitem) properties in the request body.
+Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
-| Propriété             | Tapez                        | Obligatoire     | Description                                                                                        |
+| Propriété             | Type                        | Obligatoire     | Description                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | chaîne                      | non           | A Unique identifier for a cart line item. Applied upon successful creation of cart.                |
-| catalogId            | chaîne                      | Oui          | The catalog item identifier.                                                                       |
-| friendlyName         | chaîne                      | non           | Facultatif. The friendly name for the item defined by the partner to help disambiguate.              |
-| quantity             | entier                         | Oui          | The number of licenses or instances.     |
-| currencyCode         | chaîne                      | non           | The currency code.                                                                                 |
-| billingCycle         | Objet                      | Oui          | The type of billing cycle set for the current period.                                              |
-| participants         | List of Object String pairs | non           | A collection of participants on the purchase.                                                      |
-| provisioningContext  | Dictionary<string, string>  | non           | A context used for provisioning of offer.                                                          |
-| orderGroup           | chaîne                      | non           | A group to indicate which items can be placed together.                                            |
-| erreur                | Objet                      | non           | Applied after cart is created in case of an error.                                                 |
+| id                   | chaîne                      | Non           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                |
+| catalogId            | chaîne                      | Oui          | Identificateur de l’élément de catalogue.                                                                       |
+| friendlyName         | chaîne                      | Non           | Facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.              |
+| quantity             | entier                         | Oui          | Nombre de licences ou d’instances.     |
+| currencyCode         | chaîne                      | Non           | Code de la devise.                                                                                 |
+| billingCycle         | Objet                      | Oui          | Type de cycle de facturation défini pour la période actuelle.                                              |
+| participants         | Liste de paires de chaînes d’objets | Non           | Collection de participants sur l’achat.                                                      |
+| provisioningContext  | Dictionary < String, String >  | Non           | Contexte utilisé pour l’approvisionnement de l’offre.                                                          |
+| orderGroup           | chaîne                      | Non           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                            |
+| erreur                | Objet                      | Non           | Appliqué après la création du panier en cas d’erreur.                                                 |
 
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PUT /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/65faf57b-0205-47ee-92b3-08dcf233ea73/ HTTP/1.1
@@ -147,16 +147,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
 
 
-If successful, this method returns the populated [Cart](cart-resources.md) resource in the response body.
+En cas de réussite, cette méthode retourne la ressource [Cart](cart-resources.md) remplie dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 201 Created

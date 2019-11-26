@@ -1,6 +1,6 @@
 ---
-title: Register a subscription
-description: Register an existing subscription so that it is enabled for ordering Azure reservations.
+title: Inscrire un abonnement
+description: Inscrire un abonnement existant afin qu’il soit activé pour la commande des réservations Azure.
 ms.assetid: 9B853BF2-855C-4EB3-BBE5-7ECC1336AE08
 ms.date: 07/27/2018
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486729"
 ---
-# <a name="register-a-subscription"></a>Register a subscription
+# <a name="register-a-subscription"></a>Inscrire un abonnement
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Register an existing [Subscription](subscription-resources.md) so that it is enabled for ordering Azure reservations.  
+Inscrire un [abonnement](subscription-resources.md) existant afin qu’il soit activé pour la commande des réservations Azure.  
 
-To purchase an Azure reservation you must have at least one existing CSP Azure subscription. This method allows you to register your existing CSP Azure subscription, enabling it for purchasing Azure reservations. 
+Pour acheter une réservation Azure, vous devez disposer d’au moins un abonnement Azure CSP existant. Cette méthode vous permet d’inscrire votre abonnement Azure CSP existant et de l’activer pour l’achat de réservations Azure. 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID d’abonnement.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To register a customer's subscription, retrieve an interface to subscription operations by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then, call the [**Subscription.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method with the subscription ID to identify the subscription that you are registering. 
+Pour inscrire l’abonnement d’un client, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, appelez la méthode [**subscription. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) avec l’ID d’abonnement pour identifier l’abonnement que vous inscrivez. 
 
-Finally, call the **Registration.Register()** method to register the subscription and retrieve a URI that can be used to get the subscription registration status. For more information, see [Get subscription registration status](get-subscription-registration-status.md).
+Enfin, appelez la méthode **Registration. Register ()** pour inscrire l’abonnement et récupérer un URI qui peut être utilisé pour obtenir l’état d’inscription de l’abonnement. Pour plus d’informations, consultez [obtenir l’état de l’inscription de l’abonnement](get-subscription-registration-status.md).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -48,37 +48,37 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 ```
 
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode    | URI de requête                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **POST**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations HTTP/1.1 |
+| **Publier**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/Registrations http/1.1 |
 
  
 
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following path parameters to identify the customer and subscription. 
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement. 
 
-| Nom                    | Tapez       | Obligatoire | Description                                                   |
+| Nom                    | Type       | Obligatoire | Description                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| customer-id             | chaîne     | Oui      | A GUID formatted string that identifies the customer.         |
-| subscription-id         | chaîne     | Oui      | A GUID formatted string that identifies the subscription.     |
+| ID client             | chaîne     | Oui      | Chaîne au format GUID qui identifie le client.         |
+| ID d’abonnement         | chaîne     | Oui      | Chaîne au format GUID qui identifie l’abonnement.     |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/<customer-id>/subscriptions/<subscription-id>/registrations HTTP/1.1
@@ -92,16 +92,16 @@ Expect: 100-continue
 Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
 
 
-If successful, the response contains a **Location** header with a URI that can be used to retrieve the subscription registration status. Save this URI for use with other related REST APIs. For an example of how to retrieve the status, see [Get subscription registration status](get-subscription-registration-status.md). 
+En cas de réussite, la réponse contient un en-tête d' **emplacement** avec un URI qui peut être utilisé pour récupérer l’état d’inscription de l’abonnement. Enregistrez cet URI pour une utilisation avec d’autres API REST associées. Pour obtenir un exemple de récupération de l’État, consultez [obtenir l’État](get-subscription-registration-status.md)de l’inscription de l’abonnement. 
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 202 Accepted

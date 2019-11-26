@@ -1,6 +1,6 @@
 ---
-title: Get invoice summaries
-description: You can use an invoice summaries resource for each currency type to show the balance and total charges of both recurring and one-time charges.
+title: Recevoir des résumés de facture
+description: Vous pouvez utiliser une ressource résumés de la facture pour chaque type de devise pour afficher le solde et les frais totaux des frais périodiques et ponctuels.
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490239"
 ---
-# <a name="get-invoice-summaries"></a>Get invoice summaries
+# <a name="get-invoice-summaries"></a>Recevoir des résumés de facture
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can use the **InvoiceSummaries** to retrieve an invoice summary which shows the balance and total charges of both recurring and one-time charges. The **InvoiceSummaries** resource contains an invoice summary for each currency type.
+Vous pouvez utiliser l' **InvoiceSummaries** pour récupérer un résumé de la facture qui indique le solde et le coût total des frais périodiques et ponctuels. La ressource **InvoiceSummaries** contient un résumé de la facture pour chaque type de devise.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid invoice identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Identificateur de facture valide.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To retrieve an [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) collection that contains an [**InvoiceSummary**](invoice-resources.md#invoicesummary) for each currency type:
+Pour récupérer une collection [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) qui contient un [**InvoiceSummary**](invoice-resources.md#invoicesummary) pour chaque type de devise :
 
-1. Use your **IAggregatePartner.Invoices** collection to call the **Summaries** property.
-2. Call the **Get()** method.
-3. To get the balance of an individual [**InvoiceSummary**](invoice-resources.md#invoicesummary), access the **BalanceAmount** property for that member of the collection.
+1. Utilisez votre collection **collection iaggregatepartner. Invoices** pour appeler la propriété **résumés** .
+2. Appelez la méthode d' **extraction ()** .
+3. Pour obtenir le solde d’un [**InvoiceSummary**](invoice-resources.md#invoicesummary)individuel, accédez à la propriété **BalanceAmount** de ce membre de la collection.
 
 ``` csharp
 // IAggregatePartner scopedPartnerOperations;
@@ -47,21 +47,21 @@ var invoiceSummaries = scopedPartnerOperations.Invoices.Summaries.Get();
 Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].BalanceAmount);
 ```
 
-For more information, see the following example code:
+Pour plus d’informations, consultez l’exemple de code suivant :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSample**
-- Class: **GetInvoiceSummaries.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **PartnerSDK. FeatureSample**
+- Classe : **GetInvoiceSummaries.cs**
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/summaries HTTP/1.1     |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/Summaries http/1.1     |
 
 ##### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -69,7 +69,7 @@ Aucun.
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -86,13 +86,13 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 Connection: Keep-Alive
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) resource in the response body.
+En cas de réussite, cette méthode retourne une ressource [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

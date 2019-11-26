@@ -1,6 +1,6 @@
 ---
 title: Suspendre un abonnement
-description: Suspends a Subscription resource that matches the customer and subscription ID due to fraud or non-payment.In the Partner Center dashboard, this operation can be performed by first selecting a customer.
+description: Interrompt une ressource d’abonnement qui correspond au client et à l’ID d’abonnement en raison d’une fraude ou d’un non-paiement. Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en sélectionnant d’abord un client.
 ms.assetid: 2800933A-A480-4C79-8298-84217DD5A350
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,28 +16,28 @@ ms.locfileid: "74486669"
 # <a name="suspend-a-subscription"></a>Suspendre un abonnement
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Suspends a [Subscription](subscription-resources.md) resource that matches the customer and subscription ID due to fraud or non-payment.
+Interrompt une ressource d' [abonnement](subscription-resources.md) qui correspond au client et à l’ID d’abonnement en raison d’une fraude ou d’un non-paiement.
 
-In the Partner Center dashboard, this operation can be performed by first [selecting a customer](get-a-customer-by-name.md). Then, select the subscription in question that you wish to rename. To finish, choose the **Suspended** button, then select **Submit.**
+Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en [sélectionnant d’abord un client](get-a-customer-by-name.md). Sélectionnez ensuite l’abonnement en question que vous souhaitez renommer. Pour terminer, cliquez sur le bouton **suspendu** , puis sélectionnez **Envoyer.**
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID d’abonnement.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To suspend a customer's subscription, first [Get the subscription](get-a-subscription-by-id.md), then change the subscription's [**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property. For information on **Status** codes, consult [SubscriptionStatus enumeration](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus). Once the change is made, use your **IAggregatePartner.Customers** collection and call the **ById()** method. Then call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method. Then, finish by calling the **Patch()** method.
+Pour suspendre l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**État**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) de l’abonnement. Pour plus d’informations sur les codes d' **État** , consultez l' [énumération SubscriptionStatus](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus). Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,39 +51,39 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
    });
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: UpdateSubscription.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode    | URI de requête                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-This table lists the required query parameter to suspend the subscription.
+Ce tableau répertorie le paramètre de requête requis pour suspendre l’abonnement.
 
-| Nom                    | Tapez     | Obligatoire | Description                               |
+| Nom                    | Type     | Obligatoire | Description                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.     |
+| **ID-pour l’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-A full **Subscription** resource is required in the request body. Ensure that the **Status** property has been updated.
+Une ressource d' **abonnement** complète est requise dans le corps de la demande. Assurez-vous que la propriété **Status** a été mise à jour.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
@@ -119,16 +119,16 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
 
 
-If successful, this method returns updated [Subscription](subscription-resources.md) resource properties in the response body.
+En cas de réussite, cette méthode retourne les propriétés de ressource d' [abonnement](subscription-resources.md) mises à jour dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

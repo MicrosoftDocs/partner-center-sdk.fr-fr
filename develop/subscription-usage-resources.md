@@ -1,6 +1,6 @@
 ---
-title: Subscription usage resources
-description: Subscription usage resources describe subscriptions with usage-based billing. These subscriptions have daily and monthly usage records, along with a usage summary for each pay period.
+title: Ressources d’utilisation de l’abonnement
+description: Les ressources d’utilisation d’abonnement décrivent les abonnements avec la facturation basée sur l’utilisation. Ces abonnements ont des enregistrements d’utilisation quotidiens et mensuels, ainsi qu’un résumé de l’utilisation pour chaque période de paiement.
 ms.assetid: 61B98AB8-D802-4EC1-91FB-B7A2B95DE20C
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,64 +13,64 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488019"
 ---
-# <a name="subscription-usage-resources"></a>Subscription usage resources
+# <a name="subscription-usage-resources"></a>Ressources d’utilisation de l’abonnement
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can use the following subscription usage resources to get usage information for a specific subscription with usage-based billing. These subscriptions have daily and monthly usage records, along with a usage summary for each pay period.
+Vous pouvez utiliser les ressources d’utilisation d’abonnement suivantes pour obtenir des informations sur l’utilisation d’un abonnement spécifique avec une facturation basée sur l’utilisation. Ces abonnements ont des enregistrements d’utilisation quotidiens et mensuels, ainsi qu’un résumé de l’utilisation pour chaque période de paiement.
 
 ## <a name="subscriptiondailyusagerecord"></a>SubscriptionDailyUsageRecord
 
-*The **SubscriptionDailyUsageRecord** resource is obsolete and may produce inaccurate results. We recommend that you update your applications to use the APIs described in [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md) and [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md) instead.*
+*La ressource **SubscriptionDailyUsageRecord** est obsolète et peut produire des résultats inexacts. Nous vous recommandons de mettre à jour vos applications pour utiliser les API décrites dans [obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md) et [obtenir des prix pour Microsoft Azure à](get-prices-for-microsoft-azure.md) la place.*
 
-The **SubscriptionDailyUsageRecord** resource describes how much a subscription is used in a single day.
+La ressource **SubscriptionDailyUsageRecord** décrit l’utilisation d’un abonnement en une seule journée.
 
-| Propriété         | Tapez               | Description                                                                                   |
+| Propriété         | Type               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| DateUsed         | chaîne             | The day, in date-time format, that the subscription was used.                                 |
-| ResourceId       | chaîne             | GUID. The unique ID of the resource.                                                          |
-| Nom_ressource     | chaîne             | The name of the resource.                                                                     |
-| TotalCost        | décimal             | The estimated total cost of using the resources in the subscription on the specified day.     |
-| CurrencyLocale   | chaîne             | The locale in which the subscription was used, determines the currency to use on the invoice. |
-| LastModifiedDate | chaîne             | The day, in date-time format, that this record was last modified.                             |
-| Attributs       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |
+| DateUsed         | chaîne             | Jour, dans le format de date et d’heure, utilisé par l’abonnement.                                 |
+| resourceId       | chaîne             | Uniques. ID unique de la ressource.                                                          |
+| Nom_ressource     | chaîne             | Nom de la ressource.                                                                     |
+| PrixTotal        | décimal             | Estimation du coût total de l’utilisation des ressources de l’abonnement le jour spécifié.     |
+| CurrencyLocale   | chaîne             | Les paramètres régionaux dans lesquels l’abonnement a été utilisé déterminent la devise à utiliser sur la facture. |
+| LastModifiedDate & | chaîne             | Jour, dans le format date-heure, de la dernière modification de cet enregistrement.                             |
+| Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à la ressource.                                        |
 
 ## <a name="subscriptionmonthlyusagerecord"></a>SubscriptionMonthlyUsageRecord
 
-The **SubscriptionMonthlyUsageRecord** resource describes how much a subscription is used in a single month.
+La ressource **SubscriptionMonthlyUsageRecord** décrit l’utilisation d’un abonnement en un seul mois.
 
-| Propriété         | Tapez               | Description                                                                                   |
+| Propriété         | Type               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| le statut           | chaîne             | The status of the subscription: "none", "active", "suspended", or "deleted".                  |
-| PartnerOnRecord  | chaîne             | "The MPN ID of the partner on record."                                                        |
-| OfferId          | chaîne             | GUID. The id of the offer related to this subscription.                                       |
-| Id               | chaîne             | GUID. The id of the subscription or resource.                                                 |
-| Nom             | chaîne             | The name of the subscription or resource.                                                     |
-| TotalCost        | décimal             | The estimated total cost of using the resources in the subscription in the specified month.   |
-| CurrencyLocale   | chaîne             | The locale in which the subscription was used, determines the currency to use on the invoice. Available for Microsoft Azure (MS-AZR-0145P) subscriptions. |
-| CurrencyCode     | chaîne             | Gets or sets the currency code. Available for Azure plan subscription resources.                                         |
-| USDTotalCost     | décimal             | Gets or sets the estimated total cost in USD. Available for Azure plans.                                         |
-| LastModifiedDate | chaîne             | The day, in date-time format, that this record was last modified.                             |
-| Attributs       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |
+| État           | chaîne             | État de l’abonnement : « None », « active », « Suspended » ou « Deleted ».                  |
+| PartnerOnRecord  | chaîne             | « ID MPN du partenaire sur l’enregistrement ».                                                        |
+| OfferId          | chaîne             | Uniques. ID de l’offre associée à cet abonnement.                                       |
+| Id               | chaîne             | Uniques. ID de l’abonnement ou de la ressource.                                                 |
+| Nom             | chaîne             | Nom de l’abonnement ou de la ressource.                                                     |
+| PrixTotal        | décimal             | Estimation du coût total de l’utilisation des ressources de l’abonnement dans le mois spécifié.   |
+| CurrencyLocale   | chaîne             | Les paramètres régionaux dans lesquels l’abonnement a été utilisé déterminent la devise à utiliser sur la facture. Disponible pour les abonnements Microsoft Azure (MS-AZR-0145P). |
+| CurrencyCode     | chaîne             | Obtient ou définit le code de la devise. Disponible pour les ressources d’abonnement du plan Azure.                                         |
+| USDTotalCost     | décimal             | Obtient ou définit le coût total estimé en USD. Disponible pour les plans Azure.                                         |
+| LastModifiedDate & | chaîne             | Jour, dans le format date-heure, de la dernière modification de cet enregistrement.                             |
+| Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à la ressource.                                        |
 
 ## <a name="subscriptionusagesummary"></a>SubscriptionUsageSummary
 
-The **SubscriptionUsageSummary** resource describes how much a specific subscription was used in the current billing period.
+La ressource **SubscriptionUsageSummary** décrit le degré d’utilisation d’un abonnement spécifique dans la période de facturation actuelle.
 
-| Propriété         | Tapez               | Description                                                                                                            |
+| Propriété         | Type               | Description                                                                                                            |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------------|
-| ResourceId       | chaîne             | GUID. The id of the subscription or resource. In the context of CustomerMonthlyUsageRecord this id is the customer id. |
-| Nom_ressource     | chaîne             | The name of the subscription or resource. In the context of CustomerMonthlyUsageRecord this name is the customer name. |
-| BillingStartDate | date               | The start date of the current billing period, in date-time format.                                                     |
-| BillingEndDate   | date               | The end date of the current billing period, in date-time format.                                                       |
-| TotalCost        | double             | The estimated total cost of using the resources in the subscription during the specified billing period.               |
-| CurrencyLocale   | chaîne             | The locale in which the subscription was used, determines the currency to use on the invoice. Available for Microsoft Azure (MS-AZR-0145P) subscriptions. |
-| CurrencyCode   | chaîne             | Gets or sets the currency code. Available for Azure plans.                                         |
-| USDTotalCost   | décimal             | Gets or sets the estimated total cost in USD. Available for Azure plan subscription resources.                                         |
-| LastModifiedDate | chaîne             | The day, in date-time format, that this record was last modified.                                                      |
-| Liens            | ResourceLinks      | The resource links corresponding to the SubscriptionUsageSummary.                                                      |
-| Attributs       | ResourceAttributes | The metadata attributes corresponding to the SubscriptionUsageSummary.                                                 |
+| resourceId       | chaîne             | Uniques. ID de l’abonnement ou de la ressource. Dans le contexte de CustomerMonthlyUsageRecord, cet ID est l’ID du client. |
+| Nom_ressource     | chaîne             | Nom de l’abonnement ou de la ressource. Dans le contexte de CustomerMonthlyUsageRecord, ce nom est le nom du client. |
+| BillingStartDate | date               | Date de début de la période de facturation actuelle, au format date-heure.                                                     |
+| BillingEndDate   | date               | Date de fin de la période de facturation en cours, au format date-heure.                                                       |
+| PrixTotal        | Double             | Estimation du coût total de l’utilisation des ressources dans l’abonnement pendant la période de facturation spécifiée.               |
+| CurrencyLocale   | chaîne             | Les paramètres régionaux dans lesquels l’abonnement a été utilisé déterminent la devise à utiliser sur la facture. Disponible pour les abonnements Microsoft Azure (MS-AZR-0145P). |
+| CurrencyCode   | chaîne             | Obtient ou définit le code de la devise. Disponible pour les plans Azure.                                         |
+| USDTotalCost   | décimal             | Obtient ou définit le coût total estimé en USD. Disponible pour les ressources d’abonnement du plan Azure.                                         |
+| LastModifiedDate & | chaîne             | Jour, dans le format date-heure, de la dernière modification de cet enregistrement.                                                      |
+| Liens            | ResourceLinks      | Liens de ressource correspondant à SubscriptionUsageSummary.                                                      |
+| Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à SubscriptionUsageSummary.                                                 |

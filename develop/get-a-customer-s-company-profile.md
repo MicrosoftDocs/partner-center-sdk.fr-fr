@@ -1,6 +1,6 @@
 ---
-title: Get a customer's company profile
-description: Gets the company profile of a customer.
+title: Obtenir le profil d’entreprise d’un client
+description: Obtient le profil de la société d’un client.
 ms.assetid: 762C0F38-2229-464D-9CD6-6AD82135A65C
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488739"
 ---
-# <a name="get-a-customers-company-profile"></a>Get a customer's company profile
+# <a name="get-a-customers-company-profile"></a>Obtenir le profil d’entreprise d’un client
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Gets the company profile of a customer.
+Obtient le profil de la société d’un client.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
 
 ### <a name="c"></a>C#
 
-To get the company profile for a customer, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then get the customer's [**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection) interface from the [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) property, in order to access its Company property. Next, get the [**ICustomerReadonlyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1) interface from the [**ICustomerProfileCollection.Company**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company) property, and call its [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) methods.
+Pour obtenir le profil d’entreprise d’un client, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez l’interface [**ICustomerProfileCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection) du client à partir de la propriété [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) , afin d’accéder à sa propriété Company. Ensuite, récupérez l’interface [**ICustomerReadonlyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1) à partir de la propriété [**ICustomerProfileCollection. Company**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company) , puis appelez ses méthodes d' [**extraction ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) ou de [**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,13 +42,13 @@ To get the company profile for a customer, call the [**IAggregatePartner.Custome
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**Sample**: [Download the Partner Center SDK](http://go.microsoft.com/fwlink/p/?LinkId=746681). **Project**: PartnerSdk.FeatureSamples **Class**: GetCustomerCompanyProfile.cs
+**Exemple**: [Téléchargez le kit de développement logiciel (SDK) de l’espace partenaires](http://go.microsoft.com/fwlink/p/?LinkId=746681). **Projet**: PartnerSdk. FeatureSamples, **classe**: GetCustomerCompanyProfile.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get the company profile for a customer, call the **IAggregatePartner.getCustomers().byId** function with the customer identifier to identify the customer. Then get the customer's **ICustomerProfileCollection** interface from the [**getProfiles**] function, in order to access its Company property. Next, get the **ICustomerReadonlyProfile** interface from the **ICustomerProfileCollection.getCompany** function, and call the **get** function.
+Pour obtenir le profil d’entreprise d’un client, appelez la fonction **collection iaggregatepartner. getCustomers (). méthode BYID** avec l’identificateur du client pour identifier le client. Ensuite, récupérez l’interface **ICustomerProfileCollection** du client à partir de la fonction [**getProfiles**], afin d’accéder à sa propriété Company. Ensuite, récupérez l’interface **ICustomerReadonlyProfile** à partir de la fonction **ICustomerProfileCollection. getCompany** et appelez la fonction d' **extraction** .
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -57,32 +57,32 @@ To get the company profile for a customer, call the **IAggregatePartner.getCusto
 CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(customerId).getProfiles().getCompany().get();
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                             |
 |---------|-------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
+| **Télécharger** | *{baseURL}* /v1/Customers/{Customer-tenant-ID}/Profiles/Company http/1.1 |
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameter to get the company profile.
+Utilisez le paramètre de requête suivant pour obtenir le profil de la société.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-Aucun(e)
+Aucune
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/profiles/company HTTP/1.1
@@ -95,16 +95,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, this method returns information in the response body.
+En cas de réussite, cette méthode retourne des informations dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

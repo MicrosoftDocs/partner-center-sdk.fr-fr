@@ -1,6 +1,6 @@
 ---
-title: Purchase Azure reservations
-description: You can purchase Azure reservations for a customer using the Partner Center API through your existing Microsoft Azure subscription (MS-AZR-0145P) or Azure plan.
+title: Acheter des réservations Azure
+description: Vous pouvez acheter des réservations Azure pour un client à l’aide de l’API espace partenaires via votre abonnement Microsoft Azure existant (MS-AZR-0145P) ou un plan Azure.
 ms.assetid: 1BCDA7B8-93FC-4AAC-94E0-B15BFC95737F
 ms.date: 11/01/2018
 ms.service: partner-dashboard
@@ -13,24 +13,24 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488129"
 ---
-# <a name="purchase-azure-reservations"></a>Purchase Azure reservations
+# <a name="purchase-azure-reservations"></a>Acheter des réservations Azure
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires de Microsoft Cloud for US Government
 
-To purchase an Azure reservation for a customer using the Partner Center API, you must have an existing Microsoft Azure (**MS-AZR-0145P**) subscription or Azure plan for them.
+Pour acheter une réservation Azure pour un client à l’aide de l’API de l’espace partenaires, vous devez disposer d’un abonnement Microsoft Azure (**MS-AZR-0145P**) existant ou d’un plan Azure.
 
 > [!NOTE]  
-> Azure reservations are not available in the following markets:
+> Les réservations Azure ne sont pas disponibles sur les marchés suivants :
 >  
-> | Unavailable Markets            | &nbsp;                            | &nbsp;                                   |
+> | Marchés non disponibles            | &nbsp;                            | &nbsp;                                   |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | Åland (îles d’)                  | Groenland                         | Papouasie-Nouvelle-Guinée                         |
 > | Samoa américaines                 | Grenade                           | Pitcairn (îles)                         |
 > | Andorre                        | Guadeloupe                        | Réunion (île)                                  |
-> | Anguilla                       | Guam                              | Russian Federation                       |
+> | Anguilla                       | Guam                              | Fédération de Russie                       |
 > | Antarctique                     | Guernesey                          | Saba                                     |
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
@@ -42,15 +42,15 @@ To purchase an Azure reservation for a customer using the Partner Center API, yo
 > | Territoires britanniques de l’océan Indien | Jersey                            | São Tomé et Príncipe                    |
 > | Îles Vierges britanniques         | Kiribati                          | Seychelles                               |
 > | Burkina-Faso                   | Kosovo                            | Sierra Leone                             |
-> | Burundi                        | Laos                              | Sint Eustatius                           |
+> | Burundi                        | Laos                              | Saint-Eustache                           |
 > | Cambodge                       | Lesotho                           | Saint-Martin (Royaume des Pays-Bas)                             |
 > | République centrafricaine       | Liberia                           | Salomon (îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | South Georgia and South Sandwich Islands |
+> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | St Helena, Ascension, Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, ascension, Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Surinam                                 |
-> | République démocratique du Congo                          | Martinique                        | Svalbard                                 |
+> | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
 > | Cook (îles)                   | Mayotte                           | Timor-Leste                              |
 > | Djibouti                       | Micronésie                        | Togo                                     |
@@ -60,7 +60,7 @@ To purchase an Azure reservation for a customer using the Partner Center API, yo
 > | Malouines (îles)               | Nauru                             | Tuvalu                                   |
 > | Guyane française                  | Nouvelle-Calédonie                     | Îles mineures éloignées des États-Unis                    |
 > | Polynésie française               | Niger                             | Vanuatu                                  |
-> | Terres australes françaises    | Niue                              | Cité du Vatican                             |
+> | Terres australes françaises    | Niue                              | État de la Cité du Vatican                             |
 > | Gabon                          | Norfolk (île)                    | Wallis-et-Futuna                        |
 > | Gambie                         | Mariannes du Nord (îles)          | Yémen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
@@ -68,108 +68,108 @@ To purchase an Azure reservation for a customer using the Partner Center API, yo
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID for an active CSP Azure subscription or an Azure plan.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID d’abonnement pour un abonnement Azure CSP actif ou un plan Azure.
 
-## <a name="how-to-purchase-microsoft-azure-reservations"></a>How to purchase Microsoft Azure reservations
+## <a name="how-to-purchase-microsoft-azure-reservations"></a>Comment acheter des réservations de Microsoft Azure
 
-Once you have identified the active CSP Azure subscription that you want to add an Azure reservation to, use the following steps to purchase it:
+Une fois que vous avez identifié l’abonnement Azure CSP actif auquel vous souhaitez ajouter une réservation Azure, procédez comme suit pour l’acheter :
 
-1. [Enablement](#enablement) - Register an active CSP Azure subscription to enable it for purchasing Azure reservations.
-2. [Discovery](#discovery) - Find and select the Azure reservation products and SKUs you want to purchase and check their availability.
-3. [Order submission](#order-submission) - Create a shopping cart with the items in your order and submit it.
-4. [Get order details](#get-order-details) - Review the details of an order, all the orders for a customer, or view orders by billing cycle type.
+1. [Activation](#enablement) -inscrire un abonnement Azure CSP actif pour l’activer pour l’achat de réservations Azure.
+2. [Détection](#discovery) : recherchez et sélectionnez les produits et les références SKU Azure que vous souhaitez acheter, puis vérifiez leur disponibilité.
+3. [Soumission de commande](#order-submission) : créez un panier d’achat avec les Articles de votre commande et envoyez-le.
+4. [Obtenir les détails](#get-order-details) de la commande-passez en revue les détails d’une commande, toutes les commandes pour un client ou afficher les commandes par type de cycle de facturation.
 
-After you have purchased Azure reservations, the following scenarios show you how to manage their lifecycle by getting information about your Azure reservation entitlements, and how to retrieve balance statements, invoices, and invoice summaries.
+Une fois que vous avez acheté des réservations Azure, les scénarios suivants vous montrent comment gérer leur cycle de vie en obtenant des informations sur vos droits de réservation Azure et sur la façon de récupérer les relevés de solde, les factures et les résumés de facture.
 
-- [Lifecycle management](#lifecycle-management)
-- [Invoice and reconciliation](#invoice-and-reconciliation)
+- [Gestion du cycle de vie](#lifecycle-management)
+- [Facture et rapprochement](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>Activation
 
-Enablement means associating an existing Microsoft Azure (**MS-AZR-0145P**) subscription to an Azure Reserved VM Instance by registering the subscription so that it is enabled for Azure reservations. Registration is a prerequisite to purchase Azure Reserved VM Instances.
+L’activation consiste à associer un abonnement Microsoft Azure (**MS-AZR-0145P**) existant à une instance de machine virtuelle réservée Azure en inscrivant l’abonnement afin qu’il soit activé pour les réservations Azure. L’inscription est une condition préalable à l’achat de Azure Reserved VM Instances.
 
-A subscription is required due to the following:
+Un abonnement est nécessaire pour les raisons suivantes :
 
-1. To check if the customer is eligible to deploy resources and hence purchase Azure Reserved VM Instances in a region or not.
-2. To provide capacity priority for deployments on a subscription. This is applicable only to single scope Azure Reserved VM Instances with the **capacity priority** option selected.
+1. Pour vérifier si le client est autorisé à déployer des ressources et, par conséquent, à acheter Azure Reserved VM Instances dans une région.
+2. Pour fournir une priorité de capacité pour les déploiements sur un abonnement. Cela s’applique uniquement à l’étendue unique Azure Reserved VM Instances avec l’option **priorité de capacité** sélectionnée.
 
-Once you have identified the active subscription that you want to add the Azure reservation to, you must register the subscription so that it is enabled for Azure reservations. To register an existing [Subscription](subscription-resources.md) resource so that it is enabled for ordering Azure reservations, see [Register a subscription](register-a-subscription.md).
+Une fois que vous avez identifié l’abonnement actif auquel vous souhaitez ajouter la réservation Azure, vous devez inscrire l’abonnement afin qu’il soit activé pour les réservations Azure. Pour inscrire une ressource d' [abonnement](subscription-resources.md) existante afin qu’elle soit activée pour le tri des réservations Azure, consultez [inscrire un abonnement](register-a-subscription.md).
 
-After registering your subscription, you should confirm that the registration process is completed by checking the registration status. To do this, see [Get subscription registration status](get-subscription-registration-status.md).
+Après l’inscription de votre abonnement, vous devez vérifier que le processus d’inscription est terminé en vérifiant l’état de l’inscription. Pour ce faire, consultez [obtenir l’état de l’inscription de l’abonnement](get-subscription-registration-status.md).
 
 > [!NOTE]  
-> When purchasing Microsoft Azure reservation for a customer with an Azure plan, you must register the Azure plan first. Similar to a Microsoft Azure (**MS-AZR-0145P**) subscription, an Azure plan is represented by a Partner Center [Subscription](subscription-resources.md) resource. Hence, you can use the same [Register a subscription](register-a-subscription.md) method to register an Azure plan.
+> Lorsque vous achetez Microsoft Azure réservation pour un client avec un plan Azure, vous devez d’abord inscrire le plan Azure. À l’instar d’un abonnement Microsoft Azure (**MS-AZR-0145P**), un plan Azure est représenté par une ressource d' [abonnement](subscription-resources.md) de l’espace partenaires. Par conséquent, vous pouvez utiliser la même méthode d’inscription d' [un abonnement](register-a-subscription.md) pour inscrire un plan Azure.
 
 ## <a name="discovery"></a>Découverte
 
-Once the subscription is enabled for purchasing Azure reservations, you're ready to select products and SKUs and check their availability using the following Partner Center API models:
+Une fois l’abonnement activé pour l’achat des réservations Azure, vous êtes prêt à sélectionner les produits et références SKU et à vérifier leur disponibilité à l’aide des modèles d’API de l’espace partenaires suivants :
 
-- [Product](product-resources.md#product) - A grouping construct for purchasable goods or services. A product by itself is not a purchasable item.
-- [SKU](product-resources.md#sku) - A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-- [Availability](product-resources.md#availability) - A configuration in which a SKU is available for purchase (such as country, currency and industry segment).
+- [Produit](product-resources.md#product) : construction de regroupement pour les biens ou services pouvant être achetés. Un produit seul n’est pas un élément pouvant être acheté.
+- [Référence](product-resources.md#sku) (SKU), une unité de conservation de stock (SKU) achetée dans un produit. Celles-ci représentent les différentes formes du produit.
+- [Disponibilité](product-resources.md#availability) : configuration dans laquelle une référence (SKU) est disponible à l’achat (par exemple, pays, devise et secteur).
 
-Before purchasing an Azure reservation, complete the following steps:
+Avant d’acheter une réservation Azure, procédez comme suit :
 
-1. Identify and retrieve the Product and SKU that you want to purchase. You can do this by listing the products and SKUs first, or If you already know the IDs of the product and SKU, selecting them.
+1. Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter. Pour ce faire, vous pouvez répertorier les produits et les références SKU en premier, ou si vous connaissez déjà les ID du produit et de la référence SKU, en les sélectionnant.
 
-    - [Get a list of products (by country)](get-a-list-of-products.md)
-    - [Get a product using the product ID](get-a-product-by-id.md)
-    - [Get a list of SKUs for a product (by country)](get-a-list-of-skus-for-a-product.md)
-    - [Get a SKU using the SKU ID](get-a-sku-by-id.md)
+    - [Obtenir une liste de produits (par pays)](get-a-list-of-products.md)
+    - [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
+    - [Obtenir la liste des références (SKU) d’un produit (par pays)](get-a-list-of-skus-for-a-product.md)
+    - [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
-2. Check the inventory for a SKU. This step is only needed for SKUs that are tagged with an **InventoryCheck** prerequisite.
+2. Vérifiez l’inventaire d’une référence (SKU). Cette étape n’est nécessaire que pour les références (SKU) marquées avec un prérequis **InventoryCheck** .
 
-    - [Check Inventory](check-inventory.md)
+    - [Vérifier l’inventaire](check-inventory.md)
 
-3. Retrieve the [availability](product-resources.md#availability) for the [SKU](product-resources.md#sku). You will need the **CatalogItemId** of the availability when placing the order. To get this value, use one of the following APIs:
+3. Récupérez la [disponibilité](product-resources.md#availability) de la [référence SKU](product-resources.md#sku). Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande. Pour ce faire, utilisez l’une des API suivantes :
 
-    - [Get a list of availabilities for a SKU (by country)](get-a-list-of-availabilities-for-a-sku.md)
-    - [Get an availability using the availability ID](get-an-availability-by-id.md)
+    - [Obtenir la liste des disponibilités pour une référence (par pays)](get-a-list-of-availabilities-for-a-sku.md)
+    - [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)
 
 > [!IMPORTANT]  
-> Each Microsoft Azure reservation product has different availabilities for Microsoft Azure (**MS-AZR-0145P**) subscription and Azure plan. To [Get a list of products (by country)](get-a-list-of-products.md), or [Get a list of SKUs for a product (by country)](get-a-list-of-skus-for-a-product.md), or [Get a list of availabilities for a SKU (by country)](get-a-list-of-availabilities-for-a-sku.md) which are applicable to Azure plan only, specify the "reservationScope=AzurePlan" parameter.
+> Chaque Microsoft Azure produit de réservation a différents disponibilités pour l’abonnement Microsoft Azure (**MS-AZR-0145P**) et le plan Azure. Pour [obtenir la liste des produits (par pays)](get-a-list-of-products.md), ou [obtenir la liste des références (SKU) d’un produit (par pays)](get-a-list-of-skus-for-a-product.md), ou [obtenir la liste des disponibilités pour une référence (par pays)](get-a-list-of-availabilities-for-a-sku.md) qui s’appliquent uniquement au plan Azure, spécifiez le paramètre « reservationScope = AzurePlan ».
 
-## <a name="order-submission"></a>Order submission
+## <a name="order-submission"></a>Soumission de commande
 
-To submit your Azure reservation order, do the following:
+Pour soumettre votre commande de réservation Azure, procédez comme suit :
 
-1. Create a cart to hold the collection of catalog items that you intend to buy. When you create a [Cart](cart-resources.md), the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [Order](order-resources.md).
+1. Créez un panier pour stocker la collection d’éléments de catalogue que vous souhaitez acheter. Lorsque vous créez un [panier](cart-resources.md), les [éléments de ligne de panier](cart-resources.md#cartlineitem) sont automatiquement regroupés en fonction de ce qui peut être acheté ensemble dans le même [ordre](order-resources.md).
 
-    - [Create a shopping cart](create-a-cart.md)
-    - [Update a shopping cart](update-a-cart.md)
+    - [Créer un panier d’achat](create-a-cart.md)
+    - [Mettre à jour un panier d’achat](update-a-cart.md)
 
-2. Check out the cart. Checking out a cart results in the creation of an [Order](order-resources.md).
+2. Consultez le panier. L’extraction d’un panier entraîne la création d’une [commande](order-resources.md).
 
-    - [Checkout the cart](checkout-a-cart.md)
+    - [Extraire le panier](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Get order details
+## <a name="get-order-details"></a>Recevoir les détails de la commande
 
-Once you have created your Azure reservation order, you can retrieve the details of an individual order using the order ID, or get a list of orders for a customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a list of a customer's orders.
+Une fois que vous avez créé votre commande de réservation Azure, vous pouvez récupérer les détails d’une commande individuelle à l’aide de l’ID de commande ou obtenir la liste des commandes d’un client. Notez qu’il y a un délai de 15 minutes au maximum entre le moment où une commande est soumise et le moment où elle apparaîtra dans la liste des commandes d’un client.
 
-- To get the details of an individual order using the order ID. See, [Get an order by ID](get-an-order-by-id.md).
+- Pour afficher les détails d’une commande individuelle à l’aide de l’ID de commande. Consultez [obtenir une commande par ID](get-an-order-by-id.md).
 
-- To get a list of orders for a customer using the customer ID. See, [Get all of a customer's orders](get-all-of-a-customer-s-orders.md).
+- Pour obtenir la liste des commandes d’un client à l’aide de l’ID client. Consultez [la page obtenir toutes les commandes d’un client](get-all-of-a-customer-s-orders.md).
 
-- To get a list of orders for a customer by [billing cycle type](product-resources.md#billingcycletype) allowing you to list Azure reservation orders (one-time charges) and annual or monthly billed orders separately. See, [Get a list of orders by customer and billing cycle type](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- Pour obtenir la liste des commandes d’un client par [type de cycle de facturation](product-resources.md#billingcycletype) , ce qui vous permet de répertorier les commandes de réservation Azure (frais à usage unique) et les commandes annuelles ou mensuelles facturées séparément. Consultez [la page obtenir une liste de commandes par client et type de cycle de facturation](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
 
 ## <a name="lifecycle-management"></a>Gestion du cycle de vie
 
-As part of managing the lifecycle of your Azure reservations in Partner Center, you can retrieve information about your Azure reservation [Entitlements](entitlement-resources.md), and get reservation details using the reservation order ID. For examples of how to do this, see [Get entitlements](get-a-collection-of-entitlements.md).   
+Dans le cadre de la gestion du cycle de vie de vos réservations Azure dans l’espace partenaires, vous pouvez récupérer des informations sur vos [droits](entitlement-resources.md)de réservation Azure et obtenir des détails sur la réservation à l’aide de l’ID de commande de réservation. Pour obtenir des exemples d’utilisation, consultez [obtenir des droits](get-a-collection-of-entitlements.md).   
 
-## <a name="invoice-and-reconciliation"></a>Invoice and reconciliation
+## <a name="invoice-and-reconciliation"></a>Facture et rapprochement
 
-The following scenarios show you how to programmatically view your customer's [invoices](invoice-resources.md), and get your account balances and summaries that include one-time charges for Azure reservations.  
+Les scénarios suivants vous montrent comment afficher par programmation les [factures](invoice-resources.md)de votre client et obtenir les soldes et les résumés de votre compte qui incluent des frais à usage unique pour les réservations Azure.  
 
-**Balance and payment** To get current account balance in your default currency type that is a balance of both recurring and one-time (Azure reservation) charges, see [Get your current account balance](get-the-reseller-s-current-account-balance.md)
+**Solde et paiement** Pour obtenir le solde actuel du compte dans votre type de devise par défaut qui correspond à un solde des frais périodiques et ponctuels (réservation Azure), consultez [obtenir le solde actuel de votre compte](get-the-reseller-s-current-account-balance.md)
 
-**Multi-currency balance and payment** To get your current account balance and a collection of invoice summaries containing an invoice summary with both recurring and one-time charges for each of your customer's currency types, see [Get invoice summaries](get-invoice-summaries.md).
+**Solde et paiement à plusieurs devises** Pour obtenir le solde de votre compte actuel et un ensemble de résumés de facture contenant un résumé de facture avec des frais périodiques et ponctuels pour chacun des types de devise de votre client, consultez [obtenir des résumés de facture](get-invoice-summaries.md).
 
-**Invoices** To get a collection of invoices that show both recurring and one time charges, see [Get a collection of invoices](get-a-collection-of-invoices.md). 
+**Factures** Pour obtenir une collection de factures qui affichent des frais périodiques et ponctuels, consultez [obtenir une collection de factures](get-a-collection-of-invoices.md). 
 
-**Single Invoice** To retrieve a specific invoice using the invoice ID, see [Get an invoice by ID](get-invoice-by-id.md).  
+**Facture unique** Pour récupérer une facture spécifique à l’aide de l’ID de facture, consultez [obtenir une facture par ID](get-invoice-by-id.md).  
 
-**Reconciliation** To get a collection of invoice line item details (Reconciliation line items) for a specific invoice ID, see [Get invoice line items](get-invoiceline-items.md).  
+**Réconciliation** Pour obtenir une collection de détails sur les lignes de facturation (Articles de rapprochement) pour un ID de facture spécifique, consultez [obtenir des lignes de facturation](get-invoiceline-items.md).  
 
-**Download an invoice as a PDF** To retrieve an invoice statement in PDF form using an invoice ID, see [Get an invoice statement](get-invoice-statement.md).
+**Télécharger une facture au format PDF** Pour récupérer une déclaration de facture au format PDF à l’aide d’un ID de facture, consultez [obtenir une facture](get-invoice-statement.md).

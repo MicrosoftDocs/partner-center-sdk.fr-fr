@@ -1,6 +1,6 @@
 ---
-title: Get a list of offer categories by market
-description: How to get a collection that contains all the offer categories in a given country/region and locale.
+title: Obtenir la liste des catégories d’offres par marché
+description: Comment obtenir une collection qui contient toutes les catégories d’offres dans un pays/une région et des paramètres régionaux donnés.
 ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487459"
 ---
-# <a name="get-a-list-of-offer-categories-by-market"></a>Get a list of offer categories by market
+# <a name="get-a-list-of-offer-categories-by-market"></a>Obtenir la liste des catégories d’offres par marché
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This topic describes how to get a collection that contains all the offer categories in a given country/region and locale.
+Cette rubrique explique comment obtenir une collection qui contient toutes les catégories d’offre dans un pays/une région et des paramètres régionaux donnés.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get a list of offer categories in a given country/region and locale:
+Pour obtenir la liste des catégories d’offres dans un pays/une région et des paramètres régionaux donnés :
 
-1. Use your [**IAggregatePartner.Operations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) collection to call the [**With()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) method on a given context.
-2. Inspect the [**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) property of the resulting object.
+1. Utilisez votre collection [**collection iaggregatepartner. Operations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**with ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) sur un contexte donné.
+2. Inspectez la propriété [**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) de l’objet résultant.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,33 +41,33 @@ To get a list of offer categories in a given country/region and locale:
 ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(RequestContextFactory.Instance.Create()).OfferCategories.ByCountry("US").Get();
 ```
 
-For an example, see the following:
+Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSample**
-- Class: **PartnerSDK.FeatureSample**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **PartnerSDK. FeatureSample**
+- Classe : **PartnerSDK. FeatureSample**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories?country={country-id} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories ? Country = {pays-ID} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-This table lists the required query parameters to get the offer categories.
+Ce tableau répertorie les paramètres de requête requis pour obtenir les catégories d’offre.
 
-| Nom           | Tapez       | Obligatoire | Description            |
+| Nom           | Type       | Obligatoire | Description            |
 |----------------|------------|----------|------------------------|
-| **country-id** | **string** | Y        | The country/region ID. |
+| **pays-ID** | **chaîne** | Y        | ID du pays/de la région. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-A **locale-id** formatted as a string is required.
+Un **ID de paramètres régionaux** mis en forme en tant que chaîne est requis.
 
-See [Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -85,13 +85,13 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of **OfferCategory** resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources **OfferCategory** dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

@@ -1,6 +1,6 @@
 ---
-title: Get a list of customers filtered by a search field
-description: Gets a collection of Customer resources that match a filter. You can optionally set a page size. You can filter by company name, domain, indirect reseller, or indirect cloud solution provider (CSP).
+title: Obtenir la liste des clients filtrés à l’aide d’un champ de recherche
+description: Obtient une collection des ressources client qui correspondent à un filtre. Vous pouvez éventuellement définir une taille de page. Vous pouvez filtrer par nom de société, domaine, revendeur indirect ou fournisseur de solutions Cloud indirect (CSP).
 ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,32 +13,32 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490119"
 ---
-# <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Get a list of customers filtered by a search field
+# <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Obtenir la liste des clients filtrés à l’aide d’un champ de recherche
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Gets a collection of [Customer](customer-resources.md#customer) resources that match a filter. You can optionally set a page size. You can filter by company name, domain, indirect reseller, or indirect cloud solution provider (CSP).
+Obtient une collection des ressources [client](customer-resources.md#customer) qui correspondent à un filtre. Vous pouvez éventuellement définir une taille de page. Vous pouvez filtrer par nom de société, domaine, revendeur indirect ou fournisseur de solutions Cloud indirect (CSP).
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A user-constructed filter.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Filtre construit par l’utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a collection of customers that match a filter, first instantiate a [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) object to create the filter. You'll need to pass a string that contains the [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield), and indicate the type of filter operation as [**FieldFilterOperation.StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation). That's the only field filter operation supported by the customers end point. You'll also need to provide the string to filter by.
+Pour obtenir une collection de clients qui correspondent à un filtre, commencez par instancier un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) pour créer le filtre. Vous devez passer une chaîne qui contient le [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)et indiquer le type d’opération de filtre en tant que [**FieldFilterOperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation). Il s’agit de la seule opération de filtre de champ prise en charge par le point de terminaison Customers. Vous devez également fournir la chaîne de filtrage.
 
-Next, instantiate an [**iQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) object to pass to the query by calling the [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) method and passing it the filter. BuildSimplyQuery is just one of the query types supported by the [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) class.
+Ensuite, instanciez un objet [**IQueryable**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) à passer à la requête en appelant la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) et en lui passant le filtre. BuildSimplyQuery n’est qu’un des types de requêtes pris en charge par la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
 
-Finally, to execute the filter and get the result, first use [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) to get an interface to the partner's customer operations. Then call the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) or [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) method.
+Enfin, pour exécuter le filtre et obtenir le résultat, utilisez d’abord [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour obtenir une interface pour les opérations du client du partenaire. Appelez ensuite la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) .
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -59,59 +59,59 @@ var myQuery = QueryFactory.Instance.BuildSimpleQuery(fieldFilter);
 var customers = partnerOperations.Customers.Query(myQuery);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: FilterCustomers.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : FilterCustomers.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers?size={size}&filter={filter} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {size} & filtre = {filter} http/1.1 |
 
  
 
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following query parameters.
+Utilisez les paramètres de requête suivants.
 
-| Nom   | Tapez   | Obligatoire | Description                                                                    |
+| Nom   | Type   | Obligatoire | Description                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| size   | entier    | non       | The number of results to be displayed at one time. Ce paramètre est facultatif. |
-| filter | filter | Oui      | The filter to apply to customers. This must be an encoded string.              |
+| size   | entier    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
+| filter | filter | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
 
  
 
-**Filter Syntax**
+**Syntaxe de filtre**
 
-You must compose the filter parameter as a series of comma separated, key-value pairs. Each key and value must be individually quoted and separated by a colon. The entire filter must be encoded.
+Vous devez composer le paramètre de filtre sous la forme d’une série de paires clé-valeur séparées par des virgules. Chaque clé et valeur doit être placée individuellement entre guillemets et séparés par un signe deux-points. Le filtre entier doit être encodé.
 
-An unencoded example looks like this:
+Un exemple non encodé ressemble à ceci :
 
 ```http
 ?filter{"Field":"CompanyName","Value":"cont","Operator":"starts_with"}
 ```  
   
-The following table describes the required key-value pairs:
+Le tableau suivant décrit les paires clé-valeur requises :
 
 | Clé      | Valeur                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
-| Champ    | The field to filter. The valid values can be found in [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
-| Valeur    | The value to filter by. The case of the value is ignored.                                                                |
-| Opérateur | The operator to apply. The only supported value for this customer scenario is "starts\_with".                            |
+| Champ    | Champ à filtrer. Les valeurs valides se trouvent dans [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
+| Valeur    | Valeur par laquelle filtrer. La casse de la valeur est ignorée.                                                                |
+| Opérateur | Opérateur à appliquer. La seule valeur prise en charge pour ce scénario client est « commence\_par ».                            |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter=%7B%22Field%22%3A%22CompanyName%22%2C%22Value%22%3A%22Cont%22%2C%22Operator%22%3A%22starts_with%22%7D HTTP/1.1
@@ -124,16 +124,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> réponse REST
 
 
-If successful, this method returns a collection of matching [Customer](customer-resources.md#customer) resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) correspondantes dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
 title: Définir des rôles d’utilisateur pour un client
-description: Within a customer account, there's a set of directory roles. You can assign user accounts to those roles.
+description: Dans un compte client, il existe un ensemble de rôles d’annuaire. Vous pouvez assigner des comptes d’utilisateurs à ces rôles.
 ms.assetid: B7FA3599-9AE9-4494-90B4-F7C9A2EF2338
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,22 +16,22 @@ ms.locfileid: "74488029"
 # <a name="set-user-roles-for-a-customer"></a>Définir des rôles d’utilisateur pour un client
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Within a customer account, there's a set of directory roles. You can assign user accounts to those roles.
+Dans un compte client, il existe un ensemble de rôles d’annuaire. Vous pouvez assigner des comptes d’utilisateurs à ces rôles.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To assign a directory role to a customer user, create a new [**UserMember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) with the relevant user details. Then, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the specified customer ID to identify the customer. From there, use the [**DirectoryRoles.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) method with the directory role ID to specify the role. Then, access the **UserMembers** collection, and use the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) method to add the new user member to the collection of user members assigned to that role.
+Pour affecter un rôle d’annuaire à un utilisateur client, créez un nouveau [**UserMember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) avec les détails de l’utilisateur appropriés. Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client spécifié pour identifier le client. À partir de là, utilisez la méthode [**DirectoryRoles. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) avec l’ID de rôle d’annuaire pour spécifier le rôle. Ensuite, accédez à la collection **UserMembers** et utilisez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) pour ajouter le nouveau membre utilisateur à la collection de membres d’utilisateur affectés à ce rôle.
 
 ``` csharp
 // UserMember createdUser;
@@ -51,48 +51,48 @@ UserMember userMemberToAdd = new UserMember()
 var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).DirectoryRoles.ById(selectedRole.Id).UserMembers.Create(userMemberToAdd);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: AddUserMemberToDirectoryRole.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : AddUserMemberToDirectoryRole.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode   | URI de requête                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/directoryroles/{Role-ID}/usermembers http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following URI parameters to identify the correct customer and role. To identify the user to whom to assign the role, supply the identifying information in the request body.
+Utilisez les paramètres URI suivants pour identifier le client et le rôle appropriés. Pour identifier l’utilisateur auquel attribuer le rôle, fournissez les informations d’identification dans le corps de la demande.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **role-id**            | **guid** | Y        | The value is a GUID formatted **role-id** that identifies the role to assign to the user.                                                              |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID de rôle**            | **uniques** | Y        | La valeur est un ID de **rôle** au format GUID qui identifie le rôle à attribuer à l’utilisateur.                                                              |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom                  | Tapez       | Obligatoire | Description                            |
+| Nom                  | Type       | Obligatoire | Description                            |
 |-----------------------|------------|----------|----------------------------------------|
-| **Id**                | **string** | Y        | The Id of the user to add to the role. |
-| **DisplayName**       | **string** | Y        | The friendly display name of the user. |
-| **UserPrincipalName** | **string** | Y        | The name of the user principal.        |
-| **Attributes**        | **object** | Y        | Contains "ObjectType":"UserMember"     |
+| **Identifi**                | **chaîne** | Y        | ID de l’utilisateur à ajouter au rôle. |
+| **NomComplet**       | **chaîne** | Y        | Nom complet convivial de l’utilisateur. |
+| **UserPrincipalName** | **chaîne** | Y        | Nom du principal d’utilisateur.        |
+| **Attributs**        | **dessin** | Y        | Contient « ObjectType » : « UserMember »     |
 
  
 
-**Request example**
+**Exemple de requête**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/directoryroles/f023fd81-a637-4b56-95fd-791ac0226033/usermembers HTTP/1.1
@@ -116,16 +116,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
 
 
-This method returns the user account with the role id attached when the user is successfully assigned the role.
+Cette méthode retourne le compte d’utilisateur avec l’ID de rôle attaché lorsque le rôle est correctement attribué à l’utilisateur.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 201 Created

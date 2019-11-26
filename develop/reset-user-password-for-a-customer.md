@@ -1,6 +1,6 @@
 ---
 title: Réinitialiser le mot de passe d’un utilisateur pour un client
-description: Resetting a password is very similar to updating other details in an existing user account for your customer.
+description: La réinitialisation d’un mot de passe est très similaire à la mise à jour d’autres détails dans un compte d’utilisateur existant pour votre client.
 ms.assetid: DECACEE1-2492-4D2F-B4CF-ED93220B406A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,22 +16,22 @@ ms.locfileid: "74486579"
 # <a name="reset-user-password-for-a-customer"></a>Réinitialiser le mot de passe d’un utilisateur pour un client
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Resetting a password is very similar to updating other details in an existing user account for your customer.
+La réinitialisation d’un mot de passe est très similaire à la mise à jour d’autres détails dans un compte d’utilisateur existant pour votre client.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To reset a password for a specified customer user, first retrieve the specified customer ID and the targeted user. Then, create a new **CustomerUser** object that contains the information for the existing customer, but with a new **PasswordProfile** object. Then, use your **IAggregatePartner.Customers** collection and call the **ById()** method. Then call the **Users** property, the **ById()** method, and then the **Patch** method.
+Pour réinitialiser un mot de passe pour un utilisateur client spécifié, récupérez d’abord l’ID client spécifié et l’utilisateur ciblé. Ensuite, créez un nouvel objet **CustomerUser** qui contient les informations relatives au client existant, mais avec un nouvel objet **PasswordProfile** . Ensuite, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété **Users** , la méthode **méthode BYID ()** , puis la méthode **patch** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,37 +54,37 @@ User updatedCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: CustomerUserUpdate.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSamples, **classe**: CustomerUserUpdate.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode    | URI de requête                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users http/1.1 |
 
 
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameter to identify the correct customer.
+Utilisez le paramètre de requête suivant pour identifier le client approprié.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **user-id**            | **guid** | Y        | The value is a GUID formatted **user-id** that belongs to a single user account.                                                                       |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID utilisateur**            | **uniques** | Y        | La valeur est un **ID utilisateur** au format GUID qui appartient à un compte d’utilisateur unique.                                                                       |
 
 
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/users/<user-id> HTTP/1.1
@@ -105,16 +105,16 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
 
 
-If successful, this method returns the user information, along with the updated password information.
+En cas de réussite, cette méthode retourne les informations de l’utilisateur, ainsi que les informations de mot de passe mises à jour.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

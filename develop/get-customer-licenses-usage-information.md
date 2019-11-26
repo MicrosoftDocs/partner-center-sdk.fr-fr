@@ -1,6 +1,6 @@
 ---
-title: Get customer licenses usage information
-description: How to get licenses usage insights for a specific customer.
+title: Recevoir des informations sur l’utilisation des licences client
+description: Obtention d’informations sur l’utilisation des licences pour un client spécifique.
 ms.assetid: 02B98495-9FE7-4A9F-B1DD-B14563D0FF29
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486349"
 ---
-# <a name="get-customer-licenses-usage-information"></a>Get customer licenses usage information
+# <a name="get-customer-licenses-usage-information"></a>Recevoir des informations sur l’utilisation des licences client
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-How to get licenses deployment insights for a specific customer.
+Comment obtenir des informations de déploiement de licences pour un client spécifique.
 
 > [!NOTE]
-> This scenario is superceded by [Get licenses usage information](get-licenses-usage-information.md).
+> Ce scénario est remplacé par les [informations d’utilisation des licences d’extraction](get-licenses-usage-information.md).
 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
+Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To retrieve aggregated data on deployment for a specified customer, first call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then get an interface to customer level analytics collection operations from the [**Analytics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) property. Next, retrieve an interface to the customer level licenses analytics collection from the [**Licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) property. Finally, call the [**Usage.Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) method to get the aggregated data on licenses usage. If the method succeeds you'll get a collection of [**CustomerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesusageinsights) objects.
+Pour récupérer des données agrégées sur le déploiement d’un client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, accédez à une interface pour les opérations de collecte Analytics au niveau du client à partir de la propriété [**Analytics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) . Ensuite, récupérez une interface pour la collection d’analyse des licences au niveau du client à partir de la propriété [**licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) . Enfin, appelez la méthode [**usage. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) pour récupérer les données agrégées sur l’utilisation des licences. Si la méthode est réussie, vous obtenez une collection d’objets [**CustomerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesusageinsights) .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,36 +42,36 @@ To retrieve aggregated data on deployment for a specified customer, first call t
 var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(customerIdToRetrieve).Analytics.Licenses.Usage.Get();
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/analytics/licenses/usage HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Analytics/licenses/usage http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following path parameter to identify the customer.
+Utilisez le paramètre Path suivant pour identifier le client.
 
-| Nom        | Tapez | Obligatoire | Description                                                |
+| Nom        | Type | Obligatoire | Description                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| customer-id | GUID | Oui      | A GUID formatted customer-id that identifies the customer. |
+| ID client | GUID | Oui      | ID client au format GUID qui identifie le client. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/analytics/licenses/usage HTTP/1.1
@@ -84,16 +84,16 @@ MS-PartnerCenter-Client: Partner Center .NET SDK
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, the response body contains a collection of [CustomerLicensesUsageInsights](analytics-resources.md#customerlicensesusageinsights) resources that provide information about licenses usage.
+En cas de réussite, le corps de la réponse contient une collection de ressources [CustomerLicensesUsageInsights](analytics-resources.md#customerlicensesusageinsights) qui fournissent des informations sur l’utilisation des licences.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Get a list of offers for a market
-description: Gets a collection that contains all the offers for a specific market.
+title: Obtenir la liste des offres pour un marché
+description: Obtient une collection qui contient toutes les offres pour un marché spécifique.
 ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487349"
 ---
-# <a name="get-a-list-of-offers-for-a-market"></a>Get a list of offers for a market
+# <a name="get-a-list-of-offers-for-a-market"></a>Obtenir la liste des offres pour un marché
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Gets a collection that contains all the offers for a specific market.
+Obtient une collection qui contient toutes les offres pour un marché spécifique.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of offers in a given market, use your **IAggregatePartner.Offers** collection, select the market by country, and call the **Get()** or **Get Async()** method.
+Pour obtenir la liste des offres sur un marché donné, utilisez votre collection **collection iaggregatepartner. offers** , sélectionnez le marché par pays, puis appelez la méthode **obtenir ()** ou **obtenir Async ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,39 +41,39 @@ To get a list of offers in a given market, use your **IAggregatePartner.Offers**
 ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: Offers.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: offers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                          |
 |---------|--------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers?country={country-id} HTTP/1.1   |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers ? country = {pays-ID} http/1.1   |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-This table lists the required query parameters to get the offers.
+Ce tableau répertorie les paramètres de requête requis pour obtenir les offres.
 
-| Nom           | Tapez       | Obligatoire | Description            |
+| Nom           | Type       | Obligatoire | Description            |
 |----------------|------------|----------|------------------------|
-| **country-id** | **string** | Y        | The country/region ID. |
+| **pays-ID** | **chaîne** | Y        | ID du pays/de la région. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- A **locale-id** formatted as a string is required.
-- See [Headers](headers.md) for more information.
+- Un **ID de paramètres régionaux** mis en forme en tant que chaîne est requis.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers?country=<country-id> HTTP/1.1
@@ -84,16 +84,16 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 X-Locale: <locale-id>
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, this method returns a collection of **Offer** resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources d' **offre** dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

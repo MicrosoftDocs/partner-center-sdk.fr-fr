@@ -1,6 +1,6 @@
 ---
-title: Get a list of products (by customer)
-description: You can use a customer identifier to get a collection of products by customer.
+title: Obtenir une liste de produits (par client)
+description: Vous pouvez utiliser un identificateur de client pour obtenir une collection de produits par client.
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,42 +13,42 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487329"
 ---
-# <a name="get-a-list-of-products-by-customer"></a>Get a list of products (by customer)
+# <a name="get-a-list-of-products-by-customer"></a>Obtenir une liste de produits (par client)
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can use the following methods to get a collection of products for an existing customer.
+Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de produits pour un client existant.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client (**Customer-client-ID**).
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>Rest request
+### <a name="rest-request"></a>Demande Rest
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products?targetView={targetView} HTTP/1.1 |
+| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Products ? targetView = {TargetView} http/1.1 |
 
-#### <a name="request-uri-parameters"></a>Request URI parameters
+#### <a name="request-uri-parameters"></a>Paramètres d’URI de demande
 
-| Nom               | Tapez | Obligatoire | Description                                                                                 |
+| Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | GUID | Oui | The value is a GUID-formatted **customer-tenant-id**, which is an identifier that allows you to specify a customer. |
-| **targetView** | chaîne | Oui | Identifies the target view of the catalog. The supported values are: <ul><li>**Azure**, which includes all Azure items</li><li>**AzureReservations**, which includes all Azure reservation items</li><li>**AzureReservationsVM**, which includes all virtual machine (VM) reservation items</li><li>**AzureReservationsSQL**, which includes all SQL reservation items</li><li>**AzureReservationsCosmosDb**, which includes all Cosmos database reservation items</li><li>**MicrosoftAzure**, which includes items for Microsoft Azure subscriptions (**MS-AZR-0145P**) and Azure plans</li><li>**OnlineServices**, which  includes all online service items, including commercial marketplace products</li><li>**Software**, which  includes all software items</li><li>**SoftwareSUSELinux**, which includes all software SUSE Linux items</li><li>**SoftwarePerpetual**, which includes all perpetual software items</li><li>**SoftwareSubscriptions**, which includes all software subscription items </ul> |
+| **client-locataire-ID** | GUID | Oui | La valeur est un **client-client-ID**au format GUID, qui est un identificateur qui vous permet de spécifier un client. |
+| **targetView** | chaîne | Oui | Identifie la vue cible du catalogue. Les valeurs prises en charge sont les suivantes : <ul><li>**Azure**, qui comprend tous les éléments Azure</li><li>**AzureReservations**, qui comprend tous les éléments de réservation Azure</li><li>**AzureReservationsVM**, qui comprend tous les éléments de réservation des machines virtuelles</li><li>**AzureReservationsSQL**, qui comprend tous les éléments de réservation SQL</li><li>**AzureReservationsCosmosDb**, qui comprend tous les éléments de réservation de base de données Cosmos</li><li>**MicrosoftAzure**, qui comprend des éléments pour les abonnements Microsoft Azure (**MS-AZR-0145P**) et les plans Azure</li><li>**OnlineServices**, qui inclut tous les éléments de service en ligne, y compris les produits de la place de marché commerciale</li><li>**Logiciel**, qui comprend tous les éléments logiciels</li><li>**SoftwareSUSELinux**, qui comprend tous les éléments logiciels SUSE Linux</li><li>**SoftwarePerpetual**, qui comprend tous les éléments logiciels perpétuels</li><li>**SoftwareSubscriptions**, qui comprend tous les éléments d’abonnement logiciel </ul> |
 
 #### <a name="request-header"></a>En-tête de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -56,7 +56,7 @@ Aucun.
 
 #### <a name="request-example"></a>Exemple de requête
 
-Request for a list of Azure usage-based products available to a given customer. Products for both Microsoft Azure (MS-AZR-0145P) and Azure plans will be returned for customers in public cloud:
+Demandez une liste de produits Azure basés sur l’utilisation disponibles pour un client donné. Les produits pour les Microsoft Azure (MS-AZR-0145P) et les plans Azure sont renvoyés pour les clients dans le cloud public :
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products?targetView=MicrosoftAzure HTTP/1.1
@@ -66,17 +66,17 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>Rest response
+### <a name="rest-response"></a>Réponse Rest
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP | Error code   | Description                     |
 |------------------|--------------|---------------------------------|
-| 403 | 400036 | Access to the requested targetView is not allowed. | 
+| 403 | 400036 | L’accès au targetView demandé n’est pas autorisé. | 
 
 #### <a name="response-example"></a>Exemple de réponse
 

@@ -1,6 +1,6 @@
 ---
-title: Get a list of customers
-description: How to get a collection of resources representing all of a partner's customers.
+title: Obtenir une liste de clients
+description: Comment obtenir une collection de ressources représentant tous les clients d’un partenaire.
 ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487469"
 ---
-# <a name="get-a-list-of-customers"></a>Get a list of customers
+# <a name="get-a-list-of-customers"></a>Obtenir une liste de clients
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This topic describes how to get a collection of resources that represents all of a partner's customers.
+Cette rubrique explique comment obtenir une collection de ressources qui représente tous les clients d’un partenaire.
 
 > [!TIP]
-> You can also perform this operation in the Partner Center dashboard. On the main page, under **Customer management**, select **View Customers**. Or, on the sidebar, select **Customers**.
+> Vous pouvez également effectuer cette opération dans le tableau de bord de l’espace partenaires. Sur la page principale, sous **gestion des clients**, sélectionnez **afficher les clients**. Ou, dans la barre latérale, sélectionnez **Customers**.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get a list of all customers:
+Pour obtenir la liste de tous les clients :
 
-1. Use the [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection to create an **IPartner** object.
-2. Retrieve the customer list using the [**Query()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) or [**QueryAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) methods. (For instructions on creating a query, see the [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) class.)
+1. Utilisez la collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour créer un objet **collection ipartner** .
+2. Récupérez la liste des clients à l’aide des méthodes [**query ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) . (Pour obtenir des instructions sur la création d’une requête, consultez la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,20 +49,20 @@ var customersBatch = scopedPartnerOperations.Customers.Query(QueryFactory.Instan
 var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(customersBatch);
 ```
 
-For an example, see the following:
+Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Class: **CustomerPaging.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **PartnerSDK. FeatureSamples**
+- Classe : **CustomerPaging.cs**
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of all customers:
+Pour obtenir la liste de tous les clients :
 
-1. Use the [**IAggregatePartner.getCustomers**] function to get a reference to the customer operations.
-2. Retrieve the customer list using the **query()** function.
+1. Utilisez la fonction [**collection iaggregatepartner. getCustomers**] pour obtenir une référence aux opérations du client.
+2. Récupérez la liste des clients à l’aide de la fonction **query ()** .
 
 ```java
 // Query the customers, get the first page if a page size was set, otherwise get all customers
@@ -90,31 +90,31 @@ while (customersEnumerator.hasValue())
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-Execute the [**Get-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) command with no parameters to get a complete list of customers.
+Exécutez la commande [**obtenir-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) sans paramètres pour obtenir une liste complète des clients.
 
 ```powershell
 Get-PartnerCustomer
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers?size={size} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {Size} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to get a list of customers.
+Utilisez le paramètre de requête suivant pour obtenir la liste des clients.
 
-| Nom     | Tapez    | Obligatoire | Description                                        |
+| Nom     | Type    | Obligatoire | Description                                        |
 |----------|---------|----------|----------------------------------------------------|
-| **size** | **int** | Y        | The number of results to be displayed at one time. |
+| **size** | **tiers** | Y        | Nombre de résultats à afficher en même temps. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -130,13 +130,13 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of [Customer](customer-resources.md#customer) resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

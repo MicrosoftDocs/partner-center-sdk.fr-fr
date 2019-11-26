@@ -1,6 +1,6 @@
 ---
-title: Update the nickname for a subscription
-description: Updates the friendly name or nickname for a customer's Subscription.
+title: Mettre à jour le surnom d’un abonnement
+description: Met à jour le nom convivial ou le surnom de l’abonnement d’un client.
 ms.assetid: 9A4431CB-1EB5-4C1C-B4D1-18B017ADD2F4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486299"
 ---
-# <a name="update-the-nickname-for-a-subscription"></a>Update the nickname for a subscription
+# <a name="update-the-nickname-for-a-subscription"></a>Mettre à jour le surnom d’un abonnement
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Updates the friendly name or nickname for a customer's [Subscription](subscription-resources.md). This name appears in Partner Center to help differentiate the subscriptions in the customer's account.
+Met à jour le nom convivial ou le surnom de l' [abonnement](subscription-resources.md)d’un client. Ce nom s’affiche dans l’espace partenaires pour vous aider à différencier les abonnements dans le compte du client.
 
-In the Partner Center dashboard, this operation can be performed by first [selecting a customer](get-a-customer-by-name.md). Then, select the subscription in question that you wish to rename. To finish, change the name in the **Subscription nickname** field, then select **Submit.**
+Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en [sélectionnant d’abord un client](get-a-customer-by-name.md). Sélectionnez ensuite l’abonnement en question que vous souhaitez renommer. Pour terminer, modifiez le nom dans le champ surnom de l' **abonnement** , puis sélectionnez **Envoyer.**
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID d’abonnement.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update the nickname of a customer's subscription, first [Get the subscription](get-a-subscription-by-id.md), then change the subscription's [**FriendlyName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname) property. Once the change is made, use your [**IPartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection and call the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method. Then call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method. Then, finish by calling the [**Patch()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) method.
+Pour mettre à jour le surnom de l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**FriendlyName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname) de l’abonnement. Une fois la modification effectuée, utilisez votre collection [**collection ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode [**patch ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,39 +51,39 @@ Subscription selectedSubscription = customerSubscriptions.Items.FirstOrDefault(s
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: UpdateSubscription.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSamples, **classe**: UpdateSubscription.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode    | URI de requête                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-This table lists the required query parameter to update the subscription nickname.
+Ce tableau répertorie le paramètre de requête requis pour mettre à jour le surnom de l’abonnement.
 
-| Nom                    | Tapez     | Obligatoire | Description                          |
+| Nom                    | Type     | Obligatoire | Description                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | The **customer-tenant-id** (a GUID). |
-| **id-for-subscription** | **guid** | Y        | The subscription ID (a GUID).        |
+| **client-locataire-ID**  | **uniques** | Y        | **Customer-client-ID** (un GUID). |
+| **ID-pour l’abonnement** | **uniques** | Y        | ID d’abonnement (GUID).        |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-A full **Subscription** resource is required in the request body. Ensure the **FriendlyName** property has been updated.
+Une ressource d' **abonnement** complète est requise dans le corps de la demande. Vérifiez que la propriété **FriendlyName** a été mise à jour.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
@@ -118,16 +118,16 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
 
 
-If successful, this method returns updated [Subscription](subscription-resources.md) resource properties in the response body.
+En cas de réussite, cette méthode retourne les propriétés de ressource d' [abonnement](subscription-resources.md) mises à jour dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 PATCH http://partnerapi.store.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

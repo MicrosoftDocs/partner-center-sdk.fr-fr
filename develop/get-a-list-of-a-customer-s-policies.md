@@ -1,6 +1,6 @@
 ---
-title: Get a list of a customer's policies
-description: How to retrieve a collection of the specified customer's configuration policies.
+title: Obtenir la liste des stratégies d’un client
+description: Comment récupérer un regroupement des stratégies de configuration du client spécifiées.
 ms.assetid: 37C40EFC-7BC9-4111-BB9E-27018B583391
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487539"
 ---
-# <a name="get-a-list-of-a-customers-policies"></a>Get a list of a customer's policies
+# <a name="get-a-list-of-a-customers-policies"></a>Obtenir la liste des stratégies d’un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-This topic describes how to retrieve a collection of the specified customer's configuration policies.
+Cette rubrique explique comment récupérer un regroupement des stratégies de configuration du client spécifiées.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get a list of all of a customer's policies:
+Pour obtenir la liste de toutes les stratégies d’un client :
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Retrieve the [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) property to get an interface to configuration policy collection operations.
-3. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) method to retrieve the collection of policies.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+2. Récupérez la propriété [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) pour obtenir une interface pour les opérations de collecte de stratégie de configuration.
+3. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) de stratégies.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -42,35 +42,35 @@ string selectedCustomerId;
 var configPolicies = partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Get();
 ```
 
-For an example, see the following:
+Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetAllConfigurationPolicies.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
+- Classe : **GetAllConfigurationPolicies.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                              |
 |---------|------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following path parameter when creating the request:
+Utilisez le paramètre Path suivant lors de la création de la demande :
 
-| Nom        | Tapez   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID-formatted string that identifies the customer. |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-Aucun(e)
+Aucune
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -85,13 +85,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains the collection of [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resources.
+En cas de réussite, le corps de la réponse contient la collection de ressources [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

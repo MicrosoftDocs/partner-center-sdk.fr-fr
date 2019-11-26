@@ -1,6 +1,6 @@
 ---
-title: Get a customer's subscriptions
-description: How to get a collection of a customer's subscriptions.
+title: Obtenir les abonnements d’un client
+description: Comment obtenir un regroupement des abonnements d’un client.
 ms.assetid: 1C9E986B-2887-460B-9D71-4520BB18C32A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485909"
 ---
-# <a name="get-a-customers-subscriptions"></a>Get a customer's subscriptions
+# <a name="get-a-customers-subscriptions"></a>Obtenir les abonnements d’un client
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to get a collection of a customer's subscriptions.
+Comment obtenir un regroupement des abonnements d’un client.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a list of all of a customer's subscriptions, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to identify the customer. Then use the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property to retrieve an interface to subscription collection operations. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) methods to retrieve the customer's subscriptions collection.
+Pour obtenir la liste de tous les abonnements d’un client, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour identifier le client. Utilisez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) pour récupérer une interface pour les opérations de collecte d’abonnement. Enfin, appelez les méthodes d’extraction ou de [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) d’abonnements du client.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,38 +43,38 @@ To get a list of all of a customer's subscriptions, first use the [**IAggregateP
 var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscriptions.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetSubscriptions.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetSubscriptions.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-This table lists the required query parameter to get all the subscriptions.
+Ce tableau répertorie le paramètre de requête requis pour obtenir tous les abonnements.
 
-| Nom               | Tapez   | Obligatoire | Description                                           |
+| Nom               | Type   | Obligatoire | Description                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | chaîne | Oui      | A GUID-formatted string that identifies the customer. |
+| client-locataire-ID | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions HTTP/1.1
@@ -85,16 +85,16 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, this method returns a collection of [Subscription](subscription-resources.md) resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources d' [abonnement](subscription-resources.md) dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

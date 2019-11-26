@@ -1,6 +1,6 @@
 ---
-title: Verify a partner MPN ID
-description: How to verify a partner's Microsoft Partner Network identifier (MPN ID).The technique shown here verifies the partner's Microsoft Partner Network identifier by requesting the partner's MPN profile from partner center.
+title: Vérifier un ID MPN de partenaire
+description: Comment vérifier l’identificateur de Microsoft Partner Network d’un partenaire (ID MPN). La technique illustrée ici vérifie l’identificateur de Microsoft Partner Network du partenaire en demandant le profil MPN du partenaire à partir de l’espace partenaires.
 ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490049"
 ---
-# <a name="verify-a-partner-mpn-id"></a>Verify a partner MPN ID
+# <a name="verify-a-partner-mpn-id"></a>Vérifier un ID MPN de partenaire
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to verify a partner's Microsoft Partner Network identifier (MPN ID).
+Comment vérifier l’identificateur de Microsoft Partner Network d’un partenaire (ID MPN).
 
-The technique shown here verifies the partner's Microsoft Partner Network identifier by requesting the partner's MPN profile from partner center. The identifier is considered valid if the request succeeds.
+La technique illustrée ici vérifie l’identificateur de Microsoft Partner Network du partenaire en demandant le profil MPN du partenaire à partir de l’espace partenaires. L’identificateur est considéré comme valide si la demande est réussie.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The partner MPN ID to verify. If you omit this value, the request retrieves the MPN profile of the signed-in partner.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID MPN du partenaire à vérifier. Si vous omettez cette valeur, la demande récupère le profil MPN du partenaire connecté.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To verify a partner's MPN ID, first retrieve an interface to partner profile collection operations from the [**IAggregatePartner.Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) property. Then get an interface to MPN profile operations from the [**MpnProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) property. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) methods with the MPN ID to retrieve the MPN profile. If you omit the MPN ID from the Get or GetAsync call, the request attempts to retrieve the MPN profile of the signed-in partner.
+Pour vérifier l’ID MPN d’un partenaire, commencez par récupérer une interface pour les opérations de collection de profils de partenaire à partir de la propriété [**collection iaggregatepartner. Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) . Ensuite, récupérez une interface avec les opérations de profil MPN à partir de la propriété [**MpnProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) . Enfin, appelez les méthodes d' [**extraction**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) ou de [**GETASYNC**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) avec l’ID MPN pour récupérer le profil MPN. Si vous omettez l’ID MPN de l’appel d’extraction ou de GetAsync, la demande tente de récupérer le profil MPN du partenaire connecté.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,34 +42,34 @@ To verify a partner's MPN ID, first retrieve an interface to partner profile col
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: VerifyPartnerMpnId.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : VerifyPartnerMpnId.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/profiles/mpn?mpnId={mpn-id} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Profiles/MPN ? mpnId = {MPN-ID} http/1.1 |
 
-**URI parameter**
+**Paramètre URI**
 
-Provide the following query parameter to identify the partner. If you omit this query parameter, the request returns the MPN profile of the signed-in partner.
+Fournissez le paramètre de requête suivant pour identifier le partenaire. Si vous omettez ce paramètre de requête, la demande retourne le profil MPN du partenaire connecté.
 
-| Nom   | Tapez | Obligatoire | Description                                                 |
+| Nom   | Type | Obligatoire | Description                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | entier  | non       | A Microsoft Partner Network ID that identifies the partner. |
+| MPN-ID | entier  | Non       | ID de Microsoft Partner Network qui identifie le partenaire. |
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/mpn?mpnId=9999999 HTTP/1.1
@@ -83,15 +83,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> réponse REST
 
-If successful, the response body contains the [MpnProfile](profile-resources.md#mpnprofile) resource for the partner.
+En cas de réussite, le corps de la réponse contient la ressource [MpnProfile](profile-resources.md#mpnprofile) pour le partenaire.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example (success)**
+**Exemple de réponse (réussite)**
 
 ```http
 HTTP/1.1 200 OK
@@ -119,7 +119,7 @@ Date: Thu, 13 Apr 2017 18:13:40 GMT
 }
 ```
 
-**Response example (failure)**
+**Exemple de réponse (échec)**
 
 ```http
 HTTP/1.1 404 Not Found

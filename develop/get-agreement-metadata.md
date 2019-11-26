@@ -1,6 +1,6 @@
 ---
 title: Obtenir les métadonnées de l'accord pour le contrat Microsoft Cloud
-description: This topic explains how to get agreement metadata for Microsoft Cloud Agreement.
+description: Cette rubrique explique comment obtenir les métadonnées d’un accord pour Microsoft Cloud accord.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -14,31 +14,31 @@ ms.locfileid: "74486099"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Obtenir les métadonnées de l'accord pour le contrat Microsoft Cloud
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
 > [!NOTE]  
-> The **AgreementMetaData** resource is currently supported by Partner Center in the Microsoft public cloud only. It is not applicable to:
+> La ressource **AgreementMetaData** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle ne s’applique pas aux éléments suivants :
 > - Espace partenaires géré par 21Vianet
-> - Espace partenaires de Microsoft Cloud Germany
+> - Espace partenaires de Microsoft Cloud Germany
 > - Espace partenaires de Microsoft Cloud for US Government
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- If you are using the Partner Center .NET SDK, version 1.9 or newer is required.
-- If you are using the Partner Center Java SDK, version 1.8 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario supports app + user authentication..
+- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,9 ou une version ultérieure est requise.
+- Si vous utilisez le kit de développement logiciel (SDK) Java de l’espace partenaires, la version 1,8 ou une version ultérieure est requise.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge l’authentification d’application + utilisateur.
 
-## <a name="net-version-114-or-newer"></a>.NET (version 1.14 or newer)
+## <a name="net-version-114-or-newer"></a>.NET (version 1,14 ou ultérieure)
 
-To retrieve the agreement metadata for Microsoft Cloud Agreement:
+Pour récupérer les métadonnées de l’accord pour Microsoft Cloud accord :
 
-1. First, retrieve the **IAggregatePartner.AgreementDetails** collection.
+1. Tout d’abord, récupérez la collection **collection iaggregatepartner. AgreementDetails** .
 
-2. Call **ByAgreementType** method to filter the collection to Microsoft Cloud Agreement.
+2. Appelez la méthode **ByAgreementType** pour filtrer la collection afin de Microsoft Cloud accord.
 
-3. Finally, call **Get** or **GetAsync** method.
+3. Enfin **, appelez la** méthode **GetAsync** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -48,13 +48,13 @@ string agreementType = "MicrosoftCloudAgreement";
 var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+Un exemple complet est disponible dans la classe [GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) à partir du projet d' [application de test console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) .
 
-## <a name="net-version-19---113"></a>.NET (version 1.9 - 1.13)
+## <a name="net-version-19---113"></a>.NET (version 1,9-1,13)
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+Pour récupérer les métadonnées d’accord pour l’accord de Microsoft Cloud :
 
-First retrieve the **IAggregatePartner.AgreementDetails** collection and then call the **Get** or **GetAsync** methods. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+Récupérez d’abord la collection **collection iaggregatepartner. AgreementDetails** , puis appelez les méthodes **obtenir** ou **GetAsync** . Recherchez ensuite l’élément dans la collection, qui correspond au contrat de Microsoft Cloud :
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -68,9 +68,9 @@ AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+Pour récupérer les métadonnées d’accord pour l’accord de Microsoft Cloud :
 
-First call the **IAggregatePartner.getAgreementDetails** function and then call the **get** function. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+Appelez d’abord la fonction **collection iaggregatepartner. getAgreementDetails** , puis appelez la fonction d' **extraction** . Recherchez ensuite l’élément dans la collection, qui correspond au contrat de Microsoft Cloud :
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -88,15 +88,15 @@ for (AgreementMetaData metadata : agreements)
 }
 ```
 
-A complete sample can be found in the [GetAgreementDetails](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java) class from the [console test app](https://github.com/Microsoft/Partner-Center-Java-Samples) project.
+Un exemple complet est disponible dans la classe [GetAgreementDetails](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java) à partir du projet d' [application de test console](https://github.com/Microsoft/Partner-Center-Java-Samples) .
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To retrieve agreement metadata for the Microsoft Cloud Agreement:
+Pour récupérer les métadonnées d’accord pour l’accord de Microsoft Cloud :
 
-Use the [**Get-PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partneragreementdetail) command. Then search for the item within the collection, which corresponds to the Microsoft Cloud Agreement:
+Utilisez la commande [**PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partneragreementdetail) . Recherchez ensuite l’élément dans la collection, qui correspond au contrat de Microsoft Cloud :
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
@@ -104,19 +104,19 @@ Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudA
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
-To retrieve agreement metadata for Microsoft Cloud Agreement, first create a REST Request to retrieve the **AgreementMetaData** collection. Then search for the item in the collection which corresponds to the Microsoft Cloud Agreement.
+Pour récupérer les métadonnées d’accord pour Microsoft Cloud accord, commencez par créer une demande REST pour récupérer la collection **AgreementMetaData** . Recherchez ensuite l’élément dans la collection qui correspond au contrat de Microsoft Cloud.
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreements HTTP/1.1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Agreements http/1.1 |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -132,13 +132,13 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of **AgreementMetaData** resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources **AgreementMetaData** dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 
@@ -171,6 +171,6 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-To identify the resource in the response which corresponds to the Microsoft Cloud Agreement, look for the resource whose **agreementType** property has value "MicrosoftCloudAgreement".
+Pour identifier la ressource dans la réponse qui correspond au contrat de Microsoft Cloud, recherchez la ressource dont la propriété **agreementType** a la valeur « MicrosoftCloudAgreement ».
 
 ---

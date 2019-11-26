@@ -1,6 +1,6 @@
 ---
-title: Validate an address
-description: How to validate an address using the address validation API.
+title: Valider une adresse
+description: Comment valider une adresse à l’aide de l’API de validation d’adresse.
 ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487749"
 ---
-# <a name="validate-an-address"></a>Validate an address
+# <a name="validate-an-address"></a>Valider une adresse
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to validate an address using the address validation API.
+Comment valider une adresse à l’aide de l’API de validation d’adresse.
 
-The address validation API should only be used for pre-validation of customer profile updates. Use it with the understanding that if the country is the United States, Canada, China, or Mexico, the state field is validated against a list of valid states for the respective country. In all other countries, this test does not occur, and the API only checks that the state is a valid string.
+L’API de validation d’adresse doit être utilisée uniquement pour la pré-validation des mises à jour de profil client. Utilisez-le pour comprendre que si le pays est le États-Unis, le Canada, la Chine ou le Mexique, le champ État est validé par rapport à une liste d’États valides pour le pays respectif. Dans tous les autres pays, ce test n’a pas lieu, et l’API vérifie uniquement que l’État est une chaîne valide.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
 
 ### <a name="c"></a>C#
 
-To validate an address, first instantiate a new **Address** object and populate it with the address to validate. Then, retrieve an interface to **Validations** operations from the **IAggregatePartner.Validations** property, and call the **IsAddressValid** method with the address object.
+Pour valider une adresse, commencez par instancier un nouvel objet d' **adresse** et remplissez-le avec l’adresse à valider. Ensuite, récupérez une interface pour les opérations de **validations** à partir de la propriété **collection iaggregatepartner. validations** et appelez la méthode **IsAddressValid** avec l’objet Address.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -83,7 +83,7 @@ catch (PartnerException exception)
 
 ### <a name="java"></a>Java
 
-To validate an address, first instantiate a new **Address** object and populate it with the address to validate. Then, retrieve an interface to **Validations** operations from the **IAggregatePartner.getValidations** function, and call the **isAddressValid** method with the address object.
+Pour valider une adresse, commencez par instancier un nouvel objet d' **adresse** et remplissez-le avec l’adresse à valider. Ensuite, récupérez une interface pour les opérations de **validations** à partir de la fonction **collection iaggregatepartner. getValidations** , puis appelez la méthode **isAddressValid** avec l’objet Address.
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -121,38 +121,38 @@ catch (Exception exception)
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To validate an address, execute the [**Test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) with the address parameters populated.
+Pour valider une adresse, exécutez [**test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) avec les paramètres d’adresse remplis.
 
 ```powershell
 Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Country 'US' -PostalCode '98004' -State 'WA'
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode   | URI de requête                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom         | Tapez   | Obligatoire | Description                                                |
+| Nom         | Type   | Obligatoire | Description                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| addressline1 | chaîne | Y        | The first line of the address.                             |
-| addressline2 | chaîne | N        | The second line of the address. Cette propriété est facultative. |
-| city         | chaîne | Y        | The city.                                                  |
-| state        | chaîne | Y        | The state.                                                 |
-| postalcode   | chaîne | Y        | The postal code.                                           |
-| country      | chaîne | Y        | The two-character ISO alpha-2 country code.                |
+| AddressLine1 | chaîne | Y        | Première ligne de l’adresse.                             |
+| AddressLine2 | chaîne | N        | Deuxième ligne de l’adresse. Cette propriété est facultative. |
+| urbain         | chaîne | Y        | Ville.                                                  |
+| Département        | chaîne | Y        | État.                                                 |
+| postal   | chaîne | Y        | Code postal.                                           |
+| country      | chaîne | Y        | Code du pays alpha-2 ISO à deux caractères.                |
 
-**Request example**
+**Exemple de requête**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/validations/address HTTP/1.1
@@ -174,17 +174,17 @@ Content-Length: 129
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
-If successful, the method returns a status code 200 as demonstrated in the Response - validation succeeded example shown below.
+En cas de réussite, la méthode retourne un code d’état 200, comme illustré dans l’exemple de validation de réponse qui a réussi, comme indiqué ci-dessous.
 
-If the request fails, the method returns a status code 400 as demonstrated in the Response - validation failed example shown below. The response body contains a JSON payload with additional information about the error.
+Si la requête échoue, la méthode retourne le code d’état 400, comme illustré dans l’exemple d’échec de validation de réponse illustré ci-dessous. Le corps de la réponse contient une charge utile JSON avec des informations supplémentaires sur l’erreur.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response - validation succeeded example**
+**Réponse-exemple de validation réussie**
 
 ```http
 HTTP/1.1 200 OK
@@ -196,7 +196,7 @@ MS-ServerId: 030011719
 Date: Mon, 13 Mar 2017 23:56:12 GMT
 ```
 
-**Response - validation failed example**
+**Réponse-exemple d’échec de validation**
 
 ```http
 HTTP/1.1 400 Bad Request

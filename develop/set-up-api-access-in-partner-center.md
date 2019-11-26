@@ -1,6 +1,6 @@
 ---
-title: Set up API access in Partner Center
-description: Set up accounts for developing against the Partner Center SDK and test in the integration sandbox.
+title: Configurer l’accès aux API dans l’espace partenaires
+description: Configurez des comptes pour le développement par rapport au kit de développement logiciel (SDK) de l’espace partenaires et testez-les
 ms.assetid: 182A6831-6F00-4762-9A86-327BF87EA6AC
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,82 +13,82 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488059"
 ---
-# <a name="set-up-api-access-in-partner-center"></a>Set up API access in Partner Center
+# <a name="set-up-api-access-in-partner-center"></a>Configurer l’accès aux API dans l’espace partenaires
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud for US Government
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-This topic describes the accounts you need to develop against the Partner Center SDK. This topic also explains how to create an [integration sandbox account](#integration-sandbox-account) and test in the integration sandbox.
+Cette rubrique décrit les comptes que vous devez développer sur le kit de développement logiciel (SDK) de l’espace partenaires. Cette rubrique explique également comment créer un [compte de bac à sable (sandbox) d’intégration](#integration-sandbox-account) et effectuer des tests dans le bac à sable d’intégration.
 
-## <a name="account-definitions"></a>Account definitions
+## <a name="account-definitions"></a>Définitions de comptes
 
-To help you integrate and test your API integration, Partner Center supports two kinds of accounts:
+Pour vous aider à intégrer et tester votre intégration d’API, l’espace partenaires prend en charge deux types de comptes :
 
-### <a name="primary-partner-account"></a>Primary Partner account
+### <a name="primary-partner-account"></a>Compte de partenaire principal
 
-This account is where you create real orders for real customers. If you make any changes or transactions when you are signed in to the primary account, by using either the Partner Center SDK or the Partner Dashboard UI, they will be treated as official orders for real customers. They will be reflected in your invoice, and your company is responsible for paying for them.
+Ce compte est l’endroit où vous créez des commandes réelles pour les clients réels. Si vous apportez des modifications ou des transactions lorsque vous êtes connecté au compte principal, à l’aide du kit de développement logiciel (SDK) Partner Center ou de l’interface utilisateur du tableau de bord du partenaire, elles sont traitées comme des commandes officielles pour les clients réels. Ils seront reflétés dans votre facture et votre entreprise sera chargée de les payer.
 
-### <a name="integration-sandbox-account"></a>Integration sandbox account
+### <a name="integration-sandbox-account"></a>Compte du bac à sable d’intégration
 
-This account is for testing your code and its integration with the Partner Center APIs before you deploy it broadly. Changes and transactions you make when you are signed into the integration sandbox account will not appear in your invoice.
+Ce compte est destiné au test de votre code et à son intégration avec les API de l’espace partenaires avant de le déployer de manière générale. Les modifications et les transactions que vous effectuez lorsque vous êtes connecté au compte du bac à sable (sandbox) d’intégration n’apparaissent pas dans votre facture.
 
-The integration sandbox account and the primary account act independently, and do not share admin accounts, user accounts, customers, orders, subscriptions, or other data.
+Le compte du bac à sable (sandbox) d’intégration et le compte principal agissent indépendamment, et ne partagent pas les comptes d’administrateur, les comptes d’utilisateur, les clients, les commandes, les abonnements ou d’autres données.
 
-The integration sandbox supports transactions with a limited number of customers, orders, subscriptions, seats, etc.
+Le bac à sable d’intégration prend en charge les transactions avec un nombre limité de clients, de commandes, d’abonnements, de sièges, etc.
 
-By policy, integration sandbox accounts are for integration testing purposes only.
+Par stratégie, les comptes sandbox d’intégration sont destinés uniquement à des fins de test d’intégration.
 
-By default, there is no integration sandbox account. You must create one yourself if you plan to use the Partner Center SDK.
+Par défaut, il n’existe aucun compte de bac à sable (sandbox) d’intégration. Vous devez en créer un vous-même si vous envisagez d’utiliser le kit de développement logiciel (SDK) Partner Center.
 
-## <a name="set-up-your-accounts"></a>Set up your accounts
+## <a name="set-up-your-accounts"></a>Configurer vos comptes
 
-This section describes how to set up a primary Partner account and an integration sandbox account for the Partner Center SDK.
+Cette section décrit comment configurer un compte de partenaire principal et un compte de bac à sable (sandbox) d’intégration pour le kit de développement logiciel (SDK) de l’espace partenaires.
 
-### <a name="create-an-integration-sandbox"></a>Create an integration sandbox
+### <a name="create-an-integration-sandbox"></a>Créer un bac à sable (sandbox) d’intégration
 
-1. Sign in to Partner Dashboard with a global admin account (your primary Partner account.)
-2. From the **Settings** menu (gear icon), choose **Partner settings**.
-3. On the **Account settings** page, choose **Integration sandbox**.
+1. Connectez-vous au tableau de bord du partenaire avec un compte d’administrateur général (votre compte de partenaire principal).
+2. Dans le menu **paramètres** (icône d’engrenage), choisissez **paramètres de partenaire**.
+3. Sur la page **paramètres du compte** , choisissez bac à **sable (sandbox) d’intégration**.
 
     >[!NOTE]
-    >If you don't see an Integration sandbox option, you might not have a global admin account. You also might be using an integration sandbox account and an integration sandbox has already been set up.
+    >Si vous ne voyez pas d’option d’intégration du bac à sable (sandbox), vous ne disposez peut-être pas d’un compte d’administrateur général. Vous pouvez également utiliser un compte de bac à sable (sandbox) d’intégration et un bac à sable d’intégration a déjà été configuré.
 
-4. Enter the contact information for the integration sandbox admin account. Then, choose **Create account**. Wait a few minutes for a confirmation message that the account has been created.
-5. After you see the confirmation message, sign out of Partner Dashboard.
-6. Sign back in with your new integration sandbox admin account. Be sure to use the format **username@domain** for your credentials along with the password that you just specified.
-7. Choose **Set Up Account** above **Current Tasks** to complete the sandbox account setup.
+4. Entrez les informations de contact du compte d’administration du bac à sable (sandbox) d’intégration. Ensuite, choisissez **créer un compte**. Patientez quelques minutes pour obtenir un message de confirmation indiquant que le compte a été créé.
+5. Une fois que vous voyez le message de confirmation, déconnectez-vous du tableau de bord du partenaire.
+6. Reconnectez-vous avec votre nouveau compte d’administrateur de bac à sable d’intégration. Veillez à utiliser le format **username@domain** pour vos informations d’identification, ainsi que le mot de passe que vous venez de spécifier.
+7. Choisissez **configurer le compte** au-dessus des **tâches actuelles** pour terminer la configuration du compte sandbox.
 
-### <a name="enable-api-access"></a>Enable API access
+### <a name="enable-api-access"></a>Activer l’accès à l’API
 
-After your account is set up, you must enable API access before you can use the Partner Center SDK with the integration sandbox. You need to enable access to the API separately for both your primary Partner account and your integration sandbox account.
+Une fois votre compte configuré, vous devez activer l’accès à l’API avant de pouvoir utiliser le kit de développement logiciel (SDK) Partner Center avec le bac à sable d’intégration. Vous devez activer l’accès à l’API séparément pour votre compte de partenaire principal et votre compte de bac à sable (sandbox) d’intégration.
 
-1. Sign into Partner Dashboard using a global admin account.
-2. From the **Settings** menu (gear icon), select **Partner settings**.
-3. On the **Account settings** page, choose **App management**.
-4. If you do not already have an existing app, add a new web app. If you have an existing web app, choose the **Add key** button.
-5. Copy the app registration information, especially the **Key** if you're creating a web app, and store it in a safe place.
-6. Sign out of Partner Dashboard.
-7. Sign back in with your integration sandbox account. Repeat steps 2-5 to enable API access in the integration sandbox.
+1. Connectez-vous au tableau de bord du partenaire à l’aide d’un compte d’administrateur général.
+2. Dans le menu **paramètres** (icône d’engrenage), sélectionnez **paramètres de partenaire**.
+3. Sur la page **paramètres du compte** , choisissez gestion des **applications**.
+4. Si vous n’avez pas encore d’application existante, ajoutez une nouvelle application Web. Si vous disposez d’une application Web existante, cliquez sur le bouton **Ajouter une clé** .
+5. Copiez les informations d’inscription de l’application, en particulier la **clé** si vous créez une application Web, et stockez-la en lieu sûr.
+6. Déconnectez-vous du tableau de bord du partenaire.
+7. Reconnectez-vous avec votre compte de bac à sable (sandbox) d’intégration. Répétez les étapes 2-5 pour activer l’accès à l’API dans le bac à sable d’intégration.
 
-## <a name="write-and-test-code"></a>Write and test code
+## <a name="write-and-test-code"></a>Écrire et tester du code
 
-You can write code and test code in the integration sandbox. You'll need the following information to [set up Partner Center authentication](partner-center-authentication.md) with Azure AD.
+Vous pouvez écrire du code et tester du code dans le bac à sable d’intégration. Vous aurez besoin des informations suivantes pour [configurer l’authentification de l’espace partenaires](partner-center-authentication.md) avec Azure ad.
 
-| Item name | Item location |
+| Nom de l’élément | Emplacement de l’élément |
 | --------- | ------------- |
-| App ID / Client ID | From the **Settings** menu (gear icon), select **Partner settings**. On the **Account settings** page, select **App Management**. The App ID/Client ID is listed as the **Registered application App ID**. |
-| Clé | If you created a web app in the section [Enable API access](#enable-api-access), this is the key that you saved in step 5. |
-| Domaine | The domain for the integration sandbox. |
+| ID de l’application/ID client | Dans le menu **paramètres** (icône d’engrenage), sélectionnez **paramètres de partenaire**. Sur la page **paramètres du compte** , sélectionnez gestion des **applications**. L’ID d’application/ID client est répertorié comme ID d’application d' **application inscrite**. |
+| Clé | Si vous avez créé une application Web dans la section [activer l’accès à l’API](#enable-api-access), il s’agit de la clé que vous avez enregistrée à l’étape 5. |
+| domaine. | Domaine du bac à sable (sandbox) d’intégration. |
 
-## <a name="run-tested-code"></a>Run tested code
+## <a name="run-tested-code"></a>Exécuter le code testé
 
-To use your solution with real customer data, you must change from your integration sandbox credentials to your primary Partner account credentials.
+Pour utiliser votre solution avec des données client réelles, vous devez passer de vos informations d’identification du bac à sable (sandbox) d’intégration aux informations d’identification de votre compte partenaire principal.
 
-When you're ready to use your tested code in your primary Partner account, you must get an Azure AD security token. This security token is based on your Partner Center app, key and domain (instead of your integration sandbox app, key and domain).
+Lorsque vous êtes prêt à utiliser votre code testé dans votre compte partenaire principal, vous devez recevoir un jeton de sécurité Azure AD. Ce jeton de sécurité est basé sur votre application de l’espace partenaires, la clé et le domaine (au lieu de votre application, clé et domaine du bac à sable (sandbox) d’intégration).
 
-1. Follow the steps in [Partner Center authentication](partner-center-authentication.md) to get an Azure AD security token using your primary Partner Center credentials. (You previously followed these steps to get an Azure AD security token for your integration sandbox.)
-2. Replace the integration security token in your code with the new security token for your primary Partner account.
+1. Suivez les étapes de la section authentification de l' [espace partenaires](partner-center-authentication.md) pour recevoir un jeton de sécurité Azure ad à l’aide de vos informations d’identification de l’espace partenaires principal. (Vous avez précédemment suivi ces étapes pour obtenir une Azure AD jeton de sécurité pour votre bac à sable d’intégration.)
+2. Remplacez le jeton de sécurité d’intégration dans votre code par le nouveau jeton de sécurité de votre compte de partenaire principal.

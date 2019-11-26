@@ -1,6 +1,6 @@
 ---
-title: Checkout a cart
-description: How to checkout an order for a customer in a cart.
+title: Extraire un panier
+description: Procédure d’extraction d’une commande pour un client dans un panier.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489409"
 ---
-# <a name="checkout-a-cart"></a>Checkout a cart
+# <a name="checkout-a-cart"></a>Extraire un panier
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to checkout an order for a customer in a cart.
+Procédure d’extraction d’une commande pour un client dans un panier.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A Cart ID for an existing cart.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID de panier d’un panier existant.
 
 ## <a name="examples"></a>Exemples
 
 ### <a name="c"></a>C#
 
-To checkout an order for a customer, get a reference to the cart using the cart and customer identifier. Finally, call the **Create** or **CreateAsync** functions to complete the order.
+Pour extraire une commande pour un client, vous pouvez obtenir une référence au panier à l’aide de l’identificateur du panier et du client. Enfin, appelez les fonctions **Create** ou **CreateAsync** pour terminer la commande.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To checkout an order for a customer, get a reference to the cart using the cart and customer identifier. Finally, call the **create** function to complete the order.
+Pour extraire une commande pour un client, vous pouvez obtenir une référence au panier à l’aide de l’identificateur du panier et du client. Enfin, appelez la fonction **Create** pour terminer l’ordre.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -61,7 +61,7 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.
+Pour extraire une commande pour un client, exécutez [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) pour terminer la commande.
 
 ```powershell
 # $customerId
@@ -70,26 +70,26 @@ To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**
 Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts/{Cart-ID}/checkout http/1.1     |
 
 ### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path parameters to identify the customer and specify the cart to be checked out.
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et spécifier le panier à extraire.
 
-| Nom            | Tapez     | Obligatoire | Description                                                            |
+| Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | chaîne   | Oui      | A GUID formatted customer-id that identifies the customer.             |
-| **cart-id**     | chaîne   | Oui      | A GUID formatted cart-id that identifies the cart.                     |
+| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
+| **Cart-ID**     | chaîne   | Oui      | GUID-ID au format GUID qui identifie le panier.                     |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -113,13 +113,13 @@ Expect: 100-continue
 No-Content-Body
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.
+En cas de réussite, le corps de la réponse contient la ressource [CartCheckoutResult](cart-resources.md#cartcheckoutresult) remplie.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

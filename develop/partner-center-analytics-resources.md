@@ -1,6 +1,6 @@
 ---
-title: Partner Center Analytics
-description: Partner Center Analytics public API documentation.
+title: Analyse de l’espace partenaires
+description: Documentation sur l’API publique de l’analyse de l’espace partenaires.
 ms.assetid: B605C1CD-FC40-4393-8588-55C8F0CAA51A
 ms.date: 06/11/2018
 ms.service: partner-dashboard
@@ -13,197 +13,197 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486879"
 ---
-# <a name="partner-center-analytics---resources"></a>Partner Center Analytics - Resources
+# <a name="partner-center-analytics---resources"></a>Analyse de l’espace partenaires-Ressources
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 
-The Analytics API allows you to programmatically access data that is being presented in the User Experience. 
+L’API Analytics vous permet d’accéder par programmation aux données qui sont présentées dans l’expérience utilisateur. 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). These scenarios support authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-## <a name="span-idazure_usage_analyticsspan-idazure_usage_analyticsspan-idazure_usage_analyticscsp-program-azure-usage-analytics"></a><span id="Azure_Usage_Analytics"/><span id="azure_usage_analytics"/><span id="AZURE_USAGE_ANALYTICS"/>CSP program: Azure usage analytics
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ces scénarios prennent uniquement en charge l’authentification avec les informations d’identification de l’utilisateur.
 
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center Azure usage analytics information.  
 
-- [Get all Azure usage analytics information](get-all-azure-usage-analytics.md)  
+## <a name="span-idazure_usage_analyticsspan-idazure_usage_analyticsspan-idazure_usage_analyticscsp-program-azure-usage-analytics"></a><span id="Azure_Usage_Analytics"/><span id="azure_usage_analytics"/>programme CSP <span id="AZURE_USAGE_ANALYTICS"/>: analyse de l’utilisation Azure
 
-This scenario returns your analytics information in a collection of [Azure usage](#azure_usage) resources. 
+Le scénario suivant vous montre comment utiliser l’API Analytics pour récupérer toutes les informations d’analyse de l’utilisation Azure de l’espace partenaires.  
 
-## <a name="span-idazure_usagespan-idazure_usagespan-idazure_usageazure-usage-resource"></a><span id="Azure_Usage"/><span id="azure_usage"/><span id="AZURE_USAGE"/>Azure usage resource
+- [Récupération de toutes les informations d’analyse d’utilisation Azure](get-all-azure-usage-analytics.md)  
 
-Represents all of the analytical data for Azure usage.
+Ce scénario retourne vos informations d’analyse dans une collection de ressources d' [utilisation Azure](#azure_usage) . 
 
-| Propriété | Tapez | Description |
+## <a name="span-idazure_usagespan-idazure_usagespan-idazure_usageazure-usage-resource"></a><span id="Azure_Usage"/><span id="azure_usage"/><span id="AZURE_USAGE"/>ressource d’utilisation Azure
+
+Représente toutes les données analytiques pour l’utilisation d’Azure.
+
+| Propriété | Type | Description |
 |----------|------|-------------|
-| CustomerTenantId | chaîne | The customer tenant identifier. |
-| customerName | chaîne | The customer name. |
-| subscriptionId | chaîne | The subscription identifier. |
-| subscriptionName | chaîne | The subscription name. |
-| usageDate | chaîne | The usage date. |
-| resourceLocation | chaîne | The location of the data center, Western Europe, for example. |
-| meterCategory | chaîne | The meter category, data management, for example. |
-| meterSubcategory | chaîne | The meter subcategory, for example, geo redundant. |
-| meterUnit | chaîne | The meter unit, such as gigabytes or hours. | 
-| reservationOrderId | chaîne | The reservation order for an Azure VM Reserved Instance. |
-| reservationId | chaîne | Reserved instances under a specific RI order. |
-| serviceType | chaîne | Indicates the virtual machine type. For example, Standard_E4s_v3. |
-| quantity | longue | Indicates the numbers used in the meter unit. |
+| customerTenantId | chaîne | Identificateur du locataire du client. |
+| Souhaite | chaîne | Nom du client. |
+| subscriptionId | chaîne | Identificateur d’abonnement. |
+| subscriptionName | chaîne | Nom de l’abonnement. |
+| usageDate | chaîne | Date d’utilisation. |
+| resourceLocation | chaîne | Emplacement du centre de données, Europe de l’Ouest, par exemple. |
+| meterCategory | chaîne | Catégorie du compteur, gestion des données, par exemple. |
+| meterSubcategory | chaîne | Sous-catégorie de compteur, par exemple géo-redondante. |
+| meterUnit | chaîne | Unité de mesure, telle que gigaoctets ou heures. | 
+| reservationOrderId | chaîne | Ordre de réservation d’une instance réservée de machine virtuelle Azure. |
+| reservationId | chaîne | Instances réservées dans un ordre RI spécifique. |
+| serviceType | chaîne | Indique le type de machine virtuelle. Par exemple, Standard_E4s_v3. |
+| quantity | longue | Indique les nombres utilisés dans l’unité de mesure. |
 
 
-## <a name="span-idindirect_resellers_analyticsspan-idindirect_resellers_analyticsspan-idindirect_resellers_analyticscsp-program-indirect-resellers-analytics"></a><span id="Indirect_Resellers_Analytics"/><span id="indirect_resellers_analytics"/><span id="INDIRECT_RESELLERS_ANALYTICS"/>CSP program: indirect resellers analytics
+## <a name="span-idindirect_resellers_analyticsspan-idindirect_resellers_analyticsspan-idindirect_resellers_analyticscsp-program-indirect-resellers-analytics"></a>programme CSP <span id="Indirect_Resellers_Analytics"/><span id="indirect_resellers_analytics"/><span id="INDIRECT_RESELLERS_ANALYTICS"/>: analyse des revendeurs indirects
 
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center indirect resellers analytics information.  
+Le scénario suivant vous montre comment utiliser l’API Analytics pour récupérer toutes les informations analytiques des revendeurs indirects de l’espace partenaires.  
 
-- [Get all indirect resellers analytics information](get-all-indirect-resellers-analytics.md)  
+- [Obtient toutes les informations d’analyse des revendeurs indirects](get-all-indirect-resellers-analytics.md)  
 
-This scenario returns your analytics information in a collection of [indirect resellers](#indirect_resellers) resources. 
+Ce scénario retourne vos informations d’analyse dans une collection de ressources de [revendeurs indirects](#indirect_resellers) . 
 
 
-## <a name="span-idindirect_resellersspan-idindirect_resellersspan-ididirect_resellersindirect-resellers-resource"></a><span id="Indirect_Resellers"/><span id="indirect_resellers"/><span id="IDIRECT_RESELLERS"/>Indirect resellers resource
+## <a name="span-idindirect_resellersspan-idindirect_resellersspan-ididirect_resellersindirect-resellers-resource"></a><span id="Indirect_Resellers"/><span id="indirect_resellers"/><span id="IDIRECT_RESELLERS"/>ressource des revendeurs indirects
 
-Represents all of the analytical data for indirect resellers.
+Représente toutes les données analytiques des revendeurs indirects.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |----------|------|-------------|
-| partnerTenantId | chaîne | The Tenant ID of the partner for which you want to retrieve indirect resellers data. |
-| id | chaîne | Indirect reseller ID. |
-| name | chaîne | The Name of the partner for which you want to retrieve indirect resellers data. |
-| marché | chaîne | The Market of the partner for which you want to retrieve indirect resellers data. |
-| firstSubscriptionCreationDate | string in UTC date time format | The creation date of the first subscription based on which you want to retrieve indirect resellers data. |
-| latestSubscriptionCreationDate | string in UTC date time format | The creation date of the latest subscription. |
-| firstSubscriptionEndDate | string in UTC date time format | First time any subscription was ended. |
-| latestSubscriptionEndDate | string in UTC date time format | Latest date when any subscription was ended. |
-| firstSubscriptionSuspendedDate | string in UTC date time format | First time any subscription was suspended. |
-| latestSubscriptionSuspendedDate | string in UTC date time format | Latest date when any subscription was suspended. |
-| firstSubscriptionDeprovisionedDate | string in UTC date time format | First time any subscription was deprovisioned. |
-| latestSubscriptionDeprovisionedDate | string in UTC date time format | Latest date when any subscription was deprovisioned. |
-| subscriptionCount | double | Subscription count for all value added resellers |
-| licenseCount | double | License count for all value added resellers |
-| indirectResellerCount | double | Indirect resellers count |
+| partnerTenantId | chaîne | ID de locataire du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects. |
+| id | chaîne | ID de revendeur indirect. |
+| name | chaîne | Nom du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects. |
+| market | chaîne | Le marché du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects. |
+| firstSubscriptionCreationDate | chaîne au format date/heure UTC | Date de création du premier abonnement basé sur lequel vous souhaitez récupérer les données des revendeurs indirects. |
+| latestSubscriptionCreationDate | chaîne au format date/heure UTC | Date de création du dernier abonnement. |
+| firstSubscriptionEndDate | chaîne au format date/heure UTC | La première fois qu’un abonnement est terminé. |
+| latestSubscriptionEndDate | chaîne au format date/heure UTC | Dernière date de fin d’un abonnement. |
+| firstSubscriptionSuspendedDate | chaîne au format date/heure UTC | La première fois qu’un abonnement a été suspendu. |
+| latestSubscriptionSuspendedDate | chaîne au format date/heure UTC | Date la plus récente à laquelle un abonnement a été suspendu. |
+| firstSubscriptionDeprovisionedDate | chaîne au format date/heure UTC | La première fois qu’un abonnement a été annulé. |
+| latestSubscriptionDeprovisionedDate | chaîne au format date/heure UTC | Date la plus récente de l’annulation de l’approvisionnement d’un abonnement. |
+| subscriptionCount | Double | Nombre d’abonnements pour tous les revendeurs à valeur ajoutée |
+| licenseCount | Double | Nombre de licences pour tous les revendeurs à valeur ajoutée |
+| indirectResellerCount | Double | Nombre de revendeurs indirects |
 
 
-## <a name="span-idsubscription_analyticsspan-idsubscription_analyticsspan-idsubscription_analyticscsp-program-subscription-analytics"></a><span id="Subscription_Analytics"/><span id="subscription_analytics"/><span id="SUBSCRIPTION_ANALYTICS"/>CSP program: subscription analytics
+## <a name="span-idsubscription_analyticsspan-idsubscription_analyticsspan-idsubscription_analyticscsp-program-subscription-analytics"></a><span id="Subscription_Analytics"/><span id="subscription_analytics"/><span id="SUBSCRIPTION_ANALYTICS"/>programme CSP : analyse d’abonnement
 
-The following scenarios show you how to use the Analytics API to retrieve all your Partner Center subscription analytics information, filter it with a search query, or group it by dates or terms.  
+Les scénarios suivants vous montrent comment utiliser l’API Analytics pour récupérer toutes vos informations d’analyse d’abonnements de l’espace partenaires, les filtrer avec une requête de recherche, ou les regrouper par dates ou termes.  
 
-- [Get all subscription analytics information](get-all-subscription-analytics.md)  
-- [Get subscription analytics information filtered by a search query](get-subscription-analytics-by-search-query.md)  
-- [Get subscription analytics information grouped by dates or terms](get-subscription-analytics-grouped-by-dates-or-terms.md)  
+- [Récupération de toutes les informations d’analyse d’abonnement](get-all-subscription-analytics.md)  
+- [Obtenir des informations d’analyse d’abonnement filtrées par une requête de recherche](get-subscription-analytics-by-search-query.md)  
+- [Obtient les informations d’analyse d’abonnement regroupées par dates ou termes](get-subscription-analytics-grouped-by-dates-or-terms.md)  
 
-All of these scenarios return your analytics information in a collection of [Subscription](#subscription) resources. 
-
-
-## <a name="span-idsubscriptionspan-idsubscriptionspan-idsubscriptionsubscription-resource"></a><span id="Subscription"/><span id="subscription"/><span id="SUBSCRIPTION"/>Subscription resource
+Tous ces scénarios retournent les informations analytiques dans une collection de ressources d' [abonnement](#subscription) . 
 
 
-Represents all of the analytical data for a subscription.
+## <a name="span-idsubscriptionspan-idsubscriptionspan-idsubscriptionsubscription-resource"></a><span id="Subscription"/><span id="subscription"/><span id="SUBSCRIPTION"/>ressource d’abonnement
 
 
-|         Propriété          |              Tapez              |                                                                      Description                                                                       |
+Représente toutes les données analytiques d’un abonnement.
+
+
+|         Propriété          |              Type              |                                                                      Description                                                                       |
 |---------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     customerTenantId      |             chaîne             |                                              A GUID-formatted string that identifies the customer tenant.                                              |
-|       customerName        |             chaîne             |                                                               The name of the customer.                                                                |
-|      customerMarket       |             chaîne             |                                                 The country/region that the customer does business in.                                                 |
-|            id             |             chaîne             |                                                              The subscription identifier.                                                              |
-|          status           |             chaîne             |                                          The subscription status: "ACTIVE", "SUSPENDED", or "DEPROVISIONED".                                           |
+|     customerTenantId      |             chaîne             |                                              Chaîne au format GUID qui identifie le locataire client.                                              |
+|       Souhaite        |             chaîne             |                                                               Nom du client.                                                                |
+|      customerMarket       |             chaîne             |                                                 Pays/région dans lequel le client fait des affaires.                                                 |
+|            id             |             chaîne             |                                                              Identificateur d’abonnement.                                                              |
+|          status           |             chaîne             |                                          État de l’abonnement : « actif », « suspendu » ou « mis hors service ».                                           |
 |        productName        |             chaîne             |                                                                Le nom du produit.                                                                |
-|     subscriptionType      |             chaîne             |       The subscription type. **Note**: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS".       |
-|     autoRenewEnabled      |            booléen             |                                         A value indicating whether the subscription is renewed automatically.                                          |
-|         partnerId         |             chaîne             | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |
-|       friendlyName        |             chaîne             |                                                             The name of the subscription.                                                              |
-|        partnerName        |             chaîne             |                                              Name of the partner for whom the subscription was purchased                                               |
-|       providerName        |             chaîne             |            When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.             |
-|    effectiveStartDate     | string in UTC date time format |                                                           The date the subscription starts.                                                            |
-|     commitmentEndDate     | string in UTC date time format |                                                            The date the subscription ends.                                                             |
-|    currentStateEndDate    | string in UTC date time format |                                           The date that the current status of the subscription will change.                                            |
-| trialToPaidConversionDate | string in UTC date time format |                                 The date that the subscription converts from trial to paid. The default value is null.                                 |
-|      trialStartDate       | string in UTC date time format |                                The date that the trial period for the subscription started. The default value is null.                                 |
-|       trialEndDate        | string in UTC date time format |                                  The date that the trial period for the subscription ends. The default value is null.                                  |
-|       lastUsageDate       | string in UTC date time format |                                        The date that the subscription was last used. The default value is null.                                        |
-|     deprovisionedDate     | string in UTC date time format |                                      The date that the subscription was deprovisioned. The default value is null.                                      |
-|      lastRenewalDate      | string in UTC date time format |                                       The date that the subscription was last renewed The default value is null.                                       |
-|       licenseCount        |             nombre             |                                                             The total number of licenses.                                                              |
-|     subscriptionCount     |             nombre             |                        The number of subscriptions. Note: This value will only appear in the response of an aggregation query.                         |
+|     subscriptionType      |             chaîne             |       Type d’abonnement. **Remarque**: ce champ respecte la casse. Les valeurs prises en charge sont : « Office », « Azure », « Microsoft365 », « Dynamics », « EMS ».       |
+|     autoRenewEnabled      |            booléen             |                                         Valeur indiquant si l’abonnement est renouvelé automatiquement.                                          |
+|         Partenaire         |             chaîne             | ID MPN. Pour un revendeur direct, il s’agit de l’ID MPN du partenaire. Pour un revendeur indirect, il s’agit de l’ID MPN du revendeur indirect. |
+|       friendlyName        |             chaîne             |                                                             Nom de l’abonnement.                                                              |
+|        partnerName        |             chaîne             |                                              Nom du partenaire pour lequel l’abonnement a été acheté                                               |
+|       Désigne        |             chaîne             |            Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.             |
+|    effectiveStartDate     | chaîne au format date/heure UTC |                                                           Date de début de l’abonnement.                                                            |
+|     commitmentEndDate     | chaîne au format date/heure UTC |                                                            Date de fin de l’abonnement.                                                             |
+|    currentStateEndDate    | chaîne au format date/heure UTC |                                           Date à laquelle l’état actuel de l’abonnement sera modifié.                                            |
+| trialToPaidConversionDate | chaîne au format date/heure UTC |                                 Date à laquelle l’abonnement convertit de l’essai au paiement. La valeur par défaut est null.                                 |
+|      trialStartDate       | chaîne au format date/heure UTC |                                Date de début de la période d’évaluation de l’abonnement. La valeur par défaut est null.                                 |
+|       trialEndDate        | chaîne au format date/heure UTC |                                  Date de fin de la période d’évaluation de l’abonnement. La valeur par défaut est null.                                  |
+|       lastUsageDate       | chaîne au format date/heure UTC |                                        Date à laquelle l’abonnement a été utilisé pour la dernière fois. La valeur par défaut est null.                                        |
+|     deprovisionedDate     | chaîne au format date/heure UTC |                                      Date à laquelle l’abonnement a été annulé. La valeur par défaut est null.                                      |
+|      lastRenewalDate      | chaîne au format date/heure UTC |                                       Date à laquelle l’abonnement a été renouvelé pour la dernière fois la valeur par défaut est null.                                       |
+|       licenseCount        |             nombre             |                                                             Nombre total de licences.                                                              |
+|     subscriptionCount     |             nombre             |                        Nombre d’abonnements. Remarque : cette valeur s’affiche uniquement dans la réponse d’une requête d’agrégation.                         |
 
-## <a name="span-idsearch_analyticsspan-idsearch_analyticsspan-idsearch_analyticssearch-analytics"></a><span id="Search_Analytics"/><span id="search_analytics"/><span id="SEARCH_ANALYTICS"/>Search analytics
+## <a name="span-idsearch_analyticsspan-idsearch_analyticsspan-idsearch_analyticssearch-analytics"></a><span id="Search_Analytics"/><span id="search_analytics"/><span id="SEARCH_ANALYTICS"/>analytique de recherche
 
 > [!NOTE]  
-> CSP program membership is not required to get search analytics.
+> L’appartenance au programme CSP n’est pas requise pour recevoir des analyses de recherche.
 
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center search analytics information.  
+Le scénario suivant vous montre comment utiliser l’API Analytics pour récupérer toutes les informations analytiques de recherche de l’espace partenaires.  
 
-- [Get all search analytics information](get-all-search-analytics.md)  
+- [Récupération de toutes les informations analytiques de recherche](get-all-search-analytics.md)  
 
-This scenario returns your analytics information in a collection of [Search](#search_resource) resources. 
+Ce scénario retourne vos informations d’analyse dans une collection de ressources de [recherche](#search_resource) . 
 
 
-## <a name="span-idsearch_resourcespan-idsearch_resourcespan-idsearch_resourcesearch-resource"></a><span id="Search_Resource"/><span id="search_resource"/><span id="SEARCH_RESOURCE"/>Search resource
+## <a name="span-idsearch_resourcespan-idsearch_resourcespan-idsearch_resourcesearch-resource"></a><span id="Search_Resource"/><span id="search_resource"/><span id="SEARCH_RESOURCE"/>la ressource de recherche
 
-Represents all of the analytical data for a search.
+Représente toutes les données analytiques pour une recherche.
 
-| Propriété | Tapez | Description |  
+| Propriété | Type | Description |  
 |----------|------|-------------|  
-| companyName | chaîne | The billing company name. |
-| contactButtonClicked | Valeur booléenne | Indicates if the contact button was clicked. |
-| keywordCountry | chaîne | The country specified in the search. |
-| detailsViewed | Valeur booléenne | Indicates if search details were viewed. |
-| keywordIndustryFocus | chaîne | The industry to search within, for example, healthcare. |
-| mpnId | chaîne | The Microsoft Partner Network (MPN) ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |
-| partnerMarket | chaîne | Locale where the partner conducts business. |
-| keywordProduct | chaîne | The product specified in the search. |
-| referralSubmitted | Valeur booléenne | Indicates if a referral was submitted. |
-| searchDate | string in UTC date time format | Date when the search query occurred. |
-| keywordSearchText | chaîne | The text specified in the search. |
-| searchResultPageViews | longue | Number of times the partner came up in the search result. Part of a response only on aggregation.
-| contactClicks | longue | Number of times the contact button was clicked. Part of a response only on aggregation.
-| referralCount | longue | Number of referrals generated from the search. Part of a response only on aggregation.
-| profileViews | longue | Number of times the partner profile was viewed. Part of a response only on aggregation.
+| Prennent | chaîne | Nom de la société de facturation. |
+| contactButtonClicked | Booléen | Indique si l’utilisateur a cliqué sur le bouton contact. |
+| keywordCountry | chaîne | Pays spécifié dans la recherche. |
+| detailsViewed | Booléen | Indique si les détails de la recherche ont été affichés. |
+| keywordIndustryFocus | chaîne | Secteur dans lequel rechercher, par exemple, la santé. |
+| mpnId | chaîne | ID d’Microsoft Partner Network (MPN). Pour un revendeur direct, il s’agit de l’ID MPN du partenaire. Pour un revendeur indirect, il s’agit de l’ID MPN du revendeur indirect. |
+| partnerMarket | chaîne | Paramètres régionaux dans lesquels le partenaire entreprend une activité. |
+| keywordProduct | chaîne | Le produit spécifié dans la recherche. |
+| referralSubmitted | Booléen | Indique si une référence a été envoyée. |
+| searchDate | chaîne au format date/heure UTC | Date à laquelle la requête de recherche s’est produite. |
+| keywordSearchText | chaîne | Texte spécifié dans la recherche. |
+| searchResultPageViews | longue | Nombre de fois où le partenaire est apparu dans le résultat de la recherche. Partie d’une réponse uniquement sur l’agrégation.
+| contactClicks | longue | Nombre de clics effectués sur le bouton du contact. Partie d’une réponse uniquement sur l’agrégation.
+| referralCount | longue | Nombre de références générées à partir de la recherche. Partie d’une réponse uniquement sur l’agrégation.
+| profileViews | longue | Nombre d’affichages du profil de partenaire. Partie d’une réponse uniquement sur l’agrégation.
 
 
-## <a name="span-idreferral_analyticsspan-idreferral_analyticsspan-idreferral_analyticsreferrals-analytics"></a><span id="Referral_Analytics"/><span id="referral_analytics"/><span id="REFERRAL_ANALYTICS"/>Referrals analytics
-
-> [!NOTE]  
-> CSP program membership is not required to get referrals analytics.
-
-The following scenario shows you how to use the Analytics API to retrieve all your Partner Center referrals analytics information.  
-
-- [Get all referrals analytics information](get-all-referrals-analytics.md)  
-
-This scenario returns your analytics information in a collection of [Referrals](#referrals) resources. 
+## <a name="span-idreferral_analyticsspan-idreferral_analyticsspan-idreferral_analyticsreferrals-analytics"></a><span id="Referral_Analytics"/><span id="referral_analytics"/><span id="REFERRAL_ANALYTICS"/>analytiques de références
 
 > [!NOTE]  
-> Referrals analytics are not available to the Partner Center operated by 21Vianet. 
+> L’appartenance au programme CSP n’est pas requise pour l’analyse des références.
+
+Le scénario suivant vous montre comment utiliser l’API Analytics pour récupérer toutes les informations d’analyse des références de l’espace partenaires.  
+
+- [Obtient toutes les informations analytiques de références](get-all-referrals-analytics.md)  
+
+Ce scénario retourne vos informations d’analyse dans une collection de ressources de [références](#referrals) . 
+
+> [!NOTE]  
+> Les analyses de références ne sont pas disponibles pour l’espace partenaires géré par 21Vianet. 
 
 
-## <a name="span-idreferralsspan-idreferralsspan-idreferralsreferrals-resource"></a><span id="Referrals"/><span id="referrals"/><span id="REFERRALS"/>Referrals resource
+## <a name="span-idreferralsspan-idreferralsspan-idreferralsreferrals-resource"></a><span id="Referrals"/><span id="referrals"/><span id="REFERRALS"/>ressources de références
 
-Represents all of the analytical data for a referral.
+Représente toutes les données analytiques pour une référence.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |----------|------|-------------|
-| id | chaîne | The customer tenant identifier.  |
-| status | chaîne | Indicates if the referral led to a customer.  |
-| customerMarket | chaîne | The country/region that the customer does business in. |
-| customerName | chaîne | The name of the customer. |
-| customerOrgSize | chaîne | A range indicating the number of employees in the customer's organization. For example, "10to50employees". |
-| acceptedDate | string in UTC date time format | The date that the referral was accepted. |
-| acknowledgedDate | string in UTC date time format | The date that the referral was acknowledged. |
-| archivedDate | string in UTC date time format | The date that the referral was archived. |
-| declinedDate | string in UTC date time format | The date that the referral was declined. |
-| expiredDate | string in UTC date time format | The date that the referral expired. |
-| lostDate | string in UTC date time format | The date that the referral was lost. |
-| missedDate | string in UTC date time format | The date that the referral was missed. |
-| createdDate | string in UTC date time format | The date that the referral was created. |
-| skippedDate | string in UTC date time format | The date that the referral was skipped. |
-| wonDate | string in UTC date time format | The date that the referral was won. |
-| partnerMarket | chaîne |  The country/region that the partner does business in. |  
+| id | chaîne | Identificateur du locataire du client.  |
+| status | chaîne | Indique si la référence a abouti à un client.  |
+| customerMarket | chaîne | Pays/région dans lequel le client fait des affaires. |
+| Souhaite | chaîne | Nom du client. |
+| customerOrgSize | chaîne | Plage indiquant le nombre d’employés dans l’organisation du client. Par exemple, « 10to50employees ». |
+| acceptedDate | chaîne au format date/heure UTC | Date à laquelle la référence a été acceptée. |
+| acknowledgedDate | chaîne au format date/heure UTC | Date à laquelle la référence a été reconnue. |
+| archivedDate | chaîne au format date/heure UTC | Date à laquelle la référence a été archivée. |
+| declinedDate | chaîne au format date/heure UTC | Date à laquelle la référence a été refusée. |
+| expiredDate | chaîne au format date/heure UTC | Date à laquelle la référence a expiré. |
+| lostDate | chaîne au format date/heure UTC | Date à laquelle la référence a été perdue. |
+| missedDate | chaîne au format date/heure UTC | Date à laquelle la référence a été manquée. |
+| createdDate | chaîne au format date/heure UTC | Date à laquelle la référence a été créée. |
+| skippedDate | chaîne au format date/heure UTC | Date à laquelle la référence a été ignorée. |
+| wonDate | chaîne au format date/heure UTC | Date à laquelle la référence a été remportée. |
+| partnerMarket | chaîne |  Pays/région dans lequel le partenaire fait des affaires. |  

@@ -1,6 +1,6 @@
 ---
-title: Meter usage record resource
-description: You can use the MeterUsageRecord resource to describe the estimated monetary cost of a subscription's meter level usage in the current billing cycle.
+title: Ressource enregistrement de l’utilisation du compteur
+description: Vous pouvez utiliser la ressource MeterUsageRecord pour décrire le coût monétaire estimé de l’utilisation du niveau de mesure d’un abonnement dans le cycle de facturation actuel.
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488309"
 ---
-# <a name="meter-usage-record-resource"></a>Meter usage record resource
+# <a name="meter-usage-record-resource"></a>Ressource enregistrement de l’utilisation du compteur
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can use the **MeterUsageRecord** resource to describe the estimated monetary cost of a subscription's meter level usage in the current billing cycle.
+Vous pouvez utiliser la ressource **MeterUsageRecord** pour décrire le coût monétaire estimé de l’utilisation du niveau de mesure d’un abonnement dans le cycle de facturation actuel.
 
 ## <a name="meterusagerecord"></a>MeterUsageRecord
 
-| Propriété         | Tapez               | Description                                                                                   |
+| Propriété         | Type               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| SubscriptionId           | chaîne             | A GUID corresponding to the identifier of a Partner Center [subscription resource](subscription-resources.md#subscription), which represents a Microsoft Azure (MS-AZR-0145P) subscription or an Azure plan. For Microsoft Azure (MS-AZR-0145P) subscriptions,, this value is the commerce subscription identifier. For Azure plan subscription resources, this value is the Azure plan identifier.                  |
-| MeterId  | chaîne             | Gets or sets the meter identifier.                                                        |
-| MeterName          | chaîne             | Gets or sets the meter name.                                       |
-| Catégorie               | chaîne             | Gets or sets the Azure resource category.                                                 |
-| Sous-catégorie             | chaîne             |  Gets or sets the Azure resource sub-category.                                                     |
-| QuantityUsed        | décimal             | Gets or sets the quantity of the Azure resource used.   |
-| Unit   | chaîne             | Gets or sets the unit of measure for the Azure resource. |
-| TotalCost   | décimal             | Gets or sets the estimated total cost of usage. |
-| CurrencyLocale   | chaîne             | The locale in which the subscription was used. This property determines the currency that is used on the invoice. This property is available for Microsoft Azure (MS-AZR-0145P) subscriptions. |
-| CurrencyCode   | chaîne             | Gets or sets the currency code. This property is available for Azure plans.                                         |
-| USDTotalCost   | décimal             | Gets or sets the estimated total cost in USD. This property is available for Azure plans.                                         |
-| LastModifiedDate | chaîne             | The day (in date-time format) that this record was last modified.                             |
-| Attributs       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |                                           |
+| SubscriptionId           | chaîne             | GUID correspondant à l’identificateur d’une [ressource d’abonnement](subscription-resources.md#subscription)de l’espace partenaires, qui représente un abonnement Microsoft Azure (MS-AZR-0145P) ou un plan Azure. Pour les abonnements Microsoft Azure (MS-AZR-0145P),, cette valeur est l’identificateur d’abonnement au commerce. Pour les ressources d’abonnement du plan Azure, cette valeur correspond à l’identificateur du plan Azure.                  |
+| MeterId  | chaîne             | Obtient ou définit l’identificateur du compteur.                                                        |
+| MeterName          | chaîne             | Obtient ou définit le nom du compteur.                                       |
+| Catégorie               | chaîne             | Obtient ou définit la catégorie de ressources Azure.                                                 |
+| Sous-catégorie             | chaîne             |  Obtient ou définit la sous-catégorie de ressources Azure.                                                     |
+| QuantityUsed        | décimal             | Obtient ou définit la quantité de la ressource Azure utilisée.   |
+| Unit   | chaîne             | Obtient ou définit l’unité de mesure de la ressource Azure. |
+| PrixTotal   | décimal             | Obtient ou définit le coût total d’utilisation estimé. |
+| CurrencyLocale   | chaîne             | Paramètres régionaux dans lesquels l’abonnement a été utilisé. Cette propriété détermine la devise utilisée sur la facture. Cette propriété est disponible pour les abonnements Microsoft Azure (MS-AZR-0145P). |
+| CurrencyCode   | chaîne             | Obtient ou définit le code de la devise. Cette propriété est disponible pour les plans Azure.                                         |
+| USDTotalCost   | décimal             | Obtient ou définit le coût total estimé en USD. Cette propriété est disponible pour les plans Azure.                                         |
+| LastModifiedDate & | chaîne             | Jour (dans le format date-heure) de la dernière modification de cet enregistrement.                             |
+| Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à la ressource.                                        |                                           |

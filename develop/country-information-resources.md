@@ -1,6 +1,6 @@
 ---
-title: Country information resources
-description: Descriptive metadata for a country/region.
+title: Ressources d’informations sur le pays
+description: Métadonnées descriptives pour un pays ou une région.
 ms.assetid: 19460437-5611-49A1-A7E7-704420C1DE8F
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,65 +13,65 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488809"
 ---
-# <a name="country-information-resources"></a>Country information resources
+# <a name="country-information-resources"></a>Ressources d’informations sur le pays
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The following resources are descriptive metadata for a country/region.
+Les ressources suivantes sont des métadonnées descriptives pour un pays ou une région.
 
 ## <a name="countryinformation"></a>CountryInformation
 
-| Propriété                      | Tapez               | Description                                                                                        |
+| Propriété                      | Type               | Description                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
-| ExtensionData                 | chaîne             | The extension data.                                                                                |
-| Iso2Code                      | chaîne             | An ISO-2 code.                                                                                     |
-| Iso3Code                      | chaîne             | An ISO-3 code.                                                                                     |
-| DefaultCulture                | chaîne             | The default culture.                                                                               |
-| IsStateRequired               | booléen            | Indicates whether a state/province is required or not.                                             |
-| SupportedStatesList           | array of strings   | If a state/province is required, returns the full list for that country/region.                    |
-| SupportedLanguagesList        | array of strings   | A list of supported languages.                                                                     |
-| SupportedCulturesList         | array of strings   | A list of supported cultures.                                                                      |
-| IsPostalCodeRequired          | booléen            | Indicates whether a ZIP code or postal code is required or not.                                    |
-| PostalCodeRegex               | chaîne             | The regular expression that defines the ZIP/postal code .                                          |
-| IsCityRequired                | booléen            | Indicates whether a city is required or not.                                                       |
-| IsVatIdSupported              | booléen            | Indicates whether a VAT ID is required or not.                                                     |
-| TaxIdFormat                   | chaîne             | The tax ID format.                                                                                 |
-| TaxIdSample                   | chaîne             | The tax ID sample.                                                                                 |
-| VatIdRegex                    | chaîne             | The tax ID regular expression.                                                                     |
-| PhoneNumberRegex              | chaîne             | The phone number regular expression.                                                               |
-| IsRegistrationNumberSupported | booléen            | Indicates whether a registration number is supported or not.                                       |
-| IsTaxIdSupported              | booléen            | Indicates whether a tax ID is supported or not. Note that this is different than IsVatIdSupported. |
-| ResellerAgreementRegion       | chaîne             | The reseller agreement region.                                                                     |
-| GeographicRegion              | chaîne             | The geographic region.                                                                             |
-| CountryCallingCodesList       | array of strings   | The calling codes supported in the country/region.                                                 |
-| Attributs                    | ResourceAttributes | The metadata attributes corresponding to the CountryInformation resource.                          |
+| ExtensionData                 | chaîne             | Données d’extension.                                                                                |
+| Iso2Code                      | chaîne             | Code ISO-2.                                                                                     |
+| Iso3Code                      | chaîne             | Code ISO-3.                                                                                     |
+| DefaultCulture                | chaîne             | Culture par défaut.                                                                               |
+| IsStateRequired               | booléen            | Indique si un État/une province est requis ou non.                                             |
+| SupportedStatesList           | Tableau de chaînes   | Si un État/une province est requis, retourne la liste complète de ce pays/cette région.                    |
+| SupportedLanguagesList        | Tableau de chaînes   | Liste des langues prises en charge.                                                                     |
+| SupportedCulturesList         | Tableau de chaînes   | Liste des cultures prises en charge.                                                                      |
+| IsPostalCodeRequired          | booléen            | Indique si un code postal est requis ou non.                                    |
+| PostalCodeRegex               | chaîne             | Expression régulière qui définit le code postal.                                          |
+| IsCityRequired                | booléen            | Indique si une ville est obligatoire ou non.                                                       |
+| IsVatIdSupported              | booléen            | Indique si un ID de TVA est requis ou non.                                                     |
+| TaxIdFormat                   | chaîne             | Format de l’ID de taxe.                                                                                 |
+| TaxIdSample                   | chaîne             | Exemple d’ID de taxe.                                                                                 |
+| VatIdRegex                    | chaîne             | Expression régulière de l’ID de taxe.                                                                     |
+| PhoneNumberRegex              | chaîne             | Expression régulière de numéro de téléphone.                                                               |
+| IsRegistrationNumberSupported | booléen            | Indique si un numéro d’enregistrement est pris en charge ou non.                                       |
+| IsTaxIdSupported              | booléen            | Indique si un ID de taxe est pris en charge ou non. Notez que cela est différent de IsVatIdSupported. |
+| ResellerAgreementRegion       | chaîne             | Région du revendeur.                                                                     |
+| GeographicRegion              | chaîne             | Région géographique.                                                                             |
+| CountryCallingCodesList       | Tableau de chaînes   | Codes d’appel pris en charge dans le pays ou la région.                                                 |
+| Attributs                    | ResourceAttributes | Attributs de métadonnées correspondant à la ressource CountryInformation.                          |
 
 ## <a name="countryvalidationrules"></a>CountryValidationRules
 
-Describes the address formatting rules for a country/region.
+Décrit les règles de mise en forme des adresses pour un pays ou une région.
 
-| Propriété                | Tapez               | Description                                                                                        |
+| Propriété                | Type               | Description                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
-| Iso2Code                | chaîne             | An ISO-2 code.                                                                                     |
-| DefaultCulture          | chaîne             | The default culture.                                                                               |
-| IsStateRequired         | booléen            | Indicates whether a state/province is required or not.                                             |
-| SupportedStatesList     | array of strings   | If a state/province is required, returns the full list for that country/region.                    |
-| SupportedLanguagesList  | array of strings   | A list of supported languages.                                                                     |
-| SupportedCulturesList   | array of strings   | A list of supported cultures.                                                                      |
-| IsPostalCodeRequired    | booléen            | Indicates whether a ZIP code or postal code is required or not.                                    |
-| PostalCodeRegex         | chaîne             | The regular expression that defines the ZIP/postal code .                                          |
-| IsCityRequired          | booléen            | Indicates whether a city is required or not.                                                       |
-| IsVatIdSupported        | booléen            | Indicates whether a VAT ID is required or not.                                                     |
-| TaxIdFormat             | chaîne             | The tax ID format.                                                                                 |
-| TaxIdSample             | chaîne             | The tax ID sample.                                                                                 |
-| VatIdRegex              | chaîne             | The tax ID regular expression.                                                                     |
-| PhoneNumberRegex        | chaîne             | The phone number regular expression.                                                               |
-| IsTaxIdSupported        | booléen            | Indicates whether a tax ID is supported or not. Note that this is different than IsVatIdSupported. |
-| IsTaxIdOptional         | booléen            | Indicates whether a tax ID is optional or not.                                                     |
-| CountryCallingCodesList | array of strings   | The calling codes supported in the country/region.                                                 |
-| Attributs              | ResourceAttributes | The metadata attributes corresponding to the CountryInformation resource.                          |
+| Iso2Code                | chaîne             | Code ISO-2.                                                                                     |
+| DefaultCulture          | chaîne             | Culture par défaut.                                                                               |
+| IsStateRequired         | booléen            | Indique si un État/une province est requis ou non.                                             |
+| SupportedStatesList     | Tableau de chaînes   | Si un État/une province est requis, retourne la liste complète de ce pays/cette région.                    |
+| SupportedLanguagesList  | Tableau de chaînes   | Liste des langues prises en charge.                                                                     |
+| SupportedCulturesList   | Tableau de chaînes   | Liste des cultures prises en charge.                                                                      |
+| IsPostalCodeRequired    | booléen            | Indique si un code postal est requis ou non.                                    |
+| PostalCodeRegex         | chaîne             | Expression régulière qui définit le code postal.                                          |
+| IsCityRequired          | booléen            | Indique si une ville est obligatoire ou non.                                                       |
+| IsVatIdSupported        | booléen            | Indique si un ID de TVA est requis ou non.                                                     |
+| TaxIdFormat             | chaîne             | Format de l’ID de taxe.                                                                                 |
+| TaxIdSample             | chaîne             | Exemple d’ID de taxe.                                                                                 |
+| VatIdRegex              | chaîne             | Expression régulière de l’ID de taxe.                                                                     |
+| PhoneNumberRegex        | chaîne             | Expression régulière de numéro de téléphone.                                                               |
+| IsTaxIdSupported        | booléen            | Indique si un ID de taxe est pris en charge ou non. Notez que cela est différent de IsVatIdSupported. |
+| IsTaxIdOptional         | booléen            | Indique si un ID de taxe est facultatif ou non.                                                     |
+| CountryCallingCodesList | Tableau de chaînes   | Codes d’appel pris en charge dans le pays ou la région.                                                 |
+| Attributs              | ResourceAttributes | Attributs de métadonnées correspondant à la ressource CountryInformation.                          |

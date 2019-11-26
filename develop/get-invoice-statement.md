@@ -1,6 +1,6 @@
 ---
-title: Get invoice statement
-description: Retrieves an invoice statement using the invoice ID.
+title: Instruction d’extraction de facture
+description: Récupère une déclaration de facture à l’aide de l’ID de facture.
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489369"
 ---
-# <a name="get-invoice-statement"></a>Get invoice statement
+# <a name="get-invoice-statement"></a>Instruction d’extraction de facture
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Retrieves an invoice statement using the invoice ID.
+Récupère une déclaration de facture à l’aide de l’ID de facture.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid Invoice ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Un ID de facture valide.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get an invoice statement by ID, use your **IPartner.Invoices** collection and call the **ById()** method using the invoice ID, then call the **Documents()** and **Statement()** methods to access the invoice statement. Finally, call the **Get()** or **GetAsync()** methods.
+Pour récupérer une instruction de facture par ID, utilisez votre collection **collection ipartner. Invoices** et appelez la méthode **méthode BYID ()** à l’aide de l’ID de facture, puis appelez les méthodes **documents ()** et **Statement ()** pour accéder à l’instruction de facture. Enfin, appelez les méthodes d' **extraction ()** ou de **GetAsync ()** .
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -42,37 +42,37 @@ To get an invoice statement by ID, use your **IPartner.Invoices** collection and
 var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Documents.Statement.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoiceStatement.cs 
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: GetInvoiceStatement.cs 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/documents/statement HTTP/1.1  |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/documents/Statement http/1.1  |
 
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameter to get the invoice statement.
+Utilisez le paramètre de requête suivant pour obtenir l’instruction de facture.
 
-| Nom       | Tapez       | Obligatoire | Description                                                                                        |
+| Nom       | Type       | Obligatoire | Description                                                                                        |
 |------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| invoice-id | chaîne     | Oui      | The value is an invoice-id that allows the reseller to filter the results for a given invoice. |
+| ID de la facture | chaîne     | Oui      | La valeur est un ID de facture qui permet au revendeur de filtrer les résultats pour une facture donnée. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-Aucun(e)
+Aucune
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/<invoice-id>/documents/statement HTTP/1.1
@@ -82,16 +82,16 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
 
 
-If successful, this method returns an [InvoiceStatement](invoice-resources.md#invoicestatement) resource in the response body.
+En cas de réussite, cette méthode retourne une ressource [InvoiceStatement](invoice-resources.md#invoicestatement) dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

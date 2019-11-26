@@ -1,6 +1,6 @@
 ---
-title: Order resources
-description: A partner places an order when a customer wants to buy a subscription from a list of offers.
+title: Commander des ressources
+description: Un partenaire passe une commande lorsqu’un client souhaite acheter un abonnement à partir d’une liste d’offres.
 ms.assetid: 5CFA35FF-1C0D-461D-A942-309AFCD98395
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,112 +13,112 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488269"
 ---
-# <a name="order-resources"></a>Order resources
+# <a name="order-resources"></a>Commander des ressources
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-A partner places an order when a customer wants to buy a subscription from a list of offers.
+Un partenaire passe une commande lorsqu’un client souhaite acheter un abonnement à partir d’une liste d’offres.
 
 >[!NOTE]
->The Order resource has a rate limit of 500 requests per minute per tenant identifier.
+>La ressource de commande a une limite de débit de 500 demandes par minute et par identificateur de locataire.
 
 ## <a name="order"></a>Ordre
 
-Describes a partner's order.
+Décrit l’ordre d’un partenaire.
 
-| Propriété           | Tapez                                               | Description                                                 |
+| Propriété           | Type                                               | Description                                                 |
 |--------------------|----------------------------------------------------|-------------------------------------------------------------|
-| id                 | chaîne                                             | An order identifier that is supplied upon successful creation of the order.                                   |
-| alternateId        | chaîne                                             | A friendly identifier for the order.                                                                          |
-|referenceCustomerId | chaîne                                             | The customer identifier. |
-| billingCycle       | chaîne                                             | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). The default is "Monthly" or "OneTime" at order creation. This field is applied upon successful creation of the order. |
-| transactionType    | chaîne                                             | Read-only. The transaction type of the order. Supported values are 'UserPurchase', 'SystemPurchase', or 'SystemBilling' |
-| lineItems          | array of [OrderLineItem](#orderlineitem) resources | An itemized list of the offers the customer is purchasing including the quantity.        |
-| currencyCode       | chaîne                                             | Read-only. The currency used when placing the order. Applied upon successful creation of the order.           |
-| currencySymbol     | chaîne                                             | Read-only. The currency symbol assciated with the currency code. |
-| creationDate       | DateHeure                                           | Read-only. The date the order was created, in date-time format. Applied upon successful creation of the order.                                   |
-| status             | chaîne                                             | Read-only. The status of the order.  Supported values are the member names found in [**OrderStatus**](#orderstatus).        |
-| liens              | [OrderLinks](utility-resources.md#resourcelinks)           | The resource links corresponding to the Order.            |
-| attributs         | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the Order.       |
+| id                 | chaîne                                             | Identificateur d’ordre qui est fourni lors de la création réussie de la commande.                                   |
+| AlternateId        | chaîne                                             | Identificateur convivial pour la commande.                                                                          |
+|ReferenceCustomerId | chaîne                                             | Identificateur du client. |
+| billingCycle       | chaîne                                             | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). La valeur par défaut est « Monthly » ou « OneTime » lors de la création de la commande. Ce champ est appliqué lors de la création réussie de la commande. |
+| transactionType    | chaîne                                             | Lecture seule. Type de transaction de la commande. Les valeurs prises en charge sont « UserPurchase », « SystemPurchase » ou « SystemBilling » |
+| LineItems          | Tableau de ressources [OrderLineItem](#orderlineitem) | Liste répertoriant les offres achetées par le client, y compris la quantité.        |
+| currencyCode       | chaîne                                             | Lecture seule. Devise utilisée lors de la mise en place de la commande. Appliqué en cas de création réussie de la commande.           |
+| currencySymbol     | chaîne                                             | Lecture seule. Symbole monétaire assciated avec le code de devise. |
+| CreationDate       | DateHeure                                           | Lecture seule. Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande.                                   |
+| status             | chaîne                                             | Lecture seule. État de la commande.  Les valeurs prises en charge sont les noms des membres trouvés dans [**OrderStatus**](#orderstatus).        |
+| liens              | [OrderLinks](utility-resources.md#resourcelinks)           | Liens de ressource correspondant à la commande.            |
+| attributs         | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant à l’ordre.       |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
-An order contains an itemized list of offers, and each item is represented as an OrderLineItem.
+Une commande contient une liste d’offres, et chaque élément est représenté sous la forme d’un OrderLineItem.
 
-| Propriété             | Tapez                                      | Description                                                                                                                                                                                                                                |
+| Propriété             | Type                                      | Description                                                                                                                                                                                                                                |
 |----------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | entier                                       | Each line item in the collection gets a unique line number, counting up from 0 to count-1.                                                                                                                                                 |
-| offerId              | chaîne                                    | The ID of the offer.                                                                                                                                                                                                                       |
+| LineItemNumber       | entier                                       | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1.                                                                                                                                                 |
+| offerId              | chaîne                                    | ID de l’offre.                                                                                                                                                                                                                       |
 | subscriptionId       | chaîne                                    | L’ID de l’abonnement.                                                                                                                                                                                                                |
-| parentSubscriptionId | chaîne                                    | Facultatif. The ID of the parent subscription in an add-on offer. Applies to PATCH only.                                                                                                                                                     |
-| friendlyName         | chaîne                                    | Facultatif. The friendly name for the subscription defined by the partner to help disambiguate.                                                                                                                                              |
-| quantity             | entier                                       | The number of licenses or instances.                                                                                                                                                                                |
-| termDuration         | chaîne                                    | An ISO 8601 representation of the term's duration. The current supported values are **P1M** (1 month), **P1Y** (1 year) and **P3Y** (3 years).                               |
-| transactionType      | chaîne                                    | Read-only. The transaction type of the line item. Supported Values are 'new', 'renew', 'addQuantity', 'removeQuantity', 'cancel', 'convert', or 'customerCredit'. |
-| partnerIdOnRecord    | chaîne                                    | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. |
-| provisioningContext  | Dictionary<string, string>            | Information required for provisioning for some items in the catalog. The provisioningVariables property in a SKU indicates which properties are required for specific items in the catalog.                                                                                                                                               |
-| liens                | [OrderLineItemLinks](#orderlineitemlinks) | Read-only. The resource links corresponding to the order line item.                                                                                                                                                                                |
-| renewsTo             | Array of objects                          | An array of [RenewsTo](#renewsto) resources.                                                                            |
+| ParentSubscriptionId | chaîne                                    | Facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif.                                                                                                                                                     |
+| friendlyName         | chaîne                                    | Facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté.                                                                                                                                              |
+| quantity             | entier                                       | Nombre de licences ou d’instances.                                                                                                                                                                                |
+| termDuration         | chaîne                                    | Représentation ISO 8601 de la durée du terme. Les valeurs actuellement prises en charge sont **p1m** (1 mois), **P1Y** (1 an) et **P3Y** (3 ans).                               |
+| transactionType      | chaîne                                    | Lecture seule. Type de transaction de l’élément de ligne. Les valeurs prises en charge sont « New », « Renew », « addQuantity », « removeQuantity », « Cancel », « Convert » ou « customerCredit ». |
+| partnerIdOnRecord    | chaîne                                    | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une gestion correcte des incentives. |
+| provisioningContext  | Dictionary < String, String >            | Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue.                                                                                                                                               |
+| liens                | [OrderLineItemLinks](#orderlineitemlinks) | Lecture seule. Liens de ressource correspondant à l’élément de ligne de commande.                                                                                                                                                                                |
+| RenewsTo             | Tableau d’objets                          | Tableau de ressources [RenewsTo](#renewsto) .                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
-Represents one item contained in a order line item.
+Représente un élément contenu dans un élément de ligne de commande.
 
-| Propriété              | Tapez             | Obligatoire        | Description |
+| Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | chaîne           | non              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | chaîne           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
 
 ## <a name="orderlinks"></a>OrderLinks
 
-Represents the resource links corresponding to the order.
+Représente les liens de ressource correspondant à la commande.
 
-| Propriété           | Tapez                                         | Description                                                                   |
+| Propriété           | Type                                         | Description                                                                   |
 |--------------------|----------------------------------------------|-------------------------------------------------------------------------------|
-| provisioningStatus | [Link](utility-resources.md#Link)            | When populated, the link to retrieve provisioning status for the order.       |
-| self               | [Link](utility-resources.md#Link)            | The link to retrieve the order resource.                                      |
+| provisioningStatus | [Lien](utility-resources.md#Link)            | Une fois rempli, le lien pour récupérer l’état de provisionnement de la commande.       |
+| rythme               | [Lien](utility-resources.md#Link)            | Lien permettant de récupérer la ressource de commande.                                      |
 
 ## <a name="orderlineitemlinks"></a>OrderLineItemLinks
 
-Represents the full subscription associated with the order.
+Représente l’abonnement complet associé à la commande.
 
-| Propriété           | Tapez                                         | Description                                                                          |
+| Propriété           | Type                                         | Description                                                                          |
 |--------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| provisioningStatus | [Link](utility-resources.md#Link)            | When populated, the link to retrieve the [provisioning status](#orderlineitemprovisioningstatus) of the line item.       |
-| sku                | [Link](utility-resources.md#Link)            | The link to retrieve SKU information for the catalog item bought.                    |
-| abonnement       | [Link](utility-resources.md#Link)            | When populated, the link to the full subscription information.                       |
-| activationLinks    | [Link](utility-resources.md#Link)            | When populated, the GET resource for links to activate the subscription.             |
+| provisioningStatus | [Lien](utility-resources.md#Link)            | Une fois rempli, le lien pour récupérer l' [État de provisionnement](#orderlineitemprovisioningstatus) de l’élément de ligne.       |
+| paire                | [Lien](utility-resources.md#Link)            | Lien permettant de récupérer les informations de référence SKU pour l’élément de catalogue acheté.                    |
+| abonnement       | [Lien](utility-resources.md#Link)            | Une fois rempli, le lien vers les informations d’abonnement complètes.                       |
+| activationLinks    | [Lien](utility-resources.md#Link)            | Une fois rempli, obtient la ressource pour les liens permettant d’activer l’abonnement.             |
 
 ## <a name="orderstatus"></a>OrderStatus
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate the state of the order.
+[Enum](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent l’état de la commande.
 
 | Valeur              | Position     | Description                                     |
 |--------------------|--------------|-------------------------------------------------|
-| unknown            | 0            | Enum initializer.                               |
-| completed          | 1            | Indicates that the order is completed.          |
-| pending            | 2            | Indicates that the order is still pending.      |
-| cancelled          | 3            | Indicates that the order has been cancelled.    |
+| unknown            | 0            | Initialiseur Enum.                               |
+| Procédé          | 1            | Indique que la commande est terminée.          |
+| instance            | 2            | Indique que la commande est toujours en attente.      |
+| Rayé          | 3            | Indique que la commande a été annulée.    |
 
 ## <a name="orderlineitemprovisioningstatus"></a>OrderLineItemProvisioningStatus
 
-Represents the provisioning status of an [OrderLineItem](#orderlineitem).
+Représente l’état d’approvisionnement d’un [OrderLineItem](#orderlineitem).
 
-| Propriété                        | Tapez                                | Description                                                                                |
+| Propriété                        | Type                                | Description                                                                                |
 |------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------|
-| lineItemNumber                  | entier                                 | The unique line number of the order line item. Values range from 0 to count-1.             |
-| status                          | chaîne                              | The provisioning status of the order line item. Values include:</br>"Fulfilled": Fulfillment of the order is successfully completed and the user will be able to use the reservations</br>"Unfulfilled": Not fulfilled due to cancellation</br>"PrefulfillmentPending": Your request is still processing, fulfillment is not yet complete |
-| quantityProvisioningInformation | List<[QuantityProvisioningStatus](#quantityprovisioningstatus)> | A list of quantity provisioning status information for the order line item. |
+| LineItemNumber                  | entier                                 | Numéro de ligne unique de l’élément de ligne de commande. Les valeurs sont comprises entre 0 et Count-1.             |
+| status                          | chaîne                              | État de configuration de l’élément de ligne de commande. Les valeurs sont les suivantes :</br>« Respecté » : l’exécution de la commande est terminée avec succès et l’utilisateur peut utiliser les réservations</br>« Non rempli » : non respecté en raison de l’annulation</br>« PrefulfillmentPending » : votre demande est toujours en cours de traitement, le traitement n’est pas encore terminé |
+| quantityProvisioningInformation | Répertorier <[QuantityProvisioningStatus](#quantityprovisioningstatus)> | Liste des informations d’état de la configuration de la quantité pour l’élément de ligne de commande. |
 
 ## <a name="quantityprovisioningstatus"></a>QuantityProvisioningStatus
 
-Represents the provisioning status by quantity.
+Représente l’état d’approvisionnement par quantité.
 
-| Propriété                           | Tapez                                         | Description                                          |
+| Propriété                           | Type                                         | Description                                          |
 |------------------------------------|----------------------------------------------|------------------------------------------------------|
-| quantity                           | entier                                          | The number of items.                                 |
-| status                             | chaîne                                       | The status of the number of items.                   |
+| quantity                           | entier                                          | Nombre d’éléments.                                 |
+| status                             | chaîne                                       | État du nombre d’éléments.                   |

@@ -1,6 +1,6 @@
 ---
-title: Console test app
-description: This console test app provides sample code for all scenarios supported by the Partner Center APIs. You can also use it for testing.
+title: Application de test de la console
+description: Cette application de test de console fournit un exemple de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,100 +13,100 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488919"
 ---
-# <a name="console-test-app"></a>Console test app
+# <a name="console-test-app"></a>Application de test de la console
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The console test app is provided in C# and Java, it provides sample codes for all of the scenarios supported by the Partner Center APIs. You can also use it for testing.
+L’application de test console est fournie C# dans et Java, elle fournit des exemples de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
 
 ## <a name="get-the-code"></a>Obtenir le code
 
-Download the sample code for the console test app.
+Téléchargez l’exemple de code pour l’application de test de la console.
 
 ## <a name="net"></a>.NET
 
-[Download the sample code](http://go.microsoft.com/fwlink/p/?LinkId=746682) and modify it as necessary.
+[Téléchargez l’exemple de code](http://go.microsoft.com/fwlink/p/?LinkId=746682) et modifiez-le si nécessaire.
 
 > [!IMPORTANT]
-> Before you build the application, update the values in the *App.config* file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). Specifically, you should use your integration sandbox account settings during early development or for testing in production.
+> Avant de générer l’application, mettez à jour les valeurs dans le fichier *app. config* afin de refléter les informations d’authentification Azure ad que vous avez créées dans l’authentification de l' [espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
 
-Under **ScenarioSettings** in the *App.config* file, you can set parameters that will be automatically passed into the scenarios that you run.
+Sous **ScenarioSettings** dans le fichier *app. config* , vous pouvez définir les paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
 
-To modify the list of scenarios that are run, comment out lines in **IPartnerScenario\[\] mainScenarios** or in an individual **Get Scenarios** method found in the *Program.cs* file.
+Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes dans **IPartnerScenario\[\] mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program.cs* .
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-[Download the sample code](http://go.microsoft.com/fwlink/p/?LinkId=2026887) and modify it as necessary.
+[Téléchargez l’exemple de code](http://go.microsoft.com/fwlink/p/?LinkId=2026887) et modifiez-le si nécessaire.
 
 > [!IMPORTANT]
-> Before you build the application, update the values in the *SamplesConfigurations.json* file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). Specifically, you should use your integration sandbox account settings during early development or for testing in production.
+> Avant de générer l’application, mettez à jour les valeurs du fichier *SamplesConfigurations. JSON* pour refléter les informations d’authentification Azure ad que vous avez créées dans [l’authentification de l’espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
 
-Under **ScenarioSettings** in the *SamplesConfiguration.json* file, you can set parameters that will be automatically passed into the scenarios that you run.
+Sous **ScenarioSettings** dans le fichier *SamplesConfiguration. JSON* , vous pouvez définir les paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
 
-To modify the list of scenarios that are run, comment out lines in **IPartnerScenario\[\] mainScenarios** or in an individual **Get Scenarios** method found in the *Program.java* file.
+Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes dans **IPartnerScenario\[\] mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program. Java* .
 
-## <a name="what-to-change"></a>What to change
+## <a name="what-to-change"></a>Éléments à modifier
 
-Use the following lists to determine what to change or not change in the sample code.
+Utilisez les listes suivantes pour déterminer les éléments à modifier ou à ne pas modifier dans l’exemple de code.
 
 ### <a name="partnerservicesettings"></a>PartnerServiceSettings
 
-For **PartnerServiceSettings**, don't change:
+Pour **PartnerServiceSettings**, ne modifiez pas les éléments suivants :
 
 - **PartnerServiceApiEndpoint**
 - **AuthenticationAuthorityEndpoint**
 - **GraphEndpoint**
 - **CommonDomain**
 
-All of these settings are necessary for the sample API calls to properly function.
+Tous ces paramètres sont nécessaires pour que les exemples d’appels d’API fonctionnent correctement.
 
 ### <a name="userauthentication"></a>UserAuthentication
 
-For **UserAuthentication**, you're required to change:
+Pour **UserAuthentication**, vous devez modifier :
 
-- **ApplicationId** (your Azure Active Directory application ID used for login)
-- **UserName** (your active directory username)
-- **Password** (your active directory password).
+- **ApplicationID** (votre ID d’application Azure Active Directory utilisé pour la connexion)
+- **Nom d’utilisateur** (votre nom d’utilisateur Active Directory)
+- **Mot** de passe (votre mot de passe Active Directory).
 
-Don't change:
+Ne pas modifier :
 
-- **ResourceUrl**
+- **Resourceurl n'**
 - **RedirectUrl**
 
 ### <a name="appauthentication"></a>AppAuthentication
 
-For **AppAuthentication**, you're required to change:
+Pour **AppAuthentication**, vous devez modifier :
 
-- **ApplicationId** (your active directory application ID used for application login)
-- **ApplicationSecret** (your active directory application secret used for application login)
-- **Domain** (your active directory domain on which the application is hosted)
+- **ApplicationID** (votre ID d’application Active Directory utilisé pour la connexion de l’application)
+- **Applicationsecret :** (votre secret d’application Active Directory utilisé pour la connexion de l’application)
+- **Domaine** (votre domaine Active Directory sur lequel l’application est hébergée)
 
 ### <a name="scenariosettings"></a>ScenarioSettings
 
-For **ScenarioSettings**, don't change:
+Pour **ScenarioSettings**, ne modifiez pas les éléments suivants :
 
-- **CustomerDomainSuffix** (the domain suffix used when creating a new customer)
+- **CustomerDomainSuffix** (le suffixe de domaine utilisé lors de la création d’un client)
 
-Optional settings. If left blank, this information will need to be inputted when running a scenario where necessary):
+Paramètres facultatifs. Si le champ n’est pas renseigné, ces informations doivent être entrées lors de l’exécution d’un scénario, le cas échéant) :
 
-- **CustomerIdToDelete** (the ID of the customer used for deletion)
-- **DefaultCustomerId** (the customer ID to use in customer-related scenarios)
-- **DefaultInvoiceID** (the invoice ID to use in invoice scenarios)
-- **PartnerMpnId** (the partner MPN ID to use in indirect partner scenarios)
-- **DefaultServiceRequestId** (the service request ID to use in service request scenarios)
-- **DefaultSupportTopicID** (the support topic ID to use in service request scenarios)
-- **DefaultOfferID** (the offer ID to use in offer scenarios)
-- **DefaultOrderID** (the order ID to use in order scenarios)
-- **DefaultSubscriptionID** (the subscription ID to use in subscription scenarios)
+- **CustomerIdToDelete** (ID du client utilisé pour la suppression)
+- **DefaultCustomerId** (ID client à utiliser dans les scénarios liés aux clients)
+- **DefaultInvoiceID** (ID de facture à utiliser dans les scénarios de facture)
+- **PartnerMpnId** (ID MPN du partenaire à utiliser dans les scénarios de partenaires indirects)
+- **DefaultServiceRequestId** (ID de demande de service à utiliser dans les scénarios de demande de service)
+- **DefaultSupportTopicID** (ID de la rubrique de support à utiliser dans les scénarios de demande de service)
+- **DefaultOfferID** (ID d’offre à utiliser dans les scénarios d’offre)
+- **DefaultOrderID** (ID de commande à utiliser dans les scénarios d’ordre)
+- **DefaultSubscriptionID** (ID d’abonnement à utiliser dans les scénarios d’abonnement)
 
-Optional to change. All of these settings specify the amount of entries per page when retrieving paged content:
+Modification facultative. Tous ces paramètres spécifient la quantité d’entrées par page lors de la récupération du contenu paginé :
 
 - **CustomerPageSize**
 - **InvoicePageSize**

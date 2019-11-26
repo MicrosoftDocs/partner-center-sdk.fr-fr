@@ -1,6 +1,6 @@
 ---
-title: Get invoice estimate links
-description: You can get a collection of estimate links to query reconciliation line item details.
+title: Obtenir des liens d’estimation de facture
+description: Vous pouvez obtenir une collection de liens d’estimation pour demander des détails sur les éléments de la ligne de rapprochement.
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -13,25 +13,25 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490289"
 ---
-# <a name="get-invoice-estimate-links"></a>Get invoice estimate links
+# <a name="get-invoice-estimate-links"></a>Obtenir des liens d’estimation de facture
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can get estimate links to help query details for unbilled reconciliation line items.
+Vous pouvez obtenir des liens d’estimation pour vous aider à interroger les détails des éléments de ligne de rapprochement non facturés.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An invoice identifier. This identifies the invoice for which to retrieve the line items.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-The following example code shows how you can get the estimate links to query unbilled line items for a given currency. The response contains the estimate links for each period (for example, the current and previous month).
+L’exemple de code suivant montre comment obtenir les liens d’estimation pour interroger des Articles de ligne non facturés pour une devise donnée. La réponse contient les liens d’estimation pour chaque période (par exemple, le mois actuel et le mois précédent).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,33 +44,33 @@ The following example code shows how you can get the estimate links to query unb
 var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(curencyCode).Get();  
 ```
 
-For a similar example, see the following:
+Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetEstimatesLinks.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
+- Classe : **GetEstimatesLinks.cs**
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/Estimates/Links ? CurrencyCode = {CURRENCYCODE} http/1.1 |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following URI and query parameter when creating the request.
+Utilisez l’URI et le paramètre de requête suivants lors de la création de la demande.
 
-| Nom                   | Tapez   | Obligatoire | Description                                                       |
+| Nom                   | Type   | Obligatoire | Description                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| currencyCode           | chaîne | Oui      | The currency code for the unbilled line items.                    |
+| currencyCode           | chaîne | Oui      | Code de la devise pour les éléments de ligne non facturés.                    |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -89,13 +89,13 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response contains the links to retrieve unbilled estimates.
+En cas de réussite, la réponse contient les liens permettant de récupérer les estimations non facturées.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

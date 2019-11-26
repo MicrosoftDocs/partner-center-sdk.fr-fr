@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST resources
-description: This section provides definitions for the JSON elements needed to create requests and parse responses using the Partner Center REST API.
+title: Ressources REST de l’espace partenaires
+description: Cette section fournit des définitions pour les éléments JSON nécessaires à la création de requêtes et à l’analyse des réponses à l’aide de l’API REST de l’espace partenaires.
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
@@ -13,19 +13,19 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486819"
 ---
-# <a name="partner-center-rest-resources"></a>Partner Center REST resources
+# <a name="partner-center-rest-resources"></a>Ressources REST de l’espace partenaires
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This section provides definitions for the JSON elements needed to create requests and parse responses using the Partner Center REST API. For more information about how to use these elements, including sample code, see the [Scenarios](scenarios.md) section and the [Partner Center samples](partner-center-samples.md) section.
+Cette section fournit des définitions pour les éléments JSON nécessaires à la création de requêtes et à l’analyse des réponses à l’aide de l’API REST de l’espace partenaires. Pour plus d’informations sur l’utilisation de ces éléments, y compris des exemples de code, consultez la section [scénarios](scenarios.md) et la section Exemples de l' [espace partenaires](partner-center-samples.md) .
 
-## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a><span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>In this section
+## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a><span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>dans cette section
 
 
 <table>
@@ -44,13 +44,13 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="auditing-resources.md">Auditing</a></td>
+<td><a href="auditing-resources.md">Audit</a></td>
 <td><ul>
 <li>AuditRecord</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="azure-rate-card-resources.md">Azure Rate Card</a></td>
+<td><a href="azure-rate-card-resources.md">Carte de tarifs Azure</a></td>
 <td><ul>
 <li>AzureRateCard</li>
 <li>AzureMeter</li>
@@ -58,7 +58,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="azure-utilization-record-resources.md">Azure Utilization Record</a></td>
+<td><a href="azure-utilization-record-resources.md">Enregistrement d’utilisation Azure</a></td>
 <td><ul>
 <li>AzureUtilizationRecord</li>
 <li>AzureResource</li>
@@ -66,9 +66,9 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="cart-resources.md">Cart</a></td>
+<td><a href="cart-resources.md">Caddie</a></td>
 <td><ul>
-<li>Cart</li>
+<li>Caddie</li>
 <li>CartLineItem</li>
 <li>CartError</li>
 </ul></td>
@@ -89,7 +89,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">Customer</a></td>
+<td><a href="customer-resources.md">Assistance</a></td>
 <td><ul>
 <li>Client</li>
 <li>CustomerCompanyProfile</li>
@@ -98,7 +98,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="customer-usage-resources.md">Customer Usage Budgeting</a></td>
+<td><a href="customer-usage-resources.md">Budgétisation de l’utilisation du client</a></td>
 <td><ul>
 <li>CustomerMonthlyUsageRecord</li>
 <li>CustomerUsageSummary</li>
@@ -107,22 +107,22 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="entitlement-resources.md">Entitlement</a></td>
+<td><a href="entitlement-resources.md">Droit</a></td>
 <td><ul>
-<li>Entitlement</li>
+<li>Droit</li>
 <li>ReferenceOrder</li>
-<li>EntitlementType</li>
+<li>entitlementType</li>
 <li>Artefact</li>
-<li>ArtifactType</li>
+<li>artifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
 <li>VirtualMachineReservedInstanceArtifactDetails</li>
 <li>VirtualMachineReservation</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="invoice-resources.md">Invoice</a></td>
+<td><a href="invoice-resources.md">Facture</a></td>
 <td><ul>
-<li>Invoice</li>
+<li>Facture</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
@@ -134,7 +134,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="license-resources.md">License</a></td>
+<td><a href="license-resources.md">Licence</a></td>
 <td><ul>
 <li>Licence</li>
 <li>LicenseUpdate</li>
@@ -155,14 +155,14 @@ This section provides definitions for the JSON elements needed to create request
 <tr class="even">
 <td><a href="offer-resources.md">Offre</a></td>
 <td><ul>
-<li>Proposer</li>
+<li>Offre</li>
 <li>OfferCategory</li>
 <li>OfferLinks</li>
 <li>OfferProduct</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="order-resources.md">Order</a></td>
+<td><a href="order-resources.md">Ordre</a></td>
 <td><ul>
 <li>Ordre</li>
 <li>OrderLineItem</li>
@@ -172,7 +172,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="profile-resources.md">Profile</a></td>
+<td><a href="profile-resources.md">Profil</a></td>
 <td><ul>
 <li>BillingProfile</li>
 <li>LegalBusinessProfile</li>
@@ -182,12 +182,12 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="product-resources.md">Products</a></td>
+<td><a href="product-resources.md">Produits</a></td>
 <td><ul>
 <li>Produit</li>
 <li>ItemType</li>
 <li>ProductLinks</li>
-<li>Sku</li>
+<li>Paire</li>
 <li>Disponibilité</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
@@ -196,7 +196,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="relationships-resources.md">Relationships</a></td>
+<td><a href="relationships-resources.md">Relations</a></td>
 <td><ul>
 <li>PartnerRelationship</li>
 <li>RelationshipRequest</li>
@@ -221,7 +221,7 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="subscription-resources.md">Subscription</a></td>
+<td><a href="subscription-resources.md">Récurrent</a></td>
 <td><ul>
 <li>Abonnement</li>
 <li>SubscriptionLinks</li>
@@ -232,24 +232,24 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="subscription-usage-resources.md">Subscription Usage</a></td>
+<td><a href="subscription-usage-resources.md">Utilisation de l’abonnement</a></td>
 <td><ul>
-<li>SubscriptionDailyUsageRecord <em>(Obsolete)</em></li>
+<li>SubscriptionDailyUsageRecord <em>(obsolète)</em></li>
 <li>SubscriptionMonthlyUsageRecord</li>
 <li>SubscriptionUsageSummary</li>
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="upgrade-resources.md">Upgrade</a></td>
+<td><a href="upgrade-resources.md">Installation</a></td>
 <td><ul>
-<li>Mise à jour</li>
+<li>Mettre à niveau/Mise à niveau</li>
 <li>UpgradeError</li>
 <li>UpgradeResult</li>
 <li>UserLicenseError</li>
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="user-resources.md">utilisateur</a></td>
+<td><a href="user-resources.md">Utilisateur</a></td>
 <td><ul>
 <li>Utilisateur</li>
 <li>CustomerUser</li>
@@ -258,13 +258,13 @@ This section provides definitions for the JSON elements needed to create request
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="utility-resources.md">Utility Resources</a></td>
+<td><a href="utility-resources.md">Ressources de l’utilitaire</a></td>
 <td><ul>
 <li>Address</li>
 <li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>
-<li>Lier</li>
+<li>Lien</li>
 <li>PasswordProfile</li>
 <li>ResourceLinks</li>
 <li>ResourceAttributes</li>

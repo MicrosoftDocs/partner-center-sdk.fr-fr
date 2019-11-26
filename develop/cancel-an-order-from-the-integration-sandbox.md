@@ -1,6 +1,6 @@
 ---
-title: Cancel an order from the integration sandbox
-description: Cancel orders from integration sandbox accounts.
+title: Annuler une commande à partir du bac à sable (sandbox) d’intégration
+description: Annulez les commandes des comptes du bac à sable (sandbox) d’intégration.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,32 +12,32 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489089"
 ---
-# <a name="cancel-an-order-from-the-integration-sandbox"></a>Cancel an order from the integration sandbox
+# <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande à partir du bac à sable (sandbox) d’intégration
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to cancel reserved instance, software, and commercial marketplace Software as a Service (SaaS) subscription orders from integration sandbox accounts.
+Procédure d’annulation des commandes d’abonnement de l’instance réservée, du logiciel et du marché commercial en tant que service (SaaS) à partir des comptes sandbox d’intégration.
 
 >[!NOTE]
->Please be aware that cancelling of reserved instance, software, or commercial marketplace SaaS subscription orders are only possible from integration sandbox accounts. To cancel production orders please contact Partner Center support.
+>N’oubliez pas que l’annulation des commandes d’abonnement de l’instance réservée, du logiciel ou du marché commercial SaaS n’est possible qu’à partir des comptes sandbox d’intégration. Pour annuler des ordres de fabrication, contactez le support de l’espace partenaires.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An integration sandbox partner account with a customer having active reserved instance / software / 3rd party SaaS subscription orders.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Un compte de partenaire du bac à sable (sandbox) d’intégration avec un client avec une instance réservée active ou des commandes d’abonnement SaaS tierces.
 
 ## <a name="c"></a>C#
 
-To cancel an order from the integration sandbox, pass your account credentials to the [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) method to get an [**IPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) interface to get partner operations.
+Pour annuler une commande du bac à sable (sandbox) d’intégration, transmettez vos informations d’identification de compte à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’effectuer des opérations de partenaire.
 
-To select a particular [Order](order-resources.md#order) use the partner operations and call [**Customers.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to specify the customer, followed by **Orders.ById()** with order identifier to specify the order and finally **Get** or **GetAsync** method to retrieve it.
+Pour sélectionner un [ordre](order-resources.md#order) particulier, utilisez la méthode Partner Operations et appelez [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order pour spécifier l’ordre **et finaliser** la méthode ou la méthode **GetAsync** pour le récupérer.
 
-Set the [**Order.Status**](order-resources.md#order) property to "cancelled" and use the **Patch()** method to update the order.
+Définissez la propriété [**Order. Status**](order-resources.md#order) sur « Cancelled » et utilisez la méthode **patch ()** pour mettre à jour la commande.
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -53,26 +53,26 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to delete a customer.
+Utilisez le paramètre de requête suivant pour supprimer un client.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **order-id** | **string** | Y        | The value is a string denoting the order id which need to be cancelled. |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui dénote l’ID d’ordre qui doit être annulé. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -92,13 +92,13 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns the cancelled order.
+En cas de réussite, cette méthode retourne l’ordre annulé.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

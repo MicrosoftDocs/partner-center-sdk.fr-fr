@@ -1,6 +1,6 @@
 ---
-title: Get a SKU by ID
-description: Gets a SKU for the specified product using the specified SKU ID.
+title: Obtenir une référence (SKU) par ID
+description: Obtient une référence (SKU) pour le produit spécifié à l’aide de l’ID de référence SKU spécifié.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
@@ -13,27 +13,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486129"
 ---
-# <a name="get-a-sku-by-id"></a>Get a SKU by ID
+# <a name="get-a-sku-by-id"></a>Obtenir une référence (SKU) par ID
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Gets a SKU for the specified product using the specified SKU ID.
+Obtient une référence (SKU) pour le produit spécifié à l’aide de l’ID de référence SKU spécifié.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product ID. 
-- A SKU ID. 
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID de produit. 
+- ID DE RÉFÉRENCE (SKU). 
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get the details of a specific SKU, start by following the steps in [Get a product by ID](get-a-product-by-id.md) to get the interface for a specific product's operations. From the resulting interface, select the **Skus** property to obtain an interface with the available operations for SKUs. Pass the SKU ID to the **ById()** method, and call **Get()** or **GetAsync()** to retrieve the SKU details.
+Pour obtenir les détails d’une référence (SKU) spécifique, commencez par suivre les étapes de la section [obtenir un produit par ID](get-a-product-by-id.md) pour obtenir l’interface pour les opérations d’un produit spécifique. Dans l’interface obtenue, sélectionnez la propriété **SKU** pour obtenir une interface avec les opérations disponibles pour les références (SKU). Transmettez l’ID de référence (SKU) à la méthode **méthode BYID ()** et appelez la méthode **obtenir ()** ou **GetAsync ()** pour récupérer les détails de la référence SKU.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -45,38 +45,38 @@ string skuId;
 var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus.ById(skuId).Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}?country={country-code} HTTP/1.1   |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs/{SKU-ID} ? pays = {country-code} http/1.1   |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following path and query parameters to get a SKU for the specified product using the specified SKU ID.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir une référence (SKU) pour le produit spécifié à l’aide de l’ID de référence SKU spécifié.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                     |
+| Nom                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | chaîne   | Oui      | A string that identifies the product.                           |
-| sku-id                 | chaîne   | Oui      | A string that identifies the SKU.                               |
-| country-code           | chaîne   | Oui      | A country/region ID.                                            |
+| ID de produit             | chaîne   | Oui      | Chaîne qui identifie le produit.                           |
+| Réf. SKU                 | chaîne   | Oui      | Chaîne qui identifie la référence (SKU).                               |
+| pays-code           | chaîne   | Oui      | ID de pays/région.                                            |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3V/skus/00G1?country=US HTTP/1.1
@@ -90,24 +90,24 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, the response body contains a [SKU](product-resources.md#sku) resource.
+En cas de réussite, le corps de la réponse contient une ressource de [référence (SKU](product-resources.md#sku) ).
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Product was not found.                                                                                    |
-| 404                  | 400018       | Sku was not found.                                                                                        |
+| 404                  | 400013       | Le produit est introuvable.                                                                                    |
+| 404                  | 400018       | Référence (SKU) introuvable.                                                                                        |
 
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Upgrade resources
-description: Describes the resources used to upgrade a user from a source subscription to a target subscription.
+title: Mettre à niveau les ressources
+description: Décrit les ressources utilisées pour mettre à niveau un utilisateur à partir d’un abonnement source vers un abonnement cible.
 ms.assetid: 869007B3-D6D4-4E79-B4F0-445CA5D88D2C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,76 +13,76 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486279"
 ---
-# <a name="upgrade-resources"></a>Upgrade resources
+# <a name="upgrade-resources"></a>Mettre à niveau les ressources
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Describes the resources used to upgrade a user from a source subscription to a target subscription.
+Décrit les ressources utilisées pour mettre à niveau un utilisateur à partir d’un abonnement source vers un abonnement cible.
 
-## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a><span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>Upgrade
+## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a>Mise à niveau de <span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>
 
 
-Describes the behavior of an individual upgrade resource.
+Décrit le comportement d’une ressource de mise à niveau individuelle.
 
-| Propriété      | Tapez                   | Description                                                                                  |
+| Propriété      | Type                   | Description                                                                                  |
 |---------------|------------------------|----------------------------------------------------------------------------------------------|
-| TargetOffer   | Proposer                  | The offer of the target subscription.                                                        |
-| UpgradeType   | chaîne                 | The type of upgrade: "none", "upgrade\_only", or "upgrade\_with\_license\_transfer".         |
-| IsEligible    | booléen                | Identifies if the upgrade can be performed.                                                  |
-| Quantité      | Entier                | The quantify of the new offer to be purchased. Defaults to the source subscription quantity. |
-| UpgradeErrors | array of UpgradeErrors | Reasons the upgrade cannot be performed, if applicable.                                      |
-| Attributs    | ResourceAttributes     | The metadata attributes corresponding to the upgrade.                                        |
+| TargetOffer   | Offre                  | L’offre de l’abonnement cible.                                                        |
+| UpgradeType   | chaîne                 | Le type de mise à niveau : « None », « Upgrade\_Only » ou « Upgrade\_with\_License\_Transfer ».         |
+| isEligible    | booléen                | Indique si la mise à niveau peut être effectuée.                                                  |
+| Quantité      | Entier                | Quantification de la nouvelle offre à acheter. La valeur par défaut est la quantité de l’abonnement source. |
+| UpgradeErrors | Tableau de UpgradeErrors | Raisons pour lesquelles la mise à niveau ne peut pas être effectuée, le cas échéant.                                      |
+| Attributs    | ResourceAttributes     | Attributs de métadonnées correspondant à la mise à niveau.                                        |
 
  
 
 ## <a name="span-idupgradeerrorspan-idupgradeerrorspan-idupgradeerrorupgradeerror"></a><span id="UpgradeError"/><span id="upgradeerror"/><span id="UPGRADEERROR"/>UpgradeError
 
 
-Describes a reason why an upgrade cannot be performed.
+Décrit une raison pour laquelle une mise à niveau ne peut pas être effectuée.
 
-| Propriété          | Tapez               | Description                                                                                                                                                                                                                                                                                                                                                                                     |
+| Propriété          | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Code              | chaîne             | The error code associated with the issue: "other", "delegated\_admin\_permissions\_disabled", "subscription\_status\_not\_active", "conflicting\_service\_types", "concurrency\_conflicts", "user\_context\_required", "subscription\_add\_ons\_present", "subscription\_does\_not\_have\_any\_upgrade\_paths", "subscription\_target\_offer\_not\_found", or "subscription\_not\_provisioned". |
-| Description       | chaîne             | Friendly text describing the error.                                                                                                                                                                                                                                                                                                                                                             |
-| AdditionalDetails | chaîne             | Additional details regarding the error.                                                                                                                                                                                                                                                                                                                                                         |
-| Attributs        | ResourceAttributes | The metadata attributes corresponding to the error.                                                                                                                                                                                                                                                                                                                                             |
+| Code              | chaîne             | Code d’erreur associé au problème : « autre « », « délégué\_autorisations de\_administrateur\_désactivé », « état de\_d’abonnement\_pas de\_actif », « types de\_de service\_en conflit », « conflits de\_d’accès concurrentiel », «\_de contexte utilisateur\_requis », « abonnement\_ajouter des\_des\_de mise à niveau » , « abonnement\_\_cible de l’offre\_pas\_trouvé », ou « abonnement\_pas configuré ».\_\_\_\_\_\_\_ |
+| Description       | chaîne             | Texte convivial décrivant l’erreur.                                                                                                                                                                                                                                                                                                                                                             |
+| AdditionalDetails | chaîne             | Détails supplémentaires concernant l’erreur.                                                                                                                                                                                                                                                                                                                                                         |
+| Attributs        | ResourceAttributes | Attributs de métadonnées correspondant à l’erreur.                                                                                                                                                                                                                                                                                                                                             |
 
  
 
 ## <a name="span-idupgraderesultspan-idupgraderesultspan-idupgraderesultupgraderesult"></a><span id="UpgradeResult"/><span id="upgraderesult"/><span id="UPGRADERESULT"/>UpgradeResult
 
 
-Describes a the result of the subscription upgrade process.
+Décrit le résultat du processus de mise à niveau d’abonnement.
 
-| Propriété             | Tapez                        | Description                                                                          |
+| Propriété             | Type                        | Description                                                                          |
 |----------------------|-----------------------------|--------------------------------------------------------------------------------------|
-| SourceSubscriptionId | chaîne                      | The identifier of the source subscription.                                           |
-| TargetSubscriptionID | chaîne                      | The identifier of the target subscription.                                           |
-| UpgradeType          | chaîne                      | The type of upgrade: "none", "upgrade\_only", or "upgrade\_with\_license\_transfer". |
-| UpgradeErrors        | array of UpgradeErrors      | Errors encountered while attemption to perform the upgrade, if applicable.           |
-| LicenseErrors        | array of UserLicenseErrrors | Errors encountered while attempted to migrate user licenses, if applicable.          |
-| Attributs           | ResourceAttributes          | The metadata attributes corresponding to the license.                                |
+| SourceSubscriptionId | chaîne                      | Identificateur de l’abonnement source.                                           |
+| TargetSubscriptionID | chaîne                      | Identificateur de l’abonnement cible.                                           |
+| UpgradeType          | chaîne                      | Le type de mise à niveau : « None », « Upgrade\_Only » ou « Upgrade\_with\_License\_Transfer ». |
+| UpgradeErrors        | Tableau de UpgradeErrors      | Des erreurs se sont produites lors de la tentative d’exécution de la mise à niveau, le cas échéant.           |
+| LicenseErrors        | Tableau de UserLicenseErrrors | Des erreurs se sont produites lors de la tentative de migration des licences utilisateur, le cas échéant.          |
+| Attributs           | ResourceAttributes          | Attributs de métadonnées correspondant à la licence.                                |
 
  
 
 ## <a name="span-iduserlicenseerrorspan-iduserlicenseerrorspan-iduserlicenseerroruserlicenseerror"></a><span id="UserLicenseError"/><span id="userlicenseerror"/><span id="USERLICENSEERROR"/>UserLicenseError
 
 
-Describes errors arising from failed user license transfer.
+Décrit les erreurs dues à un échec de transfert de licence utilisateur.
 
-| Propriété     | Tapez                   | Description                                                               |
+| Propriété     | Type                   | Description                                                               |
 |--------------|------------------------|---------------------------------------------------------------------------|
-| UserObjectId | chaîne                 | The unique identified of the user object.                                 |
+| UserObjectId | chaîne                 | Unique identifié de l’objet utilisateur.                                 |
 | Nom         | chaîne                 | Le nom de l'utilisateur.                                                     |
-| E-mail        | chaîne                 | The email of the user.                                                    |
-| Erreurs       | array of ServiceFaults | A list of exceptions thrown when trying to perform user license transfer. |
-| Attributs   | ResourceAttributes     | The metadata attributes corresponding to the license.                     |
+| E-mail        | chaîne                 | Adresse de messagerie de l’utilisateur.                                                    |
+| Erreurs       | Tableau de ServiceFaults | Liste des exceptions levées lors de la tentative de transfert de la licence utilisateur. |
+| Attributs   | ResourceAttributes     | Attributs de métadonnées correspondant à la licence.                     |
 
  
 

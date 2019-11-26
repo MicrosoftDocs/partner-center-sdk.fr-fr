@@ -1,6 +1,6 @@
 ---
-title: Get confirmation of customer acceptance of Microsoft Customer Agreement
-description: This topic explains how to get confirmation of customer acceptance of the Microsoft Customer Agreement.
+title: Recevez une confirmation de l’acceptation par le client du contrat client Microsoft
+description: Cette rubrique explique comment demander la confirmation de l’acceptation du client par le contrat de client Microsoft.
 ms.date: 09/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,33 +12,33 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486589"
 ---
-# <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Get confirmation of customer acceptance of Microsoft Customer Agreement
+# <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Recevez une confirmation de l’acceptation par le client du contrat client Microsoft
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-The **Agreement** resource is currently supported by Partner Center only in the *Microsoft public cloud*. This resource doesn't apply to:
+La ressource d' **accord** est actuellement prise en charge par l’espace partenaires uniquement dans le *cloud public Microsoft*. Cette ressource ne s’applique pas à :
 
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This article explains how you can retrieve confirmation(s) of a customer's acceptance of the Microsoft Customer Agreement.
+Cet article explique comment vous pouvez récupérer la ou les confirmations de l’acceptation par un client du contrat de client Microsoft.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- If you are using the Partner Center .NET SDK, version 1.14 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario only supports App+User authentication.
-- A customer identifier (**customer-tenant-id**).
+- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,14 ou une version ultérieure est requise.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
+- Identificateur du client (**Customer-client-ID**).
 
 ## <a name="net"></a>.NET
 
-To retrieve confirmation(s) of customer acceptance that was previously provided:
+Pour récupérer la ou les confirmations de l’acceptation du client qui ont été fournies précédemment :
 
-- Use the **IAggregatePartner.Customers** collection and call **ById** method with the specified customer identifier.
-- Fetch the **Agreements** property and filter the results to Microsoft Customer Agreement by calling **ByAgreementType** method.
-- Call **Get** or **GetAsync** method.
+- Utilisez la collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID** avec l’identificateur de client spécifié.
+- Extrayez la propriété **Agreements** et filtrez les résultats en accord avec le client Microsoft en appelant la méthode **ByAgreementType** .
+- Appelez **la** méthode **GetAsync** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -49,36 +49,36 @@ string agreementType = "MicrosoftCustomerAgreement";
 var customerAgreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements.ByAgreementType(agreementType).Get();
 ```
 
-A complete sample can be found in the [GetCustomerAgreements](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+Un exemple complet est disponible dans la classe [GetCustomerAgreements](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs) à partir du projet d' [application de test console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) .
 
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
-To retrieve confirmation of customer acceptance that was previously provided:
+Pour récupérer la confirmation de l’acceptation du client fournie précédemment :
 
-1. Create a REST request to retrieve the [Agreements](./agreement-resources.md) collection for the customer. 
-2. Use the **agreementType** query parameter to scope the results to only the Microsoft Customer Agreement.
+1. Créez une demande REST pour récupérer le regroupement de [contrats](./agreement-resources.md) pour le client. 
+2. Utilisez le paramètre de requête **agreementType** pour limiter les résultats au contrat de client Microsoft.
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-Use the following request syntax:
+Utilisez la syntaxe de requête suivante :
 
 | Méthode | URI de requête                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements?agreementType={agreement-type} HTTP/1.1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Agreements ? agreementType = {contrat-type} http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-You can use the following URI parameters with your request:
+Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
-| Nom             | Tapez | Obligatoire | Description                                                                               |
+| Nom             | Type | Obligatoire | Description                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Oui | The value is a GUID formatted **CustomerTenantId** that allows you to specify a customer. |
-| agreement-type | chaîne | non | This parameter returns all agreement metadata. Use this parameter to scope the query response to specific agreement type. The supported values are: <ul><li>**MicrosoftCloudAgreement** that only includes agreement metadata of the type *MicrosoftCloudAgreement*.</li><li>**MicrosoftCustomerAgreement** that only includes agreement metadata of the type *MicrosoftCustomerAgreement*.</li><li>**\*** that returns all agreement metadata. (Don't use **\*** unless your code has the necessary logic to handle unexpected agreement types.)</li></ul> If the URI parameter isn't specified, the query defaults to **MicrosoftCloudAgreement** for backward compatibility. Microsoft may introduce agreement metadata with new agreement types at any time.  |
+| client-locataire-ID | GUID | Oui | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
+| type d’accord | chaîne | Non | Ce paramètre retourne toutes les métadonnées de l’accord. Utilisez ce paramètre pour étendre la réponse de la requête à un type de contrat spécifique. Les valeurs prises en charge sont les suivantes : <ul><li>**MicrosoftCloudAgreement** qui comprend uniquement les métadonnées d’accord de type *MicrosoftCloudAgreement*.</li><li>**MicrosoftCustomerAgreement** qui comprend uniquement les métadonnées d’accord de type *MicrosoftCustomerAgreement*.</li><li>**\*** qui retourne toutes les métadonnées de l’accord. (N’utilisez pas **\*** , sauf si votre code a la logique nécessaire pour gérer les types d’accord inattendus.)</li></ul> Si le paramètre URI n’est pas spécifié, la requête est définie par défaut sur **MicrosoftCloudAgreement** pour des raisons de compatibilité descendante. Microsoft peut introduire des métadonnées de l’accord avec de nouveaux types de contrat à tout moment.  |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -94,15 +94,15 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of **Agreement** resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources de **contrat** dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. 
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. 
 
-Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

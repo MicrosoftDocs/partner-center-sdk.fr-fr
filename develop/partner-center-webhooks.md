@@ -1,6 +1,6 @@
 ---
-title: Partner Center webhooks
-description: Webhooks allow partners to register for resource change events.
+title: Webhooks de l’espace partenaires
+description: Les webhooks permettent aux partenaires de s’inscrire pour les événements de changement de ressource.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,65 +12,65 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488239"
 ---
-# <a name="partner-center-webhooks"></a>Partner Center webhooks
+# <a name="partner-center-webhooks"></a>Webhooks de l’espace partenaires
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires   
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government   
 
 
-The Partner Center Webhook APIs allow partners to register for resource change events. These events are delivered in the form of HTTP POSTs to the partner's registered URL. To receive an event from Partner Center, partners will host a callback where Partner Center can POST the resource change event. The event will be digitally signed so that the partner can verify that it was sent from Partner Center. 
+Les API de webhook de l’espace partenaires permettent aux partenaires de s’inscrire aux événements de changement de ressource. Ces événements sont fournis sous la forme de publications HTTP à l’URL inscrite du partenaire. Pour recevoir un événement de l’espace partenaires, les partenaires hébergent un rappel où l’espace partenaires peut poster l’événement de changement de ressource. L’événement est signé numériquement afin que le partenaire puisse vérifier qu’il a été envoyé à partir de l’espace partenaires. 
 
-Partners can select from Webhook events, like the following, that are supported by Partner Center.  
+Les partenaires peuvent sélectionner des événements de webhook, comme ci-dessous, qui sont pris en charge par l’espace partenaires.  
 
-- **Test Event ("test-created")**
+- **Événement de test (« test créé »)**
 
-    This event allows you to self-onboard and test your registration by requesting a test event and then tracking its progress. You will be able to see the failure messages that are being received from Microsoft while trying to deliver the event. This will only apply to "test-created" events and data older than 7 days will be purged.
+    Cet événement vous permet d’auto-intégrer et de tester votre inscription en demandant un événement de test, puis en effectuant le suivi de sa progression. Vous serez en mesure de voir les messages d’erreur reçus de Microsoft lors de la tentative de remise de l’événement. Cela s’applique uniquement aux événements « test créés » et les données datant de plus de 7 jours sont purgées.
 
-- **Subscription Updated Event ("subscription-updated")**
+- **Événement de mise à jour d’abonnement (« abonnement-mis à jour »)**
 
-    Cet événement se déclenche lors d'une modification de l'abonnement. Ces événements seront générés lorsqu'il se produit un changement interne en plus des modifications apportées par le biais de l'API de l'Espace partenaires. 
+    Cet événement se déclenche lors d’une modification de l’abonnement. Ces événements seront générés lorsqu’il se produit un changement interne en plus des modifications apportées par le biais de l’API de l’Espace partenaires. 
     
     >[!NOTE]
-    >There is a delay of up to 48 hours between the time a subscription changes and when the Subscription Updated event is triggered. 
+    >Il y a un délai de 48 heures entre le moment où un abonnement est modifié et le moment où l’événement mis à jour de l’abonnement est déclenché. 
 
-- **Threshold Exceeded Event ("usagerecords-thresholdExceeded")**
+- **Événement de seuil dépassé (« usagerecords-thresholdExceeded »)**
 
-    Cet événement se déclenche lorsque la quantité d'utilisation de Microsoft Azure d'un client dépasse son budget de dépenses d'utilisation (son seuil). For more information, see  [Set an Azure spending budget for your customers](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+    Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
 
-- **Referral Created Event ("referral-created")**
+- **Événement créé par la référence (« référence créée »)**
 
-    This event is raised when the referral is created. 
+    Cet événement est déclenché lorsque la référence est créée. 
 
-- **Referral Updated Event ("referral-updated")**
+- **Événement mis à jour de référence (« référence-mis à jour »)**
 
-    This event is raised when the referral is updated. 
+    Cet événement est déclenché lorsque la référence est mise à jour. 
 
-- **Invoice Ready Event ("invoice-ready")**
+- **Événement de facturation prête (« prêt pour la facturation »)**
 
-    This event is raised when the new invoice is ready.
+    Cet événement est déclenché lorsque la nouvelle facture est prête.
 
 
-Future Webhook events will be added for resources that change in the system that the partner is not in control of, and further updates will be made to get those events as close to "real time" as possible. Feedback from Partners on which events add value to their business will be extremely useful in determing which new events to add. 
+Les événements de webhook ultérieurs seront ajoutés pour les ressources qui changent dans le système dont le partenaire n’est pas en mesure de contrôler, et d’autres mises à jour seront effectuées pour que ces événements soient aussi proches que possible en temps réel. Les commentaires des partenaires sur lesquels des événements ajoutent de la valeur à leur entreprise seront extrêmement utiles pour déterminer les nouveaux événements à ajouter. 
 
-For a complete list of Webhook events supported by Partner Center, see [Partner Center webhook events](partner-center-webhook-events.md).
+Pour obtenir la liste complète des événements webhook pris en charge par l’espace partenaires, consultez [événements de webhook de l’espace partenaires](partner-center-webhook-events.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.   
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.   
 
 
 
-## <a name="receiving-events-from-partner-center"></a>Receiving events from Partner Center
+## <a name="receiving-events-from-partner-center"></a>Réception d’événements de l’espace partenaires
 
-To receive events from Partner Center, you must expose a publicly accessible endpoint; and because this endpoint is exposed, you must validate that the communication is from Partner Center. All Webhook events that you receive are digitally signed with a certificate that chains to the Microsoft Root. A link to the certificate used to sign the event will also be provided. This will allow the certificate to be renewed without you having to re-deploy or re-configure your service. Partner Center will make 10 attempts to deliver the event. If the event is still not delivered after 10 attempts, it will me moved into an offline queue and no further attempts will be made at delivery. 
+Pour recevoir des événements de l’espace partenaires, vous devez exposer un point de terminaison accessible publiquement ; et étant donné que ce point de terminaison est exposé, vous devez vérifier que la communication provient de l’espace partenaires. Tous les événements de webhook que vous recevez sont signés numériquement avec un certificat qui est lié à la racine Microsoft. Un lien vers le certificat utilisé pour signer l’événement est également fourni. Cela permet de renouveler le certificat sans avoir à redéployer ou reconfigurer votre service. L’espace partenaires fera 10 tentatives pour remettre l’événement. Si l’événement n’est toujours pas remis après 10 tentatives, il est déplacé dans une file d’attente hors connexion et aucune autre tentative n’est effectuée au moment de la remise. 
 
-The following sample shows an event posted from Partner Center.
+L’exemple suivant montre un événement publié par l’espace partenaires.
 
 ```http
 POST /webhooks/callback
@@ -92,44 +92,44 @@ Content-Length: 195
 ```
 
 >[!NOTE] 
->The Authorization header has a scheme of "Signature". This is a base64 encoded signature of the content.
+>L’en-tête d’autorisation a un schéma de « signature ». Il s’agit d’une signature encodée en base64 du contenu.
 
-## <a name="how-to-authenticate-the-callback"></a>How to authenticate the callback
+## <a name="how-to-authenticate-the-callback"></a>Comment authentifier le rappel
 
 
-To authenticate the callback event received from Partner Center, do the following:
+Pour authentifier l’événement de rappel reçu à partir de l’espace partenaires, procédez comme suit :
 
-1.  Verify the required headers are present (Authorization, x-ms-certificate-url, x-ms-signature-algorithm).
-2.  Download the certificate used to sign the content (x-ms-certificate-url).
-3.  Verify the Certificate Chain.
-4.  Verify the "Organization" of the certificate.
-5.  Read the content with UTF8 encoding into a buffer.
-6.  Create an RSA Crypto Provider.
-7.  Verify the data matches what was signed with the specified hash algorithm (e.g. SHA256).
-8.  If the verification succeeds, process the message.
+1.  Vérifiez que les en-têtes requis sont présents (autorisation, x-ms-Certificate-URL, x-ms-signature-algorithme).
+2.  Téléchargez le certificat utilisé pour signer le contenu (x-ms-Certificate-URL).
+3.  Vérifiez la chaîne de certificats.
+4.  Vérifiez l' « organisation » du certificat.
+5.  Lit le contenu avec encodage UTF8 dans une mémoire tampon.
+6.  Créez un fournisseur de chiffrement RSA.
+7.  Vérifiez que les données correspondent à ce qui a été signé avec l’algorithme de hachage spécifié (par exemple, SHA256).
+8.  Si la vérification est réussie, traitez le message.
 
 > [!NOTE]
-> By default, the signature token will be sent in an Authorization header. If you set **SignatureTokenToMsSignatureHeader** to true in your registration, the signature token will be sent in the x-ms-signature header instead.
+> Par défaut, le jeton de signature est envoyé dans un en-tête d’autorisation. Si vous affectez à **SignatureTokenToMsSignatureHeader** la valeur true dans votre inscription, le jeton de signature est envoyé dans l’en-tête x-ms-signature à la place.
 
-## <a name="event-model"></a>Event model
+## <a name="event-model"></a>Modèle d’événement
 
 
-The following table describes the properties of a Partner Center event.
+Le tableau suivant décrit les propriétés d’un événement de l’espace partenaires.
 
 **Propriétés**
 
 | Nom                      | Description                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| **EventName**             | The name of the event. In the form {resource}-{action}. For example, "test-created".  |
-| **ResourceUri**           | The URI of the resource that changed.                                                 |
-| **ResourceName**          | The name of the resource that changed.                                                |
-| **AuditUrl**              | Facultatif. The URI of the Audit record.                                                |
-| **ResourceChangeUtcDate** | The date and time, in UTC format, when the resource change occurred.                  |
+| **Protégée**             | Nom de l’événement. Sous la forme {Resource}-{action}. Par exemple, « test créé ».  |
+| **URI**           | URI de la ressource qui a été modifiée.                                                 |
+| **ResourceName**          | Nom de la ressource qui a été modifiée.                                                |
+| **AuditUrl**              | Facultatif. URI de l’enregistrement d’audit.                                                |
+| **ResourceChangeUtcDate** | Date et heure, au format UTC, auxquelles la modification de ressource s’est produite.                  |
 
 
-**Sample**
+**Exemple**
 
-The following sample shows the structure of a Partner Center event.
+L’exemple suivant illustre la structure d’un événement de l’espace partenaires.
 
 ```http
 {
@@ -142,23 +142,23 @@ The following sample shows the structure of a Partner Center event.
 ```
 
 
-## <a name="webhook-apis"></a>Webhook APIs   
+## <a name="webhook-apis"></a>API webhook   
 
 
 **Authentification**   
 
-All calls to the Webhook APIs are authenticated using the Bearer token in the Authorization Header. You must acquire an access token to access https://api.partnercenter.microsoft.com. This is the same token that is used to access the rest of the Partner Center APIs.
+Tous les appels aux API webhook sont authentifiés à l’aide du jeton de porteur dans l’en-tête Authorization. Vous devez obtenir un jeton d’accès pour accéder à https://api.partnercenter.microsoft.com. Il s’agit du même jeton que celui utilisé pour accéder au reste des API de l’espace partenaires.
 
 
  
-### <a name="get-a-list-of-events"></a>Get a list of events
+### <a name="get-a-list-of-events"></a>Obtenir une liste d’événements
 
-Returns a list of the events that are currently supported by the Webhook APIs.
+Retourne une liste des événements actuellement pris en charge par les API webhook.
 
-**Resource URL**   
+**URL de ressource**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration/events
 
-**Request example**   
+**Exemple de requête**   
 
 ```http
 GET /webhooks/v1/registration/events
@@ -168,7 +168,7 @@ accept: */*
 host: api.partnercenter.microsoft.com
 ```
 
-**Response example**   
+**Exemple de réponse**   
 
 ```http
 HTTP/1.1 200
@@ -186,15 +186,15 @@ X-Locale: en-US
 
 
 
-### <a name="register-to-receive-events"></a>Register to receive events      
+### <a name="register-to-receive-events"></a>S’inscrire pour recevoir des événements      
 
-Registers a tenant to receive the specified events.
+Inscrit un locataire pour recevoir les événements spécifiés.
 
-**Resource URL**   
+**URL de ressource**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration
 
 
-**Request example**   
+**Exemple de requête**   
 
 ```http
 POST /webhooks/v1/registration
@@ -211,7 +211,7 @@ Content-Length: 219
 }
 ```
 
-**Response example**   
+**Exemple de réponse**   
 
 ```http
 HTTP/1.1 200
@@ -232,15 +232,15 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 
 
 
-### <a name="view-a-registration"></a>View a registration        
+### <a name="view-a-registration"></a>Afficher une inscription        
 
-Returns the Webhooks event registration for a tenant.
+Retourne l’inscription de l’événement webhooks pour un locataire.
 
-**Resource URL**   
+**URL de ressource**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration
 
 
-**Request example**   
+**Exemple de requête**   
 
 ```http
 GET /webhooks/v1/registration
@@ -251,7 +251,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**Response example**   
+**Exemple de réponse**   
 
 ```http
 HTTP/1.1 200
@@ -272,15 +272,15 @@ X-Locale: en-US
 
 
 
-### <a name="update-an-event-registration"></a>Update an event registration      
+### <a name="update-an-event-registration"></a>Mettre à jour une inscription d’événement      
 
-Updates an existing event registration. 
+Met à jour une inscription d’événement existante. 
 
-**Resource URL**   
+**URL de ressource**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration
 
 
-**Request example**   
+**Exemple de requête**   
 
 ```http
 PUT /webhooks/v1/registration
@@ -297,7 +297,7 @@ Content-Length: 258
 }
 ```
 
-**Response example**   
+**Exemple de réponse**   
 
 ```http
 HTTP/1.1 200
@@ -317,17 +317,17 @@ MS-RequestId: f04b1b5e-87b4-4d95-b087-d65fffec0bd2
 ```
 
 
-### <a name="send-a-test-event-to-validate-your-registration"></a>Send a test event to validate your registration   
+### <a name="send-a-test-event-to-validate-your-registration"></a>Envoyer un événement de test pour valider votre inscription   
 
-Generates a test event to validate the Webhooks registration. This test is intended to validate that you can receive events from Partner Center. Data for these events will be deleted 7 days after the initial event is created. You must be registered for the "test-created" event, using the registration API, before sending a validation event. 
+Génère un événement de test pour valider l’inscription d’un webhook. Ce test est destiné à confirmer que vous pouvez recevoir des événements de l’espace partenaires. Les données de ces événements seront supprimées sept jours après la création de l’événement initial. Vous devez être inscrit pour l’événement « test créé », à l’aide de l’API d’inscription, avant d’envoyer un événement de validation. 
 
 >[!NOTE]
->There is a throttle limit of 2 requests per minute when posting a validation event. 
+>Il existe une limite de 2 requêtes par minute lors de la publication d’un événement de validation. 
 
-**Resource URL**   
+**URL de ressource**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents
 
-**Request example**   
+**Exemple de requête**   
 
 ```http
 POST /webhooks/v1/registration/validationEvents
@@ -339,7 +339,7 @@ Accept-Encoding: gzip, deflate
 Content-Length:
 ```
 
-**Response example**   
+**Exemple de réponse**   
 
 ```http
 HTTP/1.1 200
@@ -357,14 +357,14 @@ X-Locale: en-US
 
 
 
-### <a name="verify-that-the-event-was-delivered"></a>Verify that the event was delivered   
+### <a name="verify-that-the-event-was-delivered"></a>Vérifier que l’événement a été remis   
 
-Returns the current state of the validation event. This can be helpful for trouble shooting event delivery issues. The Response contains a result for each attempt that is made to deliver the event.
+Retourne l’état actuel de l’événement de validation. Cela peut être utile pour le dépannage des problèmes de remise des événements. La réponse contient un résultat pour chaque tentative effectuée pour remettre l’événement.
 
-**Resource URL**   
+**URL de ressource**   
 https://api.partnercenter.microsoft.com/webhooks/v1/registration/validationEvents/{correlationId}
 
-**Request example**   
+**Exemple de requête**   
 
 ```http
 GET /webhooks/v1/registration/validationEvents/04af2aea-d413-42db-824e-f328001484d1
@@ -375,7 +375,7 @@ Host: api.partnercenter.microsoft.com
 Accept-Encoding: gzip, deflate
 ```
 
-**Response example**     
+**Exemple de réponse**     
 
 ```http
 HTTP/1.1 200
@@ -403,10 +403,10 @@ X-Locale: en-US
 ```
 
 
-## <a name="example-for-signature-validation"></a>Example for Signature Validation
+## <a name="example-for-signature-validation"></a>Exemple de validation de signature
 
 
-**Sample Callback Controller signature (ASP.NET)**     
+**Exemple de signature de contrôleur de rappel (ASP.NET)**     
 
 ``` csharp
 [AuthorizeSignature]
@@ -414,8 +414,8 @@ X-Locale: en-US
 public IHttpActionResult Post(PartnerResourceChangeCallBack callback)
 ```
 
-**Signature Validation**      
-The following example shows how to add an Authorization Attribute to the controller that is receiving callbacks from Webhook events.
+     de **validation de signature**  
+L’exemple suivant montre comment ajouter un attribut d’autorisation au contrôleur qui reçoit des rappels d’événements de webhook.
 
 ``` csharp
 namespace Webhooks.Security

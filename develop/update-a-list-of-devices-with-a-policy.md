@@ -1,6 +1,6 @@
 ---
-title: Update a list of devices with a policy
-description: How to update a list of devices with a configuration policy for the specified customer.
+title: Mettre à jour une liste d’appareils avec une stratégie
+description: Comment mettre à jour une liste d’appareils avec une stratégie de configuration pour le client spécifié.
 ms.assetid: D68DAE8B-EFBC-4C71-8CB4-3ADA8D45DDBA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,32 +13,32 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486409"
 ---
-# <a name="update-a-list-of-devices-with-a-policy"></a>Update a list of devices with a policy
+# <a name="update-a-list-of-devices-with-a-policy"></a>Mettre à jour une liste d’appareils avec une stratégie
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-How to update a list of devices with a configuration policy for the specified customer.
+Comment mettre à jour une liste d’appareils avec une stratégie de configuration pour le client spécifié.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The policy identifier.
-- The device identifiers of the devices to update.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
+- Identificateur de la stratégie.
+- Identificateurs des appareils à mettre à jour.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To update a list of devices with the specified configuration policy, first, instantiate a [List](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) of type [KeyValuePair](https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2)[ **(PolicyCategory,** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)string) and add the policy to apply, as shown in the following code example. You will need the policy identifier of the policy.
+Pour mettre à jour une liste d’appareils avec la stratégie de configuration spécifiée, commencez par instancier une [liste](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) de type [KeyValuePair](https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2)[ **(PolicyCategory,** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)String) et ajoutez la stratégie à appliquer, comme indiqué dans l’exemple de code suivant. Vous aurez besoin de l’identificateur de stratégie de la stratégie.
 
-Then, create a list of [**Device**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) objects to be updated with the policy, specifying the device identifier and the list that contains the policy to apply, for each device. Next, instantiate a [**DevicePolicyUpdateRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) object and set the [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) property to the list of device objects.
+Ensuite, créez une liste d’objets d' [**appareil**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) à mettre à jour avec la stratégie, en spécifiant l’identificateur de périphérique et la liste qui contient la stratégie à appliquer, pour chaque appareil. Ensuite, instanciez un objet [**DevicePolicyUpdateRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) et définissez la propriété [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) sur la liste des objets Device.
 
-To process the device policy update request, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to retrieve an interface to operations on the specified customer. Then, retrieve the [**DevicePolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) property to get an interface to customer device collection operations. Finally, call the [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) method with the DevicePolicyUpdateRequest object to update the devices with the policy.
+Pour traiter la demande de mise à jour de la stratégie d’appareil, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, récupérez la propriété [**DevicePolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) pour obtenir une interface pour les opérations de regroupement d’appareils clients. Enfin, appelez la méthode [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) avec l’objet DevicePolicyUpdateRequest pour mettre à jour les appareils avec la stratégie.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -76,38 +76,38 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DevicePolicy.Update(devicePolicyUpdateRequest);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: UpdateDevicesPolicy.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : UpdateDevicesPolicy.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode    | URI de requête                                                                                         |
 |-----------|-----------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/DevicePolicyUpdates HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/DevicePolicyUpdates http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following path parameters when creating the request.
+Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Nom        | Tapez   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID-formatted string that identifies the customer. |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-The request body must contain a [DevicePolicyUpdateRequest](device-deployment-resources.md#devicepolicyupdaterequest) resource.
+Le corps de la demande doit contenir une ressource [DevicePolicyUpdateRequest](device-deployment-resources.md#devicepolicyupdaterequest) .
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/c7f3c849-129f-4b85-a96d-4f8e88b315a3/DevicePolicyUpdates HTTP/1.1
@@ -148,16 +148,16 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, the response contains a **Location** header that has a URI that can be used to retrieve the status of this batch process. Save this URI for use with other related REST APIs.
+En cas de réussite, la réponse contient un en-tête d' **emplacement** qui a un URI qui peut être utilisé pour récupérer l’état de ce processus de traitement par lots. Enregistrez cet URI pour une utilisation avec d’autres API REST associées.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 202 Accepted

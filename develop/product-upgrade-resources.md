@@ -1,6 +1,6 @@
 ---
-title: Product upgrade resources
-description: You can use multiple resources related to Partner Center product upgrades to an Azure plan. These include ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct and ErrorDetails.
+title: Ressources de mise à niveau de produit
+description: Vous pouvez utiliser plusieurs ressources liées aux mises à niveau du produit de l’espace partenaires vers un plan Azure. Cela inclut ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct et ErrorDetails.
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,79 +13,79 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488199"
 ---
-# <a name="product-upgrade-resources"></a>Product upgrade resources
+# <a name="product-upgrade-resources"></a>Ressources de mise à niveau de produit
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can use the following resources for information about Partner Center product upgrades from a Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan.
+Vous pouvez utiliser les ressources suivantes pour obtenir des informations sur les mises à niveau des produits de l’espace partenaires à partir d’un abonnement Microsoft Azure (MS-AZR-0145P) à un plan Azure.
 
 ## <a name="productupgraderequest"></a>ProductUpgradeRequest
 
-The **ProductUpgradesRequest** resource provides information about the product upgrades request object.
+La ressource **ProductUpgradesRequest** fournit des informations sur l’objet de demande de mise à niveau du produit.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |----------------------|----------------------------------------------|----------------------------------------------------------------|
-| customerId           | chaîne                                       | A GUID-formatted string that identifies the customer. |
-| productFamily        | chaîne                                       | The product family for which the upgrade is requested for. |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| customerId           | chaîne                                       | Chaîne au format GUID qui identifie le client. |
+| productFamily        | chaîne                                       | Famille de produits pour laquelle la mise à niveau est demandée. |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées. |
 
 ## <a name="productupgradeseligibility"></a>ProductUpgradesEligibility
 
-The **ProductUpgradesEligibility** resource provides information about the customer's eligibility for upgrading a product.
+La ressource **ProductUpgradesEligibility** fournit des informations sur l’éligibilité du client pour la mise à niveau d’un produit.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |----------------------|--------------------------------------------- |----------------------------------------------------------------|
-| customerId           | chaîne                                       | A GUID-formatted string that identifies the customer. |          | productFamily        | chaîne                                       | The product family for which the upgrade is requested for. |
-| isEligible           | bool                                         | The bool value indicates whether the customer is eligible for requested upgrade. |
-| upgradeId            | chaîne                                       | The upgrade ID if a product upgrade for given family is already in place. |
-| reason               | chaîne                                       | The reason for which customer isn't eligible for product upgrade. |
-| productFamily        | chaîne                                       | The product family for which the upgrade is requested for. |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  
+| customerId           | chaîne                                       | Chaîne au format GUID qui identifie le client. |          | productFamily        | chaîne                                       | Famille de produits pour laquelle la mise à niveau est demandée. |
+| isEligible           | bool                                         | La valeur bool indique si le client est éligible à la mise à niveau demandée. |
+| upgradeId            | chaîne                                       | L’ID de mise à niveau si une mise à niveau de produit pour une famille donnée est déjà en place. |
+| reason               | chaîne                                       | Raison pour laquelle le client n’est pas éligible à la mise à niveau du produit. |
+| productFamily        | chaîne                                       | Famille de produits pour laquelle la mise à niveau est demandée. |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.  
 
 ## <a name="productupgradesstatus"></a>ProductUpgradesStatus
 
-The **ProductUpgradesStatus** resource provides information about the status of a product upgrade.
+La ressource **ProductUpgradesStatus** fournit des informations sur l’état d’une mise à niveau de produit.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------|
-| Id                  | chaîne                                                         | A GUID-formatted string that identifies the upgrade. |
-| productFamily       | chaîne                                                         | The product family for which the upgrade is requested for.
-| status              | chaîne                                                         | The status of the product upgrade.
-| lineItems           | array of [UpgradesLineItem](#upgradeslineitem) resources       | An array of objects that provides information of the upgrade details for each line item that was part of the request body.
-| errorDetails        | [ErrorDetails](#errordetails) resource                         | The error details for upgrade requested.
-| attributs          | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes. |
+| Id                  | chaîne                                                         | Chaîne au format GUID qui identifie la mise à niveau. |
+| productFamily       | chaîne                                                         | Famille de produits pour laquelle la mise à niveau est demandée.
+| status              | chaîne                                                         | État de la mise à niveau du produit.
+| LineItems           | Tableau de ressources [UpgradesLineItem](#upgradeslineitem)       | Tableau d’objets qui fournit des informations sur les détails de la mise à niveau pour chaque élément de ligne qui faisait partie du corps de la demande.
+| errorDetails        | Ressource [ErrorDetails](#errordetails)                         | Détails de l’erreur pour la mise à niveau demandée.
+| attributs          | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées. |
 
 ## <a name="upgradeslineitem"></a>UpgradesLineItem
 
-The **UpgradesLineItem** resource describes the status of product upgrade details for each line item of the request.
+La ressource **UpgradesLineItem** décrit l’état des détails de la mise à niveau du produit pour chaque élément de ligne de la demande.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |-----------------|-----------------------------------------------------|--------------------------------------------------------------|
-| sourceProduct   | [UpgradeProduct](#upgradeproduct) object            | Information of the source product being upgraded. |
-| targetProduct   | [UpgradeProduct](#upgradeproduct) object            | Information of the target product post upgrade. |
-| upgradedDate    | string in UTC date-time format                      | The date the subscription was upgraded. |
-| status          | chaîne                                              | The status of the product upgrade. |
-| errorDetails    | [ErrorDetails](#errordetails) resource              | The error details for upgrade requested. |
-| attributs      | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  |
+| sourceProduct   | Objet [UpgradeProduct](#upgradeproduct)            | Informations du produit source en cours de mise à niveau. |
+| targetProduct   | Objet [UpgradeProduct](#upgradeproduct)            | Informations du produit cible après la mise à niveau. |
+| upgradedDate    | chaîne au format date-heure UTC                      | Date à laquelle l’abonnement a été mis à niveau. |
+| status          | chaîne                                              | État de la mise à niveau du produit. |
+| errorDetails    | Ressource [ErrorDetails](#errordetails)              | Détails de l’erreur pour la mise à niveau demandée. |
+| attributs      | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.  |
 
 ## <a name="upgradeproduct"></a>UpgradeProduct
 
-The **UpgradeProduct** resource provides information about the product being upgraded.
+La ressource **UpgradeProduct** fournit des informations sur le produit en cours de mise à niveau.
 
-| Propriété | Tapez |Description |
+| Propriété | Type |Description |
 |----------------------|----------------------------------------------|----------------------------------------------------------------|
-| id                   | chaîne                                       | A GUID-formatted string that identifies the product. |
-| name                 | chaîne                                       | The friendly name of product being upgraded. |  
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| id                   | chaîne                                       | Chaîne au format GUID qui identifie le produit. |
+| name                 | chaîne                                       | Nom convivial du produit en cours de mise à niveau. |  
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées. |
 
 ## <a name="errordetails"></a>ErrorDetails
 
-The **ErrorDetails** resource provides details about errors during the upgrade process.
+La ressource **ErrorDetails** fournit des détails sur les erreurs pendant le processus de mise à niveau.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 |-------------------------|----------------------------------------------|-------------------------------------------------------------|
-| code                    | chaîne                                       | A error code when the product upgrade fails. |
-| message                 | chaîne                                       | The error message when the product upgrade fails. |
-| attributs              | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| code                    | chaîne                                       | Code d’erreur en cas d’échec de la mise à niveau du produit. |
+| message                 | chaîne                                       | Message d’erreur lors de l’échec de la mise à niveau du produit. |
+| attributs              | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées. |

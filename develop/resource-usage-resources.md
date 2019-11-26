@@ -1,6 +1,6 @@
 ---
-title: Resource usage record resources
-description: You can use the ResourceUsageRecord resource to describe the estimated monetary cost of a subscription's resource level usage in the current billing cycle.
+title: Ressources de l’enregistrement d’utilisation des ressources
+description: Vous pouvez utiliser la ressource ResourceUsageRecord pour décrire le coût monétaire estimé de l’utilisation du niveau de ressource d’un abonnement dans le cycle de facturation actuel.
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488089"
 ---
-# <a name="resource-usage-record-resources"></a>Resource usage record resources
+# <a name="resource-usage-record-resources"></a>Ressources de l’enregistrement d’utilisation des ressources
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can use the **ResourceUsageRecord** resource to describe the estimated monetary cost of a subscription's resource level usage in the current billing cycle.
+Vous pouvez utiliser la ressource **ResourceUsageRecord** pour décrire le coût monétaire estimé de l’utilisation du niveau de ressource d’un abonnement dans le cycle de facturation actuel.
 
 ## <a name="resourceusagerecord"></a>ResourceUsageRecord
 
-| Propriété         | Tapez               | Description                                                                                   |
+| Propriété         | Type               | Description                                                                                   |
 |------------------|--------------------|-----------------------------------------------------------------------------------------------|
-| SubscriptionId           | chaîne             | Gets or sets the subscription identifier. For Microsoft Azure (MS-AZR-0145P) subscriptions, this value is the commerce subscription identifier. For Azure plans, this value is the Azure plan identifier).                  |
-| ResourceUri  | chaîne             | Gets or sets the resource URI."                                                        |
-| ResourceType          | chaîne             | Gets or sets the resource type.                                       |
-| EntitlementId               | chaîne             | Gets or sets the entitlement identifier (the Azure subscription identifier).                                                 |
-| EntitlementName             | chaîne             | Gets or sets the entitlement name.                                                     |
-| ResourceGroupName        | double             | Gets or sets the resource group name.   |
-| Nom   | chaîne             | The name of the resource. |
-| Nom_ressource   | chaîne             | Gets or sets the name of the resource. |
-| TotalCost   | décimal             | Gets or sets the estimated total cost usage. |
-| CurrencyCode   | chaîne             | Gets or sets the currency code.                                          |
-| USDTotalCost   | décimal             | Gets or sets the estimated total cost in USD.                                         |
-| LastModifiedDate | chaîne             | The day (in date-time format) that this record was last modified.                             |
-| Attributs       | ResourceAttributes | The metadata attributes corresponding to the resource.                                        |                                           |
+| SubscriptionId           | chaîne             | Obtient ou définit l’identificateur d’abonnement. Pour les abonnements Microsoft Azure (MS-AZR-0145P), cette valeur est l’identificateur d’abonnement au commerce. Pour les plans Azure, cette valeur est l’identificateur du plan Azure.                  |
+| URI  | chaîne             | Obtient ou définit l’URI de la ressource.»                                                        |
+| ResourceType          | chaîne             | Obtient ou définit le type de ressource.                                       |
+| entitlementId               | chaîne             | Obtient ou définit l’identificateur d’habilitation (identificateur d’abonnement Azure).                                                 |
+| EntitlementName             | chaîne             | Obtient ou définit le nom du droit.                                                     |
+| ResourceGroupName        | Double             | Obtient ou définit le nom du groupe de ressources.   |
+| Nom   | chaîne             | Nom de la ressource. |
+| Nom_ressource   | chaîne             | Obtient ou définit le nom de la ressource. |
+| PrixTotal   | décimal             | Obtient ou définit l’estimation de l’utilisation du coût total. |
+| CurrencyCode   | chaîne             | Obtient ou définit le code de la devise.                                          |
+| USDTotalCost   | décimal             | Obtient ou définit le coût total estimé en USD.                                         |
+| LastModifiedDate & | chaîne             | Jour (dans le format date-heure) de la dernière modification de cet enregistrement.                             |
+| Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à la ressource.                                        |                                           |

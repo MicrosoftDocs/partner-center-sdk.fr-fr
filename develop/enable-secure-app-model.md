@@ -1,6 +1,6 @@
 ---
-title: Enable secure application model
-description: Secure your Partner Center and control panel apps.
+title: Activer le modèle d’application sécurisée
+description: Sécurisez vos applications de l’espace partenaires et du panneau de configuration.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,91 +12,91 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490099"
 ---
-# <a name="enabling-the-secure-application-model-framework"></a>Enabling the Secure Application Model framework
+# <a name="enabling-the-secure-application-model-framework"></a>Activation de l’infrastructure du modèle d’application sécurisée
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-Microsoft is introducing a secure, scalable framework for authenticating cloud solution provider (CSP) partners and control panel vendors (CPV) through the Microsoft Azure multi-factor authentication (MFA) architecture.
+Microsoft propose une infrastructure sécurisée et évolutive pour l’authentification des partenaires du fournisseur de solutions Cloud (CSP) et des fournisseurs du panneau de configuration (CPV) via l’architecture d’authentification multifacteur (MFA) Microsoft Azure.
 
-You can use the new model to elevate security for Partner Center API integration calls. This will help all parties (including Microsoft, CSP partners, and CPVs) to protect their infrastructure and customer data from security risks.
+Vous pouvez utiliser le nouveau modèle pour élever la sécurité pour les appels d’intégration de l’API de l’espace partenaires. Cela aidera toutes les parties (y compris Microsoft, les partenaires CSP et CPVs) à protéger leur infrastructure et les données client contre les risques de sécurité.
 
 ## <a name="scope"></a>Étendue
 
-This topic concerns the following actors:
+Cette rubrique concerne les acteurs suivants :
 
 - CPVs
-  - A CPV is an independent software vendor that develops apps for use by CSP partners to integrate with Partner Center APIs.
-  - A CPV is not a CSP partner with direct access to the Partner Center dashboard or APIs.
-- CSP indirect providers and CSP direct partners who are using app ID + user authentication and directly integrate with Partner Center APIs.
+  - Un CPV est un éditeur de logiciels indépendant qui développe des applications qui sont utilisées par les partenaires CSP pour s’intégrer aux API de l’espace partenaires.
+  - Un CPV n’est pas un partenaire CSP disposant d’un accès direct au tableau de bord ou aux API de l’espace partenaires.
+- Fournisseurs de solutions de chiffrement et fournisseurs directs CSP qui utilisent l’authentification d’application ID + utilisateur et s’intègrent directement avec les API de l’espace partenaires.
 
 ## <a name="security-requirements"></a>Exigences de sécurité
 
-For details on security requirements, see [Partner Security Requirements](https://docs.microsoft.com/partner-center/partner-security-requirements).
+Pour plus d’informations sur les exigences de sécurité, consultez [conditions de sécurité des partenaires](https://docs.microsoft.com/partner-center/partner-security-requirements).
 
 ## <a name="secure-application-model"></a>Modèle d’application sécurisé
 
-Marketplace applications need to impersonate CSP partner privileges to call Microsoft APIs. Security attacks on these sensitive applications can lead to the compromise of customer data.
+Les applications de la place de marché doivent emprunter l’identité des privilèges du partenaire CSP pour appeler les API Microsoft. Les attaques de sécurité sur ces applications sensibles peuvent entraîner la compromission des données client.
 
-For an overview and details of the new authentication framework, download the [Secure Application Model framework](http://assetsprod.microsoft.com/secure-application-model-guide.pdf) document. This document covers principles and best practices to make marketplace applications sustainable and robust from security compromises.
+Pour obtenir une vue d’ensemble et les détails de la nouvelle infrastructure d’authentification, téléchargez le document [infrastructure de modèle d’application sécurisée](http://assetsprod.microsoft.com/secure-application-model-guide.pdf) . Ce document décrit les principes et les meilleures pratiques pour rendre les applications de la place de marché durables et robustes contre les compromissions de sécurité.
 
 ## <a name="samples"></a>Exemples
 
-The following overview documents and sample code describe how partners can implement the Secure Application Model framework:
+Les documents de présentation et les exemples de code suivants décrivent la manière dont les partenaires peuvent implémenter l’infrastructure de modèle d’application sécurisée :
 
-- [CPV overview document](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [CSP overview document](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
-- [.NET Samples](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
-- [Java Samples](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
+- [Document de présentation du CPV](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [Document de présentation du CSP](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [Exemples .NET](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
+- [Exemples Java](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
     [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-- [REST instructions and samples](#rest)
-- [PowerShell instructions and samples](#powershell)
+- [Instructions REST et exemples](#rest)
+- [Instructions et exemples PowerShell](#powershell)
 
 ## <a name="rest"></a>REST
 
-To to make REST calls with the Secure Application Model framework with sample code, you must do the following:
+Pour effectuer des appels REST avec l’infrastructure de modèle d’application sécurisée avec un exemple de code, vous devez effectuer les opérations suivantes :
 
-1. [Create a web app](#create-a-web-app)
-2. [Get an authorization code](#get-authorization-code)
-3. [Get a refresh token](#get-refresh-token)
-4. [Get an access token](#get-access-token)
-5. [Make a Partner Center API call](#make-partner-center-api-calls)
+1. [Créer une application Web](#create-a-web-app)
+2. [Recevoir un code d’autorisation](#get-authorization-code)
+3. [Obtenir un jeton d’actualisation](#get-refresh-token)
+4. [Recevoir un jeton d’accès](#get-access-token)
+5. [Effectuer un appel d’API de l’espace partenaires](#make-partner-center-api-calls)
 
 > [!TIP]
-> You can use the Partner Center PowerShell module to get an authorization code and a refresh token. You can choose this option in place of steps 2 and 3. For more information, see the [PowerShell section and examples](#powershell).
+> Vous pouvez utiliser le module PowerShell de l’espace partenaires pour obtenir un code d’autorisation et un jeton d’actualisation. Vous pouvez choisir cette option à la place des étapes 2 et 3. Pour plus d’informations, consultez la [section PowerShell et des exemples](#powershell).
 
-### <a name="create-a-web-app"></a>Create a web app
+### <a name="create-a-web-app"></a>Créer une application Web
 
-You must create and register a web app in Partner Center before making REST calls.
+Vous devez créer et inscrire une application Web dans l’espace partenaires avant d’effectuer des appels REST.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create an Azure Active Directory (Azure AD) app.
-3. Give delegated application permissions to the following resources, *depending on your application's requirements*. If necessary, you can add more delegated permissions for application resources.
-    1. **Microsoft Partner Center** (some tenants show this as **SampleBECApp**)
-    2. **Azure Management APIs** (if you are planning to call Azure APIs)
-    3. **Windows Azure Active Directory**
-4. Make sure that the home URL of your app is set to an endpoint where a live web app is running. This app will need to accept the [authorization code](#get-authorization-code) from the Azure AD login call. For example, in the example code in [the following section](#get-authorization-code), the web app is running at `https://localhost:44395/`.
-5. Note the following information from your web app's settings in Azure AD:
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Créer une application Azure Active Directory (Azure AD).
+3. Accordez des autorisations d’application déléguée aux ressources suivantes, *en fonction des exigences de votre application*. Si nécessaire, vous pouvez ajouter des autorisations déléguées pour les ressources d’application.
+    1. **Microsoft Partner Center** (certains locataires illustrent cela comme **SampleBECApp**)
+    2. **API de gestion Azure** (si vous envisagez d’appeler des API Azure)
+    3. **Azure Active Directory Windows**
+4. Assurez-vous que l’URL d’origine de votre application est définie sur un point de terminaison où une application Web en ligne est en cours d’exécution. Cette application doit accepter le [code d’autorisation](#get-authorization-code) de l’appel de connexion Azure ad. Par exemple, dans l’exemple de code de [la section suivante](#get-authorization-code), l’application Web s’exécute sur `https://localhost:44395/`.
+5. Notez les informations suivantes des paramètres de votre application Web dans Azure AD :
     - ID de l’application
-    - Application secret
+    - Secret de l’application
 
 > [!NOTE]
-> It is recommended to [use a certificate as your application secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials). However, you can also create an application key in the Azure portal. The sample code in [the following section](#get-authorization-code) uses an application key.
+> Il est recommandé d' [utiliser un certificat comme secret de votre application](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials). Toutefois, vous pouvez également créer une clé d’application dans la Portail Azure. L’exemple de code de [la section suivante](#get-authorization-code) utilise une clé d’application.
 
-### <a name="get-authorization-code"></a>Get authorization code
+### <a name="get-authorization-code"></a>Recevoir le code d’autorisation
 
-You must get an authorization code for your web app to accept from the Azure AD login call:
+Vous devez obtenir un code d’autorisation que votre application Web doit accepter à partir de l’appel de connexion Azure AD :
 
-1. Log in to Azure AD at the following URL: <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>. Be sure to log in with the user account from which you will make Partner Center API calls (such as an admin agent or sales agent account).
-2. Replace **Application-Id** with your Azure AD app ID (GUID).
-3. When prompted, log in with your user account with MFA configured.
-4. When prompted, enter additional MFA information (phone number or email address) to verify your login.
-5. After you are logged in, the browser will redirect the call to your web app endpoint with your authorization code. For example, the following sample code redirects to `https://localhost:44395/`.
+1. Connectez-vous à Azure AD à l’URL suivante : <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>. Veillez à vous connecter avec le compte d’utilisateur à partir duquel vous allez effectuer des appels d’API de l’espace partenaires (par exemple, un agent admin ou un compte agent commercial).
+2. Remplacez **application-ID** par votre ID d’application Azure ad (Guid).
+3. Lorsque vous y êtes invité, connectez-vous avec votre compte d’utilisateur avec MFA configuré.
+4. Lorsque vous y êtes invité, entrez des informations supplémentaires sur MFA (numéro de téléphone ou adresse de messagerie) pour vérifier votre connexion.
+5. Une fois que vous êtes connecté, le navigateur redirige l’appel vers votre point de terminaison d’application Web avec votre code d’autorisation. Par exemple, l’exemple de code suivant redirige vers `https://localhost:44395/`.
 
-#### <a name="authorization-code-call-trace"></a>Authorization code call trace
+#### <a name="authorization-code-call-trace"></a>Suivi des appels du code d’autorisation
 
 ```http
 POST https://localhost:44395/ HTTP/1.1
@@ -112,20 +112,20 @@ Cookie: OpenIdConnect.nonce.hOMjjrivcxzuI4YqAw4uYC%2F%2BILFk4%2FCx3kHTHP3lBvA%3D
 code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 ```
 
-### <a name="get-refresh-token"></a>Get refresh token
+### <a name="get-refresh-token"></a>Récupérer le jeton d’actualisation
 
-You must then use your authorization code to get a refresh token:
+Vous devez ensuite utiliser votre code d’autorisation pour obtenir un jeton d’actualisation :
 
-1. Make a POST call to the Azure AD login endpoint `https://login.microsoftonline.com/CSPTenantID/oauth2/token` with the authorization code. For an example, see the following [sample call](#sample-refresh-call).
-2. Note the refresh token that is returned.
-3. Store the refresh token in Azure Key Vault. For more information, see the [Key Vault API documentation](https://docs.microsoft.com/en-us/rest/api/keyvault/).
+1. Effectuez un appel de publication vers le point de terminaison de connexion Azure AD `https://login.microsoftonline.com/CSPTenantID/oauth2/token` avec le code d’autorisation. Pour obtenir un exemple, consultez l' [exemple d’appel](#sample-refresh-call)suivant.
+2. Notez le jeton d’actualisation qui est retourné.
+3. Stockez le jeton d’actualisation dans Azure Key Vault. Pour plus d’informations, consultez la documentation de l' [API Key Vault](https://docs.microsoft.com/en-us/rest/api/keyvault/).
 
 > [!IMPORTANT]
-> The refresh token must be [stored as a secret](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret) in Key Vault.
+> Le jeton d’actualisation doit être [stocké en tant que secret](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret) dans Key Vault.
 
-#### <a name="sample-refresh-call"></a>Sample refresh call
+#### <a name="sample-refresh-call"></a>Exemple d’appel d’actualisation
 
-Placeholder request:
+Demande d’espace réservé :
 
 ```http
 POST https://login.microsoftonline.com/CSPTenantID/oauth2/token HTTP/1.1
@@ -135,13 +135,13 @@ Content-Length: 966
 Expect: 100-continue
 ```
 
-Request body:
+Corps de la demande :
 
 ```http
 resource=https%3a%2f%2fapi.partnercenter.microsoft.com&client_id=Application-Id&client_secret=Application-Secret&grant_type=authorization_code&code=AuthorizationCodeValue
 ```
 
-Placeholder response:
+Réponse de l’espace réservé :
 
 ```http
 HTTP/1.1 200 OK
@@ -149,7 +149,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Response body:
+Corps de la réponse :
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
@@ -157,9 +157,9 @@ Response body:
 
 ### <a name="get-access-token"></a>Obtenir un jeton d’accès
 
-You must obtain an access token before you can make calls to the Partner Center APIs. You must use a refresh token to obtain an access token because access token generally have a very limited lifetime (for example, less than an hour).
+Vous devez obtenir un jeton d’accès avant de pouvoir effectuer des appels aux API de l’espace partenaires. Vous devez utiliser un jeton d’actualisation pour obtenir un jeton d’accès, car le jeton d’accès a généralement une durée de vie très limitée (par exemple, moins d’une heure).
 
-Placeholder request:
+Demande d’espace réservé :
 
 ```http
 POST https://login.microsoftonline.com/CSPTenantID/oauth2/token HTTP/1.1
@@ -169,13 +169,13 @@ Content-Length: 1212
 Expect: 100-continue
 ```
 
-Request body:
+Corps de la demande :
 
 ```http
 resource=https%3a%2f%2fapi.partnercenter.microsoft.com&client_id=Application-Id &client_secret= Application-Secret&grant_type=refresh_token&refresh_token=RefreshTokenVlaue&scope=openid
 ```
 
-Placeholder response:
+Réponse de l’espace réservé :
 
 ```http
 HTTP/1.1 200 OK
@@ -183,17 +183,17 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Response body:
+Corps de la réponse :
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
 ```
 
-### <a name="make-partner-center-api-calls"></a>Make Partner Center API calls
+### <a name="make-partner-center-api-calls"></a>Effectuer des appels d’API de l’espace partenaires
 
-You must use your access token to call the Partner Center APIs. See the following example call.
+Vous devez utiliser votre jeton d’accès pour appeler les API de l’espace partenaires. Consultez l’exemple d’appel suivant.
 
-#### <a name="example-partner-center-api-call"></a>Example Partner Center API call
+#### <a name="example-partner-center-api-call"></a>Exemple d’appel d’API de l’espace partenaires
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/CustomerTenantId/users HTTP/1.1
@@ -207,11 +207,11 @@ Host: api.partnercenter.microsoft.com
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-You can use the [Partner Center PowerShell module](https://www.powershellgallery.com/packages/PartnerCenter) to reduce the required infrastructure to exchange an authorization code for an access token. This method is optional for making [Partner Center REST calls](#rest).
+Vous pouvez utiliser le [module PowerShell de l’espace partenaires](https://www.powershellgallery.com/packages/PartnerCenter) pour réduire l’infrastructure requise pour échanger un code d’autorisation pour un jeton d’accès. Cette méthode est facultative pour effectuer des [appels REST de l’espace partenaires](#rest).
 
-For more information on this process, see [Secure App Model](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model) PowerShell documentation.
+Pour plus d’informations sur ce processus, consultez la documentation relative au [modèle d’application sécurisée](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model) PowerShell.
 
-1. Install the Azure AD and Partner Center PowerShell modules.
+1. Installez les modules PowerShell du Azure AD et de l’espace partenaires.
 
     ```powershell
     Install-Module AzureAD
@@ -221,7 +221,7 @@ For more information on this process, see [Secure App Model](https://docs.micros
     Install-Module PartnerCenter
     ```
 
-2. Use PowerShell to add `urn:ietf:wg:oauth:2.0:oob` as a reply URL for your Azure AD application. Be sure to replace the value for the object identifier parameter with the object identifier for you Azure AD application. You can find this value in the Azure management portal.
+2. Utilisez PowerShell pour ajouter `urn:ietf:wg:oauth:2.0:oob` en tant qu’URL de réponse pour votre application Azure AD. Veillez à remplacer la valeur du paramètre d’identificateur d’objet par l’identificateur d’objet pour vous Azure AD application. Vous pouvez trouver cette valeur dans le portail de gestion Azure.
 
     ```powershell
     Connect-AzureAD
@@ -231,7 +231,7 @@ For more information on this process, see [Secure App Model](https://docs.micros
     Set-AzureADApplication -ObjectId 659dd68d-3414-4254-a48b-c081b5631b86 -ReplyUrls @("urn:ietf:wg:oauth:2.0:oob")
     ```
 
-3. Use the **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** command to perform the consent process and capture the required refresh token.
+3. Utilisez la commande **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** pour effectuer le processus de consentement et capturer le jeton d’actualisation requis.
 
     ```powershell
     $credential = Get-Credential
@@ -242,16 +242,16 @@ For more information on this process, see [Secure App Model](https://docs.micros
     ```
 
     > [!NOTE]
-    > The **ServicePrincipal** parameter is used with the **New-PartnerAccessToken** command because an Azure AD app with a type of **web/API** is being used. This type of app require that a client identifier and secret be included in the access token request.
+    > Le paramètre **ServicePrincipal** est utilisé avec la commande **New-PartnerAccessToken** , car une application Azure ad avec un type **Web/API** est utilisée. Ce type d’application exige qu’un identificateur et une clé secrète du client soient inclus dans la demande de jeton d’accès.
 
-4. Copy the refresh token value.
+4. Copiez la valeur du jeton d’actualisation.
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-5. When the **Get-Credential** command is invoked, you will be prompted to enter a username and password. Enter the application identifier as teh username. Enter the application secret as the password.
+5. Lorsque la commande **obtenir des informations d’identification** est appelée, vous êtes invité à entrer un nom d’utilisateur et un mot de passe. Entrez l’identificateur de l’application en tant que nom d’utilisateur. Entrez le mot de passe secret de l’application.
 
-6. When the **New-PartnerAccessToken** command is invoked, you will be prompted to enter credentials again. Enter the credentials for the service account that you are using. This service account should be a partner account with apppropriate permissions.
+6. Lorsque la commande **New-PartnerAccessToken** est appelée, vous êtes invité à entrer à nouveau les informations d’identification. Entrez les informations d’identification du compte de service que vous utilisez. Ce compte de service doit être un compte partenaire avec des autorisations approprié.
 
-7. After the **New-PartnerAccessToken** is successfully executed, the **$token** variable now contains the response from Azure AD. Be sure to note and store the refresh token value in a secure repository, such as Azure Key Vault.
+7. Une fois la **nouvelle PartnerAccessToken** exécutée avec succès, la variable **$Token** contient maintenant la réponse de Azure ad. Veillez à noter et à stocker la valeur du jeton d’actualisation dans un référentiel sécurisé, par exemple Azure Key Vault.

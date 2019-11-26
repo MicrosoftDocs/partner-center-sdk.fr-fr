@@ -1,6 +1,6 @@
 ---
-title: Verify domain availability
-description: How to determine if a domain is available for use.
+title: Vérifier la disponibilité du domaine
+description: Comment déterminer si un domaine peut être utilisé.
 ms.assetid: 9ECF8241-3672-441D-B34D-83F7C23138B3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486239"
 ---
-# <a name="verify-domain-availability"></a>Verify domain availability
+# <a name="verify-domain-availability"></a>Vérifier la disponibilité du domaine
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to determine if a domain is available for use.
+Comment déterminer si un domaine peut être utilisé.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A domain (e.g. "contoso.onmicrosoft.com").
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Un domaine (par exemple, « contoso.onmicrosoft.com »).
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To verify if a domain is available, first call [**IAggregatePartner.Domains**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains) to obtain an interface to domain operations. Then call the [**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) method with the domain to check. This retrieves an interface to the operations available for a specific domain. Finally, call the [**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) method to see if the domain already exists.
+Pour vérifier si un domaine est disponible, appelez d’abord [**collection iaggregatepartner. Domains**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains) pour obtenir une interface pour les opérations de domaine. Appelez ensuite la méthode [**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) avec le domaine à vérifier. Cela récupère une interface pour les opérations disponibles pour un domaine spécifique. Enfin, appelez la méthode [**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) pour voir si le domaine existe déjà.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,38 +43,38 @@ To verify if a domain is available, first call [**IAggregatePartner.Domains**](h
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CheckDomainAvailability.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CheckDomainAvailability.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode   | URI de requête                                                              |
 |----------|--------------------------------------------------------------------------|
-| **HEAD** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1.1 |
+| **SIÈGE** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/domains/{domain} http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameter to verify domain availability.
+Utilisez le paramètre de requête suivant pour vérifier la disponibilité du domaine.
 
-| Nom       | Tapez       | Obligatoire | Description                                   |
+| Nom       | Type       | Obligatoire | Description                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domain** | **string** | Y        | A string that identifies the domain to check. |
+| **domain** | **chaîne** | Y        | Chaîne qui identifie le domaine à vérifier. |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-Aucun(e)
+Aucune
 
-**Request example**
+**Exemple de requête**
 
 ```http
 HEAD https://api.partnercenter.microsoft.com/v1/domains/contoso.onmicrosoft.com HTTP/1.1
@@ -87,16 +87,16 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If the domain exists it is not available for use and a response status code 200 OK is returned. If the domain is not found it is available for use and a response status code 404 Not Found is returned.
+Si le domaine existe, il n’est pas utilisable et un code d’état de réponse 200 OK est retourné. Si le domaine est introuvable, il est disponible pour utilisation et un code d’état de réponse 404 introuvable est retourné.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example for when the domain is already in use**
+**Exemple de réponse lorsque le domaine est déjà utilisé**
 
 ```http
 HTTP/1.1 200 OK
@@ -108,7 +108,7 @@ MS-ServerId: 201022015
 Date: Tue, 31 Jan 2017 22:22:35 GMT
 ```
 
-**Response example for when the domain is available**
+**Exemple de réponse lorsque le domaine est disponible**
 
 ```http
 HTTP/1.1 404 Not Found
