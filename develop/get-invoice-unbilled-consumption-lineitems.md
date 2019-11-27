@@ -1,6 +1,6 @@
 ---
-title: Get invoice unbilled commercial consumption line items
-description: You can get a collection of unbilled commercial consumption line item details for a specified invoice using the Partner Center APIs.
+title: Obtient les éléments de ligne de facturation commerciale non facturés
+description: Vous pouvez obtenir une collection de détails sur la facturation commerciale non facturée pour une facture spécifiée à l’aide des API de l’espace partenaires.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,39 +12,39 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489349"
 ---
-# <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Get invoice unbilled commercial consumption line items
+# <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Obtient les éléments de ligne de facturation commerciale non facturés
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-How to get a collection of unbilled commercial consumption line item details.
+Procédure d’obtention d’un regroupement de détails sur les lignes de consommation commerciale non facturées.
 
-You can use the following methods to get a collection of details unbilled commercial consumption line items (also known as open usage line items) programmatically.
+Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de détails lignes de consommation commerciale non facturées (également appelées « éléments de ligne d’utilisation ouverts ») par programmation.
 
 [!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An invoice identifier. This identifies the invoice for which to retrieve the line items.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get the line items for the specified invoice:
+Pour obtenir les lignes de la facture spécifiée :
 
-1. Call the [**ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.
-2. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.
+1. Appelez la méthode [**méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
+2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour récupérer l’objet [**de la facture**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) .
 
-The **invoice object** contains all of the information for the specified invoice. The **Provider** identifies the source of the unbilled detail information (for example, **OneTime**). The **InvoiceLineItemType** specifies the type (for example, **UsageLineItem**).
+L' **objet Invoice** contient toutes les informations relatives à la facture spécifiée. Le **fournisseur** identifie la source des informations de détail non facturées (par exemple, **OneTime**). **InvoiceLineItemType** spécifie le type (par exemple, **UsageLineItem**).
 
-The following example code uses a **foreach** loop to process the **InvoiceLineItems** collection. A separate collection of line items is retrieved for each **InvoiceLineItemType**.
+L’exemple de code suivant utilise une boucle **foreach** pour traiter la collection **InvoiceLineItems** . Une collection distincte d’éléments de ligne est récupérée pour chaque **InvoiceLineItemType**.
 
-To get a collection of line items that correspond to an **InvoiceDetail** instance:
+Pour obtenir une collection d’éléments de ligne qui correspondent à une instance **InvoiceDetail** :
 
-1. Pass the instance's **BillingProvider** and **InvoiceLineItemType** to the [**By**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.
-2. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.
-3. Create an enumerator to traverse the collection as shown in the following example.
+1. Transmettez le **BillingProvider** et le **InvoiceLineItemType** de l’instance à la méthode [**par**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
+2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour [**récupérer les éléments**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) de ligne associés.
+3. Créez un énumérateur pour parcourir la collection comme indiqué dans l’exemple suivant.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -102,68 +102,68 @@ while (fetchNext)
 }  
 ```
 
-For a similar example, see:
+Pour obtenir un exemple similaire, consultez :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetUnBilledConsumptionReconLineItemsPaging.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
+- Classe : **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-You can use the following syntaxes for your REST request, depending on your use case. For more information, see the descriptions for each syntax.
+Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction de votre cas d’utilisation. Pour plus d’informations, consultez les descriptions de chaque syntaxe.
 
- | Méthode  | URI de requête         | Description of syntax use case |                                                                                                                                            |
+ | Méthode  | URI de requête         | Description du cas d’usage de syntaxe |                                                                                                                                            |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period} HTTP/1.1                              | Use this syntax to return a full list of every line item for the given invoice. |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1  | Use this syntax for large invoices. Use this syntax with a specified size and 0-based offset to return a paged list of line items. |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next                               | Use this syntax to get the next page of reconciliation line items using `seekOperation = "Next"`. |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & période = {period} http/1.1                              | Utilisez cette syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & période = {period} & Size = {Size} http/1.1  | Utilisez cette syntaxe pour les factures volumineuses. Utilisez cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & période = {period} & Size = {size} & SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"`. |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following URI and query parameters when creating the request.
+Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Tapez   | Obligatoire | Description                                                                     |
+| Nom                   | Type   | Obligatoire | Description                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| provider               | chaîne | Oui      | The provider: "**OneTime**".                                                |
-| invoice-line-item-type | chaîne | Oui      | The type of invoice detail: "**UsageLineItems**", "**UsageLineItems**".               |
-| currencyCode           | chaîne | Oui      | The currency code for the unbilled line items.                                  |
-| period                 | chaîne | Oui      | The period for unbilled recon (for example: **current**, **previous**).                      |
-| size                   | nombre | non       | The maximum number of items to return. The default size is 2000.                    |
-| seekOperation          | chaîne | non       | Set `seekOperation=Next` to get the next page of reconciliation line items.                |
+| fournisseur               | chaîne | Oui      | Le fournisseur : «**OneTime**».                                                |
+| facture-ligne-élément-type | chaîne | Oui      | Type de détail de la facture : «**UsageLineItems**», «**UsageLineItems**».               |
+| currencyCode           | chaîne | Oui      | Code de la devise pour les éléments de ligne non facturés.                                  |
+| heures                 | chaîne | Oui      | Période pour le rapprochement non facturé (par exemple : **actuel**, **précédent**).                      |
+| size                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000.                    |
+| seekOperation          | chaîne | Non       | Définissez `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
 Aucun.
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response contains the collection of line item details.
+En cas de réussite, la réponse contient la collection des détails de l’élément de ligne.
 
-*For the line item **ChargeType**, the value **Purchase** is mapped to **New** and the value **Refund** is mapped to **Cancel**.*
+*Pour l’élément de ligne **ChargeType**, la valeur **Purchase** est mappée sur **New** et le **remboursement** de valeur est mappé sur **Cancel**.*
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-### <a name="request-response-examples"></a>Request-response examples
+### <a name="request-response-examples"></a>Exemples de requêtes-réponses
 
-#### <a name="request-response-example-1"></a>Request-response example 1
+#### <a name="request-response-example-1"></a>Exemple de requête-réponse 1
 
-The following details apply to this example:
+Les détails suivants s’appliquent à cet exemple :
 
-- **Provider**: **OneTime**
+- **Fournisseur**: **OneTime**
 - **InvoiceLineItemType**: **UsageLineItems**
-- **Period**: **Previous**
+- **Période**: **précédente**
 
-##### <a name="request-example-1"></a>Request example 1
+##### <a name="request-example-1"></a>Exemple de requête 1
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1//invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -176,7 +176,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-1"></a>Response example 1
+#### <a name="response-example-1"></a>Exemple de réponse 1
 
 ```http
 HTTP/1.1 200 OK
@@ -329,16 +329,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a>Request-response example 2
+### <a name="request-response-example-2"></a>Exemple de requête-réponse 2
 
-The following details apply to this example:
+Les détails suivants s’appliquent à cet exemple :
 
-- **Provider**: **OneTime**
+- **Fournisseur**: **OneTime**
 - **InvoiceLineItemType**: **UsageLineItems**
-- **Period**: **Previous**
-- **SeekOperation**: **Next**
+- **Période**: **précédente**
+- **SeekOperation**: **suivant**
 
-#### <a name="request-example-2"></a>Request example 2
+#### <a name="request-example-2"></a>Exemple de requête 2
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=onetime&invoiceLineItemType=usagelineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -352,7 +352,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-2"></a>Response example 2
+#### <a name="response-example-2"></a>Exemple de réponse 2
 
 ```http
 HTTP/1.1 200 OK

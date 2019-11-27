@@ -1,6 +1,6 @@
 ---
-title: Make a one-time purchase
-description: How to make a one-time purchase of software and reservation products such as software subscriptions, perpetual software, and Azure Reserved Virtual Machine (VM) Instances, using the Partner Center API.
+title: Effectuer un achat unique
+description: Comment effectuer un achat unique des logiciels et des produits de réservation, tels que les abonnements logiciels, les logiciels perpétuelles et les instances de machines virtuelles réservées Azure, à l’aide de l’API espace partenaires.
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,24 +12,24 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488369"
 ---
-# <a name="make-a-one-time-purchase"></a>Make a one-time purchase
+# <a name="make-a-one-time-purchase"></a>Effectuer un achat unique
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to make a one-time purchase of software and reservation products such as software subscriptions, perpetual software, and Azure Reserved Virtual Machine (VM) Instances, using the Partner Center API.
+Comment effectuer un achat unique des logiciels et des produits de réservation, tels que les abonnements logiciels, les logiciels perpétuelles et les instances de machines virtuelles réservées Azure, à l’aide de l’API espace partenaires.
 
 > [!NOTE]  
-> Software subscriptions are not available in the following markets:  
+> Les abonnements logiciels ne sont pas disponibles sur les marchés suivants :  
 >  
-> | Unavailable Markets            | &nbsp;                            | &nbsp;                                   |
+> | Marchés non disponibles            | &nbsp;                            | &nbsp;                                   |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | Åland (îles d’)                  | Groenland                         | Papouasie-Nouvelle-Guinée                         |
 > | Samoa américaines                 | Grenade                           | Pitcairn (îles)                         |
 > | Andorre                        | Guadeloupe                        | Réunion (île)                                  |
-> | Anguilla                       | Guam                              | Russian Federation                       |
+> | Anguilla                       | Guam                              | Fédération de Russie                       |
 > | Antarctique                     | Guernesey                          | Saba                                     |
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
@@ -41,15 +41,15 @@ How to make a one-time purchase of software and reservation products such as sof
 > | Territoires britanniques de l’océan Indien | Jersey                            | São Tomé et Príncipe                    |
 > | Îles Vierges britanniques         | Kiribati                          | Seychelles                               |
 > | Burkina-Faso                   | Kosovo                            | Sierra Leone                             |
-> | Burundi                        | Laos                              | Sint Eustatius                           |
+> | Burundi                        | Laos                              | Saint-Eustache                           |
 > | Cambodge                       | Lesotho                           | Saint-Martin (Royaume des Pays-Bas)                             |
 > | République centrafricaine       | Liberia                           | Salomon (îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | South Georgia and South Sandwich Islands |
+> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | St Helena, Ascension, Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, ascension, Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Surinam                                 |
-> | République démocratique du Congo                          | Martinique                        | Svalbard                                 |
+> | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
 > | Cook (îles)                   | Mayotte                           | Timor-Leste                              |
 > | Djibouti                       | Micronésie                        | Togo                                     |
@@ -59,105 +59,105 @@ How to make a one-time purchase of software and reservation products such as sof
 > | Malouines (îles)               | Nauru                             | Tuvalu                                   |
 > | Guyane française                  | Nouvelle-Calédonie                     | Îles mineures éloignées des États-Unis                    |
 > | Polynésie française               | Niger                             | Vanuatu                                  |
-> | Terres australes françaises    | Niue                              | Cité du Vatican                             |
+> | Terres australes françaises    | Niue                              | État de la Cité du Vatican                             |
 > | Gabon                          | Norfolk (île)                    | Wallis-et-Futuna                        |
 > | Gambie                         | Mariannes du Nord (îles)          | Yémen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >  
 &nbsp;
 > [!NOTE]
-> To purchase perpetual software, you must have been previously qualified. Contact support for more information.
+> Pour acheter un logiciel perpétuel, vous devez avoir été préalablement qualifié. Pour plus d’informations, contactez le support.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
-## <a name="making-a-one-time-purchase"></a>Making a one-time purchase
+## <a name="making-a-one-time-purchase"></a>Achat unique
 
-To make a one-time purchase, use the following steps:
+Pour effectuer un achat unique, procédez comme suit :
 
-1. [Enablement](#enablement) - (Azure Reserved VM Instance only) Register an active CSP Azure subscription to enable it for purchasing any reservation product.
-2. [Discovery](#discovery) - Find and select the products and SKUs you want to purchase and check their availability.
-3. [Order submission](#order-submission) - Create a shopping cart with the items in your order and submit it.
-4. [Get order details](#get-order-details) - Review the details of an order, all the orders for a customer, or view orders by billing cycle type.
+1. [Activation](#enablement) -(instance de machine virtuelle réservée Azure uniquement) Inscrivez un abonnement Azure CSP actif pour l’activer pour l’achat d’un produit de réservation.
+2. [Détection](#discovery) : recherchez et sélectionnez les produits et références SKU que vous souhaitez acheter, puis vérifiez leur disponibilité.
+3. [Soumission de commande](#order-submission) : créez un panier d’achat avec les Articles de votre commande et envoyez-le.
+4. [Obtenir les détails](#get-order-details) de la commande-passez en revue les détails d’une commande, toutes les commandes pour un client ou afficher les commandes par type de cycle de facturation.
 
-After you have made your one-time purchase, the following scenarios show you how to manage the lifecycle of your products by getting information about your entitlements, and how to retrieve balance statements, invoices, and invoice summaries.
+Après avoir effectué votre achat unique, les scénarios suivants vous montrent comment gérer le cycle de vie de vos produits en obtenant des informations sur vos droits, ainsi que sur la façon de récupérer les relevés de solde, les factures et les résumés des factures.
 
-- [Lifecycle management](#lifecycle-management)
-- [Invoice and reconciliation](#invoice-and-reconciliation)
+- [Gestion du cycle de vie](#lifecycle-management)
+- [Facture et rapprochement](#invoice-and-reconciliation)
 
 ## <a name="enablement"></a>Activation
 
-Once you have identified the active subscription that you want to add the Azure Reserved VM Instance to, you must register the subscription so that it is enabled. To register an existing [Subscription](subscription-resources.md) resource so that it is enabled, see [Register a subscription](register-a-subscription.md).
+Une fois que vous avez identifié l’abonnement actif auquel vous souhaitez ajouter l’instance de machine virtuelle réservée Azure, vous devez inscrire l’abonnement afin qu’il soit activé. Pour inscrire une ressource d' [abonnement](subscription-resources.md) existante afin qu’elle soit activée, consultez [inscrire un abonnement](register-a-subscription.md).
 
-After registering your subscription, you should confirm that the registration process is completed by checking the registration status. To do this, see [Get subscription registration status](get-subscription-registration-status.md).
+Après l’inscription de votre abonnement, vous devez vérifier que le processus d’inscription est terminé en vérifiant l’état de l’inscription. Pour ce faire, consultez [obtenir l’état de l’inscription de l’abonnement](get-subscription-registration-status.md).
 
 ## <a name="discovery"></a>Découverte
 
-Once the subscription is enabled, you're ready to select products and SKUs and check their availability using the following Partner Center API models:
+Une fois l’abonnement activé, vous êtes prêt à sélectionner les produits et références SKU et à vérifier leur disponibilité à l’aide des modèles d’API de l’espace partenaires suivants :
 
-- [Product](product-resources.md#product) - A grouping construct for purchasable goods or services. A product by itself is not a purchasable item.
-- [SKU](product-resources.md#sku) - A purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product.
-- [Availability](product-resources.md#availability) - A configuration in which a SKU is available for purchase (such as country, currency and industry segment).
+- [Produit](product-resources.md#product) : construction de regroupement pour les biens ou services pouvant être achetés. Un produit seul n’est pas un élément pouvant être acheté.
+- [Référence](product-resources.md#sku) (SKU), une unité de conservation de stock (SKU) achetée dans un produit. Celles-ci représentent les différentes formes du produit.
+- [Disponibilité](product-resources.md#availability) : configuration dans laquelle une référence (SKU) est disponible à l’achat (par exemple, pays, devise et secteur).
 
-Before making a one-time purchase, complete the following steps:
+Avant d’effectuer un achat unique, procédez comme suit :
 
-1. Identify and retrieve the Product and SKU that you want to purchase. You can do this by listing the products and SKUs first, or If you already know the IDs of the product and SKU, selecting them.
+1. Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter. Pour ce faire, vous pouvez répertorier les produits et les références SKU en premier, ou si vous connaissez déjà les ID du produit et de la référence SKU, en les sélectionnant.
 
-    - [Get a list of products](get-a-list-of-products.md)
-    - [Get a product using the product ID](get-a-product-by-id.md)
-    - [Get a list of SKUs for a product](get-a-list-of-skus-for-a-product.md)
-    - [Get a SKU using the SKU ID](get-a-sku-by-id.md)
+    - [Obtenir une liste de produits](get-a-list-of-products.md)
+    - [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
+    - [Obtenir la liste des références (SKU) d’un produit](get-a-list-of-skus-for-a-product.md)
+    - [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
-2. Check the inventory for a SKU. This step is only needed for SKUs that are tagged with an **InventoryCheck** prerequisite.
+2. Vérifiez l’inventaire d’une référence (SKU). Cette étape n’est nécessaire que pour les références (SKU) marquées avec un prérequis **InventoryCheck** .
 
-    - [Check Inventory](check-inventory.md)
+    - [Vérifier l’inventaire](check-inventory.md)
 
-3. Retrieve the [availability](product-resources.md#availability) for the [SKU](product-resources.md#sku). You will need the **CatalogItemId** of the availability when placing the order. To get this value, use one of the following APIs:
+3. Récupérez la [disponibilité](product-resources.md#availability) de la [référence SKU](product-resources.md#sku). Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande. Pour ce faire, utilisez l’une des API suivantes :
 
-    - [Get a list of availabilities for a SKU](get-a-list-of-availabilities-for-a-sku.md)
-    - [Get an availability using the availability ID](get-an-availability-by-id.md)  
+    - [Obtenir la liste des disponibilités pour une référence (SKU)](get-a-list-of-availabilities-for-a-sku.md)
+    - [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)  
 
-## <a name="order-submission"></a>Order submission
+## <a name="order-submission"></a>Soumission de commande
 
-To submit your order, do the following:
+Pour soumettre votre commande, procédez comme suit :
 
-1. Create a cart to hold the collection of catalog items that you intend to buy. When you create a [Cart](cart-resources.md), the [cart line items](cart-resources.md#cartlineitem) are automatically grouped based on what can be purchased together in the same [Order](order-resources.md).
+1. Créez un panier pour stocker la collection d’éléments de catalogue que vous souhaitez acheter. Lorsque vous créez un [panier](cart-resources.md), les [éléments de ligne de panier](cart-resources.md#cartlineitem) sont automatiquement regroupés en fonction de ce qui peut être acheté ensemble dans le même [ordre](order-resources.md).
 
-    - [Create a shopping cart](create-a-cart.md)
-    - [Update a shopping cart](update-a-cart.md)
+    - [Créer un panier d’achat](create-a-cart.md)
+    - [Mettre à jour un panier d’achat](update-a-cart.md)
 
-2. Check out the cart. Checking out a cart results in the creation of an [Order](order-resources.md).
+2. Consultez le panier. L’extraction d’un panier entraîne la création d’une [commande](order-resources.md).
 
-    - [Checkout the cart](checkout-a-cart.md)
+    - [Extraire le panier](checkout-a-cart.md)
 
-## <a name="get-order-details"></a>Get order details
+## <a name="get-order-details"></a>Recevoir les détails de la commande
 
-Once you have created your order, you can retrieve the details of an individual order using the order ID, or get a list of orders for a customer. Note that there is a delay of up to 15 minutes between the time an order is submitted and when it will appear in a list of a customer's orders.
+Une fois que vous avez créé votre commande, vous pouvez récupérer les détails d’une commande individuelle à l’aide de l’ID de commande ou obtenir la liste des commandes d’un client. Notez qu’il y a un délai de 15 minutes au maximum entre le moment où une commande est soumise et le moment où elle apparaîtra dans la liste des commandes d’un client.
 
-- To get the details of an individual order using the order ID. See, [Get an order by ID](get-an-order-by-id.md).
+- Pour afficher les détails d’une commande individuelle à l’aide de l’ID de commande. Consultez [obtenir une commande par ID](get-an-order-by-id.md).
 
-- To get a list of orders for a customer using the customer ID. See, [Get all of a customer's orders](get-all-of-a-customer-s-orders.md).
+- Pour obtenir la liste des commandes d’un client à l’aide de l’ID client. Consultez [la page obtenir toutes les commandes d’un client](get-all-of-a-customer-s-orders.md).
 
-- To get a list of orders for a customer by [billing cycle type](product-resources.md#billingcycletype) allowing you to list orders (one-time charges) and annual or monthly billed orders separately. See, [Get a list of orders by customer and billing cycle type](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
+- Pour obtenir la liste des commandes d’un client par [type de cycle de facturation](product-resources.md#billingcycletype) , ce qui vous permet de répertorier les commandes (frais à usage unique) et les commandes annuelles ou mensuelles facturées séparément. Consultez [la page obtenir une liste de commandes par client et type de cycle de facturation](get-a-list-of-orders-by-customer-and-billing-cycle-type.md).
 
 ## <a name="lifecycle-management"></a>Gestion du cycle de vie
 
-As part of managing the lifecycle of your one-time purchases in Partner Center, you can retrieve information about your [Entitlements](entitlement-resources.md), and get reservation details using the reservation order ID. For examples of how to do this, see [Get entitlements](get-a-collection-of-entitlements.md).
+Dans le cadre de la gestion du cycle de vie de vos achats à usage unique dans l’espace partenaires, vous pouvez récupérer des informations sur vos [habilitations](entitlement-resources.md)et obtenir des détails sur la réservation à l’aide de l’ID de commande de réservation. Pour obtenir des exemples d’utilisation, consultez [obtenir des droits](get-a-collection-of-entitlements.md).
 
-## <a name="invoice-and-reconciliation"></a>Invoice and reconciliation
+## <a name="invoice-and-reconciliation"></a>Facture et rapprochement
 
-The following scenarios show you how to programmatically view your customer's [invoices](invoice-resources.md), and get your account balances and summaries that include one-time charges.  
+Les scénarios suivants vous montrent comment afficher par programmation les [factures](invoice-resources.md)de votre client et obtenir les soldes et les résumés de votre compte qui incluent des frais à usage unique.  
 
-**Balance and payment** To get current account balance in your default currency type that is a balance of both recurring and one-time charges, see [Get your current account balance](get-the-reseller-s-current-account-balance.md)
+**Solde et paiement** Pour obtenir le solde actuel du compte dans votre type de devise par défaut qui correspond à un solde des frais périodiques et ponctuels, consultez [obtenir le solde actuel de votre compte](get-the-reseller-s-current-account-balance.md)
 
-**Multi-currency balance and payment** To get your current account balance and a collection of invoice summaries containing an invoice summary with both recurring and one-time charges for each of your customer's currency types, see [Get invoice summaries](get-invoice-summaries.md).
+**Solde et paiement à plusieurs devises** Pour obtenir le solde de votre compte actuel et un ensemble de résumés de facture contenant un résumé de facture avec des frais périodiques et ponctuels pour chacun des types de devise de votre client, consultez [obtenir des résumés de facture](get-invoice-summaries.md).
 
-**Invoices** To get a collection of invoices that show both recurring and one time charges, see [Get a collection of invoices](get-a-collection-of-invoices.md).
+**Factures** Pour obtenir une collection de factures qui affichent des frais périodiques et ponctuels, consultez [obtenir une collection de factures](get-a-collection-of-invoices.md).
 
-**Single Invoice** To retrieve a specific invoice using the invoice ID, see [Get an invoice by ID](get-invoice-by-id.md).  
+**Facture unique** Pour récupérer une facture spécifique à l’aide de l’ID de facture, consultez [obtenir une facture par ID](get-invoice-by-id.md).  
 
-**Reconciliation** To get a collection of invoice line item details (Reconciliation line items) for a specific invoice ID, see [Get invoice line items](get-invoiceline-items.md).  
+**Réconciliation** Pour obtenir une collection de détails sur les lignes de facturation (Articles de rapprochement) pour un ID de facture spécifique, consultez [obtenir des lignes de facturation](get-invoiceline-items.md).  
 
-**Download an invoice as a PDF** To retrieve an invoice statement in PDF form using an invoice ID, see [Get an invoice statement](get-invoice-statement.md).
+**Télécharger une facture au format PDF** Pour récupérer une déclaration de facture au format PDF à l’aide d’un ID de facture, consultez [obtenir une facture](get-invoice-statement.md).

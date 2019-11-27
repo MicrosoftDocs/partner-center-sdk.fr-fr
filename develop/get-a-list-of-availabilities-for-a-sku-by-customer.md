@@ -1,6 +1,6 @@
 ---
-title: Get a list of availabilities for a SKU (by customer)
-description: You can get a collection of availabilities for a specified product and SKU by customer using the customer, product and SKU identifiers.
+title: Obtenir la liste des disponibilités pour une référence (par client)
+description: Vous pouvez obtenir une collection de disponibilités pour un produit et une référence SKU spécifiés par le client à l’aide des identificateurs du client, du produit et de la référence SKU.
 ms.assetid: ''
 ms.date: 10/23/2019
 ms.service: partner-dashboard
@@ -13,45 +13,45 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487479"
 ---
-# <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>Get a list of availabilities for a SKU (by customer)
+# <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>Obtenir la liste des disponibilités pour une référence (par client)
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can use the following methods to get a collection of availabilities for a specified product and SKU available to a particular customer.
+Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de disponibilités pour un produit et une référence SKU spécifiques disponibles pour un client particulier.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**).
-- A product identifier (**product-id**).
-- A SKU identifier (**sku-id**).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client (**Customer-client-ID**).
+- Identificateur de produit (**Product-ID**).
+- Identificateur de référence (**SKU-ID**).
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                                                                                 |
 |--------|-----------------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products/{product-id}/skus/{sku-id} HTTP/1.1 |
+| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Products/{Product-ID}/SKUs/{SKU-ID} http/1.1 |
 
-#### <a name="request-uri-parameters"></a>Request URI parameters
+#### <a name="request-uri-parameters"></a>Paramètres d’URI de demande
 
-| Nom               | Tapez | Obligatoire | Description                                                                                 |
+| Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Oui | The value is a GUID-formatted **customer-tenant-id**, which is an identifier that allows you to specify a customer. |
-| product-id | chaîne | Oui | A string that identifies the product. |
-| sku-id | chaîne | Oui | A tring that identifies the SKU. |
+| client-locataire-ID | GUID | Oui | La valeur est un **client-client-ID**au format GUID, qui est un identificateur qui vous permet de spécifier un client. |
+| ID de produit | chaîne | Oui | Chaîne qui identifie le produit. |
+| Réf. SKU | chaîne | Oui | String qui identifie la référence (SKU). |
 
 #### <a name="request-header"></a>En-tête de requête
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -67,17 +67,17 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP | Error code | Description |
 |------------------|------------|-------------|
-| 404 | 400013 | The parent product was not found. |
+| 404 | 400013 | Le produit parent est introuvable. |
 
 #### <a name="response-example"></a>Exemple de réponse
 

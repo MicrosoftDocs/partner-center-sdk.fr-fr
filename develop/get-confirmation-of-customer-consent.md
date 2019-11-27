@@ -1,6 +1,6 @@
 ---
-title: Get confirmation of customer acceptance of Microsoft Cloud Agreement
-description: This topic explains how to get confirmation of customer acceptance of the Microsoft Cloud Agreement.
+title: Recevoir la confirmation de l’acceptation du client du contrat de Microsoft Cloud
+description: Cette rubrique explique comment demander la confirmation de l’acceptation du client du contrat de Microsoft Cloud.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -14,30 +14,30 @@ ms.locfileid: "74485659"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Obtenir une confirmation de l'acceptation du contrat Microsoft Cloud par le client
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
 > [!NOTE]  
-> The **Agreement** resource is currently supported by Partner Center in the Microsoft public cloud only. It is not applicable to:
+> La ressource d' **accord** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle ne s’applique pas aux éléments suivants :
 > - Espace partenaires géré par 21Vianet
-> - Espace partenaires de Microsoft Cloud Germany
+> - Espace partenaires de Microsoft Cloud Germany
 > - Espace partenaires de Microsoft Cloud for US Government
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- If you are using the Partner Center .NET SDK, version 1.9 or newer is required.
-- If you are using the Partner Center Java SDK, version 1.8 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario supports only supports app + user authentication.
-- A customer ID (customer-tenant-id).
+- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,9 ou une version ultérieure est requise.
+- Si vous utilisez le kit de développement logiciel (SDK) Java de l’espace partenaires, la version 1,8 ou une version ultérieure est requise.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification d’application + utilisateur.
+- ID client (client-locataire-ID).
 
-## <a name="net-version-14-or-newer"></a>.NET (version 1.4 or newer)
+## <a name="net-version-14-or-newer"></a>.NET (version 1,4 ou ultérieure)
 
-To retrieve confirmation(s) of customer acceptance that was previously provided:
+Pour récupérer la ou les confirmations de l’acceptation du client qui ont été fournies précédemment :
 
-- Use the **IAggregatePartner.Customers** collection and call **ById** method with the specified customer identifier.
-- Fetch the **Agreements** property and filter the results to Microsoft Cloud Agreement by calling **ByAgreementType** method.
-- Call **Get** or **GetAsync** method.
+- Utilisez la collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID** avec l’identificateur de client spécifié.
+- Extrayez la propriété **Agreements** et filtrez les résultats pour Microsoft Cloud accord en appelant la méthode **ByAgreementType** .
+- Appelez **la** méthode **GetAsync** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -48,13 +48,13 @@ string agreementType = "MicrosoftCloudAgreement";
 var cloudAgreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements.ByAgreementType(agreementType).Get();
 ```
 
-A complete sample can be found in the [GetCustomerAgreements](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+Un exemple complet est disponible dans la classe [GetCustomerAgreements](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs) à partir du projet d' [application de test console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) .
 
-## <a name="net-version-19---113"></a>.NET (version 1.9 - 1.13) 
+## <a name="net-version-19---113"></a>.NET (version 1,9-1,13) 
 
-To retrieve confirmation of customer acceptance provided previously:
+Pour récupérer la confirmation de l’acceptation du client fournie précédemment :
 
-Use the **IAggregatePartner.Customers** collection and call the **ById** method with the specified customer's identifier. Then, get the **Agreements** property, followed by calling the **Get** or **GetAsync** methods.
+Utilisez la collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID** avec l’identificateur du client spécifié. Ensuite, récupérez la propriété **Agreements** , puis appelez les méthodes d' **extraction** ou de **GetAsync** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -67,9 +67,9 @@ var agreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To retrieve confirmation of customer acceptance provided previously:
+Pour récupérer la confirmation de l’acceptation du client fournie précédemment :
 
-Use the **IAggregatePartner.getCustomers** function and call the **byId** function with the specified customer's identifier. Then, get the **getAgreements** function, followed by calling the **get** function.
+Utilisez la fonction **collection iaggregatepartner. getCustomers** et appelez la fonction **méthode BYID** avec l’identificateur du client spécifié. Ensuite, accédez à la fonction **getAgreements** , suivie de l’appel de la fonction d' **extraction** .
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -78,15 +78,15 @@ Use the **IAggregatePartner.getCustomers** function and call the **byId** functi
 ResourceCollection<Agreement> agreements = partnerOperations.getCustomers().byId(selectedCustomerId).getAgreements().get();
 ```
 
-A complete sample can be found in the [GetCustomerAgreements](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetCustomerAgreements.java) class from the [console test app](https://github.com/Microsoft/Partner-Center-Java-Samples) project.
+Un exemple complet est disponible dans la classe [GetCustomerAgreements](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetCustomerAgreements.java) à partir du projet d' [application de test console](https://github.com/Microsoft/Partner-Center-Java-Samples) .
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To retrieve confirmation of customer acceptance provided previously:
+Pour récupérer la confirmation de l’acceptation du client fournie précédemment :
 
-Use the [**Get-PartnerCustomerAgreement**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partnercustomeragreement) command.
+Utilisez la commande [**PartnerCustomerAgreement**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/get-partnercustomeragreement) .
 
 ```powershell
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
@@ -94,29 +94,29 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 ## <a name="rest"></a>REST
 
-To retrieve confirmation of customer acceptance provided previously, see the following instructions.
+Pour récupérer la confirmation de l’acceptation du client fournie précédemment, consultez les instructions suivantes.
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
-Create a new **Agreement** resource with the relevant certification information.  
+Créez une nouvelle ressource de **contrat** avec les informations de certification pertinentes.  
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Agreements http/1.1 |
 
 ##### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to specify the customer you are confirming.
+Utilisez le paramètre de requête suivant pour spécifier le client que vous confirmez.
 
-| Nom             | Tapez | Obligatoire | Description                                                                               |
+| Nom             | Type | Obligatoire | Description                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| CustomerTenantId | GUID | Y        | The value is a GUID formatted **CustomerTenantId** that allows you to specify a customer. |
+| customerTenantId | GUID | Y        | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -132,13 +132,13 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of **Agreement** resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources de **contrat** dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

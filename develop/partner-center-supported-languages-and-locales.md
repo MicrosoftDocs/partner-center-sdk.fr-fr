@@ -1,6 +1,6 @@
 ---
-title: Partner Center supported languages and locales
-description: List of ISO2 and ISO3 supported locales for Partner Center.
+title: Langues et paramètres régionaux pris en charge par l’espace partenaires
+description: Liste des paramètres régionaux pris en charge par ISO2 et ISO3 pour l’espace partenaires.
 ms.date: 12/03/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,271 +12,271 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488289"
 ---
-# <a name="partner-center-supported-languages-and-locales"></a>Partner Center supported languages and locales
+# <a name="partner-center-supported-languages-and-locales"></a>Langues et paramètres régionaux pris en charge par l’espace partenaires
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Some Partner Center APIs require a value indicating a locale, country or region. For example, the [Partner Center REST header](headers.md) X-Locale requires a value often in the format "language-country" ("en-US" indicates "English - United States").
+Certaines API de l’espace partenaires requièrent une valeur indiquant les paramètres régionaux, le pays ou la région. Par exemple, l' [en-tête X de l’en-tête REST de l’espace partenaires](headers.md) requiert une valeur souvent au format « langue-pays » (« en-US » indique « anglais-États-Unis »).
 
-In the Partner Center managed APIs, the [CountryValidationRules](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.countryvalidationrules.countryvalidationrules) class and the [OfferCategory.Locale](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.offercategory.locale), [ServiceRequest.CountryCode](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.countrycode), or [CustomerBillingProfile.Culture](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile.culture) properties require string values that indicate a language or country/region (in the form of an ISO2 language code or ISO3 country/region code), a locale, or a culture (a language ID combined with a country/region code).
+Dans les API gérées par l’espace partenaires, la classe [CountryValidationRules](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.countryvalidationrules.countryvalidationrules) et les propriétés [OfferCategory. locale](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.offercategory.locale), [ServiceRequest. CountryCode](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.countrycode)ou [CustomerBillingProfile. culture](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile.culture) requièrent des valeurs de chaîne qui indiquent une langue ou un pays/région (sous la forme d’un code de langue ISO2 ou d’un code de pays/région ISO3), des paramètres régionaux ou une culture (un ID de langue associé à un pays
 
-The following table lists the cultures and International Standards Organization (ISO) country codes that are supported in the Partner Center APIs. 
+Le tableau suivant répertorie les cultures et les codes de pays ISO (International Standards Organization) qui sont pris en charge dans les API de l’espace partenaires. 
 
 
-| Pays/région                           | ISO Alpha 2 Country Code | ISO Alpha 3 Country Code | Supported Culture(s)                  |
+| Pays/région                           | Code du pays ISO alpha 2 | Code du pays ISO alpha 3 | Culture (s) prise en charge                  |
 |------------------------------------------|--------------------------|--------------------------|---------------------------------------|
-| Afghanistan                              | AF                       | AFG                      | ps-AF / en-US                         |
-| Åland (îles d’)                            | AX                       | ALA                      | sv-SE / en-US                         |
-| Albanie                                  | AL                       | ALB                      | sq-AL / en-US                         |
-| Algérie                                  | DZ                       | DZA                      | ar-DZ / en-US                         |
-| Samoa américaines                           | AS                       | ASM                      | en-US                                 |
-| Andorre                                  | AD                       | ET                      | ca-ES / en-US                         |
-| Angola                                   | AO                       | AGO                      | pt-PT / en-US                         |
-| Anguilla                                 | IA                       | AIA                      | en-US                                 |
-| Antarctique                               | AQ                       | ATA                      | en-US                                 |
-| Antigua-et-Barbuda                      | AG                       | ATG                      | en-US                                 |
-| Argentine                                | AR                       | ARG                      | es-AR / en-US                         |
-| Arménie                                  | AM                       | ARM                      | hy-AM / en-US                         |
-| Aruba                                    | AW                       | ABW                      | nl-NL / en-US                         |
-| Australie                                | AU                       | AUS                      | en-AU / en-US                         |
-| Autriche                                  | AT                       | AUT                      | de-AT / en-US                         |
-| Azerbaïdjan                               | AZ                       | AZE                      | az-Latn-AZ / en-US                    |
-| Bahamas                                  | BS                       | BHS                      | en-GB / en-US                         |
-| Bahreïn                                  | BH                       | BHR                      | ar-BH / en-US                         |
-| Bangladesh                               | BD                       | BGD                      | bn-BD / en-US                         |
-| Barbade (La)                                 | BB                       | BRB                      | en-GB / en-US                         |
-| Bélarus                                  | BY                       | BLR                      | be-BY / en-US                         |
-| Belgique                                  | BE                       | BEL                      | fr-BE / nl-BE / en-US                 |
-| Belize                                   | BZ                       | BLZ                      | en-BZ / en-US                         |
-| Bénin                                    | BJ                       | BEN                      | fr-FR / en-US                         |
-| Bermudes                                  | BM                       | BMU                      | en-GB / en-US                         |
-| Bhoutan                                   | BT                       | BTN                      | en-US                                 |
-| Bolivie                                  | BO                       | BOL                      | es-BO / en-US                         |
-| Bonaire                                  | BQ                       | BES                      | nl-NL / en-US                         |
-| Bosnie-Herzégovine                   | BA                       | BIH                      | bs-Latn-BA / en-US                    |
-| Botswana                                 | BW                       | BWA                      | en-GB / en-US                         |
-| Bouvet (Île)                            | BV                       | BVT                      | nb-NO / en-US                         |
-| Brésil                                   | BR                       | BRA                      | pt-BR / en-US                         |
-| Territoires britanniques de l’océan Indien           | E/S                       | IOT                      | en-US                                 |
-| Îles Vierges britanniques                   | VG                       | VGB                      | en-US                                 |
-| Brunei                                   | BN                       | BRN                      | ms-BN / en-US                         |
-| Bulgarie                                 | BG                       | BGR                      | bg-BG / en-US                         |
-| Burkina-Faso                             | BF                       | BFA                      | fr-FR / en-US                         |
-| Burundi                                  | BI                       | BDI                      | fr-FR / en-US                         |
-| Cap Vert                               | CV                       | CPV                      | pt-CV / en-US                         |
-| Cambodge                                 | KH                       | KHM                      | km-KH / en-US                         |
-| Cameroun                                 | CM                       | CMR                      | fr-FR / en-US                         |
-| Canada                                   | AC                       | CAN                      | fr-CA / en-US                         |
-| Caïmans (îles)                           | KY                       | CYM                      | en-GB / en-US                         |
-| République centrafricaine                 | CF                       | CAF                      | fr-FR / en-US                         |
-| Tchad                                     | TD                       | TCD                      | fr-FR / en-US                         |
-| Chili                                    | CL                       | CHL                      | es-CL / en-US                         |
-| Chine                                    | CN                       | CHN                      | zh-CN / en-US                         |
-| Christmas (île)                         | CX                       | CXR                      | en-US                                 |
-| Cocos-Keeling (îles)                  | CC                       | CCK                      | en-US                                 |
-| Colombie                                 | CO                       | COL                      | es-CO / en-US                         |
-| Comores (Les)                                  | KM                       | COM                      | fr-FR / en-US                         |
-| République démocratique du Congo                                    | CG                       | COG                      | fr-FR / en-US                         |
-| Congo (RDC)                              | CD-ROM                       | COD                      | fr-FR / en-US                         |
-| Cook (îles)                             | CK                       | COK                      | en-US                                 |
-| Costa Rica                               | CR                       | CRI                      | es-CR / en-US                         |
-| Côte d’Ivoire                            | CI                       | CIV                      | fr-FR / en-US                         |
-| Croatie                                  | HR                       | HRV                      | hr-HR / en-US                         |
-| Curaçao                                  | CW                       | CUW                      | nl-NL / en-US                         |
-| Chypre                                   | CY                       | CYP                      | el-GR / en-US                         |
-| Czechia                                  | CZ                       | CZE                      | cs-CZ / en-US                         |
-| Danemark                                  | DK                       | DNK                      | da-DK / en-US                         |
-| Djibouti                                 | DJ                       | DJI                      | fr-FR / en-US                         |
-| Dominique                                 | DM                       | DMA                      | en-US                                 |
-| République dominicaine                       | DO                       | DOM                      | es-DO / en-US                         |
-| Équateur (République de l’)                                  | EC                       | ECU                      | es-EC / en-US                         |
-| Égypte                                    | EG                       | EGY                      | ar-EG / en-US                         |
-| Salvador                              | SV                       | SLV                      | es-SV / en-US                         |
-| Guinée équatoriale                        | GQ                       | GNQ                      | es-ES / en-US                         |
-| Érythrée                                  | ER                       | ERI                      | ar-SA / en-US                         |
-| Estonie                                  | EE                       | EST                      | et-EE / en-US                         |
-| eSwatini                                 | SZ                       | SWZ                      | en-US                                 |
-| Éthiopie                                 | ET                       | ETH                      | am-ET / en-US                         |
-| Malouines (îles)                         | FK                       | FLK                      | en-US                                 |
-| Îles Féroé                            | FO                       | FRO                      | fo-FO / en-US                         |
-| Fidji                                     | FJ                       | FJI                      | en-GB / en-US                         |
-| Finlande                                  | FI                       | FIN                      | fi-FI / sv-FI / en-US                 |
-| France                                   | FR                       | FRA                      | fr-FR / en-US                         |
-| Guyane française                            | GF                       | GUF                      | fr-FR / en-US                         |
-| Polynésie française                         | PF                       | PYF                      | fr-FR / en-US                         |
-| Terres australes françaises              | TF                       | ATF                      | fr-FR / en-US                         |
-| Gabon                                    | GA                       | GAB                      | fr-FR / en-US                         |
-| Gambie                                   | GM                       | GMB                      | en-US                                 |
-| Géorgie                                  | GE                       | GEO                      | ka-GE / en-US                         |
-| Allemagne                                  | DE                       | DEU                      | de-DE / en-US                         |
-| Ghana                                    | GH                       | GHA                      | en-GB / en-US                         |
-| Gibraltar                                | GI                       | GIB                      | en-US                                 |
-| Grèce                                   | GR                       | GRC                      | el-GR / en-US                         |
-| Groenland                                | GL                       | GRL                      | da-DK / en-US                         |
-| Grenade                                  | GD                       | GRD                      | en-US                                 |
-| Guadeloupe                               | GP                       | GLP                      | fr-FR / en-US                         |
-| Guam                                     | GU                       | GUM                      | en-US                                 |
-| Guatemala                                | GT                       | GTM                      | es-GT / en-US                         |
-| Guernesey                                 | GG                       | GGY                      | en-US                                 |
-| Guinée                                   | GN                       | GIN                      | fr-FR / en-US                         |
-| Guinée-Bissau                            | GW                       | GNB                      | pt-PT / en-US                         |
-| Guyana                                   | GY                       | GUY                      | en-US                                 |
-| Haïti                                    | HT                       | HTI                      | fr-FR / en-US                         |
-| Heard et McDonald (Îles)        | HM                       | HMD                      | en-US                                 |
-| Honduras                                 | HN                       | HND                      | es-HN / en-US                         |
-| Hong Kong R.A.S.                            | HK                       | HKG                      | zh-HK / en-US                         |
-| Hongrie                                  | HU                       | HUN                      | hu-HU / en-US                         |
-| Islande                                  | IS                       | ISL                      | is-IS / en-US                         |
-| Inde                                    | IN                       | IND                      | en-IN / hi-IN / en-US                 |
-| Indonésie                                | ID                       | IDN                      | id-ID / en-US                         |
-| Irak                                     | IQ                       | IRQ                      | ar-IQ / en-US                         |
-| Irlande                                  | Internet Explorer                       | IRL                      | en-IE / en-US                         |
-| Île de Man                              | Messagerie instantanée                       | IMN                      | en-US                                 |
-| Israël                                   | IL                       | ISR                      | he-IL / en-US                         |
-| Italie                                    | Informatique                       | ITA                      | it-IT / en-US                         |
-| Jamaïque                                  | JM                       | JAM                      | en-JM / en-US                         |
-| Jan Mayen                                | XJ                       | XJA                      | nb-NO / en-US                         |
-| Japon                                    | JP                       | JPN                      | ja-JP / en-US                         |
-| Jersey                                   | JE                       | JEY                      | en-US                                 |
-| Jordanie                                   | JO                       | JOR                      | ar-JO / en-US                         |
-| Kazakhstan                               | KZ                       | KAZ                      | kk-KZ / en-US                         |
-| Kenya                                    | KE                       | KEN                      | sw-KE / en-US                         |
-| Kiribati                                 | KI                       | KIR                      | en-US                                 |
-| Corée                                    | KR                       | KOR                      | ko-KR / en-US                         |
-| Kosovo                                   | XK                       | XKS                      | en-US                                 |
-| Koweït                                   | KW                       | KWT                      | ar-KW / en-US                         |
-| Kirghizistan                               | KG                       | KGZ                      | ky-KG / en-US                         |
-| Laos                                     | LA                       | LAO                      | lo-LA / en-US                         |
-| Lettonie                                   | LV                       | LVA                      | lv-LV / en-US                         |
-| Liban                                  | LB                       | LBN                      | ar-LB / en-US                         |
-| Lesotho                                  | LS                       | LSO                      | en-US                                 |
-| Liberia                                  | LR                       | LBR                      | en-US                                 |
-| Libye                                    | LY                       | LBY                      | ar-LY / en-US                         |
-| Liechtenstein                            | LI                       | LIE                      | de-LI / en-US                         |
-| Lituanie                                | LT                       | LTU                      | lt-LT / en-US                         |
-| Luxembourg                               | LU                       | LUX                      | de-LU / fr-LU / en-US                 |
-| Macao R.A.S.                                | MO                       | MAC                      | zh-MO / en-US                         |
-| Macédoine, Ex.-Rép. yougoslave de                          | MK                       | MKD                      | mk-MK / en-US                         |
-| Madagascar                               | MG                       | MDG                      | fr-FR / en-US                         |
-| Malawi                                   | MW                       | MWI                      | en-US                                 |
-| Malaisie                                 | MY                       | MYS                      | en-MY / en-US                         |
-| Maldives                                 | MV                       | MDV                      | dv-MV / en-US                         |
-| Mali                                     | ML                       | MLI                      | fr-FR / en-US                         |
-| Malte (République de)                                    | MT                       | MLT                      | mt-MT / en-US                         |
-| Marshall (îles)                         | MH                       | MHL                      | en-US                                 |
-| Martinique                               | MQ                       | MTQ                      | fr-FR / en-US                         |
-| Mauritanie                               | MR                       | MRT                      | ar-SA / en-US                         |
-| Maurice                                | MU                       | MUS                      | en-GB / en-US                         |
-| Mayotte                                  | YT                       | MYT                      | fr-FR / en-US                         |
-| Mexique                                   | MX                       | MEX                      | es-MX / en-US                         |
-| Micronésie                               | FM                       | FSM                      | en-US                                 |
-| République de Moldavie                                  | MD                       | MDA                      | ro-RO / en-US                         |
-| Monaco                                   | MC                       | MCO                      | fr-MC / en-US                         |
-| Mongolie                                 | MN                       | MNG                      | mn-MN / en-US                         |
-| Monténégro                               | ME                       | MNE                      | sr-Latn-ME / en-US                    |
-| Montserrat                               | MS                       | MSR                      | en-US                                 |
-| Maroc                                  | MA                       | MAR                      | ar-MA / en-US                         |
-| Mozambique                               | MZ                       | MOZ                      | pt-PT / en-US                         |
-| Myanmar                                  | MM                       | MMR                      | en-US                                 |
-| Namibie                                  | N/A                       | NAM                      | en-GB / en-US                         |
-| Nauru                                    | NR                       | NRU                      | en-US                                 |
-| Népal                                    | NP                       | NPL                      | ne-NP / en-US                         |
-| Antilles néerlandaises                     | AN                       | ANT                      | en-US                                 |
-| Netherlands, The                         | NL                       | NLD                      | nl-NL / en-US                         |
-| Nouvelle-Calédonie                            | NC                       | NCL                      | fr-FR / en-US                         |
-| Nouvelle-Zélande                              | NZ                       | NZL                      | en-NZ / en-US                         |
-| Nicaragua                                | NI                       | NIC                      | es-NI / en-US                         |
-| Niger                                    | NE                       | NER                      | fr-FR / en-US                         |
-| Nigéria                                  | NG                       | NGA                      | ha-Latn-NG / en-US                    |
-| Niue                                     | NU                       | NIU                      | en-US                                 |
-| Norfolk (île)                           | NF                       | NFK                      | en-US                                 |
-| Mariannes du Nord (îles)                 | MP                       | MNP                      | en-US                                 |
-| Norvège                                   | NON                       | NOR                      | nb-NO / en-US                         |
-| Oman                                     | OM                       | OMN                      | ar-OM / en-US                         |
-| Pakistan                                 | PK                       | PAK                      | ur-PK / en-US                         |
-| Palau                                    | PW                       | PLW                      | en-US                                 |
-| Autorité palestinienne                    | PS                       | PSE                      | ar-SA / en-US                         |
-| Panama                                   | AF                       | PAN                      | es-PA / en-US                         |
-| Papouasie-Nouvelle-Guinée                         | PG                       | PNG                      | en-US                                 |
-| Paraguay                                 | PY                       | PRY                      | es-PY / en-US                         |
-| Pérou                                     | PE                       | PER                      | es-PE / en-US                         |
-| Philippines                              | PH                       | PHL                      | en-PH / en-US                         |
-| Pitcairn (îles)                         | PN                       | PCN                      | en-US                                 |
-| Pologne                                   | PL                       | POL                      | pl-PL / en-US                         |
-| Portugal                                 | PT                       | PRT                      | pt-PT / en-US                         |
-| Porto Rico                              | PR                       | PRI                      | es-PR / en-US                         |
-| Qatar                                    | QA                       | QAT                      | ar-QA / en-US                         |
-| La Réunion                                  | RE                       | REU                      | fr-FR / en-US                         |
-| Roumanie                                  | RO                       | ROU                      | ro-RO / en-US                         |
-| Russie                                   | RU                       | RUS                      | ru-RU / en-US                         |
-| Rwanda                                   | RW                       | Accès web à distance                      | rw-RW / en-US                         |
-| Saba                                     | XS                       | XSA                      | nl-NL / en-US                         |
-| Saint Kitts et Nevis                    | KN                       | KNA                      | en-GB / en-US                         |
-| Sainte-Lucie                              | LC                       | LCA                      | en-US                                 |
-| Saint-Martin                             | MF                       | MAF                      | fr-FR / en-US                         |
-| Saint-Pierre-et-Miquelon                | PM                       | SPM                      | fr-FR / en-US                         |
-| Saint-Vincent-et-les-Grenadines         | VC                       | VCT                      | en-US                                 |
-| Saint-Barthélemy                         | BL                       | BLM                      | fr-FR / en-US                         |
-| Samoa                                    | WS                       | WSM                      | en-US                                 |
-| Saint-Marin                               | SM                       | SMR                      | it-IT / en-US                         |
-| São Tomé et Príncipe                    | ST                       | STP                      | pt-PT / en-US                         |
-| Arabie saoudite                             | SA                       | SAU                      | ar-SA / en-US                         |
-| Sénégal                                  | SN                       | SEN                      | wo-SN / en-US                         |
-| Serbie                                   | RS                       | SRB                      | sr-Latn-RS / sr-Cyrl-RS / en-US       |
-| Seychelles                               | SC                       | SYC                      | en-US                                 |
-| Sierra Leone                             | SL                       | SLE                      | en-US                                 |
-| Singapour                                | SG                       | SGP                      | en-SG / zh-SG / en-US                 |
-| Sint Eustatius                           | XE                       | XSE                      | nl-NL / en-US                         |
-| Saint-Martin (Royaume des Pays-Bas)                             | SX                       | SXM                      | en-US                                 |
-| Slovaquie                                 | SK                       | SVK                      | sk-SK / en-US                         |
-| Slovénie                                 | SI                       | SVN                      | sl-SI / en-US                         |
-| Salomon (îles)                          | SB                       | SLB                      | en-US                                 |
-| Somalie                                  | SO                       | SOM                      | ar-SA / en-US                         |
-| Afrique du Sud                             | ZA                       | ZAF                      | en-ZA / en-US                         |
-| South Georgia and South Sandwich Islands | GS                       | SGS                      | en-US                                 |
-| Soudan du Sud                              | SS                       | SSD                      | en-US                                 |
-| Espagne                                    | ES                       | ESP                      | es-ES / ca-ES / eu-ES / gl-ES / en-US |
-| Sri Lanka                                | LK                       | LKA                      | si-LK / en-US                         |
-| St Helena, Ascension, Tristan da Cunha   | SH                       | SHN                      | en-US                                 |
+| Afghanistan                              | AF                       | AFG                      | PS-AF/fr-fr                         |
+| Åland (îles d’)                            | PASSANT                       | Unis                      | SV-SE/en-US                         |
+| Albanie                                  | AL                       | ALB                      | Sq-AL/fr-fr                         |
+| Algérie                                  | DZ                       | DZA                      | ar-DZ/fr-fr                         |
+| Samoa américaines                           | AS                       | ASM                      | fr-FR                                 |
+| Andorre                                  | AD                       | ET                      | ca-ES/en-US                         |
+| Angola                                   | AO                       | EU                      | PT-PT/en-US                         |
+| Anguilla                                 | IA                       | AIA                      | fr-FR                                 |
+| Antarctique                               | INACTIF                       | ATA                      | fr-FR                                 |
+| Antigua-et-Barbuda                      | GA                       | ATG                      | fr-FR                                 |
+| Argentine                                | AR                       | DONNÉE                      | es-AR/fr-fr                         |
+| Arménie                                  | AM                       | ARM                      | HY-AM/en-US                         |
+| Aruba                                    | AW                       | ABW                      | NL-NL/en-US                         |
+| Australie                                | AU                       | UNITÉS Analytics                      | en-dessous/en-US                         |
+| Autriche                                  | AT                       | CONFORMITÉ                      | de-AT/fr-fr                         |
+| Azerbaïdjan                               | AZ                       | AZE                      | az-Latn-AZ/fr-US                    |
+| Bahamas                                  | BS                       | BHS                      | en-GB/fr-fr                         |
+| Bahreïn                                  | BH                       | BHR                      | AR-BH/fr-fr                         |
+| Bangladesh                               | BD                       | BGD                      | -BD/fr-fr                         |
+| Barbade (La)                                 | BB                       | BRB                      | en-GB/fr-fr                         |
+| Bélarus                                  | BY                       | BLR                      | être par/en-US                         |
+| Belgique                                  | BE                       | BEL                      | fr-a/NL-is/fr-US                 |
+| Belize                                   | Via                       | BLZ                      | en-via/fr-fr                         |
+| Bénin                                    | BJ                       | BEN                      | fr-FR/fr-fr                         |
+| Bermudes                                  | NOMENCLATURE                       | BMU                      | en-GB/fr-fr                         |
+| Bhoutan                                   | CC                       | BTN                      | fr-FR                                 |
+| Bolivie                                  | BO                       | BOL                      | es-BO/fr-fr                         |
+| Bonaire                                  | BQ                       | BES                      | NL-NL/en-US                         |
+| Bosnie-Herzégovine                   | BA                       | RELATIF                      | bs-Latn-BA/fr-US                    |
+| Botswana                                 | BW                       | BWA                      | en-GB/fr-fr                         |
+| Bouvet (Île)                            | BV                       | BVT                      | NB-non/en-US                         |
+| Brésil                                   | BR                       | BRA                      | PT-BR/fr-fr                         |
+| Territoires britanniques de l’océan Indien           | E/S                       | IOT                      | fr-FR                                 |
+| Îles Vierges britanniques                   | VG                       | VGB                      | fr-FR                                 |
+| Brunéi Darussalam                                   | BN                       | BRN                      | MS-m/en-US                         |
+| Bulgarie                                 | BG                       | BGR                      | BG-BG/fr-fr                         |
+| Burkina-Faso                             | BF                       | BFA                      | fr-FR/fr-fr                         |
+| Burundi                                  | DÉCISIONNEL                       | BDI                      | fr-FR/fr-fr                         |
+| Cap Vert                               | CV                       | CPV                      | PT-CV/fr-fr                         |
+| Cambodge                                 | KH                       | KHM                      | km-KH/en-US                         |
+| Cameroun                                 | CM                       | ENVOYÉS                      | fr-FR/fr-fr                         |
+| Canada                                   | AC                       | PUISSIEZ                      | fr-CA/fr-fr                         |
+| Caïmans (îles)                           | KY                       | CYM                      | en-GB/fr-fr                         |
+| République centrafricaine                 | CF                       | CAF                      | fr-FR/fr-fr                         |
+| Tchad                                     | ÉQUIPEMENTS                       | TCD                      | fr-FR/fr-fr                         |
+| Chili                                    | CL                       | CHL                      | es-CL/fr-fr                         |
+| Chine                                    | CN                       | CHN                      | zh-CN/fr-fr                         |
+| Christmas (île)                         | CX                       | CXR                      | fr-FR                                 |
+| Cocos-Keeling (îles)                  | CC                       | CCK                      | fr-FR                                 |
+| Colombie                                 | CO                       | COL                      | es-CO/en-US                         |
+| Comores (Les)                                  | KILOMÈTRES                       | COM                      | fr-FR/fr-fr                         |
+| Congo                                    | CG                       | ROUE dentée                      | fr-FR/fr-fr                         |
+| Congo (RDC)                              | CD-ROM                       | VENDUS                      | fr-FR/fr-fr                         |
+| Cook (îles)                             | HT                       | COK                      | fr-FR                                 |
+| Costa Rica                               | CR                       | RAPPORT personnalisé                      | es-CR/fr-fr                         |
+| Côte d’Ivoire                            | CI                       | CIV                      | fr-FR/fr-fr                         |
+| Croatie                                  | HR                       | HRV                      | HR-HR/fr-fr                         |
+| Curaçao                                  | APPROXIMATIF                       | CUW                      | NL-NL/en-US                         |
+| Chypre                                   | CY                       | CYP                      | El-GR/fr-fr                         |
+| Czechia                                  | CZ                       | CZE                      | CS-CZ/fr-fr                         |
+| Danemark                                  | DK                       | DNK                      | da-DK/fr-fr                         |
+| Djibouti                                 | EFFECTUÉ                       | DJI                      | fr-FR/fr-fr                         |
+| Dominique                                 | EXPLORATION                       | CANAL                      | fr-FR                                 |
+| République dominicaine                       | DO                       | Loc                      | es-DO/en-US                         |
+| Équateur (République de)                                  | EC                       | ÉCU                      | es-EC/fr-fr                         |
+| Égypte                                    | EG                       | EGY                      | AR-EG/fr-fr                         |
+| Salvador                              | SV                       | SLV                      | es-VP/en-US                         |
+| Guinée équatoriale                        | GQ                       | GNQ                      | es-ES/en-US                         |
+| Érythrée                                  | ERRE                       | ERI                      | ar-SA/en-US                         |
+| Estonie                                  | EE                       | ESTIMÉ                      | et-EE/fr-fr                         |
+| eSwatini                                 | SZ                       | SWZ                      | fr-FR                                 |
+| Éthiopie                                 | Mendes                       | Ed                      | AM-ET/en-US                         |
+| Malouines (îles)                         | FK                       | FLK                      | fr-FR                                 |
+| Féroé (îles)                            | FO                       | PROVENANT                      | FO-FO/fr-fr                         |
+| Fidji                                     | FJ                       | FJI                      | en-GB/fr-fr                         |
+| Finlande                                  | FI                       | FIN                      | fi-fi/sv-FI/FR-US                 |
+| France                                   | FR                       | FRA                      | fr-FR/fr-fr                         |
+| Guyane française                            | GF                       | GUF                      | fr-FR/fr-fr                         |
+| Polynésie française                         | UTIL                       | PYF                      | fr-FR/fr-fr                         |
+| Terres australes françaises              | TF                       | ATF                      | fr-FR/fr-fr                         |
+| Gabon                                    | GA                       | CARNET                      | fr-FR/fr-fr                         |
+| Gambie                                   | GÉNÉTIQUE                       | GMB                      | fr-FR                                 |
+| Géorgie                                  | GE                       | LOCAL                      | Ka-GE/en-US                         |
+| Allemagne                                  | DE                       | DEU                      | de-fr/fr-fr                         |
+| Ghana                                    | GH                       | GHA                      | en-GB/fr-fr                         |
+| Gibraltar                                | GI                       | Gio                      | fr-FR                                 |
+| Grèce                                   | GR                       | GRC                      | El-GR/fr-fr                         |
+| Groenland                                | GÉNÉRALE                       | GRL                      | da-DK/fr-fr                         |
+| Grenade                                  | GD                       | GRD                      | fr-FR                                 |
+| Guadeloupe                               | MARGE                       | AUX                      | fr-FR/fr-fr                         |
+| Guam                                     | GU                       | GENCIVE                      | fr-FR                                 |
+| Guatemala                                | GT                       | GTM                      | es-GT/en-US                         |
+| Guernesey                                 | GG                       | GGY                      | fr-FR                                 |
+| Guinée                                   | GN                       | GIN                      | fr-FR/fr-fr                         |
+| Guinée-Bissau                            | ENTREPÔT                       | GNB                      | PT-PT/en-US                         |
+| Guyana                                   | GY                       | EXPERT                      | fr-FR                                 |
+| Haïti                                    | HT                       | HTI                      | fr-FR/fr-fr                         |
+| Heard et McDonald (Îles)        | Britannique                       | HMD                      | fr-FR                                 |
+| Honduras                                 | HN                       | HND                      | es-HN/en-US                         |
+| Hong Kong R.A.S.                            | HK                       | HKG                      | zh-HK/fr-fr                         |
+| Hongrie                                  | HU                       | HUN                      | HU-HU/fr-fr                         |
+| Islande                                  | IS                       | SANDWICH                      | IS-IS/fr-fr                         |
+| Inde                                    | IN                       | HERCHER                      | en-IN/HI-IN/fr-fr                 |
+| Indonésie                                | ID                       | IDN                      | ID-ID/fr-fr                         |
+| Irak                                     | IQ                       | IRQ                      | AR-IQ/fr-fr                         |
+| Irlande                                  | Internet Explorer                       | IRL                      | en-IE/en-US                         |
+| Île de Man                              | Messagerie instantanée                       | IMN                      | fr-FR                                 |
+| Israël                                   | IL                       | ISR                      | He-IL/en-US                         |
+| Italie                                    | Informatique                       | ITA                      | informatique-informatique/fr-fr                         |
+| Jamaïque                                  | JM                       | BOURRAGE                      | en-JM/fr-fr                         |
+| Jan Mayen                                | XJ                       | XJA                      | NB-non/en-US                         |
+| Japon                                    | JP                       | JPN                      | ja-JP/fr-fr                         |
+| Jersey                                   | JE                       | JEY                      | fr-FR                                 |
+| Jordanie                                   | JO                       | JOR                      | AR-JO/en-US                         |
+| Kazakhstan                               | KZ                       | KAZ                      | KK-KZ/en-US                         |
+| Kenya                                    | KE                       | KEN                      | SW-KE/fr-US                         |
+| Kiribati                                 | KI                       | KIR                      | fr-FR                                 |
+| Corée                                    | KR                       | KOR                      | ko-KR/en-US                         |
+| Kosovo                                   | XK                       | XKS                      | fr-FR                                 |
+| Koweït                                   | KW                       | KWT                      | AR-KW/fr-fr                         |
+| Kirghizistan                               | KG                       | KGZ                      | KY-KG/en-US                         |
+| Laos                                     | LA                       | SYMBOLE                      | Lo-LA/en-US                         |
+| Lettonie                                   | LV                       | LVA                      | LV-LV/en-US                         |
+| Liban                                  | LB                       | LBN                      | ar-LB/en-US                         |
+| Lesotho                                  | LS                       | LSO                      | fr-FR                                 |
+| Liberia                                  | GD                       | LBR                      | fr-FR                                 |
+| Libye                                    | EMPLOYÉS                       | LBY                      | AR-EP/fr-fr                         |
+| Liechtenstein                            | LI                       | INCOMB                      | de-LI/fr-fr                         |
+| Lituanie                                | LT                       | LTU                      | lt-LT/fr-fr                         |
+| Luxembourg                               | LU                       | LUX                      | de-LU/FR-LU/fr-fr                 |
+| Macao R.A.S.                                | MOLYBDÈN                       | MAC                      | zh-MO/fr-fr                         |
+| Macédoine, Ex.-Rép. yougoslave de                          | MK                       | MKD                      | MK-MK/fr-fr                         |
+| Madagascar                               | ML                       | MDG                      | fr-FR/fr-fr                         |
+| Malawi                                   | MW                       | MWI                      | fr-FR                                 |
+| Malaisie                                 | MY                       | MYS                      | en-MY/fr-US                         |
+| Maldives                                 | MV                       | MDV                      | DV-MV/en-US                         |
+| Mali                                     | ENVIRON                       | MLI                      | fr-FR/fr-fr                         |
+| Malte                                    | MT                       | MLT                      | MT-MT/fr-US                         |
+| Marshall (îles)                         | MH                       | MHL                      | fr-FR                                 |
+| Martinique                               | MQ                       | MTQ                      | fr-FR/fr-fr                         |
+| Mauritanie                               | MR                       | MRT                      | ar-SA/en-US                         |
+| Maurice                                | MU                       | MUS                      | en-GB/fr-fr                         |
+| Mayotte                                  | YT                       | MYT                      | fr-FR/fr-fr                         |
+| Mexique                                   | MX                       | MEX                      | es-MX/fr-fr                         |
+| Micronésie                               | Radio                       | FSM                      | fr-FR                                 |
+| République de Moldavie                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
+| Monaco                                   | MC                       | MCO                      | fr-MC/fr-fr                         |
+| Mongolie                                 | PORTABLE                       | MNG                      | mn-MN/fr-fr                         |
+| Monténégro                               | ME                       | MNE                      | SR-LATN-ME/fr-fr                    |
+| Montserrat                               | MS                       | Caisse                      | fr-FR                                 |
+| Maroc                                  | MA                       | MARS                      | AR-MA/en-US                         |
+| Mozambique                               | MZ                       | MOZ                      | PT-PT/en-US                         |
+| Myanmar                                  | MM                       | MMR                      | fr-FR                                 |
+| Namibie                                  | N/A                       | NAM                      | en-GB/fr-fr                         |
+| Nauru                                    | NR                       | NRU                      | fr-FR                                 |
+| Népal                                    | NP                       | NPL                      | Nou-NP/fr-fr                         |
+| Antilles néerlandaises                     | PIÈCE                       | IN                      | fr-FR                                 |
+| Pays-Bas, le                         | NL                       | NLD                      | NL-NL/en-US                         |
+| Nouvelle-Calédonie                            | OBTEN                       | NCL                      | fr-FR/fr-fr                         |
+| Nouvelle-Zélande                              | NZ                       | NZL                      | en-NZ/en-US                         |
+| Nicaragua                                | NI                       | INTERFACE                      | es-NI/en-US                         |
+| Niger                                    | NE                       | NER                      | fr-FR/fr-fr                         |
+| Nigeria                                  | NG                       | NGA                      | ha-LATN-NG/fr-fr                    |
+| Niue                                     | NU                       | NIU                      | fr-FR                                 |
+| Norfolk (île)                           | NF                       | NFK                      | fr-FR                                 |
+| Mariannes du Nord (îles)                 | MP                       | MNP                      | fr-FR                                 |
+| Norvège                                   | NON                       | NOR                      | NB-non/en-US                         |
+| Oman                                     | OM                       | OMN                      | AR-OM/en-US                         |
+| Pakistan                                 | PK                       | RESOURCEPAK                      | Your-PK/fr-fr                         |
+| Palau                                    | CONFIGURER passe                       | PLW                      | fr-FR                                 |
+| Autorité palestinienne                    | PS                       | PRODUIT                      | ar-SA/en-US                         |
+| Panama                                   | AF                       | PAN                      | es-PA/en-US                         |
+| Papouasie-Nouvelle-Guinée                         | SOUHAITABLE                       | PNG                      | fr-FR                                 |
+| Paraguay                                 | PY                       | ARRACH                      | es-PY/fr-fr                         |
+| Pérou                                     | PE                       | POUR                      | es-PE/en-US                         |
+| Philippines                              | PH                       | PHL                      | en-PH/fr-fr                         |
+| Pitcairn (îles)                         | PN                       | PCN                      | fr-FR                                 |
+| Pologne                                   | PL                       | POL                      | PL-PL/fr-fr                         |
+| Portugal                                 | PT                       | PRT                      | PT-PT/en-US                         |
+| Porto Rico                              | PR                       | PRI                      | es-PR/fr-fr                         |
+| Qatar                                    | QA                       | QAT                      | AR-QA/fr-fr                         |
+| La Réunion                                  | RE                       | REU                      | fr-FR/fr-fr                         |
+| Roumanie                                  | RO                       | ROU                      | RO-RO/fr-fr                         |
+| Russie                                   | RU                       | RUS                      | ru-RU/en-US                         |
+| Rwanda                                   | GRAVE                       | Accès web à distance                      | RW-RW/en-US                         |
+| Saba                                     | XS                       | XSA                      | NL-NL/en-US                         |
+| Saint Kitts et Nevis                    | KN                       | KNA                      | en-GB/fr-fr                         |
+| Sainte-Lucie                              | EUROS                       | LCA                      | fr-FR                                 |
+| Saint-Martin                             | INSTANTANÉ                       | MAF                      | fr-FR/fr-fr                         |
+| Saint-Pierre-et-Miquelon                | Manuel                       | SPM                      | fr-FR/fr-fr                         |
+| Saint-Vincent-et-les-Grenadines         | VIRTUEL                       | VCT                      | fr-FR                                 |
+| Saint--Barthélemy                         | BL                       | BLM                      | fr-FR/fr-fr                         |
+| Samoa                                    | Web                       | WSM                      | fr-FR                                 |
+| Saint-Marin                               | MS                       | SMR                      | informatique-informatique/fr-fr                         |
+| São Tomé et Príncipe                    | ST                       | Protocole                      | PT-PT/en-US                         |
+| Arabie saoudite                             | SA                       | SAU                      | ar-SA/en-US                         |
+| Sénégal                                  | SN                       | Send                      | WO-SN/en-US                         |
+| Serbie                                   | RS                       | SRB                      | SR-LATN-RS/SR-Cyrl-RS/fr-US       |
+| Seychelles                               | SC                       | SYC                      | fr-FR                                 |
+| Sierra Leone                             | SL                       | UNIQUE                      | fr-FR                                 |
+| Singapour                                | SG                       | SGP                      | fr-SG/zh-SG/fr-fr                 |
+| Saint-Eustache                           | XE                       | XSE                      | NL-NL/en-US                         |
+| Saint-Martin (Royaume des Pays-Bas)                             | SX                       | SXM                      | fr-FR                                 |
+| Slovaquie                                 | SK                       | SVK                      | SK-SK/fr-fr                         |
+| Slovénie                                 | SI                       | SVN                      | SL-SI/en-US                         |
+| Salomon (îles)                          | ASPIRATEUR                       | SLB                      | fr-FR                                 |
+| Somalie                                  | AFIN                       | MODÈLE                      | ar-SA/en-US                         |
+| Afrique du Sud                             | ZA                       | ZAF                      | en-ZA/fr-fr                         |
+| Géorgie du Sud et Sandwich du Sud (îles) | GS                       | SGS                      | fr-FR                                 |
+| Soudan du Sud                              | SÉCURITÉ                       | SSD                      | fr-FR                                 |
+| Espagne                                    | ES                       | ESP                      | es-ES/ca-ES/UE-ES/GL-ES/fr-fr |
+| Sri Lanka                                | LK                       | LKA                      | Si-LK/fr-fr                         |
+| Sainte-Hélène, ascension, Tristan da Cunha   | &                       | SHN                      | fr-FR                                 |
 | Surinam                                 | SR                       | SUR                      | nl-NL                                 |
-| Svalbard                                 | SJ                       | SJM                      | nb-NO / en-US                         |
-| Suède                                   | SE                       | SWE                      | sv-SE / en-US                         |
-| Suisse                              | CH                       | CHE                      | de-CH / fr-CH / it-CH / en-US         |
-| Taïwan                                   | TW                       | TWN                      | zh-TW / en-US                         |
-| Tadjikistan                               | TJ                       | TJK                      | tg-Cyrl-TJ / en-US                    |
-| Tanzanie                                 | TZ                       | TZA                      | en-GB / en-US                         |
-| Thaïlande                                 | TH                       | THA                      | th-TH / en-US                         |
-| Timor-Leste                              | TL                       | TLS                      | pt-PT / en-US                         |
-| Togo                                     | TG                       | TGO                      | fr-FR / en-US                         |
-| Tokelau                                  | TK                       | TKL                      | en-US                                 |
-| Tonga                                    | TO                       | TON                      | en-US                                 |
-| Trinité-et-Tobago                      | TT                       | TTO                      | en-TT / en-US                         |
-| Tunisie                                  | TN                       | TUN                      | ar-TN / en-US                         |
-| Turquie                                   | TR                       | TUR                      | tr-TR / en-US                         |
-| Turkménistan                             | TM                       | TKM                      | tk-TM / en-US                         |
-| Turks et Caïcos (îles)                 | TC                       | TCA                      | en-US                                 |
-| Tuvalu                                   | TV                       | TUV                      | en-US                                 |
-| Ouganda                                   | UG                       | UGA                      | en-GB / en-US                         |
-| Ukraine                                  | UA                       | UKR                      | uk-UA / en-US                         |
-| Émirats arabes unis                     | AE                       | ARE                      | ar-AE / en-US                         |
-| Royaume-Uni                           | Go                       | GBR                      | en-GB / en-US                         |
-| Îles mineures éloignées des États-Unis                    | UM                       | UMI                      | en-US                                 |
-| Îles Vierges (É.-U.)                      | VI                       | VIR                      | en-US                                 |
-| États-Unis                            | États-Unis                       | États-Unis                      | en-US / es-US                         |
-| Uruguay                                  | UY                       | URY                      | es-UY / en-US                         |
-| Ouzbékistan                               | UZ                       | UZB                      | uz-Latn-UZ / en-US                    |
-| Vanuatu                                  | VU                       | VUT                      | en-US                                 |
-| Cité du Vatican                             | VA                       | VAT                      | it-IT / en-US                         |
-| Venezuela                                | VE                       | VEN                      | es-VE / en-US                         |
-| Vietnam                                  | VN                       | VNM                      | vi-VN / en-US                         |
-| Wallis-et-Futuna                        | WF                       | WLF                      | fr-FR / en-US                         |
-| Yémen                                    | YE                       | YEM                      | ar-YE / en-US                         |
-| Zambie                                   | ZM                       | ZMB                      | en-GB / en-US                         |
-| Zimbabwe                                 | ZW                       | ZWE                      | en-ZW / en-US                         |
+| Svalbard                                 | SJ                       | SJM                      | NB-non/en-US                         |
+| Suède                                   | SE                       | $ $                      | SV-SE/en-US                         |
+| Suisse                              | CH                       | TCHE                      | de-CH/fr-CH/IT-CH/fr-fr         |
+| Taïwan                                   | TW                       | TWN                      | zh-TW/fr-fr                         |
+| Tadjikistan                               | TJ                       | TJK                      | TG-Cyrl-TJ/fr-US                    |
+| Tanzanie                                 | TZ                       | TZA                      | en-GB/fr-fr                         |
+| Thaïlande                                 | TH                       | THA                      | th-TH/en-US                         |
+| Timor-Leste                              | TL                       | TLS                      | PT-PT/en-US                         |
+| Togo                                     | OCDE                       | TGO                      | fr-FR/fr-fr                         |
+| Tokelau                                  | J                       | TKL                      | fr-FR                                 |
+| Tonga                                    | À                       | MILLIERS                      | fr-FR                                 |
+| Trinité-et-Tobago                      | TT                       | POUR                      | en-TT/en-US                         |
+| Tunisie                                  | TN                       | Exécutez                      | AR-TN/fr-fr                         |
+| Turquie                                   | TR                       | Ready                      | TR-TR/en-US                         |
+| Turkménistan                             | TM                       | TKM                      | TK-TM/fr-fr                         |
+| Turks et Caïcos (îles)                 | CT                       | ÉLÉMENTAIRE                      | fr-FR                                 |
+| Tuvalu                                   | TV                       | CERTIFIÉ                      | fr-FR                                 |
+| Ouganda                                   | UG                       | UGA                      | en-GB/fr-fr                         |
+| Ukraine                                  | UA                       | UKR                      | Royaume-Uni-UA/fr-US                         |
+| Émirats arabes unis                     | AE                       | SERONT                      | AR-AE/fr-fr                         |
+| Royaume-Uni                           | Go                       | GBR                      | en-GB/fr-fr                         |
+| Îles mineures éloignées des États-Unis                    | UNIFIÉ                       | UMI                      | fr-FR                                 |
+| Îles Vierges (É.-U.)                      | VL                       | VIR                      | fr-FR                                 |
+| États-Unis                            | US                       | USA                      | fr-fr/es-US                         |
+| Uruguay                                  | UY                       | URY                      | es-UY/fr-fr                         |
+| Ouzbékistan                               | UZ                       | UZB                      | uz-LATN-UZ/fr-US                    |
+| Vanuatu                                  | VOU                       | VUT                      | fr-FR                                 |
+| État de la Cité du Vatican                             | VA                       | T.V.A.                      | informatique-informatique/fr-fr                         |
+| Venezuela                                | VE                       | ENSEMBLE                      | es-VE/fr-fr                         |
+| Vietnam                                  | VN                       | VNM                      | vi-VN/en-US                         |
+| Wallis-et-Futuna                        | WF                       | WLF                      | fr-FR/fr-fr                         |
+| Yémen                                    | POUSSE                       | YEM                      | AR-Yé/en-US                         |
+| Zambie                                   | ZM                       | ZMB                      | en-GB/fr-fr                         |
+| Zimbabwe                                 | ZW                       | ZWE                      | en-ZW/fr-fr                         |
 

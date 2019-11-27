@@ -1,6 +1,6 @@
 ---
-title: Create a product upgrade entity for a customer
-description: You can use the ProductUpgradeRequest resource to create a product upgrade entity to upgrade a customer to a given product family.
+title: Créer une entité de mise à niveau de produit pour un client
+description: Vous pouvez utiliser la ressource ProductUpgradeRequest pour créer une entité de mise à niveau de produit afin de mettre à niveau un client vers une famille de produits donnée.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489579"
 ---
-# <a name="create-a-product-upgrade-entity-for-a-customer"></a>Create a product upgrade entity for a customer
+# <a name="create-a-product-upgrade-entity-for-a-customer"></a>Créer une entité de mise à niveau de produit pour un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can create a product upgrade entity to upgrade a customer to a given product family (for example, Azure plan) using the **ProductUpgradeRequest** resource.
+Vous pouvez créer une entité de mise à niveau de produit pour mettre à niveau un client vers une famille de produits donnée (par exemple, Azure plan) à l’aide de la ressource **ProductUpgradeRequest** .
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The product family to which you want to upgrade the customer.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur. Suivez le [modèle d’application sécurisée](enable-secure-app-model.md) lors de l’utilisation de l’authentification d’application + utilisateur avec les API de l’espace partenaires.
+- Identificateur du client.
+- Famille de produits pour laquelle vous souhaitez mettre à niveau le client.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To upgrade a customer to Azure plan:
+Pour mettre à niveau un client vers Azure plan :
 
-1. Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.
-2. Use the **IAggregatePartner.ProductUpgrades** collection.
-3. Call the **Create** method and pass in the **ProductUpgradesRequest** object, which will return a **location header** string.
-4. Extract the **upgrade-id** from the location header string which can be used to [query the upgrade status](get-product-upgrade-status.md).
+1. Créez un objet **ProductUpgradesRequest** et spécifiez l’identificateur du client et « Azure » comme famille de produits.
+2. Utilisez la collection **collection iaggregatepartner. ProductUpgrades** .
+3. Appelez la méthode **Create** et transmettez l’objet **ProductUpgradesRequest** , qui renverra une chaîne d' **en-tête d’emplacement** .
+4. Extrayez l' **ID de mise à niveau** de la chaîne d’en-tête d’emplacement qui peut être utilisée pour [interroger l’état de mise à niveau](get-product-upgrade-status.md).
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -56,21 +56,21 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productupgrades http/1.1 |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
-The request body must contain a [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) resource.
+Le corps de la demande doit contenir une ressource [ProductUpgradeRequest](product-upgrade-resources.md#productupgraderequest) .
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -93,13 +93,13 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response contains a **Location** header that has a URI that can be used to retrieve product upgrade status. Save this URI for use with other related REST APIs.
+En cas de réussite, la réponse contient un en-tête d' **emplacement** qui a un URI qui peut être utilisé pour récupérer l’état de la mise à niveau du produit. Enregistrez cet URI pour une utilisation avec d’autres API REST associées.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

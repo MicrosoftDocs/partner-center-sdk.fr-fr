@@ -1,6 +1,6 @@
 ---
 title: Outils
-description: This section describes the ways that partners can use the Partner Center to programmatically manage utility functions.
+description: Cette section décrit les manières dont les partenaires peuvent utiliser l’espace partenaires pour gérer par programmation les fonctions utilitaires.
 ms.assetid: 646301CF-83E5-4BC3-987D-948E984D17F3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -16,18 +16,18 @@ ms.locfileid: "74487719"
 # <a name="utilities"></a>Outils
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This section describes the ways that partners can use Partner Center to programmatically manage utility functions.
+Cette section décrit les manières dont les partenaires peuvent utiliser l’espace partenaires pour gérer par programmation les fonctions utilitaires.
 
-- [Validate an address](validate-an-address.md)
-- [Get address formatting rules by market](get-market-specific-validation-data.md)
-- [Verify domain availability](verify-domain-availability.md)
-- [Delete a customer account from the integration sandbox](delete-a-customer-account-from-the-integration-sandbox.md)
+- [Valider une adresse](validate-an-address.md)
+- [Recevez les règles de mise en forme des adresses par marché](get-market-specific-validation-data.md)
+- [Vérifier la disponibilité du domaine](verify-domain-availability.md)
+- [Supprimer un compte client du bac à sable (sandbox) d’intégration](delete-a-customer-account-from-the-integration-sandbox.md)
 
-For more information, see [Scenarios](scenarios.md), specifically the [Background](scenarios.md#background) section.
+Pour plus d’informations, consultez [scénarios](scenarios.md), en particulier la section d' [arrière-plan](scenarios.md#background) .

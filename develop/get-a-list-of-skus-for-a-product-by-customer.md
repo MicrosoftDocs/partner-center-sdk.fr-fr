@@ -1,6 +1,6 @@
 ---
-title: Get a list of SKUs for a product (by customer)
-description: Gets a collection of SKUs for the specified product by customer.
+title: Obtenir la liste des références (SKU) d’un produit (par le client)
+description: Obtient une collection de références (SKU) pour le produit spécifié par le client.
 ms.assetid: ''
 ms.date: 10/11/2019
 ms.service: partner-dashboard
@@ -13,43 +13,43 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490179"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-customer"></a>Get a list of SKUs for a product (by customer)
+# <a name="get-a-list-of-skus-for-a-product-by-customer"></a>Obtenir la liste des références (SKU) d’un produit (par le client)
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Gets a collection of SKUs for a particular product that is available to an existing customer.
+Obtient une collection de références (SKU) pour un produit particulier qui est disponible pour un client existant.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**).
-- A product ID (**product-id**).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client (**Customer-client-ID**).
+- ID de produit (**Product-ID**).
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                                                                        |
 |--------|--------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products/{product-id}/skus HTTP/1.1 |
+| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Products/{Product-ID}/SKUs http/1.1 |
 
-#### <a name="request-uri-parameter"></a>Request URI parameter
+#### <a name="request-uri-parameter"></a>Paramètre d’URI de demande
 
-| Nom               | Tapez | Obligatoire | Description                                                                                 |
+| Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Oui | The value is a GUID-formatted **customer-tenant-id**, which is an identifier that allows you to specify a customer. |
-| product-id | chaîne | Oui | A string that identifies the product. |
+| client-locataire-ID | GUID | Oui | La valeur est un **client-client-ID**au format GUID, qui est un identificateur qui vous permet de spécifier un client. |
+| ID de produit | chaîne | Oui | Chaîne qui identifie le produit. |
 
 #### <a name="request-header"></a>En-tête de requête
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -65,17 +65,17 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP | Error code | Description |
 |------------------|------------|-------------|
-| 404 | 400013 | The parent product was not found. |
+| 404 | 400013 | Le produit parent est introuvable. |
 
 #### <a name="response-example"></a>Exemple de réponse
 

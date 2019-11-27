@@ -1,6 +1,6 @@
 ---
-title: Change the billing cycle
-description: Update a subscription to monthly or annual billing.
+title: Modifier le cycle de facturation
+description: Mettez à jour un abonnement à la facturation mensuelle ou annuelle.
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,35 +12,35 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489019"
 ---
-# <a name="change-the-billing-cycle"></a>Change the billing cycle
+# <a name="change-the-billing-cycle"></a>Modifier le cycle de facturation
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Updates an [Order](order-resources.md) from monthly to annual billing or from annual to monthly billing.
+Met à jour une [commande](order-resources.md) d’une facturation mensuelle à une facturation annuelle ou d’une facturation annuelle à une facturation mensuelle.
 
-In the Partner Center dashboard, this operation can be performed by navigating to a customer's subscription details page. Once there, you will see an option defining the current billing cycle for the subscription with the ability to change and submit it.  
+Dans le tableau de bord de l’espace partenaires, vous pouvez effectuer cette opération en accédant à la page de détails de l’abonnement d’un client. Une fois ici, vous verrez une option qui définit le cycle de facturation actuel de l’abonnement avec la possibilité de le modifier et de l’envoyer.  
 
-**Out of scope** for this topic:  
+**Hors de portée** pour cette rubrique :  
 
-- Changing the billing cycle for trials
-- Changing the billing cycles for any non-annual term offers (monthly, 6-year) & Azure subscriptions
-- Changing the billing cycles for inactive subscriptions
-- Changing billing cycles for Microsoft online services license-based subscriptions
+- Modification du cycle de facturation pour les versions d’évaluation
+- Modification des cycles de facturation pour les offres non annuelles (mensuelle, 6 ans) & les abonnements Azure
+- Modification des cycles de facturation des abonnements inactifs
+- Modification des cycles de facturation pour les abonnements basés sur des licences Microsoft services en ligne
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- An order ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID de commande.
 
 ## <a name="c"></a>C#
 
-To change the frequency of the billing cycle, update the [**Order.BillingCycle**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) property.
+Pour modifier la fréquence du cycle de facturation, mettez à jour la propriété [**Order. BillingCycle**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -67,57 +67,57 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orderId).Patch(order);
 ```
 
-## <a name="rest-request"></a>REST Request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode    | URI de requête                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-This table lists the required query parameter to change the quantity of the subscription.
+Ce tableau répertorie le paramètre de requête requis pour modifier la quantité de l’abonnement.
 
-| Nom                   | Tapez | Obligatoire | Description                                                          |  
+| Nom                   | Type | Obligatoire | Description                                                          |  
 |------------------------|------|----------|----------------------------------------------------------------------|  
-| **customer-tenant-id** | GUID |    Y     | A GUID formatted **customer-tenant-id** that identifies the customer |  
-| **order-id**           | GUID |    Y     | The order identifier                                                 |  
+| **client-locataire-ID** | GUID |    Y     | Un identificateur de **locataire client** au format GUID qui identifie le client |  
+| **ID de commande**           | GUID |    Y     | Identificateur de l’ordre                                                 |  
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-The following tables describe the properties in the request body.
+Les tableaux suivants décrivent les propriétés dans le corps de la demande.
 
 ## <a name="order"></a>Ordre
 
-| Propriété           | Tapez             | Obligatoire | Description                                                                |
+| Propriété           | Type             | Obligatoire | Description                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| Id                 | chaîne           |    N     | An order identifier that is supplied upon successful creation of the order |
-|ReferenceCustomerId | chaîne           |    Y     | The customer identifier                                                    |
-| BillingCycle       | chaîne           |    Y     | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). |
-| LineItems          | array of objects |    Y     | An array of [OrderLineItem](#orderlineitem) resources                      |
-| CreationDate       | DateHeure         |    N     | The date the order was created, in date-time format                        |
-| Attributs         | Objet           |    N     | Contains "ObjectType": "OrderLineItem"                                     |
+| Id                 | chaîne           |    N     | Un identificateur de commande qui est fourni lors de la création réussie de la commande |
+|ReferenceCustomerId | chaîne           |    Y     | Identificateur du client                                                    |
+| BillingCycle       | chaîne           |    Y     | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). |
+| LineItems          | Tableau d’objets |    Y     | Tableau de ressources [OrderLineItem](#orderlineitem)                      |
+| CreationDate       | DateHeure         |    N     | Date à laquelle la commande a été créée, au format date/heure                        |
+| Attributs         | Objet           |    N     | Contient « ObjectType » : « OrderLineItem »                                     |
 
 ## <a name="orderlineitem"></a>OrderLineItem
 
-| Propriété             | Tapez   | Obligatoire | Description                                                                        |
+| Propriété             | Type   | Obligatoire | Description                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| LineItemNumber       | nombre |    Y     | The line item number, starting with 0                                              |
-| OfferId              | chaîne |    Y     | The ID of the offer                                                                |
-| SubscriptionId       | chaîne |    Y     | The ID of the subscription                                                         |
-| friendlyName         | chaîne |    N     | The friendly name for the subscription defined by the partner to help disambiguate |
-| Quantité             | nombre |    Y     | The number of licenses or instances                                                |
-| PartnerIdOnRecord    | chaîne |    N     | The MPN ID of the partner of record                                                |
-| Attributs           | Objet |    N     | Contains "ObjectType": "OrderLineItem"                                             |
+| LineItemNumber       | nombre |    Y     | Numéro d’élément de ligne, à partir de 0                                              |
+| OfferId              | chaîne |    Y     | ID de l’offre                                                                |
+| SubscriptionId       | chaîne |    Y     | ID de l’abonnement                                                         |
+| FriendlyName         | chaîne |    N     | Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté |
+| Quantité             | nombre |    Y     | Nombre de licences ou d’instances                                                |
+| PartnerIdOnRecord    | chaîne |    N     | ID MPN du partenaire d’enregistrement                                                |
+| Attributs           | Objet |    N     | Contient « ObjectType » : « OrderLineItem »                                             |
 
 ### <a name="request-example"></a>Exemple de requête
 
-Update to annual billing
+Mettre à jour la facturation annuelle
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/orders/CF3B0E37-BE0B-4CDD-B584-D1A97D98A922 HTTP/1.1
@@ -154,13 +154,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns the updated subscription order in the response body.
+En cas de réussite, cette méthode retourne l’ordre d’abonnement mis à jour dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

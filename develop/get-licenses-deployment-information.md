@@ -1,6 +1,6 @@
 ---
-title: Get licenses deployment information
-description: How to get deployment information for Office and Dynamics licenses.
+title: Obtient les informations de déploiement des licences
+description: Comment obtenir des informations de déploiement pour les licences Office et Dynamics.
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,45 +12,45 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488599"
 ---
-# <a name="get-licenses-deployment-information"></a>Get licenses deployment information
+# <a name="get-licenses-deployment-information"></a>Obtient les informations de déploiement des licences
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-How to get deployment information for Office and Dynamics licenses.
+Comment obtenir des informations de déploiement pour les licences Office et Dynamics.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>Request
+Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
 
-**Request syntax**
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                     |
 |---------|-------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/analytics/commercial/deployment/license/ HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Analytics/commercial/Deployment/License/http/1.1 |
 
  
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.  
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .  
 
-**URI parameters**
+**Paramètres d’URI**
 
-| Paramètre         | Tapez     | Description | Obligatoire |  
+| Paramètre         | Type     | Description | Obligatoire |  
 |-------------------|----------|-------------|----------|  
-| top               | chaîne   | Le nombre de lignes de données à renvoyer dans la requête. La valeur maximale et la valeur par défaut en l’absence de définition est 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. | non | 
-| skip              | entier      | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, indiquez top=10000 et skip=0 pour obtenir les 10000 premières lignes de données, top=10000 et skip=10000 pour obtenir les 10000 lignes suivantes, et ainsi de suite. | non | 
-| filter            | chaîne   | <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs **eq** ou **ne**, et les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Voici quelques exemples de paramètres <em>filter</em> :</p><ul><li><em>filter=serviceCode eq 'O365'</em></li><li><em>filter=serviceCode eq 'O365'</em> or (<em>channel eq 'Reseller'</em>)</li></ul><p>You can specify the following fields</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>channel</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul> | non | 
-| groupby           | chaîne   | <p>Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. Vous pouvez spécifier les champs suivants :</p><ul><li><strong>serviceCode</strong></li><li><strong>serviceName</strong></li><li><strong>channel</strong></li><li><strong>customerTenantId</strong></li><li><strong>customerName</strong></li><li><strong>productId</strong></li><li><strong>productName</strong></li></ul><p>Les lignes de données renvoyées comportent les champs spécifiés dans le paramètre <em>groupby</em>, ainsi que dans les paramètres suivants :</p><ul><li><strong>licensesDeployed</strong></li><li><strong>licensesSold</strong></li></ul> | non | 
-| processedDateTime | DateTime | One can specify the date from which usage data was processed. Defaults to the latest date when the data was processed | non | 
+| top               | chaîne   | Le nombre de lignes de données à renvoyer dans la requête. La valeur maximale et la valeur par défaut en l’absence de définition est 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. | Non | 
+| skip              | entier      | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, indiquez top=10000 et skip=0 pour obtenir les 10000 premières lignes de données, top=10000 et skip=10000 pour obtenir les 10000 lignes suivantes, et ainsi de suite. | Non | 
+| filter            | chaîne   | <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs **eq** ou **ne**, et les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Voici quelques exemples de paramètres <em>filter</em> :</p><ul><li><em>Filter = serviceCode EQ’O365 '</em></li><li><em>Filter = serviceCode EQ’O365 '</em> ou (<em>Channel EQ’Reseller'</em>)</li></ul><p>Vous pouvez spécifier les champs suivants</p><ul><li><strong>serviceCode</strong></li><li><strong>FormName</strong></li><li><strong>couche</strong></li><li><strong>customerTenantId</strong></li><li><strong>Souhaite</strong></li><li><strong>Réf</strong></li><li><strong>productName</strong></li></ul> | Non | 
+| groupby           | chaîne   | <p>Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. Vous pouvez spécifier les champs suivants :</p><ul><li><strong>serviceCode</strong></li><li><strong>FormName</strong></li><li><strong>couche</strong></li><li><strong>customerTenantId</strong></li><li><strong>Souhaite</strong></li><li><strong>Réf</strong></li><li><strong>productName</strong></li></ul><p>Les lignes de données renvoyées comportent les champs spécifiés dans le paramètre <em>groupby</em>, ainsi que dans les paramètres suivants :</p><ul><li><strong>licensesDeployed</strong></li><li><strong>licensesSold</strong></li></ul> | Non | 
+| processedDateTime | DateTime | Vous pouvez spécifier la date à partir de laquelle les données d’utilisation ont été traitées. La valeur par défaut est la dernière date à laquelle les données ont été traitées. | Non | 
 
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/commercial/deployment/license?filter=customerTenantId%20eq%20%270112A436-B14E-4888-967B-CA4BB2CF1234%27 HTTP 1.1
@@ -63,30 +63,30 @@ Host: api.partnercenter.microsoft.com
 ```
 
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
-If successful, the response body contains the following fields containing data about the licenses deployed.
+En cas de réussite, le corps de la réponse contient les champs suivants contenant les données relatives aux licences déployées.
 
-| Champ             | Tapez     | Description                           |
+| Champ             | Type     | Description                           |
 |-------------------|----------|---------------------------------------|
-| serviceCode       | chaîne   | Service code                          |
-| serviceName       | chaîne   | Nom du service                          |
-| channel           | chaîne   | Channel name, reseller                |
-| customerTenantId  | chaîne   | Unique identifier for the customer    |
-| customerName      | chaîne   | Nom du client                         |
-| productId         | chaîne   | Unique identifier for the product     |
+| serviceCode       | chaîne   | Code de service                          |
+| FormName       | chaîne   | Nom du service                          |
+| couche           | chaîne   | Nom du canal, revendeur                |
+| customerTenantId  | chaîne   | Identificateur unique du client    |
+| Souhaite      | chaîne   | Nom du client                         |
+| productId         | chaîne   | Identificateur unique du produit     |
 | productName       | chaîne   | Nom du produit                          |
-| licensesDeployed  | longue     | Number of licenses deployed           |
+| licensesDeployed  | longue     | Nombre de licences déployées           |
 | licensesSold      | longue     | Nombre de licences vendues               |
-| processedDateTime | DateTime | Date when the data was last processed |
+| processedDateTime | DateTime | Date du dernier traitement des données |
 
 
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK 

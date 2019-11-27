@@ -1,6 +1,6 @@
 ---
-title: Get a list of devices for the specified batch and customer
-description: How to retrieve a collection of devices and device details in the specified device batch for a customer.
+title: Obtenir la liste des appareils pour le lot et le client spécifiés
+description: Comment récupérer une collection de périphériques et les détails de l’appareil dans le lot d’appareils spécifié pour un client.
 ms.assetid: 13FD2D2D-1EF3-4BE2-977D-83577DA57F51
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489769"
 ---
-# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Get a list of devices for the specified batch and customer
+# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Obtenir la liste des appareils pour le lot et le client spécifiés
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-This topic describes how to retrieve a collection of devices in a specified device batch for a specified customer. Each device resource contains details about the device.
+Cette rubrique explique comment récupérer un regroupement d’appareils dans un lot spécifié pour un client spécifié. Chaque ressource d’appareil contient des détails sur l’appareil.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- A device batch identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
+- Identificateur de lot de l’appareil.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To retrieve a collection of the devices in a specified device batch for the specified customer:
+Pour récupérer un regroupement des appareils dans un lot d’appareils spécifié pour le client spécifié :
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Call the [**DeviceBatches.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) method to get an interface to device batch collection operations for the specified batch.
-3. Retrieve the [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) property to get an interface to device collection operations for the batch.
-4. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) method to retrieve the collection of devices.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+2. Appelez la méthode [**DeviceBatches. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) pour obtenir une interface pour les opérations de collection de lots de périphériques pour le lot spécifié.
+3. Récupérez la propriété [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) pour obtenir une interface pour les opérations de collecte d’appareils pour le lot.
+4. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) d’appareils.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -46,36 +46,36 @@ var devices =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.Get();
 ```
 
-For an example, see the following:
+Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetDevices.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
+- Classe : **GetDevices.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path parameters when creating the request.
+Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Nom           | Tapez   | Obligatoire | Description                                           |
+| Nom           | Type   | Obligatoire | Description                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| customer-id    | chaîne | Oui      | A GUID-formatted string that identifies the customer. |
-| devicebatch-id | chaîne | Oui      | A string identifier that identifies the device batch. |
+| ID client    | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
+| ID d’devicebatch | chaîne | Oui      | Identificateur de chaîne qui identifie le lot de l’appareil. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-Aucun(e)
+Aucune
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -89,13 +89,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a paged collection of [Device](device-deployment-resources.md#device) resources. The collection contains 100 devices in a page. To retrieve the next page of 100 devices, the continuationToken in the response body must be included in the subsequent request as an MS-ContinuationToken header.
+En cas de réussite, le corps de la réponse contient une collection paginée des ressources de l' [appareil](device-deployment-resources.md#device) . La collection contient 100 périphériques dans une page. Pour récupérer la page suivante de 100 appareils, continuationToken dans le corps de la réponse doit être inclus dans la requête suivante en tant qu’en-tête MS-ContinuationToken.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

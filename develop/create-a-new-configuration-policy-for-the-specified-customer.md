@@ -1,6 +1,6 @@
 ---
-title: Create a new configuration policy for the specified customer
-description: How to create a new configuration policy for the specified customer.
+title: Créer une nouvelle stratégie de configuration pour le client spécifié
+description: Comment créer une nouvelle stratégie de configuration pour le client spécifié.
 ms.assetid: 95649991-A950-4F43-87E8-3EB1E7D06FCD
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489499"
 ---
-# <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>Create a new configuration policy for the specified customer
+# <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>Créer une nouvelle stratégie de configuration pour le client spécifié
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-How to create a new configuration policy for the specified customer.
+Comment créer une nouvelle stratégie de configuration pour le client spécifié.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To create a new configuration policy for the specified customer:
+Pour créer une nouvelle stratégie de configuration pour le client spécifié :
 
-1. Instantiate a new [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) object as shown in the following code snippet. Then call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to retrieve an interface to operations on the specified customer.
-2. Retrieve the [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) property to get an interface to configuration policy collection operations.
-3. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) method to create the configuration policy.
+1. Instanciez un nouvel objet [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) comme indiqué dans l’extrait de code suivant. Appelez ensuite la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+2. Récupérez la propriété [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) pour obtenir une interface pour les opérations de collecte de stratégie de configuration.
+3. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) pour créer la stratégie de configuration.
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>Exemple de\# C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,38 +54,38 @@ var createdConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.Create(configurationPolicyToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateConfigurationPolicy.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CreateConfigurationPolicy.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                              |
 |----------|------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/policies HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following path parameters when creating the request.
+Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Nom        | Tapez   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID-formatted string that identifies the customer. |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-The request body must contain an object with the configuration policy information as described in the following table:
+Le corps de la demande doit contenir un objet avec les informations de stratégie de configuration, comme décrit dans le tableau suivant :
 
-| Nom           | Tapez             | Obligatoire | Description                      |
+| Nom           | Type             | Obligatoire | Description                      |
 |----------------|------------------|----------|----------------------------------|
-| name           | chaîne           | Oui      | The friendly name of the policy. |
-| catégorie       | chaîne           | Oui      | The policy category.             |
-| description    | chaîne           | non       | The policy description.          |
-| policySettings | array of strings | Oui      | The policy settings.             |
+| name           | chaîne           | Oui      | Nom convivial de la stratégie. |
+| catégorie       | chaîne           | Oui      | Catégorie de stratégie.             |
+| description    | chaîne           | Non       | Description de la stratégie.          |
+| policySettings | Tableau de chaînes | Oui      | Paramètres de stratégie.             |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -108,13 +108,13 @@ Host: api.partnercenter.microsoft.com
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains the [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) resource for the new policy.
+En cas de réussite, le corps de la réponse contient la ressource [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) pour la nouvelle stratégie.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

@@ -1,6 +1,6 @@
 ---
-title: Partner Center webhook events
-description: Documentation for all Webhook events supported by Partner Center.
+title: Événements du webhook de l’espace partenaires
+description: Documentation pour tous les événements de webhook pris en charge par l’espace partenaires.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,40 +12,40 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486969"
 ---
-# <a name="partner-center-webhook-events"></a>Partner Center webhook events
+# <a name="partner-center-webhook-events"></a>Événements du webhook de l’espace partenaires
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Partner Center webhook events are resource change events delivered in the form of HTTP POSTs to a registered URL. To receive an event from Partner Center, you host a callback where Partner Center can POST the event. The event is digitally signed so you can validate that it was sent from Partner Center. 
+Les événements de webhook de l’espace partenaires sont des événements de modification de ressources remis sous forme de publications HTTP à une URL inscrite. Pour recevoir un événement de l’espace partenaires, vous hébergez un rappel dans lequel Partner Center peut poster l’événement. L’événement est signé numériquement, ce qui vous permet de vérifier qu’il a été envoyé à partir de l’espace partenaires. 
 
-For information on how to receive events, authenticate a callback, and use the Partner Center webhook APIs to create, view, and update an event registration, see [Partner Center Webhooks](partner-center-webhooks.md).
+Pour plus d’informations sur la réception d’événements, l’authentification d’un rappel et l’utilisation des API de webhook de l’espace partenaires pour créer, afficher et mettre à jour une inscription d’événement, consultez la page des [webhooks de l’espace partenaires](partner-center-webhooks.md).
 
 
-## <a name="supported-events"></a>Supported Events
+## <a name="supported-events"></a>Événements pris en charge
 
-The following webhook events are supported by Partner Center.
+Les événements de webhook suivants sont pris en charge par l’espace partenaires.
 
-### <a name="test-event"></a>Test Event
+### <a name="test-event"></a>Événement de test
 
-This event allows you to self-onboard and test your registration by requesting a test event and then tracking its progress. You will be able to see the failure messages that are being received from Microsoft while trying to deliver the event. This will only apply to "test-created" events and data older than 7 days will be purged.
+Cet événement vous permet d’auto-intégrer et de tester votre inscription en demandant un événement de test, puis en effectuant le suivi de sa progression. Vous serez en mesure de voir les messages d’erreur reçus de Microsoft lors de la tentative de remise de l’événement. Cela s’applique uniquement aux événements « test créés » et les données datant de plus de 7 jours sont purgées.
 
 >[!NOTE]
->There is a throttle limit of 2 requests per minute when posting a test-created event.
+>Il existe une limite de 2 requêtes par minute lors de la publication d’un événement créé par test.
 
 **Propriétés**
 
-| Propriété                  | Tapez                               | Description                                                                                                  |
+| Propriété                  | Type                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | chaîne                             | The name of the event. In the form {resource}-{action}. For this event, the value is "test-created".                                          |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
-| Nom_ressource              | chaîne                             | The name of the resource that will trigger the event. For this event, the value is "test".                                  |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| EventName                 | chaîne                             | Nom de l’événement. Sous la forme {Resource}-{action}. Pour cet événement, la valeur est « test créé ».                                          |
+| URI               | URI                                | URI permettant d’accéder à la ressource. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/Registration/validationEvents/{{CorrelationId}} » |
+| Nom_ressource              | chaîne                             | Nom de la ressource qui déclenchera l’événement. Pour cet événement, la valeur est « test ».                                  |
+| AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
+| ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
 
 
@@ -62,22 +62,22 @@ This event allows you to self-onboard and test your registration by requesting a
 ```
 
 
-### <a name="subscription-updated-event"></a>Subscription Updated Event
+### <a name="subscription-updated-event"></a>Événement de mise à jour d’abonnement
 
-This event is raised when the specified subscription changes. A Subscription Updated event is generated when there is an internal change in addition to when changes are made through the Partner Center API. 
+Cet événement est déclenché lorsque l’abonnement spécifié est modifié. Un événement de mise à jour d’abonnement est généré en cas de modification interne en plus de lorsque des modifications sont apportées via l’API espace partenaires. 
 
 >[!NOTE]
->There is a delay of up to 48 hours between the time a subscription changes and when the Subscription Updated event is triggered.  
+>Il y a un délai de 48 heures entre le moment où un abonnement est modifié et le moment où l’événement mis à jour de l’abonnement est déclenché.  
 
 **Propriétés**
 
-| Propriété                  | Tapez                               | Description                                                                                                  |
+| Propriété                  | Type                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | chaîne                             | The name of the event. In the form {resource}-{action}. For this event, the value is "subscription-updated".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
-| Nom_ressource              | chaîne                             | The name of the resource that will trigger the event. For this event, the value is "subscription".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| EventName                 | chaîne                             | Nom de l’événement. Sous la forme {Resource}-{action}. Pour cet événement, la valeur est « subscripted-updated ».                                  |
+| URI               | URI                                | URI permettant d’accéder à la ressource. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/Customers/{{CustomerID}}/subscriptions/{{SubscriptionId}} » |
+| Nom_ressource              | chaîne                             | Nom de la ressource qui déclenchera l’événement. Pour cet événement, la valeur est « Subscription ».                          |
+| AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
+| ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
 
 
@@ -94,19 +94,19 @@ This event is raised when the specified subscription changes. A Subscription Upd
 ```
 
 
-### <a name="threshold-exceeded-event"></a>Threshold Exceeded Event
+### <a name="threshold-exceeded-event"></a>Événement seuil dépassé
 
-Cet événement se déclenche lorsque la quantité d'utilisation de Microsoft Azure d'un client dépasse son budget de dépenses d'utilisation (son seuil). For more information, see  [Set an Azure spending budget for your customers](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
 
 **Propriétés**
 
-| Propriété                  | Tapez                               | Description                                                                                                  |
+| Propriété                  | Type                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | chaîne                             | The name of the event. In the form {resource}-{action}. For this event, the value is "usagerecords-thresholdExceeded".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
-| Nom_ressource              | chaîne                             | The name of the resource that will trigger the event. For this event, the value is "usagerecords".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| EventName                 | chaîne                             | Nom de l’événement. Sous la forme {Resource}-{action}. Pour cet événement, la valeur est « usagerecords-thresholdExceeded ».                                  |
+| URI               | URI                                | URI permettant d’accéder à la ressource. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/webhooks/v1/Customers/usagerecords » |
+| Nom_ressource              | chaîne                             | Nom de la ressource qui déclenchera l’événement. Pour cet événement, la valeur est « usagerecords ».                          |
+| AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
+| ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
 
 
@@ -122,19 +122,19 @@ Cet événement se déclenche lorsque la quantité d'utilisation de Microsoft A
 }
 ```
 
-### <a name="referral-created-event"></a>Referral Created Event
+### <a name="referral-created-event"></a>Événement créé par la référence
 
-This event is raised when the referral is created. 
+Cet événement est déclenché lorsque la référence est créée. 
 
 **Propriétés**
 
-| Propriété                  | Tapez                               | Description                                                                                                  |
+| Propriété                  | Type                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | chaîne                             | The name of the event. In the form {resource}-{action}. For this event, the value is "referral-created".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
-| Nom_ressource              | chaîne                             | The name of the resource that will trigger the event. For this event, the value is "referral".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| EventName                 | chaîne                             | Nom de l’événement. Sous la forme {Resource}-{action}. Pour cet événement, la valeur est « redirection-created ».                                  |
+| URI               | URI                                | URI permettant d’accéder à la ressource. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/Referrals/{{ReferralID}} » |
+| Nom_ressource              | chaîne                             | Nom de la ressource qui déclenchera l’événement. Pour cet événement, la valeur est « Referral ».                          |
+| AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
+| ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
 
 
@@ -150,19 +150,19 @@ This event is raised when the referral is created.
 }
 ```
 
-### <a name="referral-updated-event"></a>Referral Updated Event
+### <a name="referral-updated-event"></a>Événement mis à jour de référence
 
-This event is raised when the referral is updated. 
+Cet événement est déclenché lorsque la référence est mise à jour. 
 
 **Propriétés**
 
-| Propriété                  | Tapez                               | Description                                                                                                  |
+| Propriété                  | Type                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | chaîne                             | The name of the event. In the form {resource}-{action}. For this event, the value is "referral-updated".                                  |
-| ResourceUri               | URI                                | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/referrals/{{ReferralID}}" |
-| Nom_ressource              | chaîne                             | The name of the resource that will trigger the event. For this event, the value is "referral".                          |
-| AuditUri                  | URI                                | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
-| ResourceChangeUtcDate     | string in the UTC date-time format | The date and time when the resource change occurred.                                                         |
+| EventName                 | chaîne                             | Nom de l’événement. Sous la forme {Resource}-{action}. Pour cet événement, la valeur est « Referral-updated ».                                  |
+| URI               | URI                                | URI permettant d’accéder à la ressource. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/engagements/v1/Referrals/{{ReferralID}} » |
+| Nom_ressource              | chaîne                             | Nom de la ressource qui déclenchera l’événement. Pour cet événement, la valeur est « Referral ».                          |
+| AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
+| ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
 
 
@@ -178,17 +178,17 @@ This event is raised when the referral is updated.
 }
 ```
 
-### <a name="invoice-ready-event"></a>Invoice Ready Event
+### <a name="invoice-ready-event"></a>Événement de facturation opérationnelle
 
-This event is raised when the new invoice is ready.
+Cet événement est déclenché lorsque la nouvelle facture est prête.
 
-| Propriété                  | Tapez                               | Description                                                                                                  |
+| Propriété                  | Type                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName | chaîne | The name of the event. In the form {resource}-{action}. For this event, the value is "invoice-ready". |
-| ResourceUri | URI | The URI to get the resource. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{{InvoiceId}}" |
-| Nom_ressource | chaîne | The name of the resource that will trigger the event. For this event, the value is "invoice". |
-| AuditUri |  URI | (Optional) The URI to get the audit record, if it exists. Uses the syntax: "[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}") |
-| ResourceChangeUtcDate | string in the UTC date-time format | The date and time when the resource change occurred. |
+| EventName | chaîne | Nom de l’événement. Sous la forme {Resource}-{action}. Pour cet événement, la valeur est « prêt pour la facturation ». |
+| URI | URI | URI permettant d’accéder à la ressource. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{{InvoiceId}} » |
+| Nom_ressource | chaîne | Nom de la ressource qui déclenchera l’événement. Pour cet événement, la valeur est « Invoice ». |
+| AuditUri |  URI | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[ *{baseURL}* ](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} ») |
+| ResourceChangeUtcDate | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite. |
 
 **Exemple**
 

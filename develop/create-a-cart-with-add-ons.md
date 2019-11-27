@@ -1,6 +1,6 @@
 ---
-title: Create a cart with add-ons
-description: How to add an order with add-ons for a customer in a cart.
+title: Créer un panier avec des modules complémentaires
+description: Comment ajouter une commande avec des modules complémentaires pour un client dans un panier.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,30 +12,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488799"
 ---
-# <a name="create-a-cart-with-add-ons"></a>Create a cart with add-ons
+# <a name="create-a-cart-with-add-ons"></a>Créer un panier avec des modules complémentaires
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can purchase add-ons through a cart. For more information about what is currently available to sell, see [Partner offers in the Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-offers).
+Vous pouvez acheter des modules complémentaires par le biais d’un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier. If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-A cart enables the purchase of a base offer and its corresponding add-ons. Follow these steps to create a cart:
+Un panier permet l’achat d’une offre de base et de ses modules complémentaires correspondants. Pour créer un panier, procédez comme suit :
 
-1. Instantiate a [**Cart**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart) object.
-2. Create a list of [**CartLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) objects which represent the base offer(s), and assign the list to the cart's [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) property.
-3. Under each base offer's cart line item, populate the list of **AddOnItems** with other **CartLineItem** objects that each represent an add-on that will be purchased against that base offer.
-4. Obtain an interface to cart operations by using [**IAggregatePartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) to call the [**ICustomerCollection.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and then retrieving the interface from the **Cart** property.
-5. Finally, call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) method to create the cart.
+1. Instanciez un objet de [**panier**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart) .
+2. Créez une liste d’objets [**CartLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) qui représentent les offres de base et attribuez la liste à [**la propriété de**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) liste de propriétés du panier.
+3. Sous l’élément de ligne de panier de chaque offre de base, renseignez la liste des **AddOnItems** avec d’autres objets **CartLineItem** qui représentent chacun un module complémentaire qui sera acheté dans le cadre de cette offre de base.
+4. Obtenez une interface pour les opérations de panier à l’aide de [**collection iaggregatepartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**ICustomerCollection. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérer l’interface à partir de la propriété **Cart** .
+5. Enfin, appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) pour créer le panier.
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>Exemple de\# C
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -76,10 +76,10 @@ var cart = new Cart()
 var createdCart = partnerOperations.Customers.ById(customerId).Carts.Create(cart);
 ```
 
-Follow these steps to create a cart which will enable the purchase of add-on(s) against existing base subscription(s):
+Suivez les étapes ci-dessous pour créer un panier permettant d’acheter des modules complémentaires sur des abonnements de base existants :
 
-1. Create a **Cart** with a new **CartLineItem** containing the subscription ID in the **ProvisioningContext** property with key "ParentSubscriptionId".
-2. Call the **Create** or **CreateAsync** method.
+1. Créez un **panier** avec une nouvelle **CARTLINEITEM** contenant l’ID d’abonnement dans la propriété **ProvisioningContext** avec la clé « ParentSubscriptionId ».
+2. Appelez la méthode **Create** ou **CreateAsync** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -108,58 +108,58 @@ var cart = new Cart()
 var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Create(cart);
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts HTTP/1.1                        |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts http/1.1                        |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following path parameter to identify the customer.
+Utilisez le paramètre Path suivant pour identifier le client.
 
-| Nom            | Tapez     | Obligatoire | Description                                                            |
+| Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **customer-id** | chaîne   | Oui      | A GUID formatted customer-id that identifies the customer.             |
+| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-This table describes the [Cart](cart-resources.md) properties in the request body.
+Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps de la demande.
 
-| Propriété              | Tapez             | Obligatoire        | Description |
+| Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | chaîne           | non              | A cart identifier that is supplied upon successful creation of the cart.                                  |
-| creationTimeStamp     | DateTime         | non              | The date the cart was created, in date-time format. Applied upon successful creation of the cart.         |
-| lastModifiedTimeStamp | DateTime         | non              | The date the cart was last updated, in date-time format. Applied upon successful creation of the cart.    |
-| expirationTimeStamp   | DateTime         | non              | The date the cart will expire, in date-time format.  Applied upon successful creation of cart.            |
-| lastModifiedUser      | chaîne           | non              | The user who last updated the cart. Applied upon successful creation of cart.                             |
-| lineItems             | Array of objects | Oui             | An Array of [CartLineItem](cart-resources.md#cartlineitem) resources.                                             |
+| id                    | chaîne           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
+| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| LineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
 
-This table describes the [CartLineItem](cart-resources.md#cartlineitem) properties in the request body.
+Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
-| Propriété             | Tapez                             | Description                                                                                                                                           |
+| Propriété             | Type                             | Description                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | chaîne                           | A unique identifier for a cart line item. Applied upon successful creation of cart.                                                                   |
-| catalogId            | chaîne                           | The catalog item identifier.                                                                                                                          |
-| friendlyName         | chaîne                           | Facultatif. The friendly name for the item defined by the partner to help disambiguate.                                                                 |
-| quantity             | entier                              | The number of licenses or instances.                                                                                                                  |
-| currencyCode         | chaîne                           | The currency code.                                                                                                                                    |
-| billingCycle         | Objet                           | The type of billing cycle set for the current period.                                                                                                 |
-| participants         | List of Object String pairs      | A collection of PartnerId on Record (MPNID) on the purchase.                                                                                          |
-| provisioningContext  | Dictionary<string, string>       | A context used for provisioning of offer.                                                                                                             |
-| orderGroup           | chaîne                           | A group to indicate which items can be placed together.                                                                                               |
-| addonItems           | List of **CartLineItem** objects | A collection of cart line items for add-ons that will be purchased towards the base subscription that results from the parent cart line item's purchase. |
-| erreur                | Objet                           | Applied after cart is created in case of an error.                                                                                                    |
+| id                   | chaîne                           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                                   |
+| catalogId            | chaîne                           | Identificateur de l’élément de catalogue.                                                                                                                          |
+| friendlyName         | chaîne                           | Facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                                 |
+| quantity             | entier                              | Nombre de licences ou d’instances.                                                                                                                  |
+| currencyCode         | chaîne                           | Code de la devise.                                                                                                                                    |
+| billingCycle         | Objet                           | Type de cycle de facturation défini pour la période actuelle.                                                                                                 |
+| participants         | Liste de paires de chaînes d’objets      | Collection de partenaire sur l’enregistrement (MPNID) sur l’achat.                                                                                          |
+| provisioningContext  | Dictionary < String, String >       | Contexte utilisé pour l’approvisionnement de l’offre.                                                                                                             |
+| orderGroup           | chaîne                           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                                               |
+| addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires qui seront achetés vers l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier parent. |
+| erreur                | Objet                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
 
-### <a name="request-example-new-base-subscription"></a>Request example (new base subscription)
+### <a name="request-example-new-base-subscription"></a>Exemple de requête (nouvel abonnement de base)
 
-The following REST example shows how to create a cart with add-on items for a new base subscription.
+L’exemple REST suivant montre comment créer un panier avec des éléments de module complémentaire pour un nouvel abonnement de base.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -195,9 +195,9 @@ MS-CorrelationId: f73baf70-bbc3-43d0-8b29-dffa08ff9511
 }
 ```
 
-#### <a name="request-example-existing-base-subscription"></a>Request example (existing base subscription)
+#### <a name="request-example-existing-base-subscription"></a>Exemple de demande (abonnement de base existant)
 
-The following REST example show how to append add-ons to an existing base subscription.
+L’exemple REST suivant montre comment ajouter des modules complémentaires à un abonnement de base existant.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -219,15 +219,15 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 }
 ```
 
-### <a name="rest-response"></a>REST Response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns the populated [Cart](cart-resources.md) resource in the response body.
+En cas de réussite, cette méthode retourne la ressource [Cart](cart-resources.md) remplie dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-#### <a name="response-example-new-base-subscription"></a>Response example (new base subscription)
+#### <a name="response-example-new-base-subscription"></a>Exemple de réponse (nouvel abonnement de base)
 
 ```http
 HTTP/1.1 201 Created
@@ -288,7 +288,7 @@ Date: Thu, 01 Nov 2018 22:29:05 GMT
 }
 ```
 
-#### <a name="response-example-existing-base-subscription"></a>Response example (existing base subscription)
+#### <a name="response-example-existing-base-subscription"></a>Exemple de réponse (abonnement de base existant)
 
 ```http
 HTTP/1.1 201 Created

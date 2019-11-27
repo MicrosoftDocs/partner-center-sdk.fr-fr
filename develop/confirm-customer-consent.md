@@ -1,6 +1,6 @@
 ---
-title: Confirm customer acceptance of Microsoft Cloud Agreement
-description: How to confirm customer acceptance of the Microsoft Cloud Agreement.
+title: Confirmer l’acceptation du client du contrat de Microsoft Cloud
+description: Comment confirmer l’acceptation du client du contrat de Microsoft Cloud.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,39 +12,39 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488939"
 ---
-# <a name="confirm-customer-acceptance-of-microsoft-cloud-agreement"></a>Confirm customer acceptance of Microsoft Cloud Agreement
+# <a name="confirm-customer-acceptance-of-microsoft-cloud-agreement"></a>Confirmer l’acceptation du client du contrat de Microsoft Cloud
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
 > [!NOTE]  
-> The **Agreement** resource is currently supported by Partner Center in the Microsoft public cloud only. It is not applicable to:
+> La ressource d' **accord** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle ne s’applique pas aux éléments suivants :
 > - Espace partenaires géré par 21Vianet
-> - Espace partenaires de Microsoft Cloud Germany
+> - Espace partenaires de Microsoft Cloud Germany
 > - Espace partenaires de Microsoft Cloud for US Government
 
-How to confirm customer acceptance of the Microsoft Cloud agreement.
+Comment confirmer l’acceptation du client du contrat de Microsoft Cloud.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- If you are using the Partner Center .NET SDK, version 1.9 or newer is required.
-- If you are using the Partner Center Java SDK, version 1.8 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario supports app + user authentication only.
-- A customer ID (customer-tenant-id).
-- Date when customer accepted the Microsoft Cloud Agreement.
-- Information about the user from the organization who accepted the Microsoft Cloud Agreement, including:
+- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,9 ou une version ultérieure est requise.
+- Si vous utilisez le kit de développement logiciel (SDK) Java de l’espace partenaires, la version 1,8 ou une version ultérieure est requise.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
+- ID client (client-locataire-ID).
+- Date à laquelle le client a accepté le contrat de Microsoft Cloud.
+- Informations sur l’utilisateur de l’organisation qui a accepté le contrat de Microsoft Cloud, y compris :
   - Prénom
   - Nom
-  - Adresse e-mail
+  - Adresse électronique
   - Numéro de téléphone (facultatif)
 
 
-## <a name="net-version-114-or-newer"></a>.NET (version 1.14 or newer)
+## <a name="net-version-114-or-newer"></a>.NET (version 1,14 ou ultérieure)
 
-To confirm or re-confirm customer acceptance of the Microsoft Customer Agreement:
+Pour confirmer ou reconfirmer l’acceptation du client du contrat du client Microsoft :
 
-1. Retrieve the agreement metadata for the Microsoft Cloud Agreement. You must obtain the **templateId** of the Microsoft Cloud Agreement. For more details, see [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md).
+1. Récupérez les métadonnées d’accord pour l’accord de Microsoft Cloud. Vous devez obtenir l' **TemplateID** du contrat de Microsoft Cloud. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md).
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -54,9 +54,9 @@ string agreementType = "MicrosoftCloudAgreement";
 var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-2. Create a new **Agreement** object containing details of the confirmation.
-3. Use the **IAgreggatePartner.Customers** collection and call the **ById** method with the specified **customer-tenant-id**.
-4. Use the **Agreements** property, followed by calling **Create** or **CreateAsync**.
+2. Créez un nouvel objet de **contrat** contenant les détails de la confirmation.
+3. Utilisez la collection **IAgreggatePartner. Customers** et appelez la méthode **méthode BYID** avec l' **ID de locataire client**spécifié.
+4. Utilisez la propriété **Agreements** , suivie de l’appel de **Create** ou de **CreateAsync**.
 
 ```csharp
 // string selectedCustomerId;
@@ -77,13 +77,13 @@ var agreementToCreate = new Agreement
 Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
 ```
 
-A complete sample can be found in the [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+Un exemple complet est disponible dans la classe [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) à partir du projet d' [application de test console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) .
 
-## <a name="net-version-19---113"></a>.NET (version 1.9 - 1.13)
+## <a name="net-version-19---113"></a>.NET (version 1,9-1,13)
 
-To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreement:
+Pour confirmer ou reconfirmer qu’un client a accepté le contrat de Microsoft Cloud :
 
-1. Retrieve the agreement metadata for the Microsoft Cloud Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md) for details. This step is required to obtain the **TemplateId** of the Microsoft Cloud Agreement.
+1. Récupérez les métadonnées d’accord pour l’accord de Microsoft Cloud. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md) . Cette étape est nécessaire pour obtenir l' **TemplateID** du contrat de Microsoft Cloud.
 
     ```csharp
     /// IAggregatePartner partnerOperations;
@@ -92,7 +92,7 @@ To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreem
     AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr => agr.AgreementType == AgreementType.MicrosoftCloudAgreement);
     ```
 
-2. Create a new **Agreement** object containing details of the confirmation. Then use the **IAggregatePartner.Customers** collection and call the **ById** method with the specified customer's ID. Then, call the **Agreements** property, followed by calling **Create** or **CreateAsync**.
+2. Créez un nouvel objet de **contrat** contenant les détails de la confirmation. Utilisez ensuite la collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID** avec l’ID du client spécifié. Ensuite, appelez la propriété **Agreements** , suivie de l’appel de **Create** ou de **CreateAsync**.
 
     ``` csharp
     // string selectedCustomerId;
@@ -118,9 +118,9 @@ To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreem
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreement:
+Pour confirmer ou reconfirmer qu’un client a accepté le contrat de Microsoft Cloud :
 
-1. Retrieve the agreement metadata for the Microsoft Cloud Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md) for details. This step is required to obtain the **TemplateId** of the Microsoft Cloud Agreement.
+1. Récupérez les métadonnées d’accord pour l’accord de Microsoft Cloud. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md) . Cette étape est nécessaire pour obtenir l' **TemplateID** du contrat de Microsoft Cloud.
 
     ```java
     /// IAggregatePartner partnerOperations;
@@ -137,7 +137,7 @@ To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreem
     }
     ```
 
-2. Create a new **Agreement** object containing details of the confirmation. Then use the **IAggregatePartner.getCustomers** function and call the **byId** function with the specified customer's identifier. Then, call the **getAgreements** property, followed by calling the **create** function.
+2. Créez un nouvel objet de **contrat** contenant les détails de la confirmation. Utilisez ensuite la fonction **collection iaggregatepartner. getCustomers** et appelez la fonction **méthode BYID** avec l’identificateur du client spécifié. Ensuite, appelez la propriété **getAgreements** , suivie de l’appel de la fonction **Create** .
 
     ```java
     // String selectedCustomerId;
@@ -159,21 +159,21 @@ To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreem
     Agreement agreement = partnerOperations.getCustomers().byId(selectedCustomerId).getAgreements().create(agreementToCreate);
     ```
 
-A complete sample can be found in the [CreateCustomerAgreement](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/CreateCustomerAgreement.java) class from the [console test app](https://github.com/Microsoft/Partner-Center-Java-Samples) project.
+Un exemple complet est disponible dans la classe [CreateCustomerAgreement](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/src/main/java/com/microsoft/store/partnercenter/samples/agreements/CreateCustomerAgreement.java) à partir du projet d' [application de test console](https://github.com/Microsoft/Partner-Center-Java-Samples) .
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreement:
+Pour confirmer ou reconfirmer qu’un client a accepté le contrat de Microsoft Cloud :
 
-1. Retrieve the agreement metadata for the Microsoft Cloud Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md) for details. This step is required to obtain the **TemplateId** of the Microsoft Cloud Agreement.  
+1. Récupérez les métadonnées d’accord pour l’accord de Microsoft Cloud. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md) . Cette étape est nécessaire pour obtenir l' **TemplateID** du contrat de Microsoft Cloud.  
 
     ```powershell  
     $agreement = Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
     ```  
 
-2. Execute the [**New-PartnerCustomerAgreement**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/new-partnercustomeragreement) command  
+2. Exécuter la commande [**New-PartnerCustomerAgreement**](https://docs.microsoft.com/powershell/module/partnercenter/partner-center/new-partnercustomeragreement)  
 
     ```powershell  
     New-PartnerCustomerAgreement -TemplateId $agreement.TemplateId -AgreementType MicrosoftCloudAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec' -ContactEmail 'someone@example.com' -ContactFirstName 'Tania' -ContactLastName 'Carr'
@@ -181,51 +181,51 @@ To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreem
 
 ## <a name="rest"></a>REST
 
-To confirm or re-confirm that a customer has accepted the Microsoft Cloud Agreement, see the following instructions.
+Pour confirmer ou reconfirmer qu’un client a accepté le contrat de Microsoft Cloud, consultez les instructions suivantes.
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
-1. Retrieve the agreement metadata for the Microsoft Cloud Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md) for details. This step is required to obtain the **templateId** of the Microsoft Cloud Agreement.
-2. Create a new resource to confirm that a customer has accepted the Microsoft Cloud Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md) for details.
+1. Récupérez les métadonnées d’accord pour l’accord de Microsoft Cloud. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md) . Cette étape est nécessaire pour obtenir l' **TemplateID** du contrat de Microsoft Cloud.
+2. Créez une ressource pour confirmer qu’un client a accepté le contrat de Microsoft Cloud. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md) .
 
-To create a new **Agreement** resource to confirm that a customer has accepted the Microsoft Cloud Agreement:
+Pour créer une nouvelle ressource de **contrat** pour confirmer qu’un client a accepté le contrat de Microsoft Cloud :
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
+| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Agreements http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to specify the customer you are confirming.
+Utilisez le paramètre de requête suivant pour spécifier le client que vous confirmez.
 
-| Nom               | Tapez | Obligatoire | Description                                                                                 |
+| Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| customer-tenant-id | GUID | Y        | The value is a GUID formatted **customer-tenant-id** that allows you to specify a customer. |
+| client-locataire-ID | GUID | Y        | La valeur est un GUID **client-ID-client-ID** qui vous permet de spécifier un client. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 #### <a name="request-body"></a>Corps de la requête
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom      | Tapez   | Description                                                                                  |  
+| Nom      | Type   | Description                                                                                  |  
 |-----------|--------|----------------------------------------------------------------------------------------------|  
-| Contrat | object | Details provided by partner to confirm customer acceptance of the Microsoft Cloud Agreement. |  
+| Contrat | objet | Détails fournis par le partenaire pour confirmer l’acceptation du client du contrat de Microsoft Cloud. |  
 
 #### <a name="agreement"></a>Contrat
 
-This table describes the minimum required fields to create an **Agreement** resource.
+Ce tableau décrit les champs obligatoires minimum pour créer une ressource de **contrat** .
 
-| Propriété       | Tapez   | Description                              |
+| Propriété       | Type   | Description                              |
 |----------------|--------|------------------------------------------|
-| primaryContact | [Contact](./utility-resources.md#contact) | Information about the user from the customer organization who accepted the Microsoft Cloud Agreement, including:  **firstName**, **lastName**, **email** and **phoneNumber** (optional) |
-| dateAgreed     | string in UTC date time format |The date when the customer accepted the agreement. |
-| templateId     |chaîne | Unique identifier of the agreement type accepted by the customer. You can obtain the **templateId** for Microsoft Cloud Agreement by retrieving the agreement metadata for Microsoft Cloud Agreement. See [Get agreement metadata for Microsoft Cloud Agreement](get-agreement-metadata.md) for details. |
-| type           |AgreementType enum | Agreement type accepted by the customer. Currently, the only supported value is "MicrosoftCloudAgreement". |
+| PrimaryContact | [Communiquer](./utility-resources.md#contact) | Informations sur l’utilisateur de l’organisation client qui a accepté le contrat de Microsoft Cloud, notamment les suivants : **FirstName**, **LastName**, **email** et **phoneNumber** (facultatif) |
+| dateAgreed     | chaîne au format date/heure UTC |Date à laquelle le client a accepté le contrat. |
+| templateId     |chaîne | Identificateur unique du type de contrat accepté par le client. Vous pouvez obtenir l' **TemplateID** pour Microsoft Cloud accord en extrayant les métadonnées de l’accord pour Microsoft Cloud accord. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour Microsoft Cloud accord](get-agreement-metadata.md) . |
+| type           |Énumération AgreementType | Type de contrat accepté par le client. Actuellement, la seule valeur prise en charge est « MicrosoftCloudAgreement ». |
   
 #### <a name="request-example"></a>Exemple de requête
 
@@ -249,13 +249,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an **Agreement** resource.
+En cas de réussite, cette méthode retourne une ressource d' **accord** .
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

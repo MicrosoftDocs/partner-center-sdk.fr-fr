@@ -1,6 +1,6 @@
 ---
-title: Delete a customer account from the integration sandbox
-description: How to delete a customer account from the Testing in Production (Tip) integration sandbox.
+title: Supprimer un compte client du bac à sable (sandbox) d’intégration
+description: Comment supprimer un compte client du bac à sable (sandbox) d’intégration test en production (TIP).
 ms.assetid: B95431F6-EA7F-4C21-835F-6D6C303B05A5
 ms.date: 06/20/2019
 ms.service: partner-dashboard
@@ -13,40 +13,40 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489919"
 ---
-# <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Delete a customer account from the integration sandbox
+# <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Supprimer un compte client du bac à sable (sandbox) d’intégration
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This topic explains how to delete a customer account from the Testing in Production (Tip) integration sandbox.
+Cette rubrique explique comment supprimer un compte client du bac à sable (sandbox) d’intégration test en production (TIP).
 
 > [!IMPORTANT]
-> When you delete a customer account, all resources associated with that customer tenant will be purged.
+> Lorsque vous supprimez un compte client, toutes les ressources associées à ce locataire client sont purgées.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**customer-tenant-id**).
-- All Azure Reserved Virtual Machine Instances and software purchase orders must be cancelled before deleting a customer from the Tip integration sandbox.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (**client-locataire-ID**).
+- Tous les Azure Reserved Virtual Machine Instances et les bons de commande logiciels doivent être annulés avant de supprimer un client du bac à sable (sandbox) d’intégration Tip.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To delete a customer from the Tip integration sandbox:
+Pour supprimer un client du bac à sable (sandbox) d’intégration Tip :
 
-1. Pass your Tip account credentials to the [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) method to get an [**IPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) interface to partner operations.
-2. Use the partner operations interface to retrieve the collection of entitlements:
-    1. Call the [**Customers.ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to specify the customer.
-    2. Call the **Entitlements** property.
-    3. Call the **Get** or **GetAsync** method to retrieve the [**Entitlement**](entitlement-resources.md) collection.
-3. Make sure that all Azure Reserved Virtual Machine Instances and software purchase orders for that customer are cancelled. For each [**Entitlement**](entitlement-resources.md) in the collection:
-    1. Use the [**entitlement.ReferenceOrder.Id**](entitlement-resources.md#referenceorder) to get a local copy of the corresponding [Order](order-resources.md#order) from the customer's collection of orders.
-    2. Set the [**Order.Status**](order-resources.md#order) property to "Cancelled".
-    3. Use the **Patch()** method to update the order.
-4. Cancel all orders. For example, the following code sample uses a loop to poll each order until its status is "Cancelled".
+1. Transmettez les informations d’identification de votre compte Tip à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) pour les opérations de partenaire.
+2. Utilisez l’interface opérateur partenaire pour récupérer la collection de droits :
+    1. Appelez la méthode [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client.
+    2. Appelez la propriété de **droits** .
+    3. Appelez la méthode **GetAsync** pour **récupérer la collection** de [**droits**](entitlement-resources.md) .
+3. Assurez-vous que tous les Azure Reserved Virtual Machine Instances et les bons de commande logiciels pour ce client sont annulés. Pour chaque [**droit**](entitlement-resources.md) du regroupement :
+    1. Utilisez le [**droit. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) pour obtenir une copie locale de la [commande](order-resources.md#order) correspondante à partir de la collection de commandes du client.
+    2. Définissez la propriété [**Order. Status**](order-resources.md#order) sur « Cancelled ».
+    3. Utilisez la méthode **patch ()** pour mettre à jour la commande.
+4. Annulez toutes les commandes. Par exemple, l’exemple de code suivant utilise une boucle pour interroger chaque commande jusqu’à ce que son état soit « annulé ».
 
     ``` csharp
     // IPartnerCredentials tipAccountCredentials;
@@ -88,29 +88,29 @@ To delete a customer from the Tip integration sandbox:
     tipAccountPartnerOperations.Customers.ById(customerTenantId).Delete();
     ```
 
-5. Make sure all orders are cancelled by calling the **Delete** method for the customer.
+5. Assurez-vous que toutes les commandes sont annulées en appelant la méthode **Delete** pour le client.
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center PartnerCenterSDK.FeaturesSamples **Class**: DeleteCustomerFromTipAccount.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: Partner Center PartnerCenterSDK. FeaturesSamples, **classe**: DeleteCustomerFromTipAccount.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1 |
+| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to delete a customer.
+Utilisez le paramètre de requête suivant pour supprimer un client.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                         |
+| Nom                   | Type     | Obligatoire | Description                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
+| client-locataire-ID     | GUID     | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -126,13 +126,13 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an empty response.
+En cas de réussite, cette méthode retourne une réponse vide.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

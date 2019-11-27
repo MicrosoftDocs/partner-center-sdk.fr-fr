@@ -1,6 +1,6 @@
 ---
-title: Get the product upgrade status for a customer
-description: You can use the ProductUpgradeRequest resource to determine the status of a product upgrade for a customer to a new product family, such as from a Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan.
+title: Obtenir l’état de mise à niveau du produit pour un client
+description: Vous pouvez utiliser la ressource ProductUpgradeRequest pour déterminer l’état d’une mise à niveau de produit pour un client vers une nouvelle famille de produits, par exemple d’un abonnement Microsoft Azure (MS-AZR-0145P) à un plan Azure.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,29 +12,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487289"
 ---
-# <a name="get-the-product-upgrade-status-for-a-customer"></a>Get the product upgrade status for a customer
+# <a name="get-the-product-upgrade-status-for-a-customer"></a>Obtenir l’état de mise à niveau du produit pour un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can use the [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) resource to get the status of an upgrade to a new product family. This resource applies when you're upgrading a customer from an Microsoft Azure (MS-AZR-0145P) subscription to an Azure plan. A successful request returns the [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) resource.
+Vous pouvez utiliser la ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) pour obtenir l’état d’une mise à niveau vers une nouvelle famille de produits. Cette ressource s’applique lorsque vous mettez à niveau un client à partir d’un abonnement Microsoft Azure (MS-AZR-0145P) à un plan Azure. Une demande réussie retourne la ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) .
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials. Follow the [secure app model](enable-secure-app-model.md) when using App+User authentication with Partner Center APIs.
-- The customer identifier.
-- The product family.
-- The upgrade-id of an upgrade request.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur. Suivez le [modèle d’application sécurisée](enable-secure-app-model.md) lors de l’utilisation de l’authentification d’application + utilisateur avec les API de l’espace partenaires.
+- Identificateur du client.
+- Famille de produits.
+- L’ID de mise à niveau d’une demande de mise à niveau.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To check if a customer is eligible to upgrade to Azure plan:
+Pour vérifier si un client est éligible pour la mise à niveau vers Azure plan :
 
-1. Create a **ProductUpgradesRequest** object and specify the customer identifier and "Azure" as the product family.
-2. Use the **IAggregatePartner.ProductUpgrades** collection.
-2. Call the **ById** method and pass in the **upgrade-id**.
-3. Call the **CheckStatus** method and pass in the **ProductUpgradesRequest** object, which will return a **ProductUpgradeStatus** object.
+1. Créez un objet **ProductUpgradesRequest** et spécifiez l’identificateur du client et « Azure » comme famille de produits.
+2. Utilisez la collection **collection iaggregatepartner. ProductUpgrades** .
+2. Appelez la méthode **méthode BYID** et transmettez l' **ID de mise à niveau**.
+3. Appelez la méthode **CheckStatus** et transmettez l’objet **ProductUpgradesRequest** , qui renverra un objet **ProductUpgradeStatus** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -111,13 +111,13 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) resource in the body.
+En cas de réussite, cette méthode retourne une ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) dans le corps.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 
