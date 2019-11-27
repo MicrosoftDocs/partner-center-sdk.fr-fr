@@ -1,6 +1,6 @@
 ---
-title: Get a list of availabilities for a SKU (by country)
-description: How to get a collection of availabilities for the specified product and SKU by customer country.
+title: Obtenir la liste des disponibilités pour une référence (par pays)
+description: Comment obtenir une collection de disponibilités pour le produit et la référence SKU spécifiés par le pays du client.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487529"
 ---
-# <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Get a list of availabilities for a SKU (by country)
+# <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Obtenir la liste des disponibilités pour une référence (par pays)
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-This topic describes how to get a collection of availabilities in a particular country for a specified product and SKU.
+Cette rubrique explique comment obtenir une collection de availabilities dans un pays particulier pour un produit et une référence SKU spécifiés.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product identifier.
-- A SKU identifier.
-- A country.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur de produit.
+- Identificateur de référence (SKU).
+- Un pays.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get the list of [availabilities](product-resources.md#availability) for a [SKU](product-resources.md#sku):
+Pour obtenir la liste des [disponibilités](product-resources.md#availability) pour une [référence (SKU](product-resources.md#sku)) :
 
-1. Follow the steps in [Get a SKU by ID](get-a-sku-by-id.md) to get the interface for a specific SKU's operations.
-2. From the SKU interface, select the **Availabilities** property to get an interface with the operations for availabilities.
-3. (Optional) Use the **ByTargetSegment()** method to filter the availabilities by target segment.
-4. Call **Get()** or **GetAsync()** to retrieve a collection of the availabilities for this SKU.
+1. Suivez les étapes de la section [obtenir une référence SKU par ID](get-a-sku-by-id.md) pour obtenir l’interface pour les opérations d’une référence (SKU) spécifique.
+2. À partir de l’interface de référence (SKU), sélectionnez la propriété **availabilities** pour obtenir une interface avec les opérations pour Availabilities.
+3. Facultatif Utilisez la méthode **ByTargetSegment ()** pour filtrer les disponibilités par segment cible.
+4. Appelez **obtenir ()** ou **GetAsync ()** pour récupérer une collection des availabilities pour cette référence (SKU).
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -62,29 +62,29 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities?country={country-code}&targetSegment={target-segment} HTTP/1.1     |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs/{SKU-ID}/availabilities ? Country = {pays-code} & targetSegment = {Target-segment} http/1.1     |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path and query parameters to get a list of availabilities for a SKU.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir une liste des disponibilités pour une référence (SKU).
 
-| Nom                   | Tapez     | Obligatoire | Description                                                     |
+| Nom                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | chaîne   | Oui      | A string that identifies the product.                           |
-| sku-id                 | chaîne   | Oui      | A string that identifies the SKU.                               |
-| country-code           | chaîne   | Oui      | A country/region ID.                                            |
-| target-segment         | chaîne   | non       | A string that identifies the target segment used for filtering. |
-| reservationScope | chaîne   | non | When querying for a list of availabilities for an Azure Reservation SKU, specify `reservationScope=AzurePlan` to get a list of availabilities which are applicable to AzurePlan. Exclude this parameter to get a list of availabilities which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.  |
+| ID de produit             | chaîne   | Oui      | Chaîne qui identifie le produit.                           |
+| Réf. SKU                 | chaîne   | Oui      | Chaîne qui identifie la référence (SKU).                               |
+| pays-code           | chaîne   | Oui      | ID de pays/région.                                            |
+| segment cible         | chaîne   | Non       | Chaîne qui identifie le segment cible utilisé pour le filtrage. |
+| reservationScope | chaîne   | Non | Lors de l’interrogation d’une liste de disponibilités pour une référence (SKU) de réservation Azure, spécifiez `reservationScope=AzurePlan` pour obtenir une liste des disponibilités applicables à AzurePlan. Excluez ce paramètre pour obtenir une liste des disponibilités applicables aux abonnements Microsoft Azure (MS-AZR-0145P).  |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -92,9 +92,9 @@ Aucun.
 
 #### <a name="request-examples"></a>Exemples de demande
 
-##### <a name="availabilities-for-sku-by-country"></a>Availabilities for SKU by country
+##### <a name="availabilities-for-sku-by-country"></a>Disponibilités pour les références SKU par pays
 
-Follow this example to get a list of availabilities for a given SKU by country:
+Suivez cet exemple pour obtenir une liste des disponibilités pour une référence (SKU) donnée par pays :
 
 ```http
 GET http:// api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US HTTP/1.1
@@ -104,9 +104,9 @@ MS-RequestId: 70324727-62d8-4195-8f99-70ea25058d02
 MS-CorrelationId: 83b644b5-e54a-4bdc-b354-f96c525b3c58
 ```
 
-##### <a name="availabilities-for-vm-reservations-azure-plan"></a>Availabilities for VM reservations (Azure plan)
+##### <a name="availabilities-for-vm-reservations-azure-plan"></a>Disponibilités pour les réservations de machines virtuelles (plan Azure)
 
-Follow this example to get a list of availabilities by country for Azure VM reservation SKUs. This example is for SKUs that apply to Azure plans:
+Suivez cet exemple pour obtenir une liste des disponibilités par pays pour les références SKU de réservation de machines virtuelles Azure. Cet exemple concerne les références (SKU) qui s’appliquent aux plans Azure :
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -116,9 +116,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Availabilities for VM reservations for Microsoft Azure (MS-AZR-0145P) subscriptions
+##### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Disponibilités pour les réservations de machines virtuelles pour les abonnements Microsoft Azure (MS-AZR-0145P)
 
-Follow this example to get a list of availabilities by country for Azure VM reservations that are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.
+Suivez cet exemple pour obtenir une liste des disponibilités par pays pour les réservations de machines virtuelles Azure applicables aux abonnements Microsoft Azure (MS-AZR-0145P).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/productsDZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
@@ -128,19 +128,19 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a collection of [**Availability**](product-resources.md#availability) resources.
+En cas de réussite, le corps de la réponse contient une collection de ressources de [**disponibilité**](product-resources.md#availability) .
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested **targetSegment** is not allowed.                                                     |
+| 403                  | 400030       | L’accès au **targetSegment** demandé n’est pas autorisé.                                                     |
 
 #### <a name="response-example"></a>Exemple de réponse
 

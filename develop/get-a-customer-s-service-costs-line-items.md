@@ -1,6 +1,6 @@
 ---
-title: Get a customer's service costs line items
-description: Gets a customer's service cost line items for the specified billing period.
+title: Obtenir les éléments de ligne des coûts de service d’un client
+description: Obtient les éléments de ligne de coût du service d’un client pour la période de facturation spécifiée.
 ms.assetid: 1D6364A2-51FE-44E4-96A0-444EDB3BB56A
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74490149"
 ---
-# <a name="get-a-customers-service-costs-line-items"></a>Get a customer's service costs line items
+# <a name="get-a-customers-service-costs-line-items"></a>Obtenir les éléments de ligne des coûts de service d’un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-Gets a customer's service cost line items for the specified billing period.
+Obtient les éléments de ligne de coût du service d’un client pour la période de facturation spécifiée.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials.
-- A customer identifier.
-- A billing period indicator (**mostrecent**).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
+- Identificateur du client.
+- Un indicateur de période de facturation (**mostRecent**).
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To retrieve a service costs summary for the specified customer:
+Pour récupérer un récapitulatif des coûts de service pour le client spécifié :
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Use the [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts) property to get an interface to customer service costs collection operations.
-3. Call the [**ByBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod) method with a member of the [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod) enumeration to return an [**IServiceCostsCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection).
-4. Use the [**IServiceCostsCollection.LineItems.Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync) method to get the customer's service costs line items.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+2. Utilisez la propriété [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts) pour accéder à une interface pour les opérations de collecte des coûts du service client.
+3. Appelez la méthode [**ByBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod) avec un membre de l’énumération [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod) pour retourner un [**méthode iservicecostscollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection).
+4. Utilisez la méthode [**méthode iservicecostscollection. LineItem. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync) pour récupérer les éléments de ligne du service du client.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,26 +43,26 @@ To retrieve a service costs summary for the specified customer:
 var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).ServiceCosts.ByBillingPeriod(ServiceCostsBillingPeriod.MostRecent).LineItems.Get();
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                             |
 |---------|-------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/servicecosts/{billing-period}/lineitems HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/servicecosts/{Billing-period}/LineItems http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path parameters to identify the customer and the billing period.
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et la période de facturation.
 
-| Nom           | Tapez   | Obligatoire | Description                                                                                                                      |
+| Nom           | Type   | Obligatoire | Description                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | GUID   | Oui      | A GUID formatted customer ID that identifies the customer.                                                                       |
-| billing-period | chaîne | Oui      | An indicator that represents the billing period. The only supported value is MostRecent. The case of the string does not matter. |
+| ID client    | GUID   | Oui      | ID de client au format GUID qui identifie le client.                                                                       |
+| facturation-période | chaîne | Oui      | Indicateur qui représente la période de facturation. La seule valeur prise en charge est MostRecent. La casse de la chaîne n’a pas d’importance. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -80,16 +80,16 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a [ServiceCostLineItem](service-costs-resources.md) resource that provides information about the service costs.
+En cas de réussite, le corps de la réponse contient une ressource [ServiceCostLineItem](service-costs-resources.md) qui fournit des informations sur les coûts du service.
 
 > [!IMPORTANT]
-> The following properties *only apply to* service cost line items where the product is a *one-time purchase*: **productId**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**. These properties *don't apply to* service line items where the product is a *recurring purchase*. For example, these properties *don't apply* to subscription-based Office 365 and Azure.
+> Les propriétés suivantes *s’appliquent uniquement aux éléments de ligne de* coût du service où le produit est un *achat unique*: **ProductID**, **ProductName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **PublisherName**, **termAndBillingCycle**, **discountDetails**. Ces propriétés *ne s’appliquent pas aux Articles de ligne de* service où le produit est un *achat périodique*. Par exemple, ces propriétés *ne s’appliquent pas* aux Office 365 et Azure basés sur des abonnements.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

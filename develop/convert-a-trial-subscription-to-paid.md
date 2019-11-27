@@ -1,6 +1,6 @@
 ---
-title: Convert a trial subscription to paid
-description: How to convert a trial subscription to a paid one.
+title: Convertir un abonnement d’évaluation en payant
+description: Conversion d’un abonnement d’évaluation en un abonnement payant.
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,73 +13,73 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488889"
 ---
-# <a name="convert-a-trial-subscription-to-paid"></a>Convert a trial subscription to paid
+# <a name="convert-a-trial-subscription-to-paid"></a>Convertir un abonnement d’évaluation en payant
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can convert a trial subscription to paid.
+Vous pouvez convertir un abonnement d’évaluation en payant.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
-- A subscription ID for an active trial subscription.
-- An available conversion offer.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Identificateur du client.
+- ID d’abonnement pour un abonnement d’évaluation actif.
+- Offre de conversion disponible.
 
-## <a name="convert-a-trial-subscription-to-paid-through-code"></a>Convert a trial subscription to paid through code
+## <a name="convert-a-trial-subscription-to-paid-through-code"></a>Conversion d’un abonnement d’évaluation en paiement par code
 
-To convert a trial subscription to a paid one, you must first obtain a collection of the trial conversions available. Then, you must choose the conversion offer that you want to purchase.
+Pour convertir un abonnement d’évaluation en un abonnement payant, vous devez d’abord obtenir un regroupement des conversions d’essai disponibles. Ensuite, vous devez choisir l’offre de conversion que vous souhaitez acheter.
 
-The conversion offers will specify a quantity that defaults to the same number of licenses as the trial subscription. You can change this quantity by setting the [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) property to the number of licenses that you want to purchase.
+Les offres de conversion spécifient une quantité qui utilise par défaut le même nombre de licences que l’abonnement d’évaluation. Vous pouvez modifier cette quantité en affectant à la propriété [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) le nombre de licences que vous souhaitez acheter.
 
 > [!NOTE]
-> Regardless of the number of licenses purchased, the subscription ID of the trial is reused for the purchased licenses. As a result, the trial in effect disappears and is replaced by the purchase.
+> Quel que soit le nombre de licences achetées, l’ID d’abonnement de l’essai est réutilisé pour les licences achetées. En conséquence, l’essai en vigueur disparaît et est remplacé par l’achat.
 
-Use the following steps to convert a trial subscription through code:
+Procédez comme suit pour convertir un abonnement d’évaluation par le biais du code :
 
-1. Get an interface to the subscription operations available. You must identify the customer and specify the subscription identifier of the trial subscription.
+1. Procurez-vous une interface pour les opérations d’abonnement disponibles. Vous devez identifier le client et spécifier l’identificateur d’abonnement de l’abonnement d’évaluation.
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2. Get a collection of the available conversion offers. For more information and details on the request/response for this method, see [Get a list of trial conversion offers](get-a-list-of-trial-conversion-offers.md).
+2. Obtenir une collection des offres de conversion disponibles. Pour plus d’informations et des détails sur la requête/réponse pour cette méthode, consultez [obtenir une liste des offres de conversion d’évaluation](get-a-list-of-trial-conversion-offers.md).
 
     ``` csharp
     var conversions = subscriptionOperations.Conversions.Get();
     ```
 
-3. Choose a conversion offer. The following code chooses the first conversion offer in the collection.
+3. Choisissez une offre de conversion. Le code suivant choisit la première offre de conversion dans la collection.
 
     ``` csharp
     var selectedConversion = conversions.Items.ToList()[0];
     ```
 
-4. Optionally, specify the number of licenses to purchase. The default is the number of licenses in the trial subscription.
+4. Si vous le souhaitez, spécifiez le nombre de licences à acheter. La valeur par défaut est le nombre de licences dans l’abonnement d’évaluation.
 
     ``` csharp
     selectedConversion.Quantity = 10;
     ```
 
-5. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) method to convert the trial subscription to paid.
+5. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour convertir l’abonnement d’évaluation en payant.
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
     ```
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To convert a trial subscription to a paid one:
+Pour convertir un abonnement d’évaluation en un abonnement payant :
 
-1. Use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Get an interface to subscription operations by calling the [**Subscriptions.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method with the trial subscription ID. Save a reference to the subscription operations interface in a local variable.
-3. Use the [**Conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) property to obtain an interface to the available operations on conversions, and then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) method to retrieve a collection of available [**Conversion**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) offers. You must choose one. The following example defaults to the first conversion available.
-4. Use the reference to the subscription operations interface that you saved in a local variable and the [**Conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) property to obtain an interface to the available operations on conversions.
-5. Pass the selected conversion offer object to the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) method to attempt the trial conversion.
+1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+2. Procurez-vous une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement d’évaluation. Enregistrer une référence à l’interface des opérations d’abonnement dans une variable locale.
+3. Utilisez la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions, puis [**appelez la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) pour récupérer une collection d’offres de [**conversion**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) disponibles. Vous devez en choisir un. L’exemple suivant est la première conversion disponible par défaut.
+4. Utilisez la référence à l’interface d’opérations d’abonnement que vous avez enregistrée dans une variable locale et la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions.
+5. Transmettez l’objet de l’offre de conversion sélectionné à la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour tenter la conversion de l’essai.
 
-### <a name="c-example"></a>C# Example
+### <a name="c-example"></a>C#Tels
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -108,30 +108,30 @@ else
 }
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/conversions http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following path parameters to identify the customer and trial subscription.
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement d’évaluation.
 
-| Nom            | Tapez   | Obligatoire | Description                                                     |
+| Nom            | Type   | Obligatoire | Description                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | chaîne | Oui      | A GUID formatted string that identifies the customer.           |
-| subscription-id | chaîne | Oui      | A GUID formatted string that identifies the trial subscription. |
+| ID client     | chaîne | Oui      | Chaîne au format GUID qui identifie le client.           |
+| ID d’abonnement | chaîne | Oui      | Chaîne au format GUID qui identifie l’abonnement d’évaluation. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-A populated [Conversion](conversions-resources.md#conversion) resource must be included in the request body.
+Une ressource de [conversion](conversions-resources.md#conversion) remplie doit être incluse dans le corps de la demande.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -159,13 +159,13 @@ Expect: 100-continue
 }
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a [ConversionResult](conversions-resources.md#conversionresult) resource.
+En cas de réussite, le corps de la réponse contient une ressource [ConversionResult](conversions-resources.md#conversionresult) .
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

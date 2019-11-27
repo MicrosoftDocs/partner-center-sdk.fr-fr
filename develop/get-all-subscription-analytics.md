@@ -1,6 +1,6 @@
 ---
-title: Get all subscription analytics information
-description: How to get all the subscription analytics information.
+title: Récupération de toutes les informations d’analyse d’abonnement
+description: Obtention de toutes les informations d’analyse d’abonnement.
 ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
@@ -13,44 +13,44 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485849"
 ---
-# <a name="get-all-subscription-analytics-information"></a>Get all subscription analytics information
+# <a name="get-all-subscription-analytics-information"></a>Récupération de toutes les informations d’analyse d’abonnement
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This topic describes how to get all the subscription analytics information for your customers.
+Cette rubrique explique comment obtenir toutes les informations d’analyse d’abonnement pour vos clients.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1.1 |
+| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-The following table lists optional parameters and their descriptions:
+Le tableau suivant répertorie les paramètres facultatifs et leurs descriptions :
 
-| Paramètre | Tapez |  Description |
+| Paramètre | Type |  Description |
 |-----------|------|--------------|
-| top | entier | Le nombre de lignes de données à renvoyer dans la requête. If the value is not specified, the maximum value and the default value are `10000`. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
-| skip | entier | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. For example, `top=10000` and `skip=0` retrieves the first 10000 rows of data, `top=10000` and `skip=10000` retrieves the next 10000 rows of data. |
-| filter | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Each filter statement contains a field name from the response body and a value that are associated with the **eq**, **ne**, or for certain fields, the **contains** operator. Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre **filter**. See the following section for a list of fields that can be filtered and the operators that are supported with those fields. |
-| aggregationLevel | chaîne | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. If the value is not specified, the default is **dateRange**. This parameter applies only when a date field is passed as part of the **groupBy** parameter. |
-| groupBy | chaîne | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
+| top | entier | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont `10000`. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
+| skip | entier | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, `top=10000` et `skip=0` récupère les 10000 premières lignes de données, `top=10000` et `skip=10000` récupère les 10000 lignes de données suivantes. |
+| filter | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à l’opérateur **EQ** **, ne, ou**pour certains champs, l’opérateur **Contains** . Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre **filter**. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
+| aggregationLevel | chaîne | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. Ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre **GroupBy** . |
+| Comportant | chaîne | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -66,13 +66,13 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a collection of [**Subscription**](partner-center-analytics-resources.md#subscription) resources.
+En cas de réussite, le corps de la réponse contient une collection de ressources d' [**abonnement**](partner-center-analytics-resources.md#subscription) .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 
@@ -107,6 +107,6 @@ Each response comes with an HTTP status code that indicates success or failure a
 }
 ```
 
-## <a name="see-also"></a>Articles associés
+## <a name="see-also"></a>Voir également
 
-- [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+- [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)

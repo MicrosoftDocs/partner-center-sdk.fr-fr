@@ -1,6 +1,6 @@
 ---
-title: Get invoice by ID
-description: Retrieves a given invoice using the invoice ID.
+title: Recevoir la facture par ID
+description: Récupère une facture donnée à l’aide de l’ID de facture.
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489389"
 ---
-# <a name="get-invoice-by-id"></a>Get invoice by ID
+# <a name="get-invoice-by-id"></a>Recevoir la facture par ID
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Retrieves a given invoice using the invoice ID.
+Récupère une facture donnée à l’aide de l’ID de facture.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid Invoice ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Un ID de facture valide.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get an invoice by ID:
+Pour récupérer une facture par ID :
 
-1. Use your **IPartner.Invoices** collection and call the **ById()** method.
-2. Call the **Get()** or **GetAsync()** methods.
+1. Utilisez votre collection **collection ipartner. Invoices** et appelez la méthode **méthode BYID ()** .
+2. Appelez les méthodes d' **extraction ()** ou de **GetAsync ()** .
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -43,31 +43,31 @@ To get an invoice by ID:
 var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoice.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: GetInvoice.cs
 
-## <a name="rest-request"></a>REST Request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to get the invoice.
+Utilisez le paramètre de requête suivant pour obtenir la facture.
 
-| Nom           | Tapez       | Obligatoire | Description                                                                                        |
+| Nom           | Type       | Obligatoire | Description                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **invoice-id** | **string** | Oui      | The value is an **invoice-id** that allows the reseller to filter the results for a given invoice. |
+| **ID de la facture** | **chaîne** | Oui      | La valeur est un **ID de facture** qui permet au revendeur de filtrer les résultats pour une facture donnée. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-Aucun(e)
+Aucune
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -79,13 +79,13 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an [Invoice](invoice-resources.md#invoice) resource in the response body.
+En cas de réussite, cette méthode retourne une ressource de [facture](invoice-resources.md#invoice) dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

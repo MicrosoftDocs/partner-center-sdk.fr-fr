@@ -1,6 +1,6 @@
 ---
-title: Register app details for Partner Center for Microsoft National Cloud
-description: Developers must register details about their app with Azure AD through the Azure portal. This helps ensure that only specified apps are able to connect to partner and customer data.
+title: Inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud
+description: Les développeurs doivent inscrire des détails sur leur application avec Azure AD par le biais du Portail Azure. Cela permet de s’assurer que seules les applications spécifiées sont en mesure de se connecter aux données des partenaires et des clients.
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
@@ -16,93 +16,93 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489549"
 ---
-# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Register app details for Partner Center for Microsoft National Cloud
+# <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud
 
-S'applique à :
+S’applique à :
 
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Developers must register details about their app with Azure AD through the Azure portal. This helps ensure that only specified apps are able to connect to partner and customer data.
+Les développeurs doivent inscrire des détails sur leur application avec Azure AD par le biais du Portail Azure. Cela permet de s’assurer que seules les applications spécifiées sont en mesure de se connecter aux données des partenaires et des clients.
 
-For Partner Center for Microsoft Cloud for US Government, you currently must manage apps through PowerShell. For more information, see the [Azure PowerShell reference documentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0#applications).
+Pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis, vous devez actuellement gérer les applications via PowerShell. Pour plus d’informations, consultez la [documentation de référence Azure PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0#applications).
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-Be aware of the following additional requirements when you create an app for Partner Center for Microsoft Cloud Germany or Partner Center for Microsoft Cloud for US Government.
+Tenez compte des conditions supplémentaires suivantes lorsque vous créez une application pour Partner Center pour Microsoft Cloud Allemagne ou l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis.
 
 ## <a name="web-apps"></a>Applications Web
 
-For web apps, use the following procedures to register your application ID.
+Pour les applications Web, utilisez les procédures suivantes pour inscrire votre ID d’application.
 
-### <a name="create-or-update-web-app"></a>Create or update web app
+### <a name="create-or-update-web-app"></a>Créer ou mettre à jour une application Web
 
-1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app. Sign in to the Azure portal using either a work or school account or a personal Microsoft account.
+1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
-2. Select **New registration**. For more information, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+2. Sélectionnez **nouvelle inscription**. Pour plus d’informations, consultez [démarrage rapide : inscrire une application auprès de la plateforme Microsoft Identity](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
-### <a name="configure-api-access-permissions-for-web-app"></a>Configure API access permissions for web app
+### <a name="configure-api-access-permissions-for-web-app"></a>Configurer les autorisations d’accès à l’API pour l’application Web
 
-1. Choose your app. Go to **Settings** of the Web app.
-2. In **API Access** section, choose **Required permissions**
-3. For Windows Azure Active directory permissions:
-    1. Choose **Windows Azure Active Directory permissions**.
-    2. In **Applications permissions**, select Read directory data.
-    3. Save the permissions.
-4. Note the application ID in the **Properties** section of your web app.
+1. Choisissez votre application. Accédez aux **paramètres** de l’application Web.
+2. Dans la section accès à l' **API** , choisissez **autorisations requises**
+3. Pour les autorisations Windows Azure Active Directory :
+    1. Choisissez **Windows Azure Active Directory autorisations**.
+    2. Dans **autorisations des applications**, sélectionnez lire les données d’annuaire.
+    3. Enregistrez les autorisations.
+4. Notez l’ID de l’application dans la section **Propriétés** de votre application Web.
 
 ### <a name="add-a-secret-key-to-your-app"></a>Ajoutez une clé secrète à votre application
 
-1. Go to the **Keys** section of your web app.
-2. Enter key description and select duration as 1 or 2 years, as you need.
-3. Save and copy the secret key value. **This value will not be shown again once you leave this page.**
+1. Accédez à la section **clés** de votre application Web.
+2. Entrez la description de la clé et sélectionnez une durée de 1 ou 2 ans, selon vos besoins.
+3. Enregistrez et copiez la valeur de la clé secrète. **Cette valeur ne s’affichera plus une fois que vous aurez quitté cette page.**
 
-You should have the following details from the web app configuration:
+Vous devez disposer des informations suivantes à partir de la configuration de l’application Web :
 
 - ID de l’application
-- Application secret
+- Secret de l’application
 
-### <a name="register-the-web-app-in-partner-center"></a>Register the Web app in Partner Center
+### <a name="register-the-web-app-in-partner-center"></a>Inscrire l’application Web dans l’espace partenaires
 
-1. Log in to <https://partnercenter.microsoft.com>.
-2. Choose **Dashboard**, then choose **Account Settings**, then choose **App Management**.
-3. In the **Web App** section, choose **Register existing app**.
-4. Select the web app you created in Azure management portal.
-5. Choose **register your app**.
+1. Connectez-vous à <https://partnercenter.microsoft.com>.
+2. Choisissez **tableau de bord**, choisissez **paramètres du compte**, puis gestion des **applications**.
+3. Dans la section **application Web** , choisissez **inscrire l’application existante**.
+4. Sélectionnez l’application Web que vous avez créée dans le portail de gestion Azure.
+5. Choisissez **inscrire votre application**.
 
-## <a name="native-apps"></a>Native apps
+## <a name="native-apps"></a>Applications natives
 
-Native apps do not need to be registered to Partner Center. But these apps need to be configured to provide access to Partner Center APIs.
+Les applications natives n’ont pas besoin d’être inscrites auprès de l’espace partenaires. Toutefois, ces applications doivent être configurées pour fournir un accès aux API de l’espace partenaires.
 
 >[!NOTE]
->Before creating a native app in the Azure management portal, log in into Partner Center using the admin user credentials from the partner tenant. This creates the settings on the tenant to enable app permissions.
+>Avant de créer une application native dans le portail de gestion Azure, connectez-vous à l’espace partenaires à l’aide des informations d’identification de l’utilisateur administrateur du locataire partenaire. Cela crée les paramètres sur le locataire pour activer les autorisations de l’application.
 
-### <a name="create-native-app"></a>Create native app
+### <a name="create-native-app"></a>Créer une application native
 
-1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page to register your app. Sign in to the Azure portal using either a work or school account or a personal Microsoft account.
+1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
-2. Select **New registration**. For more information, see [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+2. Sélectionnez **nouvelle inscription**. Pour plus d’informations, consultez [démarrage rapide : inscrire une application auprès de la plateforme Microsoft Identity](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
-### <a name="configure-api-access-permissions-for-native-app"></a>Configure API access permissions for native app
+### <a name="configure-api-access-permissions-for-native-app"></a>Configurer les autorisations d’accès à l’API pour une application native
 
-1. Choose your app. Go to **Settings**.
-2. In API Access, choose **Required permissions**.
-3. Choose **Windows Azure Active Directory permissions**. In **Delegated permissions**, select these permissions:
-    - **Sign in and read user profile**
-    - **Read directory data**
-    - **Access the directory as the signed-in user**
-    - **Read all groups**
-4. Save the permissions.
-5. Choose **Add** in **Required permissions**.
-6. Choose **Select an API**.
-    1. In the search box, enter **Microsoft Partner Center** and select it from the results list.
-    2. Choose **Select**.
-7. Choose **Select permissions**.
-    1. Select **Access Partner Center PPE**.
-    2. Choose **Select**.
-8. Choose **Done**.
+1. Choisissez votre application. Accédez à **paramètres**.
+2. Dans accès à l’API, choisissez **autorisations requises**.
+3. Choisissez **Windows Azure Active Directory autorisations**. Dans **autorisations déléguées**, sélectionnez les autorisations suivantes :
+    - **Se connecter et lire le profil utilisateur**
+    - **Lire les données d’annuaire**
+    - **Accéder au répertoire en tant qu’utilisateur connecté**
+    - **Lire tous les groupes**
+4. Enregistrez les autorisations.
+5. Sélectionnez **Ajouter** dans **autorisations requises**.
+6. Choisissez **Sélectionner une API**.
+    1. Dans la zone de recherche, entrez **Microsoft Partner Center** et sélectionnez-le dans la liste des résultats.
+    2. Choisissez **Sélectionner**.
+7. Choisissez **Sélectionner les autorisations**.
+    1. Sélectionnez **accéder à l’espace partenaires des EPI**.
+    2. Choisissez **Sélectionner**.
+8. Choisissez **terminé**.
 
 >[!IMPORTANT]
-> Note the application ID in the Properties of your app.
+> Notez l’ID de l’application dans les propriétés de votre application.
 
-You do not need to register native apps in Partner Center, however the native app must be admin consented . Note the application ID of your native app.
+Vous n’avez pas besoin d’inscrire des applications natives dans l’espace partenaires, mais l’application native doit être consentie par l’administrateur. Notez l’ID d’application de votre application native.

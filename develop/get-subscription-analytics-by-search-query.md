@@ -1,6 +1,6 @@
 ---
-title: Get subscription analytics by search query
-description: How to get subscription analytics information filtered by a search query.
+title: Obtenir une analyse d’abonnement par requête de recherche
+description: Comment obtenir des informations d’analyse d’abonnement filtrées par une requête de recherche.
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,59 +12,59 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487259"
 ---
-# <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Get subscription analytics information filtered by a search query
+# <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Obtenir des informations d’analyse d’abonnement filtrées par une requête de recherche
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 
-How to get subscription analytics information for your customers filtered by a search query.
+Comment obtenir des informations d’analyse d’abonnement pour vos clients filtrés par une requête de recherche.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
 
-**Request syntax**
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
+
+
+**Syntaxe de la requête**
 
 | Méthode | URI de requête |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions?filter={filter_string} |
+| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? Filter = {filter_string} |
 
  
 
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following required path parameter to identify your organization and filter the search.
+Utilisez le paramètre de chemin d’accès requis suivant pour identifier votre organisation et filtrer la recherche.
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 |------|------|----------|-------------|
-| filter_string | chaîne | Oui | The filter to apply to the subscription analytics. See the Filter syntax and Filter fields sections for the syntax, fields, and operators to use in this parameter. |
+| filter_string | chaîne | Oui | Filtre à appliquer à l’analytique d’abonnement. Consultez les sections Syntaxe de filtre et champs de filtre pour connaître la syntaxe, les champs et les opérateurs à utiliser dans ce paramètre. |
  
 
-**Filter syntax**
+**Syntaxe de filtre**
 
-The filter parameter must be composed as a series of field, value and operator combinations. Multiple combinations can be combined using **and** or **or** operators.  
+Le paramètre de filtre doit être composé d’une série de combinaisons de champs, de valeurs et d’opérateurs. Plusieurs combinaisons peuvent être combinées à l’aide d’opérateurs **and** **ou or.**  
 
-An unencoded example looks like this:
-- String: ?filter=Field operator 'Value'
-- Boolean: ?filter=Field operator Value
-- Contains ?filter=contains(field,'value')
+Un exemple non encodé ressemble à ceci :
+- Chaîne :? Filter = opérateur de champ’valeur'
+- Valeur booléenne :? Filter = champ d’opérateur
+- Contains ? Filter = Contains (champ, 'value')
 
 
-**Filter fields**
+**Filtrer les champs**
 
-The filter parameter of the request contains one or more statements that filter the rows in the response. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs **eq** ou **ne**, et certains champs prennent également en charge les opérateurs **contains**, **gt**, **lt**, **ge** et **le**. Statements can be combined using **and** or **or** operators.
+Le paramètre de filtre de la requête contient une ou plusieurs instructions qui filtrent les lignes dans la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs **eq** ou **ne**, et certains champs prennent également en charge les opérateurs **contains**, **gt**, **lt**, **ge** et **le**. **Les** instructions peuvent être combinées à l’aide d’opérateurs and **ou or.**
 
-The following are examples of filter strings:  
+Voici des exemples de chaînes de filtre :  
  
 ```http
 autoRenewEnabled eq true
@@ -72,42 +72,42 @@ autoRenewEnabled eq true
 autoRenewEnabled eq true and customerMarket eq 'US'
 ```  
 
-The following table shows a list of the supported fields and support operators for the filter parameter. String values must be surrounded by single quotes.
+Le tableau suivant répertorie les champs pris en charge et les opérateurs de prise en charge pour le paramètre de filtre. Les valeurs de chaîne doivent être entourées de guillemets simples.
 
 | Paramètre | Opérateurs pris en charge | Description |
 |-----------|---------------------|-------------|
-| customerTenantId | eq,ne | A GUID-formatted string that identifies the customer tenant. |
-| customerName | contains | The name of the customer. |
-| customerMarket | eq,ne | The country/region that the customer does business in. |
-| id | eq,ne | A GUID-formatted string that identifies the subscription. |
-| status | eq,ne | The subscription status. Supported values are: "ACTIVE", "SUSPENDED", or "DEPROVISIONED". |
-| productName | contains, eq,ne | Le nom du produit. |
-| subscriptionType | eq,ne | The subscription type. **Note**: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |
-| autoRenewEnabled | eq,ne | A value indicating whether the subscription is renewed automatically. |
-| partnerId | eq,ne | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |
-| friendlyName | contains | The name of the subscription. |
-| partnerName | chaîne | Name of the partner for whom the subscription was purchased |  
-| providerName | chaîne | When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.
-| creationDate | eq, ne, gt, lt, ge, le  | The date the subscription was created. |
-| effectiveStartDate | eq, ne, gt, lt, ge, le | The date the subscription starts. |
-| commitmentEndDate | eq, ne, gt, lt, ge, le  | The date the subscription ends. |
-| currentStateEndDate | eq, ne, gt, lt, ge, le | The date that the current status of the subscription will change. |
-| trialToPaidConversionDate | eq, ne, gt, lt, ge, le  | The date that the subscription converts from trial to paid. The default value is null. |
-| trialStartDate | eq, ne, gt, lt, ge, le | The date that the trial period for the subscription started. The default value is null. |
-| lastUsageDate | eq, ne, gt, lt, ge, le | The date that the subscription was last used. The default value is null. |
-| deprovisionedDate | eq, ne, gt, lt, ge, le | The date that the subscription was deprovisioned. The default value is null. |
-| lastRenewalDate | eq, ne, gt, lt, ge, le | The date that the subscription was last renewed. The default value is null. |
+| customerTenantId | EQ, ne | Chaîne au format GUID qui identifie le locataire client. |
+| Souhaite | comprend | Nom du client. |
+| customerMarket | EQ, ne | Pays/région dans lequel le client fait des affaires. |
+| id | EQ, ne | Chaîne au format GUID qui identifie l’abonnement. |
+| status | EQ, ne | État de l’abonnement. Les valeurs prises en charge sont : « ACTIVE », « SUSPENDed » ou « deprovision ». |
+| productName | Contains, EQ, ne | Le nom du produit. |
+| subscriptionType | EQ, ne | Type d’abonnement. **Remarque**: ce champ respecte la casse. Les valeurs prises en charge sont : « Office », « Azure », « Microsoft365 », « Dynamics », « EMS ». |
+| autoRenewEnabled | EQ, ne | Valeur indiquant si l’abonnement est renouvelé automatiquement. |
+| Partenaire | EQ, ne | ID MPN. Pour un revendeur direct, il s’agit de l’ID MPN du partenaire. Pour un revendeur indirect, il s’agit de l’ID MPN du revendeur indirect. |
+| friendlyName | comprend | Nom de l’abonnement. |
+| partnerName | chaîne | Nom du partenaire pour lequel l’abonnement a été acheté |  
+| Désigne | chaîne | Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.
+| CreationDate | eq, ne, gt, lt, ge, le  | Date à laquelle l’abonnement a été créé. |
+| effectiveStartDate | eq, ne, gt, lt, ge, le | Date de début de l’abonnement. |
+| commitmentEndDate | eq, ne, gt, lt, ge, le  | Date de fin de l’abonnement. |
+| currentStateEndDate | eq, ne, gt, lt, ge, le | Date à laquelle l’état actuel de l’abonnement sera modifié. |
+| trialToPaidConversionDate | eq, ne, gt, lt, ge, le  | Date à laquelle l’abonnement convertit de l’essai au paiement. La valeur par défaut est null. |
+| trialStartDate | eq, ne, gt, lt, ge, le | Date de début de la période d’évaluation de l’abonnement. La valeur par défaut est null. |
+| lastUsageDate | eq, ne, gt, lt, ge, le | Date à laquelle l’abonnement a été utilisé pour la dernière fois. La valeur par défaut est null. |
+| deprovisionedDate | eq, ne, gt, lt, ge, le | Date à laquelle l’abonnement a été annulé. La valeur par défaut est null. |
+| lastRenewalDate | eq, ne, gt, lt, ge, le | Date à laquelle l’abonnement a été renouvelé pour la dernière fois. La valeur par défaut est null. |
 
 
-**Request headers** 
+**En-têtes de demande** 
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/subscriptions?filter=autoRenewEnabled eq true
@@ -119,16 +119,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
 
 
-If successful, the response body contains a collection of [Subscription](partner-center-analytics-resources.md#subscription) resources that meet the fileter criteria.
+En cas de réussite, le corps de la réponse contient une collection de ressources d' [abonnement](partner-center-analytics-resources.md#subscription) qui répondent aux critères des filetages.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK
@@ -162,6 +162,6 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
 
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+ - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)

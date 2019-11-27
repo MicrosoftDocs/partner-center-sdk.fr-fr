@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST headers
-description: The following HTTP request and response headers are supported by the Partner Center REST API.
+title: En-têtes REST de l’espace partenaires
+description: Les en-têtes de requête et de réponse HTTP suivants sont pris en charge par l’API REST de l’espace partenaires.
 ms.assetid: 38A43A4C-EC31-4554-A747-0DC04B77CB99
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,46 +13,46 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487109"
 ---
-# <a name="partner-center-rest-headers"></a>Partner Center REST headers
+# <a name="partner-center-rest-headers"></a>En-têtes REST de l’espace partenaires
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The following HTTP request and response headers are supported by the Partner Center REST API. Not all API calls accept all headers.
+Les en-têtes de requête et de réponse HTTP suivants sont pris en charge par l’API REST de l’espace partenaires. Tous les appels d’API n’acceptent pas tous les en-têtes.
 
-## <a name="span-idrequest_headersspan-idrequest_headersspan-idrequest_headersrequest-headers"></a><span id="Request_headers"/><span id="request_headers"/><span id="REQUEST_HEADERS"/>Request headers
+## <a name="span-idrequest_headersspan-idrequest_headersspan-idrequest_headersrequest-headers"></a><span id="Request_headers"/><span id="request_headers"/><span id="REQUEST_HEADERS"/>en-têtes de demande
 
 
-The following HTTP request headers are supported by the Partner Center REST API.
+Les en-têtes de requête HTTP suivants sont pris en charge par l’API REST de l’espace partenaires.
 
 | En-tête                       | Description                                                                                                                                                                                                                                                                            | Type de valeur |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| Authorization:               | Obligatoire. The authorization token in the form Bearer &lt;token&gt;.                                                                                                                                                                                                                    | chaîne     |
-| Accept:                      | Specifies the request and response type, "application/json".                                                                                                                                                                                                                           | chaîne     |
-| MS-RequestId:                | A unique identifier for the call, used to ensure id-potency. In the case of a timeout, the retry call should include the same value. Upon receiving a response (success or business failure), the value should be reset for the next call.                                            | GUID       |
-| MS-CorrelationId:            | A unique identifier for the call, useful in logs and network traces for troubleshooting errors. The value should be reset for every call. All operations should include this header. For more information, see the Correlation ID information in [Test and debug](test-and-debug.md). | GUID       |
-| MS-Contract-Version:         | Obligatoire. Specifies the version of the API requested; generally api-version: v1 unless otherwise specified in the [Scenarios](scenarios.md) section.                                                                                                                                  | chaîne     |
-| If-Match:                    | Used for concurrency control. Some API calls require passing the ETag via the If-Match header. The ETag is usually on the resource and therefore, requires GET-ting the latest. For more information, see the ETag information in [Test and debug](test-and-debug.md).                | chaîne     |
-| MS-PartnerCenter-Application | Facultatif. Specifies the name of the application that is using the Partner Center REST API.                                                                                                                                                                                             | chaîne     |
-| X-Locale:                    | Facultatif. Specifies the language in which the rates are returned. Default is "en-US". For a list of supported values, see [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md).                                                                                                                                                                                                  | chaîne     |
+| L'               | Obligatoire. Le jeton d’autorisation au format porteur &lt;jeton&gt;.                                                                                                                                                                                                                    | chaîne     |
+| Valide                      | Spécifie le type de demande et de réponse, « application/JSON ».                                                                                                                                                                                                                           | chaîne     |
+| MS-RequestId :                | Identificateur unique de l’appel, utilisé pour garantir l’ID-potence. Dans le cas d’un délai d’attente, l’appel de nouvelle tentative doit inclure la même valeur. Lors de la réception d’une réponse (réussite ou échec de l’entreprise), la valeur doit être réinitialisée pour l’appel suivant.                                            | GUID       |
+| MS-CorrelationId :            | Identificateur unique de l’appel, utile dans les journaux et les suivis réseau pour la résolution des erreurs. La valeur doit être réinitialisée pour chaque appel. Toutes les opérations doivent inclure cet en-tête. Pour plus d’informations, consultez les informations d’ID de corrélation dans [test et Debug](test-and-debug.md). | GUID       |
+| MS-Contract-version :         | Obligatoire. Spécifie la version de l’API demandée ; en général, API-version : v1, sauf indication contraire dans la section [scénarios](scenarios.md) .                                                                                                                                  | chaîne     |
+| If-Match :                    | Utilisé pour le contrôle d’accès concurrentiel. Certains appels d’API requièrent la transmission de l’ETag via l’en-tête If-Match. L’ETag est généralement sur la ressource et, par conséquent, requiert la mise à jour de la dernière version. Pour plus d’informations, consultez les informations sur l’ETag dans [test et débogage](test-and-debug.md).                | chaîne     |
+| MS-PartnerCenter-application | Facultatif. Spécifie le nom de l’application qui utilise l’API REST de l’espace partenaires.                                                                                                                                                                                             | chaîne     |
+| Paramètres régionaux X :                    | Facultatif. Spécifie la langue dans laquelle les tarifs sont retournés. La valeur par défaut est « en-US ». Pour obtenir la liste des valeurs prises en charge, consultez [langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md).                                                                                                                                                                                                  | chaîne     |
 
  
 
-## <a name="span-idresponse_headersspan-idresponse_headersspan-idresponse_headersresponse-headers"></a><span id="Response_headers"/><span id="response_headers"/><span id="RESPONSE_HEADERS"/>Response headers
+## <a name="span-idresponse_headersspan-idresponse_headersspan-idresponse_headersresponse-headers"></a><span id="Response_headers"/><span id="response_headers"/><span id="RESPONSE_HEADERS"/>en-têtes de réponse
 
 
-The following HTTP response headers may be returned by the Partner Center REST API.
+Les en-têtes de réponse HTTP suivants peuvent être retournés par l’API REST de l’espace partenaires.
 
 | En-tête            | Description                                                                                                                                                                                                                                 | Type de valeur |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| Accept:           | Specifies the request and response type, "application/json".                                                                                                                                                                                | chaîne     |
-| MS-RequestId:     | A unique identifier for the call, used to ensure id-potency. In the case of a timeout, the retry call should include the same value. Upon receiving a response (success or business failure), the value should be reset for the next call. | GUID       |
-| MS-CorrelationId: | A unique identifier for the call, useful the logs and network traces for troubleshooting errors. The value should be reset for every call. All operations should include this header.                                                       | GUID       |
+| Valide           | Spécifie le type de demande et de réponse, « application/JSON ».                                                                                                                                                                                | chaîne     |
+| MS-RequestId :     | Identificateur unique de l’appel, utilisé pour garantir l’ID-potence. Dans le cas d’un délai d’attente, l’appel de nouvelle tentative doit inclure la même valeur. Lors de la réception d’une réponse (réussite ou échec de l’entreprise), la valeur doit être réinitialisée pour l’appel suivant. | GUID       |
+| MS-CorrelationId : | Identificateur unique de l’appel, utile pour les journaux et les suivis réseau pour la résolution des erreurs. La valeur doit être réinitialisée pour chaque appel. Toutes les opérations doivent inclure cet en-tête.                                                       | GUID       |
 
  
 

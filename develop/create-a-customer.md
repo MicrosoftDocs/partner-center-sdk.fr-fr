@@ -1,6 +1,6 @@
 ---
-title: Create a customer
-description: How to create a new customer.
+title: Créer un client
+description: Comment créer un nouveau client.
 ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,42 +13,42 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489329"
 ---
-# <a name="create-a-customer"></a>Create a customer
+# <a name="create-a-customer"></a>Créer un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud for US Government
 
-This topic explains how to create a new customer.
+Cette rubrique explique comment créer un nouveau client.
 
 > [!IMPORTANT]
-> If you are an indirect provider and you want to create a customer for an indirect reseller, please see [Create a customer for an indirect reseller](create-a-customer-for-an-indirect-reseller.md).
+> Si vous êtes un fournisseur indirect et que vous souhaitez créer un client pour un revendeur indirect, voir [créer un client pour un revendeur indirect](create-a-customer-for-an-indirect-reseller.md).
 
-As a cloud solution provider (CSP) partner, when you create a customer you can place orders on behalf of the customer. When you create a customer, you also create:
+En tant que partenaire fournisseur de solutions Cloud (CSP), lorsque vous créez un client, vous pouvez passer des commandes pour le compte du client. Lorsque vous créez un client, vous créez également :
 
-- An Azure Active Directory (AD) tenant object for the customer.
-- A relationship between the reseller and customer, used for delegated admin privileges.
-- A user name and password to sign in as an admin for the customer.
+- Objet locataire Azure Active Directory (AD) pour le client.
+- Relation entre le revendeur et le client, utilisée pour les privilèges d’administrateur délégué.
+- Un nom d’utilisateur et un mot de passe pour se connecter en tant qu’administrateur du client.
 
-Once the customer is created, be sure to save the customer ID and Azure AD details for future use with the Partner Center SDK (for example, account management).
+Une fois le client créé, veillez à enregistrer l’ID client et Azure AD détails pour une utilisation ultérieure avec le kit de développement logiciel (SDK) de l’espace partenaires (par exemple, la gestion des comptes).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
 > [!IMPORTANT]
-> To create a customer tenant you must provide a valid physical address during the creation process. An address can be validated by following the steps outlined in the [Validate an address](validate-an-address.md) scenario. If you create a customer using an invalid address in the sandbox environment, you will not be able to delete that customer tenant.
+> Pour créer un locataire client, vous devez fournir une adresse physique valide pendant le processus de création. Une adresse peut être validée en suivant les étapes décrites dans le scénario [valider une adresse](validate-an-address.md) . Si vous créez un client à l’aide d’une adresse non valide dans l’environnement du bac à sable (sandbox), vous ne pourrez pas supprimer ce locataire client.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To add a customer:
+Pour ajouter un client :
 
-1. Instantiate a new [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object. Be sure to fill in the [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) and [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile).
-2. Add the new customer to your [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) collection by calling [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync).
+1. Instanciez un nouvel objet [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) . Veillez à renseigner les [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) et [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile).
+2. Ajoutez le nouveau client à votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en appelant [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync).
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>Exemple de\# C
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -87,18 +87,18 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateCustomer.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CreateCustomer.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To create a new customer:
+Pour créer un nouveau client :
 
-1. Create a new instance of the **CustomerBillingProfile** and the **CustomerCompanyProfile** objects. Be sure to populate the required fields.
-2. Create the customer by calling the **IAggregatePartner.getCustomers().create** function.
+1. Créez une nouvelle instance de **CustomerBillingProfile** et des objets **CustomerCompanyProfile** . Veillez à renseigner les champs obligatoires.
+2. Créez le client en appelant la fonction **collection iaggregatepartner. getCustomers (). Create** .
 
-### <a name="java-example"></a>Java example
+### <a name="java-example"></a>Exemple Java
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -138,56 +138,56 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To create a customer execute the [**New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) command.
+Pour créer un client, exécutez la commande [**New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) .
 
-### <a name="powershell-example"></a>Powershell example
+### <a name="powershell-example"></a>Exemple PowerShell
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers http/1.1 |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-- This API is idempotent (it will not yield a different result if you call it multiple times).
-- A request ID and correlation ID are required.
-- See [Partner Center REST headers](headers.md) for more information.
+- Cette API est idempotent (elle ne produit pas un résultat différent si vous l’appelez plusieurs fois).
+- Un ID de demande et un ID de corrélation sont requis.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom                              | Tapez   | Description                                 |
+| Nom                              | Type   | Description                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | object | The customer's billing profile information. |
-| [CompanyProfile](#company-profile) | object | The customer's company profile information. |
+| [BillingProfile](#billing-profile) | objet | Informations de profil de facturation du client. |
+| [CompanyProfile](#company-profile) | objet | Informations de profil de la société du client. |
 
-#### <a name="billing-profile"></a>Billing profile
+#### <a name="billing-profile"></a>Profil de facturation
 
-This table describes the minimum required fields from the [CustomerBillingProfile](customer-resources.md#customerbillingprofile) resource needed to create a new customer.
+Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerBillingProfile](customer-resources.md#customerbillingprofile) nécessaire à la création d’un nouveau client.
 
-| Nom             | Tapez                                     | Description                                                                                                                                                                                                     |
+| Nom             | Type                                     | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Messagerie            | chaîne                                   | The customer's email address.                                                                                                                                                                                   |
-| culture          | chaîne                                   | Their preferred culture for communication and currency, such as "en-US". See [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) for the supported cultures. |
-| language         | chaîne                                   | The default language. Two character language codes (e.g., en, fr) are supported.                                                                                                                                |
-| company\_name    | chaîne                                   | The registered company/organization name.                                                                                                                                                                       |
-| default\_address | [Address](utility-resources.md#address) | The registered address of the customer's company/organization. See the [Address](utility-resources.md#address) resource for information on any length limitations.                                             |
+| Messagerie            | chaîne                                   | Adresse de messagerie du client.                                                                                                                                                                                   |
+| Culturel          | chaîne                                   | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
+| language         | chaîne                                   | Langue par défaut. Les codes de langue à deux caractères (par exemple, fr) sont pris en charge.                                                                                                                                |
+| nom de l'\_de la société    | chaîne                                   | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
+| adresse de\_par défaut | [-](utility-resources.md#address) | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
 
-#### <a name="company-profile"></a>Company profile
+#### <a name="company-profile"></a>Profil d’entreprise
 
-This table describes the minimum required fields from the [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) resource needed to create a new customer.
+Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) nécessaire à la création d’un nouveau client.
 
-| Nom   | Tapez   | Description                                                  |
+| Nom   | Type   | Description                                                  |
 |--------|--------|--------------------------------------------------------------|
-| domain | chaîne | The customer's domain name, such as contoso.onmicrosoft.com. |
+| domain | chaîne | Nom de domaine du client, tel que contoso.onmicrosoft.com. |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -226,13 +226,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this API returns a [Customer](customer-resources.md#customer) resource for the new customer. Save the customer ID and Azure AD details for future use with the Partner Center SDK. You will need them for use with account management, for example.
+En cas de réussite, cette API retourne une ressource [client](customer-resources.md#customer) pour le nouveau client. Enregistrez l’ID client et les détails de Azure AD pour une utilisation ultérieure avec le kit de développement logiciel (SDK) de l’espace partenaires. Vous en aurez besoin pour une utilisation avec la gestion des comptes, par exemple.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

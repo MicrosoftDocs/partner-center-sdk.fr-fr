@@ -1,6 +1,6 @@
 ---
 title: Obtenir une liste des licences disponibles
-description: How to get a list of licenses available to users of the specified customer.
+description: Comment obtenir la liste des licences disponibles pour les utilisateurs du client spécifié.
 ms.assetid: E0915C58-92D1-4BFA-88F2-0710C6B0AB0D
 ms.date: 07/25/2019
 ms.service: partner-dashboard
@@ -15,26 +15,26 @@ ms.locfileid: "74487509"
 ---
 # <a name="get-a-list-of-available-licenses"></a>Obtenir une liste des licences disponibles
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-This topic describes how to get a list of licenses available to users of the specified customer.
+Cette rubrique explique comment obtenir la liste des licences disponibles pour les utilisateurs du client spécifié.
 
-The following examples return licenses available from **group1**, the default license group that represents licenses managed by Azure Active Directory (Azure AD). To get available licenses for a specified license group, see [Get a list of available licenses by license group](get-a-list-of-available-licenses-by-license-group.md).
+Les exemples suivants retournent des licences disponibles à partir de **Group1**, le groupe de licences par défaut qui représente les licences gérées par Azure Active Directory (Azure AD). Pour obtenir les licences disponibles pour un groupe de licences spécifié, consultez [obtenir une liste des licences disponibles par groupe de licences](get-a-list-of-available-licenses-by-license-group.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Identificateur du client.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To retrieve the list of licenses available from the default license group to users of a customer:
+Pour récupérer la liste des licences disponibles dans le groupe de licences par défaut pour les utilisateurs d’un client :
 
-1. Use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Get the value of the [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) property to retrieve an interface to customer subscribed SKU collection operations.
-3. Call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) method to retrieve the list of licenses.
+1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+2. Obtient la valeur de la propriété [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client.
+3. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour [**récupérer la liste**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) des licences.
 
 ``` csharp
 // string selectedCustomerId;
@@ -43,31 +43,31 @@ To retrieve the list of licenses available from the default license group to use
 var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
 ```
 
-For an example, see the following:
+Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **Partner Center SDK Samples**
-- Class: **GetCustomerSubscribedSkus.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
+- Classe : **GetCustomerSubscribedSkus.cs**
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following path parameter to identify the customer.
+Utilisez le paramètre Path suivant pour identifier le client.
 
-| Nom        | Tapez   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID formatted string that identifies the customer. |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -85,13 +85,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a collection of [SubscribedSku](license-resources.md#subscribedsku) resources.
+En cas de réussite, le corps de la réponse contient une collection de ressources [SubscribedSku](license-resources.md#subscribedsku) .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For a full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

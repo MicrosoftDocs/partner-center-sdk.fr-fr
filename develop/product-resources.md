@@ -1,6 +1,6 @@
 ---
-title: Products resources
-description: Resources that represent purchasable goods or services. Includes resources for describing the product type and shape (SKU), and for checking the availability of the product in an inventory.
+title: Ressources de produits
+description: Ressources qui représentent des biens ou services pouvant être achetés. Comprend des ressources pour décrire le type de produit et la forme (référence SKU) et pour vérifier la disponibilité du produit dans un inventaire.
 ms.assetid: 80C1F9B5-35FB-4DD8-B501-03467E1D75AD
 ms.date: 04/01/2019
 ms.service: partner-dashboard
@@ -13,157 +13,157 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488249"
 ---
-# <a name="products-resources"></a>Products resources
+# <a name="products-resources"></a>Ressources de produits
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Resources that represent purchasable goods or services. Includes resources for describing the product type and shape (SKU), and for checking the availability of the product in an inventory.   
+Ressources qui représentent des biens ou services pouvant être achetés. Comprend des ressources pour décrire le type de produit et la forme (référence SKU) et pour vérifier la disponibilité du produit dans un inventaire.   
 
 
 ## <a name="product"></a>Produit
 
 
-Represents a purchasable good or service. A product by itself is not a purchasable item.
+Représente un service ou un service valide. Un produit seul n’est pas un élément pouvant être acheté.
 
-| Propriété           | Tapez                          | Description                                                              |
+| Propriété           | Type                          | Description                                                              |
 |--------------------|-------------------------------|--------------------------------------------------------------------------|
-| id                 | chaîne                        | The ID for this product.                                                 |
-| title              | chaîne                        | The product title.                                                       |
-| description        | chaîne                        | The product description.                                                 |
-| productType        | [ItemType](#itemtype)         | An object that describes the type categorization(s) of this product.     |
-| isMicrosoftProduct | bool                          | Indicates whether this is a Microswoft product.                          |
-| publisherName      | chaîne                        | The name of the product's publisher if available.                          |
-| liens              | [ProductLinks](#productlinks) | The resource links contained within the product.                         |
+| id                 | chaîne                        | ID de ce produit.                                                 |
+| title              | chaîne                        | Titre du produit.                                                       |
+| description        | chaîne                        | Description du produit.                                                 |
+| productType        | [ItemType](#itemtype)         | Objet qui décrit la ou les catégorisations de type de ce produit.     |
+| isMicrosoftProduct | bool                          | Indique s’il s’agit d’un produit Microswoft.                          |
+| publisherName      | chaîne                        | Nom de l’éditeur du produit, le cas échéant.                          |
+| liens              | [ProductLinks](#productlinks) | Liens de ressources contenus dans le produit.                         |
 
 
 
 ## <a name="itemtype"></a>ItemType
 
 
-Represents the type of a product.
+Représente le type d’un produit.
 
-| Propriété        | Tapez                          | Description                                                                          |
+| Propriété        | Type                          | Description                                                                          |
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
-| id              | chaîne                        | The type identifier.                                                                 |
-| displayName     | chaîne                        | The display name for this type.                                                      |
-| subType         | [ItemType](#itemtype)         | Facultatif. An object that describes a sub-type categorization for this item type.     |
+| id              | chaîne                        | Identificateur de type.                                                                 |
+| displayName     | chaîne                        | Nom complet de ce type.                                                      |
+| Sous-type         | [ItemType](#itemtype)         | Facultatif. Objet qui décrit une catégorisation de sous-type pour ce type d’élément.     |
 
  
 
 ## <a name="productlinks"></a>ProductLinks
 
 
-Contains a list of links for a [Product](#product).
+Contient une liste de liens pour un [produit](#product).
 
-| Propriété        | Tapez                                                          | Description                                          |
+| Propriété        | Type                                                          | Description                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
-| skus            | [Link](utility-resources.md#link)                             | The link for accessing the underlying SKUs.          |
-| liens           | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within this resource.   |
+| x64            | [Lien](utility-resources.md#link)                             | Lien permettant d’accéder aux références (SKU) sous-jacentes.          |
+| liens           | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressources contenus dans cette ressource.   |
 
 
 
-## <a name="sku"></a>Sku
+## <a name="sku"></a>Paire
 
 
-Represents a purchasable Stock Keeping Unit (SKU) under a product. These represent the different shapes of the product. 
+Représente une référence SKU (Stock Keeping Unit) sous un produit. Celles-ci représentent les différentes formes du produit. 
 
-| Propriété               | Tapez             | Description                                                                           |
+| Propriété               | Type             | Description                                                                           |
 |------------------------|------------------|---------------------------------------------------------------------------------------|
-| id                     | chaîne           | The ID for this SKU. This ID is unique only within the context of its parent product. |
-| title                  | chaîne           | The title of the SKU.                                                                 |
-| description            | chaîne           | The description of the SKU.                                                           |
-| productId              | chaîne           | The ID of the parent [Product](#product) that contains this SKU.                      |
-| minimumQuantity        | entier              | The minimum quantity allowed for purchase.                                            |
-| maximumQuantity        | entier              | The maximum quantity allowed for purchase.                                            |
-| isTrial                | bool             | Indicates whether this SKU is a trial item.                                           |
-| supportedBillingCycles | array of strings | The list of supported billing cycles for this SKU. Supported values are the member names found in [BillingCycleType](#billingcycletype). |
-| purchasePrerequisites  | array of strings | The list of prerequisite steps or actions that are needed prior to purchasing this item. The supported values are:<br/>  "InventoryCheck" - Indicates that the item's inventory should be evaluated before attempting to purchase this item.<br/> "AzureSubscriptionRegistration" - Indicates that an Azure subscription is needed and must be registered before attempting to purchase this item.  |
-| inventoryVariables     | array of strings | The list of variables needed to execute an inventory check on this item. The supported values are:<br/> "CustomerId" - The ID of the customer that the purchase would be for.<br/> "AzureSubscriptionId" - The ID of the Azure subscription that would be used for an Azure reservation purchase.</br> "ArmRegionName" - The region for which to verify inventory. This value must match the "ArmRegionName" from the SKU's DynamicAttributes. |
-| provisioningVariables  | array of strings | The list of variables that must be provided into the provisioning context of a [cart line item](cart-resources.md#cartlineitem) when purchasing this item. The supported values are:<br/> Scope - The scope for an Azure reservation purchase: "Single", "Shared".<br/> "SubscriptionId" - The ID of the Azure subscription that would be used for an Azure reservation purchase.<br/> "Duration" - The duration of the Azure reservation: "1Year", "3Year".  |
-| dynamicAttributes      | key/value pairs  | The dictionary of dynamic properties that apply to this item. Please note that the properties in this dictionary are dynamic and can change without notice. You should not create strong dependencies on particular keys existing in the value of this property.    |
-| liens                  | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the SKU.                   |
+| id                     | chaîne           | ID de cette référence (SKU). Cet ID est unique uniquement dans le contexte de son produit parent. |
+| title                  | chaîne           | Titre de la référence (SKU).                                                                 |
+| description            | chaîne           | Description de la référence (SKU).                                                           |
+| productId              | chaîne           | ID du [produit](#product) parent qui contient cette référence (SKU).                      |
+| minimumQuantity        | entier              | Quantité minimale autorisée pour l’achat.                                            |
+| maximumQuantity        | entier              | Quantité maximale autorisée pour l’achat.                                            |
+| isTrial                | bool             | Indique si cette référence (SKU) est un élément d’évaluation.                                           |
+| supportedBillingCycles | Tableau de chaînes | Liste des cycles de facturation pris en charge pour cette référence (SKU). Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](#billingcycletype). |
+| purchasePrerequisites  | Tableau de chaînes | Liste des étapes ou actions requises avant l’achat de cet élément. Les valeurs prises en charge sont les suivantes :<br/>  « InventoryCheck »-indique que l’inventaire de l’élément doit être évalué avant toute tentative d’achat de cet élément.<br/> « AzureSubscriptionRegistration »-indique qu’un abonnement Azure est nécessaire et doit être inscrit avant de tenter d’acheter cet élément.  |
+| inventoryVariables     | Tableau de chaînes | Liste des variables nécessaires à l’exécution d’une vérification de stock sur cet élément. Les valeurs prises en charge sont les suivantes :<br/> « CustomerId » : ID du client pour lequel l’achat est destiné.<br/> « AzureSubscriptionId » : ID de l’abonnement Azure à utiliser pour l’achat d’une réservation Azure.</br> « ArmRegionName » : région pour laquelle vérifier l’inventaire. Cette valeur doit correspondre à la valeur « ArmRegionName » du DynamicAttributes de la référence (SKU). |
+| provisioningVariables  | Tableau de chaînes | Liste des variables qui doivent être fournies dans le contexte de provisionnement d’un [élément de ligne de panier](cart-resources.md#cartlineitem) lors de l’achat de cet article. Les valeurs prises en charge sont les suivantes :<br/> Étendue : étendue d’un achat de réservation Azure : « unique », « partagé ».<br/> « SubscriptionId » : ID de l’abonnement Azure à utiliser pour l’achat d’une réservation Azure.<br/> « Duration »-Durée de la réservation Azure : « 1Year », « 3Year ».  |
+| dynamicAttributes      | paires clé/valeur  | Dictionnaire de propriétés dynamiques qui s’appliquent à cet élément. Notez que les propriétés de ce dictionnaire sont dynamiques et peuvent être modifiées sans préavis. Vous ne devez pas créer de fortes dépendances sur des clés particulières existantes dans la valeur de cette propriété.    |
+| liens                  | [ResourceLinks](utility-resources.md#resourcelinks) | Liens de ressources contenus dans la référence (SKU).                   |
 
 
 
 ## <a name="availability"></a>Disponibilité
 
-Represents a configuration in which a SKU is available for purchase (such as country, currency, and industry segment). 
+Représente une configuration dans laquelle une référence (SKU) est disponible à l’achat (par exemple, le pays, la devise et le secteur d’activité). 
 
-| Propriété        | Tapez                                                | Description                                                                         |
+| Propriété        | Type                                                | Description                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
-| id              | chaîne                                              | The ID for this availability. This ID is unique only within the context of its parent [product](#product) and [SKU](#sku). **Note** This ID can change over time. You should only rely on this value within a short time span after retrieving it.  |
-| productId       | chaîne                                              | The ID of the [product](#product) that contains this availability.           |
-| skuId           | chaîne                                              | The ID of the [SKU](#sku) that contains this availability.                   |
-| catalogItemId   | chaîne                                              | The unique identifier for this item in the catalog. This is the ID that must be populated into the [OrderLineItem.OfferId](order-resources.md#orderlineitem) or [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) properties when purchasing the parent [SKU](#sku). **Note** This ID can change over time. You should only rely on this value within a short time after retrieving it. It should only be accessed and used at the time of purchase.  |
-| defaultCurrency | chaîne                                              | The default currency supported for this availability.                               |
-| segment         | chaîne                                              | The industry segment for this availability. Supported values are: Commercial, Education, Government, NonProfit. |
-| country         | chaîne                                              | The country or region (in ISO country code format) where this availability applies. |
-| isPurchasable   | bool                                                | Indicates whether this availability is purchasable. |
-| isRenewable     | bool                                                | Indicates whether this availability is renewable. |
-| product         | [Produit](#product)               | The product this availability corresponds to. |
-| sku             | [Sku](#sku)                     | The SKU this availability corresponds to. |
-| terms           | array of [Term](#term) resources  | The collection of terms that are applicable to this availability. |
-| liens           | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the availability. |
+| id              | chaîne                                              | ID de cette disponibilité. Cet ID est unique uniquement dans le contexte de son [produit](#product) parent et de sa [référence SKU](#sku). **Remarque** Cet ID peut changer au fil du temps. Vous devez compter uniquement sur cette valeur dans un laps de temps bref après l’avoir récupérée.  |
+| productId       | chaîne                                              | ID du [produit](#product) qui contient cette disponibilité.           |
+| skuId           | chaîne                                              | ID de la [référence SKU](#sku) qui contient cette disponibilité.                   |
+| catalogItemId   | chaîne                                              | Identificateur unique de cet élément dans le catalogue. Il s’agit de l’ID qui doit être rempli dans les propriétés [OrderLineItem. OfferID](order-resources.md#orderlineitem) ou [CartLineItem. CatalogItemId](cart-resources.md#cartlineitem) lors de l’achat de la [référence SKU](#sku)parente. **Remarque** Cet ID peut changer au fil du temps. Vous ne devez vous fier à cette valeur qu’au bout d’un bref laps de temps après l’avoir récupérée. Il ne doit être accessible et utilisé qu’au moment de l’achat.  |
+| defaultCurrency | chaîne                                              | Devise par défaut prise en charge pour cette disponibilité.                               |
+| partie         | chaîne                                              | Secteur d’activité pour cette disponibilité. Les valeurs prises en charge sont les suivantes : commercial, éducation, gouvernement, à but non lucratif. |
+| country         | chaîne                                              | Pays ou région (au format de code pays ISO) auquel cette disponibilité s’applique. |
+| isPurchasable   | bool                                                | Indique si cette disponibilité est achetée. |
+| isRenewable     | bool                                                | Indique si cette disponibilité est renouvelable. |
+| production         | [Produit](#product)               | Produit auquel cette disponibilité correspond. |
+| paire             | [Paire](#sku)                     | Référence (SKU) à laquelle cette disponibilité correspond. |
+| vue           | Tableau de ressources de [terme](#term)  | Collection des termes applicables à cette disponibilité. |
+| liens           | [ResourceLinks](utility-resources.md#resourcelinks) | Liens de ressources contenus dans la disponibilité. |
 
 
 ## <a name="term"></a>Terme
 
-Represents a term for which the availability can be purchased. 
+Représente un terme pour lequel la disponibilité peut être achetée. 
 
-| Propriété              | Tapez                                                                              | Description                                                                         |
+| Propriété              | Type                                                                              | Description                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| duration              | chaîne                                                                            | An ISO 8601 representation of the term's duration. The current supported values are P1M (1 month), P1Y (1 year) and P3Y (3 years). |
-| description           | chaîne                                                                            | The description of the term.           |
+| Macauley              | chaîne                                                                            | Représentation ISO 8601 de la durée du terme. Les valeurs actuellement prises en charge sont P1M (1 mois), P1Y (1 an) et P3Y (3 ans). |
+| description           | chaîne                                                                            | Description du terme.           |
 
 ## <a name="inventorycheckrequest"></a>InventoryCheckRequest
 
-Represents a request to check inventory against certain catalog items. 
+Représente une demande de vérification de l’inventaire par rapport à certains éléments du catalogue. 
 
-| Propriété         | Tapez                                                | Description                                                                                 |
+| Propriété         | Type                                                | Description                                                                                 |
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
-| targetItems      | array of [InventoryItem](#inventoryitem)            | The list of catalog items that the inventory check will evaluate.                           |
-| inventoryContext | key/value pairs                                     | The dictionary of context values that are needed to carry out the inventory check(s). Each [SKU](#sku) of the products will define which values (if any) are needed to carry out this operation.  |
-| liens            | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links contained within the inventory check request.                            |
+| targetItems      | Tableau de [InventoryItem](#inventoryitem)            | Liste des éléments de catalogue évalués par le contrôle d’inventaire.                           |
+| inventoryContext | paires clé/valeur                                     | Dictionnaire des valeurs de contexte nécessaires pour effectuer le ou les chèques d’inventaire. Chaque [référence](#sku) des produits définit les valeurs (le cas échéant) nécessaires pour effectuer cette opération.  |
+| liens            | [ResourceLinks](utility-resources.md#resourcelinks) | Liens de ressources contenus dans la demande de contrôle d’inventaire.                            |
 
 
 
 ## <a name="inventoryitem"></a>InventoryItem
 
-Represents a single item in an inventory check operation. This resource is used for specifying the target items in an input request and is also used to represent the output results of the inventory check operation.  
+Représente un élément unique dans une opération de contrôle d’inventaire. Cette ressource est utilisée pour spécifier les éléments cibles dans une demande d’entrée et est également utilisée pour représenter les résultats de sortie de l’opération de vérification d’inventaire.  
 
-| Propriété         | Tapez                                                              | Description                                                                      |
+| Propriété         | Type                                                              | Description                                                                      |
 |------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| productId        | chaîne                                                            | (Required) The ID of the [product](#product).                            |
-| skuId            | chaîne                                                            | The ID of the [SKU](#sku). When using this resource as input to an inventory request, this value is optional. If this value is not provided, then all SKUs under the product will be considered as target items of the inventory check operation.      |
-| isRestricted     | bool                                                              | Indicates whether this item was found to have a restricted inventory.            |
-| restrictions     | array of [InventoryRestriction](#inventoryrestriction)            | The details of any restrictions that are found for this item. This property will only be populated if **isRestricted** = "true". |
+| productId        | chaîne                                                            | Souhaitée ID du [produit](#product).                            |
+| skuId            | chaîne                                                            | ID de la [référence (SKU](#sku)). Lorsque vous utilisez cette ressource comme entrée pour une demande d’inventaire, cette valeur est facultative. Si cette valeur n’est pas fournie, toutes les références SKU sous le produit seront considérées comme des éléments cibles de l’opération de vérification d’inventaire.      |
+| isRestricted     | bool                                                              | Indique si cet élément a été trouvé pour un inventaire restreint.            |
+| concernant     | Tableau de [InventoryRestriction](#inventoryrestriction)            | Détails des restrictions trouvées pour cet élément. Cette propriété est remplie uniquement si **isRestricted** = "true". |
 
 
 
 ## <a name="inventoryrestriction"></a>InventoryRestriction
 
-Represents the details of an inventory restriction. This is only applicable for inventory check output results, not for input requests.
+Représente les détails d’une restriction d’inventaire. Cela s’applique uniquement aux résultats de la vérification de stock, et non aux demandes d’entrée.
 
-| Propriété         | Tapez                  | Description                                                                                 |
+| Propriété         | Type                  | Description                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
-| reasonCode       | chaîne                | The code that identifies the reason for the restriction.                                    |
-| description      | chaîne                | The description of the inventory restriction.                                               |
-| propriétés       | key/value pairs       | The dictionary of properties that may provide further details on the restriction.           |
+| reasonCode       | chaîne                | Code qui identifie la raison de la restriction.                                    |
+| description      | chaîne                | Description de la restriction d’inventaire.                                               |
+| propriétés       | paires clé/valeur       | Dictionnaire de propriétés qui peut fournir des détails supplémentaires sur la restriction.           |
 
 
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
-An [Enum](https://docs.microsoft.com/dotnet/api/system.enum) with values that indicate a type of billing cycle.
+[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent un type de cycle de facturation.
 
 | Valeur              | Position     | Description                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| Inconnu            | 0            | Enum initializer.                                                                          |
-| Une fois par mois            | 1            | Indicates that the partner will be charged monthly.                                        |
-| Annual             | 2            | Indicates that the partner will be charged annually.                                       |
-| Aucun(e)               | 3            | Indicates that the partner will not be charged. This value may be used for trial items.    |
-| OneTime            | 4            | Indicates that the partner will be charged one time.                                       |
+| Inconnu            | 0            | Initialiseur Enum.                                                                          |
+| Mensuelle            | 1            | Indique que le partenaire sera facturé chaque mois.                                        |
+| Annual             | 2            | Indique que le partenaire sera facturé annuellement.                                       |
+| Aucune               | 3            | Indique que le partenaire ne sera pas facturé. Cette valeur peut être utilisée pour les éléments d’essai.    |
+| OneTime            | 4            | Indique que le partenaire sera facturé une seule fois.                                       |
 

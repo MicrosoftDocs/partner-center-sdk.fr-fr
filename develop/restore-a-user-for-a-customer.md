@@ -1,6 +1,6 @@
 ---
 title: Restaurer un utilisateur supprimé pour un client
-description: How to restore a deleted User by customer ID and user ID.
+description: Comment restaurer un utilisateur supprimé à l’aide d’un ID client et d’un ID utilisateur.
 ms.assetid: A48A4718-6EAF-4FC8-8B44-F3FDCA2B3298
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -16,28 +16,28 @@ ms.locfileid: "74486569"
 # <a name="restore-a-deleted-user-for-a-customer"></a>Restaurer un utilisateur supprimé pour un client
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-How to restore a deleted **User** by customer ID and user ID.
+Comment restaurer un **utilisateur** supprimé à l’aide d’un ID client et d’un ID utilisateur.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- The user ID. If you do not have the user ID, see [View deleted users for a customer](view-a-deleted-user.md).
-
-## <a name="span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_when-can-you-restore-a-deleted-user-account"></a><span id="When_can_you_restore_a_deleted_user_account_"/><span id="when_can_you_restore_a_deleted_user_account_"/><span id="WHEN_CAN_YOU_RESTORE_A_DELETED_USER_ACCOUNT_"/>When can you restore a deleted user account?
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-The user state is set to "inactive" when you delete a user account. It remains that way for thirty days, after which the user account and its associated data are purged and made unrecoverable. You can only restore a deleted user account during this thirty day window. Note that once deleted and marked "inactive" the user account is no longer returned as a member of the user collection (for example, using [Get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md)).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID de l’utilisateur. Si vous ne disposez pas de l’ID utilisateur, consultez [afficher les utilisateurs supprimés pour un client](view-a-deleted-user.md).
+
+## <a name="span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_span-idwhen_can_you_restore_a_deleted_user_account_when-can-you-restore-a-deleted-user-account"></a><span id="When_can_you_restore_a_deleted_user_account_"/><span id="when_can_you_restore_a_deleted_user_account_"/><span id="WHEN_CAN_YOU_RESTORE_A_DELETED_USER_ACCOUNT_"/>quand pouvez-vous restaurer un compte d’utilisateur supprimé ?
+
+
+Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur est défini sur « inactif ». Elle reste ainsi pendant trente jours, après quoi le compte d’utilisateur et ses données associées sont purgés et rendus irrécupérables. Vous pouvez uniquement restaurer un compte d’utilisateur supprimé pendant cette période de 30 jours. Notez qu’une fois supprimée et marquée comme « inactive », le compte d’utilisateur n’est plus renvoyé en tant que membre du regroupement d’utilisateurs (par exemple, en utilisant [obtenir une liste de tous les comptes d’utilisateur d’un client](get-a-list-of-all-user-accounts-for-a-customer.md)).
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To restore a user, create a new instance of the [**CustomerUser**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) class, and set the value of the [**User.State**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.user.state) property to [**UserState.Active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.userstate). You restore a deleted user by setting the user's state to active. Note that you do not have to repopulate the remaining fields in the user resource. Those values will automatically be restored from the deleted, inactive user resource. Next, use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method to identify the user. Finally, call the [**Patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) method and pass the **CustomerUser** instance to send the request to restore the user.
+Pour restaurer un utilisateur, créez une nouvelle instance de la classe [**CustomerUser**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) et définissez la valeur de la propriété [**User. State**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.user.state) sur [**userState. active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.userstate). Vous restaurez un utilisateur supprimé en définissant l’état de l’utilisateur sur actif. Notez que vous n’avez pas besoin de remplir à nouveau les champs restants dans la ressource utilisateur. Ces valeurs seront automatiquement restaurées à partir de la ressource utilisateur inactive supprimée. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’utilisateur. Enfin, appelez la méthode [**patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) et transmettez l’instance **CustomerUser** pour envoyer la demande de restauration de l’utilisateur.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,46 +53,46 @@ var updatedCustomerUser = new CustomerUser()
 var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Patch(updatedCustomerUser);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CustomerUserRestore.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CustomerUserRestore.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode    | URI de requête                                                                                            |
 |-----------|--------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users/{User-ID} http/1.1 |
 
  
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameters to specify the customer id and user id.
+Utilisez les paramètres de requête suivants pour spécifier l’ID client et l’ID utilisateur.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                              |
+| Nom                   | Type     | Obligatoire | Description                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results to a given customer. |
-| **user-id**            | **guid** | Y        | The value is a GUID formatted **user-id** that belongs to a single user account.                                         |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un identificateur de **locataire client** au format GUID qui permet au revendeur de filtrer les résultats sur un client donné. |
+| **ID utilisateur**            | **uniques** | Y        | La valeur est un **ID utilisateur** au format GUID qui appartient à un compte d’utilisateur unique.                                         |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom       | Tapez   | Obligatoire | Description                                                            |
+| Nom       | Type   | Obligatoire | Description                                                            |
 |------------|--------|----------|------------------------------------------------------------------------|
-| Région      | chaîne | Y        | The user state. To restore a deleted user, this must contain "active". |
-| Attributs | object | N        | Contains "ObjectType": "CustomerUser".                                 |
+| État      | chaîne | Y        | État de l’utilisateur. Pour restaurer un utilisateur supprimé, il doit contenir « actif ». |
+| Attributs | objet | N        | Contient « ObjectType » : « CustomerUser ».                                 |
 
  
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/users/a45f1416-3300-4f65-9e8d-f123b397a4ea HTTP/1.1
@@ -114,16 +114,16 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>REST Response
+## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
 
 
-If successful, this method returns the restored user information in the response body.
+En cas de réussite, cette méthode retourne les informations utilisateur restaurées dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

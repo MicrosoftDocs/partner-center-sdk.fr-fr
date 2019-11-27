@@ -1,6 +1,6 @@
 ---
-title: CSP customer web storefront
-description: This sample website code shows a working online store for customers to buy subscriptions to Microsoft products.
+title: Vitrine Web client CSP
+description: Cet exemple de code de site Web montre un magasin en ligne opérationnel permettant aux clients d’acheter des abonnements aux produits Microsoft.
 ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,50 +13,50 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489739"
 ---
-# <a name="csp-customer-web-storefront"></a>CSP customer web storefront
+# <a name="csp-customer-web-storefront"></a>Vitrine Web client CSP
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
 > [!NOTE]
-> This sample app applies only to the global instance of Partner Center. It does not apply to Partner Center for Microsoft Cloud Germany or to Partner Center for Microsoft Cloud for US Government.
+> Cet exemple d’application s’applique uniquement à l’instance globale de l’espace partenaires. Elle ne s’applique pas à l’espace partenaires pour Microsoft Cloud Allemagne ni au centre partenaires pour Microsoft Cloud pour le gouvernement des États-Unis.
 
-The [Partner Center storefront](https://github.com/Microsoft/Partner-Center-Storefront) is a **sample website** for an online store that customers can use to buy subscriptions to Microsoft products. You can modify this **sample code** for your own use to [configure the offers](#configure-offers), [add branding](#configure-branding) and [add a payment method](#configure-payment-types).
+La [vitrine espace partenaires](https://github.com/Microsoft/Partner-Center-Storefront) est un **exemple de site Web** pour un magasin en ligne que les clients peuvent utiliser pour acheter des abonnements aux produits Microsoft. Vous pouvez modifier cet **exemple de code** pour votre usage personnel pour [configurer les offres](#configure-offers), [Ajouter une personnalisation](#configure-branding) et [Ajouter un moyen de paiement](#configure-payment-types).
 
 ## <a name="sample-code"></a>Exemple de code
 
-Download the [Partner Center storefront sample code](https://github.com/Microsoft/Partner-Center-Storefront) from GitHub.
+Téléchargez l’exemple de code de la boutique de l' [espace partenaires](https://github.com/Microsoft/Partner-Center-Storefront) à partir de github.
 
 ## <a name="configure-authentication"></a>Configurer l’authentification
 
-Before you build the application, update the following values in the Web.config file to reflect the Azure AD authentication information you created in [Partner Center authentication](partner-center-authentication.md). You should use your integration sandbox account settings during early development or for testing in production (TiP).
+Avant de générer l’application, mettez à jour les valeurs suivantes dans le fichier Web. config pour refléter les informations d’authentification Azure AD que vous avez créées dans l’authentification de l' [espace partenaires](partner-center-authentication.md). Vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production (Conseil).
 
-- **partnerCenter.applicationId**
-- **partnerCenter.applicationSecret**
-- **partnerCenter.domain**
-- **webPortal.clientId**
-- **webPortal.clientSecret**
-- **webPortal.domain**
-- **webPortal.azureStorageConnectionString**
+- **partnerCenter. applicationId**
+- **partnerCenter. Applicationsecret :**
+- **partnerCenter. domaine**
+- **Webportal. clientId**
+- **Webportal. clientSecret**
+- **webportage. domaine**
+- **Webportal. azureStorageConnectionString**
 
-## <a name="configure-offers"></a>Configure offers
+## <a name="configure-offers"></a>Configurer des offres
 
-You can configure the set of offers (**MicrosoftOffer**) in the **OfferCatalogViewModel**.
+Vous pouvez configurer l’ensemble des offres (**MicrosoftOffer**) dans **OfferCatalogViewModel**.
 
-## <a name="configure-branding"></a>Configure branding
+## <a name="configure-branding"></a>Configurer la personnalisation
 
-This sample website tracks the following company and brand information in *BrandingConfiguration.cs* and *PortalBranding.cs*:
+Cet exemple de site Web effectue le suivi des informations de la société et de la personnalisation suivantes dans *BrandingConfiguration.cs* et *PortalBranding.cs*:
 
 - Nom de l'organisation
-- Organization logo
-- Header image
-- Privacy agreement
-- Contact email
-- Contact phone number
-- Support email
-- Support phone number
+- Logo de l’Organisation
+- Image d’en-tête
+- Accord de confidentialité
+- Adresse de messagerie du contact
+- Numéro de téléphone du contact
+- E-mail de support
+- Numéro de téléphone du support
 
-### <a name="configure-payment-types"></a>Configure payment types
+### <a name="configure-payment-types"></a>Configurer les types de paiement
 
-The app currently uses a PayPal gateway, implemented in *PayPalGateway.cs*.
+L’application utilise actuellement une passerelle PayPal, implémentée dans *PayPalGateway.cs*.

@@ -1,6 +1,6 @@
 ---
-title: Activate a sandbox subscription for commercial marketplace products
-description: Activate a sandbox subscription for commercial marketplace products.
+title: Activer un abonnement sandbox pour les produits de la place de marché commercial
+description: Activez un abonnement sandbox pour les produits de la place de marché commercial.
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,28 +12,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488749"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activate a sandbox subscription for commercial marketplace products
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activer un abonnement sandbox pour les produits de la place de marché commercial
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-How to activate subscription for commercial marketplace Software as a Service (SaaS) products from integration sandbox accounts to enable billing.
+Comment activer l’abonnement pour les produits SaaS (Software as a service) de la place de marché commercial à partir de comptes sandbox d’intégration pour activer la facturation.
 
 >[!NOTE]
->It's only possible to activate a subscription for commercial marketplace SaaS products from integration sandbox accounts. If you have a production subscription, you must visit the publisher's site to complete the setup process. Subscription billing will begin only after setup is complete.
+>Il est uniquement possible d’activer un abonnement pour les produits SaaS de la place de marché commercial à partir de comptes sandbox d’intégration. Si vous avez un abonnement de production, vous devez visiter le site de l’éditeur pour terminer le processus d’installation. La facturation de l’abonnement commence uniquement une fois l’installation terminée.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- An integration sandbox partner account with a customer having an active subscription for commercial marketplace SaaS products.
-- For partners using Partner Center .NET SDK, you must use SDK version 1.14.0 or higher to access this capability.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Un compte de partenaire du bac à sable (sandbox) d’intégration avec un client ayant un abonnement actif aux produits SaaS de la place de marché commercial.
+- Pour les partenaires qui utilisent le kit de développement logiciel (SDK) .NET Partner Center, vous devez utiliser le SDK version 1.14.0 ou ultérieure pour accéder à cette fonctionnalité.
 
 ## <a name="c"></a>C#
 
-Use the following steps to activate a subscription for commercial marketplace SaaS products:
+Procédez comme suit pour activer un abonnement pour les produits SaaS de la place de marché commercial :
 
-1. Make an interface to the subscription operations available. You must identify the customer and specify the subscription identifier of the trial subscription.
+1. Rendez une interface avec les opérations d’abonnement disponibles. Vous devez identifier le client et spécifier l’identificateur d’abonnement de l’abonnement d’évaluation.
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
@@ -76,13 +76,13 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-This method returns the **subscription-id** and **status** properties.
+Cette méthode retourne les propriétés d' **État** et d' **ID d’abonnement** .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

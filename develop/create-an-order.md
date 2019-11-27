@@ -1,6 +1,6 @@
 ---
-title: Create an order
-description: How to create an order for a customer.
+title: Créer une commande
+description: Comment créer une commande pour un client.
 ms.assetid: FE4949FA-7C4D-462D-8F32-FAADCF166875
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,34 +13,34 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489659"
 ---
-# <a name="create-an-order"></a>Create an order
+# <a name="create-an-order"></a>Créer une commande
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud for US Government
 
-Creating an **order for Azure reserved VM instance products** applies *only* to:
+La création d’une **commande pour les produits d’instance de machine virtuelle réservée Azure** s’applique *uniquement* aux éléments suivants :
 
 - Espace partenaires
 
-For information about what is currently available to sell, see [Partner offers in the Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-offers).
+Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- An offer identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
+- Identificateur d’offre.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To create an order for a customer:
+Pour créer une commande pour un client :
 
-1. Instantiate an [**Order**](order-resources.md) object and set the **ReferenceCustomerID** property to the customer ID to record the customer.
-2. Create a list of [**OrderLineItem**](order-resources.md#orderlineitem) objects, and assign the list to the order's **LineItems** property. Each order line item contains the purchase information for one offer. You must have at least one order line item.
-3. Obtain an interface to order operations. First, call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Next, retrieve the interface from the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property.
-4. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) method and pass in the [**Order**](order-resources.md) object.
+1. Instanciez un objet [**Order**](order-resources.md) et définissez la propriété **REFERENCECUSTOMERID** sur l’ID client pour enregistrer le client.
+2. Créez une liste d’objets [**OrderLineItem**](order-resources.md#orderlineitem) et assignez la liste à **la propriété de l’ordre de tri** . Chaque élément de ligne de commande contient les informations d’achat d’une offre. Vous devez avoir au moins un élément de ligne de commande.
+3. Obtenez une interface pour commander des opérations. Tout d’abord, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez l’interface de la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
+4. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) et transmettez l’objet [**Order**](order-resources.md) .
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -70,74 +70,74 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateOrder.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CreateOrder.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path parameter to identify the customer.
+Utilisez le paramètre Path suivant pour identifier le client.
 
-| Nom        | Tapez   | Obligatoire | Description                                                |
+| Nom        | Type   | Obligatoire | Description                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID formatted customer-id that identifies the customer. |
+| ID client | chaîne | Oui      | ID client au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
 #### <a name="order"></a>Ordre
 
-This table describes the [Order](order-resources.md) properties in the request body.
+Ce tableau décrit les propriétés d' [ordre](order-resources.md) dans le corps de la demande.
 
-| Propriété             | Tapez                        | Obligatoire                        | Description                                                                   |
+| Propriété             | Type                        | Obligatoire                        | Description                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | chaîne                      | non                              | An order identifier that is supplied upon successful creation of the order.   |
-| referenceCustomerId  | chaîne                      | non                              | The customer identifier. |
-| billingCycle         | chaîne                      | non                              | Indicates the frequency with which the partner is billed for this order. Supported values are the member names found in [BillingCycleType](product-resources.md#billingcycletype). The default is "Monthly" or "OneTime" at order creation. This field is applied upon successful creation of the order. |
-| lineItems            | array of [OrderLineItem](order-resources.md#orderlineitem) resources | Oui      | An itemized list of the offers the customer is purchasing including the quantity.        |
-| currencyCode         | chaîne                      | non                              | Read-only. The currency used when placing the order. Applied upon successful creation of the order.           |
-| creationDate         | DateHeure                    | non                              | Read-only. The date the order was created, in date-time format. Applied upon successful creation of the order.                                   |
-| status               | chaîne                      | non                              | Read-only. The status of the order.  Supported values are the member names found in [OrderStatus](order-resources.md#orderstatus).        |
-| liens                | [OrderLinks](utility-resources.md#resourcelinks)              | non                              | The resource links corresponding to the Order. |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | non                              | The metadata attributes corresponding to the Order. |
+| id                   | chaîne                      | Non                              | Identificateur d’ordre qui est fourni lors de la création réussie de la commande.   |
+| ReferenceCustomerId  | chaîne                      | Non                              | Identificateur du client. |
+| billingCycle         | chaîne                      | Non                              | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). La valeur par défaut est « Monthly » ou « OneTime » lors de la création de la commande. Ce champ est appliqué lors de la création réussie de la commande. |
+| LineItems            | Tableau de ressources [OrderLineItem](order-resources.md#orderlineitem) | Oui      | Liste répertoriant les offres achetées par le client, y compris la quantité.        |
+| currencyCode         | chaîne                      | Non                              | Lecture seule. Devise utilisée lors de la mise en place de la commande. Appliqué en cas de création réussie de la commande.           |
+| CreationDate         | DateHeure                    | Non                              | Lecture seule. Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande.                                   |
+| status               | chaîne                      | Non                              | Lecture seule. État de la commande.  Les valeurs prises en charge sont les noms des membres trouvés dans [OrderStatus](order-resources.md#orderstatus).        |
+| liens                | [OrderLinks](utility-resources.md#resourcelinks)              | Non                              | Liens de ressource correspondant à la commande. |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Non                              | Attributs de métadonnées correspondant à l’ordre. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-This table describes the [OrderLineItem](order-resources.md#orderlineitem) properties in the request body.
+Ce tableau décrit les propriétés [OrderLineItem](order-resources.md#orderlineitem) dans le corps de la demande.
 
 >[!NOTE]
->The partnerIdOnRecord should only be provided when an indirect provider places an order on behalf of an indirect reseller. It's used to store the Microsoft Partner Network ID of the indirect reseller only (never the ID of the indirect provider).
+>Le partnerIdOnRecord doit être fourni uniquement lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect. Il est utilisé pour stocker l’ID de Microsoft Partner Network du revendeur indirect uniquement (jamais l’ID du fournisseur indirect).
 
-| Nom                 | Tapez   | Obligatoire | Description                                                                                                                                                                                                                                |
+| Nom                 | Type   | Obligatoire | Description                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | entier    | Oui      | Each line item in the collection gets a unique line number, counting up from 0 to count-1.                                                                                                                                                 |
-| offerId              | chaîne | Oui      | The offer identifier.                                                                                                                                                                                                                      |
-| subscriptionId       | chaîne | non       | The subscription identifier.                                                                                                                                                                                                               |
-| parentSubscriptionId | chaîne | non       | Facultatif. The ID of the parent subscription in an add-on offer. Applies to PATCH only.                                                                                                                                                     |
-| friendlyName         | chaîne | non       | Facultatif. The friendly name for the subscription defined by the partner to help disambiguate.                                                                                                                                              |
-| quantity             | entier    | Oui      | The number of licenses for a license-based subscription.                                                                                                                                                                                   |
-| partnerIdOnRecord    | chaîne | non       | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. |
-| provisioningContext  | Dictionary<string, string>                | non       |  Information required for provisioning for some items in the catalog. The provisioningVariables property in a SKU indicates which properties are required for specific items in the catalog.                  |
-| liens                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | non       |  Read-only. The resource links corresponding to the Order line item.  |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | non       | The metadata attributes corresponding to the OrderLineItem. |
-| renewsTo             | Array of objects                          | non    |An array of [RenewsTo](order-resources.md#renewsto) resources.                                                                            |
+| LineItemNumber       | entier    | Oui      | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1.                                                                                                                                                 |
+| offerId              | chaîne | Oui      | Identificateur de l’offre.                                                                                                                                                                                                                      |
+| subscriptionId       | chaîne | Non       | Identificateur d’abonnement.                                                                                                                                                                                                               |
+| ParentSubscriptionId | chaîne | Non       | Facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif.                                                                                                                                                     |
+| friendlyName         | chaîne | Non       | Facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté.                                                                                                                                              |
+| quantity             | entier    | Oui      | Nombre de licences pour un abonnement basé sur une licence.                                                                                                                                                                                   |
+| partnerIdOnRecord    | chaîne | Non       | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une gestion correcte des incentives. |
+| provisioningContext  | Dictionary < String, String >                | Non       |  Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue.                  |
+| liens                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | Non       |  Lecture seule. Liens de ressource correspondant à l’élément de ligne de commande.  |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Non       | Attributs de métadonnées correspondant à OrderLineItem. |
+| RenewsTo             | Tableau d’objets                          | Non    |Tableau de ressources [RenewsTo](order-resources.md#renewsto) .                                                                            |
 
 ##### <a name="renewsto"></a>RenewsTo
 
-This table describes the [RenewsTo](order-resources.md#renewsto) properties in the request body.
+Ce tableau décrit les propriétés [RenewsTo](order-resources.md#renewsto) dans le corps de la demande.
 
-| Propriété              | Tapez             | Obligatoire        | Description |
+| Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | chaîne           | non              | An ISO 8601 representation of the renewal term's duration. The current supported values are **P1M** (1 month) and **P1Y** (1 year). |
+| termDuration          | chaîne           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -167,21 +167,21 @@ Content-Type: application/json
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the method returns an [Order](order-resources.md) resource in the response body.
+En cas de réussite, la méthode retourne une ressource [Order](order-resources.md) dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2093         | Inventory is not available for the catalog item selected.                                                 |
-| 400                  | 2094         | Subscription is not a valid Azure subscription. Only applicable for Azure Reserved VM Instance purchase.     |
-| 400                  | 2095         | Subscription is not enabled for an Azure Reserved VM Instance purchase. |
+| 400                  | 2093         | L’inventaire n’est pas disponible pour l’élément de catalogue sélectionné.                                                 |
+| 400                  | 2094         | L’abonnement n’est pas un abonnement Azure valide. Applicable uniquement à l’achat d’une instance de machine virtuelle réservée Azure.     |
+| 400                  | 2095         | L’abonnement n’est pas activé pour une instance de machine virtuelle réservée Azure. |
 
 ### <a name="response-example"></a>Exemple de réponse
 

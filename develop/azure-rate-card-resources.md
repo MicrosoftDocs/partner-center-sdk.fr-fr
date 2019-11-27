@@ -1,6 +1,6 @@
 ---
-title: Azure rate card resources
-description: The Azure Rate Card provides real-time prices for Azure offers.
+title: Ressources de la carte de tarifs Azure
+description: La carte de tarifs Azure fournit des tarifs en temps réel pour les offres Azure.
 ms.assetid: A42B4FFA-278E-41FF-B51E-E48C2CA70EEF
 ms.date: 05/21/2019
 ms.service: partner-dashboard
@@ -13,58 +13,58 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489139"
 ---
-# <a name="azure-rate-card-resources"></a>Azure rate card resources
+# <a name="azure-rate-card-resources"></a>Ressources de la carte de tarifs Azure
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The Azure Rate Card provides real-time prices for Azure offers. Azure pricing is quite dynamic and changes frequently. Microsoft publishes updates on Partner Center, but the REST API provides the fastest way for Cloud Solution Provider partners to get current prices.
+La carte de tarifs Azure fournit des tarifs en temps réel pour les offres Azure. La tarification Azure est relativement dynamique et change fréquemment. Microsoft publie des mises à jour sur l’espace partenaires, mais l’API REST offre aux partenaires du fournisseur de solutions Cloud le moyen le plus rapide d’obtenir les prix actuels.
 
-To track usage and help predict your monthly bill and the bills for individual customers, you can combine a Rate Card query to [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md) with a request to [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md).
+Pour suivre l’utilisation et aider à prédire votre facture mensuelle et les factures des clients individuels, vous pouvez combiner une requête de carte à tarif pour [obtenir les prix de Microsoft Azure](get-prices-for-microsoft-azure.md) avec une demande d' [obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md).
 
-Prices differ by market and currency, and this API takes location into consideration. By default, it uses your partner profile settings in Partner Center and your browser language, but those are customizable. This is especially relevant if you manage sales in multiple markets from a single, centralized office.
+Les prix varient selon le marché et la devise, et cette API prend en compte l’emplacement. Par défaut, il utilise vos paramètres de profil de partenaire dans l’espace partenaires et la langue de votre navigateur, mais ceux-ci sont personnalisables. Cela s’avère particulièrement utile si vous gérez les ventes sur plusieurs marchés à partir d’un seul bureau centralisé.
 
 ## <a name="azureratecard"></a>AzureRateCard
 
-Describes the properties of an Azure Rate Card resource.
+Décrit les propriétés d’une ressource de carte de tarifs Azure.
 
-| Propriété      | Tapez                                      | Description                                                       |
+| Propriété      | Type                                      | Description                                                       |
 |---------------|-------------------------------------------|-------------------------------------------------------------------|
-| currency      | chaîne                                    | The currency in which the rates are provided.                     |
-| isTaxIncluded | booléen                                   | All rates are pretax, so this will always be returned as "false". |
-| locale        | chaîne                                    | The culture in which the resource information is localized.       |
-| meters        | array of objects                          | Array of [AzureMeter](#azuremeter) objects.                       |
-| offerTerms    | array of objects                          | Array of [AzureOfferTerm](#azureofferterm) objects.               |
-| attributs    | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. Contains "objectType": "AzureRateCard"   |
+| accès      | chaîne                                    | Devise dans laquelle les tarifs sont fournis.                     |
+| isTaxIncluded | booléen                                   | Tous les tarifs étant tarif, ils sont toujours retournés en tant que « false ». |
+| paramètres régionaux        | chaîne                                    | Culture dans laquelle les informations sur les ressources sont localisées.       |
+| compteurs        | Tableau d’objets                          | Tableau d’objets [AzureMeter](#azuremeter) .                       |
+| offerTerms    | Tableau d’objets                          | Tableau d’objets [AzureOfferTerm](#azureofferterm) .               |
+| attributs    | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées. Contient « objectType » : « AzureRateCard »   |
 
 
-### <a name="operations-on-the-azureratecard-resource"></a>Operations on the AzureRateCard resource
+### <a name="operations-on-the-azureratecard-resource"></a>Opérations sur la ressource AzureRateCard
 
-- [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md)
+- [Obtenir des prix pour Microsoft Azure](get-prices-for-microsoft-azure.md)
 
 ## <a name="azuremeter"></a>AzureMeter
 
-| Propriété         | Tapez             | Description                                                                                   |
+| Propriété         | Type             | Description                                                                                   |
 |------------------|------------------|-----------------------------------------------------------------------------------------------|
-| id               | chaîne           | Meter's unique identifier.                                                                    |
-| name             | chaîne           | Friendly name of the meter.                                                                   |
-| rates            | object           | Meter rates. The key is the meter quantity (string) and the value is the meter rate (number). |
-| tags             | array of strings | Optional meter tags. This array can be empty.                                                 |
-| catégorie         | chaîne           | Category of the resource.                                                                     |
-| subcategory      | chaîne           | Sub-category of the resource.                                                                 |
-| region           | chaîne           | Region of the id.                                                                             |
-| unités             | chaîne           | The type of quantity (hours, bytes, etc.)                                                     |
-| includedQuantity | nombre           | Meter quantity that is included free of charge.                                               |
-| effectiveDate    | chaîne           | The date this meter is in effect.                                                             |
+| id               | chaîne           | Identificateur unique du compteur.                                                                    |
+| name             | chaîne           | Nom convivial du compteur.                                                                   |
+| tarifs            | objet           | Taux de mesure. La clé est la quantité de compteur (chaîne) et la valeur est la fréquence du compteur (nombre). |
+| tags             | Tableau de chaînes | Balises de compteur facultatives. Ce tableau peut être vide.                                                 |
+| catégorie         | chaîne           | Catégorie de la ressource.                                                                     |
+| sous-catégorie      | chaîne           | Sous-catégorie de la ressource.                                                                 |
+| région           | chaîne           | Région de l’ID.                                                                             |
+| unités             | chaîne           | Type de quantité (heures, octets, etc.)                                                     |
+| includedQuantity | nombre           | Nombre de compteurs inclus gratuitement.                                               |
+| effectiveDate    | chaîne           | Date à laquelle ce compteur est appliqué.                                                             |
 
 ## <a name="azureofferterm"></a>AzureOfferTerm
 
-| Propriété         | Tapez             | Description                             |
+| Propriété         | Type             | Description                             |
 |------------------|------------------|-----------------------------------------|
-| name             | chaîne           | Friendly name of the offer term.        |
-| discount         | nombre           | The discount applied, if any.           |
-| excludedMeterIds | array of strings | Meters excluded from the offer, if any. |
-| effectiveDate    | chaîne           | The date the offer is in effect.        |
+| name             | chaîne           | Nom convivial du terme de l’offre.        |
+| remises         | nombre           | Remise appliquée, le cas échéant.           |
+| excludedMeterIds | Tableau de chaînes | Compteurs exclus de l’offre, le cas échéant. |
+| effectiveDate    | chaîne           | Date d’effet de l’offre.        |

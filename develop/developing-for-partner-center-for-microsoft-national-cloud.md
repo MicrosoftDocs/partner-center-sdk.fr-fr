@@ -1,6 +1,6 @@
 ---
-title: Developing for Partner Center for Microsoft National Clouds
-description: Partner Center SDK differences when developing for Partner Center for Microsoft National Clouds.
+title: Développement pour l’espace partenaires pour les clouds Microsoft nationaux
+description: Différences du kit de développement logiciel (SDK) de l’espace partenaires lors du développement de pour les clouds Microsoft nationaux.
 MS-HAID:
 - pc\_apiv2.developing\_with\_different\_partner\_center\_versions
 - pc\_apiv2.developing\_for\_partner\_center\_for\_microsoft\_national\_cloud
@@ -16,60 +16,60 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488469"
 ---
-# <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Developing for Partner Center for Microsoft National Clouds
+# <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Développement pour l’espace partenaires pour les clouds Microsoft nationaux
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Partner Center has one set of SDK documentation. However, some functionality might not be available in the versions of Partner Center for Microsoft National Clouds.
+L’espace partenaires possède un ensemble de documents SDK. Toutefois, certaines fonctionnalités peuvent ne pas être disponibles dans les versions de l’espace partenaires pour les clouds nationaux Microsoft.
 
-Developers need to consider changes to the SDK for the following versions of Partner Center:
+Les développeurs doivent tenir compte des modifications apportées au kit de développement logiciel (SDK) pour les versions suivantes de l’espace partenaires :
 
 - [Espace partenaires géré par 21Vianet](#partner-center-operated-by-21vianet)
 - [Espace partenaires de Microsoft Cloud Germany](#partner-center-for-microsoft-cloud-germany)
 - [Espace partenaires de Microsoft Cloud for US Government](#partner-center-for-microsoft-cloud-for-us-government)
 
-Each Partner Center SDK topic lists applicable Partner Center versions. Each managed reference topic also lists applicable Partner Center versions in the **Requirements** section.
+Chaque rubrique du kit de développement logiciel (SDK) Partner Center répertorie les versions appropriées de l’espace partenaires. Chaque rubrique de référence gérée répertorie également les versions appropriées de l’espace partenaires dans la section **Configuration requise** .
 
 ## <a name="partner-center-operated-by-21vianet"></a>Espace partenaires géré par 21Vianet
 
-The differences for partners between *Partner Center* and *Partner Center operated by 21Vianet* are:
+Les différences entre *l’espace partenaires et* l' *espace partenaires géré par 21ViaNet* sont les suivantes :
 
-- You can't programmatically reset a password for a customer user or full partner user.
-- Subscriptions to Azure aren't available.
-- You can't manage the licenses for your customer's user. Instead, your customers must use the Office 365 admin center to manage their licenses.
-- All support requests are managed through Partner Center operated by 21Vianet. Service requests and service updates don't apply.
+- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet.
+- Les abonnements à Azure ne sont pas disponibles.
+- Vous ne pouvez pas gérer les licences pour l’utilisateur de votre client. Au lieu de cela, vos clients doivent utiliser le centre d’administration Office 365 pour gérer leurs licences.
+- Toutes les demandes de support sont gérées via l’espace partenaires géré par 21Vianet. Les demandes de service et les mises à jour de service ne s’appliquent pas.
 
-## <a name="partner-center-for-microsoft-cloud-germany"></a>Espace partenaires de Microsoft Cloud Germany
+## <a name="partner-center-for-microsoft-cloud-germany"></a>Espace partenaires de Microsoft Cloud Germany
 
 > [!IMPORTANT]
-> Based on the evolution in customers' needs, our cloud strategy for Germany will focus on delivery of the new cloud regions in Germany that are consistent with our global cloud offering. Dans cette optique, nous n’accepterons plus de nouveaux clients ou nous ne déploierons plus de nouveaux services à partir de Microsoft Cloud actuellement disponible en Allemagne. Existing customers can continue to use the current cloud services available today, which we'll maintain with necessary security updates.
+> En fonction de l’évolution des besoins des clients, notre stratégie de Cloud pour l’Allemagne se concentrera sur la livraison des nouvelles régions Cloud en Allemagne qui sont cohérentes avec notre offre Cloud mondiale. Dans cette optique, nous n’accepterons plus de nouveaux clients ou nous ne déploierons plus de nouveaux services à partir de Microsoft Cloud actuellement disponible en Allemagne. Les clients existants peuvent continuer à utiliser les services Cloud actuels actuellement disponibles, que nous allons conserver avec les mises à jour de sécurité nécessaires.
 >
 > Dorénavant, les nouveaux clients ont la possibilité d’utiliser les régions européennes actuellement disponibles ou les nouvelles régions d’Allemagne lorsqu’elles seront disponibles. Pour plus d’informations, consultez [Microsoft offrira des services de cloud à partir de nouveaux centres de données en Allemagne](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/).
 
-The differences for partners between *Partner Center* and *Partner Center for Microsoft Cloud Germany* are:
+Les *différences entre l’espace partenaires* et l' *espace partenaires pour Microsoft Cloud Allemagne* sont les suivantes :
 
-- Partners can't create users for their customer's organization or assign roles.
-  - Partners can read fields, but can't write or update them.
-  - Partners must manually create or update their customers' users in the Office365 admin center or through the Azure portal. See [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
-- You can't manage the licenses for your customer's users using the Partner Center for Microsoft Cloud Germany portal or APIs. Instead, you must use the Office365 admin center or Azure Active Directly Group license management (coming soon) to manage their licenses.
-  - (Optional) you can use Azure AD Graph API. See [Add or Remove Licenses from a user](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense). For Partner Center for Microsoft Cloud Germany, be sure to use the Graph endpoint `https://graph.cloudapi.de` instead of `https://graph.windows.net`.
-- You can't programmatically reset a password for a customer user or full partner user. Use the Office365 admin center or Azure portal. See [Reset the password for a user in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/). For step 1, you must sign in to the Azure portal for Microsoft Cloud Germany.
-- Developers must register their app ID manually to integrate Partner Center API/SDK functionality in their app for Partner Center for Microsoft Cloud Germany. See [Register app details for Partner Center for Microsoft National Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds) for more information.
+- Les partenaires ne peuvent pas créer d’utilisateurs pour l’organisation de leur client ou attribuer des rôles.
+  - Les partenaires peuvent lire les champs, mais ils ne peuvent pas les écrire ou les mettre à jour.
+  - Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le centre d’administration Office 365 ou via le Portail Azure. Consultez [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/).
+- Vous ne pouvez pas gérer les licences des utilisateurs de vos clients à l’aide de l’espace partenaires pour Microsoft Cloud portail ou les API Allemagne. Au lieu de cela, vous devez utiliser le centre d’administration Office 365 ou la gestion des licences Azure active directement Group (bientôt disponible) pour gérer leurs licences.
+  - (Facultatif) vous pouvez utiliser Azure AD API Graph. Voir [Ajouter ou supprimer des licences d’un utilisateur](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense). Pour l’espace partenaires pour Microsoft Cloud Allemagne, veillez à utiliser le point de terminaison Graph `https://graph.cloudapi.de` au lieu de `https://graph.windows.net`.
+- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. Utilisez le centre d’administration Office 365 ou Portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud Allemagne.
+- Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) de l’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud Allemagne. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds) .
 
 ## <a name="partner-center-for-microsoft-cloud-for-us-government"></a>Espace partenaires de Microsoft Cloud for US Government
 
-The differences for partners between *Partner Center* and *Partner Center for Microsoft Cloud for US Government* are:
+Les *différences entre l’espace partenaires* et l' *espace partenaires pour Microsoft Cloud pour les administrations américaines* sont les suivantes :
 
-- Office 365 subscriptions aren't currently available for Partner Center for Microsoft Cloud for US Government.
-- Existing partners supporting Microsoft Cloud for US Government must create new accounts in Partner Center for Microsoft Cloud for US Government.
-- Microsoft Cloud for US Government customers must transact with a single partner.
-  - Multichannel and multipartner and request relationship with an existing customer within Microsoft Cloud for US Government scenarios don't apply. This is because Office 365 isn't currently available.
-- Partners can't create users for their customer's organization or assign roles.
-  - Partners can read fields, but can't write or update them. Partners must manually create or update their customers' users in the Azure portal. See [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/).
-- You can't programmatically reset a password for a customer user or full partner user. Use the Azure portal. See [Reset the password for a user in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal). For step 1, you must sign in to the Azure portal for Microsoft Cloud for US Government.
-- REST endpoints for Partner Center for Microsoft Cloud for US Government are the same as for Partner Center: `https://api.partnercenter.microsoft.com`.
-- Developers must register their app ID manually to integrate Partner Center API/SDK functionality in their app for Partner Center for Microsoft Cloud for US Government. See [Register app details for Partner Center for Microsoft National Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds) for more information.
+- Les abonnements Office 365 ne sont actuellement pas disponibles pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis.
+- Les partenaires existants qui prennent en charge Microsoft Cloud pour le gouvernement des États-Unis doivent créer de nouveaux comptes dans l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis.
+- Les Microsoft Cloud pour les clients du gouvernement des États-Unis doivent faire une transaction avec un seul partenaire.
+  - Les relations multicanaux et multipartenaires et de demande avec un client existant au sein de Microsoft Cloud pour les scénarios gouvernementaux des États-Unis ne s’appliquent pas. Cela est dû au fait qu’Office 365 n’est pas disponible actuellement.
+- Les partenaires ne peuvent pas créer d’utilisateurs pour l’organisation de leur client ou attribuer des rôles.
+  - Les partenaires peuvent lire les champs, mais ils ne peuvent pas les écrire ou les mettre à jour. Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le Portail Azure. Consultez [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/).
+- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. Utilisez l’Portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud pour le gouvernement des États-Unis.
+- Les points de terminaison REST de l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis sont les mêmes que pour l’espace partenaires : `https://api.partnercenter.microsoft.com`.
+- Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) d’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds) .

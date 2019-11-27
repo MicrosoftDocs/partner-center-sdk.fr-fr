@@ -1,6 +1,6 @@
 ---
 title: Prise en main
-description: The Partner Center SDK includes a managed API and a REST API for partners to use to manage customer, subscription, and order data.
+description: Le kit de développement logiciel (SDK) Partner Center comprend une API gérée et une API REST qui permet aux partenaires de gérer les données des clients, des abonnements et des commandes.
 ms.assetid: D9A91032-CA5B-4CD2-ADBA-6C5513E05D32
 ms.date: 09/29/2018
 ms.service: partner-dashboard
@@ -15,52 +15,52 @@ ms.locfileid: "74487279"
 ---
 # <a name="get-started"></a>Prise en main
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The Partner Center SDK includes a managed API and a REST API for partners to use to manage customer, subscription, and order data.
+Le kit de développement logiciel (SDK) Partner Center comprend une API gérée et une API REST qui permet aux partenaires de gérer les données des clients, des abonnements et des commandes.
 
-## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a><span id="Get_the_code"/><span id="get_the_code"/><span id="GET_THE_CODE"/>Get the code
+## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a><span id="Get_the_code"/><span id="get_the_code"/><span id="GET_THE_CODE"/>obtient le code
 
-[Download the Partner Center SDK](http://go.microsoft.com/fwlink/p/?LinkId=746681)  
+[Télécharger le kit de développement logiciel (SDK) Partner Center](http://go.microsoft.com/fwlink/p/?LinkId=746681)  
 
 > [!NOTE]  
-> API access to Partner Center for indirect resellers is not a supported scenario.
+> L’accès d’API au centre partenaires pour les revendeurs indirects n’est pas un scénario pris en charge.
 
-## <a name="span-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerdetermine-your-version-of-partner-center"></a><span id="Determine_your_version_of_Partner_Center"/><span id="determine_your_version_of_partner_center"/><span id="DETERMINE_YOUR_VERSION_OF_PARTNER_CENTER"/>Determine your version of Partner Center
+## <a name="span-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerspan-iddetermine_your_version_of_partner_centerdetermine-your-version-of-partner-center"></a><span id="Determine_your_version_of_Partner_Center"/><span id="determine_your_version_of_partner_center"/><span id="DETERMINE_YOUR_VERSION_OF_PARTNER_CENTER"/>déterminer votre version de l’espace partenaires
 
-Some versions of Partner Center do not have the entire SDK available. For more information, see [Developing for Partner Center for Microsoft National Cloud](developing-for-partner-center-for-microsoft-national-cloud.md).
+Certaines versions de l’espace partenaires n’ont pas le kit de développement logiciel (SDK) entier disponible. Pour plus d’informations, consultez [développement pour l’espace partenaires pour Microsoft national Cloud](developing-for-partner-center-for-microsoft-national-cloud.md).
 
-## <a name="span-idget_the_samplesspan-idget_the_samplesspan-idget_the_samplesget-the-samples"></a><span id="Get_the_samples"/><span id="get_the_samples"/><span id="GET_THE_SAMPLES"/>Get the samples
+## <a name="span-idget_the_samplesspan-idget_the_samplesspan-idget_the_samplesget-the-samples"></a><span id="Get_the_samples"/><span id="get_the_samples"/><span id="GET_THE_SAMPLES"/>récupérer les exemples
 
-For more information about C# snippets, REST samples, and the sample app, see [Partner Center samples](partner-center-samples.md).
+Pour plus d’informations C# sur les extraits de code, les exemples REST et l’exemple d’application, consultez la page exemples de l' [espace partenaires](partner-center-samples.md).
 
-## <a name="span-idsdk_test_vs_prodspan-idsdk_test_vs_prodtest-vs-production"></a><span id="sdk_test_vs_prod"/><span id="SDK_TEST_VS_PROD"/>Test vs. production
+## <a name="span-idsdk_test_vs_prodspan-idsdk_test_vs_prodtest-vs-production"></a><span id="sdk_test_vs_prod"/><span id="SDK_TEST_VS_PROD"/>test et production
 
-While you are initially writing and testing your code, you should use your integration sandbox account (and the corresponding tokens) so that you don't accidentally incur new charges that your company is responsible for paying. For more information about this testing environment, see [Set up API access in Partner Center](set-up-api-access-in-partner-center.md).
+Pendant que vous écrivez et testez votre code, vous devez utiliser votre compte de bac à sable (sandbox) d’intégration (et les jetons correspondants) afin de ne pas occasionner de frais accidentels que votre entreprise est responsable du paiement. Pour plus d’informations sur cet environnement de test, consultez [configurer l’accès aux API dans l’espace partenaires](set-up-api-access-in-partner-center.md).
 
-When your solution is tested and ready to use on real customer accounts, you'll have to update your tokens so that you're using an Azure AD client app and secret that correspond to your Primary Partner Center account.
+Lorsque votre solution est testée et prête à être utilisée sur des comptes clients réels, vous devez mettre à jour vos jetons afin d’utiliser une application cliente Azure AD et une clé secrète correspondant à votre compte de centre de partenaires principal.
 
-For tips and suggestions about testing and debugging, including more information about Test-in-Production (TiP) and the Integration Sandbox, see [Test and debug](test-and-debug.md).
+Pour obtenir des conseils et des suggestions sur le test et le débogage, y compris des informations supplémentaires sur les tests en production (TiP) et le bac à sable (sandbox) d’intégration, consultez [tester et déboguer](test-and-debug.md).
 
-## <a name="span-idsdk_config_authspan-idsdk_config_authconfigure-your-authentication"></a><span id="sdk_config_auth"/><span id="SDK_CONFIG_AUTH"/>Configure your authentication
+## <a name="span-idsdk_config_authspan-idsdk_config_authconfigure-your-authentication"></a><span id="sdk_config_auth"/><span id="SDK_CONFIG_AUTH"/>configurer votre authentification
 
-To configure your Azure AD authentication so that you can use the Partner Center APIs, see [Partner Center authentication](partner-center-authentication.md).  
+Pour configurer votre authentification Azure AD afin que vous puissiez utiliser les API de l’espace partenaires, consultez la page authentification de l' [espace](partner-center-authentication.md)partenaires.  
 
 > [!IMPORTANT]
-> Microsoft is introducing a secure, scalable framework for authenticating cloud solution provider (CSP) partners and control panel vendors (CPV) through the Microsoft Azure multi-factor authentication (MFA) architecture.
-Partner Center uses Azure AD for authentication, and to use the Partner Center APIs you must configure your authentication settings correctly. 
+> Microsoft propose une infrastructure sécurisée et évolutive pour l’authentification des partenaires du fournisseur de solutions Cloud (CSP) et des fournisseurs du panneau de configuration (CPV) via l’architecture d’authentification multifacteur (MFA) Microsoft Azure.
+L’espace partenaires utilise Azure AD pour l’authentification, et pour utiliser les API de l’espace partenaires, vous devez configurer correctement vos paramètres d’authentification. 
 > 
-> For more information, see [Enable secure application model](enable-secure-app-model.md).
+> Pour plus d’informations, consultez [activer le modèle d’application sécurisée](enable-secure-app-model.md).
 
-## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="Get_help"/><span id="get_help"/><span id="GET_HELP"/>Get help
+## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="Get_help"/><span id="get_help"/><span id="GET_HELP"/>obtenir de l’aide
 
-Partners can get support at the [Partner Center SDK Yammer group](http://go.microsoft.com/fwlink/p/?LinkID=717360). To get more personalized help, developers can use their MPN support benefits or Premier Support.
+Les partenaires peuvent bénéficier d’un support technique dans le [groupe Yammer du kit de développement logiciel (SDK) Partner Center](http://go.microsoft.com/fwlink/p/?LinkID=717360). Pour obtenir une aide plus personnalisée, les développeurs peuvent utiliser leurs avantages ou Support Premier de support MPN.
 
-## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a><span id="Early_adopter_program"/><span id="early_adopter_program"/><span id="EARLY_ADOPTER_PROGRAM"/>Join the Partner Center API and SDK Early Adopter Program
+## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a><span id="Early_adopter_program"/><span id="early_adopter_program"/><span id="EARLY_ADOPTER_PROGRAM"/>rejoindre l’API espace partenaires et le programme SDK Early
 
-To find out how you can collaborate with Microsoft on the development of Partner features and capabilities, see [Join the Partner Center API and SDK Early Adopter Program](early-adopter-program.md).
+Pour savoir comment collaborer avec Microsoft sur le développement de fonctionnalités et de fonctionnalités de partenaires, consultez [rejoindre l’API de l’espace partenaires et le programme d’adoption précoce du kit de développement logiciel (SDK)](early-adopter-program.md).

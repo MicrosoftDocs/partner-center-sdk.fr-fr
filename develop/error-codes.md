@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST error codes
-description: Description of error codes and success responses from the Partner Center APIs.
+title: Codes d’erreur REST de l’espace partenaires
+description: Description des codes d’erreur et des réponses de réussite à partir des API de l’espace partenaires.
 ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
@@ -13,52 +13,52 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489669"
 ---
-# <a name="partner-center-rest-error-codes"></a>Partner Center REST error codes
+# <a name="partner-center-rest-error-codes"></a>Codes d’erreur REST de l’espace partenaires
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The Partner Center REST APIs return a JSON object that contains a status code. This code that indicates whether your request was successful or why it failed.
+Les API REST de l’espace partenaires retournent un objet JSON qui contient un code d’État. Ce code indique si votre demande a réussi ou a échoué.
 
-## <a name="success-responses"></a>Success responses
+## <a name="success-responses"></a>Réponses de réussite
 
-A **2xx** status code indicates that the client's request was successfully received, understood, and accepted.
+Un code d’état **2xx** indique que la demande du client a été correctement reçue, comprise et acceptée.
 
 ## <a name="error-codes"></a>Codes d’erreur
 
-The following **4xx** and **5xx** status codes indicate an error:
+Les codes d’état **4xx** et **5xx** suivants indiquent une erreur :
 
-- 400: Bad request
-- 401: Unauthorized
-- 403: Forbidden
-- 404: Not found
-- 405: Method not allowed
-- 406: Not acceptable
-- 409: Conflict, error code
-- 412: Precondition failed
-- 429: Too many requests
-- 500: Internal server error
-- 501: Not implemented
-- 502: Bad gateway
-- 503: Service unavailable
-- 504: Gateway timeout
+- 400 : requête incorrecte
+- 401 : non autorisé
+- 403 : interdit
+- 404 : introuvable
+- 405 : méthode non autorisée
+- 406 : non acceptable
+- 409 : conflit, code d’erreur
+- 412 : échec de la précondition
+- 429 : demandes trop nombreuses
+- 500 : erreur interne du serveur
+- 501 : non implémenté
+- 502 : passerelle incorrecte
+- 503 : service non disponible
+- 504 : délai d’expiration de la passerelle
 
 ## <a name="error-responses"></a>Réponses d’erreur
 
-Any response with a **4xx** or **5xx** status code includes an error message with additional details about the error condition(s) encountered.
+Toute réponse avec un code d’état **4xx** ou **5xx** contient un message d’erreur avec des détails supplémentaires sur la ou les conditions d’erreur rencontrées.
 
-The following table and code sample describes the schema of an error response:
+Le tableau et l’exemple de code suivants décrivent le schéma d’une réponse d’erreur :
 
-| Nom        | Tapez   | Description                                                                                                                                            |
+| Nom        | Type   | Description                                                                                                                                            |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| code        | chaîne | Always returned. Indicates the kind of error that occurred. Non-null.                                                                                  |
-| description | chaîne | Always returned. Describes the error in detail, and provides additional debugging information. Non-null, non-empty. Maximum length is 1024 characters. |
-| data        | tableau  | Only returned for some error types. A list of error objects.                                                                                           |
-| source      | chaîne | Always returned. The source of the error.                                                                                                              |
+| code        | chaîne | Toujours retourné. Indique le type d’erreur qui s’est produit. Non null.                                                                                  |
+| description | chaîne | Toujours retourné. Décrit l’erreur en détail et fournit des informations de débogage supplémentaires. Non null, non vide. La longueur maximale est de 1024 caractères. |
+| données        | tableau  | Retourné uniquement pour certains types d’erreur. Liste d’objets d’erreur.                                                                                           |
+| source      | chaîne | Toujours retourné. Source de l’erreur.                                                                                                              |
 
 ```json
 {

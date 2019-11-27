@@ -1,6 +1,6 @@
 ---
-title: Cancel a commercial marketplace subscription
-description: Cancel a commercial marketplace Subscription resource that matches a customer and subscription ID.
+title: Annuler un abonnement au marché commercial
+description: Annulez une ressource d’abonnement de la place de marché commercial qui correspond à un ID de client et d’abonnement.
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,37 +13,37 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489309"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription"></a>Cancel a commercial marketplace subscription
+# <a name="cancel-a-commercial-marketplace-subscription"></a>Annuler un abonnement au marché commercial
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can cancel a commercial marketplace [subscription](subscription-resources.md) resource that matches the customer and subscription ID.
+Vous pouvez annuler une ressource d' [abonnement](subscription-resources.md) de la place de marché commercial qui correspond à l’ID du client et de l’abonnement.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (**client-locataire-ID**). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID d’abonnement.
 
-## <a name="partner-center-dashboard-method"></a>Partner Center dashboard method
+## <a name="partner-center-dashboard-method"></a>Méthode du tableau de bord de l’espace partenaires
 
-To cancel a commercial marketplace subscription in the Partner Center dashboard:
+Pour annuler un abonnement au marché commercial dans le tableau de bord de l’espace partenaires :
 
-1. [Select a customer](get-a-customer-by-name.md).
-2. Select the subscription that you wish to cancel.
-3. Choose the **Cancel subscription** option, then select **Submit**.
+1. [Sélectionnez un client](get-a-customer-by-name.md).
+2. Sélectionnez l’abonnement que vous souhaitez annuler.
+3. Choisissez l’option **Annuler l’abonnement** , puis sélectionnez **Envoyer**.
 
 ## <a name="c"></a>C#
 
-To cancel a customer's subscription:
+Pour annuler l’abonnement d’un client :
 
-1. [Get the subscription by ID](get-a-subscription-by-id.md).
-2. Change the subscription's [**Status**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property. For information on **Status** codes, see [SubscriptionStatus enumeration](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
-3. After the change is made, use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-4. Call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method.
-5. Call the **Patch()** method.
+1. [Récupérez l’abonnement par ID](get-a-subscription-by-id.md).
+2. Modifiez la propriété [**État**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) de l’abonnement. Pour plus d’informations sur les codes d' **État** , consultez [énumération SubscriptionStatus](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
+3. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** .
+4. Appelez la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) .
+5. Appelez la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,34 +54,34 @@ selectedSubscription.Status = SubscriptionStatus.Deleted;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-### <a name="sample-console-test-app"></a>Sample console test app
+### <a name="sample-console-test-app"></a>Exemple d’application de test de la console
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: UpdateSubscription.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode    | URI de requête                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-This table lists the required query parameter to suspend the subscription.
+Ce tableau répertorie le paramètre de requête requis pour suspendre l’abonnement.
 
-| Nom                    | Tapez     | Obligatoire | Description                               |
+| Nom                    | Type     | Obligatoire | Description                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.     |
+| **ID-pour l’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-A full **Subscription** resource is required in the request body. Ensure that the **Status** property has been updated.
+Une ressource d' **abonnement** complète est requise dans le corps de la demande. Assurez-vous que la propriété **Status** a été mise à jour.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -127,13 +127,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST Response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns deleted [Subscription](subscription-resources.md) resource properties in the response body.
+En cas de réussite, cette méthode retourne les propriétés de la ressource d' [abonnement](subscription-resources.md) supprimée dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

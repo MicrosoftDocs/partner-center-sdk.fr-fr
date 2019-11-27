@@ -1,6 +1,6 @@
 ---
-title: Change the quantity of a subscription
-description: Update a subscription to increase or decrease the quantity of licenses for a customer.
+title: Modifier la quantité d’un abonnement
+description: Mettez à jour un abonnement pour augmenter ou diminuer le nombre de licences d’un client.
 ms.assetid: 10535C45-63BF-4E75-A6E5-E03ADC1DF8DC
 ms.date: 06/05/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488999"
 ---
-# <a name="change-the-quantity-of-a-subscription"></a>Change the quantity of a subscription
+# <a name="change-the-quantity-of-a-subscription"></a>Modifier la quantité d’un abonnement
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Updates a [subscription](subscription-resources.md) to increase or decrease the quantity of licenses.
+Met à jour un [abonnement](subscription-resources.md) pour augmenter ou diminuer la quantité de licences.
 
-In the Partner Center dashboard, this operation can be performed by first [selecting a customer](get-a-customer-by-name.md). Then, select the subscription in question that you wish to rename. To finish, change the value in the **Quantity** field, then select **Submit.**
+Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en [sélectionnant d’abord un client](get-a-customer-by-name.md). Sélectionnez ensuite l’abonnement en question que vous souhaitez renommer. Pour terminer, modifiez la valeur dans le champ **quantité** , puis sélectionnez **Envoyer.**
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- A subscription ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID d’abonnement.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To change the quantity of a customer's subscription, first [get the subscription](get-a-subscription-by-id.md), then change the subscription's [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) property. Once the change is made, use your **IAggregatePartner.Customers** collection and call the **ById()** method. Then call the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method. Then, finish by calling the **Patch()** method.
+Pour modifier la quantité de l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -51,32 +51,32 @@ selectedSubscription.Quantity++;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: UpdateSubscription.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode    | URI de requête                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-This table lists the required query parameter to change the quantity of the subscription.
+Ce tableau répertorie le paramètre de requête requis pour modifier la quantité de l’abonnement.
 
-| Nom                    | Tapez     | Obligatoire | Description                               |
+| Nom                    | Type     | Obligatoire | Description                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **id-for-subscription** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.     |
+| **ID-pour l’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-A full **Subscription** resource is required in the request body. Ensure that the **Quantity** property has been updated.
+Une ressource d' **abonnement** complète est requise dans le corps de la demande. Assurez-vous que la propriété **Quantity** a été mise à jour.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -113,21 +113,21 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an **HTTP status 200** status code and updated [subscription resource](subscription-resources.md)  properties in the response body.
+En cas de réussite, cette méthode retourne le code d’état **HTTP 200** et les propriétés de [ressource d’abonnement](subscription-resources.md) mises à jour dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response returns an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read the status code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse retourne un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire le code d’État, le type d’erreur et les paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-When the patch operation takes longer than the expected time, the Partner Center sends an **HTTP status 202** status code and a location header that points to where to retrieve the subscription. You can query the subscription periodically to monitor the status and quantity changes.
+Lorsque l’opération de patch prend plus de temps que le délai prévu, l’espace partenaires envoie un code d’état **http état 202** et un en-tête d’emplacement qui pointe vers l’emplacement où récupérer l’abonnement. Vous pouvez interroger régulièrement l’abonnement pour surveiller les modifications d’État et de quantité.
 
-### <a name="response-examples"></a>Response examples
+### <a name="response-examples"></a>Exemples de réponse
 
-#### <a name="response-example-1"></a>Response example 1
+#### <a name="response-example-1"></a>Exemple de réponse 1
 
-Successful request with an **HTTP status 200** status code:
+Demande réussie avec un code d’état **http état 200** :
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
@@ -180,9 +180,9 @@ Connection: Keep-Alive
 }
 ```
 
-#### <a name="response-example-2"></a>Response example 2
+#### <a name="response-example-2"></a>Exemple de réponse 2
 
-Successful request with an **HTTP status 202** status code:
+Demande réussie avec un code d’état **http état 202** :
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1

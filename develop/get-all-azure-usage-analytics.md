@@ -1,6 +1,6 @@
 ---
-title: Get all Azure usage analytics information
-description: How to get all the Azure usage analytics information.
+title: Récupération de toutes les informations d’analyse d’utilisation Azure
+description: Obtention de toutes les informations d’analyse de l’utilisation d’Azure.
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,35 +13,35 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485999"
 ---
-# <a name="get-all-azure-usage-analytics-information"></a>Get all Azure usage analytics information
+# <a name="get-all-azure-usage-analytics-information"></a>Récupération de toutes les informations d’analyse d’utilisation Azure
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 
-How to get all the Azure usage analytics information for your customers. 
+Obtention de toutes les informations d’analyse de l’utilisation d’Azure pour vos clients. 
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only. 
-
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-**Request syntax**
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
+
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
+
+
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/usage/azure HTTP/1.1 |
+| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/usage/Azure http/1.1 |
 
  
 
-**URI parameters**
+**Paramètres d’URI**
 
 <table>
   <thead>
@@ -49,7 +49,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>Paramètre</p>
       </th>
       <th>
-        <p>Tapez</p>
+        <p>Type</p>
       </th>
       <th>
         <p>Description</p>
@@ -75,7 +75,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>entier</p>
       </td>
       <td>
-        <p>Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. For example, <code>top=10000 and skip=0</code> retrieves the first 10000 rows of data, <code>top=10000 and skip=10000</code> retrieves the next 10000 rows of data, and so on.</p>
+        <p>Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, <code>top=10000 and skip=0</code> récupère les 10000 premières lignes de données, <code>top=10000 and skip=10000</code> récupère les 10000 lignes de données suivantes, et ainsi de suite.</p>
       </td>
     </tr>
     <tr>
@@ -89,7 +89,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs <strong>eq</strong> ou <strong>ne</strong>, et les instructions peuvent être combinées à l’aide des opérateurs <strong>and</strong> ou <strong>or</strong>. Vous pouvez spécifier les champs suivants :</p>
         <ul>
           <li><em>customerTenantId</em></li>
-          <li><em>customerName</em></li>
+          <li><em>Souhaite</em></li>
           <li><em>subscriptionId</em></li>
           <li><em>subscriptionName</em></li>
           <li><em>usageDate</em></li>
@@ -98,7 +98,7 @@ How to get all the Azure usage analytics information for your customers.
           <li><em>meterSubcategory</em></li>
           <li><em>meterUnit</em></li>
           <li><em>reservationOrderId</em></li>
-          <li><em>reservationId</em></li>
+          <li><em>Réservation</em></li>
           <li><em>consumptionMeterId</em></li>
           <li><em>serviceType</em></li>
         </ul>
@@ -119,7 +119,7 @@ How to get all the Azure usage analytics information for your customers.
       </td>
       <td>
         <p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : &quot;day&quot;, &quot;week&quot; ou &quot;month&quot;. Par défaut, la valeur est &quot;day&quot;.</p>
-      <p>The <em>aggregationLevel</em> parameter is not supported without a <em>groupby</em>. The <em>aggregationLevel</em> parameter applies to all date fields present in the <em>groupby</em>.</p>
+      <p>Le paramètre <em>aggregationLevel</em> n’est pas pris en charge sans <em>GroupBy</em>. Le paramètre <em>aggregationLevel</em> s’applique à tous les champs de date présents dans le <em>GroupBy</em>.</p>
       </td>
     </tr>
     <tr>
@@ -130,7 +130,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>chaîne</p>
       </td>
       <td>
-        <p>Une instruction qui commande les valeurs de données de résultats pour chaque installation. The syntax is <code>...&orderby=field [order],field [order],...</code> The <em>field</em> parameter can be one of the following strings:</p>
+        <p>Une instruction qui commande les valeurs de données de résultats pour chaque installation. La syntaxe est <code>...&orderby=field [order],field [order],...</code> le paramètre <em>Field</em> peut être l’une des chaînes suivantes :</p>
         <ul>
           <li>&quot;customerTenantId&quot;</li>
           <li>&quot;customerName&quot;</li>
@@ -142,11 +142,11 @@ How to get all the Azure usage analytics information for your customers.
           <li>&quot;meterSubcategory&quot;</li>
           <li>&quot;meterUnit&quot;</li>
           <li>&quot;reservationOrderId&quot;</li>
-          <li>&quot;reservationId&quot;</li>
+          <li>&quot;réservation&quot;</li>
           <li>&quot;consumptionMeterId&quot;</li>
           <li>&quot;serviceType&quot;</li>
         </ul>
-        <p>The <em>order</em> parameter is optional and can be &quot;asc&quot; or &quot;desc&quot; to specify ascending or descending order for each field, respectively. La valeur par défaut est &quot;asc&quot;.</p>
+        <p>Le paramètre <em>Order</em> est facultatif et peut être &quot;ASC&quot; ou &quot;DESC&quot; pour spécifier l’ordre croissant ou décroissant pour chaque champ, respectivement. La valeur par défaut est &quot;asc&quot;.</p>
         <p><strong>Exemple :</strong><br/> 
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
@@ -163,7 +163,7 @@ How to get all the Azure usage analytics information for your customers.
         <p>Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. Vous pouvez spécifier les champs suivants :</p>
         <ul>
           <li><em>customerTenantId</em></li>
-          <li><em>customerName</em></li>
+          <li><em>Souhaite</em></li>
           <li><em>subscriptionId</em></li>
           <li><em>subscriptionName</em></li>
           <li><em>usageDate</em></li>
@@ -172,11 +172,11 @@ How to get all the Azure usage analytics information for your customers.
           <li><em>meterSubcategory</em></li>
           <li><em>meterUnit</em></li>
           <li><em>reservationOrderId</em></li>
-          <li><em>reservationId</em></li>
+          <li><em>Réservation</em></li>
           <li><em>consumptionMeterId</em></li>
           <li><em>serviceType</em></li>
         </ul>
-        <p>The returned data rows will contain the fields specified in the <em>groupby</em> parameter as well as the <em>Quantity</em>.</p>
+        <p>Les lignes de données retournées contiendront les champs spécifiés dans le paramètre <em>GroupBy</em> ainsi que la <em>quantité</em>.</p>
         <p>Le paramètre <em>groupby</em> peut être utilisé avec le paramètre <em>aggregationLevel</em>.</p>
         <p><strong>Exemple :</strong></br>
           <code>...&groupby=meterCategory,meterUnit</code>
@@ -187,15 +187,15 @@ How to get all the Azure usage analytics information for your customers.
 </table>
 
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/usage/azure HTTP/1.1
@@ -205,16 +205,16 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
 
-If successful, the response body contains a collection of [Azure usage](partner-center-analytics-resources.md#azure_usage) resources.
+En cas de réussite, le corps de la réponse contient une collection de ressources d' [utilisation Azure](partner-center-analytics-resources.md#azure_usage) .
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 {
@@ -236,6 +236,6 @@ Each response comes with an HTTP status code that indicates success or failure a
 ```
 
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
-  - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
+  - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)
 

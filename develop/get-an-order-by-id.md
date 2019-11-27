@@ -1,6 +1,6 @@
 ---
-title: Get an order by ID
-description: Gets a Order resource that matches the customer and order ID.
+title: Recevoir une commande par ID
+description: Obtient une ressource de commande qui correspond au client et à l’ID de commande.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485719"
 ---
-# <a name="get-an-order-by-id"></a>Get an order by ID
+# <a name="get-an-order-by-id"></a>Recevoir une commande par ID
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Gets an [Order](order-resources.md) resource that matches the customer and order ID.
+Obtient une ressource de [commande](order-resources.md) qui correspond au client et à l’ID de commande.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (customer-tenant-id). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
-- An order ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- ID de commande.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get a customer's order by ID:
+Pour obtenir l’ID de commande d’un client :
 
-1. Use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-2. Call the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property, followed by the [**ByID()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) method once more.
-3. Call [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) or [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).
+1. Utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** .
+2. Appelez la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) , suivie de la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) une fois de plus.
+3. Appelez la demande d' [**extraction ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) ou [**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -46,17 +46,17 @@ To get a customer's order by ID:
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetOrder.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: GetOrder.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a customer's order by ID:
+Pour obtenir l’ID de commande d’un client :
 
-1. Use your **IAggregatePartner.getCustomers** function and call the **byId()** function.
-2. Call the **getOrders** function, followed by the **byID()** function once more.
-3. Call the **get()** function.
+1. Utilisez votre fonction **collection iaggregatepartner. getCustomers** et appelez la fonction **méthode BYID ()** .
+2. Appelez la fonction **getOrders** , suivie de la fonction **méthode BYID ()** .
+3. Appelez la fonction d' **extraction ()** .
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -70,7 +70,7 @@ Order order = partnerOperations.getCustomers().byId(selectedCustomerId).getOrder
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) command, and specify the **CustomerId** and **OrderId** paramaeters.
+Pour obtenir l’ID de commande d’un client, exécutez la commande [**PartnerCustomerOrder**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerOrder.md) et spécifiez **CustomerID** et **OrderID** paramaeters.
 
 ```powershell
 # $selectedCustomerId
@@ -79,26 +79,26 @@ To get a customer's order by ID, execute the [**Get-PartnerCustomerOrder**](http
 Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrderId
 ```
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                  |
 |---------|--------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{id-for-order} HTTP/1.1  |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{ID-for-order} http/1.1  |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-This table lists the required query parameters to get an order by ID.
+Ce tableau répertorie les paramètres de requête requis pour obtenir une commande par ID.
 
-| Nom                   | Tapez     | Obligatoire | Description                                            |
+| Nom                   | Type     | Obligatoire | Description                                            |
 |------------------------|----------|----------|--------------------------------------------------------|
-| customer-tenant-id     | chaîne   | Oui      | A GUID formatted string corresponding to the customer. |
-| id-for-order           | chaîne   | Oui      | A string corresponding to the order ID.                |
+| client-locataire-ID     | chaîne   | Oui      | Chaîne au format GUID correspondant au client. |
+| ID-pour-commande           | chaîne   | Oui      | Chaîne correspondant à l’ID de commande.                |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -115,13 +115,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an [Order](order-resources.md) resource in the response body.
+En cas de réussite, cette méthode retourne une ressource [Order](order-resources.md) dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

@@ -1,6 +1,6 @@
 ---
-title: Verify an indirect reseller's Microsoft Partner Agreement signing status
-description: You can use the AgreementStatus API to verify whether an indirect reseller has signed the Microsoft Partner Agreement.
+title: Vérifier l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect
+description: Vous pouvez utiliser l’API AgreementStatus pour vérifier si un revendeur indirect a signé l’accord de partenariat Microsoft.
 ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,48 +12,48 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487709"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Verify an indirect reseller's Microsoft Partner Agreement signing status
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Vérifier l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect
 
-S'applique à :
+S’applique à :
 
 * Espace partenaires
 * Espace partenaires de Microsoft Cloud for US Government
 
-You can verify whether an indirect reseller has signed the Microsoft Partner Agreement using their Microsoft Partner Network (MPN) ID or Cloud Solution Provider (CSP) tenant ID (Microsoft ID). You can use one of these identifiers to check the Microsoft Partner Agreement signing status using the **AgreementStatus** API.
+Vous pouvez vérifier si un revendeur indirect a signé l’accord de partenariat Microsoft à l’aide de son ID d’Microsoft Partner Network (MPN) ou de son ID de locataire (ID Microsoft). Vous pouvez utiliser l’un de ces identificateurs pour vérifier l’état de signature de l’accord partenaire Microsoft à l’aide de l’API **AgreementStatus** .
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-* The MPN ID or the CSP tenant ID (Microsoft ID) of the indirect reseller. *You must use one of these two identifiers.*
+* Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+* ID MPN ou ID de locataire CSP (ID Microsoft) du revendeur indirect. *Vous devez utiliser l’un de ces deux identificateurs.*
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête |
 | ------ | ----------- |
-| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
+| **Télécharger** | *[{baseURL}](partner-center-rest-urls.md)* /v1/Compliance/{ProgramName}/agreementstatus ? mpnId = {mpnId} & tenantId = {tenantId} |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-You must provide one of the following two query parameters to identify the partner. If you don't provide one of these two query parameters, you will receive a **400 (Bad request)** error.
+Vous devez fournir l’un des deux paramètres de requête suivants pour identifier le partenaire. Si vous ne fournissez pas l’un de ces deux paramètres de requête, vous recevrez une erreur **400 (requête incorrecte)** .
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | entier | non | A Microsoft Partner Network ID that identifies the indirect reseller. |
-| **TenantId** | GUID | non | A Microsoft ID that identifies the CSP account of the indirect reseller. |
+| **MpnId** | entier | Non | ID de Microsoft Partner Network qui identifie le revendeur indirect. |
+| **TenantId** | GUID | Non | ID Microsoft identifiant le compte CSP du revendeur indirect. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](https://docs.microsoft.com/en-us/partner-center/develop/headers).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](https://docs.microsoft.com/en-us/partner-center/develop/headers).
 
 #### <a name="request-examples"></a>Exemples de demande
 
-##### <a name="request-using-mpn-id"></a>Request using MPN ID
+##### <a name="request-using-mpn-id"></a>Demande à l’aide de l’ID MPN
 
-The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's Microsoft Partner Network ID.
+L’exemple de demande suivant obtient l’état de signature de l’accord partenaire Microsoft du revendeur indirect à l’aide de l’ID de Microsoft Partner Network du revendeur indirect.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -65,9 +65,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="request-using-csp-tenant-id"></a>Request using CSP tenant ID
+##### <a name="request-using-csp-tenant-id"></a>Demander l’ID du locataire CSP
 
-The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's CSP tenant ID (Microsoft ID).
+L’exemple de demande suivant obtient l’état de signature de l’accord partenaire Microsoft du revendeur indirect à l’aide de l’ID de locataire CSP du revendeur indirect (ID Microsoft).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -79,15 +79,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](https://docs.microsoft.com/en-us/partner-center/develop/error-codes).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](https://docs.microsoft.com/en-us/partner-center/develop/error-codes).
 
-#### <a name="response-example-success"></a>Response example (success)
+#### <a name="response-example-success"></a>Exemple de réponse (réussite)
 
-The following example response successfully returns whether the indirect reseller has signed the Microsoft Partner Agreement.
+L’exemple de réponse suivant retourne correctement si le revendeur indirect a signé l’accord de partenariat Microsoft.
 
 ```http
 HTTP/1.1 200 OK
@@ -104,13 +104,13 @@ Connection: close
 }
 ```
 
-#### <a name="response-examples-failure"></a>Response examples (failure)
+#### <a name="response-examples-failure"></a>Exemples de réponse (échec)
 
-You may receive responses similar to the following examples when the signing status of the indirect reseller's Microsoft Partner Agreement can't be returned.
+Vous pouvez recevoir des réponses semblables aux exemples suivants lorsque l’état de signature de l’accord de partenariat Microsoft du revendeur indirect ne peut pas être renvoyé.
 
-##### <a name="non-guid-formatted-csp-tenant-id"></a>Non-GUID formatted CSP tenant ID
+##### <a name="non-guid-formatted-csp-tenant-id"></a>ID de locataire CSP au format non GUID
 
-The following example response is returned when the CSP tenant ID that you passed to the API is not a GUID.
+L’exemple de réponse suivant est retourné lorsque l’ID de locataire CSP que vous avez passé à l’API n’est pas un GUID.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -130,9 +130,9 @@ Connection: close
 }
 ```
 
-##### <a name="non-numeric-mpn-id"></a>Non-numeric MPN ID
+##### <a name="non-numeric-mpn-id"></a>ID MPN non numérique
 
-The following example response is returned when the MPN ID that you passed to the API is non-numeric.
+L’exemple de réponse suivant est retourné lorsque l’ID MPN que vous avez passé à l’API n’est pas numérique.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -152,9 +152,9 @@ Connection: close
 }
 ```
 
-##### <a name="no-mpn-id-or-csp-tenant-id"></a>No MPN ID or CSP tenant ID
+##### <a name="no-mpn-id-or-csp-tenant-id"></a>Aucun ID MPN ou ID de locataire CSP
 
-The following example response is returned when you haven't passed an MPN ID or CSP tenant ID to the API. You must pass one of the two ID types to the API.
+L’exemple de réponse suivant est retourné lorsque vous n’avez pas passé un ID MPN ou un ID de locataire CSP à l’API. Vous devez passer l’un des deux types d’ID à l’API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -174,9 +174,9 @@ Connection: close
 }
 ```
 
-##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>Both MPN ID and CSP tenant ID passed
+##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>ID MPN et ID de locataire CSP transmis
 
-The following example response is returned when you pass both the MPN ID and CSP tenant ID to the API. You must pass *only one* of the two identifier types to the API.
+L’exemple de réponse suivant est retourné lorsque vous transmettez l’ID MPN et l’ID du locataire CSP à l’API. Vous devez passer *un seul* des deux types d’identificateur à l’API.
 
 ```http
 HTTP/1.1 400 Bad Request

@@ -1,6 +1,6 @@
 ---
-title: Get a list of products (by country)
-description: You can use the Product resource to get a collection of products by customer country.
+title: Obtenir une liste de produits (par pays)
+description: Vous pouvez utiliser la ressource de produit pour obtenir une collection de produits par pays du client.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487319"
 ---
-# <a name="get-a-list-of-products-by-country"></a>Get a list of products (by country)
+# <a name="get-a-list-of-products-by-country"></a>Obtenir une liste de produits (par pays)
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can use the following methods to get a collection of products available in a particular country.
+Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de produits disponibles dans un pays particulier.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A country.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Un pays.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get a list of products:
+Pour obtenir la liste des produits :
 
-1. Use your **IAggregatePartner.Products** collection to select the country by using the **ByCountry()** method.
-2. Select the catalog view using the **ByTargetView()** method.
-3. (Optional) Select the reservation scope using the **ByReservationScope()** method.
-3. (Optional) Select the target segment using the **ByTargetSegment()** method.
-4. Call the **Get()** or **GetAsync()** method to return the collection.
+1. Utilisez votre collection **collection iaggregatepartner. Products** pour sélectionner le pays à l’aide de la méthode **ByCountry ()** .
+2. Sélectionnez l’affichage catalogue à l’aide de la méthode **ByTargetView ()** .
+3. Facultatif Sélectionnez l’étendue de la réservation à l’aide de la méthode **ByReservationScope ()** .
+3. Facultatif Sélectionnez le segment cible à l’aide de la méthode **ByTargetSegment ()** .
+4. Appelez la méthode **obten ()** ou **GetAsync ()** pour retourner la collection.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -60,12 +60,12 @@ ResourceCollection<Product> products = partnerOperations.Products.ByCountry("US"
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of products:
+Pour obtenir la liste des produits :
 
-1. Use your **IAggregatePartner.getProducts** function to select the country by using the **byCountry()** function.
-2. Select the catalog view using the **byTargetView()** function.
-3. (Optional) Select the target segment using the **byTargetSegment()** function.
-4. Call the **get()** function to return the collection.
+1. Utilisez la fonction **collection iaggregatepartner. GetProducts** pour sélectionner le pays à l’aide de la fonction **byCountry ()** .
+2. Sélectionnez l’affichage catalogue à l’aide de la fonction **byTargetView ()** .
+3. Facultatif Sélectionnez le segment cible à l’aide de la fonction **byTargetSegment ()** .
+4. Appelez la fonction **obtenir ()** pour retourner la collection.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -81,11 +81,11 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a list of products:
+Pour obtenir la liste des produits :
 
-1. Execute the [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) command.
-2. Select the catalog by specifying the **Catalog** parameter.
-3. (Optional) Select the target segment by specifying the **Segment** parameter.
+1. Exécutez la commande [**PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) .
+2. Sélectionnez le catalogue en spécifiant le paramètre **Catalog** .
+3. Facultatif Sélectionnez le segment cible en spécifiant le paramètre de **segment** .
 
 ```powershell
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
@@ -93,28 +93,28 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>Rest request
+### <a name="rest-request"></a>Demande Rest
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products ? pays = {country} & targetView = {targetView} & targetSegment = {TARGETSEGMENT} http/1.1 |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path and query parameters to get a list of products.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir une liste de produits.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                             |
+| Nom                   | Type     | Obligatoire | Description                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| country                | chaîne   | Oui      | The country/region ID.                                                  |
-| targetView             | chaîne   | Oui      | Identifies the target view of the catalog. The supported values are: <ul><li>**Azure**, which includes all Azure items</li><li>**AzureReservations**, which includes all Azure reservation items</li><li>**AzureReservationsVM**, which includes all virtual machine (VM) reservation items</li><li>**AzureReservationsSQL**, which includes all SQL reservation items</li><li>**AzureReservationsCosmosDb**, which includes all Cosmos database reservation items</li><li>**MicrosoftAzure**, which includes items for Microsoft Azure subscriptions (**MS-AZR-0145P**) and Azure plans</li><li>**OnlineServices**, which includes all online service items (including commercial marketplace products)</li><li>**Software**, which includes all software items</li><li>**SoftwareSUSELinux**, which includes all software SUSE Linux items</li><li>**SoftwarePerpetual**, which includes all perpetual software items</li><li>**SoftwareSubscriptions**, which includes all software subscription items</li></ul> |
-| targetSegment          | chaîne   | non       | Identifies the target segment. The view for different target audiences. The supported values are: <ul><li>**commercial**</li><li>**education**</li><li>**government**</li><li>**nonprofit**</li></ul> |
-| reservationScope | chaîne   | non | When querying for a list of products for Azure Reservations, specify `reservationScope=AzurePlan` to get a list of products that are applicable to Azure plans. Exclude this parameter to get a list of products for Azure reservations, which are applicable to Microsoft Azure (**MS-AZR-0145P**) subscriptions.  |
+| country                | chaîne   | Oui      | ID du pays/de la région.                                                  |
+| targetView             | chaîne   | Oui      | Identifie la vue cible du catalogue. Les valeurs prises en charge sont les suivantes : <ul><li>**Azure**, qui comprend tous les éléments Azure</li><li>**AzureReservations**, qui comprend tous les éléments de réservation Azure</li><li>**AzureReservationsVM**, qui comprend tous les éléments de réservation des machines virtuelles</li><li>**AzureReservationsSQL**, qui comprend tous les éléments de réservation SQL</li><li>**AzureReservationsCosmosDb**, qui comprend tous les éléments de réservation de base de données Cosmos</li><li>**MicrosoftAzure**, qui comprend des éléments pour les abonnements Microsoft Azure (**MS-AZR-0145P**) et les plans Azure</li><li>**OnlineServices**, qui inclut tous les éléments de service en ligne (y compris les produits de la place de marché commercial)</li><li>**Logiciel**, qui comprend tous les éléments logiciels</li><li>**SoftwareSUSELinux**, qui comprend tous les éléments logiciels SUSE Linux</li><li>**SoftwarePerpetual**, qui comprend tous les éléments logiciels perpétuels</li><li>**SoftwareSubscriptions**, qui comprend tous les éléments d’abonnement logiciel</li></ul> |
+| targetSegment          | chaîne   | Non       | Identifie le segment cible. Affichage pour différents publics cibles. Les valeurs prises en charge sont les suivantes : <ul><li>**but**</li><li>**Département**</li><li>**émis**</li><li>**organismes**</li></ul> |
+| reservationScope | chaîne   | Non | Lors de l’interrogation d’une liste de produits pour Azure Reservations, spécifiez `reservationScope=AzurePlan` pour obtenir la liste des produits applicables aux plans Azure. Excluez ce paramètre pour obtenir une liste de produits pour les réservations Azure, applicables aux abonnements Microsoft Azure (**MS-AZR-0145P**).  |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -122,9 +122,9 @@ Aucun.
 
 #### <a name="request-examples"></a>Exemples de demande
 
-##### <a name="products-by-country"></a>Products by country
+##### <a name="products-by-country"></a>Produits par pays
 
-Follow this example to get a list of products by country for Microsoft Azure (MS-AZR-0145P) subscriptions and Azure plans.
+Suivez cet exemple pour obtenir la liste des produits par pays pour les abonnements Microsoft Azure (MS-AZR-0145P) et les plans Azure.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=MicrosoftAzure HTTP/1.1
@@ -134,9 +134,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="azure-vm-reservations-azure-plan"></a>Azure VM reservations (Azure plan)
+##### <a name="azure-vm-reservations-azure-plan"></a>Réservations de machines virtuelles Azure (plan Azure)
 
-Follow this example to get a list of products by country for Azure VM reservations that are applicable to Azure plans.
+Suivez cet exemple pour obtenir la liste des produits par pays pour les réservations de machines virtuelles Azure applicables aux plans Azure.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -146,9 +146,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-##### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Azure VM reservations for Microsoft Azure (MS-AZR-0145P) subscriptions
+##### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Réservations de machines virtuelles Azure pour les abonnements Microsoft Azure (MS-AZR-0145P)
 
-Follow this example to get a list of products by country for Azure VM reservations that are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.
+Suivez cet exemple pour obtenir la liste des produits par pays pour les réservations de machines virtuelles Azure applicables aux abonnements Microsoft Azure (MS-AZR-0145P).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureReservationsVM HTTP/1.1
@@ -158,20 +158,20 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a collection of [**Product**](product-resources.md#product) resources.
+En cas de réussite, le corps de la réponse contient une collection de ressources de [**produit**](product-resources.md#product) .
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested targetSegment is not allowed.                                                     |
-| 403                  | 400036       | Access to the requested targetView is not allowed.                                                        |
+| 403                  | 400030       | L’accès au targetSegment demandé n’est pas autorisé.                                                     |
+| 403                  | 400036       | L’accès au targetView demandé n’est pas autorisé.                                                        |
 
 #### <a name="response-example"></a>Exemple de réponse
 

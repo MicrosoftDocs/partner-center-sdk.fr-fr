@@ -1,6 +1,6 @@
 ---
-title: Get invoice receipt statement
-description: Retrieves an invoice receipt statement using invoice ID and the receipt ID.
+title: Instruction de réception de facture
+description: Récupère une déclaration de réception de facture à l’aide de l’ID de facture et de l’ID de reçu.
 ms.date: 02/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,25 +12,25 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489519"
 ---
-# <a name="get-invoice-receipt-statement"></a>Get invoice receipt statement
+# <a name="get-invoice-receipt-statement"></a>Instruction de réception de facture
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Retrieves an invoice receipt statement using invoice ID and the receipt ID. 
+Récupère une déclaration de réception de facture à l’aide de l’ID de facture et de l’ID de reçu. 
 
 > [!IMPORTANT]
-> This feature is only applicable to Taiwan tax receipts.
+> Cette fonctionnalité s’applique uniquement aux recettes fiscales de Taïwan.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A valid Invoice ID and a corresponding receipt ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Un ID de facture valide et un ID de réception correspondant.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To get an invoice receipt statement by ID, starting with Partner Center SDK v1.12.0, use your **IPartner.Invoices** collection and call the **ById()** method using the invoice ID, then call the **Receipts** collection and call **ById()** then call the **Documents()** and **Statement()** methods to access the invoice receipt statement. Finally, call the **Get()** or **GetAsync()** methods.
+Pour récupérer une déclaration de facture par ID, commencez par le kit de développement logiciel (SDK) du kit de développement logiciel (SDK) v 1.12.0, utilisez votre collection **collection ipartner. factures** , puis appelez la méthode **méthode BYID ()** à l’aide de l’ID de facture, appelez ensuite la collection de **reçus** et appelez **méthode BYID (** ), puis appelez les méthodes **documents ()** et **Statement ()** pour accéder à l' Enfin, appelez les méthodes d' **extraction ()** ou de **GetAsync ()** .
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -39,34 +39,34 @@ To get an invoice receipt statement by ID, starting with Partner Center SDK v1.1
 var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Receipts.ById(selectedReceipt).Documents.Statement.Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSample **Class**: GetInvoiceReceiptStatement.cs 
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: GetInvoiceReceiptStatement.cs 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/receipts/{receipt-id}/documents/statement HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/Receipts/{receipt-ID}/documents/Statement http/1.1 |
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameter to get the invoice receipt statement.
+Utilisez le paramètre de requête suivant pour obtenir l’instruction de réception de facture.
 
-| Nom       | Tapez   | Obligatoire | Description                                                                                    |
+| Nom       | Type   | Obligatoire | Description                                                                                    |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|
-| invoice-id | chaîne | Oui      | The value is an invoice-id that allows the reseller to filter the results for a given invoice. |
-| receipt-id | chaîne | Oui      | The value is a receipt-id that allows the reseller to filter the receipts for a given invoice. |
+| ID de la facture | chaîne | Oui      | La valeur est un ID de facture qui permet au revendeur de filtrer les résultats pour une facture donnée. |
+| ID de réception | chaîne | Oui      | La valeur est un ID de réception qui permet au revendeur de filtrer les accusés de réception pour une facture donnée. |
  
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-Aucun(e)
+Aucune
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/<invoice-id>/receipts/<receipt-id>/documents/statement HTTP/1.1
@@ -76,15 +76,15 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
 
-If successful, this method returns a pdf stream in the response body.
+En cas de réussite, cette méthode retourne un flux PDF dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

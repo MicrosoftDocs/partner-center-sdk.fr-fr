@@ -1,6 +1,6 @@
 ---
-title: Get a list of Azure entitlements for a subscription
-description: You can use the AzureEntitlement resource to  get a collection of Azure entitlement resources that belong to a subscription.
+title: Obtenir la liste des droits Azure pour un abonnement
+description: Vous pouvez utiliser la ressource AzureEntitlement pour obtenir une collection de ressources de droits Azure qui appartiennent à un abonnement.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,40 +12,40 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487499"
 ---
-# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Get a list of Azure entitlements for a subscription
+# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Obtenir la liste des droits Azure pour un abonnement
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can use the [Azure entitlement resource](subscription-resources.md#azureentitlement) (**AzureEntitlement**) to get a collection of resources that belong to a subscription.
+Vous pouvez utiliser la [ressource d’habilitation Azure](subscription-resources.md#azureentitlement) (**AzureEntitlement**) pour obtenir une collection de ressources appartenant à un abonnement.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**). If you don't have a customer's identifier, you can look it up in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
-- A subscription identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client (**Customer-client-ID**). Si vous n’avez pas d’identificateur de client, vous pouvez le Rechercher dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
+- Identificateur d’abonnement.
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/azureentitlements HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/azureentitlements http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-The following table lists the required query parameters to get all the Azure entitlements for a subscription.
+Le tableau suivant répertorie les paramètres de requête requis pour obtenir toutes les habilitations Azure pour un abonnement.
 
-| Nom                   | Tapez     | Obligatoire | Description                           |
+| Nom                   | Type     | Obligatoire | Description                           |
 |------------------------|----------|----------|---------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | A GUID corresponding to the customer. |
-| **subscription-id**       | **guid** | Y        | A GUID corresponding to the subscription.    |
+| **client-locataire-ID** | **uniques** | Y        | GUID correspondant au client. |
+| **ID d’abonnement**       | **uniques** | Y        | GUID correspondant à l’abonnement.    |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -62,13 +62,13 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of [**AzureEntitlement**](subscription-resources.md#azureentitlement) resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources [**AzureEntitlement**](subscription-resources.md#azureentitlement) dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

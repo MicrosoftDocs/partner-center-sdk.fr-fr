@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST API reference
-description: The Partner Center REST API helps CSP partners integrate their existing CRM or billing software with the Microsoft systems that manage customer accounts, place orders, manage subscriptions, and handle support requests.
+title: Référence de l’API REST de l’espace partenaires
+description: L’API REST de l’espace partenaires permet aux partenaires CSP d’intégrer leurs logiciels CRM ou de facturation existants aux systèmes Microsoft qui gèrent les comptes clients, de passer des commandes, de gérer les abonnements et de gérer les demandes de support.
 ms.assetid: 25191A95-52BB-4E33-A63C-5D00FAF55806
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486989"
 ---
-# <a name="partner-center-rest-api-reference"></a>Partner Center REST API reference
+# <a name="partner-center-rest-api-reference"></a>Référence de l’API REST de l’espace partenaires
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-## <a name="partner-center-rest-api"></a>Partner Center REST API
+## <a name="partner-center-rest-api"></a>API REST de l’espace partenaires
 
-The Partner Center REST API helps Cloud Solution Provider (CSP) partners integrate their existing CRM or billing software with the Microsoft systems that manage customer accounts, place orders, manage subscriptions, and handle support requests.
+L’API REST de l’espace partenaires permet aux partenaires fournisseurs de solutions Cloud d’intégrer leurs logiciels CRM ou de facturation existants aux systèmes Microsoft qui gèrent les comptes clients, de passer des commandes, de gérer les abonnements et de gérer les demandes de support.
 
-For more information about what the API can do, including sample code, see the [Scenarios](scenarios.md) topic, including the background overview.
+Pour plus d’informations sur ce que l’API peut faire, y compris l’exemple de code, consultez la rubrique [scénarios](scenarios.md) , y compris la vue d’ensemble de l’arrière-plan.
 
-Before you begin coding, read the [Get started](get-started.md) topic. This topic contains information about setting up your test and production accounts, getting authentication working, and finding the sample code.
+Avant de commencer le codage, consultez la rubrique [prise en main](get-started.md) . Cette rubrique contient des informations sur la configuration de vos comptes de test et de production, sur le fonctionnement de l’authentification et sur la recherche de l’exemple de code.
 
-## <a name="topics"></a>Topics
+## <a name="topics"></a>Explique
 
-| Sujet | Description |
+| Rubrique | Description |
 | ----- | ----------- |
-| [Partner Center REST URLs](partner-center-rest-urls.md) | Defines the REST API endpoints for different versions of Partner Center. |
-| [Partner Center REST headers](headers.md) | Defines the request and response headers used by the REST API. |
-| [Partner Center REST resources](partner-center-rest-resources.md) | Defines the JSON constructs that represent the objects needed to use the REST API. |
-| [Partner Center REST events](partner-center-webhook-events.md) | Defines the REST resource change events that are supported by Partner Center webhooks. |
-| [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) | Lists the locales, languages, and country/region codes that are supported in the Partner Center APIs. |
-| [Partner Center webhooks](partner-center-webhooks.md) | How to receive events, authenticate a callback, and use the Partner Center webhook APIs to create, view, and update an event registration. |
+| [URL REST de l’espace partenaires](partner-center-rest-urls.md) | Définit les points de terminaison de l’API REST pour les différentes versions de l’espace partenaires. |
+| [En-têtes REST de l’espace partenaires](headers.md) | Définit les en-têtes de demande et de réponse utilisés par l’API REST. |
+| [Ressources REST de l’espace partenaires](partner-center-rest-resources.md) | Définit les constructions JSON qui représentent les objets nécessaires à l’utilisation de l’API REST. |
+| [Événements REST de l’espace partenaires](partner-center-webhook-events.md) | Définit les événements de changement de ressource REST pris en charge par les webhooks de l’espace partenaires. |
+| [Langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) | Répertorie les paramètres régionaux, les langues et les codes de pays/région qui sont pris en charge dans les API de l’espace partenaires. |
+| [Webhooks de l’espace partenaires](partner-center-webhooks.md) | Comment recevoir des événements, authentifier un rappel et utiliser les API de webhook de l’espace partenaires pour créer, afficher et mettre à jour une inscription d’événement. |

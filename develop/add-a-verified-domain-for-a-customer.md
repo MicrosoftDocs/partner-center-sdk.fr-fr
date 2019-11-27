@@ -1,6 +1,6 @@
 ---
-title: Add a verified domain for a customer
-description: Add a verified domain to the list of approved domains for a customer in Partner Center.
+title: Ajouter un domaine vérifié pour un client
+description: Ajoutez un domaine vérifié à la liste des domaines approuvés pour un client dans l’espace partenaires.
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,96 +12,96 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486219"
 ---
-# <a name="add-a-verified-domain-for-a-customer"></a>Add a verified domain for a customer
+# <a name="add-a-verified-domain-for-a-customer"></a>Ajouter un domaine vérifié pour un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to add a verified domain to the list of approved domains for an existing customer.
+Comment ajouter un domaine vérifié à la liste des domaines approuvés pour un client existant.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- You must be a Partner who is a domain registrar.
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer ID (**CustomerTenantId**). If you don't have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their Microsoft ID.
+- Vous devez être un partenaire qui est un bureau d’enregistrement de domaines.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Un ID de client (**CustomerTenantId**). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son ID Microsoft.
 
-## <a name="adding-a-verified-domain"></a>Adding a verified domain
+## <a name="adding-a-verified-domain"></a>Ajout d’un domaine vérifié
 
-If you are a Partner who is a domain registrar, you can use the verifieddomain API to POST a new [Domain](#domain) resource to the list of domains for an existing customer. To do this, identify the customer using their CustomerTenantId, specify a value for the VerifiedDomainName property, and pass a [Domain](#domain) resource in the Request with the required Name, Capability, AuthenticationType, Status, and VerificationMethod properties included. To specify that the new [Domain](#domain) is a federated domain, set the AuthenticationType property in the [Domain](#domain) resource to "Federated", and include a [DomainFederationSettings](#domain-federation-settings) resource in the Request. If the method is successful, the Response will include a [Domain](#domain) resource for the new verified domain.
+Si vous êtes un partenaire qui est un bureau d’enregistrement de domaines, vous pouvez utiliser l’API verifieddomain pour poster une nouvelle ressource de [domaine](#domain) dans la liste des domaines d’un client existant. Pour ce faire, identifiez le client à l’aide de son CustomerTenantId, spécifiez une valeur pour la propriété VerifiedDomainName et transmettez une ressource de [domaine](#domain) dans la demande avec les propriétés Name, Capacity, AuthenticationType, Status et VerificationMethod requises incluses. Pour spécifier que le nouveau [domaine](#domain) est un domaine fédéré, définissez la propriété AuthenticationType dans la ressource de [domaine](#domain) sur « Federated », puis incluez une ressource [DomainFederationSettings](#domain-federation-settings) dans la demande. Si la méthode réussit, la réponse inclut une ressource de [domaine](#domain) pour le nouveau domaine vérifié.
 
-### <a name="custom-verified-domains"></a>Custom verified domains
+### <a name="custom-verified-domains"></a>Domaines vérifiés personnalisés
 
-When adding a custom verified domain, a domain that is not registered on **onmicrosoft.com**, you must set the [CustomerUser.immutableId](user-resources.md#customeruser) property to a unique ID value for the customer you are adding the domain for. This unique identifier is required during the validation process when the domain is being verified. For more information about customer user accounts, see [create user accounts for a customer](create-user-accounts-for-a-customer.md).
+Lorsque vous ajoutez un domaine vérifié personnalisé, un domaine qui n’est pas inscrit sur **onmicrosoft.com**, vous devez définir la propriété [CustomerUser. immutableId](user-resources.md#customeruser) sur une valeur d’ID unique pour le client pour lequel vous ajoutez le domaine. Cet identificateur unique est requis pendant le processus de validation lors de la vérification du domaine. Pour plus d’informations sur les comptes d’utilisateur client, voir [créer des comptes d’utilisateur pour un client](create-user-accounts-for-a-customer.md).
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1.1 |
+| POST   | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{CustomerTenantId}/verifieddomain http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to specify the customer you are adding a verified domain for.
+Utilisez le paramètre de requête suivant pour spécifier le client pour lequel vous ajoutez un domaine vérifié.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CustomerTenantId | GUID | Y        | The value is a GUID formatted **CustomerTenantId** that allows you to specify a customer. |
+| customerTenantId | GUID | Y        | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de la requête
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom                                                  | Tapez   | Obligatoire                                      | Description                                                |
+| Nom                                                  | Type   | Obligatoire                                      | Description                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | chaîne | Oui                                           | The verified domain name. |
-| [Domain](#domain)                                     | object | Oui                                           | Contains the domain information. |
-| [DomainFederationSettings](#domain-federation-settings) | object | Yes (If AuthenticationType = "Federated")     | The domain federation settings to be used if the domain is a "Federated" domain and not a "Managed" domain. |
+| VerifiedDomainName                                    | chaîne | Oui                                           | Nom de domaine vérifié. |
+| [Domain](#domain)                                     | objet | Oui                                           | Contient les informations de domaine. |
+| [DomainFederationSettings](#domain-federation-settings) | objet | Oui (si AuthenticationType = "Federated")     | Paramètres de Fédération de domaine à utiliser si le domaine est un domaine « fédéré » et non un domaine « géré ». |
 
-#### <a name="domain"></a>Domaine
+#### <a name="domain"></a>domaine.
 
-This table describes the required and optional **Domain** properties in the request body.
+Ce tableau décrit les propriétés de **domaine** obligatoires et facultatives dans le corps de la demande.
 
-| Nom               | Tapez                                     | Obligatoire | Description                                                                                                                                                                                                     |
+| Nom               | Type                                     | Obligatoire | Description                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | chaîne           | Oui      | Defines whether the domain is a "Managed" domain or a "Federated" domain. Supported values: Managed, Federated.|
-| Fonctionnalité                                            | chaîne           | Oui      | Specifies the domain capability. For example, "Email".                  |
-| IsDefault                                             | nullable boolean | non       | Indicates whether the domain is the default domain for the tenant. Supported values: True, False, Null.        |
-| IsInitial                                             | nullable boolean | non       | Indicates whether the domain is an initial domain. Supported values: True, False, Null.                       |
+| AuthenticationType                                    | chaîne           | Oui      | Définit si le domaine est un domaine « géré » ou un domaine « fédéré ». Valeurs prises en charge : Managed, Federated.|
+| Fonctionnalité                                            | chaîne           | Oui      | Spécifie la fonctionnalité de domaine. Par exemple, « email ».                  |
+| IsDefault                                             | valeur booléenne Nullable | Non       | Indique si le domaine est le domaine par défaut pour le locataire. Valeurs prises en charge : true, false, null.        |
+| IsInitial                                             | valeur booléenne Nullable | Non       | Indique si le domaine est un domaine initial. Valeurs prises en charge : true, false, null.                       |
 | Nom                                                  | chaîne           | Oui      | Nom du domaine.                                                          |
-| RootDomain                                            | chaîne           | non       | The name of the root domain.                                              |
-| le statut                                                | chaîne           | Oui      | The domain status. For example, "Verified". Supported values:  Unverified, Verified, PendingDeletion.                               |
-| VerificationMethod                                    | chaîne           | Oui      | The domain verification method type. Supported values: None, DnsRecord, Email.                                    |
+| RootDomain                                            | chaîne           | Non       | Nom du domaine racine.                                              |
+| État                                                | chaîne           | Oui      | État du domaine. Par exemple, « vérifié ». Valeurs prises en charge : unverified, Verified, PendingDeletion.                               |
+| VerificationMethod                                    | chaîne           | Oui      | Type de méthode de vérification du domaine. Valeurs prises en charge : None, DnsRecord, email.                                    |
 
-##### <a name="domain-federation-settings"></a>Domain federation settings
+##### <a name="domain-federation-settings"></a>Paramètres de Fédération de domaine
 
-This table describes the required and optional **DomainFederationSettings** properties in the request body.
+Ce tableau décrit les propriétés **DomainFederationSettings** obligatoires et facultatives dans le corps de la demande.
 
-| Nom   | Tapez   | Obligatoire | Description                                                  |
+| Nom   | Type   | Obligatoire | Description                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | chaîne           | non      | The logon URI used by rich clients. This is the partner's STS Auth URL. |
-| DefaultInteractiveAuthenticationMethod | chaîne           | non      | Indicates the default authentication method that should be used when an application requires the user to have interactive login. |
-| FederationBrandName                    | chaîne           | non      | The federation brand name.        |
-| IssuerUri                              | chaîne           | Oui     | The name of the issuer of the certificates.                        |
-| LogOffUri                              | chaîne           | Oui     | The logoff URI. This describes the federated domain sign-out URI.        |
-| MetadataExchangeUri                    | chaîne           | non      | The URL that specifies the metadata exchange endpoint used for authentication from rich client applications. |
-| NextSigningCertificate                 | chaîne           | non      | The certificate used for the coming future by the ADFS V2 STS to sign claims. This is a base64 encoded representation of the certificate. |
-| OpenIdConnectDiscoveryEndpoint         | chaîne           | non      | The OpenID Connect Discovery Endpoint of the federated IDP STS. |
-| PassiveLogOnUri                        | chaîne           | Oui     | The logon URI used by older passive Clients. This is the address to send federated sign-in requests. |
-| PreferredAuthenticationProtocol        | chaîne           | Oui     | The format for the authentication token. For example, "WsFed". Supported values: WsFed, Samlp |
-| PromptLoginBehavior                    | chaîne           | Oui     | The prompt login behavior type.  For example, "TranslateToFreshPasswordAuth". Supported values: TranslateToFreshPasswordAuth, NativeSupport, Disabled |
-| SigningCertificate                     | chaîne           | Oui     | The certificate currently used by the ADFS V2 STS to sign claims. This is a base64 encoded representation of the certificate. |
-| SigningCertificateUpdateStatus         | chaîne           | non      | Indicates the update status of the Signing certificate. |
-| SigningCertificateUpdateStatus         | nullable boolean | non      | Indicates whether the IDP STS supports MFA. Supported values: True, False, Null.|
+| ActiveLogOnUri                         | chaîne           | Non      | URI d’ouverture de session utilisé par les clients enrichis. Il s’agit de l’URL d’authentification STS du partenaire. |
+| DefaultInteractiveAuthenticationMethod | chaîne           | Non      | Indique la méthode d’authentification par défaut qui doit être utilisée lorsqu’une application exige que l’utilisateur dispose d’une connexion interactive. |
+| FederationBrandName                    | chaîne           | Non      | Nom de la désignation de la Fédération.        |
+| IssuerUri                              | chaîne           | Oui     | Nom de l’émetteur des certificats.                        |
+| LogOffUri                              | chaîne           | Oui     | URI de fermeture de session. Cela décrit l’URI de déconnexion du domaine fédéré.        |
+| MetadataExchangeUri                    | chaîne           | Non      | URL qui spécifie le point de terminaison d’échange de métadonnées utilisé pour l’authentification à partir d’applications clientes riches. |
+| NextSigningCertificate                 | chaîne           | Non      | Le certificat utilisé pour la prochaine version du service ADFS v2 pour signer les revendications. Il s’agit d’une représentation codée en base64 du certificat. |
+| OpenIdConnectDiscoveryEndpoint         | chaîne           | Non      | Le point de terminaison de découverte OpenID Connect du STS IDP. |
+| PassiveLogOnUri                        | chaîne           | Oui     | URI d’ouverture de session utilisé par les anciens clients passifs. Il s’agit de l’adresse pour envoyer des demandes de connexion fédérées. |
+| PreferredAuthenticationProtocol        | chaîne           | Oui     | Format du jeton d’authentification. Par exemple, « WsFed ». Valeurs prises en charge : WsFed, texte samlp |
+| PromptLoginBehavior                    | chaîne           | Oui     | Type de comportement de connexion prompt.  Par exemple, « TranslateToFreshPasswordAuth ». Valeurs prises en charge : TranslateToFreshPasswordAuth, NativeSupport, Disabled |
+| SigningCertificate                     | chaîne           | Oui     | Certificat actuellement utilisé par le STS v2 pour signer des revendications. Il s’agit d’une représentation codée en base64 du certificat. |
+| SigningCertificateUpdateStatus         | chaîne           | Non      | Indique l’état de mise à jour du certificat de signature. |
+| SigningCertificateUpdateStatus         | valeur booléenne Nullable | Non      | Indique si le STS IDP prend en charge MFA. Valeurs prises en charge : true, false, null.|
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -145,13 +145,13 @@ X-Locale: "en-US"
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this API returns a [Domain](#domain) resource for the new verified domain.
+En cas de réussite, cette API retourne une ressource de [domaine](#domain) pour le nouveau domaine vérifié.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

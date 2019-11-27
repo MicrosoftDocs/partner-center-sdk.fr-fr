@@ -1,6 +1,6 @@
 ---
-title: Service costs resources
-description: Describes resources related to services purchased by a customer.
+title: Ressources des coûts de service
+description: Décrit les ressources associées aux services achetés par un client.
 ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
@@ -13,88 +13,88 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488079"
 ---
-# <a name="service-costs-resources"></a>Service costs resources
+# <a name="service-costs-resources"></a>Ressources des coûts de service
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-Describes resources related to services purchased by a customer.
+Décrit les ressources associées aux services achetés par un client.
 
 ## <a name="servicecostssummary"></a>ServiceCostsSummary
 
-**ServiceCostsSummary** contains a summary that aggregates all services purchased by the specified customer during the billing period.
+**ServiceCostsSummary** contient un résumé qui agrège tous les services achetés par le client spécifié pendant la période de facturation.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| details | array of [ServiceCostsSummaryDetail](#servicecostssummarydetail) objects | The service cost summary detail list, distinguished by invoice type.|
-| liens | [ResourceLinks](utility-resources.md#resourcelinks) | The resource links. |
-| attributs | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes. |
+| details | Tableau d’objets [ServiceCostsSummaryDetail](#servicecostssummarydetail) | Liste détaillée du résumé du coût du service, distingué par le type de facture.|
+| liens | [ResourceLinks](utility-resources.md#resourcelinks) | Liens vers les ressources. |
+| attributs | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées. |
 
 > [!IMPORTANT]
-> **The fields in the following table are being deprecated.** To retrieve recurring and one-time service cost summaries, use the **details** field instead. The **details** field is described in the previous table. Refer to the **details** field's corresponding data values but not the root-level fields.
+> **Les champs du tableau suivant sont déconseillés.** Pour récupérer des résumés des coûts des services récurrents et ponctuels, utilisez le champ **Détails** à la place. Le champ **Détails** est décrit dans le tableau précédent. Reportez-vous aux valeurs de données correspondantes du champ **Détails** , mais pas aux champs de niveau racine.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| billingStartDate | date | The start of the billing period. |
-| billingEndDate | date | The end of the billing period. |
-| pretaxTotal | double | The pre-tax total of all costs for the customer. |
-| tax  | double | The total tax incurred over all items purchased by the customer. |
-| afterTaxTotal | double | The net total cost for all items purchased by the customer. |
-| currencyCode | chaîne | Represents the currency used for the costs. |
-| currencySymbol | chaîne | The currency symbol used for the costs. |
-| customerId | chaîne | The ID of the customer making the purchase. |
+| BillingStartDate | date | Début de la période de facturation. |
+| billingEndDate | date | Fin de la période de facturation. |
+| pretaxTotal | Double | Total de tous les coûts pour le client. |
+| TTC  | Double | Taxe totale imputée sur tous les articles achetés par le client. |
+| afterTaxTotal | Double | Coût total net pour tous les articles achetés par le client. |
+| currencyCode | chaîne | Représente la devise utilisée pour les coûts. |
+| currencySymbol | chaîne | Symbole monétaire utilisé pour les coûts. |
+| customerId | chaîne | ID du client effectuant l’achat. |
 
 ## <a name="servicecostssummarydetail"></a>ServiceCostsSummaryDetail
 
-**ServiceCostsSummaryDetail** describes a service cost summary that aggregates all services purchased by the specified customer during the billing period (from either recurring or one-time invoices).
+**ServiceCostsSummaryDetail** décrit un récapitulatif des coûts de service qui agrège tous les services achetés par le client spécifié pendant la période de facturation (à partir de factures périodiques ou ponctuelles).
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| invoiceType | chaîne | The invoiceType that service cost summary has been generated. |
-| summary | [ServiceCostsSummary](#servicecostssummary) | The service cost summary aggregated by a customer under one invoice type. |
+| invoiceType | chaîne | InvoiceType que le résumé du coût du service a été généré. |
+| Tête | [ServiceCostsSummary](#servicecostssummary) | Résumé du coût du service agrégé par un client sous un type de facture. |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
-**ServiceCostLineItem** describes a single item purchased by the customer.
+**ServiceCostLineItem** décrit un seul élément acheté par le client.
 
 > [!IMPORTANT]
-> The following properties *only apply to* service cost line items where the product is a *one-time purchase*: **productId**, **productName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**. These properties *don't apply to* service line items where the product is a *recurring purchase*. For example, these properties *don't apply* to subscription-based Office 365 and Azure.
+> Les propriétés suivantes *s’appliquent uniquement aux éléments de ligne de* coût du service où le produit est un *achat unique*: **ProductID**, **ProductName**, **skuId**, **skuName**, **availabilityId**, **publisherId**, **PublisherName**, **termAndBillingCycle**, **discountDetails**. Ces propriétés *ne s’appliquent pas aux Articles de ligne de* service où le produit est un *achat périodique*. Par exemple, ces propriétés *ne s’appliquent pas* aux Office 365 et Azure basés sur des abonnements.
 
-| Propriété                 | Tapez                           | Description                                                          |
+| Propriété                 | Type                           | Description                                                          |
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
-| startDate                | string in UTC date-time format | The start date for the charge.                                       |
-| endDate                  | string in UTC date-time format | The end date for the charge.                                         |
-| subscriptionFriendlyName | chaîne                         | The friendly name for the subscription.                              |
-| subscriptionId           | chaîne                         | The subscription identifier.                                         |
-| orderId                  | chaîne                         | The order identifier.                                                |
-| offerId                  | chaîne                         | The offer identifier.                                                |
-| offerName                | chaîne                         | The offer name.                                                      |
-| resellerMPNId            | chaîne                         | Only used in 2-tier partner scenarios. Refers to the MPN identifier. |
-| chargeType               | chaîne                         | The associated charge type.                                          |
-| quantity                 | nombre                         | The quantity of units used or purchased.                             |
-| unitPrice                | nombre                         | The price per unit.                                                  |
-| pretaxTotal              | nombre                         | The total charge for this item before taxes.                         |
-| tax                      | nombre                         | The total tax charge incurred for this item.                         |
-| afterTaxTotal            | nombre                         | The net total cost for this item.                                    |
-| currencyCode             | chaîne                         | Represents the currency used for the costs.                          |
-| currencySymbol           | chaîne                         | The currency symbol used for the costs.                              |
-| customerId               | chaîne                         | The ID of the customer making the purchase.                          |
-| customerName             | chaîne                         | The name of the customer making the purchase.                        |
-| invoiceNumber            | chaîne                         | The invoice number that this line item belongs to.                   |
-| productId                | chaîne                         | The product identifier.                                              |
-| skuId                    | chaîne                         | The Sku identifier.                                                  |
-| availabilityId           | chaîne                         | The availability identifier.                                         |
-| productName              | chaîne                         | The product name.                                                    |
-| skuName                  | chaîne                         | The sku name.                                                        |
-| publisherName            | chaîne                         | The publisher name.                                                  |
-| publisherId              | chaîne                         | The publisher identifier.                                            |
-| termAndBillingCycle      | chaîne                         | The term and billing cycle.                                          |
-| discountDetails          | chaîne                         | The discount details.                                                |
+| startDate                | chaîne au format date-heure UTC | Date de début des frais.                                       |
+| endDate                  | chaîne au format date-heure UTC | Date de fin des frais.                                         |
+| subscriptionFriendlyName | chaîne                         | Nom convivial de l’abonnement.                              |
+| subscriptionId           | chaîne                         | Identificateur d’abonnement.                                         |
+| orderId                  | chaîne                         | Identificateur de l’ordre.                                                |
+| offerId                  | chaîne                         | Identificateur de l’offre.                                                |
+| offerName                | chaîne                         | Nom de l’offre.                                                      |
+| resellerMPNId            | chaîne                         | Utilisé uniquement dans les scénarios de partenaires à deux niveaux. Fait référence à l’identificateur MPN. |
+| chargeType               | chaîne                         | Type de frais associé.                                          |
+| quantity                 | nombre                         | Quantité d’unités utilisées ou achetées.                             |
+| Prix                | nombre                         | Prix unitaire.                                                  |
+| pretaxTotal              | nombre                         | Total des frais pour cet article avant les taxes.                         |
+| TTC                      | nombre                         | Montant total des frais de taxe engagés pour cet article.                         |
+| afterTaxTotal            | nombre                         | Coût total net de cet article.                                    |
+| currencyCode             | chaîne                         | Représente la devise utilisée pour les coûts.                          |
+| currencySymbol           | chaîne                         | Symbole monétaire utilisé pour les coûts.                              |
+| customerId               | chaîne                         | ID du client effectuant l’achat.                          |
+| Souhaite             | chaîne                         | Nom du client qui effectue l’achat.                        |
+| invoiceNumber            | chaîne                         | Numéro de la facture à laquelle cet article appartient.                   |
+| productId                | chaîne                         | Identificateur du produit.                                              |
+| skuId                    | chaîne                         | Identificateur de référence (SKU).                                                  |
+| availabilityId           | chaîne                         | Identificateur de disponibilité.                                         |
+| productName              | chaîne                         | Nom du produit.                                                    |
+| skuName                  | chaîne                         | Nom de la référence (SKU).                                                        |
+| publisherName            | chaîne                         | Nom de l’éditeur.                                                  |
+| PublisherId              | chaîne                         | Identificateur de l’éditeur.                                            |
+| termAndBillingCycle      | chaîne                         | Le terme et le cycle de facturation.                                          |
+| discountDetails          | chaîne                         | Détails de la remise.                                                |
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
-| Propriété             | Tapez                               | Description                         |
+| Propriété             | Type                               | Description                         |
 |----------------------|------------------------------------|-------------------------------------|
-| serviceCostLineItems | [Link](utility-resources.md#link) | The URI to retrieve the line items. |
-| self                 | [Link](utility-resources.md#link) | The self URI.                       |
+| serviceCostLineItems | [Lien](utility-resources.md#link) | URI pour récupérer les éléments de ligne. |
+| rythme                 | [Lien](utility-resources.md#link) | URI auto.                       |

@@ -1,6 +1,6 @@
 ---
-title: Partner Center samples
-description: To help you get up and running quickly with the Partner Center APIs, we provide a sample program, C\ managed code snippets, and REST sample requests and responses.
+title: Exemples de l’espace partenaires
+description: Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de programme, des extraits de code managé C et des exemples de demandes et de réponses REST.
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,16 +13,16 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486789"
 ---
-# <a name="partner-center-samples"></a>Partner Center samples
+# <a name="partner-center-samples"></a>Exemples de l’espace partenaires
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-To help you get up and running quickly with the Partner Center APIs, we provide a sample program, C# managed code snippets, and REST sample requests and responses.
+Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de C# programme, des extraits de code managés et des exemples de demandes et de réponses Rest.
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -35,34 +35,34 @@ To help you get up and running quickly with the Partner Center APIs, we provide 
   </thead>
   <tbody>
     <tr>
-      <td>Code snippets</td>
-      <td>For pointers and .NET, Java, and PowerShell code snippets that show how to use the Partner Center managed API to manage customer accounts, get analytics, place orders, manage billing and subscriptions, provide support, and manage accounts and profiles, see <a href="scenarios.md">Scenarios</a>.</td>
+      <td>Extraits de code</td>
+      <td>Pour les pointeurs et les extraits de code .NET, Java et PowerShell qui montrent comment utiliser l’API gérée par l’espace partenaires pour gérer les comptes clients, obtenir des analyses, passer des commandes, gérer la facturation et les abonnements, fournir un support et gérer les comptes et les profils, consultez <a href="scenarios.md">scénarios</a>.</td>
     </tr>
     <tr>
-      <td>REST samples</td>
-      <td>For sample requests and responses that show how to use the Partner Center REST API to manage customer accounts, get analytics, place orders, manage billing and subscriptions, provide support, and manage accounts and profiles, see <a href="scenarios.md">Scenarios</a>.</td>
+      <td>Exemples REST</td>
+      <td>Pour obtenir des exemples de demandes et de réponses montrant comment utiliser l’API REST de l’espace partenaires pour gérer les comptes clients, obtenir des analyses, passer des commandes, gérer la facturation et les abonnements, fournir un support et gérer les comptes et les profils, consultez <a href="scenarios.md">scénarios</a>.</td>
     </tr>
     <tr>
-      <td><a href="console-test-app.md">Console test app</a></td>
-      <td>This app is available in C# and Java, it provides code and some error handling for all of the scenarios listed in the scenarios section.</td>
+      <td><a href="console-test-app.md">Application de test de la console</a></td>
+      <td>Cette application est disponible dans C# et Java, elle fournit du code et une gestion des erreurs pour tous les scénarios listés dans la section scénarios.</td>
     </tr>
     <tr>
-      <td><a href="csp-customer-web-storefront.md">CSP customer web storefront</a></td>
-      <td>This site shows a working online store that your customers could use to buy subscriptions to Microsoft products. You can easily create a website for your company with the <a href="csp-customer-storefront-builder-quick-start-guide-.md">CSP Customer Storefront Builder Quickstart Guide</a>.</td>
+      <td><a href="csp-customer-web-storefront.md">Vitrine Web client CSP</a></td>
+      <td>Ce site présente un magasin en ligne fonctionnel que vos clients peuvent utiliser pour acheter des abonnements aux produits Microsoft. Vous pouvez facilement créer un site Web pour votre entreprise à l’aide du <a href="csp-customer-storefront-builder-quick-start-guide-.md">Guide de démarrage rapide du générateur de vitrine client</a>.</td>
     </tr>
     <tr>
-      <td>Store web site</td>
+      <td>Stocker le site Web</td>
       <td><p><strong>Description :</strong></p>
-          <p>This application shows how to build a web store based on the catalog of offers available to Cloud Solution Provider partners. Customers can create a store account and order software subscriptions through your site.</p>
-        <p><strong>Get the code:</strong></p>
-        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">Download the sample code</a></p>
-        <p><strong>What to configure before release:</strong></p>
+          <p>Cette application montre comment créer un Web Store basé sur le catalogue des offres disponibles pour les partenaires du fournisseur de solutions Cloud. Les clients peuvent créer un compte de banque et commander des abonnements logiciels via votre site.</p>
+        <p><strong>Récupérez le code :</strong></p>
+        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">Télécharger l’exemple de code</a></p>
+        <p><strong>Éléments à configurer avant la publication :</strong></p>
         <ul>
-          <li><p>Authentication: App ID & secret.</p></li>
-          <li><p>Branding: logo and company name.</p></li>
-          <li><p>Welcome message.</p></li>
-          <li><p>Offers, including descriptions and prices. The app assumes that the list prices include any applicable taxes. Alternatively, you can add additional logic to calculate tax during checkout.</p></li>
-          <li><p>Payment information: provide your own credit card options, PayPal, or other payment types. Before you configure this part, please read the guide <a href="https://docs.microsoft.com/partner-center/non-payment--fraud--or-misuse">Non-payment, fraud, or misuse</a>.</p></li>
+          <li><p>Authentification : ID d’application & secret.</p></li>
+          <li><p>Personnalisation : logo et nom de l’entreprise.</p></li>
+          <li><p>Message d’accueil.</p></li>
+          <li><p>Offres, y compris les descriptions et les prix. L’application suppose que les prix de la liste incluent les taxes applicables. Vous pouvez également ajouter une logique supplémentaire pour calculer les taxes lors de la validation.</p></li>
+          <li><p>Informations de paiement : indiquez vos propres options de carte de crédit, PayPal ou tout autre type de paiement. Avant de configurer cette partie, veuillez lire le Guide de <a href="https://docs.microsoft.com/partner-center/non-payment--fraud--or-misuse">non-paiement, de fraude ou d’utilisation abusive</a>.</p></li>
         </ul>
       </td>
     </tr>

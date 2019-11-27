@@ -1,6 +1,6 @@
 ---
-title: Update a customer's qualification
-description: Updates a customer's qualification, including the address associated with the profile.
+title: Mettre à jour la qualification d’un client
+description: Met à jour la qualification d’un client, y compris l’adresse associée au profil.
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,26 +12,26 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486439"
 ---
-# <a name="update-a-customers-qualification"></a>Update a customer's qualification
+# <a name="update-a-customers-qualification"></a>Mettre à jour la qualification d’un client
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Updates a customer's qualification.
+Met à jour la qualification d’un client.
 
-A partner can update a customer's qualification to be "Education" or "GovernmentCommunityCloud". Other values, "None" and "Nonprofit", cannot be set.
+Un partenaire peut mettre à jour la qualification d’un client pour qu’il soit « Education » ou « GovernmentCommunityCloud ». Les autres valeurs, « None » et « imbutistes », ne peuvent pas être définies.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (customer-tenant-id).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (client-locataire-ID).
 
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
-To update a customer's qualification to "Education", call **[Update](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification.update)** on an existing  [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer?view=partnercenter-dotnet-latest).
+Pour mettre à jour la qualification d’un client vers « Education », appelez **[Update](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification.update)** sur un [**client**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer?view=partnercenter-dotnet-latest)existant.
 
 ``` csharp
 // CustomerQualification is an enum
@@ -39,9 +39,9 @@ To update a customer's qualification to "Education", call **[Update](https://doc
 var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.Update(CustomerQualification.Education);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: CustomerQualificationOperations.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSamples, **classe**: CustomerQualificationOperations.cs
 
-To update a customer's qualification to **GovernmentCommunityCloud** on an existing customer without a qualification.  The partner is also are required to include the customer's [**ValidationCode**](utility-resources.md#validationcode). 
+Pour mettre à jour la qualification d’un client vers **GovernmentCommunityCloud** sur un client existant sans qualification.  Le partenaire doit également inclure le [**ValidationCode**](utility-resources.md#validationcode)du client. 
 ``` csharp
 // CustomerQualification is an enum
 // GCC validation is type ValidationCode
@@ -50,34 +50,34 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 ```
 
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer_id}/qualification?code={validationCode} HTTP/1.1 |
+| **POSÉ** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{customer_id}/qualification ? code = {VALIDATIONCODE} http/1.1 |
 
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following query parameter to update the qualification.
+Utilisez le paramètre de requête suivant pour mettre à jour la qualification.
 
-| Nom                   | Tapez | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type | Obligatoire | Description                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | GUID | Oui      | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **validationCode**     | entier  | non       | Only needed for Government Community Cloud.                                                                                                            |
+| **client-locataire-ID** | GUID | Oui      | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **validationCode**     | entier  | Non       | Nécessaire uniquement pour le Cloud de la communauté gouvernementale.                                                                                                            |
 
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-The integer value from the [**CustomerQualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) enum.
+Valeur entière de l’énumération [**CustomerQualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) .
 
-**Request example**
+**Exemple de requête**
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/qualification?code=<validation-code> HTTP/1.1
@@ -89,15 +89,15 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 3
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> REST Response
+## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> réponse REST
 
-If successful, this method returns updated [**Qualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) property in the response body.
+En cas de réussite, cette méthode retourne la propriété de [**qualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) mise à jour dans le corps de la réponse.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

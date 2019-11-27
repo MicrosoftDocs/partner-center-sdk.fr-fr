@@ -1,6 +1,6 @@
 ---
-title: Get a collection of invoices
-description: How to retrieve a collection of the partner's invoices.
+title: Obtenir une collection de factures
+description: Comment récupérer un regroupement des factures du partenaire.
 ms.assetid: B5392987-3D2E-493B-9F97-A20055D5D46A
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489889"
 ---
-# <a name="get-a-collection-of-invoices"></a>Get a collection of invoices
+# <a name="get-a-collection-of-invoices"></a>Obtenir une collection de factures
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to retrieve a collection of the partner's invoices.
+Comment récupérer un regroupement des factures du partenaire.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
 
-To get a collection of all available invoices, use the [**Invoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) property to get an interface to invoice operations, and then call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) method to retrieve the collection.
+Pour obtenir une collection de toutes les factures disponibles, utilisez la propriété [**factures**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) pour obtenir une interface pour facturer les opérations, puis [**appelez la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) pour récupérer la collection.
 
-To get a paged collection of invoices, first call the [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) method and pass it the page size to create an [**IQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) object. Next, use the [**Invoices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) property to get an interface to invoice operations, and then pass the IQuery object to the [**Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) or [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) method to send the request and get the first page.
+Pour obtenir une collection paginée de factures, appelez d’abord la méthode [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) et transmettez-lui la taille de page pour créer un objet [**IQueryable**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) . Ensuite, utilisez la propriété des [**factures**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) pour obtenir une interface pour facturer les opérations, puis transmettez l’objet IQueryable à la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) ou [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) pour envoyer la demande et obtenir la première page.
 
-Next, use the [**Enumerators**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) property to get an interface to the collection of supported resource collection enumerators, and then call [**Invoices.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) to create an enumerator for traversing the collection of invoices. Finally, use the enumerator to retrieve and work with each page of invoices as shown in the following code example. Each call to the [**Next**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) method sends a request for the next page of invoices based on the page size.
+Ensuite, utilisez la propriété d' [**énumérateurs**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) pour obtenir une interface pour la collection d’énumérateurs de collections de ressources prises en charge, puis appelez [**factures. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) pour créer un énumérateur qui parcourt la collection de factures. Enfin, utilisez l’énumérateur pour récupérer et utiliser chaque page de factures comme indiqué dans l’exemple de code suivant. Chaque appel à la méthode [**suivante**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) envoie une demande pour la page de factures suivante en fonction de la taille de la page.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -78,39 +78,39 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-For a slightly different example, see **Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetPagedInvoices.cs
+Pour obtenir un exemple légèrement différent, consultez **exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetPagedInvoices.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
 
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/invoices?size={size}&offset={offset} HTTP/1.1  |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices ? Size = {size} & offset = {offset} http/1.1  |
 
  
 
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following query parameters when creating the request.
+Utilisez les paramètres de requête suivants lors de la création de la demande.
 
-| Nom   | Tapez | Obligatoire | Description                                                                            |
+| Nom   | Type | Obligatoire | Description                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| size   | entier  | non       | The number of invoice resources to return in the response. Ce paramètre est facultatif. |
-| offset | entier  | non       | The zero-based index of the first invoice to return.                                   |
+| size   | entier  | Non       | Nombre de ressources de facture à retourner dans la réponse. Ce paramètre est facultatif. |
+| offset | entier  | Non       | Index de base zéro de la première facture à retourner.                                   |
 
  
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
-Aucun(e)
+Aucune
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices?size=200&offset=0 HTTP/1.1
@@ -123,16 +123,16 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
 
 
-If successful, the response body contains the collection of [Invoice](invoice-resources.md#invoice) resources.
+En cas de réussite, le corps de la réponse contient la collection de ressources de [facture](invoice-resources.md#invoice) .
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

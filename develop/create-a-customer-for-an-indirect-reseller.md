@@ -1,6 +1,6 @@
 ---
-title: Create a customer for an indirect reseller
-description: An indirect provider can create a customer for an indirect reseller.
+title: Créer un client pour un revendeur indirect
+description: Un fournisseur indirect peut créer un client pour un revendeur indirect.
 ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488769"
 ---
-# <a name="create-a-customer-for-an-indirect-reseller"></a>Create a customer for an indirect reseller
+# <a name="create-a-customer-for-an-indirect-reseller"></a>Créer un client pour un revendeur indirect
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-An indirect provider can create a customer for an indirect reseller.
+Un fournisseur indirect peut créer un client pour un revendeur indirect.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The tenant identifier of the indirect reseller.
-- The indirect reseller must have a partnership with the indirect provider.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Identificateur du locataire du revendeur indirect.
+- Le revendeur indirect doit avoir un partenariat avec le fournisseur indirect.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To add a new customer for an indirect reseller:
+Pour ajouter un nouveau client pour un revendeur indirect :
 
-1. Instantiate a new [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) object and then instantiate and populate the [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) and [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile). Be sure to assign the indirect reseller ID to the [**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) property.
-2. Use the [**IAggregatePartner.Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) property to get an interface to customer collection operations. 
-3. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) method to create the customer.
+1. Instanciez un nouvel objet [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) , puis instanciez et remplissez [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) et [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile). Veillez à attribuer l’ID de revendeur indirect à la propriété [**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) .
+2. Utilisez la propriété [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour accéder à une interface pour les opérations de collection client. 
+3. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) pour créer le client.
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>Exemple de\# C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -73,49 +73,49 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreateCustomerforIndirectReseller.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CreateCustomerforIndirectReseller.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                       |
 |----------|-------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers http/1.1 |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom                                          | Tapez   | Obligatoire | Description                                                                                                                                                                                                                                                                                                                                           |
+| Nom                                          | Type   | Obligatoire | Description                                                                                                                                                                                                                                                                                                                                           |
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [BillingProfile](#billing-profile)             | object | Oui      | The customer's billing profile information.                                                                                                                                                                                                                                                                                                           |
-| [CompanyProfile](#company-profile)             | object | Oui      | The customer's company profile information.                                                                                                                                                                                                                                                                                                           |
-| [AssociatedPartnerId](customer-resources.md#customer) | chaîne | Oui      | The indirect reseller ID. Note that the indirect reseller as indicated by the ID supplied here must have a partnership with the indirect provider or the request will fail. Also note that if the AssociatedPartnerId value is not supplied, the customer is created as a direct customer of the indirect provider rather than the indirect reseller. |
+| [BillingProfile](#billing-profile)             | objet | Oui      | Informations de profil de facturation du client.                                                                                                                                                                                                                                                                                                           |
+| [CompanyProfile](#company-profile)             | objet | Oui      | Informations de profil de la société du client.                                                                                                                                                                                                                                                                                                           |
+| [AssociatedPartnerId](customer-resources.md#customer) | chaîne | Oui      | ID du revendeur indirect. Notez que le revendeur indirect comme indiqué par l’ID fourni ici doit avoir un partenariat avec le fournisseur indirect ou que la demande échoue. Notez également que si la valeur AssociatedPartnerId n’est pas fournie, le client est créé en tant que client direct du fournisseur indirect plutôt qu’en tant que revendeur indirect. |
 
-#### <a name="billing-profile"></a>Billing profile
+#### <a name="billing-profile"></a>Profil de facturation
 
-This table describes the minimum required fields from the [CustomerBillingProfile](customer-resources.md#customerbillingprofile) resource needed to create a new customer.
+Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerBillingProfile](customer-resources.md#customerbillingprofile) nécessaire à la création d’un nouveau client.
 
-| Nom             | Tapez                                     | Obligatoire | Description                                                                                                                                                                                                     |
+| Nom             | Type                                     | Obligatoire | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Messagerie            | chaîne                                   | Oui      | The customer's email address.                                                                                                                                                                                   |
-| culture          | chaîne                                   | Oui      | Their preferred culture for communication and currency, such as "en-US". See [Partner Center supported languages and locales](partner-center-supported-languages-and-locales.md) for the supported cultures. |
-| language         | chaîne                                   | Oui      | The default language. Two character language codes (e.g., en, fr) are supported.                                                                                                                                |
-| company\_name    | chaîne                                   | Oui      | The registered company/organization name.                                                                                                                                                                       |
-| default\_address | [Address](utility-resources.md#address) | Oui      | The registered address of the customer's company/organization. See the [Address](utility-resources.md#address) resource for information on any length limitations.                                             |
+| Messagerie            | chaîne                                   | Oui      | Adresse de messagerie du client.                                                                                                                                                                                   |
+| Culturel          | chaîne                                   | Oui      | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
+| language         | chaîne                                   | Oui      | Langue par défaut. Les codes de langue à deux caractères (par exemple, fr) sont pris en charge.                                                                                                                                |
+| nom de l'\_de la société    | chaîne                                   | Oui      | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
+| adresse de\_par défaut | [-](utility-resources.md#address) | Oui      | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
 
-#### <a name="company-profile"></a>Company profile
+#### <a name="company-profile"></a>Profil d’entreprise
 
-This table describes the minimum required fields from the [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) resource needed to create a new customer.
+Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) nécessaire à la création d’un nouveau client.
 
-| Nom   | Tapez   | Obligatoire | Description                                                  |
+| Nom   | Type   | Obligatoire | Description                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| domain | chaîne | .Yes     | The customer's domain name, such as contoso.onmicrosoft.com. |
+| domain | chaîne | . Oui     | Nom de domaine du client, tel que contoso.onmicrosoft.com. |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -178,13 +178,13 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response contains a [Customer](customer-resources.md#customer) resource for the new customer.
+En cas de réussite, la réponse contient une ressource [client](customer-resources.md#customer) pour le nouveau client.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

@@ -1,6 +1,6 @@
 ---
-title: Agreement document resources
-description: The AgreementDocument resource represents an agreement document.
+title: Ressources de document de contrat
+description: La ressource AgreementDocument représente un document de contrat.
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,27 +12,27 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488929"
 ---
-# <a name="agreement-document-resources"></a>Agreement document resources
+# <a name="agreement-document-resources"></a>Ressources de document de contrat
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-The **AgreementDocument** resource is currently supported by Partner Center only in the *Microsoft public cloud*. This resource not applicable to:
+La ressource **AgreementDocument** est actuellement prise en charge par l’espace partenaires uniquement dans le *cloud public Microsoft*. Cette ressource ne s’applique pas aux éléments suivants :
 
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The **AgreementDocument** resource represents a Microsoft agreement document that is available for preview and download.
+La ressource **AgreementDocument** représente un document de contrat Microsoft disponible pour l’aperçu et le téléchargement.
 
 ## <a name="agreementdocument"></a>AgreementDocument
 
-An **AgreementDocument** resource includes the following properties:
+Une ressource **AgreementDocument** comprend les propriétés suivantes :
 
-| Propriété       | Tapez   | Description                                                                                               |
+| Propriété       | Type   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| country | chaîne | The country or market to which this document applies. |
-| language | chaîne | The language in which this document is localized. |
-| displayUri | chaîne | A link to preview the agreement document in a browser.  |
-| downloadUri |chaîne | A link to download the agreement document (in Microsoft Word format). |
+| country | chaîne | Pays ou marché auquel s’applique ce document. |
+| language | chaîne | Langue dans laquelle ce document est localisé. |
+| displayUri | chaîne | Lien pour afficher un aperçu du document de contrat dans un navigateur.  |
+| downloadUri |chaîne | Un lien pour télécharger le document de contrat (au format Microsoft Word). |

@@ -1,6 +1,6 @@
 ---
-title: Get an availability by ID
-description: Gets an availability for the specified product and SKU using an availability ID.
+title: Recevoir une disponibilité par ID
+description: Obtient une disponibilité pour le produit et la référence SKU spécifiés à l’aide d’un ID de disponibilité.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,26 +13,26 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485769"
 ---
-# <a name="get-an-availability-by-id"></a>Get an availability by ID 
+# <a name="get-an-availability-by-id"></a>Recevoir une disponibilité par ID 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 
-Gets an availability for the specified product and SKU using an availability ID.
+Obtient une disponibilité pour le produit et la référence SKU spécifiés à l’aide d’un ID de disponibilité.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product ID. 
-- A SKU ID. 
-- An availability ID. 
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- ID de produit. 
+- ID DE RÉFÉRENCE (SKU). 
+- Un ID de disponibilité. 
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
 
 ### <a name="c"></a>C# 
 
-To get details of a specific [availability](product-resources.md#availability), start by using the steps in [Get a SKU by ID](get-a-sku-by-id.md) to get the interface for a specific [SKU's](product-resources.md#sku) operations. From the resulting interface, select the **Availabilities** property to obtain an interface with the available operations for Availabilities. After that, pass the availability ID to the **ById()** method to get the operations for that specific availability and then call **Get()** or **GetAsync()** to retrieve the availability details.
+Pour obtenir des détails sur une [disponibilité](product-resources.md#availability)spécifique, commencez par suivre les étapes de la section [obtenir une référence SKU par ID](get-a-sku-by-id.md) pour obtenir l’interface pour les opérations [d’une référence (SKU](product-resources.md#sku) ) spécifique. À partir de l’interface obtenue, sélectionnez la propriété **availabilities** pour obtenir une interface avec les opérations disponibles pour Availabilities. Après cela, transmettez l’ID de disponibilité à la méthode **méthode BYID ()** pour obtenir les opérations pour cette disponibilité spécifique, puis appelez la méthode **obtenir ()** ou **GetAsync (** ) pour récupérer les détails de disponibilité.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ var availability = partnerOperations.Products.ByCountry(countryCode).ById(produc
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get details of a specific [availability](product-resources.md#availability), start by using the steps in [Get a SKU by ID](get-a-sku-by-id.md) to get the interface for a specific [SKU's](product-resources.md#sku) operations. From the resulting interface, select the **getAvailabilities** function to obtain an interface with the available operations for Availabilities. After that, pass the availability ID to the **byId()** function to get the operations for that specific availability and then call the **get()** function to retrieve the availability details.
+Pour obtenir des détails sur une [disponibilité](product-resources.md#availability)spécifique, commencez par suivre les étapes de la section [obtenir une référence SKU par ID](get-a-sku-by-id.md) pour obtenir l’interface pour les opérations [d’une référence (SKU](product-resources.md#sku) ) spécifique. À partir de l’interface obtenue, sélectionnez la fonction **getAvailabilities** pour obtenir une interface avec les opérations disponibles pour Availabilities. Après cela, transmettez l’ID de disponibilité à la fonction **méthode BYID ()** pour obtenir les opérations pour cette disponibilité spécifique, puis appelez la fonction **obtenir ()** pour récupérer les détails de disponibilité.
 
 ```java
 IAggregatePartner partnerOperations;
@@ -66,41 +66,41 @@ Availability availability = partnerOperations.getProducts().byCountry(countryCod
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get details of a specific [availability](product-resources.md#availability), execute the [**Get-PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) and specify the **AvailabilityId**, **CountryCode**, **ProductId**, and **SkuId** parameters to retrieve the availability details.
+Pour obtenir des détails sur une [disponibilité](product-resources.md#availability)spécifique, exécutez la [**PartnerProductAvailability**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductAvailability.md) et spécifiez les **paramètres AvailabilityId**, **CountryCode**, **ProductID**et **SkuID** pour récupérer les détails de disponibilité.
 
 ```powershell
 Get-PartnerProductAvailability -Product $productId -SkuId $skuId -AvailabilityId $availabilityId
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Request
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities/{availability-id}?country={country-code} HTTP/1.1         |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs/{SKU-ID}/availabilities/{Availability-ID} ? pays = {country-code} http/1.1         |
 
-**URI parameter**
+**Paramètre URI**
 
-Use the following path and query parameters to get a specific availability using an availability ID.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir une disponibilité spécifique à l’aide d’un ID de disponibilité.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                     |
+| Nom                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | chaîne   | Oui      | A GUID formatted string that identifies the product.            |
-| sku-id                 | chaîne   | Oui      | A GUID formatted string that identifies the SKU.                |
-| availability-id        | chaîne   | Oui      | A GUID formatted string that identifies the availability.       |
-| country-code           | chaîne   | Oui      | A country/region ID.                                            |
+| ID de produit             | chaîne   | Oui      | Chaîne au format GUID qui identifie le produit.            |
+| Réf. SKU                 | chaîne   | Oui      | Chaîne au format GUID qui identifie la référence (SKU).                |
+| ID de disponibilité        | chaîne   | Oui      | Chaîne au format GUID qui identifie la disponibilité.       |
+| pays-code           | chaîne   | Oui      | ID de pays/région.                                            |
 
  
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities/DZH318XZXPHL?country=US HTTP/1.1
@@ -113,23 +113,23 @@ MS-PartnerCenter-Client: Partner Center .NET SDK
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
-If successful, the response body contains an [Availability](product-resources.md#availability) resource.
+En cas de réussite, le corps de la réponse contient une ressource de [disponibilité](product-resources.md#availability) .
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 404                  | 400013       | Product was not found.                                                                                    |
-| 404                  | 400018       | Sku was not found.                                                                                        |
-| 404                  | 400019       | Availability not found.                                                                                   |
+| 404                  | 400013       | Le produit est introuvable.                                                                                    |
+| 404                  | 400018       | Référence (SKU) introuvable.                                                                                        |
+| 404                  | 400019       | Disponibilité introuvable.                                                                                   |
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK

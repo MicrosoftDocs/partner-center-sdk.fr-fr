@@ -1,6 +1,6 @@
 ---
-title: Create an order for a customer of an indirect reseller
-description: How to create an order for a customer of an indirect reseller.
+title: Créer une commande pour un client d’un revendeur indirect
+description: Comment créer une commande pour un client d’un revendeur indirect.
 ms.assetid: 3B89F8CE-96A8-443F-927E-6351E24FDBFF
 ms.date: 07/22/2019
 ms.service: partner-dashboard
@@ -13,33 +13,33 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489539"
 ---
-# <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Create an order for a customer of an indirect reseller
+# <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Créer une commande pour un client d’un revendeur indirect
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-How to create an order for a customer of an indirect reseller.
+Comment créer une commande pour un client d’un revendeur indirect.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- The customer identifier.
-- The offer identifier of the item to purchase.
-- The tenant identifier of the indirect reseller.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Identificateur du client.
+- Identificateur d’offre de l’article à acheter.
+- Identificateur du locataire du revendeur indirect.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To create an order for a customer of an indirect reseller:
+Pour créer une commande pour un client d’un revendeur indirect :
 
-1. Get a collection of the indirect resellers that have a relationship with the signed-in partner.
-2. Get a local variable to the item in the collection that matches the indirect reseller ID. This step helps you access the reseller's [**MpnId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) property when you create the order.
-3. Instantiate an [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) object and set the [**ReferenceCustomerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) property to the customer identifier in order to record the customer.
-4. Create a list of [**OrderLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) objects, and assign the list to the order's [**LineItems**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) property. Each order line item contains the purchase information for one offer. Be sure to populate the [**PartnerIdOnRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) property in each line item with the MPN ID of the indirect reseller. You must have at least one order line item.
-5. Obtain an interface to order operations by calling the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer, and then retrieve the interface from the [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) property.
-6. Call the [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) or [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) method to create the order.
+1. Obtenir une collection des revendeurs indirects qui ont une relation avec le partenaire connecté.
+2. Obtenir une variable locale pour l’élément de la collection qui correspond à l’ID du revendeur indirect. Cette étape vous permet d’accéder à la propriété [**MpnId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) du revendeur lorsque vous créez la commande.
+3. Instanciez un objet [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) et définissez la propriété [**ReferenceCustomerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) sur l’identificateur du client afin d’enregistrer le client.
+4. Créez une liste d’objets [**OrderLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) et assignez la liste à [**la propriété de l’ordre de tri**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) . Chaque élément de ligne de commande contient les informations d’achat d’une offre. Veillez à renseigner la propriété [**PartnerIdOnRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) dans chaque élément de ligne avec l’ID MPN du revendeur indirect. Vous devez avoir au moins un élément de ligne de commande.
+5. Obtenez une interface pour commander des opérations en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérez l’interface à partir de la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
+6. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) pour créer la commande.
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>Exemple de\# C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -75,57 +75,57 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Sample**: [Console test app](console-test-app.md)**Project**: Partner Center SDK Samples **Class**: PlaceOrderForCustomer.cs
+**Exemple**:**projet**d' [application de test console](console-test-app.md): **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : PlaceOrderForCustomer.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path parameter to identify the customer.
+Utilisez le paramètre Path suivant pour identifier le client.
 
-| Nom        | Tapez   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID formatted string that identifies the customer. |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
 #### <a name="order"></a>Ordre
 
-This table describes the **Order** properties in the request body.
+Ce tableau décrit les propriétés d' **ordre** dans le corps de la demande.
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| id | chaîne | non | An order identifier that is supplied upon successful creation of the order. |
-| referenceCustomerId | chaîne | Oui | The customer identifier. |
-| billingCycle | chaîne | non | The frequency with which the partner is billed for this order. The default is &quot;Monthly&quot; and is applied upon successful creation of the order. Supported values are the member names found in [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Note: the annual billing feature is not yet generally available. La facturation annuelle sera bientôt prise en charge. |
-| lineItems | array of objects | Oui | An array of [**OrderLineItem**](#orderlineitem) resources. |
-| creationDate | chaîne | non | The date the order was created, in date-time format. Applied upon successful creation of the order. |
-| attributs | object | non | Contains "ObjectType": "Order". |
+| id | chaîne | Non | Identificateur d’ordre qui est fourni lors de la création réussie de la commande. |
+| ReferenceCustomerId | chaîne | Oui | Identificateur du client. |
+| billingCycle | chaîne | Non | Fréquence à laquelle le partenaire est facturé pour cette commande. La valeur par défaut est &quot;&quot; mensuelle et est appliquée lors de la création réussie de la commande. Les valeurs prises en charge sont les noms des membres trouvés dans [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Remarque : la fonctionnalité de facturation annuelle n’est pas encore disponible en général. La facturation annuelle sera bientôt prise en charge. |
+| LineItems | Tableau d’objets | Oui | Tableau de ressources [**OrderLineItem**](#orderlineitem) . |
+| CreationDate | chaîne | Non | Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande. |
+| attributs | objet | Non | Contient « ObjectType » : « Order ». |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
-This table describes the **OrderLineItem** properties in the request body.
+Ce tableau décrit les propriétés **OrderLineItem** dans le corps de la demande.
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| lineItemNumber | entier | Oui | Each line item in the collection gets a unique line number, counting up from 0 to count-1. |
-| offerId | chaîne | Oui | The offer identifier. |
-| subscriptionId | chaîne | non | The subscription identifier. |
-| parentSubscriptionId | chaîne | non | Facultatif. The ID of the parent subscription in an add-on offer. Applies to PATCH only. |
-| friendlyName | chaîne | non | Facultatif. The friendly name for the subscription defined by the partner to help disambiguate. |
-| quantity | entier | Oui | The number of licenses for a license-based subscription. |
-| partnerIdOnRecord | chaîne | non | When an indirect provider places an order on behalf of an indirect reseller, populate this field with the MPN ID of the **indirect reseller only** (never the ID of the indirect provider). This ensures proper accounting for incentives. **Failure to provide the reseller MPN ID does not cause the order to fail. However, the reseller is not recorded and as a consequence incentive calculations may not include the sale.** |
-| attributs | object | non | Contains "ObjectType":"OrderLineItem". |
+| LineItemNumber | entier | Oui | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1. |
+| offerId | chaîne | Oui | Identificateur de l’offre. |
+| subscriptionId | chaîne | Non | Identificateur d’abonnement. |
+| ParentSubscriptionId | chaîne | Non | Facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif. |
+| friendlyName | chaîne | Non | Facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté. |
+| quantity | entier | Oui | Nombre de licences pour un abonnement basé sur une licence. |
+| partnerIdOnRecord | chaîne | Non | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une gestion correcte des incentives. **Si vous ne fournissez pas l’ID MPN du revendeur, cela ne provoque pas l’échec de la commande. Toutefois, le revendeur n’est pas enregistré et, par conséquent, les calculs de l’incentive peuvent ne pas inclure la vente.** |
+| attributs | objet | Non | Contient « ObjectType » : « OrderLineItem ». |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -165,13 +165,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains the populated [Order](order-resources.md) resource.
+En cas de réussite, le corps de la réponse contient la ressource de [commande](order-resources.md) remplie.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

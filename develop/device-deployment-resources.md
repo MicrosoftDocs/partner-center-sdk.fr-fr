@@ -1,6 +1,6 @@
 ---
-title: Device deployment resources
-description: Resources related to Partner Center device deployment.
+title: Ressources de déploiement de l’appareil
+description: Ressources liées au déploiement d’appareils de l’espace partenaires.
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 06/11/2019
 ms.service: partner-dashboard
@@ -13,103 +13,103 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489949"
 ---
-# <a name="device-deployment-resources"></a>Device deployment resources
+# <a name="device-deployment-resources"></a>Ressources de déploiement de l’appareil
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-The following resources are related to device deployment.
+Les ressources suivantes sont liées au déploiement d’appareils.
 
 ## <a name="configurationpolicy"></a>ConfigurationPolicy
 
-**ConfigurationPolicy** provides information about a configuration policy.
+**ConfigurationPolicy** fournit des informations sur une stratégie de configuration.
 
-| Propriété             | Tapez                                                           | Description                                                        |
+| Propriété             | Type                                                           | Description                                                        |
 |----------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| id                   | chaîne                                       | A GUID-formatted string that identifies the policy.                                  |
-| name                 | chaîne                                       | The friendly name for the policy.                                                    |
-| catégorie             | chaîne                                       | The category.                                                                        |
-| description          | chaîne                                       | The policy description.                                                              |
-| devicesAssignedCount | nombre                                       | The number of devices assigned to this policy.                                       |
-| policySettings       | array of strings                             | The policy settings: "none","remove\_oem\_preinstalls","oobe\_user\_not\_local\_admin","skip\_express\_settings","skip\_oem\_registration", "skip\_eula".    |
-| createdDate          | string in UTC date-time format               | The date and time the policy was created.                                            |
-| lastModifiedDate     | string in UTC date-time format               | The date and time the policy was last modified.                                      |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.                                            |
+| id                   | chaîne                                       | Chaîne au format GUID qui identifie la stratégie.                                  |
+| name                 | chaîne                                       | Nom convivial de la stratégie.                                                    |
+| catégorie             | chaîne                                       | Catégorie.                                                                        |
+| description          | chaîne                                       | Description de la stratégie.                                                              |
+| devicesAssignedCount | nombre                                       | Nombre d’appareils affectés à cette stratégie.                                       |
+| policySettings       | Tableau de chaînes                             | Les paramètres de stratégie : « aucun », « supprimer\_\_préinstallations OEM », « OOBE\_utilisateur\_pas\_administrateur de\_local », « ignorer les paramètres\_Express\_», « ignorer les\_l’inscription OEM\_», « ignorer\_CLUF ».    |
+| createdDate          | chaîne au format date-heure UTC               | Date et heure de création de la stratégie.                                            |
+| LastModifiedDate &     | chaîne au format date-heure UTC               | Date et heure de la dernière modification de la stratégie.                                      |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                            |
 
 ## <a name="device"></a>Appareil
 
-**Device** provides information about a device.
+L' **appareil** fournit des informations sur un appareil.
 
-| Propriété            | Tapez                                                           | Description                                                              |
+| Propriété            | Type                                                           | Description                                                              |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| id                  | chaîne                                                         | A GUID-formatted string that identifies the device.                      |
-| serialNumber        | chaîne                                                         | The serial number uniquely associated with the device.                   |
-| productKey          | chaîne                                                         | The product key uniquely associated with the device.                     |
-| hardwareHash        | chaîne                                                         | The hardware hash uniquely associated with the device.                   |
-| modelName           | chaîne                                                         | The model name associated with the device.                               |
-| oemManufacturerName | chaîne                                                         | The name of the OEM manufacturer associated with the device.             |
-| politiques            | array of objects                                               | The list of policies assigned to the device.                             |
-| uploadedDate        | string in UTC date-time format                                 | The date and time the device details were uploaded.                      |
-| allowedOperations   | array of strings                                               | The list of HTTP methods allowed on a device sync as GET, PATCH, DELETE. |
-| attributs          | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                                 |
+| id                  | chaîne                                                         | Chaîne au format GUID qui identifie l’appareil.                      |
+| serialNumber        | chaîne                                                         | Numéro de série associé de manière unique à l’appareil.                   |
+| productKey          | chaîne                                                         | Clé de produit associée de manière unique à l’appareil.                     |
+| hardwareHash        | chaîne                                                         | Hachage matériel associé de manière unique à l’appareil.                   |
+| modelName           | chaîne                                                         | Nom de modèle associé à l’appareil.                               |
+| oemManufacturerName | chaîne                                                         | Nom du fabricant OEM associé à l’appareil.             |
+| politiques            | Tableau d’objets                                               | Liste des stratégies affectées à l’appareil.                             |
+| uploadedDate        | chaîne au format date-heure UTC                                 | Date et heure auxquelles les détails de l’appareil ont été téléchargés.                      |
+| allowedOperations   | Tableau de chaînes                                               | Liste des méthodes HTTP autorisées sur une synchronisation d’appareil en tant que obtenir, corriger, supprimer. |
+| attributs          | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                                 |
 
 ## <a name="batchuploaddetails"></a>BatchUploadDetails
 
-**BatchUploadDetails** describes the status of a device batch upload of information about each device in a list of devices.
+**BatchUploadDetails** décrit l’état d’un téléchargement par lots d’appareils d’informations sur chaque appareil dans une liste d’appareils.
 
-| Propriété        | Tapez     | Description                                                                  |
+| Propriété        | Type     | Description                                                                  |
 |-----------------|----------|------------------------------------------------------------------------------|
-| batchTrackingId | chaîne   | A GUID-formatted string that is associated with the batch of devices uploaded. |
-| status          | chaîne   | The status of the batch upload: "unknown","queued","processing","finished","finished\_with\_errors". |
-| startedTime     | string in UTC date-time format | The date and time that the batch upload process started.   |
-| completedTime   | string in UTC date-time format  | The date and time that the batch upload process completed.   |
-| devicesStatus   | array of [DeviceUploadDetails](#deviceuploaddetails) resources | An array of objects that specify the status of each device information upload. |
-| attributs      | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.  |
+| batchTrackingId | chaîne   | Chaîne au format GUID qui est associée au lot des appareils téléchargés. |
+| status          | chaîne   | État du chargement de lot : « inconnu », « en attente », « traitement », « terminé », « terminé\_avec des erreurs de\_». |
+| startedTime     | chaîne au format date-heure UTC | Date et heure de début du processus de téléchargement de lot.   |
+| completedTime   | chaîne au format date-heure UTC  | Date et heure de fin du processus de téléchargement de lot.   |
+| devicesStatus   | Tableau de ressources [DeviceUploadDetails](#deviceuploaddetails) | Tableau d’objets qui spécifient l’état de chaque chargement d’informations sur l’appareil. |
+| attributs      | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.  |
 
 ## <a name="deviceuploaddetails"></a>DeviceUploadDetails
 
-**DeviceUploadDetails** describes the status of an upload of information about a device.
+**DeviceUploadDetails** décrit l’état d’un téléchargement d’informations sur un appareil.
 
-| Propriété         | Tapez                    | Description                                 |
+| Propriété         | Type                    | Description                                 |
 |------------------|-------------------------|---------------------------------------------|
-| deviceId         | chaîne                  | A GUID-formatted string that is associated with the device. |
-| serialNumber     | chaîne                  | The serial number uniquely associated with the device. |
-| productKey       | chaîne                  | The product key uniquely associated with the device. |
-| status           | chaîne                  | The status of the device information upload: "in-progress", "finished", "finished\_with\_errors". |
-| errorCode        | chaîne                  | The HTTP status error code returned if the device upload fails. |
-| errorDescription | chaîne                  | The HTTP error description if the device upload fails. |
-| attributs       | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes.   |
+| deviceId         | chaîne                  | Chaîne au format GUID qui est associée à l’appareil. |
+| serialNumber     | chaîne                  | Numéro de série associé de manière unique à l’appareil. |
+| productKey       | chaîne                  | Clé de produit associée de manière unique à l’appareil. |
+| status           | chaîne                  | État du chargement des informations sur l’appareil : « en cours », « terminé », « terminé\_avec des erreurs de\_». |
+| errorCode        | chaîne                  | Code d’erreur d’état HTTP renvoyé en cas d’échec du chargement de l’appareil. |
+| errorDescription | chaîne                  | Description de l’erreur HTTP en cas d’échec du chargement de l’appareil. |
+| attributs       | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.   |
 
 ## <a name="devicebatch"></a>DeviceBatch
 
-**DeviceBatch** represents a collection of devices.
+**DeviceBatch** représente une collection d’appareils.
 
-| Propriété     | Tapez                                                           | Description                                                           |
+| Propriété     | Type                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| id           | chaîne                                                         | A GUID-formatted string that is associated with the batch of devices. |
-| createdBy    | chaîne                                                         | The name of the tenant that created the collection.                   |
-| creationDate | string in UTC date-time format                                 | The data and time that the collection was created.                    |
-| deviceCount  | nombre                                                         | The number of devices in the collection.                              |
-| devicesLink  | [Link](utility-resources.md#link)                              | A link to the devices contained in this batch.                        |
-| attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| id           | chaîne                                                         | Chaîne au format GUID associée au lot d’appareils. |
+| createdBy    | chaîne                                                         | Nom du locataire qui a créé la collection.                   |
+| CreationDate | chaîne au format date-heure UTC                                 | Les données et l’heure de création de la collection.                    |
+| deviceCount  | nombre                                                         | Nombre d’appareils dans la collection.                              |
+| devicesLink  | [Lien](utility-resources.md#link)                              | Un lien vers les appareils contenus dans ce lot.                        |
+| attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                              |
 
 ## <a name="devicebatchcreationrequest"></a>DeviceBatchCreationRequest
 
-**DeviceBatchCreationRequest** provides the information required to create a device batch and populates it with devices.
+**DeviceBatchCreationRequest** fournit les informations nécessaires pour créer un lot d’appareils et le remplit avec des appareils.
 
-| Propriété     | Tapez                                                           | Description                                                           |
+| Propriété     | Type                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| batchId      | chaîne                                                         | A GUID-formatted string that is associated with the batch of devices. |
-| appareils      | array of [Device](#device) objects                             | Each object specifies a device. The following combinations of fields for identifying a device are accepted: hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash only, productKey only, serialNumber + oemManufacturerName + modelName. |
-| attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| batchId      | chaîne                                                         | Chaîne au format GUID associée au lot d’appareils. |
+| appareils      | Tableau d’objets [Device](#device)                             | Chaque objet spécifie un appareil. Les combinaisons de champs suivantes pour identifier un appareil sont acceptées : hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash uniquement, productKey only, serialNumber + oemManufacturerName + modelName. |
+| attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                              |
 
 ## <a name="devicepolicyupdaterequest"></a>DevicePolicyUpdateRequest
 
-**DevicePolicyUpdateRequest** provides the information required to update a list of devices with a policy.
+**DevicePolicyUpdateRequest** fournit les informations nécessaires pour mettre à jour une liste de périphériques avec une stratégie.
 
-| Propriété     | Tapez                                                           | Description                                                           |
+| Propriété     | Type                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| appareils      | array of [Device](#device) objects                             | Each object specifies a device. The following properties are required: Id, Policies. |
-| attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | The metadata attributes.                                              |
+| appareils      | Tableau d’objets [Device](#device)                             | Chaque objet spécifie un appareil. Les propriétés suivantes sont requises : ID, stratégies. |
+| attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                              |

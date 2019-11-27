@@ -1,6 +1,6 @@
 ---
-title: Get all monthly usage records for a subscription.
-description: You can use the AzureResourceMonthlyUsageRecord resource collection to get a list of services within a customer's subscription and their associated rated usage information.
+title: Récupération de tous les enregistrements d’utilisation mensuelle pour un abonnement.
+description: Vous pouvez utiliser la collection de ressources AzureResourceMonthlyUsageRecord pour obtenir la liste des services inclus dans l’abonnement d’un client et les informations d’utilisation évaluées qui lui sont associées.
 ms.assetid: 037D71B9-8E8B-4BC0-8388-9CBC97218CED
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,31 +13,31 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485969"
 ---
-# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Get all monthly usage records for a subscription.
+# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Récupération de tous les enregistrements d’utilisation mensuelle pour un abonnement.
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can use the [**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) resource collection to get a list of services within a customer's subscription and their associated rated usage information.
+Vous pouvez utiliser la collection de ressources [**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) pour obtenir la liste des services inclus dans l’abonnement d’un client et les informations d’utilisation évaluées qui lui sont associées.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier (**customer-tenant-id**). If you do not have a customer's identifier, you can look up the identifier in Partner Center by choosing the customer from the customers list, selecting **Account**, then saving their **Microsoft ID**.
-- A subscription identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client (**Customer-client-ID**). Si vous n’avez pas d’identificateur de client, vous pouvez rechercher l’identificateur dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
+- Identificateur d’abonnement.
 
-*This API only supports Microsoft Azure (MS-AZR-0145P) subscriptions. If you are using an Azure plan, see [Get usage data for subscription by meter](get-a-customer-subscription-meter-usage-records.md) instead.*
+*Cette API prend en charge uniquement les abonnements Microsoft Azure (MS-AZR-0145P). Si vous utilisez un plan Azure, consultez [obtenir des données d’utilisation pour l’abonnement par compteur à](get-a-customer-subscription-meter-usage-records.md) la place.*
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get a subscription's resource usage information:
+Pour obtenir les informations d’utilisation des ressources d’un abonnement :
 
-1. Use your **IAggregatePartner.Customers** collection to call the **ById()** method. 
-2. Call the **Subscriptions** property, as well as **UsageRecords**, then the **Resources** property. 
-3. Call the **Get()** or **GetAsync()** methods.
+1. Utilisez votre collection **collection iaggregatepartner. Customers** pour appeler la méthode **méthode BYID ()** . 
+2. Appelez la propriété **Subscriptions** , ainsi que **UsageRecords**, puis la propriété **Resources** . 
+3. Appelez les méthodes d' **extraction ()** ou de **GetAsync ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,34 +47,34 @@ To get a subscription's resource usage information:
 var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).UsageRecords.Resources.Get();
 ```
 
-For an example, see the following:
+Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Sample: [Console test app](console-test-app.md)
-- Project: **PartnerSDK.FeatureSample**
-- Class: **SubscriptionResourceUsageRecords.cs**
+- Exemple : [application de test](console-test-app.md) de la console
+- Projet : **PartnerSDK. FeatureSample**
+- Classe : **SubscriptionResourceUsageRecords.cs**
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/usagerecords/resources HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription}/usagerecords/Resources http/1.1 |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-This table lists the required query parameters to get the rated usage information.
+Ce tableau répertorie les paramètres de requête requis pour obtenir les informations d’utilisation évaluées.
 
-| Nom                    | Tapez     | Obligatoire | Description                               |
+| Nom                    | Type     | Obligatoire | Description                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **guid** | Y        | A GUID corresponding to the customer.     |
-| **subscription-id** | **guid** | Y        | A GUID corresponding to the subscription. |
+| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.     |
+| **ID d’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -90,13 +90,13 @@ MS-RequestId: 65b26053-37d0-4303-9fd1-46ad8012bcb6
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of **AzureResourceMonthlyUsageRecord** resources in the response body.
+En cas de réussite, cette méthode retourne une collection de ressources **AzureResourceMonthlyUsageRecord** dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

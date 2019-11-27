@@ -1,6 +1,6 @@
 ---
-title: Get a customer's utilization records for Azure
-description: You can use the Azure utilization API to get the utilization records of a customer's Azure subscription for a specified time period.
+title: Obtenir les enregistrements d’utilisation d’un client pour Azure
+description: Vous pouvez utiliser l’API d’utilisation d’Azure pour obtenir les enregistrements d’utilisation de l’abonnement Azure d’un client pendant une période donnée.
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,43 +13,43 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489589"
 ---
-# <a name="get-a-customers-utilization-records-for-azure"></a>Get a customer's utilization records for Azure
+# <a name="get-a-customers-utilization-records-for-azure"></a>Obtenir les enregistrements d’utilisation d’un client pour Azure
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-You can get the utilization records of a customer's Azure subscription for a specified time period using the Azure utilization API.
+Vous pouvez obtenir les enregistrements d’utilisation de l’abonnement Azure d’un client pendant une période donnée à l’aide de l’API d’utilisation d’Azure.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone app and App+User credentials.
-- A customer identifier.
-- A subscription identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
+- Identificateur d’abonnement.
 
-This API returns daily and hourly unrated consumption for an arbitrary time span. However, *this API is not supported for Azure plans*. If you have an Azure plan, see the articles [Get invoice unbilled consumption line items](get-invoice-unbilled-consumption-lineitems.md) and [Get invoice billed consumption line items](get-invoice-billed-consumption-lineitems.md) instead. These articles describe how to get rated consumption at daily level per meter per resource. This is equivalent to the daily grain data provided by the Azure utilization API. You will need to use the invoice identifier to retrieve billed usage data. Or, you can use current and previous periods to get unbilled usage estimates. *Hourly grain data and arbitrary date range filters aren't currently supported for Azure plan subscription resources*.
+Cette API renvoie une consommation non classée quotidienne et horaire pour un intervalle de temps arbitraire. Toutefois, *cette API n’est pas prise en charge pour les plans Azure*. Si vous disposez d’un plan Azure, consultez les articles [obtenir une facture facturation de la consommation non facturée](get-invoice-unbilled-consumption-lineitems.md) et obtenir les lignes de facturation de [la consommation facturées](get-invoice-billed-consumption-lineitems.md) . Ces articles décrivent comment bénéficier d’une consommation évaluée au niveau quotidien par compteur et par ressource. Cela équivaut aux données de grain quotidien fournies par l’API d’utilisation d’Azure. Vous devrez utiliser l’identificateur de facture pour récupérer les données d’utilisation facturées. Ou vous pouvez utiliser les périodes actuelles et précédentes pour recevoir des estimations d’utilisation non facturées. *Les filtres horaires de données et de plage de dates arbitraires ne sont actuellement pas pris en charge pour les ressources d’abonnement de plan Azure*.
 
 ## <a name="azure-utilization-api"></a>API d'utilisation d'Azure
 
-This Azure utilization API provides access to utilization records for a time period that represents when the utilization was reported in the billing system. It provides access to the same utilization data that is used to create and calculate the reconciliation file. However, it does not have knowledge of billing system reconciliation file logic. You should not expect reconciliation file summary results to match the result retrieved from this API exactly for the same time period.
+Cette API d’utilisation Azure fournit l’accès aux enregistrements d’utilisation pendant une période qui représente le moment où l’utilisation a été signalée dans le système de facturation. Il permet d’accéder aux mêmes données d’utilisation utilisées pour créer et calculer le fichier de réconciliation. Toutefois, il n’a pas connaissance de la logique du fichier de rapprochement du système de facturation. Vous ne devez pas vous attendre à ce que les résultats du résumé du fichier de rapprochement correspondent au résultat récupéré à partir de cette API pour la même période.
 
-For example, the billing system takes the same utilization data and applies lateness rules to determine what is accounted for in a reconciliation file. When a billing period closes, all usage until the end of the day that the billing period ends is included in the reconciliation file. Any late usage within the billing period that is reported within 24 hours after the billing period ends is accounted for in the next reconciliation file. For the lateness rules of how the partner is billed, see [Get consumption data for an Azure subscription](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100)).
+Par exemple, le système de facturation utilise les mêmes données d’utilisation et applique des règles de retard pour déterminer ce qui est comptabilisé dans un fichier de réconciliation. Quand une période de facturation se ferme, toute utilisation jusqu’à la fin de la journée à laquelle la période de facturation se termine est incluse dans le fichier de réconciliation. Toute utilisation tardive au cours de la période de facturation qui est signalée dans les 24 heures suivant la fin de la période de facturation est comptabilisée dans le prochain fichier de rapprochement. Pour connaître les règles de mise en retard de la facturation du partenaire, consultez [obtenir des données de consommation pour un abonnement Azure](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100)).
 
-This REST API is paged. If the response payload is larger than a single page, you must follow the next link to get the next page of utilization records.
+Cette API REST est paginée. Si la charge utile de la réponse est supérieure à une page unique, vous devez suivre le lien suivant pour obtenir la page suivante des enregistrements d’utilisation.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To obtain the Azure Utilization Records:
+Pour obtenir les enregistrements d’utilisation Azure :
 
-1. Get the customer ID and subscription ID. 
-2. Call the [**IAzureUtilizationCollection.Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) method to return a [**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) that contains the utilization records. 
-3. Obtain an Azure utilization record enumerator to traverse the utilization pages. You must do this because the resource collection is paged.
+1. Procurez-vous l’ID client et l’ID d’abonnement. 
+2. Appelez la méthode [**IAzureUtilizationCollection. Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) pour retourner un [**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) qui contient les enregistrements d’utilisation. 
+3. Obtenez un énumérateur d’enregistrements d’utilisation Azure pour parcourir les pages d’utilisation. Vous devez effectuer cette opération, car la collection de ressources est paginée.
 
-- **Sample**: [Console test app](console-test-app.md)
-- **Project**: Partner Center SDK Samples
-- **Class**: GetAzureSubscriptionUtilization.cs
+- **Exemple**: [application de test](console-test-app.md) de la console
+- **Projet**: exemples du kit de développement logiciel (SDK) Partner Center
+- **Classe**: GetAzureSubscriptionUtilization.cs
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -82,7 +82,7 @@ while (utilizationRecordEnumerator.HasValue)
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To obtain the Azure Utilization Records, you first need a customer identifier and a subscription identifier. You then call the **IAzureUtilizationCollection.query** function to return a **ResourceCollection** that contains the utilization records. Because the resource collection is paged, you must then obtain an Azure utilization record enumerator to traverse the utilization pages.
+Pour obtenir les enregistrements d’utilisation Azure, vous avez d’abord besoin d’un identificateur de client et d’un identificateur d’abonnement. Vous appelez ensuite la fonction **IAzureUtilizationCollection. Query** pour retourner un **ResourceCollection** qui contient les enregistrements d’utilisation. Étant donné que la collection de ressources est paginée, vous devez obtenir un énumérateur d’enregistrement d’utilisation Azure pour parcourir les pages d’utilisation.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -117,7 +117,7 @@ while (utilizationRecordEnumerator.hasValue())
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To obtain the Azure Utilization Records, you first need a customer identifier and a subscription identifier. You then call the [**Get-PartnerCustomerSubscriptionUtilization**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md). This command will return all records available for the specified period of time.
+Pour obtenir les enregistrements d’utilisation Azure, vous avez d’abord besoin d’un identificateur de client et d’un identificateur d’abonnement. Vous appelez ensuite le [**PartnerCustomerSubscriptionUtilization**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscriptionUtilization.md). Cette commande retourne tous les enregistrements disponibles pendant la période spécifiée.
 
 ```powershell
 # $customerId
@@ -128,41 +128,41 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode | URI de requête |
 |------- | ----------- |
-| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/utilizations/azure?start\_time={start-time}&end\_time={end-time}&granularity={granularity}&show\_details={True} |
+| **Télécharger** | *{baseURL}* /v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/utilizations/Azure ? Start\_Time = {Start-time} & end\_Time = {End-time} & Granularity = {granularité} & show\_Details = {true} |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path and query parameters to get the utilization records.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir les enregistrements d’utilisation.
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| customer-tenant-id | chaîne | Oui | A GUID-formatted string that identifies the customer. |
-| subscription-id | chaîne | Oui | A GUID-formatted string that identifies the subscription. |
-| start_time | string in UTC date-time offset format | Oui | The start of the time range that represents when the utilization was reported in the billing system. |
-| end_time | string in UTC date-time offset format | Oui | The end of the time range that represents when the utilization was reported in the billing system. |
-| granularity | chaîne | non | Defines the granularity of usage aggregations. Available options are: `daily` (default) and `hourly`.
-| show_details | booléen | non | Specifies whether to get the instance-level usage details. La valeur par défaut est `true`. |
-| size | nombre | non | Specifies the number of aggregations returned by a single API call. The default is 1000. The max is 1000. |
+| client-locataire-ID | chaîne | Oui | Chaîne au format GUID qui identifie le client. |
+| ID d’abonnement | chaîne | Oui | Chaîne au format GUID qui identifie l’abonnement. |
+| start_time | chaîne au format de décalage de date/heure UTC | Oui | Début de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
+| end_time | chaîne au format de décalage de date/heure UTC | Oui | Fin de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
+| granularité | chaîne | Non | Définit la granularité des agrégations d’utilisation. Les options disponibles sont les suivantes : `daily` (par défaut) et `hourly`.
+| show_details | booléen | Non | Spécifie s’il faut recevoir les détails d’utilisation au niveau de l’instance. La valeur par défaut est `true`. |
+| size | nombre | Non | Spécifie le nombre d’agrégations retournées par un appel d’API unique. La valeur par défaut est 1000. Le maximum est 1000. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 #### <a name="request-body"></a>Corps de la requête
 
-Aucun(e)
+Aucune
 
 #### <a name="request-example"></a>Exemple de requête
 
-The following example request produces results similar to what the reconciliation file will show for the period 7/2 - 8/1. These results may not match exactly (see the section [Azure utilization API](#azure-utilization-api) for details).
+L’exemple de requête suivant produit des résultats similaires à ce que le fichier de réconciliation affiche pour la période 7/2-8/1. Ces résultats peuvent ne pas correspondre exactement (consultez la section [API d’utilisation d’Azure](#azure-utilization-api) pour plus d’informations).
 
-This example request returns utilization data reported in the billing system between 7/2 at 12 AM (UTC) and 8/2 at 12 AM (UTC).
+Cet exemple de requête retourne les données d’utilisation signalées dans le système de facturation entre 7/2 à 12h00 (UTC) et 8/2 à 12h00 (UTC).
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/E499C962-9218-4DBA-8B83-8ADC94F47B9F/subscriptions/FC8F8908-F918-4406-AF13-D5BC0FE41865/utilizations/azure?start_time=2017-07-02T00:00:00-08:00&end_time=2017-08-02T00:00:00-08:00 HTTP/1.1
@@ -174,13 +174,13 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a collection of [Azure Utilization Record](azure-utilization-record-resources.md) resources in the response body. If the Azure utilization data is not yet ready in a dependent system, this method returns an HTTP Status Code 204 with a Retry-After header.
+En cas de réussite, cette méthode retourne une collection de ressources d' [enregistrements d’utilisation Azure](azure-utilization-record-resources.md) dans le corps de la réponse. Si les données d’utilisation Azure ne sont pas encore prêtes dans un système dépendant, cette méthode retourne le code d’état HTTP 204 avec un en-tête Retry-after.
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read the HTTP status code, [error code type](error-codes.md), and additional parameters.
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de suivi réseau pour lire le code d’état HTTP, le [type de code d’erreur](error-codes.md)et des paramètres supplémentaires.
 
 #### <a name="response-example"></a>Exemple de réponse
 

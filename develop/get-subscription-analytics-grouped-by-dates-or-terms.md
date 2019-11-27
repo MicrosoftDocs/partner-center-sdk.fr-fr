@@ -1,6 +1,6 @@
 ---
-title: Get subscription analytics grouped by dates or terms
-description: How to get subscription analytics information grouped by dates or terms.
+title: Récupération de l’analyse d’abonnement par dates ou termes
+description: Comment faire regrouper les informations d’analyse d’abonnement par dates ou termes.
 ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
@@ -13,102 +13,102 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74487159"
 ---
-# <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Get subscription analytics grouped by dates or terms
+# <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Récupération de l’analyse d’abonnement par dates ou termes
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 
-How to get subscription analytics information for your customers grouped by dates or terms.
+Comment obtenir des informations d’analyse d’abonnement pour vos clients regroupés par dates ou termes.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
-
-
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with User credentials only.
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>REST Request
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
 
-**Request syntax**
+## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
+
+
+**Syntaxe de la requête**
 
 | Méthode | URI de requête |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions?groupby={groupby_queries} |
+| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? GroupBy = {groupby_queries} |
 
  
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following required path parameters to identify your organization and to group the results.
+Utilisez les paramètres de chemin d’accès requis suivants pour identifier votre organisation et regrouper les résultats.
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 |------|------|----------|-------------|
-| groupby_queries | pairs of strings and dateTime | Oui | The terms and dates to filter the result. |
+| groupby_queries | paires de chaînes et dateTime | Oui | Termes et dates pour filtrer le résultat. |
 
  
 
-**GroupBy syntax**
+**Syntaxe GroupBy**
 
-The group by parameter must be composed as a series of comma separated, field values.
+Le paramètre Group by doit être composé d’une série de valeurs de champ séparées par des virgules.
 
-An unencoded example looks like this:  
+Un exemple non encodé ressemble à ceci :  
 
 ```http
 ?groupby=termField1,dateField1,termField2
 ```
 
-The following table shows a list of the supported fields for group by.
+Le tableau suivant présente la liste des champs pris en charge pour Group by.
 
-| Champ | Tapez | Description |
+| Champ | Type | Description |
 |-------|------|-------------|
-| customerTenantId | chaîne | A GUID-formatted string that identifies the customer tenant. |  
-| customerName | chaîne | The name of the customer. |  
-| customerMarket | chaîne | The country/region that the customer does business in. |  
-| id | chaîne | A GUID-formatted string that identifies the subscription. |  
-| status | chaîne | The subscription status. Supported values are: "ACTIVE", "SUSPENDED", or "DEPROVISIONED". |  
+| customerTenantId | chaîne | Chaîne au format GUID qui identifie le locataire client. |  
+| Souhaite | chaîne | Nom du client. |  
+| customerMarket | chaîne | Pays/région dans lequel le client fait des affaires. |  
+| id | chaîne | Chaîne au format GUID qui identifie l’abonnement. |  
+| status | chaîne | État de l’abonnement. Les valeurs prises en charge sont : « ACTIVE », « SUSPENDed » ou « deprovision ». |  
 | productName | chaîne | Le nom du produit. |  
-| subscriptionType | chaîne | The subscription type. Note: This field is case sensitive. Supported values are: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |  
-| autoRenewEnabled | Valeur booléenne | A value indicating whether the subscription is renewed automatically. |  
-| partnerId  | chaîne | The MPN ID. For a direct reseller, this will be the MPN ID of the partner. For an indirect reseller, this will be the MPN ID of the indirect reseller. |  
-| friendlyName | chaîne | The name of the subscription. |  
-| partnerName | chaîne | Name of the partner for whom the subscription was purchased |  
-| providerName | chaîne | When subscription transaction is for the indirect reseller, provider name is the indirect provider who bought the subscription.
-| creationDate | string in UTC date time format | The date the subscription was created. |  
-| effectiveStartDate | string in UTC date time format | The date the subscription starts. |  
-| commitmentEndDate | string in UTC date time format | The date the subscription ends. |  
-| currentStateEndDate | string in UTC date time format | The date that the current status of the subscription will change. |  
-| trialToPaidConversionDate | string in UTC date time format | The date that the subscription converts from trial to paid. The default value is null. |  
-| trialStartDate | string in UTC date time format | The date that the trial period for the subscription started. The default value is null. |  
-| lastUsageDate | string in UTC date time format | The date that the subscription was last used. The default value is null. |  
-| deprovisionedDate | string in UTC date time format | The date that the subscription was deprovisioned. The default value is null. |  
-| lastRenewalDate | string in UTC date time format | The date that the subscription was last renewed. The default value is null. |  
+| subscriptionType | chaîne | Type d’abonnement. Remarque : ce champ respecte la casse. Les valeurs prises en charge sont : « Office », « Azure », « Microsoft365 », « Dynamics », « EMS ». |  
+| autoRenewEnabled | Booléen | Valeur indiquant si l’abonnement est renouvelé automatiquement. |  
+| Partenaire  | chaîne | ID MPN. Pour un revendeur direct, il s’agit de l’ID MPN du partenaire. Pour un revendeur indirect, il s’agit de l’ID MPN du revendeur indirect. |  
+| friendlyName | chaîne | Nom de l’abonnement. |  
+| partnerName | chaîne | Nom du partenaire pour lequel l’abonnement a été acheté |  
+| Désigne | chaîne | Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.
+| CreationDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été créé. |  
+| effectiveStartDate | chaîne au format date/heure UTC | Date de début de l’abonnement. |  
+| commitmentEndDate | chaîne au format date/heure UTC | Date de fin de l’abonnement. |  
+| currentStateEndDate | chaîne au format date/heure UTC | Date à laquelle l’état actuel de l’abonnement sera modifié. |  
+| trialToPaidConversionDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement convertit de l’essai au paiement. La valeur par défaut est null. |  
+| trialStartDate | chaîne au format date/heure UTC | Date de début de la période d’évaluation de l’abonnement. La valeur par défaut est null. |  
+| lastUsageDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été utilisé pour la dernière fois. La valeur par défaut est null. |  
+| deprovisionedDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été annulé. La valeur par défaut est null. |  
+| lastRenewalDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été renouvelé pour la dernière fois. La valeur par défaut est null. |  
 
-**Filter fields**
+**Filtrer les champs**
 
-The following table lists optional filter fields and their descriptions:
+Le tableau suivant répertorie les champs de filtre facultatifs et leurs descriptions :
 
-| Champ | Tapez |  Description |
+| Champ | Type |  Description |
 |-------|------|--------------|
-| top | entier | Le nombre de lignes de données à renvoyer dans la requête. If the value is not specified, the maximum value and the default value are 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
-| skip | entier | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. For example, top=10000 and skip=0 retrieves the first 10000 rows of data, top=10000 and skip=10000 retrieves the next 10000 rows of data. |
-| filter | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Each filter statement contains a field name from the response body and a value that are associated with the **eq**, **ne**, or for certain fields, the **contains** operator. Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. String values must be surrounded by single quotes in the filter parameter. See the following section for a list of fields that can be filtered and the operators that are supported with those fields. |
-| aggregationLevel | chaîne | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. If the value is not specified, the default is **dateRange**. **Note**: This parameter applies only when a date field is passed as part of the groupBy parameter. |
-| groupBy | chaîne | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
+| top | entier | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
+| skip | entier | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, Top = 10000 et Skip = 0 récupère les 10000 premières lignes de données, Top = 10000 et Skip = 10000 récupère les 10000 lignes de données suivantes. |
+| filter | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à l’opérateur **EQ** **, ne, ou**pour certains champs, l’opérateur **Contains** . Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Les valeurs de chaîne doivent être entourées de guillemets simples dans le paramètre de filtre. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
+| aggregationLevel | chaîne | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. **Remarque**: ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre GroupBy. |
+| Comportant | chaîne | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
 
 
-**Request headers**
+**En-têtes de demande**
 
-- See [Headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/subscriptions?groupBy=subscriptionType  
@@ -120,15 +120,15 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>REST Response
+## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
 
-If successful, the response body contains a collection of [Subscription](partner-center-analytics-resources.md#subscription) resources grouped by the specified terms and dates.
+En cas de réussite, le corps de la réponse contient une collection de ressources d' [abonnement](partner-center-analytics-resources.md#subscription) regroupées selon les conditions et les dates spécifiées.
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK
@@ -179,6 +179,6 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
 
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+ - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)

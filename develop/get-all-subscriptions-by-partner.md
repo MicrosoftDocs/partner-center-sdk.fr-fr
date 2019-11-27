@@ -1,6 +1,6 @@
 ---
-title: Get a customer's subscriptions by partner MPN ID
-description: How to get a list of subscriptions provided by a given partner to a specified customer.
+title: Obtenir les abonnements d’un client par ID MPN partenaire
+description: Comment obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié.
 ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74485829"
 ---
-# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Get a customer's subscriptions by partner MPN ID
+# <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Obtenir les abonnements d’un client par ID MPN partenaire
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to get a list of subscriptions provided by a given partner to a specified customer.
+Comment obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>Prerequisites
+## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A customer identifier.
-- A partner Microsoft Partner Network (MPN) identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
+- Identificateur d’Microsoft Partner Network de partenaire (MPN).
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>Examples
+## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
 
 ### <a name="c"></a>C#
 
-To get a list of subscriptions provided by a given partner to a specified customer, first use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer. Then get an interface to customer subscription collection operations from the [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, and call the [**ByPartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) method with the MPN ID to identify the partner and retrieve an interface to partner subscription operations. Finally, call the [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) or [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) method to get the collection.
+Pour obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, vous pouvez obtenir une interface pour les opérations de collecte d’abonnement client à partir de la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , puis appeler la méthode [**BYPARTNER**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) avec l’ID MPN pour identifier le partenaire et récupérer une interface pour les opérations d’abonnement de partenaire. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) [**pour récupérer la**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) collection.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -45,13 +45,13 @@ To get a list of subscriptions provided by a given partner to a specified custom
 var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).Subscriptions.ByPartner(partnerMpnId).Get();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: GetSubscriptionsByMpnid.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetSubscriptionsByMpnid.cs
 
 ### <a name="java"></a>Java
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get a list of subscriptions provided by a given partner to a specified customer, first use the **IAggregatePartner.getCustomers.byId** function with the customer ID to identify the customer. Then get an interface to customer subscription collection operations from the **getSubscriptions** function, and call the **byPartner** function with the MPN ID to identify the partner and retrieve an interface to partner subscription operations. Finally, call the **get** function to get the collection.
+Pour obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié, utilisez d’abord la fonction **collection iaggregatepartner. getCustomers. méthode BYID** avec l’ID client pour identifier le client. Ensuite, vous pouvez obtenir une interface pour les opérations de collecte d’abonnement client à partir de la fonction **getSubscriptions** et appeler la fonction **BYPARTNER** avec l’ID MPN pour identifier le partenaire et récupérer une interface pour les opérations d’abonnement de partenaire. Enfin, appelez la fonction d' **extraction** pour accéder à la collection.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -65,7 +65,7 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get a list of subscriptions provided by a given partner to a specified customer, execute the [**Get-PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) command. Specify the customer ID to identify the customer using the **CustomerId** parameter, and populate the **MpnId** parameter with the MPN ID to identify the partner.
+Pour obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié, exécutez la commande [**PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) . Spécifiez l’ID client pour identifier le client à l’aide du paramètre **CustomerID** , puis remplissez le paramètre **MPNID** avec l’ID MPN pour identifier le partenaire.
 
 ```powershell
 # $customerId
@@ -74,33 +74,33 @@ To get a list of subscriptions provided by a given partner to a specified custom
 Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> REST Request
+## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
 
-**Request syntax**
+**Syntaxe de la requête**
 
 | Méthode  | URI de requête |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions?mpn\_id={mpn-id} HTTP/1.1 |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions ? MPN\_ID = {MPN-ID} http/1.1 |
 
-**URI parameters**
+**Paramètres d’URI**
 
-Use the following path and query parameters to identify the customer and partner.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour identifier le client et le partenaire.
 
-| Nom        | Tapez   | Obligatoire | Description                                                 |
+| Nom        | Type   | Obligatoire | Description                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | chaîne | Oui      | A GUID formatted string that identifies the customer.       |
-| mpn-id      | entier    | Oui      | A Microsoft Partner Network ID that identifies the partner. |
+| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client.       |
+| MPN-ID      | entier    | Oui      | ID de Microsoft Partner Network qui identifie le partenaire. |
 
  
-**Request headers**
+**En-têtes de demande**
 
-- See [Partner Center REST headers](headers.md) for more information.
+- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-**Request body**
+**Corps de la demande**
 
 Aucun.
 
-**Request example**
+**Exemple de requête**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/c501c3c4-d776-40ef-9ecf-9cefb59442c1/subscriptions?mpn_id=4847383 HTTP/1.1
@@ -113,15 +113,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>Response
+## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
 
-If successful, the response body contains the collection of [Subscription](subscription-resources.md) resources.
+En cas de réussite, le corps de la réponse contient la collection de ressources d' [abonnement](subscription-resources.md) .
 
-**Response success and error codes**
+**Codes d’erreur et de réussite de la réponse**
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-**Response example**
+**Exemple de réponse**
 
 ```http
 HTTP/1.1 200 OK
@@ -177,5 +177,5 @@ Date: Thu, 13 Apr 2017 20:58:08 GMT
 }
 ```
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>See also
- - [Partner Center Analytics - Resources](partner-center-analytics-resources.md)
+## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
+ - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)

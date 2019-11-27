@@ -1,6 +1,6 @@
 ---
-title: Delete a user account for a customer
-description: How to delete an existing user account for a customer.
+title: Supprimer un compte d’utilisateur pour un client
+description: Comment supprimer un compte d’utilisateur existant pour un client.
 ms.assetid: 12097809-A62D-4929-9F1D-08676784BA39
 ms.date: 06/20/2019
 ms.service: partner-dashboard
@@ -13,33 +13,33 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486119"
 ---
-# <a name="delete-a-user-account-for-a-customer"></a>Delete a user account for a customer
+# <a name="delete-a-user-account-for-a-customer"></a>Supprimer un compte d’utilisateur pour un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-This topic explains how to delete an existing user account for a customer.
+Cette rubrique explique comment supprimer un compte d’utilisateur existant pour un client.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, look up the ID in Partner Center. Choose the customer from the customers list, select **Account**, then save their Microsoft ID.
-- A user ID. If you do not have the user ID, see [Get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (**client-locataire-ID**). Si vous n’avez pas d’ID de client, recherchez l’ID dans l’espace partenaires. Sélectionnez le client dans la liste clients, sélectionnez **compte**, puis enregistrez son ID Microsoft.
+- Un ID d’utilisateur. Si vous ne disposez pas de l’ID utilisateur, consultez [obtenir la liste de tous les comptes d’utilisateur d’un client](get-a-list-of-all-user-accounts-for-a-customer.md).
 
 ## <a name="deleting-a-user-account"></a>Suppression d’un compte d’utilisateur
 
-When you delete a user account, the user state is set to **inactive** for thirty days. After thirty days, the user account and its associated data are purged and made unrecoverable.
+Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur est défini sur **inactif** pendant trente jours. Après 30 jours, le compte d’utilisateur et ses données associées sont purgés et rendus irrécupérables.
 
-You can [restore a deleted user account for a customer](restore-a-user-for-a-customer.md) if the inactive account is within the thirty day window. However, when you restore an account that was deleted and marked as inactive, the account is no longer returned as a member of the user collection (for example, when you [get a list of all user accounts for a customer](get-a-list-of-all-user-accounts-for-a-customer.md)).
+Vous pouvez [restaurer un compte d’utilisateur supprimé pour un client](restore-a-user-for-a-customer.md) si le compte inactif est dans la période de 30 jours. Toutefois, lorsque vous restaurez un compte qui a été supprimé et marqué comme étant inactif, le compte n’est plus renvoyé en tant que membre du regroupement utilisateur (par exemple, lorsque vous [recevez une liste de tous les comptes d’utilisateur d’un client](get-a-list-of-all-user-accounts-for-a-customer.md)).
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To delete an existing customer user account:
+Pour supprimer un compte d’utilisateur client existant :
 
-1. Use the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer ID to identify the customer.
-2. Call the [**Users.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) method to identify the user.
-3. Call the [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) method to delete the user and set the user state to inactive.
+1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+2. Appelez la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’utilisateur.
+3. Appelez la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) pour supprimer l’utilisateur et définir l’état utilisateur sur inactif.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,28 +49,28 @@ To delete an existing customer user account:
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: DeleteCustomerUser.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : DeleteCustomerUser.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode     | URI de requête                                                                                            |
 |------------|--------------------------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
+| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users/{User-ID} http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following query parameters to identify the customer and user.
+Utilisez les paramètres de requête suivants pour identifier le client et l’utilisateur.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                               |
+| Nom                   | Type     | Obligatoire | Description                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | The value is a GUID-formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer. |
-| user-id                | GUID     | Y        | The value is a GUID-formatted **user-id** that belongs to a single user account.                                          |
+| client-locataire-ID     | GUID     | Y        | La valeur est un **client-client-ID** au format GUID qui permet au revendeur de filtrer les résultats pour un client donné. |
+| ID utilisateur                | GUID     | Y        | La valeur est un **ID utilisateur** au format GUID qui appartient à un compte d’utilisateur unique.                                          |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -89,13 +89,13 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a **204 No Content** status code.
+En cas de réussite, cette méthode retourne un code d’état **204 no content** .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

@@ -1,6 +1,6 @@
 ---
-title: CSP Customer Storefront Builder Quick Start Guide
-description: Create an online marketplace to sell cloud solution provider (CSP) offers using the CSP Customer Storefront Builder.
+title: Guide de démarrage rapide du générateur de vitrine du client CSP
+description: Créez une place de marché en ligne pour vendre des offres de fournisseur de solutions Cloud à l’aide du générateur de vitrine client du CSP.
 ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,80 +13,80 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489729"
 ---
-# <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP Customer Storefront Builder Quick Start Guide
+# <a name="csp-customer-storefront-builder-quick-start-guide"></a>Guide de démarrage rapide du générateur de vitrine du client CSP
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-Create an online marketplace to sell cloud solution provider (CSP) offers by using the CSP Customer Storefront Builder.
+Créez une place de marché en ligne pour vendre des offres de fournisseur de solutions Cloud à l’aide du générateur de vitrine client du CSP.
 
-## <a name="introduction-to-the-csp-customer-storefront-builder"></a>Introduction to the CSP Customer Storefront Builder
+## <a name="introduction-to-the-csp-customer-storefront-builder"></a>Présentation du générateur de vitrine client du fournisseur de solutions Cloud
 
-The CSP Customer Storefront Builder helps partners easily create an online marketplace to sell CSP offers to their customers. Most partners and small sales organizations want to focus on selling rather than developing an online marketplace. The Partner Center SDK sample app requires software development skills to create and deploy a website. With the CSP Customer Storefront Builder, you can quickly and easily create your own website. You can also download the website as sample code or deploy directly to your Azure subscription with a Ready to Transact website.
+Le générateur de vitrine du client CSP aide les partenaires à créer facilement une place de marché en ligne pour vendre des offres CSP à leurs clients. La plupart des partenaires et petites entreprises veulent se concentrer sur la vente plutôt que sur le développement d’une place de marché en ligne. L’exemple d’application du kit de développement logiciel (SDK) Partner Center nécessite des compétences en développement de logiciels pour créer et déployer un site Web. Avec le générateur de vitrine du client CSP, vous pouvez créer rapidement et facilement votre propre site Web. Vous pouvez également télécharger le site Web en tant qu’exemple de code ou le déployer directement dans votre abonnement Azure avec un site Web prêt à l’emploi.
 
-This website is fully owned, supported, and maintained by partners, and Microsoft does not collect any data or telemetry from the website. The CSP Customer Storefront Builder creates a website for the partner that is fully compliant with the [Payment Card Industry Data Security Standard](https://www.pcisecuritystandards.org/) (PCI DSS).
+Ce site Web est entièrement détenu, pris en charge et géré par les partenaires, et Microsoft ne collecte pas de données ou de données de télémétrie à partir du site Web. Le générateur de vitrine du client CSP crée un site Web pour le partenaire qui est entièrement conforme à la norme de paiement de la [carte de paiement](https://www.pcisecuritystandards.org/) (PCI DSS).
 
-The CSP Customer Storefront Builder code is subject to the license available in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+Le code du générateur de vitrine du client CSP est soumis à la licence disponible dans le [CLUF du kit de développement logiciel (SDK) de l’espace partenaires](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
 
 >[!NOTE]
->You are responsible for the storefront website management, maintenance, and any issues that might result from website creation. Read and understand the terms in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+>Vous êtes responsable de la gestion et de la maintenance des sites Web de vitrine, ainsi que des problèmes qui peuvent résulter de la création d’un site Web. Lisez et comprenez les termes du [CLUF du kit de développement logiciel (SDK) de l’espace partenaires](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
 
-For additional information, also see the following topics: [CSP customer web storefront](csp-customer-web-storefront.md) and [console test app](console-test-app.md).
+Pour plus d’informations, consultez également les rubriques suivantes : [vitrine Web du client CSP](csp-customer-web-storefront.md) et [application de test](console-test-app.md)de la console.
 
 ## <a name="considerations"></a>Éléments à prendre en considération
 
-The CSP Customer Storefront Builder is intended as a quick way to create a website. Be aware of the following considerations during your planning:
+Le générateur de vitrine client du fournisseur de solutions Cloud est conçu pour créer rapidement un site Web. Tenez compte des points suivants lors de votre planification :
 
-- Once deployed, Microsoft and Partner Center does not maintain a copy of the partner website or any information added into the CSP Customer Storefront Builder.
-- Partner Center can only deploy a CSP Customer Storefront website to a partner's Azure subscriptions.
-- This website, once deployed, is fully owned and managed by the partner. Microsoft does not have access to this website, or any data related to the website. Partners are responsible for maintenance and management of the website. Microsoft will not provide any live website or other support related to the CSP Customer Storefront Builder or any website created by using the CSP Customer Storefront Builder.
-- Partner Center cannot directly access or upgrade this website with new or changed SDK or API features. Any new features or enhancements must be owned, developed, and managed by partners, including adding new Partner Center SDK or API features.
-- This CSP Customer Storefront Builder currently provides the ability to configure payment to a PayPal Pro/PayU Money (for India) account. If partners need to change the payment processor, they will need to change the code to support their preferred payment method.
-- Any payment related information added in the CSP Customer Storefront Builder is not stored or maintained in Partner Center.
-- PayPal payment configuration will work in any geographies where PayPal is available. PayPal availability and support is solely controlled by PayPal, and may be discontinued at any time by PayPal.
-- PayU payment configuration will work only in India currently. PayU availability and support is solely controlled by PayU and may be discontinued at any time by PayU.
-- Read and understand the terms in the [Partner Center SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
+- Une fois le déploiement effectué, Microsoft et l’espace partenaires ne disposent pas d’une copie du site Web partenaire ni des informations ajoutées dans le générateur de vitrine client du fournisseur de solutions.
+- L’espace partenaires peut uniquement déployer un site Web de vitrine du client CSP sur les abonnements Azure d’un partenaire.
+- Ce site Web, une fois déployé, est entièrement détenu et géré par le partenaire. Microsoft n’a pas accès à ce site Web ou à toutes les données relatives au site Web. Les partenaires sont responsables de la maintenance et de la gestion du site Web. Microsoft ne fournira pas de site Web en direct ou autre support technique lié au générateur de vitrine client du fournisseur de solutions client ou à un site Web créé à l’aide du générateur de vitrine client du fournisseur de solutions.
+- L’espace partenaires ne peut pas accéder directement à ce site Web ou le mettre à niveau avec des fonctionnalités SDK ou API nouvelles ou modifiées. Toutes les nouvelles fonctionnalités ou améliorations doivent être détenues, développées et gérées par des partenaires, y compris l’ajout de nouvelles fonctionnalités d’API ou de kit de développement logiciel (SDK) de l’espace partenaires.
+- Ce générateur de vitrine du client CSP offre actuellement la possibilité de configurer le paiement sur un compte PayPal Pro/PayU Money (pour l’Inde). Si les partenaires doivent modifier le processeur de paiement, ils devront modifier le code pour prendre en charge leur mode de paiement préféré.
+- Les informations relatives au paiement ajoutées dans le générateur de vitrine client du fournisseur de solutions Cloud ne sont ni stockées ni conservées dans l’espace partenaires.
+- La configuration de paiement PayPal fonctionnera dans toutes les zones géographiques où PayPal sera disponible. La disponibilité et le support PayPal sont contrôlés uniquement par PayPal et peuvent être interrompus à tout moment par PayPal.
+- La configuration de paiement PayU fonctionne uniquement en Inde. La disponibilité et le support PayU sont contrôlés uniquement par PayU et peuvent être abandonnés à tout moment par PayU.
+- Lisez et comprenez les termes du [CLUF du kit de développement logiciel (SDK) de l’espace partenaires](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK).
 
-## <a name="using-the-csp-customer-storefront-builder"></a>Using the CSP Customer Storefront Builder
+## <a name="using-the-csp-customer-storefront-builder"></a>Utilisation du générateur de vitrine client du fournisseur de solutions Cloud
 
-CSP partner admins on Partner Center can deploy a CSP Customer Storefront directly from Partner Center. With minimal effort, a new website can be deployed on the partner's tenant. Once deployed, partners can use the website to configure branding, offers, and payment-related information, and then share the website URL address with customers.
+Les administrateurs du partenaire CSP de l’espace partenaires peuvent déployer une boutique client CSP directement à partir de l’espace partenaires. Avec un minimum d’efforts, un nouveau site Web peut être déployé sur le locataire du partenaire. Une fois déployés, les partenaires peuvent utiliser le site Web pour configurer la personnalisation, les offres et les informations relatives aux paiements, puis partager l’adresse URL du site Web avec les clients.
 
-The process for creating a storefront website is to:
+Le processus de création d’un site Web de vitrine consiste à :
 
-1. [Deploy the website](#deploy)
-2. [Configure the storefront](#configure)
-3. [Transact on the storefront](#transact)
+1. [Déployer le site Web](#deploy)
+2. [Configurer la vitrine](#configure)
+3. [Transact sur la vitrine](#transact)
 
 ### <a name="deploy"></a>Déployer
 
 Options de déploiement :
 
-- Deploy your website from Partner Center
-- Integrate with Azure to deploy the configured website
-- Deploy on an existing subscription or bring your own subscription
+- Déployer votre site Web à partir de l’espace partenaires
+- Intégrer avec Azure pour déployer le site Web configuré
+- Déployez sur un abonnement existant ou apportez votre propre abonnement
 
-### <a name="configure"></a>Configurer
+### <a name="configure"></a>Configuration
 
-No development skills are required to customize a storefront.
+Aucune compétence de développement n’est requise pour personnaliser une vitrine.
 
-Log in with your Partner Center admin credentials to configure:
+Connectez-vous avec vos informations d’identification d’administrateur de l’espace partenaires pour configurer :
 
-- **Branding**: company name, logo, contacts, and more.
-- **Offers**: view all CSP offers. You can select which offers your customers can view and purchase. You can also personalize offer information and add your price.
-- **PayPal payment configuration**: add your PayPal payment account information. If you don't have a PayPal account, you can visit <https://www.paypal.com> and create a new account. This account will be used for PayPal to credit the payments made by customers. *Microsoft is not responsible for the relationship between partners and PayPal. Use of PayPal may require the partner or partner's customers to agree to additional terms.*
-- (*For India*) **PayU Payment configuration**: add your PayU Money payment account information. If you don't have a PayU Money account, you can visit <https://www.payumoney.com/> and create a new account. This account will be used for PayU to credit the payments made by customers. *Microsoft is not responsible for the relationship between partners and PayU. Use of PayU may require the partner or partner's customers to agree to additional terms.*
+- **Personnalisation**: nom de l’entreprise, logo, contacts et bien plus encore.
+- **Offres**: afficher toutes les offres CSP. Vous pouvez sélectionner les offres qui peuvent être visualisées et achetées par vos clients. Vous pouvez également personnaliser les informations d’offre et ajouter votre prix.
+- **Configuration de paiement PayPal**: ajoutez vos informations de compte de paiement Paypal. Si vous n’avez pas de compte PayPal, vous pouvez visiter <https://www.paypal.com> et créer un nouveau compte. Ce compte sera utilisé pour PayPal pour créditer les paiements effectués par les clients. *Microsoft n’est pas responsable de la relation entre les partenaires et PayPal. L’utilisation de PayPal peut obliger les clients du partenaire ou du partenaire à accepter des conditions supplémentaires.*
+- (*Pour l’Inde*) **Configuration de paiement PayU**: ajoutez vos informations de compte de paiement PayU Money. Si vous n’avez pas de compte PayU Money, vous pouvez consulter <https://www.payumoney.com/> et créer un nouveau compte. Ce compte sera utilisé par PayU pour créditer les paiements effectués par les clients. *Microsoft n’est pas responsable de la relation entre les partenaires et PayU. L’utilisation de PayU peut obliger les clients du partenaire ou du partenaire à accepter des conditions supplémentaires.*
 
 ### <a name="transact"></a>Transact
 
-- After deployment, customers can immediately purchase and transact.
-- Customers can buy directly from the partner portal integrated with the Partner Center SDK.
+- Après le déploiement, les clients peuvent acheter et traiter immédiatement.
+- Les clients peuvent acheter directement à partir du portail partenaires intégré au kit de développement logiciel (SDK) de l’espace partenaires.
 
-#### <a name="customer-countries"></a>Customer countries
+#### <a name="customer-countries"></a>Pays clients
 
-Customers can belong to these countries:
+Les clients peuvent appartenir à ces pays :
 
-| Indicatif du pays | Country Name   |
+| Indicatif du pays | Nom du pays   |
 |--------------|----------------|
 | AU           | Australie      |
 | AT           | Autriche        |
@@ -112,12 +112,12 @@ Customers can belong to these countries:
 | LI           | Liechtenstein  |
 | LT           | Lituanie      |
 | LU           | Luxembourg     |
-| MT           | Malte (République de)          |
+| MT           | Malte          |
 | MC           | Monaco         |
 | NL           | Pays-Bas    |
 | NZ           | Nouvelle-Zélande    |
 | NON           | Norvège         |
-| PO           | Pologne         |
+| FACTUR           | Pologne         |
 | PT           | Portugal       |
 | RO           | Roumanie        |
 | SK           | Slovaquie       |
@@ -126,102 +126,102 @@ Customers can belong to these countries:
 | SE           | Suède         |
 | CH           | Suisse    |
 | Go           | Royaume-Uni |
-| États-Unis           | États-Unis  |
+| US           | États-Unis  |
 
 ### <a name="additional-resources"></a>Ressources supplémentaires
 
-To enhance or customize your CSP Customer Storefront:
+Pour améliorer ou personnaliser la vitrine cliente de votre fournisseur de solutions Cloud :
 
-- Download the [Partner Center storefront sample code](https://github.com/Microsoft/Partner-Center-Storefront) make additional customizations.
-- Use Microsoft Visual Studio 2015 (or later) to develop.
-- Build for additional changes and enhancements (including authorizations, certifications, manifest changes, and other items).
+- Téléchargez l’exemple de code de la boutique de l' [espace partenaires](https://github.com/Microsoft/Partner-Center-Storefront) apporter des personnalisations supplémentaires.
+- Utilisez Microsoft Visual Studio 2015 (ou version ultérieure) pour développer.
+- Générez des modifications supplémentaires et des améliorations (notamment les autorisations, les certifications, les modifications de manifeste et d’autres éléments).
 
-## <a name="partner-experience-scenarios"></a>Partner experience scenarios
+## <a name="partner-experience-scenarios"></a>Scénarios d’expérience partenaire
 
 ### <a name="deployment-scenario"></a>Scénario de déploiement
 
-- A partner admin can use Partner Center to deploy the website. In Account settings, choose **Web storefront** to deploy a new website.
-- On this page, partners can see the availability of a new site name and change it (if available).
-- This page shows all active Azure subscriptions associated to this partner tenant and that a partner can choose to use to deploy the website.
-- If a partner does not have an active subscription associated to this Partner Center account, they can add this account as an admin to an existing Azure subscription, and refresh to see that subscription in this list.
-- Partners choose the data center location where this website will be deployed.
-- The **Deploy your store** link will deploy this new website based on the information provided and show the URL.
-- Be sure to copy this URL as Partner Center does not maintain the state or history of these websites. If you close the browser page, you will lose the website name.
-- During deployment, the website will be deployed with the web app credentials created in Partner Center. If you did not register a web app, this will be registered during deployment.
+- Un administrateur partenaire peut utiliser l’espace partenaires pour déployer le site Web. Dans paramètres du compte, choisissez **vitrine Web** pour déployer un nouveau site Web.
+- Sur cette page, les partenaires peuvent voir la disponibilité d’un nouveau nom de site et le modifier (le cas échéant).
+- Cette page affiche tous les abonnements Azure actifs associés à ce locataire partenaire et qu’un partenaire peut choisir d’utiliser pour déployer le site Web.
+- Si un partenaire n’a pas d’abonnement actif associé à ce compte de l’espace partenaires, il peut ajouter ce compte en tant qu’administrateur à un abonnement Azure existant et l’actualiser pour voir cet abonnement dans cette liste.
+- Les partenaires choisissent l’emplacement du centre de données où ce site Web sera déployé.
+- Le lien **déployer votre boutique** déploie ce nouveau site Web en fonction des informations fournies et affiche l’URL.
+- Veillez à copier cette URL, car l’espace partenaires ne conserve pas l’État ou l’historique de ces sites Web. Si vous fermez la page du navigateur, vous perdez le nom du site Web.
+- Pendant le déploiement, le site Web sera déployé avec les informations d’identification de l’application Web créées dans l’espace partenaires. Si vous n’avez pas inscrit d’application Web, celle-ci sera inscrite au cours du déploiement.
 
-### <a name="configuration-scenario"></a>Configuration scenario
+### <a name="configuration-scenario"></a>Scénario de configuration
 
-- The newly created website is linked to a partner tenant and has access to all admin accounts of this partner tenant.
-  -Partners can log in to this new website using their Partner Center admin credentials.
-- The storefront application currently supports French, Spanish, Dutch, German, Japanese and English. (English serves as the fallback language.)
-  - The storefront configures the locale by using the partner's default locale from the partner's profile in the Partner Center. This locale is used to configure currencies, date formats, and localized offers in the repository.
-- Partners can configure branding, offers and PayPal or PayU (for India) payment information.
-- Partners can update the company name, company logo, header image, sales and support contacts and more.
-- Partners can see all CSP offers available based on their territory.
-  - Partners can choose which offers they want to show to all of their customers.
-  - A CSP partner can select one or more offers and update the name, quantity, feature description, and price.
-  - The price is the annual price. Customers subscribe annually.
-- Partners can at any time configure pre-approved transactions for (a) all current and future customers OR (b) specific customers.
-  - Pre-approved customers are not required to pay on the portal when they add new subscriptions, purchase additional seats to existing subscriptions, or renew a subscription.
-  - Pre-approved customers will not be redirected to PayPal or PayU (for India) for payment during these transactions.
-  - Pre-approved customer transactions allow a partner to perform offline billing and invoicing to their pre-approved customers.
-- A CSP partner can input their PayPal account information such as PayPal Client ID and secret. A CSP partner can also select whether they want to test using a sandbox or a live account.
-  - Partners can find this information on <https://developer.paypal.com/> in **my apps & credentials**. You can also get this information from a current app or by creating a new app in PayPal.
-  - Create a new PayPal account if you don't already have one. This account will be used for PayPal to credit the payments made by customers.
-    - To open a PayPal business account, see <https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register>.
-    - To create a PayPal sandbox account see <https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/>.
-- (For India) a CSP partner can input their PayU Money account information such as PayU Client ID and password. Partners can find more information on <https://developer.payumoney.com/>.
-  - Create a new PayU Money account if you don't already have one. To open a PayU Money account, visit <https://www.payumoney.com/merchant-account/#/>. This account will be used for PayU to credit the payments made by customers.
+- Le site Web nouvellement créé est lié à un locataire partenaire et a accès à tous les comptes d’administrateur de ce locataire partenaire.
+  -Les partenaires peuvent se connecter à ce nouveau site Web à l’aide de leurs informations d’identification d’administrateur de l’espace partenaires.
+- L’application vitrine prend actuellement en charge le français, l’espagnol, le néerlandais, l’allemand, le japonais et l’anglais. (L’anglais sert de langue de secours.)
+  - La vitrine configure les paramètres régionaux en utilisant les paramètres régionaux par défaut du partenaire à partir du profil du partenaire dans l’espace partenaires. Ces paramètres régionaux sont utilisés pour configurer les devises, les formats de date et les offres localisées dans le référentiel.
+- Les partenaires peuvent configurer la personnalisation, les offres et les informations de paiement PayPal ou PayU (pour l’Inde).
+- Les partenaires peuvent mettre à jour le nom de la société, le logo de l’entreprise, l’image d’en-tête, les contacts commerciaux et de support, etc.
+- Les partenaires peuvent voir toutes les offres CSP disponibles sur la base de leur territoire.
+  - Les partenaires peuvent choisir les offres qu’ils souhaitent présenter à tous leurs clients.
+  - Un partenaire CSP peut sélectionner une ou plusieurs offres et mettre à jour le nom, la quantité, la description de la fonctionnalité et le prix.
+  - Le prix est le prix annuel. Les clients s’abonnent annuellement.
+- Les partenaires peuvent à tout moment configurer des transactions pré-approuvées pour (a) tous les clients actuels et futurs ou (b) des clients spécifiques.
+  - Les clients préapprouvés ne sont pas tenus de payer sur le portail lorsqu’ils ajoutent de nouveaux abonnements, achètent des sièges supplémentaires à des abonnements existants ou renouvellent un abonnement.
+  - Les clients préapprouvés ne seront pas redirigés vers PayPal ou PayU (pour l’Inde) à des fins de paiement durant ces transactions.
+  - Les transactions pré-approuvées du client permettent à un partenaire d’effectuer une facturation et une facturation hors connexion à leurs clients préapprouvés.
+- Un partenaire CSP peut entrer les informations de son compte PayPal, telles que l’ID client et le secret PayPal. Un partenaire CSP peut également choisir s’il souhaite effectuer un test à l’aide d’un bac à sable (sandbox) ou d’un compte Live.
+  - Les partenaires peuvent trouver ces informations sur <https://developer.paypal.com/> dans **mes applications & des informations d’identification**. Vous pouvez également obtenir ces informations à partir d’une application actuelle ou en créant une nouvelle application dans PayPal.
+  - Créez un nouveau compte PayPal si vous n’en avez pas déjà un. Ce compte sera utilisé pour PayPal pour créditer les paiements effectués par les clients.
+    - Pour ouvrir un compte professionnel PayPal, voir <https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register>.
+    - Pour créer un compte PayPal sandbox, consultez <https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/>.
+- (Pour l’Inde) un partenaire CSP peut entrer les informations de son compte PayU Money, telles que l’ID client PayU et le mot de passe. Les partenaires peuvent trouver plus d’informations sur <https://developer.payumoney.com/>.
+  - Créez un compte PayU Money si vous n’en avez pas déjà un. Pour ouvrir un compte PayU Money, visitez <https://www.payumoney.com/merchant-account/#/>. Ce compte sera utilisé par PayU pour créditer les paiements effectués par les clients.
 
-## <a name="customer-experience-scenarios"></a>Customer experience scenarios
+## <a name="customer-experience-scenarios"></a>Scénarios de l’expérience utilisateur
 
-### <a name="new-customer-signup-scenario"></a>New customer signup scenario
+### <a name="new-customer-signup-scenario"></a>Nouveau scénario d’inscription du client
 
-- By default, the website is publicly available and shows the partner's catalog on the homepage.
-- Customers can now belong to a large number of [customer countries](#customer-countries).
-- The focus has been on the European Free Trade Association (EFTA) countries, North America, Japan, India, Australia, and New Zealand regions.
-  - This feature uses the regional authorization support in the Partner Center SDK.
-- Customers can select an offer from the catalog to purchase.
-  - They can add their customer name, address, and domain related information.
-- Customers will be directed to the PayPal or PayU (for India) checkout experience. Customers can provide payment using either:
-  - Their existing PayPal or PayU (for India) account
-  - Funding instruments supported in their country by PayPal or PayU (for India). These may include credit cards, debit cards and bank accounts as applicable.
-- A customer tenant is created for this customer. After successful creation of the tenant order, customers are provided the account username, password and subscription details.
-  - Customers can save the username and password to stay logged in for further purchases.
-  - Each subscription is purchased for a year and customers can renew in the 30 days prior to the subscription end date.
+- Par défaut, le site Web est disponible publiquement et affiche le catalogue du partenaire sur la page d’accueil.
+- Les clients peuvent désormais appartenir à un grand nombre de [pays clients](#customer-countries).
+- L’accent est mis sur les pays de l’Association européenne de libre-échange (AELE), Amérique du Nord, le Japon, l’Inde, l’Australie et la Nouvelle-Zélande.
+  - Cette fonctionnalité utilise la prise en charge des autorisations régionales dans le kit de développement logiciel (SDK) de l’espace partenaires.
+- Les clients peuvent sélectionner une offre dans le catalogue à acheter.
+  - Ils peuvent ajouter leur nom de client, leur adresse et les informations relatives au domaine.
+- Les clients sont dirigés vers l’expérience d’extraction PayPal ou PayU (pour l’Inde). Les clients peuvent fournir un paiement à l’aide des éléments suivants :
+  - Son compte PayPal ou PayU (pour l’Inde) existant
+  - Instruments de financement pris en charge dans leur pays par PayPal ou PayU (pour l’Inde). Celles-ci peuvent inclure des cartes de crédit, des cartes de débit et des comptes bancaires, le cas échéant.
+- Un locataire client est créé pour ce client. Une fois l’ordre des locataires créé, les clients sont fournis avec le nom d’utilisateur, le mot de passe et les détails de l’abonnement.
+  - Les clients peuvent enregistrer le nom d’utilisateur et le mot de passe pour rester connecté pour d’autres achats.
+  - Chaque abonnement est acheté pendant un an et les clients peuvent le renouveler dans les 30 jours précédant la date de fin de l’abonnement.
 
-### <a name="view-prior-purchases-scenario"></a>View prior purchases scenario
+### <a name="view-prior-purchases-scenario"></a>Afficher le scénario d’achats antérieurs
 
-- Customer signs in with Customer tenant username and password and goes to the **My Orders** section.
-- Customers can navigate to the **My Orders** page where they can view purchased subscriptions and make updates if required.
-- Customers can navigate to the **My Subscriptions** page where they can view all subscriptions (license-based as well as usage-based), including those maintained in Partner Center.
+- Le client se connecte avec le nom d’utilisateur et le mot de passe du locataire client et accède à la section **Mes commandes** .
+- Les clients peuvent accéder à la page **Mes commandes** où ils peuvent consulter les abonnements achetés et effectuer des mises à jour si nécessaire.
+- Les clients peuvent accéder à la page **mes abonnements** où ils peuvent afficher tous les abonnements (basés sur des licences et basés sur l’utilisation), y compris ceux qui sont conservés dans l’espace partenaires.
 
-### <a name="add-seats-to-existing-subscriptions-scenario"></a>Add seats to existing subscriptions scenario
+### <a name="add-seats-to-existing-subscriptions-scenario"></a>Ajouter des sièges à un scénario d’abonnements existants
 
-- From the **My Orders** section, customers can add more seats to existing subscriptions. Customers can add more seats anytime during a subscription year.
-- Each added seat does not change the end date of the subscription. However, the price of the subscription changes based on the date on which you add the seat, and where that date is in the year. Pricing is prorated on a daily basis to only charge for the remaining days of the year.
+- Dans la section **Mes commandes** , les clients peuvent ajouter des sièges à des abonnements existants. Les clients peuvent ajouter des sièges à tout moment pendant l’année d’un abonnement.
+- Chaque siège ajouté ne change pas la date de fin de l’abonnement. Toutefois, le prix de l’abonnement change en fonction de la date à laquelle vous ajoutez le siège et de la date de l’année. La tarification est calculée au prorata sur une base quotidienne pour ne payer que les jours restants de l’année.
 
-### <a name="add-more-subscriptions-scenario"></a>Add more subscriptions scenario
+### <a name="add-more-subscriptions-scenario"></a>Ajouter d’autres scénarios d’abonnements
 
-- Customers can buy any number of subscriptions at any time from the **Add subscriptions** section under **My Orders**.
-- A customer can select a subscription, add a quantity, and pay to complete the transaction and start using the subscription immediately. If a customer is a pre-approved customer, the subscription is available for use immediately and an invoice will be sent to the customer for payment.
+- Les clients peuvent acheter n’importe quel nombre d’abonnements à tout moment à partir de la section **Ajouter des abonnements** sous **Mes commandes**.
+- Un client peut sélectionner un abonnement, ajouter une quantité et payer pour terminer la transaction et commencer à utiliser immédiatement l’abonnement. Si un client est un client pré-approuvé, l’abonnement peut être utilisé immédiatement et une facture est envoyée au client pour le paiement.
 
-### <a name="renew-subscription-scenario"></a>Renew subscription scenario
+### <a name="renew-subscription-scenario"></a>Scénario de renouvellement d’abonnement
 
-- A customer can renew a subscription during the last 30 days prior to the subscription end date.
-- This is available only in the last 30 days.
-- If not renewed in last 30 days, the subscription will be removed from the list of subscriptions for this Customer tenant.
-- You cannot update the quantity during renewal.
+- Un client peut renouveler un abonnement au cours des 30 derniers jours précédant la date de fin de l’abonnement.
+- Cela est disponible uniquement au cours des 30 derniers jours.
+- Si elle n’est pas renouvelée au cours des 30 derniers jours, l’abonnement est supprimé de la liste des abonnements pour ce locataire client.
+- Vous ne pouvez pas mettre à jour la quantité pendant le renouvellement.
 
-### <a name="payments-scenario"></a>Payments scenario
+### <a name="payments-scenario"></a>Scénario de paiements
 
-- If the customer is pre-approved for transactions by the admin, the payment experience is not presented for the above scenarios. Instead, the partner can send the invoice for payment to the pre-approved customer.
-- For all new purchases, you can add more seats, add subscriptions and renew. A customer can pay a partner using this website through PayPal or PayU (for India).
-- This website is integrated with PayPal or PayU (for India) and allows partners to accept payments from their customers. PayPal or PayU (for India) credits this amount in a partner's account. PayPal or PayU (for India) Bank account management is outside of this website and is managed on PayPal.com or PayUmoney.com respectively.
-- This is dependent on partners configuring their PayPal orPayU (for India) payment configuration at PayPal.com or PayUmoney.com. Microsoft does not save this information or actual payment transactions resulting from the use of this option.
+- Si le client est pré-approuvé pour les transactions par l’administrateur, l’expérience de paiement n’est pas présentée dans les scénarios ci-dessus. Au lieu de cela, le partenaire peut envoyer la facture de paiement au client préalablement approuvé.
+- Pour tous les nouveaux achats, vous pouvez ajouter des sièges, ajouter des abonnements et les renouveler. Un client peut payer un partenaire à l’aide de ce site Web via PayPal ou PayU (pour l’Inde).
+- Ce site Web est intégré à PayPal ou PayU (pour l’Inde) et permet aux partenaires d’accepter des paiements de la part de leurs clients. PayPal ou PayU (pour l’Inde) crédite ce montant dans le compte d’un partenaire. PayPal ou PayU (pour l’Inde) la gestion des comptes bancaires est en dehors de ce site Web et est gérée respectivement sur PayPal.com ou PayUmoney.com.
+- Cela dépend des partenaires qui configurent leur configuration de paiement PayPal orPayU (pour l’Inde) sur PayPal.com ou PayUmoney.com. Microsoft n’enregistre pas ces informations ou les transactions de paiement réelles résultant de l’utilisation de cette option.
 
-### <a name="prorated-pricing-scenario"></a>Prorated pricing scenario
+### <a name="prorated-pricing-scenario"></a>Scénario de tarification au prorata
 
-- This website supports prorated pricing in cases when customers add more seats to an existing subscription.
-- Each subscription expires after one year and cannot be changed after the subscription is purchased.
-- The end date of the subscription will not change by adding additional seats. Customers will be charged for the remaining number of days until the end date. For example, if on day one the subscription cost is $365, and you add one more seat on day two, the price for new seat will be $364. If you add one more 10 days later, the price will be $354.
+- Ce site Web prend en charge le tarif au prorata dans les cas où les clients ajoutent des sièges à un abonnement existant.
+- Chaque abonnement expire au bout d’un an et ne peut pas être modifié une fois l’abonnement acheté.
+- La date de fin de l’abonnement n’est pas modifiée par l’ajout de sièges supplémentaires. Les clients sont facturés pour le nombre de jours restants jusqu’à la date de fin. Par exemple, si le coût de l’abonnement est de $365, et que vous ajoutez un autre siège le deuxième jour, le prix du nouveau siège sera de $364. Si vous ajoutez un délai de 10 jours plus tard, le prix sera de $354.

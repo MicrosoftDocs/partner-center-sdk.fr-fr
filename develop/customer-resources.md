@@ -1,6 +1,6 @@
 ---
-title: Customer resources
-description: Customer resources that represent a customer or reseller.
+title: Ressources client
+description: Ressources client qui représentent un client ou un revendeur.
 ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 05/29/2019
 ms.service: partner-dashboard
@@ -13,70 +13,70 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489699"
 ---
-# <a name="customer-resources"></a>Customer resources
+# <a name="customer-resources"></a>Ressources client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 ## <a name="customer"></a>Client
 
-The **Customer** resource represents a customer or reseller. Most broadly, a customer resouce can be any person, employee, or organization that wishes to do business with Microsoft and Microsoft's resellers. Customers also have a company profile and a billing profile.
+La ressource **client** représente un client ou un revendeur. La plupart du monde, une ressource de client peut être une personne, un employé ou une organisation qui souhaite faire des affaires avec Microsoft et les revendeurs de Microsoft. Les clients disposent également d’un profil d’entreprise et d’un profil de facturation.
 
 >[!NOTE]
->The **Customer** resource has a rate limit of 500 requests per minute per tenant identifier.
+>La ressource **client** a une limite de 500 de demandes par minute et par identificateur de locataire.
 
-| Propriété              | Tapez                                                             | Description                                                                                                                                  |
+| Propriété              | Type                                                             | Description                                                                                                                                  |
 |-----------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| id                    | chaîne                                                           | The customer ID.                                                                                                                             |
-| commerceId            | chaîne                                                           | The commerce ID.                                                                                                                             |
-| companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Additional information about the company or organization.                                                                                    |
-| billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Additional information used for billing.                                                                                                     |
-| relationshipToPartner | chaîne                                                           | Defines the licensing program that the partner uses for this customer: "none", "reseller", "advisor", "syndication" or "microsoft\_support". |
-| allowDelegatedAccess  | booléen                                                          | Whether the partner has been granted delegated admin privileges by this customer.                                                            |
-| userCredentials       | [UserCredentials](user-resources.md#usercredentials) | The user credentials.                                                                                                                        |
-| customDomains         | array of strings                                                 | List of custom domains of a customer.                                                                                                        |
-| associatedPartnerId   | chaîne                                                           | The indirect reseller associated to this customer account. This value can be set only by indirect CSP partners.                              |
-| liens                 | [ResourceLinks](utility-resources.md#resourcelinks)             | The resource links contained within the profile.                                                                                             |
-| attributs            | [ResourceAttributes](utility-resources.md#resourceattributes)   | The metadata attributes corresponding to the profile.                                                                                        |
+| id                    | chaîne                                                           | ID client.                                                                                                                             |
+| commerceId            | chaîne                                                           | ID de commerce.                                                                                                                             |
+| companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Informations supplémentaires sur l’entreprise ou l’organisation.                                                                                    |
+| BillingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Informations supplémentaires utilisées pour la facturation.                                                                                                     |
+| relationshipToPartner | chaîne                                                           | Définit le programme de licence que le partenaire utilise pour ce client : « None », « Reseller », « Advisor », « syndication » ou « Microsoft\_support ». |
+| allowDelegatedAccess  | booléen                                                          | Si le client a reçu des privilèges d’administrateur délégué par ce client.                                                            |
+| UserCredentials       | [UserCredentials](user-resources.md#usercredentials) | Informations d’identification de l’utilisateur.                                                                                                                        |
+| customDomains         | Tableau de chaînes                                                 | Liste des domaines personnalisés d’un client.                                                                                                        |
+| associatedPartnerId   | chaîne                                                           | Revendeur indirect associé à ce compte client. Cette valeur ne peut être définie que par des partenaires CSP indirects.                              |
+| liens                 | [ResourceLinks](utility-resources.md#resourcelinks)             | Liens de ressources contenus dans le profil.                                                                                             |
+| attributs            | [ResourceAttributes](utility-resources.md#resourceattributes)   | Attributs de métadonnées correspondant au profil.                                                                                        |
 
 ## <a name="customercompanyprofile"></a>CustomerCompanyProfile
 
-The **CustomerCompanyProfile** resource is additional information about the company or organization.
+La ressource **CustomerCompanyProfile** est un complément d’informations sur la société ou l’organisation.
 
-| Propriété    | Tapez                                                           | Description                                                                       |
+| Propriété    | Type                                                           | Description                                                                       |
 |-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| tenantId    | chaîne                                                         | The customer's tenant identifier for Azure AD. This is also called a MicrosoftID. |
-| domain      | chaîne                                                         | The customer's name, such as contoso.onmicrosoft.com.                             |
-| companyName | chaîne                                                         | The name of the company or organization.                                          |
-| liens       | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within the profile.                                  |
-| attributs  | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.                             |
+| tenantId    | chaîne                                                         | Identificateur de locataire du client pour Azure AD. Elle est également appelée MicrosoftID. |
+| domain      | chaîne                                                         | Nom du client, tel que contoso.onmicrosoft.com.                             |
+| Prennent | chaîne                                                         | Nom de la société ou de l’organisation.                                          |
+| liens       | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressources contenus dans le profil.                                  |
+| attributs  | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.                             |
 
 ## <a name="customerbillingprofile"></a>CustomerBillingProfile
 
-The **CustomerBillingProfile** resource is additional information used for billing the customer.
+La ressource **CustomerBillingProfile** est un complément d’information utilisé pour la facturation du client.
 
-| Propriété       | Tapez                                                           | Description                                                                                                                                            |
+| Propriété       | Type                                                           | Description                                                                                                                                            |
 |----------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id             | chaîne                                                         | The profile identifier.                                                                                                                                |
-| firstName      | chaîne                                                         | The first name of the billing contact at the customer's company. This is the person that invoices and other billing communication will be directed to. |
-| lastName       | chaîne                                                         | The last name of the billing contact.                                                                                                                  |
-| Messagerie          | chaîne                                                         | The billing contact's email address                                                                                                                    |
-| culture        | chaîne                                                         | Their preferred culture for communication and currency, such as "en-us".                                                                               |
-| language       | chaîne                                                         | Their preferred language for communication.                                                                                                            |
-| companyName    | chaîne                                                         | The name of the company or organization.                                                                                                               |
-| defaultAddress | [Address](utility-resources.md#address)                       | The address that bills are sent to, where the billing contact works.                                                                                   |
-| liens          | [ResourceLinks](utility-resources.md#resourcelinks)           | The resource links contained within the profile.                                                                                                       |
-| attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the profile.                                                                                                  |
+| id             | chaîne                                                         | Identificateur du profil.                                                                                                                                |
+| firstName      | chaîne                                                         | Prénom du contact de facturation de la société du client. Il s’agit de la personne à laquelle les factures et autres communications de facturation sont dirigées. |
+| lastName       | chaîne                                                         | Nom du contact de facturation.                                                                                                                  |
+| Messagerie          | chaîne                                                         | Adresse de messagerie du contact de facturation                                                                                                                    |
+| Culturel        | chaîne                                                         | La culture par défaut pour la communication et la monnaie, par exemple « en-US ».                                                                               |
+| language       | chaîne                                                         | Leur langue par défaut pour la communication.                                                                                                            |
+| Prennent    | chaîne                                                         | Nom de la société ou de l’organisation.                                                                                                               |
+| defaultAddress | [-](utility-resources.md#address)                       | Adresse à laquelle les factures sont envoyées, où le contact de facturation travaille.                                                                                   |
+| liens          | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressources contenus dans le profil.                                                                                                       |
+| attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.                                                                                                  |
 
 ## <a name="customerrelationshiprequest"></a>CustomerRelationshipRequest
 
-The **CustomerRelationshipRequest** resource contains the URL used by the customer to establish a reseller relationship with a partner.
+La ressource **CustomerRelationshipRequest** contient l’URL utilisée par le client pour établir une relation de revendeur avec un partenaire.
 
-| Propriété   | Tapez                                                           | Description                                                              |
+| Propriété   | Type                                                           | Description                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| url        | chaîne                                                         | The URL used by the customer to establish a relationship with a partner. |
-| attributs | [ResourceAttributes](utility-resources.md#resourceattributes) | The metadata attributes corresponding to the relationship request.       |
+| url        | chaîne                                                         | URL utilisée par le client pour établir une relation avec un partenaire. |
+| attributs | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant à la demande de relation.       |

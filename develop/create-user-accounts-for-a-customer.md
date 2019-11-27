@@ -1,6 +1,6 @@
 ---
 title: Créer des comptes d’utilisateur pour un client
-description: Create a new user account for your customer.
+description: Créez un nouveau compte d’utilisateur pour votre client.
 ms.assetid: E46AB186-F4E1-4A00-AE62-28A843F9C288
 ms.date: 05/28/2019
 ms.service: partner-dashboard
@@ -15,24 +15,24 @@ ms.locfileid: "74489709"
 ---
 # <a name="create-user-accounts-for-a-customer"></a>Créer des comptes d’utilisateur pour un client
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-Create a new user account for your customer.
+Créez un nouveau compte d’utilisateur pour votre client.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A customer ID (**customer-tenant-id**). If you do not have a customer's ID, you can look up the ID in Partner Center by choosing the customer from the customers list, selecting Account, then saving their Microsoft ID.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID client (**client-locataire-ID**). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To obtain a new user account for a customer:
+Pour obtenir un nouveau compte d’utilisateur pour un client :
 
-1. Create a new **CustomerUser** object with the relevant user information.
-2. Use your **IAggregatePartner.Customers** collection and call the **ById()** method.
-3. Call the **Users** property, followed by the **Create** method.
+1. Créez un nouvel objet **CustomerUser** avec les informations utilisateur appropriées.
+2. Utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** .
+3. Appelez la propriété **Users** , suivie de la méthode **Create** .
 
 ``` csharp
 // string selectedCustomerId;
@@ -52,28 +52,28 @@ var userToCreate = new CustomerUser()
 User createdUser = partnerOperations.Customers.ById(selectedCustomerId).Users.Create(userToCreate);
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: PartnerSDK.FeatureSamples **Class**: CustomerUserCreate.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSamples, **classe**: CustomerUserCreate.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                                  |
 |----------|----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following query parameters to identify the correct customer.
+Utilisez les paramètres de requête suivants pour identifier le client approprié.
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 |----- |----- | -------- |------------ |
-| **customer-tenant-id** | **guid** | Y | The value is a GUID formatted **customer-tenant-id** that allows the reseller to filter the results for a given customer that belongs to the reseller. |
-| **user-id** | **guid** | N | The value is a GUID formatted **user-id** that belongs to a single user account. |
+| **client-locataire-ID** | **uniques** | Y | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID utilisateur** | **uniques** | N | La valeur est un **ID utilisateur** au format GUID qui appartient à un compte d’utilisateur unique. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -104,13 +104,13 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns a user account, including the GUID.
+En cas de réussite, cette méthode retourne un compte d’utilisateur, y compris le GUID.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Error Codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

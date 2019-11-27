@@ -1,6 +1,6 @@
 ---
-title: Manage billing
-description: This section describes the ways that Cloud Solution Provider partners can use the Partner Center to programmatically view and manage their invoices, and view their customer's progress against an Azure spending budget.
+title: Gérer la facturation
+description: Cette section décrit les manières dont les partenaires fournisseurs de solutions Cloud peuvent utiliser l’espace partenaires pour afficher et gérer leurs factures par programmation, et afficher la progression de leur client par rapport à un budget de dépenses Azure.
 ms.assetid: 198D32A5-AA2C-49BB-A057-0EFFBA408753
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,43 +13,43 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486919"
 ---
-# <a name="manage-billing"></a>Manage billing
+# <a name="manage-billing"></a>Gérer la facturation
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This section describes the ways that Cloud Solution Provider partners can use Partner Center to programmatically view and manage their invoices, and view their customer's progress against an Azure spending budget.
+Cette section décrit les manières dont les partenaires fournisseurs de solutions Cloud peuvent utiliser l’espace partenaires pour afficher et gérer leurs factures par programme, et afficher la progression de leur client par rapport à un budget de dépenses Azure.
 
-**Billing Cycle:**
-- [Change the billing cycle](change-the-billing-cycle.md)
+**Cycle de facturation :**
+- [Modifier le cycle de facturation](change-the-billing-cycle.md)
 
-**Azure rates and utilization:**
-- [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md)
-- [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md)
+**Taux et utilisation d’Azure :**
+- [Obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md)
+- [Obtenir des prix pour Microsoft Azure](get-prices-for-microsoft-azure.md)
 
-**Invoices:**
-- [Get a collection of invoices](get-a-collection-of-invoices.md)
-- [Get invoice estimate links](get-invoice-estimate-links.md)
-- [Get invoice billed commercial marketplace consumption line items](get-invoice-billed-consumption-lineitems.md)
-- [Get invoice by ID](get-invoice-by-id.md)
-- [Get invoice line items](get-invoiceline-items.md)
-- [Get invoice receipt statement](get-invoice-receipt-statement.md)
-- [Get invoice statement](get-invoice-statement.md) 
-- [Get invoice summaries](get-invoice-summaries.md)
-- [Get invoice unbilled commercial marketplace consumption line items](get-invoice-unbilled-consumption-lineitems.md)
-- [Get invoice unbilled recon line items](get-invoice-unbilled-recon-lineitems.md)
-- [Get the reseller's current account balance](get-the-reseller-s-current-account-balance.md)
+**Factures**
+- [Obtenir une collection de factures](get-a-collection-of-invoices.md)
+- [Obtenir des liens d’estimation de facture](get-invoice-estimate-links.md)
+- [Obtient les éléments de ligne de la consommation de la place de marché commercial facturés](get-invoice-billed-consumption-lineitems.md)
+- [Recevoir la facture par ID](get-invoice-by-id.md)
+- [Récupérer les éléments de ligne de facture](get-invoiceline-items.md)
+- [Instruction de réception de facture](get-invoice-receipt-statement.md)
+- [Instruction d’extraction de facture](get-invoice-statement.md) 
+- [Recevoir des résumés de facture](get-invoice-summaries.md)
+- [Obtient les éléments de ligne de facturation de la place de marché commercial non facturés](get-invoice-unbilled-consumption-lineitems.md)
+- [Obtient les éléments de ligne de rapprochement non facturés de facture](get-invoice-unbilled-recon-lineitems.md)
+- [Procurez-vous le solde actuel du compte du revendeur](get-the-reseller-s-current-account-balance.md)
 
-**Azure spending budget:**
-- [Get usage data for a subscription](get-all-monthly-usage-records-for-a-subscription.md
-- [Get usage summary for all of a customer's subscriptions](get-a-customer-usage-summary.md)
+**Budget des dépenses Azure :**
+- [Obtenir les données d’utilisation d’un abonnement] (get-all-monthly-usage-records-for-a-subscription.md
+- [Obtenir le résumé de l’utilisation de tous les abonnements d’un client](get-a-customer-usage-summary.md)
 
-For more information, see [Scenarios](scenarios.md), specifically the [Background](scenarios.md#background) section.
+Pour plus d’informations, consultez [scénarios](scenarios.md), en particulier la section d' [arrière-plan](scenarios.md#background) .
 
  
 

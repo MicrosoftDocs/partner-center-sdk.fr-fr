@@ -1,6 +1,6 @@
 ---
-title: Partner Center REST URLs
-description: Partner Center is available in different countries and regions around the world. Some versions of Partner Center might require different end points for your apps to work correctly.
+title: URL REST de l’espace partenaires
+description: L’espace partenaires est disponible dans différents pays et régions à travers le monde. Certaines versions de l’espace partenaires peuvent nécessiter des points de terminaison différents pour que vos applications fonctionnent correctement.
 ms.assetid: D4E1AC16-3FB1-4192-A06A-5766BF00A6D8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,19 +13,19 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488279"
 ---
-# <a name="partner-center-rest-urls"></a>Partner Center REST URLs
+# <a name="partner-center-rest-urls"></a>URL REST de l’espace partenaires
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Partner Center is available in different countries and regions around the world. Some versions of Partner Center might require different end points for your apps to work correctly.
+L’espace partenaires est disponible dans différents pays et régions à travers le monde. Certaines versions de l’espace partenaires peuvent nécessiter des points de terminaison différents pour que vos applications fonctionnent correctement.
 
-The following table describes the base URLs to use with the different versions of Partner Center:
+Le tableau suivant décrit les URL de base à utiliser avec les différentes versions de l’espace partenaires :
 
 <table>
 <colgroup>
@@ -34,14 +34,14 @@ The following table describes the base URLs to use with the different versions o
 </colgroup>
 <thead>
 <tr class="header">
-<th>Partner Center Version</th>
-<th>Base URL</th>
+<th>Version de l’espace partenaires</th>
+<th>URL de base</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>Espace partenaires</p>
-<p>Espace partenaires de Microsoft Cloud Germany</p>
+<p>Espace partenaires de Microsoft Cloud Germany</p>
 <p>Espace partenaires de Microsoft Cloud for US Government</p></td>
 <td><em><a href="https://api.partnercenter.microsoft.com">https://api.partnercenter.microsoft.com</a></em></td>
 </tr>
@@ -55,7 +55,7 @@ The following table describes the base URLs to use with the different versions o
  
 
 >[!NOTE]
->The token authority for Partner Center for Microsoft Cloud Germany Azure AD Library is: https://login.microsoftonline.de.   
+>L’autorité de jeton pour l’espace partenaires pour Microsoft Cloud Allemagne Azure AD bibliothèque est la suivante : https://login.microsoftonline.de.   
 
  
 

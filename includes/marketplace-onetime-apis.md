@@ -1,3 +1,3 @@
-*Except for bug fixes, this API is no longer being updated.* You should update your applications to call the **onetime** API instead of **marketplace**. The **onetime** API provides additional functionality, and will continue to be updated.
+*À l’exception des correctifs de bogues, cette API n’est plus mise à jour.* Vous devez mettre à jour vos applications pour appeler l’API **OneTime** au lieu de **Marketplace**. L’API **OneTime** fournit des fonctionnalités supplémentaires qui continueront à être mises à jour.
 
-You should use **onetime** to query all commercial consumption line items instead of **marketplace**. Or, you can follow the links in the estimate links call.
+Vous devez utiliser **OneTime** pour interroger tous les Articles de la consommation commerciale au lieu de la place de **marché**. Vous pouvez ou suivre les liens de l’appel d’estimation des liens.

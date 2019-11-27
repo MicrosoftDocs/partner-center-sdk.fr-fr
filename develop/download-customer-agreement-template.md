@@ -1,6 +1,6 @@
 ---
-title: Get a download link for the Microsoft Customer Agreement template
-description: Get a download link for Microsoft Customer Agreement template.
+title: Obtenir un lien de téléchargement pour le modèle de contrat client Microsoft
+description: Obtenir un lien de téléchargement pour le modèle de contrat de client Microsoft.
 ms.date: 09/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
@@ -12,37 +12,37 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489959"
 ---
-# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Get a download link for the Microsoft Customer Agreement template
+# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Obtenir un lien de téléchargement pour le modèle de contrat client Microsoft
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-The **AgreementDocument** resource is currently supported by Partner Center only in the *Microsoft public cloud*. This resource doesn't apply to:
+La ressource **AgreementDocument** est actuellement prise en charge par l’espace partenaires uniquement dans le *cloud public Microsoft*. Cette ressource ne s’applique pas à :
 
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-This article describes how to get a link to download the Microsoft Customer Agreement template, based on the customer's country and language.
+Cet article explique comment obtenir un lien pour télécharger le modèle de contrat client Microsoft, en fonction du pays et de la langue du client.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- If you are using the Partner Center .NET SDK, version 1.14 or newer is required.
-- Credentials as described in [Partner Center authentication](./partner-center-authentication.md). This scenario only supports App+User authentication.
-- The customer's country to which the Microsoft Customer Agreement template applies.
-- The language in which the Microsoft Customer Agreement template should be localized.
+- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,14 ou une version ultérieure est requise.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
+- Pays du client auquel le modèle de contrat de client Microsoft s’applique.
+- Langue dans laquelle le modèle de contrat de licence utilisateur Microsoft doit être localisé.
 
 > [!IMPORTANT]
-> - The Microsoft Customer Agreement is country-specific. When requesting for a link to download the Microsoft Customer Agreement template, Be sure to specify the correct country based on customer's location. or list of supported countries, please refer to [List of supported countries and languages](#list-of-supported-countries-and-languages).
-> - For some countries, the Microsoft Customer Agreement is available in multiple languages. For best customer experience, pick the language that best match the customer's needs. For list of supported languages, please refer to [List of supported countries and languages](#list-of-supported-countries-and-languages).
-> - This method is only supported with the Microsoft Customer Agreement. You cannot use it to get a download link for Microsoft Cloud Agreement template.
+> - Le contrat client Microsoft est spécifique au pays. Lorsque vous demandez un lien pour télécharger le modèle de contrat client Microsoft, veillez à spécifier le pays approprié en fonction de l’emplacement du client. ou la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
+> - Dans certains pays, le contrat client Microsoft est disponible dans plusieurs langues. Pour une expérience utilisateur optimale, choisissez la langue qui correspond le mieux aux besoins du client. Pour obtenir la liste des langues prises en charge, consultez la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
+> - Cette méthode est uniquement prise en charge par le contrat client Microsoft. Vous ne pouvez pas l’utiliser pour obtenir un lien de téléchargement pour Microsoft Cloud modèle d’accord.
 
 ## <a name="net"></a>.NET
 
-To retrieve a link to download the Microsoft Customer Agreement template:
+Pour récupérer un lien permettant de télécharger le modèle de contrat client Microsoft :
 
-1. Retrieve the agreement metadata for the Microsoft Customer Agreement. You must obtain the **templateId** of the Microsoft Customer Agreement. For more information, see [Get agreement metadata for Microsoft Customer Agreement](get-customer-agreement-metadata.md).
+1. Récupérez les métadonnées de l’accord pour le contrat client Microsoft. Vous devez obtenir l' **TemplateID** du contrat du client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](get-customer-agreement-metadata.md).
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -52,12 +52,12 @@ string agreementType = "MicrosoftCustomerAgreement";
 AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-2. Use the IAggregatePartner.AgreementTemplates collection.
-3. Call the **ById** method and specify the **templateId** of the Microsoft Customer Agreement.
-4. Fetch the **Document** property.
-5. Call the **ByCountry** method and specify the customer's country to which the agreement template applies. The query defaults to *US* if the method isn't specified. For a list of supported country codes, please refer to [List of supported countries and languages](#list-of-supported-countries-and-languages). This method is **case-sensitive**.
-6. Call the **ByLanguage** method and specify the language which the agreement template should be localized in. The query defaults to *en-US* if the method isn't specified or the country code specified isn't supported for the country specified. For list of supported language codes, please refer to [List of supported countries and languages](#list-of-supported-countries-and-languages)
-7. Call the **Get** or **GetAsync** method.
+2. Utilisez la collection collection iaggregatepartner. AgreementTemplates.
+3. Appelez la méthode **méthode BYID** et spécifiez l' **TemplateID** du contrat du client Microsoft.
+4. Extraire la propriété de **document** .
+5. Appelez la méthode **ByCountry** et spécifiez le pays du client auquel le modèle de contrat s’applique. La requête est définie par défaut sur *US* si la méthode n’est pas spécifiée. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages). Cette méthode est **sensible à la casse**.
+6. Appelez la méthode **ByLanguage** et spécifiez la langue dans laquelle le modèle d’accord doit être localisé. La requête par défaut est en *-US* si la méthode n’est pas spécifiée ou si l’indicatif du pays spécifié n’est pas pris en charge pour le pays spécifié. Pour obtenir la liste des codes de langue pris en charge, consultez la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages) .
+7. Appelez la **méthode** **GetAsync** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -69,40 +69,40 @@ string languageForLocalization = "en-US";
 var agreementDocument = partnerOperations.AgreementTemplates.ById(microsoftCustomerAgreementDetails.TemplateId).Document.ByCountry(customerCountry).ByLanguage(languageForLocalization).Get();
 ```
 
-A complete sample can be found in the [GetAgreementDocument](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDocument.cs) class from the [console test app](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) project.
+Un exemple complet est disponible dans la classe [GetAgreementDocument](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDocument.cs) à partir du projet d' [application de test console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) .
 
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
-To retrieve a link to download the Microsoft Customer Agreement template:
+Pour récupérer un lien permettant de télécharger le modèle de contrat client Microsoft :
 
-1. Retrieve the agreement metadata for the Microsoft Customer Agreement. You must obtain the **templateId** of the Microsoft Customer Agreement. For more information, see [Get agreement metadata for Microsoft Customer Agreement](get-customer-agreement-metadata.md).
-2. Create a REST request to fetch an [**AgreementDocument** resource](./agreement-document-resources.md). For an example, see the [request syntax](#request-syntax) example. You must specify the following information:
-    - The **templateId** of the Microsoft Customer Agreement.
-    - The country to which the Microsoft Customer Agreement template applies.
-    - The language in which the Microsoft Customer Agreement template should be localized.
+1. Récupérez les métadonnées de l’accord pour le contrat client Microsoft. Vous devez obtenir l' **TemplateID** du contrat du client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](get-customer-agreement-metadata.md).
+2. Créez une demande REST pour extraire une [ressource **AgreementDocument** ](./agreement-document-resources.md). Pour obtenir un exemple, consultez l’exemple de [syntaxe de requête](#request-syntax) . Vous devez spécifier les informations suivantes :
+    - L' **TemplateID** du contrat du client Microsoft.
+    - Pays auquel le modèle de contrat de client Microsoft s’applique.
+    - Langue dans laquelle le modèle de contrat de licence utilisateur Microsoft doit être localisé.
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-Use the following request syntax for this resource:
+Utilisez la syntaxe de requête suivante pour cette ressource :
 
 | Méthode | URI de requête |
 |--------|---------------------------------------------------------------------|
-| GET | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreementtemplates/{agreement-template-id}/document?language={language}&country={country} HTTP/1.1 |
+| GET | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreementtemplates/{Agreement-template-ID}/document ? Language = {language} & pays = {Country} http/1.1 |
 
 ### <a name="uri-parameters"></a>Paramètres d’URI
 
-You can use the following URI parameters with your request:
+Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
-| Nom                   | Tapez   | Obligatoire | Description                                 |
+| Nom                   | Type   | Obligatoire | Description                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| agreement-template-id  | chaîne | Oui      | Unique identifier of the agreement type. You can obtain the templateId for Microsoft Customer Agreement by retrieving the agreement metadata for Microsoft Customer Agreement. For more information, see [Get agreement metadata for Microsoft Customer Agreement](./get-customer-agreement-metadata.md). This parameter is **case-sensitive**.|
-| country                | chaîne | non       | Indicates the country to which the agreement template applies. The query defaults to *US* if the parameter isn't specified. For a list of supported country codes, please refer to [List of supported countries and languages](#list-of-supported-countries-and-languages).|
-| language               | chaîne | non       | Indicates the language in which the agreement template should be localized. The query defaults to *en-US* if the parameter isn't specified or the country code specified in't supported for the country specified. For list of supported country codes, please refer to [List of supported countries and languages](#list-of-supported-countries-and-languages).|
+| ID de modèle d’accord  | chaîne | Oui      | Identificateur unique du type de contrat. Vous pouvez obtenir l’templateId pour le contrat de client Microsoft en extrayant les métadonnées de l’accord pour le contrat de client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](./get-customer-agreement-metadata.md). Ce paramètre respecte la **casse**.|
+| country                | chaîne | Non       | Indique le pays auquel le modèle de contrat s’applique. La requête est définie par défaut sur *US* si le paramètre n’est pas spécifié. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).|
+| language               | chaîne | Non       | Indique la langue dans laquelle le modèle d’accord doit être localisé. La requête prend par défaut la valeur en *-US* si le paramètre n’est pas spécifié ou si l’indicatif du pays spécifié in’t est pris en charge pour le pays spécifié. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).|
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de la requête
 
@@ -118,17 +118,17 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns an [**AgreementDocument** resource](./agreement-document-resources.md) in the response body.
+En cas de réussite, cette méthode retourne une [ressource **AgreementDocument** ](./agreement-document-resources.md) dans le corps de la réponse.
 
-The resource has a **downloadUri** property, which contains a URL string that can be used to download the agreement template. A different link is returned each time you make a query. This link expires after five minutes.
+La ressource a une propriété **downloadUri** , qui contient une chaîne d’URL qui peut être utilisée pour télécharger le modèle de contrat. Un lien différent est retourné chaque fois que vous effectuez une requête. Ce lien expire au bout de cinq minutes.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information.
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires.
 
-Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 
@@ -146,258 +146,258 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-## <a name="list-of-supported-countries-and-languages"></a>List of supported countries and languages
+## <a name="list-of-supported-countries-and-languages"></a>Liste des pays et langues pris en charge
 
 > [!IMPORTANT]
-> The country code property is case-sensitive. Please sure to use the correct casing specified in the table below.
+> La propriété de code Country respecte la casse. Veillez à utiliser la casse correcte spécifiée dans le tableau ci-dessous.
 
-| Country                   | Code du pays   | Supported language code(s) |
+| Country                   | Code du pays   | Code (s) de langue pris en charge |
 |------------------------|--------|----------|
-| Åland (îles d’) | AX | en-US |
-| Afghanistan | AF | en-US |
-| Albanie | AL | en-US |
+| Åland (îles d’) | PASSANT | fr-FR |
+| Afghanistan | AF | fr-FR |
+| Albanie | AL | fr-FR |
 | Algérie | DZ | en-US, fr-FR, en-US |
-| Samoa américaines | AS | en-US |
-| Andorre | AD | en-US |
-| Angola | AO | en-US, pt-PT |
-| Anguilla | IA | en-US |
-| Antarctique | AQ | en-US |
-| Antigua-et-Barbuda | AG | en-US |
+| Samoa américaines | AS | fr-FR |
+| Andorre | AD | fr-FR |
+| Angola | AO | en-US, PT-PT |
+| Anguilla | IA | fr-FR |
+| Antarctique | INACTIF | fr-FR |
+| Antigua-et-Barbuda | GA | fr-FR |
 | Argentine | AR | en-US, es-ES |
-| Arménie | AM | en-US |
-| Aruba | AW | en-US |
-| Australie | AU | en-US |
-| Autriche | AT | en-US, de-DE |
-| Azerbaïdjan | AZ | en-US |
-| Bahamas | BS | en-US |
-| Bahreïn | BH | en-US, ar-SA |
-| Bangladesh | BD | en-US |
-| Barbade (La) | BB | en-US |
+| Arménie | AM | fr-FR |
+| Aruba | AW | fr-FR |
+| Australie | AU | fr-FR |
+| Autriche | AT | fr-fr, de-DE |
+| Azerbaïdjan | AZ | fr-FR |
+| Bahamas | BS | fr-FR |
+| Bahreïn | BH | fr-fr, ar-SA |
+| Bangladesh | BD | fr-FR |
+| Barbade (La) | BB | fr-FR |
 | Bélarus | BY | en-US, ru-RU |
-| Belgique | BE | en-US, nl-NL |
-| Belize | BZ | en-US, es-ES |
-| Bénin | BJ | en-US |
-| Bermudes | BM | en-US |
-| Bhoutan | BT | en-US |
+| Belgique | BE | fr-fr, NL-NL |
+| Belize | Via | en-US, es-ES |
+| Bénin | BJ | fr-FR |
+| Bermudes | NOMENCLATURE | fr-FR |
+| Bhoutan | CC | fr-FR |
 | Bolivie | BO | en-US, es-ES |
-| Bonaire | BQ | en-US |
-| Bosnie-Herzégovine | BA | en-US |
-| Botswana | BW | en-US |
-| Bouvet (Île) | BV | en-US |
-| Brésil | BR | en-US, pt-BR |
-| Territoires britanniques de l’océan Indien | E/S | en-US |
-| Îles Vierges britanniques | VG | en-US |
-| Brunei | BN | en-US |
-| Bulgarie | BG | en-US, bg-BG |
-| Burkina-Faso | BF | en-US |
-| Burundi | BI | en-US |
+| Bonaire | BQ | fr-FR |
+| Bosnie-Herzégovine | BA | fr-FR |
+| Botswana | BW | fr-FR |
+| Bouvet (Île) | BV | fr-FR |
+| Brésil | BR | fr-fr, PT-BR |
+| Territoires britanniques de l’océan Indien | E/S | fr-FR |
+| Îles Vierges britanniques | VG | fr-FR |
+| Brunéi Darussalam | BN | fr-FR |
+| Bulgarie | BG | fr-fr, BG-BG |
+| Burkina-Faso | BF | fr-FR |
+| Burundi | DÉCISIONNEL | fr-FR |
 | Côte d’Ivoire | CI | en-US, fr-FR |
-| Cap Vert | CV | en-US, pt-PT |
-| Cambodge | KH | en-US |
+| Cap Vert | CV | en-US, PT-PT |
+| Cambodge | KH | fr-FR |
 | Cameroun | CM | en-US, fr-FR |
 | Canada | AC | en-US, fr-FR |
-| Caïmans (îles) | KY | en-US, en-US |
-| République centrafricaine | CF | en-US |
-| Tchad | TD | en-US |
+| Caïmans (îles) | KY | fr-fr, en-US |
+| République centrafricaine | CF | fr-FR |
+| Tchad | ÉQUIPEMENTS | fr-FR |
 | Chili | CL | en-US, es-ES |
-| Christmas (île) | CX | en-US |
-| Cocos-Keeling (îles) | CC | en-US |
+| Christmas (île) | CX | fr-FR |
+| Cocos-Keeling (îles) | CC | fr-FR |
 | Colombie | CO | en-US, es-ES |
-| Comores (Les) | KM | en-US |
-| Congo (RDC) | CD-ROM | en-US |
-| République démocratique du Congo | CG | en-US |
-| Cook (îles) | CK | en-US |
+| Comores (Les) | KILOMÈTRES | fr-FR |
+| Congo (RDC) | CD-ROM | fr-FR |
+| Congo | CG | fr-FR |
+| Cook (îles) | HT | fr-FR |
 | Costa Rica | CR | en-US, es-ES |
-| Croatie | HR | en-US, hr-HR |
-| Curaçao | CW | en-US |
-| Chypre | CY | en-US |
-| Czechia | CZ | en-US, cs-CZ |
-| Danemark | DK | en-US, da-DK |
-| Djibouti | DJ | en-US |
-| Dominique | DM | en-US |
+| Croatie | HR | fr-fr, RH-RH |
+| Curaçao | APPROXIMATIF | fr-FR |
+| Chypre | CY | fr-FR |
+| Czechia | CZ | en-US, CS-CZ |
+| Danemark | DK | fr-fr, da-DK |
+| Djibouti | EFFECTUÉ | fr-FR |
+| Dominique | EXPLORATION | fr-FR |
 | République dominicaine | DO | en-US, es-ES |
-| Équateur (République de l’) | EC | en-US |
-| Égypte | EG | en-US, ar-SA |
+| Équateur (République de) | EC | fr-FR |
+| Égypte | EG | fr-fr, ar-SA |
 | Salvador | SV | en-US, es-ES |
-| Guinée équatoriale | GQ | en-US |
-| Érythrée | ER | en-US |
-| Estonie | EE | en-US, et-EE |
-| eSwatini | SZ | en-US |
-| Éthiopie | ET | en-US |
-| Malouines (îles) | FK | en-US |
-| Îles Féroé | FO | en-US |
-| Fidji | FJ | en-US |
-| Finlande | FI | en-US, fi-FI |
+| Guinée équatoriale | GQ | fr-FR |
+| Érythrée | ERRE | fr-FR |
+| Estonie | EE | fr-fr, et-EE |
+| eSwatini | SZ | fr-FR |
+| Éthiopie | Mendes | fr-FR |
+| Malouines (îles) | FK | fr-FR |
+| Féroé (îles) | FO | fr-FR |
+| Fidji | FJ | fr-FR |
+| Finlande | FI | en-US, FI-FI |
 | France | FR | en-US, fr-FR |
 | Guyane française | GF | en-US, fr-FR  |
-| Polynésie française | PF | en-US |
-| Terres australes françaises | TF | en-US |
-| Gabon | GA | en-US |
-| Gambie | GM | en-US |
-| Géorgie | GE | en-US |
-| Allemagne | DE | en-US, de-DE |
-| Ghana | GH | en-US |
-| Gibraltar | GI | en-US |
-| Grèce | GR | en-US, el-GR |
-| Groenland | GL | en-US |
-| Grenade | GD | en-US |
-| Guadeloupe | GP | en-US |
-| Guam | GU | en-US |
+| Polynésie française | UTIL | fr-FR |
+| Terres australes françaises | TF | fr-FR |
+| Gabon | GA | fr-FR |
+| Gambie | GÉNÉTIQUE | fr-FR |
+| Géorgie | GE | fr-FR |
+| Allemagne | DE | fr-fr, de-DE |
+| Ghana | GH | fr-FR |
+| Gibraltar | GI | fr-FR |
+| Grèce | GR | fr-fr, El-GR |
+| Groenland | GÉNÉRALE | fr-FR |
+| Grenade | GD | fr-FR |
+| Guadeloupe | MARGE | fr-FR |
+| Guam | GU | fr-FR |
 | Guatemala | GT | en-US, es-ES |
-| Guernesey | GG | en-US |
-| Guinée | GN | en-US |
-| Guinée-Bissau | GW | en-US |
-| Guyana | GY | en-US |
-| Haïti | HT | en-US |
-| Heard et McDonald (Îles) | HM | en-US |
+| Guernesey | GG | fr-FR |
+| Guinée | GN | fr-FR |
+| Guinée-Bissau | ENTREPÔT | fr-FR |
+| Guyana | GY | fr-FR |
+| Haïti | HT | fr-FR |
+| Heard et McDonald (Îles) | Britannique | fr-FR |
 | Honduras | HN | en-US, es-ES |
-| Hong Kong R.A.S. | HK | en-US, zh-HK |
-| Hongrie | HU | en-US, hu-HU |
-| Islande | IS | en-US |
+| Hong Kong R.A.S. | HK | fr-fr, zh-HK |
+| Hongrie | HU | en-US, HU-HU |
+| Islande | IS | fr-FR |
 | Inde | IN | en-US, hi-IN |
-| Indonésie | ID | en-US, id-ID |
-| Irak | IQ | en-US, ar-SA |
-| Irlande | Internet Explorer | en-US |
-| Île de Man | Messagerie instantanée | en-US |
-| Israël | IL | en-US, he-IL |
-| Italie | Informatique | en-US, it-IT |
-| Jamaïque | JM | en-US |
-| Jan Mayen | XJ | en-US |
+| Indonésie | ID | en-US, ID-ID |
+| Irak | IQ | fr-fr, ar-SA |
+| Irlande | Internet Explorer | fr-FR |
+| Île de Man | Messagerie instantanée | fr-FR |
+| Israël | IL | en-US, HE-il |
+| Italie | Informatique | en-US, informatique |
+| Jamaïque | JM | fr-FR |
+| Jan Mayen | XJ | fr-FR |
 | Japon | JP | en-US, ja-JP |
-| Jersey | JE | en-US |
-| Jordanie | JO | en-US, ar-SA |
-| Kazakhstan | KZ | en-US, kk-KZ |
-| Kenya | KE | en-US |
-| Kiribati | KI | en-US |
+| Jersey | JE | fr-FR |
+| Jordanie | JO | fr-fr, ar-SA |
+| Kazakhstan | KZ | en-US, KK-KZ |
+| Kenya | KE | fr-FR |
+| Kiribati | KI | fr-FR |
 | Corée | KR | en-US, ko-KR |
-| Kosovo | XK | en-US |
-| Koweït | KW | en-US, ar-SA |
+| Kosovo | XK | fr-FR |
+| Koweït | KW | fr-fr, ar-SA |
 | Kirghizistan | KG | en-US, ru-RU |
-| Laos | LA | en-US |
-| Lettonie | LV | en-US, lv-LV |
-| Liban | LB | en-US, ar-SA |
-| Lesotho | LS | en-US |
-| Liberia | LR | en-US |
-| Libye | LY | en-US, ar-SA |
-| Liechtenstein | LI | en-US, de-DE |
-| Lituanie | LT | en-US, lt-LT |
+| Laos | LA | fr-FR |
+| Lettonie | LV | en-US, LV-LV |
+| Liban | LB | fr-fr, ar-SA |
+| Lesotho | LS | fr-FR |
+| Liberia | GD | fr-FR |
+| Libye | EMPLOYÉS | fr-fr, ar-SA |
+| Liechtenstein | LI | fr-fr, de-DE |
+| Lituanie | LT | fr-fr, LT-LT |
 | Luxembourg | LU | en-US, fr-FR |
-| Macao R.A.S. | MO | en-US, zh-HK |
-| Macédoine, Ex.-Rép. yougoslave de | MK | en-US |
-| Madagascar | MG | en-US |
-| Malawi | MW | en-US |
-| Malaisie | MY | en-US, ms-MY |
-| Maldives | MV | en-US |
-| Mali | ML | en-US |
-| Malte (République de) | MT | en-US |
-| Marshall (îles) | MH | en-US |
-| Martinique | MQ | en-US |
-| Mauritanie | MR | en-US |
-| Maurice | MU | en-US, ar-SA |
-| Mayotte | YT | en-US |
+| Macao R.A.S. | MOLYBDÈN | fr-fr, zh-HK |
+| Macédoine, Ex.-Rép. yougoslave de | MK | fr-FR |
+| Madagascar | ML | fr-FR |
+| Malawi | MW | fr-FR |
+| Malaisie | MY | en-US, MS-MY |
+| Maldives | MV | fr-FR |
+| Mali | ENVIRON | fr-FR |
+| Malte | MT | fr-FR |
+| Marshall (îles) | MH | fr-FR |
+| Martinique | MQ | fr-FR |
+| Mauritanie | MR | fr-FR |
+| Maurice | MU | fr-fr, ar-SA |
+| Mayotte | YT | fr-FR |
 | Mexique | MX | en-US, es-ES |
-| Micronésie | FM | en-US |
-| République de Moldavie | MD | en-US, ro-RO |
+| Micronésie | Radio | fr-FR |
+| République de Moldavie | MD | en-US, RO-RO |
 | Monaco | MC | en-US, fr-FR |
-| Mongolie | MN | en-US |
-| Monténégro | ME | en-US |
-| Montserrat | MS | en-US |
+| Mongolie | PORTABLE | fr-FR |
+| Monténégro | ME | fr-FR |
+| Montserrat | MS | fr-FR |
 | Maroc | MA | en-US, fr-FR, en-US |
-| Mozambique | MZ | en-US |
-| Myanmar | MM | en-US |
-| Namibie | N/A | en-US |
-| Nauru | NR | en-US |
-| Népal | NP | en-US |
-| Pays-Bas | NL | en-US, nl-NL |
-| Nouvelle-Calédonie | NC | en-US |
-| Nouvelle-Zélande | NZ | en-US |
+| Mozambique | MZ | fr-FR |
+| Myanmar | MM | fr-FR |
+| Namibie | N/A | fr-FR |
+| Nauru | NR | fr-FR |
+| Népal | NP | fr-FR |
+| Pays-Bas | NL | fr-fr, NL-NL |
+| Nouvelle-Calédonie | OBTEN | fr-FR |
+| Nouvelle-Zélande | NZ | fr-FR |
 | Nicaragua | NI | en-US, es-ES |
-| Niger | NE | en-US |
-| Nigéria | NG | en-US |
-| Niue | NU | en-US |
-| Norfolk (île) | NF | en-US |
-| Mariannes du Nord (îles) | MP | en-US |
-| Norvège | NON | en-US, nb-NO |
-| Oman | OM | en-US, ar-SA |
-| Pakistan | PK | en-US |
-| Palau | PW | en-US |
-| Autorité palestinienne | PS | en-US |
+| Niger | NE | fr-FR |
+| Nigeria | NG | fr-FR |
+| Niue | NU | fr-FR |
+| Norfolk (île) | NF | fr-FR |
+| Mariannes du Nord (îles) | MP | fr-FR |
+| Norvège | NON | fr-fr, NB-non |
+| Oman | OM | fr-fr, ar-SA |
+| Pakistan | PK | fr-FR |
+| Palau | CONFIGURER passe | fr-FR |
+| Autorité palestinienne | PS | fr-FR |
 | Panama | AF | en-US, es-ES |
-| Papouasie-Nouvelle-Guinée | PG | en-US |
+| Papouasie-Nouvelle-Guinée | SOUHAITABLE | fr-FR |
 | Paraguay | PY | en-US, es-ES |
 | Pérou | PE | en-US, es-ES |
-| Philippines | PH | en-US |
-| Pitcairn (îles) | PN | en-US |
-| Pologne | PL | en-US, pl-PL |
-| Portugal | PT | en-US, pt-PT |
-| Porto Rico | PR | en-US, en-US |
-| Qatar | QA | en-US, ar-SA |
-| La Réunion | RE | en-US |
-| Roumanie | RO | en-US, ro-RO |
+| Philippines | PH | fr-FR |
+| Pitcairn (îles) | PN | fr-FR |
+| Pologne | PL | fr-fr, PL-PL |
+| Portugal | PT | en-US, PT-PT |
+| Porto Rico | PR | fr-fr, en-US |
+| Qatar | QA | fr-fr, ar-SA |
+| La Réunion | RE | fr-FR |
+| Roumanie | RO | en-US, RO-RO |
 | Russie | RU | en-US, ru-RU |
-| Rwanda | RW | en-US, fr-FR |
+| Rwanda | GRAVE | en-US, fr-FR |
 | São Tomé et Príncipe | ST | en-US, fr-FR |
-| Saba | XS | en-US |
-| Saint-Barthélemy | BL | en-US |
-| Saint Kitts et Nevis | KN | en-US |
-| Sainte-Lucie | LC | en-US, en-US |
-| Saint-Martin | MF | en-US, en-US |
-| Saint-Pierre-et-Miquelon | PM | en-US |
-| Saint-Vincent-et-les-Grenadines | VC | en-US |
-| Samoa | WS | en-US |
-| Saint-Marin | SM | en-US |
-| Arabie saoudite | SA | en-US |
+| Saba | XS | fr-FR |
+| Saint--Barthélemy | BL | fr-FR |
+| Saint Kitts et Nevis | KN | fr-FR |
+| Sainte-Lucie | EUROS | fr-fr, en-US |
+| Saint-Martin | INSTANTANÉ | fr-fr, en-US |
+| Saint-Pierre-et-Miquelon | Manuel | fr-FR |
+| Saint-Vincent-et-les-Grenadines | VIRTUEL | fr-FR |
+| Samoa | Web | fr-FR |
+| Saint-Marin | MS | fr-FR |
+| Arabie saoudite | SA | fr-FR |
 | Sénégal | SN | en-US, fr-FR |
-| Serbie | RS | en-US, sr-Latn-RS, en-US |
-| Seychelles | SC | en-US |
-| Sierra Leone | SL | en-US |
-| Singapour | SG | en-US, zh-SG |
-| Sint Eustatius | XE | en-US |
-| Saint-Martin (Royaume des Pays-Bas) | SX | en-US, en-US |
-| Slovaquie | SK | en-US, sk-SK |
-| Slovénie | SI | en-US, sl-SI |
-| Salomon (îles) | SB | en-US |
-| Somalie | SO | en-US |
-| Afrique du Sud | ZA | en-US |
-| South Georgia and South Sandwich Islands | GS | en-US |
-| Soudan du Sud | SS | en-US |
+| Serbie | RS | en-US, SR-LATN-RS, en-US |
+| Seychelles | SC | fr-FR |
+| Sierra Leone | SL | fr-FR |
+| Singapour | SG | fr-fr, zh-SG |
+| Saint-Eustache | XE | fr-FR |
+| Saint-Martin (Royaume des Pays-Bas) | SX | fr-fr, en-US |
+| Slovaquie | SK | fr-fr, SK-SK |
+| Slovénie | SI | fr-fr, SL-SI |
+| Salomon (îles) | ASPIRATEUR | fr-FR |
+| Somalie | AFIN | fr-FR |
+| Afrique du Sud | ZA | fr-FR |
+| Géorgie du Sud et Sandwich du Sud (îles) | GS | fr-FR |
+| Soudan du Sud | SÉCURITÉ | fr-FR |
 | Espagne | ES | en-US, es-ES, en-US, en-US |
-| Sri Lanka | LK | en-US |
-| St Helena, Ascension, Tristan da Cunha | SH | en-US |
-| Surinam | SR | en-US |
-| Svalbard | SJ | en-US |
-| Suède | SE | en-US, sv-SE |
+| Sri Lanka | LK | fr-FR |
+| Sainte-Hélène, ascension, Tristan da Cunha | & | fr-FR |
+| Surinam | SR | fr-FR |
+| Svalbard | SJ | fr-FR |
+| Suède | SE | en-US, SV-SE |
 | Suisse | CH | en-US, fr-FR, en-US, en-US |
-| Taïwan | TW | en-US, zh-HK |
-| Tadjikistan | TJ | en-US |
-| Tanzanie | TZ | en-US |
+| Taïwan | TW | fr-fr, zh-HK |
+| Tadjikistan | TJ | fr-FR |
+| Tanzanie | TZ | fr-FR |
 | Thaïlande | TH | en-US, th-TH |
-| Timor-Leste | TL | en-US |
-| Togo | TG | en-US |
-| Tokelau | TK | en-US |
-| Tonga | TO | en-US |
-| Trinité-et-Tobago | TT | en-US |
+| Timor-Leste | TL | fr-FR |
+| Togo | OCDE | fr-FR |
+| Tokelau | J | fr-FR |
+| Tonga | À | fr-FR |
+| Trinité-et-Tobago | TT | fr-FR |
 | Tunisie | TN | en-US, fr-FR, en-US |
-| Turquie | TR | en-US, tr-TR |
-| Turkménistan | TM | en-US |
-| Turks et Caïcos (îles) | TC | en-US |
-| Tuvalu | TV | en-US |
-| Îles mineures éloignées des États-Unis | UM | en-US |
-| Îles Vierges (É.-U.) | VI | en-US |
-| Ouganda | UG | en-US |
-| Ukraine | UA | en-US, uk-UA |
-| Émirats arabes unis | AE | en-US, ar-SA |
-| Royaume-Uni | Go | en-US |
-| États-Unis | États-Unis | en-US |
+| Turquie | TR | fr-fr, TR-TR |
+| Turkménistan | TM | fr-FR |
+| Turks et Caïcos (îles) | CT | fr-FR |
+| Tuvalu | TV | fr-FR |
+| Îles mineures éloignées des États-Unis | UNIFIÉ | fr-FR |
+| Îles Vierges (É.-U.) | VL | fr-FR |
+| Ouganda | UG | fr-FR |
+| Ukraine | UA | en-US, Royaume-Uni-UA |
+| Émirats arabes unis | AE | fr-fr, ar-SA |
+| Royaume-Uni | Go | fr-FR |
+| États-Unis | US | fr-FR |
 | Uruguay | UY | en-US, es-ES |
 | Ouzbékistan | UZ | en-US, ru-RU |
-| Vanuatu | VU | en-US |
-| Cité du Vatican | VA | en-US |
+| Vanuatu | VOU | fr-FR |
+| État de la Cité du Vatican | VA | fr-FR |
 | Venezuela | VE | en-US, es-ES |
 | Vietnam | VN | en-US, vi-VN |
-| Wallis-et-Futuna | WF | en-US |
-| Yémen | YE | en-US, ar-SA |
-| Zambie | ZM | en-US |
-| Zimbabwe | ZW | en-US |
+| Wallis-et-Futuna | WF | fr-FR |
+| Yémen | POUSSE | fr-fr, ar-SA |
+| Zambie | ZM | fr-FR |
+| Zimbabwe | ZW | fr-FR |
 
 

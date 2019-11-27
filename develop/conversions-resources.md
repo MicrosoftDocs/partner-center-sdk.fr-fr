@@ -1,6 +1,6 @@
 ---
-title: Conversions resources
-description: Conversion resources support the conversion of a trial subscription to a paid subscription.
+title: Ressources de conversions
+description: Les ressources de conversion prennent en charge la conversion d’un abonnement d’évaluation en abonnement payant.
 ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,45 +13,45 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74488899"
 ---
-# <a name="conversions-resources"></a>Conversions resources
+# <a name="conversions-resources"></a>Ressources de conversions
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Conversion resources support the conversion of a trial subscription to a paid subscription.
+Les ressources de conversion prennent en charge la conversion d’un abonnement d’évaluation en abonnement payant.
 
 ## <a name="conversion"></a>Conversion
 
-Contains information used to convert a trial subscription to a paid subscription.
+Contient les informations utilisées pour convertir un abonnement d’évaluation en abonnement payant.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| offerId | chaîne | The offer identifier of the original, trial offer. |
-| targetOfferId | chaîne | The offer identifier for the target offer. |
-| orderId | chaîne | The order identifier. |
-| quantity | entier | The number of licenses. The default is the number of licenses in the trial subscription. |
-| billingCycle | chaîne | Indicates how often the partner is charged for the subscription. Possible values: **Monthly** (partner is billed monthly), **Annual** (partner is billed annually), or **None** (Partner isn't billed. Used for trial subscriptions). |
+| offerId | chaîne | Identificateur de l’offre d’origine de l’offre d’essai. |
+| targetOfferId | chaîne | Identificateur de l’offre de l’offre cible. |
+| orderId | chaîne | Identificateur de l’ordre. |
+| quantity | entier | Nombre de licences. La valeur par défaut est le nombre de licences dans l’abonnement d’évaluation. |
+| billingCycle | chaîne | Indique la fréquence à laquelle le partenaire est facturé pour l’abonnement. Valeurs possibles : **mensuelle** (le partenaire est facturé mensuellement), **annuelle** (le partenaire est facturé annuellement) ou **None** (le partenaire n’est pas facturé. Utilisé pour les abonnements d’évaluation). |
 
 ## <a name="conversionerror"></a>ConversionError
 
-Represents an error that occurred during conversion.
+Représente une erreur qui s’est produite pendant la conversion.
 
-| Propriété | Tapez | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| code | chaîne | The error code associated with the issue. Possible values: **Other** (general error), **ConversionsNotFound** (can't find any conversions for the trial subscription to convert to).
-| description | chaîne | The friendly text describing the issue. |
+| code | chaîne | Code d’erreur associé au problème. Valeurs possibles : **other** (erreur générale), **ConversionsNotFound** (impossible de trouver les conversions de l’abonnement d’évaluation vers lequel effectuer la conversion).
+| description | chaîne | Texte convivial qui décrit le problème. |
 
 ## <a name="conversionresult"></a>ConversionResult
 
-Represents the result of performing a subscription conversion.
+Représente le résultat de la conversion d’un abonnement.
 
-| Propriété       | Tapez                                | Description                                                            |
+| Propriété       | Type                                | Description                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
-| subscriptionId | chaîne                              | The subscription identifier.                                           |
-| offerId        | chaîne                              | The original offer identifier.                                         |
-| targetOfferId  | chaîne                              | The offer identifier for the target offer.                             |
-| erreur          | [ConversionError](#conversionerror) | The error encountered while attempting the conversion, if applicable.. |
+| subscriptionId | chaîne                              | Identificateur d’abonnement.                                           |
+| offerId        | chaîne                              | Identificateur d’offre d’origine.                                         |
+| targetOfferId  | chaîne                              | Identificateur de l’offre de l’offre cible.                             |
+| erreur          | [ConversionError](#conversionerror) | Erreur rencontrée lors de la tentative de conversion, le cas échéant. |

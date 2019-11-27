@@ -1,6 +1,6 @@
 ---
-title: Delete a device for the specified customer
-description: How to delete a device that belongs to a specified customer.
+title: Supprimer un appareil pour le client spécifié
+description: Comment supprimer un appareil qui appartient à un client spécifié.
 ms.assetid: 44F06D4B-E9DE-470F-BAE2-15205CC7C699
 ms.date: 06/20/2019
 ms.service: partner-dashboard
@@ -13,30 +13,30 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489899"
 ---
-# <a name="delete-a-device-for-the-specified-customer"></a>Delete a device for the specified customer
+# <a name="delete-a-device-for-the-specified-customer"></a>Supprimer un appareil pour le client spécifié
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 
-This topic explains how to delete a device that belongs to a specified customer.
+Cette rubrique explique comment supprimer un appareil qui appartient à un client spécifié.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- The customer identifier.
-- The device batch identifier.
-- The device identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur du client.
+- Identificateur du lot de l’appareil.
+- Identificateur de l’appareil.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To delete a device for the specified customer:
+Pour supprimer un appareil pour le client spécifié :
 
-1. Call the [**IAggregatePartner.Customers.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) method with the customer identifier to retrieve an interface to operations on the customer.
-2. Call the [**DeviceBatches.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) method with the device batch identifier to get an interface to operations for the specified batch.
-3. Call the [**Devices.ById**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) method to get an interface to operation on the specified device.
-4. Call the [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) or [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) method to delete the device from the batch.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client.
+2. Appelez la méthode [**DeviceBatches. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) avec l’identificateur de lot de l’appareil pour obtenir une interface pour les opérations du lot spécifié.
+3. Appelez la méthode [**Devices. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) pour faire en sorte qu’une interface fonctionne sur l’appareil spécifié.
+4. Appelez la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) ou [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) pour supprimer l’appareil du lot.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -47,33 +47,33 @@ string selectedDeviceId;
 partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.ById(selectedDeviceId).Delete();
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: DeleteDevice.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : DeleteDevice.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode     | URI de requête                                                                                                                        |
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices/{device-id} HTTP/1.1  |
+| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices/{Device-ID} http/1.1  |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path parameters when creating the request.
+Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Nom           | Tapez   | Obligatoire | Description                                                        |
+| Nom           | Type   | Obligatoire | Description                                                        |
 |----------------|--------|----------|--------------------------------------------------------------------|
-| customer-id    | chaîne | Oui      | A GUID-formatted string that identifies the customer.              |
-| devicebatch-id | chaîne | Oui      | The device batch identifier of the batch that contains the device. |
-| device-id      | chaîne | Oui      | The device identifier.                                             |
+| ID client    | chaîne | Oui      | Chaîne au format GUID qui identifie le client.              |
+| ID d’devicebatch | chaîne | Oui      | Identificateur du lot de l’appareil qui contient l’appareil. |
+| ID de l’appareil      | chaîne | Oui      | Identificateur de l’appareil.                                             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-Aucun(e)
+Aucune
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -88,13 +88,13 @@ Content-Type: application/json
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, the response returns a **204 No Content** status code.
+En cas de réussite, la réponse retourne un code d’état **204 aucun contenu** .
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

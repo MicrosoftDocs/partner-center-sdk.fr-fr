@@ -1,6 +1,6 @@
 ---
-title: Create a service request
-description: How to create a partner center service request.
+title: Créer une demande de service
+description: Comment créer une demande de service de l’espace partenaires.
 ms.assetid: 16DA9836-7052-4103-82D4-933E5EEB7E71
 ms.date: 05/23/2019
 ms.service: partner-dashboard
@@ -13,29 +13,29 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489319"
 ---
-# <a name="create-a-service-request"></a>Create a service request
+# <a name="create-a-service-request"></a>Créer une demande de service
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-How to create a partner center service request.
+Comment créer une demande de service de l’espace partenaires.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with App+User credentials only.
-- A support topic ID. If you do not have a support topic ID, see [Get service request support topics](get-service-request-support-topics--pending-.md).
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- ID de rubrique de support. Si vous n’avez pas d’ID de rubrique de support, consultez les [rubriques obtenir un support de demande de service](get-service-request-support-topics--pending-.md).
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To create a service request:
+Pour créer une demande de service :
 
-1. Create and populate a [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object with the title, description, severity, and support topic id. To add additional information, the [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) object supports an optional collection of [**Notes**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.notes), but does not support links to files for uploading.
-2. Once the object is created, call the [**IAggregatePartner.ServiceRequests.Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.ipartnerservicerequestcollection.create) method, passing it the newly created ServiceRequest object and a string containing the locale of the organization creating the service request (the agent locale).
+1. Créez et remplissez un objet [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) avec le titre, la description, la gravité et l’ID de la rubrique de support. Pour ajouter des informations supplémentaires, l’objet [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) prend en charge une collection facultative de [**Notes**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.notes), mais ne prend pas en charge les liens vers les fichiers en vue de leur téléchargement.
+2. Une fois l’objet créé, appelez la méthode [**collection iaggregatepartner. ServiceRequests. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.ipartnerservicerequestcollection.create) , en lui transmettant l’objet ServiceRequest nouvellement créé et une chaîne contenant les paramètres régionaux de l’organisation qui crée la demande de service (paramètres régionaux de l’agent).
 
-### <a name="c-example"></a>C\# example
+### <a name="c-example"></a>Exemple de\# C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,56 +52,56 @@ ServiceRequest serviceRequestToCreate = new ServiceRequest()
 ServiceRequest serviceRequest = partnerOperations.ServiceRequests.Create(serviceRequestToCreate, "en-US");
 ```
 
-**Sample**: [Console test app](console-test-app.md). **Project**: Partner Center SDK Samples **Class**: CreatePartnerServiceRequest.cs
+**Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CreatePartnerServiceRequest.cs
 
-## <a name="rest-request"></a>REST request
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode   | URI de requête                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} HTTP/1.1 |
+| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/servicerequests/{agent-locale} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following URI parameter to identify the agent locale.
+Utilisez le paramètre URI suivant pour identifier les paramètres régionaux de l’agent.
 
-| Nom             | Tapez       | Obligatoire | Description                                                  |
+| Nom             | Type       | Obligatoire | Description                                                  |
 |------------------|------------|----------|--------------------------------------------------------------|
-| **agent-locale** | **string** | Y        | The locale of the organization creating the service request. |
+| **paramètres régionaux de l’agent** | **chaîne** | Y        | Paramètres régionaux de l’organisation qui crée la demande de service. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
 
-This table describes the required and optional properties in the request body.
+Ce tableau décrit les propriétés obligatoires et facultatives dans le corps de la demande.
 
-| Nom             | Tapez                                                                        | Obligatoire | Description                                                                          |
+| Nom             | Type                                                                        | Obligatoire | Description                                                                          |
 |------------------|-----------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
-| Title            | chaîne                                                                      | Y        | The service request title.                                                           |
-| Description      | chaîne                                                                      | Y        | The description.                                                                     |
-| Sévérité         | chaîne                                                                      | Y        | The severity: "unknown", "critical", "moderate", or "minimal".                       |
-| SupportTopicId   | chaîne                                                                      | Y        | The id of the support topic.                                                         |
-| SupportTopicName | chaîne                                                                      | N        | The name of the support topic.                                                       |
-| Id               | chaîne                                                                      | N        | The id of the service request.                                                       |
-| le statut           | chaîne                                                                      | N        | The status of the service request: "none", "open", "closed", or "attention\_needed". |
-| Organisation     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | Organization for which the service request is created.                               |
-| PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | Primary Contact on the service request.                                              |
-| LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | "Last Updated By" contact for changes to the service request.                        |
-| ProductName      | chaîne                                                                      | N        | The name of the product that corresponds to the service request.                     |
-| ProductId        | chaîne                                                                      | N        | The id of the product.                                                               |
-| CreatedDate      | date                                                                        | N        | The date of the service request's creation.                                          |
-| LastModifiedDate | date                                                                        | N        | The date that the service request was last modified.                                 |
-| LastClosedDate   | date                                                                        | N        | The date that the service request was last closed.                                   |
-| FileLinks        | array of [FileInfo](utility-resources.md#fileinfo) resources               | N        | The collection of File Links that pertain to the service request.                    |
-| NewNote          | [ServiceRequestNote](service-request-resources.md#servicerequestnote)                 | N        | A note can be added to an existing service request.                                  |
-| Notes            | array of [ServiceRequestNotes](service-request-resources.md#servicerequestnote)       | N        | A collection of notes added to the service request.                                  |
-| CountryCode      | chaîne                                                                      | N        | The country corresponding to the service request.                                    |
-| Attributs       | object                                                                      | N        | Contains "ObjectType": "ServiceRequest".                                             |
+| Titre            | chaîne                                                                      | Y        | Titre de la demande de service.                                                           |
+| Description      | chaîne                                                                      | Y        | Description.                                                                     |
+| Sévérité         | chaîne                                                                      | Y        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
+| SupportTopicId   | chaîne                                                                      | Y        | ID de la rubrique de support.                                                         |
+| SupportTopicName | chaîne                                                                      | N        | Nom de la rubrique de support.                                                       |
+| Id               | chaîne                                                                      | N        | ID de la demande de service.                                                       |
+| État           | chaîne                                                                      | N        | État de la demande de service : « None », « Open », « Closed » ou « attention\_needed ». |
+| Organisation     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | Organisation pour laquelle la demande de service est créée.                               |
+| PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | Contact principal sur la demande de service.                                              |
+| LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | « Dernière mise à jour par » permet de contacter les modifications apportées à la demande de service.                        |
+| ProductName      | chaîne                                                                      | N        | Nom du produit qui correspond à la demande de service.                     |
+| ProductId        | chaîne                                                                      | N        | ID du produit.                                                               |
+| CreatedDate      | date                                                                        | N        | Date de création de la demande de service.                                          |
+| LastModifiedDate & | date                                                                        | N        | Date à laquelle la demande de service a été modifiée pour la dernière fois.                                 |
+| LastClosedDate   | date                                                                        | N        | Date de la dernière fermeture de la demande de service.                                   |
+| FileLinks        | Tableau de ressources [FileInfo](utility-resources.md#fileinfo)               | N        | Collection de liens de fichiers qui se rapportent à la demande de service.                    |
+| NewNote          | [ServiceRequestNote](service-request-resources.md#servicerequestnote)                 | N        | Une note peut être ajoutée à une demande de service existante.                                  |
+| Remarques            | Tableau de [ServiceRequestNotes](service-request-resources.md#servicerequestnote)       | N        | Collection de remarques ajoutées à la demande de service.                                  |
+| CountryCode      | chaîne                                                                      | N        | Pays correspondant à la demande de service.                                    |
+| Attributs       | objet                                                                      | N        | Contient « ObjectType » : « ServiceRequest ».                                             |
 
-This table describes the required properties in the request body.
+Ce tableau décrit les propriétés requises dans le corps de la demande.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -143,13 +143,13 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>REST response
+## <a name="rest-response"></a>Réponse REST
 
-If successful, this method returns the **Service Request** resource properties in the response body.
+En cas de réussite, cette méthode retourne les propriétés de la ressource de **demande de service** dans le corps de la réponse.
 
-### <a name="response-success-and-error-codes"></a>Response success and error codes
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center REST error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

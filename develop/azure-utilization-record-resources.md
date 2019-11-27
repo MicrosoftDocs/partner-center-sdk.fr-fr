@@ -1,6 +1,6 @@
 ---
-title: Azure utilization record resources
-description: The Azure utilization record contains details about the utilization of an Azure subscription resource.
+title: Ressources de l’enregistrement d’utilisation Azure
+description: L’enregistrement d’utilisation Azure contient des détails sur l’utilisation d’une ressource d’abonnement Azure.
 ms.assetid: 4C1EEEB3-DB25-4D61-BFED-C4AB5D3BB5CF
 ms.date: 08/16/2019
 ms.service: partner-dashboard
@@ -13,60 +13,60 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489129"
 ---
-# <a name="azure-utilization-record-resources"></a>Azure utilization record resources
+# <a name="azure-utilization-record-resources"></a>Ressources de l’enregistrement d’utilisation Azure
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-The Azure utilization record contains details about the utilization of an Azure subscription resource. If you are a cloud service provider partner who owns the billing relationship for your customers' Azure subscriptions, you can use this REST API to provide a scalable way to track usage incurred on the subscriptions in order to send an invoice to your customers at the end of every billing cycle.
+L’enregistrement d’utilisation Azure contient des détails sur l’utilisation d’une ressource d’abonnement Azure. Si vous êtes un partenaire de fournisseur de services Cloud qui possède la relation de facturation pour les abonnements Azure de vos clients, vous pouvez utiliser cette API REST pour fournir un moyen évolutif de suivre l’utilisation des abonnements afin d’envoyer une facture à vos clients à la fin de chaque cycle de facturation.
 
-To track usage and help predict your monthly bill and the bills for individual customers, you can combine a Rate Card query to [Get prices for Microsoft Azure](get-prices-for-microsoft-azure.md) with a request to [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md).
+Pour suivre l’utilisation et aider à prédire votre facture mensuelle et les factures des clients individuels, vous pouvez combiner une requête de carte à tarif pour [obtenir les prix de Microsoft Azure](get-prices-for-microsoft-azure.md) avec une demande d' [obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md).
 
-Prices differ by market and currency, and this API takes location into consideration. By default, it uses your partner profile settings in Partner Center and your browser language, but those are customizable. This is especially relevant if you manage sales in multiple markets from a single, centralized office.
+Les prix varient selon le marché et la devise, et cette API prend en compte l’emplacement. Par défaut, il utilise vos paramètres de profil de partenaire dans l’espace partenaires et la langue de votre navigateur, mais ceux-ci sont personnalisables. Cela s’avère particulièrement utile si vous gérez les ventes sur plusieurs marchés à partir d’un seul bureau centralisé.
 
 ## <a name="azureutilizationrecord"></a>AzureUtilizationRecord
 
-Describes the properties of an Azure utilization record resource.
+Décrit les propriétés d’une ressource d’enregistrement d’utilisation Azure.
 
-| Propriété       | Tapez                                      | Obligatoire | Description                                                                                                                                                                             |
+| Propriété       | Type                                      | Obligatoire | Description                                                                                                                                                                             |
 |----------------|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| usageStartTime | chaîne                                    | Oui      | The start of the usage aggregation time range. The response is grouped by the time of consumption (when the resource was actually used vs. when was it reported to the billing system). |
-| usageEndTime   | chaîne                                    | Oui      | The end of the usage aggregation time range. The response is grouped by the time of consumption (when the resource was actually used vs. when was it reported to the billing system).   |
-| resource       | object                                    | Oui      | Contains an [AzureResource](#azureresource) object.                                                                                                                                     |
-| quantity       | nombre                                    | Oui      | The quantity consumed of the [AzureResource.](#azureresource)                                                                                                                           |
-| unités           | chaîne                                    | non       | The type of quantity (hours, bytes, etc.) This property is optional                                                                                                                     |
-| infoFields     | object                                    | Oui      | Key-value pairs of instance level details. This object may be empty.                                                                                                                    |
-| instanceData   | object                                    | non       | Contains an [AzureInstanceData](#azureinstancedata) object that contains key-value pairs of instance level details. This property is optional and may not be included.                  |
-| attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Oui      | The metadata attributes. Contains "objectType": "AzureUtilizationRecord"                                                                                                                |
+| usageStartTime | chaîne                                    | Oui      | Début de la plage horaire d’agrégation de l’utilisation. La réponse est regroupée en fonction de la durée de la consommation (lorsque la ressource était réellement utilisée par rapport au moment où elle a été signalée au système de facturation). |
+| usageEndTime   | chaîne                                    | Oui      | Fin de la plage horaire d’agrégation de l’utilisation. La réponse est regroupée en fonction de la durée de la consommation (lorsque la ressource était réellement utilisée par rapport au moment où elle a été signalée au système de facturation).   |
+| ressource       | objet                                    | Oui      | Contient un objet [AzureResource](#azureresource) .                                                                                                                                     |
+| quantity       | nombre                                    | Oui      | Quantité consommée du [AzureResource.](#azureresource)                                                                                                                           |
+| unités           | chaîne                                    | Non       | Type de quantité (heures, octets, etc.) Cette propriété est facultative.                                                                                                                     |
+| infoFields     | objet                                    | Oui      | Paires clé-valeur des détails au niveau de l’instance. Cet objet peut être vide.                                                                                                                    |
+| instanceData   | objet                                    | Non       | Contient un objet [AzureInstanceData](#azureinstancedata) qui contient des paires clé-valeur de détails au niveau de l’instance. Cette propriété est facultative et ne peut pas être incluse.                  |
+| attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Oui      | Attributs de métadonnées. Contient « objectType » : « AzureUtilizationRecord »                                                                                                                |
 
-### <a name="operations-on-the-azureutilizationrecord-resource"></a>Operations on the AzureUtilizationRecord resource
+### <a name="operations-on-the-azureutilizationrecord-resource"></a>Opérations sur la ressource AzureUtilizationRecord
 
-- [Get a customer's utilization records for Azure](get-a-customer-s-utilization-record-for-azure.md)
+- [Obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md)
 
 ## <a name="azureresource"></a>AzureResource
 
-Describes the properties of an Azure Resource.
+Décrit les propriétés d’une ressource Azure.
 
-| Propriété    | Tapez   | Obligatoire | Description                                                                         |
+| Propriété    | Type   | Obligatoire | Description                                                                         |
 |-------------|--------|----------|-------------------------------------------------------------------------------------|
-| id          | chaîne | Oui      | Unique identifier of the Azure resource. Also known as resourceID or resource GUID. |
-| name        | chaîne | non       | Friendly name of the resource being consumed. Cette propriété est facultative.            |
-| catégorie    | chaîne | non       | The category of the consumed resource. Cette propriété est facultative.                   |
-| subcategory | chaîne | non       | The sub-category of the consumed resource. Cette propriété est facultative.               |
-| region      | chaîne | non       | The region of the consumed resource. Cette propriété est facultative.                     |
+| id          | chaîne | Oui      | Identificateur unique de la ressource Azure. Également appelé resourceID ou GUID de ressource. |
+| name        | chaîne | Non       | Nom convivial de la ressource consommée. Cette propriété est facultative.            |
+| catégorie    | chaîne | Non       | Catégorie de la ressource consommée. Cette propriété est facultative.                   |
+| sous-catégorie | chaîne | Non       | Sous-catégorie de la ressource consommée. Cette propriété est facultative.               |
+| région      | chaîne | Non       | Région de la ressource consommée. Cette propriété est facultative.                     |
 
 ## <a name="azureinstancedata"></a>AzureInstanceData
 
-Describes the properties of an Azure Instance Data resource.
+Décrit les propriétés d’une ressource de données d’instance Azure.
 
-| Propriété       | Tapez             | Obligatoire | Description                                                                                                        |
+| Propriété       | Type             | Obligatoire | Description                                                                                                        |
 |----------------|------------------|----------|--------------------------------------------------------------------------------------------------------------------|
-| resourceUri    | chaîne           | Oui      | The fully qualified Azure resource ID, which includes the resource groups and the instance name.                   |
-| location       | chaîne           | Oui      | Region in which the service was run.                                                                               |
-| partNumber     | object           | Oui      | Unique namespace used to identify the resource for commercial marketplace 3rd party usage. This may be an empty string. |
-| orderNumber    | nombre           | Oui      | Unique namespace used to identify the 3rd party order for commercial marketplace. This may be an empty string.          |
-| tags           | array of strings | non       | Resource tags specified by the user. This property is optional and may not be included.                            |
-| additionalInfo | array of strings | non       | Additional data for an Azure resource. This property is optional and may not be included.                          |
+| URI    | chaîne           | Oui      | L’ID de ressource Azure complet, qui comprend les groupes de ressources et le nom de l’instance.                   |
+| location       | chaîne           | Oui      | Région dans laquelle le service a été exécuté.                                                                               |
+| partNumber     | objet           | Oui      | Espace de noms unique utilisé pour identifier la ressource pour une utilisation tierce de la place de marché commercial. Il peut s’agir d’une chaîne vide. |
+| orderNumber    | nombre           | Oui      | Espace de noms unique utilisé pour identifier la commande tierce pour la place de marché commercial. Il peut s’agir d’une chaîne vide.          |
+| tags           | Tableau de chaînes | Non       | Balises de ressource spécifiées par l’utilisateur. Cette propriété est facultative et ne peut pas être incluse.                            |
+| AdditionalInfo | Tableau de chaînes | Non       | Données supplémentaires pour une ressource Azure. Cette propriété est facultative et ne peut pas être incluse.                          |

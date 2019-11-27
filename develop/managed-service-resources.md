@@ -1,6 +1,6 @@
 ---
-title: Managed service resources
-description: Managed services are services to which a partner has delegated admin privileges. Partners can provide support for and file service requests on the behalf of their managed services.
+title: Ressources de service managées
+description: Les services gérés sont des services auxquels un partenaire a délégué des privilèges d’administrateur. Les partenaires peuvent assurer la prise en charge des demandes de service de fichiers et pour le compte de leurs services gérés.
 ms.assetid: B05E9585-72E4-4330-8721-A88EC4C193D7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
@@ -13,46 +13,46 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74486899"
 ---
-# <a name="managed-service-resources"></a>Managed service resources
+# <a name="managed-service-resources"></a>Ressources de service managées
 
 
-**Applies To**
+**S’applique à**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Managed services are services to which a partner has delegated admin privileges. Partners can provide support for and file service requests on the behalf of their managed services.
+Les services gérés sont des services auxquels un partenaire a délégué des privilèges d’administrateur. Les partenaires peuvent assurer la prise en charge des demandes de service de fichiers et pour le compte de leurs services gérés.
 
 ## <a name="span-idmanagedservicespan-idmanagedservicespan-idmanagedservicemanagedservice"></a><span id="ManagedService"/><span id="managedservice"/><span id="MANAGEDSERVICE"/>ManagedService
 
 
-Describes a managed service.
+Décrit un service managé.
 
-| Propriété   | Tapez                | Description                                              |
+| Propriété   | Type                | Description                                              |
 |------------|---------------------|----------------------------------------------------------|
-| Id         | chaîne              | The managed service id.                                  |
-| Nom       | chaîne              | The name of the managed service.                         |
-| GroupName  | chaîne              | The name of the group to which the service belongs.      |
-| Liens      | ManagedServiceLinks | The resource links corresponding to the managed service. |
-| Attributs | ResourceAttributes  | The metadata attributes corresponding to the agreement.  |
+| Id         | chaîne              | ID de service managé.                                  |
+| Nom       | chaîne              | Nom du service managé.                         |
+| GroupName  | chaîne              | Nom du groupe auquel appartient le service.      |
+| Liens      | ManagedServiceLinks | Liens vers les ressources correspondant au service géré. |
+| Attributs | ResourceAttributes  | Attributs de métadonnées correspondant à l’accord.  |
 
  
 
 ## <a name="span-idmanagedservicelinksspan-idmanagedservicelinksspan-idmanagedservicelinksmanagedservicelinks"></a><span id="ManagedServiceLinks"/><span id="managedservicelinks"/><span id="MANAGEDSERVICELINKS"/>ManagedServiceLinks
 
 
-Contains the links that allow the partner with delegated admin permissions to provide support for the service.
+Contient les liens qui permettent au partenaire disposant d’autorisations d’administrateur déléguées de prendre en charge le service.
 
-| Propriété      | Tapez | Description                 |
+| Propriété      | Type | Description                 |
 |---------------|------|-----------------------------|
-| AdminService  | Lier | The admin service URI.      |
-| ServiceHealth | Lier | The service health URI.     |
-| ServiceTicket | Lier | The service ticket URI.     |
-| Self (Auto)          | Lier | The self URI.               |
-| Suivant          | Lier | The next page of items.     |
-| Previous      | Lier | The previous page of items. |
+| AdminService  | Lien | URI du service d’administration.      |
+| ServiceHealth | Lien | URI d’intégrité du service.     |
+| ServiceTicket | Lien | URI de ticket de service.     |
+| Self (Auto)          | Lien | URI auto.               |
+| Suivant          | Lien | Page suivante des éléments.     |
+| Précédent      | Lien | Page d’éléments précédente. |
 
  
 

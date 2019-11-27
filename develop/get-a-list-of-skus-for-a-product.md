@@ -1,6 +1,6 @@
 ---
-title: Get a list of SKUs for a product (by country)
-description: You can get and filter a collection of SKUs by country for a product using the Partner Center APIs.
+title: Obtenir la liste des références (SKU) d’un produit (par pays)
+description: Vous pouvez obtenir et filtrer une collection de références SKU par pays pour un produit à l’aide des API de l’espace partenaires.
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
@@ -13,28 +13,28 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 11/26/2019
 ms.locfileid: "74489759"
 ---
-# <a name="get-a-list-of-skus-for-a-product-by-country"></a>Get a list of SKUs for a product (by country)
+# <a name="get-a-list-of-skus-for-a-product-by-country"></a>Obtenir la liste des références (SKU) d’un produit (par pays)
 
-S'applique à :
+S’applique à :
 
 - Espace partenaires
 
-You can get a collection of SKUs available in a country for a specific product using Partner Center APIs.
+Vous pouvez obtenir un ensemble de références SKU disponibles dans un pays pour un produit spécifique à l’aide des API de l’espace partenaires.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Credentials as described in [Partner Center authentication](partner-center-authentication.md). This scenario supports authentication with both standalone App and App+User credentials.
-- A product identifier.
+- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur de produit.
 
-## <a name="c"></a>C\#
+## <a name="c"></a>\# C
 
-To get the list of SKUs for a product:
+Pour obtenir la liste des références SKU pour un produit :
 
-1. Get an interface for a specific product's operations by following the steps in [Get a product by ID](get-a-product-by-id.md).
-2. From the interface, select the **Skus** property to obtain an interface with the available operations for SKUs.
-3. Call the **Get()** or **GetAsync()** method to retrieve a collection of the available SKUs for the product.
-4. (Optional) Select the reservation scope using the **ByReservationScope()** method.
-5. (Optional) Use the **ByTargetSegment()** method to filter the SKUs by target segment before calling **Get()** or **GetAsync()** .
+1. Obtenir une interface pour les opérations d’un produit spécifique en suivant les étapes de la section [obtenir un produit par ID](get-a-product-by-id.md).
+2. À partir de l’interface, sélectionnez la propriété **SKU** pour obtenir une interface avec les opérations disponibles pour les références (SKU).
+3. Appelez la méthode **obtenir ()** ou **GetAsync ()** pour récupérer une collection des références (SKU) disponibles pour le produit.
+4. Facultatif Sélectionnez l’étendue de la réservation à l’aide de la méthode **ByReservationScope ()** .
+5. Facultatif Utilisez la méthode **ByTargetSegment ()** pour filtrer les références SKU par segment cible avant d’appeler la méthode d' **extraction ()** ou de **GetAsync ()** .
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -62,12 +62,12 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-To get the list of SKUs for a product:
+Pour obtenir la liste des références SKU pour un produit :
 
-1. Get an interface for a specific product's operations by following the steps in [Get a product by ID](get-a-product-by-id.md).
-2. From the interface, select the **getSkus** function to obtain an interface with the available operations for SKUs.
-3. Call the **get()** function to retrieve a collection of the available SKUs for the product.
-4. (Optional) Use the **byTargetSegment()** function to filter the SKUs by target segment before calling the **get()** function.
+1. Obtenir une interface pour les opérations d’un produit spécifique en suivant les étapes de la section [obtenir un produit par ID](get-a-product-by-id.md).
+2. À partir de l’interface, sélectionnez la fonction **getSkus** pour obtenir une interface avec les opérations disponibles pour les références (SKU).
+3. Appelez la fonction **obtenir ()** pour récupérer une collection des références (SKU) disponibles pour le produit.
+4. Facultatif Utilisez la fonction **byTargetSegment ()** pour filtrer les références SKU par segment cible avant d’appeler la fonction d' **extraction ()** .
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -87,10 +87,10 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 [!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
 
-To get the list of SKUs for a product:
+Pour obtenir la liste des références SKU pour un produit :
 
-1. Execute the [**Get-PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) command.
-2. (Optional) Specify the **Segment** parameter to filter the SKUs by target segment.
+1. Exécutez la commande [**PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) .
+2. Facultatif Spécifiez le paramètre de **segment** pour filtrer les références SKU par segment cible.
 
 ```powershell
 # $productId
@@ -105,28 +105,28 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 ## <a name="rest"></a>REST
 
-### <a name="rest-request"></a>REST request
+### <a name="rest-request"></a>Demande REST
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
 | Méthode  | URI de requête                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/products/{product-id}/skus?country={country-code}&targetSegment={target-segment} HTTP/1.1  |
+| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs ? Country = {pays-code} & targetSegment = {Target-segment} http/1.1  |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-Use the following path and query parameters to get a list of SKUs for a product.
+Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir la liste des références (SKU) d’un produit.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                     |
+| Nom                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | chaîne   | Oui      | A string that identifies the product.                           |
-| country-code           | chaîne   | Oui      | A country/region ID.                                            |
-| target-segment         | chaîne   | non       | A string that identifies the target segment used for filtering. |
-| reservationScope | chaîne   | non | When querying for a list of SKUs for an Azure Reservation product, specify `reservationScope=AzurePlan` to get a list of SKUs which are applicable to AzurePlan. Exclude this parameter to get a list of SKUs for an Azure Reservation products which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions.  |
+| ID de produit             | chaîne   | Oui      | Chaîne qui identifie le produit.                           |
+| pays-code           | chaîne   | Oui      | ID de pays/région.                                            |
+| segment cible         | chaîne   | Non       | Chaîne qui identifie le segment cible utilisé pour le filtrage. |
+| reservationScope | chaîne   | Non | Lors de l’interrogation d’une liste de références SKU pour un produit de réservation Azure, spécifiez `reservationScope=AzurePlan` pour obtenir la liste des références (SKU) applicables à AzurePlan. Excluez ce paramètre pour obtenir la liste des références (SKU) pour les produits de réservation Azure applicables aux abonnements Microsoft Azure (MS-AZR-0145P).  |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Headers](headers.md).
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 #### <a name="request-body"></a>Corps de la requête
 
@@ -134,7 +134,7 @@ Aucun.
 
 #### <a name="request-examples"></a>Exemples de demande
 
-Get a list of SKUs for a given product:
+Obtenir la liste des références (SKU) pour un produit donné :
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BPS6/skus?country=US HTTP/1.1
@@ -144,7 +144,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Get a list of SKUs for an Azure Reservation product. Only include the SKUs which are applicable to Azure plans and not Microsoft Azure (MS-AZR-0145P) subscriptions:
+Obtenir la liste des références (SKU) pour un produit de réservation Azure. Incluez uniquement les références (SKU) applicables aux abonnements Azure et non Microsoft Azure (MS-AZR-0145P) :
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US&reservationScope=AzurePlan HTTP/1.1
@@ -154,7 +154,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Get a list of SKUs for an Azure Reservation product. Only include the SKUs which are applicable to Microsoft Azure (MS-AZR-0145P) subscriptions and not Azure plans:
+Obtenir la liste des références (SKU) pour un produit de réservation Azure. Incluez uniquement les références (SKU) applicables aux abonnements Microsoft Azure (MS-AZR-0145P) et non aux plans Azure :
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US HTTP/1.1
@@ -164,20 +164,20 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-### <a name="rest-response"></a>REST response
+### <a name="rest-response"></a>Réponse REST
 
-If successful, the response body contains a collection of [SKU](product-resources.md#sku) resources.
+En cas de réussite, le corps de la réponse contient une collection de ressources [SKU](product-resources.md#sku) .
 
-#### <a name="response-success-and-error-codes"></a>Response success and error codes
+#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Each response comes with an HTTP status code that indicates success or failure and additional debugging information. Use a network trace tool to read this code, error type, and additional parameters. For the full list, see [Partner Center error codes](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-This method returns the following error codes:
+Cette méthode retourne les codes d’erreur suivants :
 
 | Code d'état HTTP     | Error code   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | Access to the requested targetSegment is not allowed.                                                     |
-| 404                  | 400013       | The parent product was not found.                                                                         |
+| 403                  | 400030       | L’accès au targetSegment demandé n’est pas autorisé.                                                     |
+| 404                  | 400013       | Le produit parent est introuvable.                                                                         |
 
 #### <a name="response-example"></a>Exemple de réponse
 
