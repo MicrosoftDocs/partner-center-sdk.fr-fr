@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Documentation pour les développeurs de l’Espace partenaires
+summary: Collaborez avec Microsoft sur le développement des fonctionnalités partenaires.
+metadata:
+  title: Documentation pour les développeurs de l’Espace partenaires
+  description: Collaborez avec Microsoft sur le développement des fonctionnalités partenaires.
+  ms.service: partner-dashboard
+  ms.topic: landing-page
+  ms.collection: collection
+  author: lauradolan
+  ms.author: ladolan
+  ms.date: 11/05/2019
+  ms.openlocfilehash: df534dc5951ac155bde06044a55465d00df18ebe
+  ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 11/26/2019
+  ms.locfileid: "74485599"
+landingContent:
+- title: Développer avec l’Espace partenaires
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer votre compte de développeur et votre authentification
+      url: partner-center-authentication.md
+    - text: Configurer votre environnement
+      url: get-started.md
+  - linkListType: whats-new
+    links:
+    - text: Créer un plan Azure avec les API
+      url: create-azure-plan.md
+  - linkListType: concept
+    links:
+    - text: Exemples de code
+      url: partner-center-samples.md
+    - text: Exemples de scénarios
+      url: scenarios.md
+- title: Utiliser le SDK .NET (v1.15.1)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Kit SDK .NET de l’Espace partenaires
+      url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
+    - text: Exemples .NET de l’Espace partenaires
+      url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
+  - linkListType: reference
+    links:
+    - text: Informations de référence de l’API .NET managée
+      url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+- title: Utiliser les API REST
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Informations de référence de l’API REST de l’Espace partenaires
+      url: https://docs.microsoft.com/en-us/partner-center/develop/partner-center-rest-api-reference
+- title: Utiliser le SDK Java (open source)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Télécharger le SDK Java de l’Espace partenaires
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter/1.8.1/jar
+    - text: Dépôt GitHub du SDK Java (pour les questions, les contributions et les problèmes)
+      url: https://github.com/Microsoft/Partner-Center-Java
+  - linkListType: reference
+    links:
+    - text: Informations de référence de l’API Java
+      url: https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1
+- title: Utiliser le module PowerShell (open source)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Installer le module PowerShell
+      url: https://www.powershellgallery.com/packages/PartnerCenter
+    - text: Dépôt GitHub du module PowerShell (pour les questions, les contributions et les problèmes)
+      url: https://github.com/Microsoft/Partner-Center-PowerShell
+  - linkListType: reference
+    links:
+    - text: Commandes PowerShell
+      url: https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5
+- title: Utiliser l’API Swagger pour les partenaires fournisseurs de solutions cloud
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Informations de référence de l’API Swagger pour les services de l’Espace partenaires (pour les partenaires fournisseurs de solutions cloud)
+      url: https://apidocs.microsoft.com/services/partnercenter
