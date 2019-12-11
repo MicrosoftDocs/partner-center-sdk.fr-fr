@@ -6,16 +6,16 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9c3aae7ed4eeddd9cd2c6c67ae74d3393a6ad540
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 572d5c64343c360f3daf0fb8fef7551da7bdcb2f
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489619"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995194"
 ---
 # <a name="create-an-azure-plan"></a>Créer un plan Azure
 
-S’applique à :
+S'applique à :
 
 * Espace partenaires
 
@@ -63,7 +63,7 @@ Vous pouvez [récupérer les détails d’une commande individuelle à l’aide 
 Une fois la commande traitée avec succès, une ressource d' **abonnement** au centre partenaires sera créée pour le plan Azure. Vous pouvez utiliser les méthodes suivantes pour gérer les ressources d' **abonnement** du centre partenaires afin de gérer le plan Azure :
 
 * [Obtenir les abonnements d’un client](get-all-of-a-customer-s-subscriptions.md)
-* [Obtenir une liste d’abonnements par commande](get-a-list-of-subscriptions-by-order.md)
+* [Obtenir la liste des abonnements par commande](get-a-list-of-subscriptions-by-order.md)
 
 Lorsqu’un plan Azure est créé dans l’espace partenaires, un abonnement d’utilisation Azure correspondant est également créé dans Azure. Vous pouvez également créer des abonnements d’utilisation Azure supplémentaires sous le même plan Azure à l’aide du portail Azure et des API Azure. Vous pouvez obtenir les identificateurs de tous les abonnements d’utilisation Azure associés à un plan Azure en suivant les étapes de la section [obtenir une liste des droits Azure pour l’abonnement au centre des partenaires](get-a-list-of-azure-entitlements-for-subscription.md)
 
@@ -73,9 +73,9 @@ Vous pouvez suspendre un plan Azure existant en suivant les étapes de la sectio
 
 *Vous ne pouvez suspendre un plan Azure existant que s’il n’a plus d’actifs d’utilisation actifs qui lui sont associés, y compris les abonnements d’utilisation Azure et les réservations Azure.*
 
-Pour plus d’informations sur la désactivation des abonnements d’utilisation Azure, consultez [API Azure sur la gestion du cycle de vie des abonnements](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Pour plus d’informations sur la désactivation des abonnements d’utilisation Azure, consultez [API Azure sur la gestion du cycle de vie des abonnements](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
-Pour supprimer des réservations Azure existantes, vous devez envoyer une [demande d’annulation](https://docs.microsoft.com/en-us/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation). Une fois qu’un plan Azure est suspendu, vous ne pouvez pas le réactiver.
+Pour supprimer des réservations Azure existantes, vous devez envoyer une [demande d’annulation](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation). Une fois qu’un plan Azure est suspendu, vous ne pouvez pas le réactiver.
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>Transition des offres CSP existantes vers le plan Azure
 
@@ -89,21 +89,21 @@ Vous ne pouvez pas créer de plan Azure pour un client existant avec un abonneme
 
 Vous pouvez suivre les [dépenses Azure](azure-spending.md) en interrogeant le résumé de l’utilisation et les enregistrements d’utilisation détaillée à l’aide des méthodes suivantes :
 
-* [Afficher le résumé de l’utilisation des partenaires](get-a-partner-usage-summary.md)
-* [Obtenir tous les enregistrements d’utilisation du client pour un partenaire](get-a-customer-s-usage-records.md)
-* [Afficher le résumé de l’utilisation du client](get-a-customer-usage-summary.md)
-* [Obtenir tous les enregistrements d’utilisation d’abonnement pour un client](get-a-customer-subscription-s-usage-records.md)
-* [Afficher le résumé de l’utilisation des abonnements](get-a-customer-subscription-usage-summary.md)
-* [Obtenir tous les enregistrements d’utilisation mensuelle pour un abonnement](get-all-monthly-usage-records-for-a-subscription.md)
-* [Obtenir les données d’utilisation de l’abonnement par ressource](get-a-customer-subscription-resource-usage-records.md)
-* [Obtenir les données d’utilisation de l’abonnement par compteur](get-a-customer-subscription-meter-usage-records.md)
-* [Accéder aux ressources d’enregistrements d’utilisation de compteur](meter-usage-resources.md)
-* [Accéder aux ressources de l’enregistrement d’utilisation des ressources](resource-usage-resources.md)
+* [Obtenir le récapitulatif d’utilisation de partenaire](get-a-partner-usage-summary.md)
+* [Obtenir tous les enregistrements d’utilisation de client d’un partenaire](get-a-customer-s-usage-records.md)
+* [Obtenir le récapitulatif d’utilisation de client](get-a-customer-usage-summary.md)
+* [Obtenir tous les enregistrements d’utilisation d’abonnement d’un client](get-a-customer-subscription-s-usage-records.md)
+* [Obtenir le récapitulatif d’utilisation d’abonnement](get-a-customer-subscription-usage-summary.md)
+* [Obtenir tous les enregistrements d’utilisation mensuels d’un abonnement](get-all-monthly-usage-records-for-a-subscription.md)
+* [Obtenir les données d’utilisation d’abonnement par ressource](get-a-customer-subscription-resource-usage-records.md)
+* [Obtenir les données d’utilisation d’abonnement par compteur](get-a-customer-subscription-meter-usage-records.md)
+* [Obtenir les ressources d’enregistrement d’utilisation d’un compteur](meter-usage-resources.md)
+* [Obtenir les ressources d’enregistrement d’utilisation d’une ressource](resource-usage-resources.md)
 
 Vous pouvez également définir et gérer le budget d’utilisation du client à l’aide des méthodes suivantes :
 
-* [Recevoir le budget d’utilisation du client](get-a-customer-s-usage-spending-budget.md)
-* [Mettre à jour le budget d’utilisation client](update-a-customer-s-usage-spending-budget.md)
+* [Obtenir le budget d’utilisation d’un client](get-a-customer-s-usage-spending-budget.md)
+* [Mettre à jour le budget d’utilisation d’un client](update-a-customer-s-usage-spending-budget.md)
 
 ## <a name="invoice-and-reconciliation"></a>Facture et rapprochement
 
@@ -112,9 +112,9 @@ Vous pouvez gérer les factures et les données de réconciliation à l’aide d
 * [Obtenir une collection de factures](get-a-collection-of-invoices.md)
 * [Obtenir des liens d’estimation de facture](get-invoice-estimate-links.md)
 * [Recevoir la facture par ID](get-invoice-by-id.md)
-* [Instruction d’extraction de facture](get-invoice-statement.md)
-* [Recevoir des résumés de facture](get-invoice-summaries.md)
-* [Recevoir les lignes de facturation de la consommation facturée](get-invoice-billed-consumption-lineitems.md)
-* [Obtient les lignes de facturation de consommation non facturées](get-invoice-unbilled-consumption-lineitems.md)
+* [Obtenir l’instruction de facture](get-invoice-statement.md)
+* [Obtenir des récapitulatifs de facture](get-invoice-summaries.md)
+* [Obtenir les éléments de ligne de consommation facturés](get-invoice-billed-consumption-lineitems.md)
+* [Obtenir les éléments de ligne de consommation non facturés](get-invoice-unbilled-consumption-lineitems.md)
 * [Obtient les Articles de ligne de rapprochement facturés](get-invoiceline-items.md)
-* [Obtient les éléments de ligne de rapprochement non facturés de facture](get-invoice-unbilled-recon-lineitems.md)
+* [Obtenir les éléments de ligne de rapprochement non facturés](get-invoice-unbilled-recon-lineitems.md)

@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: a9e9e4182a1350f9e28c5c2c00bf1e57d8170384
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a670cdd82528d2017550cef7484a1e676f73bb3d
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488739"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995104"
 ---
 # <a name="get-a-customers-company-profile"></a>Obtenir le profil d’entreprise d’un client
 
@@ -19,7 +19,7 @@ ms.locfileid: "74488739"
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient le profil de la société d’un client.
@@ -42,7 +42,7 @@ Pour obtenir le profil d’entreprise d’un client, appelez la méthode [**coll
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**Exemple**: [Téléchargez le kit de développement logiciel (SDK) de l’espace partenaires](http://go.microsoft.com/fwlink/p/?LinkId=746681). **Projet**: PartnerSdk. FeatureSamples, **classe**: GetCustomerCompanyProfile.cs
+**Exemple**: [Téléchargez le kit de développement logiciel (SDK) de l’espace partenaires](https://go.microsoft.com/fwlink/p/?LinkId=746681). **Projet**: PartnerSdk. FeatureSamples, **classe**: GetCustomerCompanyProfile.cs
 
 ### <a name="java"></a>Java
 
@@ -59,30 +59,30 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
 
-**Syntaxe de la requête**
+**Syntaxe de la demande**
 
 | Méthode  | URI de requête                                                             |
 |---------|-------------------------------------------------------------------------|
-| **Télécharger** | *{baseURL}* /v1/Customers/{Customer-tenant-ID}/Profiles/Company http/1.1 |
+| **GET** | *{baseURL}* /v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
 
 **Paramètre URI**
 
 Utilisez le paramètre de requête suivant pour obtenir le profil de la société.
 
-| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **customer-tenant-id** | **guid** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 
 
-**En-têtes de demande**
+**En-têtes de requête**
 
 - Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 **Corps de la demande**
 
-Aucune
+Aucun(e)
 
-**Exemple de requête**
+**Exemple de demande**
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/profiles/company HTTP/1.1
@@ -102,7 +102,7 @@ En cas de réussite, cette méthode retourne des informations dans le corps de l
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

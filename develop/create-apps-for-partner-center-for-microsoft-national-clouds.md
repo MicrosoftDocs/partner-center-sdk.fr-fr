@@ -9,18 +9,18 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 494c803af64d8affd126a8de05fcdb18d648d774
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ede0ba85851e4d450d4f28832cd46064d2786d2d
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489549"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995254"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Les développeurs doivent inscrire des détails sur leur application avec Azure AD par le biais du Portail Azure. Cela permet de s’assurer que seules les applications spécifiées sont en mesure de se connecter aux données des partenaires et des clients.
@@ -39,7 +39,7 @@ Pour les applications Web, utilisez les procédures suivantes pour inscrire votr
 
 1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
-2. Sélectionnez **nouvelle inscription**. Pour plus d’informations, consultez [démarrage rapide : inscrire une application auprès de la plateforme Microsoft Identity](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+2. Sélectionnez **Nouvelle inscription**. Pour plus d’informations, consultez [démarrage rapide : inscrire une application auprès de la plateforme Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>Configurer les autorisations d’accès à l’API pour l’application Web
 
@@ -64,7 +64,7 @@ Vous devez disposer des informations suivantes à partir de la configuration de 
 
 ### <a name="register-the-web-app-in-partner-center"></a>Inscrire l’application Web dans l’espace partenaires
 
-1. Connectez-vous à <https://partnercenter.microsoft.com>.
+1. Connectez-vous à l’adresse <https://partnercenter.microsoft.com>.
 2. Choisissez **tableau de bord**, choisissez **paramètres du compte**, puis gestion des **applications**.
 3. Dans la section **application Web** , choisissez **inscrire l’application existante**.
 4. Sélectionnez l’application Web que vous avez créée dans le portail de gestion Azure.
@@ -81,11 +81,11 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 
 1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
-2. Sélectionnez **nouvelle inscription**. Pour plus d’informations, consultez [démarrage rapide : inscrire une application auprès de la plateforme Microsoft Identity](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+2. Sélectionnez **Nouvelle inscription**. Pour plus d’informations, consultez [démarrage rapide : inscrire une application auprès de la plateforme Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>Configurer les autorisations d’accès à l’API pour une application native
 
-1. Choisissez votre application. Accédez à **paramètres**.
+1. Choisissez votre application. Accédez à **Settings**.
 2. Dans accès à l’API, choisissez **autorisations requises**.
 3. Choisissez **Windows Azure Active Directory autorisations**. Dans **autorisations déléguées**, sélectionnez les autorisations suivantes :
     - **Se connecter et lire le profil utilisateur**
@@ -97,7 +97,7 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 6. Choisissez **Sélectionner une API**.
     1. Dans la zone de recherche, entrez **Microsoft Partner Center** et sélectionnez-le dans la liste des résultats.
     2. Choisissez **Sélectionner**.
-7. Choisissez **Sélectionner les autorisations**.
+7. Choisissez **Sélectionner des autorisations**.
     1. Sélectionnez **accéder à l’espace partenaires des EPI**.
     2. Choisissez **Sélectionner**.
 8. Choisissez **terminé**.

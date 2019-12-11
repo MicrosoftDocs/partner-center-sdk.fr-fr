@@ -6,20 +6,20 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 51de7cc8b6a721c3c0d04f57d20e4d9afef50283
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0a23e83ef38632b9127b0ecdf99eb7f1860661ec
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488919"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995184"
 ---
 # <a name="console-test-app"></a>Application de test de la console
 
-S’applique à :
+S'applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 L’application de test console est fournie C# dans et Java, elle fournit des exemples de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
@@ -30,7 +30,7 @@ Téléchargez l’exemple de code pour l’application de test de la console.
 
 ## <a name="net"></a>.NET
 
-[Téléchargez l’exemple de code](http://go.microsoft.com/fwlink/p/?LinkId=746682) et modifiez-le si nécessaire.
+[Téléchargez l’exemple de code](https://go.microsoft.com/fwlink/p/?LinkId=746682) et modifiez-le si nécessaire.
 
 > [!IMPORTANT]
 > Avant de générer l’application, mettez à jour les valeurs dans le fichier *app. config* afin de refléter les informations d’authentification Azure ad que vous avez créées dans l’authentification de l' [espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
@@ -43,7 +43,7 @@ Pour modifier la liste des scénarios exécutés, mettez en commentaire les lign
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
-[Téléchargez l’exemple de code](http://go.microsoft.com/fwlink/p/?LinkId=2026887) et modifiez-le si nécessaire.
+[Téléchargez l’exemple de code](https://go.microsoft.com/fwlink/p/?LinkId=2026887) et modifiez-le si nécessaire.
 
 > [!IMPORTANT]
 > Avant de générer l’application, mettez à jour les valeurs du fichier *SamplesConfigurations. JSON* pour refléter les informations d’authentification Azure ad que vous avez créées dans [l’authentification de l’espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.

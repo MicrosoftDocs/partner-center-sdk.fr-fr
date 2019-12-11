@@ -5,16 +5,16 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: c4bb015d4e8369643bd0bc46e03c8960098369ee
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 02706cb17462105749116a232837a37cce14f2e6
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489289"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995244"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Recevoir les Articles de ligne facturation commerciale facturés
 
-S’applique à :
+S'applique à :
  
 - Espace partenaires
 
@@ -29,7 +29,7 @@ Cette API prend également en charge les types de fournisseur **Azure** pour les
 - Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour obtenir les éléments de ligne commerciale pour la facture spécifiée, vous devez récupérer l’objet de facture :
 
@@ -43,7 +43,7 @@ L’exemple de code suivant utilise une boucle **foreach** pour traiter la colle
 Pour obtenir une collection d’éléments de ligne qui correspondent à une instance **InvoiceDetail** :
 
 1. Transmettez le **BillingProvider** et le **InvoiceLineItemType** de l’instance à la méthode [**par**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour [**récupérer les éléments**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) de ligne associés.
+2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour [**récupérer les éléments**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) de ligne associés.
 3. Créez un énumérateur pour parcourir la collection comme indiqué dans l’exemple suivant.
 
 ``` csharp
@@ -115,27 +115,27 @@ Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-Utilisez la première syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. Pour les factures volumineuses, utilisez la deuxième syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. Utilisez la troisième syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"`.
+Utilisez la première syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. Pour les factures de grande taille, utilisez la deuxième syntaxe avec une taille spécifiée et un décalage basé sur 0 pour renvoyer une liste paginée des éléments de ligne. Utilisez la troisième syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"`.
 
 | Méthode  | URI de requête                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {CURRENCYCODE} http/1.1                              |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & Size = {Size} http/1.1  |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & Size = {size} & SeekOperation = Next                               |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {CURRENCYCODE} http/1.1                              |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & Size = {Size} http/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & Size = {size} & SeekOperation = Next                               |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Type   | Obligatoire | Description                                                       |
+| Nom                   | Tapez   | Obligatoire | Description                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | ID de la facture             | chaîne | Oui      | Chaîne qui identifie la facture.                             |
 | fournisseur               | chaîne | Oui      | Le fournisseur : « OneTime ».                                  |
 | facture-ligne-élément-type | chaîne | Oui      | Type de détail de la facture : « UsageLineItems ». |
 | currencyCode           | chaîne | Oui      | Code de la devise pour les lignes de facturation facturées.                    |
 | heures                 | chaîne | Oui      | Période pour le rapprochement facturé. exemple : actuel, précédent.        |
-| size                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000       |
-| seekOperation          | chaîne | Non       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement. |
+| size                   | nombre | non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000       |
+| seekOperation          | chaîne | non       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
@@ -153,7 +153,7 @@ Pour l’élément de ligne **ChargeType**, la valeur **Purchase** est mappée s
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="rest-examples"></a>Exemples REST
 

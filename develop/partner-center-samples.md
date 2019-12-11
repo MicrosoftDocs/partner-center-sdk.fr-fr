@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: cf5949069ef7eb79c75d91448dd28e0d4ab7e94c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 8a134988ed2e9015e9c044ee537a1631679c0e92
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486789"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995214"
 ---
 # <a name="partner-center-samples"></a>Exemples de l’espace partenaires
 
@@ -19,7 +19,7 @@ ms.locfileid: "74486789"
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de C# programme, des extraits de code managés et des exemples de demandes et de réponses Rest.
@@ -43,11 +43,11 @@ Pour vous aider à être rapidement opérationnel avec les API de l’espace par
       <td>Pour obtenir des exemples de demandes et de réponses montrant comment utiliser l’API REST de l’espace partenaires pour gérer les comptes clients, obtenir des analyses, passer des commandes, gérer la facturation et les abonnements, fournir un support et gérer les comptes et les profils, consultez <a href="scenarios.md">scénarios</a>.</td>
     </tr>
     <tr>
-      <td><a href="console-test-app.md">Application de test de la console</a></td>
+      <td><a href="console-test-app.md">Application de test de console</a></td>
       <td>Cette application est disponible dans C# et Java, elle fournit du code et une gestion des erreurs pour tous les scénarios listés dans la section scénarios.</td>
     </tr>
     <tr>
-      <td><a href="csp-customer-web-storefront.md">Vitrine Web client CSP</a></td>
+      <td><a href="csp-customer-web-storefront.md">Vitrine web des clients fournisseurs de solutions cloud</a></td>
       <td>Ce site présente un magasin en ligne fonctionnel que vos clients peuvent utiliser pour acheter des abonnements aux produits Microsoft. Vous pouvez facilement créer un site Web pour votre entreprise à l’aide du <a href="csp-customer-storefront-builder-quick-start-guide-.md">Guide de démarrage rapide du générateur de vitrine client</a>.</td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@ Pour vous aider à être rapidement opérationnel avec les API de l’espace par
       <td><p><strong>Description :</strong></p>
           <p>Cette application montre comment créer un Web Store basé sur le catalogue des offres disponibles pour les partenaires du fournisseur de solutions Cloud. Les clients peuvent créer un compte de banque et commander des abonnements logiciels via votre site.</p>
         <p><strong>Récupérez le code :</strong></p>
-        <p><a href="http://go.microsoft.com/fwlink/p/?LinkId=746683">Télécharger l’exemple de code</a></p>
+        <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=746683">Télécharger l’exemple de code</a></p>
         <p><strong>Éléments à configurer avant la publication :</strong></p>
         <ul>
           <li><p>Authentification : ID d’application & secret.</p></li>

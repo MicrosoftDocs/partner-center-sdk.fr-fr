@@ -5,16 +5,16 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 248de75fd97405a5386628ee47ae16661cdef9f8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c8700ecdf42b0a5e156d68854674c904d8da1d4c
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490099"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995134"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Activation de l’infrastructure du modèle d’application sécurisée
 
-S’applique à :
+S'applique à :
 
 - Espace partenaires
 
@@ -39,14 +39,14 @@ Pour plus d’informations sur les exigences de sécurité, consultez [condition
 
 Les applications de la place de marché doivent emprunter l’identité des privilèges du partenaire CSP pour appeler les API Microsoft. Les attaques de sécurité sur ces applications sensibles peuvent entraîner la compromission des données client.
 
-Pour obtenir une vue d’ensemble et les détails de la nouvelle infrastructure d’authentification, téléchargez le document [infrastructure de modèle d’application sécurisée](http://assetsprod.microsoft.com/secure-application-model-guide.pdf) . Ce document décrit les principes et les meilleures pratiques pour rendre les applications de la place de marché durables et robustes contre les compromissions de sécurité.
+Pour obtenir une vue d’ensemble et les détails de la nouvelle infrastructure d’authentification, téléchargez le document [infrastructure de modèle d’application sécurisée](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) . Ce document décrit les principes et les meilleures pratiques pour rendre les applications de la place de marché durables et robustes contre les compromissions de sécurité.
 
 ## <a name="samples"></a>Exemples
 
 Les documents de présentation et les exemples de code suivants décrivent la manière dont les partenaires peuvent implémenter l’infrastructure de modèle d’application sécurisée :
 
-- [Document de présentation du CPV](http://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [Document de présentation du CSP](http://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [Document de présentation du CPV](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
+- [Document de présentation du CSP](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
 - [Exemples .NET](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
 - [Exemples Java](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
@@ -59,7 +59,7 @@ Les documents de présentation et les exemples de code suivants décrivent la ma
 
 Pour effectuer des appels REST avec l’infrastructure de modèle d’application sécurisée avec un exemple de code, vous devez effectuer les opérations suivantes :
 
-1. [Créer une application Web](#create-a-web-app)
+1. [Créer une application web](#create-a-web-app)
 2. [Recevoir un code d’autorisation](#get-authorization-code)
 3. [Obtenir un jeton d’actualisation](#get-refresh-token)
 4. [Recevoir un jeton d’accès](#get-access-token)
@@ -68,7 +68,7 @@ Pour effectuer des appels REST avec l’infrastructure de modèle d’applicatio
 > [!TIP]
 > Vous pouvez utiliser le module PowerShell de l’espace partenaires pour obtenir un code d’autorisation et un jeton d’actualisation. Vous pouvez choisir cette option à la place des étapes 2 et 3. Pour plus d’informations, consultez la [section PowerShell et des exemples](#powershell).
 
-### <a name="create-a-web-app"></a>Créer une application Web
+### <a name="create-a-web-app"></a>Créer une application web
 
 Vous devez créer et inscrire une application Web dans l’espace partenaires avant d’effectuer des appels REST.
 
@@ -84,9 +84,9 @@ Vous devez créer et inscrire une application Web dans l’espace partenaires av
     - Secret de l’application
 
 > [!NOTE]
-> Il est recommandé d' [utiliser un certificat comme secret de votre application](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials). Toutefois, vous pouvez également créer une clé d’application dans la Portail Azure. L’exemple de code de [la section suivante](#get-authorization-code) utilise une clé d’application.
+> Il est recommandé d' [utiliser un certificat comme secret de votre application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials). Toutefois, vous pouvez également créer une clé d’application dans la Portail Azure. L’exemple de code de [la section suivante](#get-authorization-code) utilise une clé d’application.
 
-### <a name="get-authorization-code"></a>Recevoir le code d’autorisation
+### <a name="get-authorization-code"></a>Obtenir un code d’autorisation
 
 Vous devez obtenir un code d’autorisation que votre application Web doit accepter à partir de l’appel de connexion Azure AD :
 
@@ -118,10 +118,10 @@ Vous devez ensuite utiliser votre code d’autorisation pour obtenir un jeton d�
 
 1. Effectuez un appel de publication vers le point de terminaison de connexion Azure AD `https://login.microsoftonline.com/CSPTenantID/oauth2/token` avec le code d’autorisation. Pour obtenir un exemple, consultez l' [exemple d’appel](#sample-refresh-call)suivant.
 2. Notez le jeton d’actualisation qui est retourné.
-3. Stockez le jeton d’actualisation dans Azure Key Vault. Pour plus d’informations, consultez la documentation de l' [API Key Vault](https://docs.microsoft.com/en-us/rest/api/keyvault/).
+3. Stockez le jeton d’actualisation dans Azure Key Vault. Pour plus d’informations, consultez la documentation de l' [API Key Vault](https://docs.microsoft.com/rest/api/keyvault/).
 
 > [!IMPORTANT]
-> Le jeton d’actualisation doit être [stocké en tant que secret](https://docs.microsoft.com/en-us/rest/api/keyvault/setsecret/setsecret) dans Key Vault.
+> Le jeton d’actualisation doit être [stocké en tant que secret](https://docs.microsoft.com/rest/api/keyvault/setsecret/setsecret) dans Key Vault.
 
 #### <a name="sample-refresh-call"></a>Exemple d’appel d’actualisation
 
@@ -149,7 +149,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Corps de la réponse :
+Corps de réponse :
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
@@ -183,7 +183,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Corps de la réponse :
+Corps de réponse :
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
@@ -209,7 +209,7 @@ Host: api.partnercenter.microsoft.com
 
 Vous pouvez utiliser le [module PowerShell de l’espace partenaires](https://www.powershellgallery.com/packages/PartnerCenter) pour réduire l’infrastructure requise pour échanger un code d’autorisation pour un jeton d’accès. Cette méthode est facultative pour effectuer des [appels REST de l’espace partenaires](#rest).
 
-Pour plus d’informations sur ce processus, consultez la documentation relative au [modèle d’application sécurisée](https://docs.microsoft.com/en-us/powershell/partnercenter/secure-app-model) PowerShell.
+Pour plus d’informations sur ce processus, consultez la documentation relative au [modèle d’application sécurisée](https://docs.microsoft.com/powershell/partnercenter/secure-app-model) PowerShell.
 
 1. Installez les modules PowerShell du Azure AD et de l’espace partenaires.
 

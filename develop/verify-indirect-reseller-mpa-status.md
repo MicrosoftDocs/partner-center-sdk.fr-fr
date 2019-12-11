@@ -5,16 +5,16 @@ ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b7785aa3b419ff5160031fb338e78f7130d5b9f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 14a66334793bfe6a1b87f0976a4084e76c331b65
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487709"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995175"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Vérifier l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect
 
-S’applique à :
+S'applique à :
 
 * Espace partenaires
 * Espace partenaires de Microsoft Cloud for US Government
@@ -26,6 +26,25 @@ Vous pouvez vérifier si un revendeur indirect a signé l’accord de partenaria
 * Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 * ID MPN ou ID de locataire CSP (ID Microsoft) du revendeur indirect. *Vous devez utiliser l’un de ces deux identificateurs.*
 
+## <a name="c"></a>C\#
+
+Pour connaître l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect :
+
+ 1. Utilisez votre collection **collection iaggregatepartner. Compliance** tocall la propriété **AgreementSignatureStatus** . 
+ 2. Appelez la méthode [**obten ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) ou [**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) .
+
+``` csharp
+// IAggregatePartner partnerOperations;
+
+var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSignatureStatus.Get(mpnId:"Enter MPN Id");
+
+var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
+```
+
+- Exemple :  **[application de test](console-test-app.md) de la console**
+- Projet : **PartnerCenterSDK. FeaturesSamples**
+- Classe : **GetAgreementSignatureStatus.cs**
+
 ## <a name="rest"></a>REST
 
 ### <a name="rest-request"></a>Demande REST
@@ -34,20 +53,20 @@ Vous pouvez vérifier si un revendeur indirect a signé l’accord de partenaria
 
 | Méthode | URI de requête |
 | ------ | ----------- |
-| **Télécharger** | *[{baseURL}](partner-center-rest-urls.md)* /v1/Compliance/{ProgramName}/agreementstatus ? mpnId = {mpnId} & tenantId = {tenantId} |
+| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/Compliance/{ProgramName}/agreementstatus ? mpnId = {mpnId} & tenantId = {tenantId} |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
 Vous devez fournir l’un des deux paramètres de requête suivants pour identifier le partenaire. Si vous ne fournissez pas l’un de ces deux paramètres de requête, vous recevrez une erreur **400 (requête incorrecte)** .
 
-| Nom | Type | Obligatoire | Description |
+| Nom | Tapez | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | entier | Non | ID de Microsoft Partner Network qui identifie le revendeur indirect. |
-| **TenantId** | GUID | Non | ID Microsoft identifiant le compte CSP du revendeur indirect. |
+| **MpnId** | entier | non | ID de Microsoft Partner Network qui identifie le revendeur indirect. |
+| **TenantId** | GUID | non | ID Microsoft identifiant le compte CSP du revendeur indirect. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](https://docs.microsoft.com/en-us/partner-center/develop/headers).
+Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](https://docs.microsoft.com/partner-center/develop/headers).
 
 #### <a name="request-examples"></a>Exemples de demande
 
@@ -83,7 +102,7 @@ Host: api.partnercenter.microsoft.com
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](https://docs.microsoft.com/en-us/partner-center/develop/error-codes).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](https://docs.microsoft.com/partner-center/develop/error-codes).
 
 #### <a name="response-example-success"></a>Exemple de réponse (réussite)
 

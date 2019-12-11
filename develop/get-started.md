@@ -6,12 +6,12 @@ ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 945b8df7d26f8d14386870979f69e3fdbe18d04f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3d47c3c41a7f6a23d8be6e9c20c16e6f7c01f275
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487279"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995224"
 ---
 # <a name="get-started"></a>Prise en main
 
@@ -19,14 +19,14 @@ ms.locfileid: "74487279"
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Le kit de développement logiciel (SDK) Partner Center comprend une API gérée et une API REST qui permet aux partenaires de gérer les données des clients, des abonnements et des commandes.
 
 ## <a name="span-idget_the_codespan-idget_the_codespan-idget_the_codeget-the-code"></a><span id="Get_the_code"/><span id="get_the_code"/><span id="GET_THE_CODE"/>obtient le code
 
-[Télécharger le kit de développement logiciel (SDK) Partner Center](http://go.microsoft.com/fwlink/p/?LinkId=746681)  
+[Télécharger le kit de développement logiciel (SDK) Partner Center](https://go.microsoft.com/fwlink/p/?LinkId=746681)  
 
 > [!NOTE]  
 > L’accès d’API au centre partenaires pour les revendeurs indirects n’est pas un scénario pris en charge.
@@ -59,7 +59,7 @@ L’espace partenaires utilise Azure AD pour l’authentification, et pour utili
 
 ## <a name="span-idget_helpspan-idget_helpspan-idget_helpget-help"></a><span id="Get_help"/><span id="get_help"/><span id="GET_HELP"/>obtenir de l’aide
 
-Les partenaires peuvent bénéficier d’un support technique dans le [groupe Yammer du kit de développement logiciel (SDK) Partner Center](http://go.microsoft.com/fwlink/p/?LinkID=717360). Pour obtenir une aide plus personnalisée, les développeurs peuvent utiliser leurs avantages ou Support Premier de support MPN.
+Les partenaires peuvent bénéficier d’un support technique dans le [groupe Yammer du kit de développement logiciel (SDK) Partner Center](https://go.microsoft.com/fwlink/p/?LinkID=717360). Pour obtenir une aide plus personnalisée, les développeurs peuvent utiliser leurs avantages ou Support Premier de support MPN.
 
 ## <a name="span-idearly_adopter_programspan-idearly_adopter_programspan-idearly_adopter_programjoin-the-partner-center-api-and-sdk-early-adopter-program"></a><span id="Early_adopter_program"/><span id="early_adopter_program"/><span id="EARLY_ADOPTER_PROGRAM"/>rejoindre l’API espace partenaires et le programme SDK Early
 

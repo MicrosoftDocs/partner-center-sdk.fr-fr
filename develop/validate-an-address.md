@@ -6,12 +6,12 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: aaa7e7ecb10b73a27ce6e406df95f1fe073d8f28
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 79a4abf7c9aaf791421f008221d32a89c18f5867
+ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487749"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995204"
 ---
 # <a name="validate-an-address"></a>Valider une adresse
 
@@ -19,7 +19,7 @@ ms.locfileid: "74487749"
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment valider une adresse à l’aide de l’API de validation d’adresse.
@@ -129,13 +129,13 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 ## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
 
-**Syntaxe de la requête**
+**Syntaxe de la demande**
 
 | Méthode   | URI de requête                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
 
-**En-têtes de demande**
+**En-têtes de requête**
 
 - Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
@@ -143,16 +143,16 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 Ce tableau décrit les propriétés requises dans le corps de la demande.
 
-| Nom         | Type   | Obligatoire | Description                                                |
+| Nom         | Tapez   | Obligatoire | Description                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| AddressLine1 | chaîne | Y        | Première ligne de l’adresse.                             |
-| AddressLine2 | chaîne | N        | Deuxième ligne de l’adresse. Cette propriété est facultative. |
-| urbain         | chaîne | Y        | Ville.                                                  |
-| Département        | chaîne | Y        | État.                                                 |
-| postal   | chaîne | Y        | Code postal.                                           |
-| country      | chaîne | Y        | Code du pays alpha-2 ISO à deux caractères.                |
+| addressline1 | chaîne | Y        | Première ligne de l’adresse.                             |
+| addressline2 | chaîne | N        | Deuxième ligne de l’adresse. Cette propriété est facultative. |
+| city         | chaîne | Y        | Ville.                                                  |
+| État        | chaîne | Y        | État.                                                 |
+| postalcode   | chaîne | Y        | Le code postal.                                           |
+| country      | chaîne | Y        | Le code pays alpha-2 ISO à deux caractères.                |
 
-**Exemple de requête**
+**Exemple de demande**
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/validations/address HTTP/1.1
@@ -166,11 +166,11 @@ Host: api.partnercenter.microsoft.com
 Content-Length: 129
 
 {
-    AddressLine1: "One Microsoft Way",
-    City: "Redmond",
-    State: "WA",
-    PostalCode: "98052",
-    Country: "US"
+    "AddressLine1": "One Microsoft Way",
+    "City": "Redmond",
+    "State": "WA",
+    "PostalCode": "98052",
+    "Country": "US"
 }
 ```
 
@@ -182,7 +182,7 @@ Si la requête échoue, la méthode retourne le code d’état 400, comme illust
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 **Réponse-exemple de validation réussie**
 
