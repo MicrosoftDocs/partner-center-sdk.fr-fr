@@ -10,12 +10,12 @@ metadata:
   author: lauradolan
   ms.author: ladolan
   ms.date: 11/05/2019
-  ms.openlocfilehash: df534dc5951ac155bde06044a55465d00df18ebe
-  ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+  ms.openlocfilehash: fdc4b89eca5f3530bd3fcda0dc063277dc4b0488
+  ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/26/2019
-  ms.locfileid: "74485599"
+  ms.lasthandoff: 12/10/2019
+  ms.locfileid: "74995234"
 landingContent:
 - title: Développer avec l’Espace partenaires
   linkLists:
@@ -33,13 +33,13 @@ landingContent:
     links:
     - text: Exemples de code
       url: partner-center-samples.md
-    - text: Exemples de scénarios
+    - text: Exemples de scénario
       url: scenarios.md
-- title: Utiliser le SDK .NET (v1.15.1)
+- title: Utiliser le SDK .NET (v1.15.2)
   linkLists:
   - linkListType: download
     links:
-    - text: Kit SDK .NET de l’Espace partenaires
+    - text: SDK .NET de l’Espace partenaires
       url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
     - text: Exemples .NET de l’Espace partenaires
       url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
@@ -47,6 +47,8 @@ landingContent:
     links:
     - text: Informations de référence de l’API .NET managée
       url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+    - text: Notes de publication pour les versions du SDK .NET
+      url: dotnet-release-notes.md
 - title: Utiliser les API REST
   linkLists:
   - linkListType: reference
