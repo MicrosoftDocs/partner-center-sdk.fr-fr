@@ -6,12 +6,12 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: efee3cb912dbe29688b08b6cfc4d684a10bba8be
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 83657fbe507215905a950f16ede31b9a7d6f2d6c
+ms.sourcegitcommit: 41d6e1fe826a51fa43825de6d481663d3d34f290
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486299"
+ms.lasthandoff: 12/14/2019
+ms.locfileid: "75032120"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>Mettre à jour le surnom d’un abonnement
 
@@ -20,7 +20,7 @@ ms.locfileid: "74486299"
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Met à jour le nom convivial ou le surnom de l' [abonnement](subscription-resources.md)d’un client. Ce nom s’affiche dans l’espace partenaires pour vous aider à différencier les abonnements dans le compte du client.
@@ -56,11 +56,11 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 ## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
 
 
-**Syntaxe de la requête**
+**Syntaxe de la demande**
 
 | Méthode    | URI de requête                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
+| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
  
 
@@ -68,22 +68,22 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 Ce tableau répertorie le paramètre de requête requis pour mettre à jour le surnom de l’abonnement.
 
-| Nom                    | Type     | Obligatoire | Description                          |
+| Nom                    | Tapez     | Obligatoire | Description                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **client-locataire-ID**  | **uniques** | Y        | **Customer-client-ID** (un GUID). |
-| **ID-pour l’abonnement** | **uniques** | Y        | ID d’abonnement (GUID).        |
+| **customer-tenant-id**  | **guid** | Y        | **Customer-client-ID** (un GUID). |
+| **id-for-subscription** | **guid** | Y        | ID d’abonnement (GUID).        |
 
  
 
-**En-têtes de demande**
+**En-têtes de requête**
 
 - Pour plus d’informations, consultez [en-têtes](headers.md) .
 
 **Corps de la demande**
 
-Une ressource d' **abonnement** complète est requise dans le corps de la demande. Vérifiez que la propriété **FriendlyName** a été mise à jour.
+Une ressource **Abonnement** complète est requise dans le corps de la requête. Vérifiez que la propriété **FriendlyName** a été mise à jour.
 
-**Exemple de requête**
+**Exemple de demande**
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
@@ -125,12 +125,12 @@ En cas de réussite, cette méthode retourne les propriétés de ressource d' [a
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 
 ```http
-PATCH http://partnerapi.store.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscriptionID> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-Contract-Version: v1
