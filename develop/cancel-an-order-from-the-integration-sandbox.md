@@ -5,20 +5,20 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: b5aa51983820e33b8a1f6d45f14bd49063ffcd5c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 960d35e71dda4ee30d6fc775299bd8954dcd1a6e
+ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489089"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033455"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande à partir du bac à sable (sandbox) d’intégration
 
-S’applique à :
+S'applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Procédure d’annulation des commandes d’abonnement de l’instance réservée, du logiciel et du marché commercial en tant que service (SaaS) à partir des comptes sandbox d’intégration.
@@ -59,15 +59,15 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 | Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le paramètre de requête suivant pour supprimer un client.
 
-| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **customer-tenant-id** | **guid** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 | **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui dénote l’ID d’ordre qui doit être annulé. |
 
 ### <a name="request-headers"></a>En-têtes de requête
@@ -75,8 +75,12 @@ Utilisez le paramètre de requête suivant pour supprimer un client.
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
 ### <a name="request-body"></a>Corps de la requête
-
-Aucun.
+```http
+{  
+    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",  
+    "status": "cancelled",  
+}
+```
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -98,7 +102,7 @@ En cas de réussite, cette méthode retourne l’ordre annulé.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 
