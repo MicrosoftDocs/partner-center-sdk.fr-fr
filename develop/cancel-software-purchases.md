@@ -1,24 +1,22 @@
 ---
 title: Annuler les achats de logiciels
 description: Option libre-service pour annuler les abonnements logiciels et les achats de logiciels perpétuels à l’aide des API de l’espace partenaires.
-ms.date: 12/11/2019
+ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 214e01588559845ee2b8e4ed072e17d8e3ac4309
-ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
+ms.openlocfilehash: 17850452b3789fed861dc7855acd40cac186d5fb
+ms.sourcegitcommit: 9b98bc43ccf70e7f49917292de4b70316c215e0c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033525"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75302387"
 ---
 # <a name="cancel-software-purchases"></a>Annuler les achats de logiciels
 
 S'applique à :
 
 - Espace partenaires
-- Espace partenaires de Microsoft Cloud Germany
-- Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez annuler les abonnements logiciels et les achats de logiciels perpétuels qui se trouvent dans la fenêtre d’annulation de la date d’achat à l’aide des API de l’espace partenaires. Vous n’avez pas besoin de créer un ticket de support pour effectuer de telles annulations, et vous pouvez utiliser les méthodes en libre-service suivantes à la place.
 
@@ -32,7 +30,7 @@ Pour annuler une commande de logiciel,
 
 1. Transmettez les informations d’identification de votre compte à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’accéder aux opérations du partenaire.
 
-2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
+2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
 
 3. Appelez la méthode **obtenir** ou **GetAsync** pour récupérer la commande.
 
@@ -65,7 +63,7 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 | Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -73,7 +71,7 @@ Utilisez les paramètres de requête suivants pour supprimer un client.
 
 | Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | La valeur est un identificateur de locataire client au format GUID qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **client-locataire-ID** | **guid** | Y        | La valeur est un identificateur de locataire client au format GUID qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 | **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui indique l’identificateur de l’ordre que vous souhaitez annuler. |
 
 ### <a name="request-headers"></a>En-têtes de requête
