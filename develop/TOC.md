@@ -242,5 +242,5 @@
 ### [Webhooks de l’Espace partenaires](partner-center-webhooks.md) 
 ## [Informations de référence sur les API .NET managées de l’Espace partenaires ](https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest)
 ### [Notes de publication de la version des API .NET de l’Espace partenaires](dotnet-release-notes.md)
-## [Informations de référence sur l’API Java de l’Espace partenaires](https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1)
-## [Commandes PowerShell de l’Espace partenaires](https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5)
+## [Informations de référence sur l’API Java de l’Espace partenaires](https://docs.microsoft.com/java/partnercenter)
+## [Commandes PowerShell de l’Espace partenaires](https://docs.microsoft.com/powershell/partnercenter)
