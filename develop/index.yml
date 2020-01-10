@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: lauradolan
   ms.author: ladolan
-  ms.date: 11/05/2019
-  ms.openlocfilehash: fdc4b89eca5f3530bd3fcda0dc063277dc4b0488
-  ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+  ms.date: 01/08/2020
+  ms.openlocfilehash: ab73e95835c04806e25cb3cbbd46cecd31e3b86d
+  ms.sourcegitcommit: c6a3508ff9b5d97f6ec2bb232999386444933399
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/10/2019
-  ms.locfileid: "74995234"
+  ms.lasthandoff: 01/09/2020
+  ms.locfileid: "75780838"
 landingContent:
 - title: Développer avec l’Espace partenaires
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
     links:
     - text: Exemples de code
       url: partner-center-samples.md
-    - text: Exemples de scénario
+    - text: Exemples de scénarios
       url: scenarios.md
 - title: Utiliser le SDK .NET (v1.15.2)
   linkLists:
@@ -42,7 +42,7 @@ landingContent:
     - text: SDK .NET de l’Espace partenaires
       url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
     - text: Exemples .NET de l’Espace partenaires
-      url: https://github.com/Microsoft/Partner-Center-DotNet-Samples
+      url: https://github.com/microsoft/Partner-Center-DotNet-Samples
   - linkListType: reference
     links:
     - text: Informations de référence de l’API .NET managée
@@ -54,19 +54,19 @@ landingContent:
   - linkListType: reference
     links:
     - text: Informations de référence de l’API REST de l’Espace partenaires
-      url: https://docs.microsoft.com/en-us/partner-center/develop/partner-center-rest-api-reference
+      url: https://docs.microsoft.com/partner-center/develop/partner-center-rest-api-reference
 - title: Utiliser le SDK Java (open source)
   linkLists:
   - linkListType: download
     links:
     - text: Télécharger le SDK Java de l’Espace partenaires
-      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter/1.8.1/jar
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter
     - text: Dépôt GitHub du SDK Java (pour les questions, les contributions et les problèmes)
-      url: https://github.com/Microsoft/Partner-Center-Java
+      url: https://github.com/microsoft/Partner-Center-Java
   - linkListType: reference
     links:
     - text: Informations de référence de l’API Java
-      url: https://docs.microsoft.com/java/partnercenter/overview?view=partnercenter-1.8.1
+      url: https://docs.microsoft.com/java/partnercenter/overview
 - title: Utiliser le module PowerShell (open source)
   linkLists:
   - linkListType: download
@@ -74,11 +74,11 @@ landingContent:
     - text: Installer le module PowerShell
       url: https://www.powershellgallery.com/packages/PartnerCenter
     - text: Dépôt GitHub du module PowerShell (pour les questions, les contributions et les problèmes)
-      url: https://github.com/Microsoft/Partner-Center-PowerShell
+      url: https://github.com/microsoft/Partner-Center-PowerShell
   - linkListType: reference
     links:
     - text: Commandes PowerShell
-      url: https://docs.microsoft.com/powershell/partnercenter/overview?view=partnercenterps-1.5
+      url: https://docs.microsoft.com/powershell/partnercenter
 - title: Utiliser l’API Swagger pour les partenaires fournisseurs de solutions cloud
   linkLists:
   - linkListType: reference
