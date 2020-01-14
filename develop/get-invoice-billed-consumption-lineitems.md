@@ -1,16 +1,16 @@
 ---
 title: Recevoir les Articles de ligne facturation commerciale facturés
 description: Vous pouvez obtenir un regroupement des détails de la facturation de la consommation commerciale (élément de ligne d’utilisation évalué quotidiennement) pour une facture spécifiée à l’aide des API de l’espace partenaires.
-ms.date: 11/01/2019
+ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 02706cb17462105749116a232837a37cce14f2e6
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 09f2c36c2b1d3adfa57eda687572533ffd0fde78
+ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995244"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923507"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Recevoir les Articles de ligne facturation commerciale facturés
 
@@ -20,11 +20,9 @@ S'applique à :
 
 Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de détails pour les éléments de ligne de facture de consommation commerciale (également appelés éléments de ligne d’utilisation évalués quotidiennement fermés) pour une facture spécifiée.
 
-[!INCLUDE [<Marketplace to Onetime API notice>](<../includes/marketplace-onetime-apis.md>)]
-
 Cette API prend également en charge les types de fournisseur **Azure** pour les abonnements Microsoft Azure (MS-AZR-0145P). Cela signifie que cette API est une fonctionnalité à compatibilité descendante.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
@@ -127,7 +125,7 @@ Utilisez la première syntaxe pour retourner une liste complète de chaque élé
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Tapez   | Obligatoire | Description                                                       |
+| Nom                   | Tapez   | Requis | Description                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | ID de la facture             | chaîne | Oui      | Chaîne qui identifie la facture.                             |
 | fournisseur               | chaîne | Oui      | Le fournisseur : « OneTime ».                                  |
@@ -141,9 +139,9 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
-Aucun.
+Aucune.
 
 ### <a name="rest-response"></a>Réponse REST
 
