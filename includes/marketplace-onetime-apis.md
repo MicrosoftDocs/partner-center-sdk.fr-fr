@@ -1,3 +1,0 @@
-*À l’exception des correctifs de bogues, cette API n’est plus mise à jour.* Vous devez mettre à jour vos applications pour appeler l’API **OneTime** au lieu de **Marketplace**. L’API **OneTime** fournit des fonctionnalités supplémentaires qui continueront à être mises à jour.
-
-Vous devez utiliser **OneTime** pour interroger tous les Articles de la consommation commerciale au lieu de la place de **marché**. Vous pouvez ou suivre les liens de l’appel d’estimation des liens.
