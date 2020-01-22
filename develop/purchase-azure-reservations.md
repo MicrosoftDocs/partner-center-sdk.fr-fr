@@ -48,7 +48,7 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Tchad                           | Madagascar                        | Somalie                                  |
 > | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, ascension, Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Surinam                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |

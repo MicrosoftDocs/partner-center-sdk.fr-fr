@@ -176,7 +176,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Mayotte                                  | YT                       | MYT                      | fr-FR/fr-fr                         |
 | Mexique                                   | MX                       | MEX                      | es-MX/fr-fr                         |
 | Micronésie                               | Radio                       | FSM                      | fr-FR                                 |
-| République de Moldavie                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
+| Moldova                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
 | Monaco                                   | MC                       | MCO                      | fr-MC/fr-fr                         |
 | Mongolie                                 | PORTABLE                       | MNG                      | mn-MN/fr-fr                         |
 | Monténégro                               | ME                       | MNE                      | SR-LATN-ME/fr-fr                    |
@@ -243,7 +243,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Soudan du Sud                              | SÉCURITÉ                       | SSD                      | fr-FR                                 |
 | Espagne                                    | ES                       | ESP                      | es-ES/ca-ES/UE-ES/GL-ES/fr-fr |
 | Sri Lanka                                | LK                       | LKA                      | Si-LK/fr-fr                         |
-| Sainte-Hélène, ascension, Tristan da Cunha   | &                       | SHN                      | fr-FR                                 |
+| Sainte-Hélène, Ascension et Tristan da Cunha   | &                       | SHN                      | fr-FR                                 |
 | Surinam                                 | SR                       | SUR                      | nl-NL                                 |
 | Svalbard                                 | SJ                       | SJM                      | NB-non/en-US                         |
 | Suède                                   | SE                       | $ $                      | SV-SE/en-US                         |
