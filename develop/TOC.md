@@ -11,7 +11,6 @@
 ### [Activer le modèle d’application sécurisé](enable-secure-app-model.md)
 ### [Tester et déboguer](test-and-debug.md) 
 ### [Programme Utilisateur précoce](early-adopter-program.md) 
-### [CLUF du SDK de l’Espace partenaires](EULA-Partner-Center-SDK.md)
 ## [Scénarios](scenarios.md)
 ### [Analytique](usage-analytics.md)
 #### [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

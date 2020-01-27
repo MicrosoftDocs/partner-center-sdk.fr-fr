@@ -1,16 +1,16 @@
 ---
 title: Activer le modèle d’application sécurisée
 description: Sécurisez vos applications de l’espace partenaires et du panneau de configuration.
-ms.date: 09/17/2019
+ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: c8700ecdf42b0a5e156d68854674c904d8da1d4c
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 0a6c3d14ca55350db832c10956b0751acb8f8a0c
+ms.sourcegitcommit: 0dea06cd7f95026d93f970d3c294370a58dfcb6b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995134"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76723185"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Activation de l’infrastructure du modèle d’application sécurisée
 
@@ -41,7 +41,7 @@ Les applications de la place de marché doivent emprunter l’identité des priv
 
 Pour obtenir une vue d’ensemble et les détails de la nouvelle infrastructure d’authentification, téléchargez le document [infrastructure de modèle d’application sécurisée](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) . Ce document décrit les principes et les meilleures pratiques pour rendre les applications de la place de marché durables et robustes contre les compromissions de sécurité.
 
-## <a name="samples"></a>Exemples
+## <a name="samples"></a>exemples
 
 Les documents de présentation et les exemples de code suivants décrivent la manière dont les partenaires peuvent implémenter l’infrastructure de modèle d’application sécurisée :
 
@@ -59,7 +59,7 @@ Les documents de présentation et les exemples de code suivants décrivent la ma
 
 Pour effectuer des appels REST avec l’infrastructure de modèle d’application sécurisée avec un exemple de code, vous devez effectuer les opérations suivantes :
 
-1. [Créer une application web](#create-a-web-app)
+1. [Créer une application Web](#create-a-web-app)
 2. [Recevoir un code d’autorisation](#get-authorization-code)
 3. [Obtenir un jeton d’actualisation](#get-refresh-token)
 4. [Recevoir un jeton d’accès](#get-access-token)
@@ -68,7 +68,7 @@ Pour effectuer des appels REST avec l’infrastructure de modèle d’applicatio
 > [!TIP]
 > Vous pouvez utiliser le module PowerShell de l’espace partenaires pour obtenir un code d’autorisation et un jeton d’actualisation. Vous pouvez choisir cette option à la place des étapes 2 et 3. Pour plus d’informations, consultez la [section PowerShell et des exemples](#powershell).
 
-### <a name="create-a-web-app"></a>Créer une application web
+### <a name="create-a-web-app"></a>Créer une application Web
 
 Vous devez créer et inscrire une application Web dans l’espace partenaires avant d’effectuer des appels REST.
 
@@ -86,11 +86,11 @@ Vous devez créer et inscrire une application Web dans l’espace partenaires av
 > [!NOTE]
 > Il est recommandé d' [utiliser un certificat comme secret de votre application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials). Toutefois, vous pouvez également créer une clé d’application dans la Portail Azure. L’exemple de code de [la section suivante](#get-authorization-code) utilise une clé d’application.
 
-### <a name="get-authorization-code"></a>Obtenir un code d’autorisation
+### <a name="get-authorization-code"></a>Recevoir le code d’autorisation
 
 Vous devez obtenir un code d’autorisation que votre application Web doit accepter à partir de l’appel de connexion Azure AD :
 
-1. Connectez-vous à Azure AD à l’URL suivante : <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile>. Veillez à vous connecter avec le compte d’utilisateur à partir duquel vous allez effectuer des appels d’API de l’espace partenaires (par exemple, un agent admin ou un compte agent commercial).
+1. Connectez-vous à Azure AD à l’URL suivante : <https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1>. Veillez à vous connecter avec le compte d’utilisateur à partir duquel vous allez effectuer des appels d’API de l’espace partenaires (par exemple, un agent admin ou un compte agent commercial).
 2. Remplacez **application-ID** par votre ID d’application Azure ad (Guid).
 3. Lorsque vous y êtes invité, connectez-vous avec votre compte d’utilisateur avec MFA configuré.
 4. Lorsque vous y êtes invité, entrez des informations supplémentaires sur MFA (numéro de téléphone ou adresse de messagerie) pour vérifier votre connexion.
@@ -149,7 +149,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Corps de réponse :
+Corps de la réponse :
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","ext_expires_in":"3599","expires_on":"1547579127","not_before":"1547575227","resource":"https://api.partnercenter.microsoft.com","access_token":"Access
@@ -183,7 +183,7 @@ Cache-Control: no-cache, no-store
 Content-Type: application/json; charset=utf-8
 ```
 
-Corps de réponse :
+Corps de la réponse :
 
 ```http
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
@@ -221,37 +221,21 @@ Pour plus d’informations sur ce processus, consultez la documentation relative
     Install-Module PartnerCenter
     ```
 
-2. Utilisez PowerShell pour ajouter `urn:ietf:wg:oauth:2.0:oob` en tant qu’URL de réponse pour votre application Azure AD. Veillez à remplacer la valeur du paramètre d’identificateur d’objet par l’identificateur d’objet pour vous Azure AD application. Vous pouvez trouver cette valeur dans le portail de gestion Azure.
-
-    ```powershell
-    Connect-AzureAD
-    ```
-
-    ```powershell
-    Set-AzureADApplication -ObjectId 659dd68d-3414-4254-a48b-c081b5631b86 -ReplyUrls @("urn:ietf:wg:oauth:2.0:oob")
-    ```
-
-3. Utilisez la commande **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** pour effectuer le processus de consentement et capturer le jeton d’actualisation requis.
+2. Utilisez la commande **[New-PartnerAccessToken](https://docs.microsoft.com/powershell/module/partnercenter/new-partneraccesstoken)** pour effectuer le processus de consentement et capturer le jeton d’actualisation requis.
 
     ```powershell
     $credential = Get-Credential
-    ```
 
-    ```powershell
-    $token = New-PartnerAccessToken -Consent -Credential $credential -Resource https://api.partnercenter.microsoft.com -ServicePrincipal
+    New-PartnerAccessToken -ApplicationId 'xxxx-xxxx-xxxx-xxxx' -Scopes 'https://api.partnercenter.microsoft.com/user_impersonation' -ServicePrincipal -Credential $credential -Tenant 'yyyy-yyyy-yyyy-yyyy' -UseAuthorizationCode
     ```
 
     > [!NOTE]
-    > Le paramètre **ServicePrincipal** est utilisé avec la commande **New-PartnerAccessToken** , car une application Azure ad avec un type **Web/API** est utilisée. Ce type d’application exige qu’un identificateur et une clé secrète du client soient inclus dans la demande de jeton d’accès.
+    > Le paramètre **ServicePrincipal** est utilisé avec la commande **New-PartnerAccessToken** , car une application Azure ad avec un type **Web/API** est utilisée. Ce type d’application requiert qu’un identificateur et une clé secrète du client soient inclus dans la demande de jeton d’accès. Lorsque la commande **obtenir des informations d’identification** est appelée, vous êtes invité à entrer un nom d’utilisateur et un mot de passe. Entrez l’identificateur de l’application en tant que nom d’utilisateur. Entrez le mot de passe secret de l’application. Lorsque la commande **New-PartnerAccessToken** est appelée, vous êtes invité à entrer à nouveau les informations d’identification. Entrez les informations d’identification du compte de service que vous utilisez. Ce compte de service doit être un compte partenaire disposant des autorisations appropriées.
 
-4. Copiez la valeur du jeton d’actualisation.
+3. Copiez la valeur du jeton d’actualisation.
 
     ```powershell
     $token.RefreshToken | clip
     ```
 
-5. Lorsque la commande **obtenir des informations d’identification** est appelée, vous êtes invité à entrer un nom d’utilisateur et un mot de passe. Entrez l’identificateur de l’application en tant que nom d’utilisateur. Entrez le mot de passe secret de l’application.
-
-6. Lorsque la commande **New-PartnerAccessToken** est appelée, vous êtes invité à entrer à nouveau les informations d’identification. Entrez les informations d’identification du compte de service que vous utilisez. Ce compte de service doit être un compte partenaire avec des autorisations approprié.
-
-7. Une fois la **nouvelle PartnerAccessToken** exécutée avec succès, la variable **$Token** contient maintenant la réponse de Azure ad. Veillez à noter et à stocker la valeur du jeton d’actualisation dans un référentiel sécurisé, par exemple Azure Key Vault.
+Vous devez stocker la valeur du jeton d’actualisation dans un référentiel sécurisé, par exemple Azure Key Vault. Pour plus d’informations sur la façon de tirer parti du module d’application sécurisée avec PowerShell, consultez l’article [Multi-Factor Authentication](https://docs.microsoft.com/powershell/partnercenter/multi-factor-auth) .
