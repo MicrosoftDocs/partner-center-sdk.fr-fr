@@ -1,19 +1,19 @@
 ---
-title: Obtenir les éléments de ligne de facture
+title: Récupérer les éléments de ligne de facture
 description: Vous pouvez obtenir des détails sur une collection d’éléments de ligne de facturation (ligne de facturation fermée) pour une facture spécifiée à l’aide des API de l’espace partenaires.
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
-ms.date: 01/13/2020
+ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 37f9773cde315ea3f37bf1e6c7551666463aa44c
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: 758ccbeff877973f9b317ef4008fd7cf8b962939
+ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923523"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76923099"
 ---
-# <a name="get-invoice-line-items"></a>Obtenir les éléments de ligne de facture
+# <a name="get-invoice-line-items"></a>Récupérer les éléments de ligne de facture
 
 S'applique à :
 
@@ -642,6 +642,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "billableQuantity": 0.0159369774,
             "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
             "billingFrequency": "Monthly",
+            "reservationOrderId": "883d475b-0000-2222-0000-8818752f1234",
             "invoiceLineItemType": "billing_line_items",
             "billingProvider": "one_time",
             "attributes": {
@@ -687,6 +688,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",
             "billableQuantity": 0.0130687981,
             "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "",
             "invoiceLineItemType": "billing_line_items",
             "billingProvider": "one_time",
             "attributes": {
@@ -793,6 +795,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",
             "billableQuantity": 0.0130687981,
             "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "",
             "billingFrequency": "Monthly",
             "invoiceLineItemType": "billing_line_items",
             "billingProvider": "one_time",
