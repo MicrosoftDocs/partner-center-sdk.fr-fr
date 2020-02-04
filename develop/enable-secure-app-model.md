@@ -16,13 +16,13 @@ ms.locfileid: "76723185"
 
 S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Microsoft propose une infrastructure sécurisée et évolutive pour l’authentification des partenaires du fournisseur de solutions Cloud (CSP) et des fournisseurs du panneau de configuration (CPV) via l’architecture d’authentification multifacteur (MFA) Microsoft Azure.
 
 Vous pouvez utiliser le nouveau modèle pour élever la sécurité pour les appels d’intégration de l’API de l’espace partenaires. Cela aidera toutes les parties (y compris Microsoft, les partenaires CSP et CPVs) à protéger leur infrastructure et les données client contre les risques de sécurité.
 
-## <a name="scope"></a>Étendue
+## <a name="scope"></a>Portée
 
 Cette rubrique concerne les acteurs suivants :
 
@@ -31,7 +31,7 @@ Cette rubrique concerne les acteurs suivants :
   - Un CPV n’est pas un partenaire CSP disposant d’un accès direct au tableau de bord ou aux API de l’espace partenaires.
 - Fournisseurs de solutions de chiffrement et fournisseurs directs CSP qui utilisent l’authentification d’application ID + utilisateur et s’intègrent directement avec les API de l’espace partenaires.
 
-## <a name="security-requirements"></a>Exigences de sécurité
+## <a name="security-requirements"></a>Conditions de sécurité
 
 Pour plus d’informations sur les exigences de sécurité, consultez [conditions de sécurité des partenaires](https://docs.microsoft.com/partner-center/partner-security-requirements).
 
@@ -41,7 +41,7 @@ Les applications de la place de marché doivent emprunter l’identité des priv
 
 Pour obtenir une vue d’ensemble et les détails de la nouvelle infrastructure d’authentification, téléchargez le document [infrastructure de modèle d’application sécurisée](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) . Ce document décrit les principes et les meilleures pratiques pour rendre les applications de la place de marché durables et robustes contre les compromissions de sécurité.
 
-## <a name="samples"></a>exemples
+## <a name="samples"></a>Exemples
 
 Les documents de présentation et les exemples de code suivants décrivent la manière dont les partenaires peuvent implémenter l’infrastructure de modèle d’application sécurisée :
 
