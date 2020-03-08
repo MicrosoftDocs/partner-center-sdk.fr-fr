@@ -6,17 +6,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: a9fb1c81cae0e7efa0a5e84d2b4d93e44ce7efb9
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489079"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899726"
 ---
 # <a name="cart-resources"></a>Ressources du panier
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -34,8 +34,8 @@ Décrit un panier.
 | lastModifiedTimeStamp | DateTime         | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier. |
 | expirationTimeStamp   | DateTime         | Date d’expiration du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.          |
 | lastModifiedUser      | chaîne           | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                          |
-| LineItems             | Tableau d’objets | Tableau de ressources [CartLineItem](#cartlineitem) .                                                   |
-| status                | chaîne           | État du panier. Les valeurs possibles sont « active » (peut être mise à jour/envoyée) et « ordered » (a déjà été envoyé). |
+| lineItems             | Tableau d’objets | Tableau de ressources [CartLineItem](#cartlineitem) .                                                   |
+| statut                | chaîne           | État du panier. Les valeurs possibles sont « active » (peut être mise à jour/envoyée) et « ordered » (a déjà été envoyé). |
 
 ## <a name="cartlineitem"></a>CartLineItem
 
@@ -45,17 +45,17 @@ Représente un élément contenu dans un panier.
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                   | chaîne                           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                                   |
 | catalogItemId        | chaîne                           | Identificateur de l’élément de catalogue.                                                                                                                          |
-| friendlyName         | chaîne                           | Facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                                 |
-| quantity             | entier                              | Nombre de licences ou d’instances.                                                                                                                  |
+| friendlyName         | chaîne                           | Ce paramètre est facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                                 |
+| quantity             | int                              | Nombre de licences ou d’instances.                                                                                                                  |
 | currencyCode         | chaîne                           | Code de la devise.                                                                                                                                    |
-| billingCycle         | Objet                           | Type de cycle de facturation défini pour la période actuelle.                                                                                                 |
+| BillingCycle         | Object                           | Type de cycle de facturation défini pour la période actuelle.                                                                                                 |
 | termDuration         | chaîne                           | Représentation ISO 8601 de la durée du terme. Les valeurs actuellement prises en charge sont P1M (1 mois), P1Y (1 an) et P3Y (3 ans).                                |
 | participants         | Liste de paires de chaînes d’objets      | Collection de partenaire sur l’enregistrement (MPNID) sur l’achat.                                                                                          |
 | provisioningContext  | Dictionary < String, String >       | Contexte supplémentaire utilisé lors de la configuration de l’élément acheté. Pour déterminer les valeurs nécessaires pour un élément particulier, reportez-vous à la propriété provisioningVariables de la référence. |
 | orderGroup           | chaîne                           | Groupe pour indiquer les éléments qui peuvent être envoyés ensemble dans le même ordre.                                                                          |
 | addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires qui seront achetés pour l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier racine. |
-| erreur                | Objet                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
-| RenewsTo             | Tableau d’objets                 | Tableau de ressources [RenewsTo](#renewsto) .                                                                            |
+| erreur                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
+| renewsTo             | Tableau d’objets                 | Tableau de ressources [RenewsTo](#renewsto) .                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
@@ -80,7 +80,7 @@ Représente une erreur qui se produit après la création d’un panier.
 
 | Valeur                                | Position | Description                                             |
 |--------------------------------------|----------|---------------------------------------------------------|
-| Inconnu                              | 0        | Valeur par défaut.                                          |
+| Inconnu.                              | 0        | Valeur par défaut.                                          |
 | CurrencyIsNotSupported               | 10000    | La devise n’est pas prise en charge pour le marché spécifié. |
 | CatalogItemIdIsNotValid              | 10001    | L’ID d’élément de catalogue n’est pas valide.                       |
 | QuotaNotAvailable                    | 10002    | Le quota disponible est insuffisant.                    |
@@ -97,7 +97,7 @@ Représente le résultat d’une extraction de panier.
 
 | Propriété    | Type                                              | Description                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| o.f.      | Liste d’objets de [commande](order-resources.md#order) .         | Collection de commandes.       |
+| commandes      | Liste d’objets de [commande](order-resources.md#order) .         | Collection de commandes.       |
 | orderErrors | Liste d’objets [OrderError](#ordererror) . | Collection d’erreurs de commande. |
 
 ## <a name="ordererror"></a>OrderError
@@ -107,7 +107,7 @@ Représente une erreur qui se produit pendant l’extraction d’un panier lors 
 | Propriété     | Type   | Description                                     |
 |--------------|--------|-------------------------------------------------|
 | orderGroupId | chaîne | ID du groupe de commandes avec l’erreur. |
-| code         | entier    | Code d’erreur.                                 |
+| code         | int    | Code d'erreur.                                 |
 | description  | chaîne | Description de l’erreur.                   |
 
 ## <a name="ordererrorcode"></a>OrderErrorCode
@@ -149,7 +149,7 @@ Représente une erreur qui se produit pendant l’extraction d’un panier lors 
 | ResellerProgramStatusNotActive | 800039 | L’état du programme du revendeur n’est pas actif. |
 | AssetStatusChangeNotValid | 800040 | L’état de la ressource ne peut pas être remplacé par **{0}** à partir de **{1}** . |
 | ItemAlreadyActivated | 800041 | Cet élément a déjà été activé. |
-| NotSupported | 800042 | Non pris en charge. |
+| NotSupported | 800042 | Non prise en charge. |
 | PricingAccessForbidden | 800043 | L’accès aux informations de tarification n’est pas accordé. |
 | OrderInProgress | 800060 | Votre commande est en cours. Veuillez consulter l’historique des commandes récemment en quelques minutes. |
 | OrderCannotBeCancelled | 800061 | Impossible d’annuler l’ordre. |

@@ -7,19 +7,19 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 5afcf2a9bd673a903f7cc75072ec0c3f35cae5c5
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923530"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899906"
 ---
 # <a name="customer-resources"></a>Ressources client
 
 S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 ## <a name="customer"></a>Client
@@ -29,9 +29,9 @@ La ressource **client** représente un client ou un revendeur. En règle génér
 >[!NOTE]
 >La ressource **client** a une limite de 500 de demandes par minute et par identificateur de locataire.
 
-| Propriété              | Tapez                                                             | Description                                                                                                                                  |
+| Propriété              | Type                                                             | Description                                                                                                                                  |
 |-----------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| id                    | chaîne                                                           | ID du client.                                                                                                                             |
+| id                    | chaîne                                                           | ID client.                                                                                                                             |
 | commerceId            | chaîne                                                           | ID de commerce.                                                                                                                             |
 | companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Informations supplémentaires sur l’entreprise ou l’organisation.                                                                                    |
 | billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Informations supplémentaires utilisées pour la facturation.                                                                                                     |
@@ -47,11 +47,11 @@ La ressource **client** représente un client ou un revendeur. En règle génér
 
 La ressource **CustomerCompanyProfile** est un complément d’informations sur la société ou l’organisation.
 
-| Propriété    | Tapez                                                           | Description                                                                       |
+| Propriété    | Type                                                           | Description                                                                       |
 |-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| ID_locataire    | chaîne                                                         | Identificateur de locataire du client pour Azure AD. Elle est également appelée MicrosoftID. |
+| tenantId    | chaîne                                                         | Identificateur de locataire du client pour Azure AD. Elle est également appelée MicrosoftID. |
 | domain      | chaîne                                                         | Nom du client, tel que contoso.onmicrosoft.com.                             |
-| companyName | chaîne                                                         | Nom de la société ou de l’organisation.                                          |
+| Prennent | chaîne                                                         | Nom de la société ou de l’organisation.                                          |
 | liens       | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressources contenus dans le profil.                                  |
 | attributs  | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.                             |
 
@@ -59,7 +59,7 @@ La ressource **CustomerCompanyProfile** est un complément d’informations sur 
 
 La ressource **CustomerBillingProfile** est un complément d’information utilisé pour la facturation du client.
 
-| Propriété       | Tapez                                                           | Description                                                                                                                                            |
+| Propriété       | Type                                                           | Description                                                                                                                                            |
 |----------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id             | chaîne                                                         | Identificateur du profil.                                                                                                                                |
 | firstName      | chaîne                                                         | Prénom du contact de facturation de la société du client. Il s’agit de la personne à laquelle les factures et autres communications de facturation sont dirigées. |
@@ -67,7 +67,7 @@ La ressource **CustomerBillingProfile** est un complément d’information utili
 | Messagerie          | chaîne                                                         | Adresse de messagerie du contact de facturation                                                                                                                    |
 | culture        | chaîne                                                         | La culture par défaut pour la communication et la monnaie, par exemple « en-US ».                                                                               |
 | language       | chaîne                                                         | Leur langue par défaut pour la communication.                                                                                                            |
-| companyName    | chaîne                                                         | Nom de la société ou de l’organisation.                                                                                                               |
+| Prennent    | chaîne                                                         | Nom de la société ou de l’organisation.                                                                                                               |
 | defaultAddress | [Address](utility-resources.md#address)                       | Adresse à laquelle les factures sont envoyées, où le contact de facturation travaille.                                                                                   |
 | liens          | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressources contenus dans le profil.                                                                                                       |
 | attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.                                                                                                  |
@@ -76,7 +76,7 @@ La ressource **CustomerBillingProfile** est un complément d’information utili
 
 La ressource **CustomerRelationshipRequest** contient l’URL utilisée par le client pour établir une relation de revendeur avec un partenaire.
 
-| Propriété   | Tapez                                                           | Description                                                              |
+| Propriété   | Type                                                           | Description                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
 | url        | chaîne                                                         | URL utilisée par le client pour établir une relation avec un partenaire. |
 | attributs | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant à la demande de relation.       |

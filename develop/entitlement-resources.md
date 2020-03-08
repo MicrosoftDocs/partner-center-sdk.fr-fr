@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: dc291e4d286e6eeeb1ce4ae6faeb965f59bb1c33
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490089"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899709"
 ---
 # <a name="entitlement-resources"></a>Ressources de droits
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -31,10 +31,10 @@ Cette ressource représente les produits que le client a le droit d’utiliser e
 
 | Propriété | Type | Description |
 |----------|------|-------------|
-| ReferenceOrder | [ReferenceOrder](#referenceorder) | Référence de commande qui a donné le droit. |
+| referenceOrder | [ReferenceOrder](#referenceorder) | Référence de commande qui a donné le droit. |
 | productId | chaîne | ID du produit. |
 | skuID | chaîne | ID de la référence (SKU). |
-| quantity | entier | La quantité de droits (exclut les droits non remplis/transférés). |
+| quantity | int | La quantité de droits (exclut les droits non remplis/transférés). |
 | quantityDetails | IEnumerable <[QuantityDetail](#quantitydetail)> | Liste des détails sur la quantité de droits (nombre d’articles et état de chaque quantité). |
 | entitlementType | chaîne | Type de droit. (Mis à jour vers la chaîne de [EntitlementType](#entitlementtype) dans le kit de développement logiciel 1,8.) |
 | entitledArtifacts | >[artefact](#artifact) IEnumerable < | Liste des artefacts associés au droit. |
@@ -59,8 +59,8 @@ Représente les détails d’une quantité de droit.
 
 | Propriété | Type | Description |
 |----------|------|-------------|
-| quantity | entier | Nombre d’éléments. |
-| status | chaîne | État de la quantité. |
+| quantity | int | Nombre d'éléments. |
+| statut | chaîne | État de la quantité. |
 
 
 ## <a name="span-identitlementtypespan-identitlementtypespan-identitlementtypeentitlementtype"></a><span id="EntitlementType"/><span id="entitlementtype"/><span id="ENTITLEMENTTYPE"/>EntitlementType
@@ -104,7 +104,7 @@ Artefact associé à un droit d’instance réservée Azure. Elle hérite de la 
 
 | Propriété   | Type                           | Description                                        |
 |------------|--------------------------------|----------------------------------------------------|
-| associer       | [Lien](./utility-resources.md#link) | Lien permettant d’accéder à tous les détails d’artefact associés.   |
+| lien       | [Lien](./utility-resources.md#link) | Lien permettant d’accéder à tous les détails d’artefact associés.   |
 | IDRessource | chaîne                         | ID de la ressource ou de l’ordre de réservation Azure. |
 
 
@@ -128,7 +128,7 @@ Représente une réservation individuelle.
 | scopeType         | chaîne                         | Type d’étendue associé à la réservation d’ordinateur virtuel. |
 | displayName       | chaîne                         | Nom complet de la réservation.                               |
 | appliedScopes     | IEnumerable                    | Liste des étendues appliquées associées à la réservation. (Disponible uniquement quand scopeType n’est pas partagé.) |
-| quantity          | entier                            | Nombre de machines virtuelles dans la réservation.                 |
+| quantity          | int                            | Nombre de machines virtuelles dans la réservation.                 |
 | expiryDateTime    | chaîne au format date-heure UTC | Date d’expiration de la réservation.                                |
 | effectiveDateTime | chaîne au format date-heure UTC | Date d’effet de la réservation.                             |
 | provisioningState | chaîne                         | État d’approvisionnement de la réservation.                         |
@@ -143,7 +143,7 @@ Artefact associé à une instance de machine virtuelle réservée Azure. Elle h�
 
 | Propriété   | Type                              | Description                                        |
 |------------|-----------------------------------|----------------------------------------------------|
-| associer       | [Lien](utility-resources.md#link) | Lien permettant d’accéder à tous les détails d’artefact associés.   |
+| lien       | [Lien](utility-resources.md#link) | Lien permettant d’accéder à tous les détails d’artefact associés.   |
 | IDRessource | chaîne                            | ID de la ressource ou de l’ordre de réservation Azure. |
 
 
@@ -174,7 +174,7 @@ Représente une réservation d’ordinateur virtuel individuelle.
 |     scopeType     |             chaîne             |                     Type d’étendue associé à la réservation d’ordinateur virtuel.                     |
 |    displayName    |             chaîne             |                                    Nom complet de la réservation.                                    |
 |   appliedScopes   |      <string> IEnumerable       | Liste des étendues appliquées associées à la réservation. (Disponible uniquement quand scopeType n’est pas partagé.) |
-|     quantity      |              entier               |                             Nombre de machines virtuelles dans la réservation.                             |
+|     quantity      |              int               |                             Nombre de machines virtuelles dans la réservation.                             |
 |  expiryDateTime   | chaîne au format date-heure UTC |                                    Date d’expiration de la réservation.                                     |
 | effectiveDateTime | chaîne au format date-heure UTC |                                   Date d’effet de la réservation.                                   |
 | provisioningState |             chaîne             |                                 État d’approvisionnement de la réservation.                                 |
