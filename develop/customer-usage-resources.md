@@ -7,17 +7,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: f94168e7f56e3e6c769c5a563e516046d7cc3509
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489819"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899916"
 ---
 # <a name="customer-usage-resources"></a>Ressources d’utilisation du client
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -33,13 +33,13 @@ Les clients disposant d’abonnements basés sur l’utilisation peuvent avoir u
 | Propriété         | Type               | Description                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
 | Évaluation           | SpendingBudget     | Budget de dépense alloué pour le client.                          |
-| PercentUsed      | décimal             | Pourcentage utilisé à partir du budget alloué.                        |
+| PercentUsed      | decimal             | Pourcentage utilisé à partir du budget alloué.                        |
 | resourceId       | chaîne             | Identificateur unique de la ressource.                                   |
 | Nom_ressource     | chaîne             | Nom de la ressource.                                                |
-| PrixTotal        | décimal             | Estimation du coût total d’utilisation pour les ressources de l’abonnement.|
+| TotalCost        | decimal             | Estimation du coût total d’utilisation pour les ressources de l’abonnement.|
 | CurrencyLocale   | chaîne             | Paramètres régionaux de devise du client. Disponible pour les abonnements Microsoft Azure (MS-AZR-0145P).            |
 | CurrencyCode     | chaîne             | Obtient ou définit le code de la devise. Disponible pour les plans Azure.           |
-| USDTotalCost     | décimal             | Obtient ou définit le coût total estimé en USD. Disponible pour les plans Azure.                                         |
+| USDTotalCost     | decimal             | Obtient ou définit le coût total estimé en USD. Disponible pour les plans Azure.                                         |
 | IsUpgraded       | bool             | Obtient ou définit une valeur indiquant si l’abonnement Azure du client est mis à niveau. La valeur **true** représente les clients qui ont un plan Azure.                         |
 | LastModifiedDate & | date               | Date de la dernière modification des données d’utilisation.                               |
 | Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à l’enregistrement d’utilisation.               |
@@ -55,10 +55,10 @@ Les clients disposant d’abonnements basés sur l’utilisation peuvent avoir u
 | Nom_ressource     | chaîne             | Nom de la ressource. Dans le contexte de CustomerMonthlyUsageRecord, il s’agit du nom du client.               |
 | BillingStartDate | date               | Date de début de la période de facturation actuelle.                                                                    |
 | BillingEndDate   | date               | Date de fin de la période de facturation actuelle.                                                                      |
-| PrixTotal        | décimal             | Estimation du coût total d’utilisation pour les ressources de l’abonnement.                                         |
+| TotalCost        | decimal             | Estimation du coût total d’utilisation pour les ressources de l’abonnement.                                         |
 | CurrencyLocale   | chaîne             | Paramètres régionaux de devise du client. Disponible pour les abonnements Microsoft Azure (MS-AZR-0145P).                                         |
 | CurrencyCode     | chaîne             | Obtient ou définit le code de la devise. Disponible pour les plans Azure.                                         |
-| USDTotalCost     | décimal             | Obtient ou définit le coût total estimé en USD. Disponible pour les ressources d’abonnement du plan Azure.                                         |
+| USDTotalCost     | decimal             | Obtient ou définit le coût total estimé en USD. Disponible pour les ressources d’abonnement du plan Azure.                                         |
 | LastModifiedDate & | date               | Date de la dernière modification des données d’utilisation.                                                                       |
 | Liens            | ResourceLinks      | Liens de ressource correspondant au résumé d’utilisation.                                                           |
 | Attributs       | ResourceAttributes | Attributs de métadonnées correspondant au résumé d’utilisation.                                                      |
@@ -69,15 +69,15 @@ Les clients disposant d’abonnements basés sur l’utilisation peuvent avoir u
 
 | Propriété         | Type               | Description                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| EmailsToNotify   | Tableau de chaînes   | Liste des adresses de messagerie pour les notifications.                                                                   |
-| CustomerOverBudget | Entier          | Nombre de clients qui dépassent le budget.                                                                    |
-| CustomersTrendingOver | Entier       | Nombre de clients proches du budget.                                                     |
-| CustomersWithUsageBasedSubscriptions  | Entier | Nombre de clients avec un abonnement basé sur l’utilisation.                                               |
+| EmailsToNotify   | tableau de chaînes   | Liste des adresses de messagerie pour les notifications.                                                                   |
+| CustomerOverBudget | integer          | Nombre de clients qui dépassent le budget.                                                                    |
+| CustomersTrendingOver | integer       | Nombre de clients proches du budget.                                                     |
+| CustomersWithUsageBasedSubscriptions  | integer | Nombre de clients avec un abonnement basé sur l’utilisation.                                               |
 | resourceId       | chaîne             | Identificateur unique de la ressource. Dans le contexte de CustomerMonthlyUsageRecord, cet ID est l’ID du client. |
 | Nom_ressource     | chaîne             | Nom de la ressource. Dans le contexte de CustomerMonthlyUsageRecord, il s’agit du nom du client.               |
 | BillingStartDate | date               | Date de début de la période de facturation actuelle.                                                                    |
 | BillingEndDate   | date               | Date de fin de la période de facturation actuelle.                                                                      |
-| PrixTotal        | décimal             | Estimation du coût total de l’utilisation du client en fonction de l’utilisation actuelle à partir du début de la période de facturation.      |
+| TotalCost        | decimal             | Estimation du coût total de l’utilisation du client en fonction de l’utilisation actuelle à partir du début de la période de facturation.      |
 | CurrencyLocale   | chaîne             | Paramètres régionaux de devise.                                                                                             |
 | LastModifiedDate & | date               | Date de la dernière modification des données d’utilisation.                                                                       |
 | Liens            | ResourceLinks      | Liens de ressource correspondant au résumé d’utilisation.                                                           |
@@ -89,5 +89,5 @@ Les clients disposant d’abonnements basés sur l’utilisation peuvent avoir u
 
 | Propriété   | Type               | Description                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
-| Montant     | décimal             | Budget alloué. Si la valeur est null, aucune dépense budgétaire n’est allouée à ce client. |
+| Montant     | decimal             | Budget alloué. Si la valeur est null, aucune dépense budgétaire n’est allouée à ce client. |
 | Attributs | ResourceAttributes | Attributs de métadonnées correspondant au budget.                                                |

@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: e1fab576e69242a50549efc719f98eafad1ad9de
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488049"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899926"
 ---
 # <a name="service-request-resources"></a>Ressources de demande de service
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -33,13 +33,13 @@ Décrit une demande de service déposée par un partenaire, y compris comment ce
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Titre            | chaîne                                                        | Titre de la demande de service.                                                           |
 | Description      | chaîne                                                        | Description.                                                                     |
-| Sévérité         | chaîne                                                        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
+| Severity         | chaîne                                                        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
 | SupportTopicId   | chaîne                                                        | ID de la rubrique de support.                                                         |
 | SupportTopicName | chaîne                                                        | Nom de la rubrique de support.                                                       |
-| Id               | chaîne                                                        | ID de la demande de service.                                                       |
-| État           | chaîne                                                        | État de la demande de service : « None », « Open », « Closed » ou « attention\_needed ». |
+| ID               | chaîne                                                        | ID de la demande de service.                                                       |
+| Statut           | chaîne                                                        | État de la demande de service : « None », « Open », « Closed » ou « attention\_needed ». |
 | Organisation     | [ServiceRequestOrganization](#servicerequestorganization)     | Organisation pour laquelle la demande de service est créée.                               |
-| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Contact principal sur la demande de service.                                              |
+| primaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Contact principal sur la demande de service.                                              |
 | LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | « Dernière mise à jour par » permet de contacter les modifications apportées à la demande de service.                        |
 | ProductName      | chaîne                                                        | Nom du produit qui correspond à la demande de service.                     |
 | ProductId        | chaîne                                                        | ID du produit.                                                               |
@@ -79,7 +79,7 @@ Décrit une note jointe à une demande de service.
 |---------------|--------|----------------------------------------------|
 | CreatedByName | chaîne | Nom du créateur de la note.         |
 | CreatedDate   | date   | Date et heure de création de la note. |
-| Text          | chaîne | Texte de la note.                        |
+| Texte          | chaîne | Texte de la note.                        |
 
  
 
@@ -90,7 +90,7 @@ Décrit l’Organisation pour laquelle la demande de service est créée.
 
 | Propriété    | Type   | Description                           |
 |-------------|--------|---------------------------------------|
-| Id          | chaîne | ID unique de l’organisation.    |
+| ID          | chaîne | ID unique de l’organisation.    |
 | Nom        | chaîne | Nom de l’organisation.         |
 | PhoneNumber | chaîne | Numéro de téléphone de l’organisation. |
 
@@ -105,7 +105,7 @@ Décrit une rubrique de support. Les demandes de service spécifient une rubriqu
 |-------------|--------------------|---------------------------------------------------------------|
 | Nom        | chaîne             | Nom de la rubrique de support.                                |
 | Description | chaîne             | Description de la rubrique de support.                         |
-| Id          | chaîne             | ID unique de la rubrique de support.                           |
+| ID          | chaîne             | ID unique de la rubrique de support.                           |
 | Attributs  | ResourceAttributes | Attributs de métadonnées correspondant à la demande de service. |
 
  
