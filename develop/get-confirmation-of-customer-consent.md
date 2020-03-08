@@ -1,22 +1,22 @@
 ---
 title: Recevoir la confirmation de l’acceptation du client du contrat de Microsoft Cloud
 description: Cette rubrique explique comment demander la confirmation de l’acceptation du client du contrat de Microsoft Cloud.
-ms.date: 09/17/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 9ae40cd3c9805ee8ddaae6d98fd0d6b61ede8d40
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d6282a82793f2bc9fa6f436ed9c7a6a31ad0969d
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485659"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899886"
 ---
-# <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Obtenir une confirmation de l'acceptation du contrat Microsoft Cloud par le client
+# <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Recevoir la confirmation de l’acceptation du client du contrat de Microsoft Cloud
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 > [!NOTE]  
 > La ressource d' **accord** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle ne s’applique pas aux éléments suivants :
@@ -24,7 +24,7 @@ ms.locfileid: "74485659"
 > - Espace partenaires de Microsoft Cloud Germany
 > - Espace partenaires de Microsoft Cloud for US Government
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 - Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,9 ou une version ultérieure est requise.
 - Si vous utilisez le kit de développement logiciel (SDK) Java de l’espace partenaires, la version 1,8 ou une version ultérieure est requise.
@@ -102,7 +102,7 @@ Créez une nouvelle ressource de **contrat** avec les informations de certificat
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de requête                                                                                      |
+| Méthode | URI de demande                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
 | GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Agreements http/1.1 |
 
@@ -112,15 +112,15 @@ Utilisez le paramètre de requête suivant pour spécifier le client que vous co
 
 | Nom             | Type | Obligatoire | Description                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| customerTenantId | GUID | Y        | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
+| CustomerTenantId | GUID | Y        | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
 - Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -138,7 +138,7 @@ En cas de réussite, cette méthode retourne une collection de ressources de **c
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

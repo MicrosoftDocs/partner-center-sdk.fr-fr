@@ -1,22 +1,22 @@
 ---
 title: Obtenir un lien de téléchargement pour le modèle de contrat client Microsoft
 description: Obtenir un lien de téléchargement pour le modèle de contrat de client Microsoft.
-ms.date: 09/19/2019
+ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 76b0b6ceb20504ad0f9903027ac61feca78c3970
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9cfce85865b41674955b7de5dcd57083a00935c0
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489959"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899936"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Obtenir un lien de téléchargement pour le modèle de contrat client Microsoft
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 La ressource **AgreementDocument** est actuellement prise en charge par l’espace partenaires uniquement dans le *cloud public Microsoft*. Cette ressource ne s’applique pas à :
 
@@ -26,7 +26,7 @@ La ressource **AgreementDocument** est actuellement prise en charge par l’espa
 
 Cet article explique comment obtenir un lien pour télécharger le modèle de contrat client Microsoft, en fonction du pays et de la langue du client.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 - Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,14 ou une version ultérieure est requise.
 - Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
@@ -36,7 +36,7 @@ Cet article explique comment obtenir un lien pour télécharger le modèle de co
 > [!IMPORTANT]
 > - Le contrat client Microsoft est spécifique au pays. Lorsque vous demandez un lien pour télécharger le modèle de contrat client Microsoft, veillez à spécifier le pays approprié en fonction de l’emplacement du client. ou la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
 > - Dans certains pays, le contrat client Microsoft est disponible dans plusieurs langues. Pour une expérience utilisateur optimale, choisissez la langue qui correspond le mieux aux besoins du client. Pour obtenir la liste des langues prises en charge, consultez la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
-> - Cette méthode est uniquement prise en charge par le contrat client Microsoft. Vous ne pouvez pas l’utiliser pour obtenir un lien de téléchargement pour Microsoft Cloud modèle d’accord.
+> - Cette méthode est uniquement prise en charge par le contrat client Microsoft.
 
 ## <a name="net"></a>.NET
 
@@ -86,7 +86,7 @@ Pour récupérer un lien permettant de télécharger le modèle de contrat clien
 
 Utilisez la syntaxe de requête suivante pour cette ressource :
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |--------|---------------------------------------------------------------------|
 | GET | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/agreementtemplates/{Agreement-template-ID}/document ? Language = {language} & pays = {Country} http/1.1 |
 
@@ -104,9 +104,9 @@ Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -126,7 +126,7 @@ La ressource a une propriété **downloadUri** , qui contient une chaîne d’UR
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires.
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires.
 
 Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
@@ -151,7 +151,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 > [!IMPORTANT]
 > La propriété de code Country respecte la casse. Veillez à utiliser la casse correcte spécifiée dans le tableau ci-dessous.
 
-| Country                   | Code du pays   | Code (s) de langue pris en charge |
+| Country                   | Indicatif du pays   | Code (s) de langue pris en charge |
 |------------------------|--------|----------|
 | Åland (îles d’) | PASSANT | fr-FR |
 | Afghanistan | AF | fr-FR |
@@ -173,7 +173,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Bahreïn | BH | fr-fr, ar-SA |
 | Bangladesh | BD | fr-FR |
 | Barbade (La) | BB | fr-FR |
-| Bélarus | BY | en-US, ru-RU |
+| Biélorussie | BY | en-US, ru-RU |
 | Belgique | BE | fr-fr, NL-NL |
 | Belize | Via | en-US, es-ES |
 | Bénin | BJ | fr-FR |
@@ -191,11 +191,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Bulgarie | BG | fr-fr, BG-BG |
 | Burkina-Faso | BF | fr-FR |
 | Burundi | DÉCISIONNEL | fr-FR |
-| Côte d’Ivoire | CI | en-US, fr-FR |
+| Côte d’Ivoire | Élément de configuration | en-US, fr-FR |
 | Cap Vert | CV | en-US, PT-PT |
 | Cambodge | KH | fr-FR |
 | Cameroun | CM | en-US, fr-FR |
-| Canada | AC | en-US, fr-FR |
+| Canada | AUTORITÉ DE CERTIFICATION | en-US, fr-FR |
 | Caïmans (îles) | KY | fr-fr, en-US |
 | République centrafricaine | CF | fr-FR |
 | Tchad | ÉQUIPEMENTS | fr-FR |
@@ -214,11 +214,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Czechia | CZ | en-US, CS-CZ |
 | Danemark | DK | fr-fr, da-DK |
 | Djibouti | EFFECTUÉ | fr-FR |
-| Dominique | EXPLORATION | fr-FR |
+| Dominique | DM | fr-FR |
 | République dominicaine | DO | en-US, es-ES |
-| Équateur (République de) | EC | fr-FR |
+| Équateur | EC | fr-FR |
 | Égypte | EG | fr-fr, ar-SA |
-| Salvador | SV | en-US, es-ES |
+| El Salvador | SV | en-US, es-ES |
 | Guinée équatoriale | GQ | fr-FR |
 | Érythrée | ERRE | fr-FR |
 | Estonie | EE | fr-fr, et-EE |
@@ -235,7 +235,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Gabon | GA | fr-FR |
 | Gambie | GÉNÉTIQUE | fr-FR |
 | Géorgie | GE | fr-FR |
-| Allemagne | DE | fr-fr, de-DE |
+| Germany | DE | fr-fr, de-DE |
 | Ghana | GH | fr-FR |
 | Gibraltar | GI | fr-FR |
 | Grèce | GR | fr-fr, El-GR |
@@ -246,24 +246,24 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Guatemala | GT | en-US, es-ES |
 | Guernesey | GG | fr-FR |
 | Guinée | GN | fr-FR |
-| Guinée-Bissau | ENTREPÔT | fr-FR |
+| Guinée-Bissau | GW | fr-FR |
 | Guyana | GY | fr-FR |
 | Haïti | HT | fr-FR |
 | Heard et McDonald (Îles) | Britannique | fr-FR |
 | Honduras | HN | en-US, es-ES |
-| Hong Kong R.A.S. | HK | fr-fr, zh-HK |
+| Hong Kong (R.A.S.) | HK | fr-fr, zh-HK |
 | Hongrie | HU | en-US, HU-HU |
 | Islande | IS | fr-FR |
 | Inde | IN | en-US, hi-IN |
 | Indonésie | ID | en-US, ID-ID |
 | Irak | IQ | fr-fr, ar-SA |
-| Irlande | Internet Explorer | fr-FR |
+| Irlande | IE | fr-FR |
 | Île de Man | Messagerie instantanée | fr-FR |
 | Israël | IL | en-US, HE-il |
-| Italie | Informatique | en-US, informatique |
+| Italie | IT | en-US, informatique |
 | Jamaïque | JM | fr-FR |
 | Jan Mayen | XJ | fr-FR |
-| Japon | JP | en-US, ja-JP |
+| Japan | JP | en-US, ja-JP |
 | Jersey | JE | fr-FR |
 | Jordanie | JO | fr-fr, ar-SA |
 | Kazakhstan | KZ | en-US, KK-KZ |
@@ -284,20 +284,20 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Luxembourg | LU | en-US, fr-FR |
 | Macao R.A.S. | MOLYBDÈN | fr-fr, zh-HK |
 | Macédoine, Ex.-Rép. yougoslave de | MK | fr-FR |
-| Madagascar | ML | fr-FR |
+| Madagascar | MG | fr-FR |
 | Malawi | MW | fr-FR |
 | Malaisie | MY | en-US, MS-MY |
 | Maldives | MV | fr-FR |
 | Mali | ENVIRON | fr-FR |
 | Malte | MT | fr-FR |
-| Marshall (îles) | MH | fr-FR |
+| Marshall (îles) | LP | fr-FR |
 | Martinique | MQ | fr-FR |
 | Mauritanie | MR | fr-FR |
 | Maurice | MU | fr-fr, ar-SA |
 | Mayotte | YT | fr-FR |
 | Mexique | MX | en-US, es-ES |
 | Micronésie | Radio | fr-FR |
-| Moldova | MD | en-US, RO-RO |
+| République de Moldavie | MD | en-US, RO-RO |
 | Monaco | MC | en-US, fr-FR |
 | Mongolie | PORTABLE | fr-FR |
 | Monténégro | ME | fr-FR |
@@ -331,7 +331,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Pologne | PL | fr-fr, PL-PL |
 | Portugal | PT | en-US, PT-PT |
 | Porto Rico | PR | fr-fr, en-US |
-| Qatar | QA | fr-fr, ar-SA |
+| Qatar | AQ | fr-fr, ar-SA |
 | La Réunion | RE | fr-FR |
 | Roumanie | RO | en-US, RO-RO |
 | Russie | RU | en-US, ru-RU |
@@ -343,10 +343,10 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Sainte-Lucie | EUROS | fr-fr, en-US |
 | Saint-Martin | INSTANTANÉ | fr-fr, en-US |
 | Saint-Pierre-et-Miquelon | Manuel | fr-FR |
-| Saint-Vincent-et-les-Grenadines | VIRTUEL | fr-FR |
+| Saint-Vincent-et-les-Grenadines | VC | fr-FR |
 | Samoa | Web | fr-FR |
 | Saint-Marin | MS | fr-FR |
-| Arabie saoudite | SA | fr-FR |
+| Arabie Saoudite | SA | fr-FR |
 | Sénégal | SN | en-US, fr-FR |
 | Serbie | RS | en-US, SR-LATN-RS, en-US |
 | Seychelles | SC | fr-FR |
@@ -357,13 +357,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Slovaquie | SK | fr-fr, SK-SK |
 | Slovénie | SI | fr-fr, SL-SI |
 | Salomon (îles) | ASPIRATEUR | fr-FR |
-| Somalie | AFIN | fr-FR |
+| Somalie | SO | fr-FR |
 | Afrique du Sud | ZA | fr-FR |
 | Géorgie du Sud et Sandwich du Sud (îles) | GS | fr-FR |
 | Soudan du Sud | SÉCURITÉ | fr-FR |
 | Espagne | ES | en-US, es-ES, en-US, en-US |
 | Sri Lanka | LK | fr-FR |
-| Sainte-Hélène, Ascension et Tristan da Cunha | & | fr-FR |
+| Sainte-Hélène, ascension, Tristan da Cunha | &AMP; | fr-FR |
 | Surinam | SR | fr-FR |
 | Svalbard | SJ | fr-FR |
 | Suède | SE | en-US, SV-SE |
