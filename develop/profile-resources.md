@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3449aeb3695a9f286f37668d3f0862dc7b5cfa9f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486759"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899816"
 ---
 # <a name="profile-resources"></a>Ressources de profil
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -33,11 +33,11 @@ Décrit le profil de facturation d’un partenaire.
 | Propriété            | Type                                                           | Description                                                 |
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
 | Prennent         | chaîne                                                         | Nom de la société de facturation.                                   |
-| adresse             | [-](utility-resources.md#address)                       | Adresse de facturation de l’entreprise ou de l’organisation. |
-| PrimaryContact      | [Communiquer](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.        |
+| adresse             | [Address](utility-resources.md#address)                       | Adresse de facturation de l’entreprise ou de l’organisation. |
+| primaryContact      | [Communiquer](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.        |
 | purchaseOrderNumber | chaîne                                                         | Numéro de bon de commande de la société ou de l’organisation.        |
 | taxI               | chaîne                                                         | L’ID de taxe de la société ou de l’organisation.                       |
-| billingCurrency     | chaîne                                                         | Devise utilisée par la société ou l’organisation.           |
+| BillingCurrency     | chaîne                                                         | Devise utilisée par la société ou l’organisation.           |
 | profileType         | chaîne                                                         | Type de profil du partenaire.                                   |
 | liens               | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressource correspondant au profil.            |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.       |
@@ -52,9 +52,9 @@ Décrit le profil d’entreprise juridique d’un partenaire.
 | Propriété               | Type                                                           | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Prennent            | chaîne                                                         | Nom de la société légale.                                                                                                                                              |
-| adresse                | [-](utility-resources.md#address)                       | Adresse de la société ou de l’organisation.                                                                                                                          |
-| PrimaryContact         | [Communiquer](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.                                                                                                                 |
-| companyApproverAddress | [-](utility-resources.md#address)                       | Adresse de l’approbateur de l’entreprise.                                                                                                                                        |
+| adresse                | [Address](utility-resources.md#address)                       | Adresse de la société ou de l’organisation.                                                                                                                          |
+| primaryContact         | [Communiquer](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.                                                                                                                 |
+| companyApproverAddress | [Address](utility-resources.md#address)                       | Adresse de l’approbateur de l’entreprise.                                                                                                                                        |
 | companyApproverEmail   | chaîne                                                         | E-mail de l’approbateur de l’entreprise.                                                                                                                                          |
 | vettingStatus          | chaîne                                                         | État d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
 | vettingSubStatus       | chaîne                                                         | Sous-état d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingSubStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus). |
@@ -88,12 +88,12 @@ Décrit le profil d’organisation d’un partenaire.
 |----------------|----------------------------------------------------------------|------------------------------------------------------------------------|
 | id             | chaîne                                                         | ID de l’organisation.                                                 |
 | Prennent    | chaîne                                                         | Nom de la société ou de l’organisation.                               |
-| defaultAddress | [-](utility-resources.md#address)                       | Adresse par défaut de la société ou de l’organisation.                    |
+| defaultAddress | [Address](utility-resources.md#address)                       | Adresse par défaut de la société ou de l’organisation.                    |
 | tenantId       | chaîne                                                         | Identificateur du locataire.                                                 |
 | domain         | chaîne                                                         | Domaine de l’entreprise ou de l’organisation.                                  |
 | Messagerie          | chaîne                                                         | Obtient ou définit l’abonnement parent.                                  |
 | language       | chaîne                                                         | Langue par défaut pour la communication.                              |
-| Culturel        | chaîne                                                         | Culture préférée pour la communication et la devise, par exemple « en-US ». |
+| culture        | chaîne                                                         | Culture préférée pour la communication et la devise, par exemple « en-US ». |
 | profileType    | chaîne                                                         | Type de profil du partenaire.                                              |
 | liens          | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressource correspondant au profil.                       |
 | attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.                  |
@@ -109,7 +109,7 @@ Décrit le profil de support d’un partenaire.
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | Messagerie       | chaîne                                                         | Adresse e-mail associée au profil.        |
 | téléphone   | chaîne                                                         | Numéro de téléphone associé au profil.         |
-| site Web     | chaîne                                                         | Le site Web de support.                                  |
+| site web     | chaîne                                                         | Le site Web de support.                                  |
 | profileType | chaîne                                                         | Type de profil du partenaire.                             |
 | liens       | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressource correspondant au profil.      |
 | attributs  | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil. |
