@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: ef2677994f2a2af2171624d5a7c5f2ad5696fd70
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488249"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78899725"
 ---
 # <a name="products-resources"></a>Ressources de produits
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Ressources qui représentent des biens ou services pouvant être achetés. Comprend des ressources pour décrire le type de produit et la forme (référence SKU) et pour vérifier la disponibilité du produit dans un inventaire.   
 
@@ -49,7 +49,7 @@ Représente le type d’un produit.
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
 | id              | chaîne                        | Identificateur de type.                                                                 |
 | displayName     | chaîne                        | Nom complet de ce type.                                                      |
-| Sous-type         | [ItemType](#itemtype)         | Facultatif. Objet qui décrit une catégorisation de sous-type pour ce type d’élément.     |
+| Sous-type         | [ItemType](#itemtype)         | Ce paramètre est facultatif. Objet qui décrit une catégorisation de sous-type pour ce type d’élément.     |
 
  
 
@@ -76,13 +76,13 @@ Représente une référence SKU (Stock Keeping Unit) sous un produit. Celles-ci 
 | title                  | chaîne           | Titre de la référence (SKU).                                                                 |
 | description            | chaîne           | Description de la référence (SKU).                                                           |
 | productId              | chaîne           | ID du [produit](#product) parent qui contient cette référence (SKU).                      |
-| minimumQuantity        | entier              | Quantité minimale autorisée pour l’achat.                                            |
-| maximumQuantity        | entier              | Quantité maximale autorisée pour l’achat.                                            |
+| minimumQuantity        | int              | Quantité minimale autorisée pour l’achat.                                            |
+| maximumQuantity        | int              | Quantité maximale autorisée pour l’achat.                                            |
 | isTrial                | bool             | Indique si cette référence (SKU) est un élément d’évaluation.                                           |
-| supportedBillingCycles | Tableau de chaînes | Liste des cycles de facturation pris en charge pour cette référence (SKU). Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](#billingcycletype). |
-| purchasePrerequisites  | Tableau de chaînes | Liste des étapes ou actions requises avant l’achat de cet élément. Les valeurs prises en charge sont les suivantes :<br/>  « InventoryCheck »-indique que l’inventaire de l’élément doit être évalué avant toute tentative d’achat de cet élément.<br/> « AzureSubscriptionRegistration »-indique qu’un abonnement Azure est nécessaire et doit être inscrit avant de tenter d’acheter cet élément.  |
-| inventoryVariables     | Tableau de chaînes | Liste des variables nécessaires à l’exécution d’une vérification de stock sur cet élément. Les valeurs prises en charge sont les suivantes :<br/> « CustomerId » : ID du client pour lequel l’achat est destiné.<br/> « AzureSubscriptionId » : ID de l’abonnement Azure à utiliser pour l’achat d’une réservation Azure.</br> « ArmRegionName » : région pour laquelle vérifier l’inventaire. Cette valeur doit correspondre à la valeur « ArmRegionName » du DynamicAttributes de la référence (SKU). |
-| provisioningVariables  | Tableau de chaînes | Liste des variables qui doivent être fournies dans le contexte de provisionnement d’un [élément de ligne de panier](cart-resources.md#cartlineitem) lors de l’achat de cet article. Les valeurs prises en charge sont les suivantes :<br/> Étendue : étendue d’un achat de réservation Azure : « unique », « partagé ».<br/> « SubscriptionId » : ID de l’abonnement Azure à utiliser pour l’achat d’une réservation Azure.<br/> « Duration »-Durée de la réservation Azure : « 1Year », « 3Year ».  |
+| supportedBillingCycles | tableau de chaînes | Liste des cycles de facturation pris en charge pour cette référence (SKU). Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](#billingcycletype). |
+| purchasePrerequisites  | tableau de chaînes | Liste des étapes ou actions requises avant l’achat de cet élément. Les valeurs prises en charge sont les suivantes :<br/>  « InventoryCheck »-indique que l’inventaire de l’élément doit être évalué avant toute tentative d’achat de cet élément.<br/> « AzureSubscriptionRegistration »-indique qu’un abonnement Azure est nécessaire et doit être inscrit avant de tenter d’acheter cet élément.  |
+| inventoryVariables     | tableau de chaînes | Liste des variables nécessaires à l’exécution d’une vérification de stock sur cet élément. Les valeurs prises en charge sont les suivantes :<br/> « CustomerId » : ID du client pour lequel l’achat est destiné.<br/> « AzureSubscriptionId » : ID de l’abonnement Azure à utiliser pour l’achat d’une réservation Azure.</br> « ArmRegionName » : région pour laquelle vérifier l’inventaire. Cette valeur doit correspondre à la valeur « ArmRegionName » du DynamicAttributes de la référence (SKU). |
+| provisioningVariables  | tableau de chaînes | Liste des variables qui doivent être fournies dans le contexte de provisionnement d’un [élément de ligne de panier](cart-resources.md#cartlineitem) lors de l’achat de cet article. Les valeurs prises en charge sont les suivantes :<br/> Étendue : étendue d’un achat de réservation Azure : « unique », « partagé ».<br/> « SubscriptionId » : ID de l’abonnement Azure à utiliser pour l’achat d’une réservation Azure.<br/> « Duration »-Durée de la réservation Azure : « 1Year », « 3Year ».  |
 | dynamicAttributes      | paires clé/valeur  | Dictionnaire de propriétés dynamiques qui s’appliquent à cet élément. Notez que les propriétés de ce dictionnaire sont dynamiques et peuvent être modifiées sans préavis. Vous ne devez pas créer de fortes dépendances sur des clés particulières existantes dans la valeur de cette propriété.    |
 | liens                  | [ResourceLinks](utility-resources.md#resourcelinks) | Liens de ressources contenus dans la référence (SKU).                   |
 
@@ -99,13 +99,13 @@ Représente une configuration dans laquelle une référence (SKU) est disponible
 | skuId           | chaîne                                              | ID de la [référence SKU](#sku) qui contient cette disponibilité.                   |
 | catalogItemId   | chaîne                                              | Identificateur unique de cet élément dans le catalogue. Il s’agit de l’ID qui doit être rempli dans les propriétés [OrderLineItem. OfferID](order-resources.md#orderlineitem) ou [CartLineItem. CatalogItemId](cart-resources.md#cartlineitem) lors de l’achat de la [référence SKU](#sku)parente. **Remarque** Cet ID peut changer au fil du temps. Vous ne devez vous fier à cette valeur qu’au bout d’un bref laps de temps après l’avoir récupérée. Il ne doit être accessible et utilisé qu’au moment de l’achat.  |
 | defaultCurrency | chaîne                                              | Devise par défaut prise en charge pour cette disponibilité.                               |
-| partie         | chaîne                                              | Secteur d’activité pour cette disponibilité. Les valeurs prises en charge sont les suivantes : commercial, éducation, gouvernement, à but non lucratif. |
+| segment         | chaîne                                              | Secteur d’activité pour cette disponibilité. Les valeurs prises en charge sont les suivantes : commercial, éducation, gouvernement, à but non lucratif. |
 | country         | chaîne                                              | Pays ou région (au format de code pays ISO) auquel cette disponibilité s’applique. |
 | isPurchasable   | bool                                                | Indique si cette disponibilité est achetée. |
 | isRenewable     | bool                                                | Indique si cette disponibilité est renouvelable. |
-| production         | [Produit](#product)               | Produit auquel cette disponibilité correspond. |
-| paire             | [Paire](#sku)                     | Référence (SKU) à laquelle cette disponibilité correspond. |
-| vue           | Tableau de ressources de [terme](#term)  | Collection des termes applicables à cette disponibilité. |
+| produit         | [Produit](#product)               | Produit auquel cette disponibilité correspond. |
+| référence             | [Paire](#sku)                     | Référence (SKU) à laquelle cette disponibilité correspond. |
+| terms           | Tableau de ressources de [terme](#term)  | Collection des termes applicables à cette disponibilité. |
 | liens           | [ResourceLinks](utility-resources.md#resourcelinks) | Liens de ressources contenus dans la disponibilité. |
 
 
@@ -139,7 +139,7 @@ Représente un élément unique dans une opération de contrôle d’inventaire.
 | productId        | chaîne                                                            | Souhaitée ID du [produit](#product).                            |
 | skuId            | chaîne                                                            | ID de la [référence (SKU](#sku)). Lorsque vous utilisez cette ressource comme entrée pour une demande d’inventaire, cette valeur est facultative. Si cette valeur n’est pas fournie, toutes les références SKU sous le produit seront considérées comme des éléments cibles de l’opération de vérification d’inventaire.      |
 | isRestricted     | bool                                                              | Indique si cet élément a été trouvé pour un inventaire restreint.            |
-| concernant     | Tableau de [InventoryRestriction](#inventoryrestriction)            | Détails des restrictions trouvées pour cet élément. Cette propriété est remplie uniquement si **isRestricted** = "true". |
+| restrictions     | Tableau de [InventoryRestriction](#inventoryrestriction)            | Détails des restrictions trouvées pour cet élément. Cette propriété est remplie uniquement si **isRestricted** = "true". |
 
 
 
@@ -151,7 +151,7 @@ Représente les détails d’une restriction d’inventaire. Cela s’applique u
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
 | reasonCode       | chaîne                | Code qui identifie la raison de la restriction.                                    |
 | description      | chaîne                | Description de la restriction d’inventaire.                                               |
-| propriétés       | paires clé/valeur       | Dictionnaire de propriétés qui peut fournir des détails supplémentaires sur la restriction.           |
+| connexion       | paires clé/valeur       | Dictionnaire de propriétés qui peut fournir des détails supplémentaires sur la restriction.           |
 
 
 
@@ -161,9 +161,9 @@ Représente les détails d’une restriction d’inventaire. Cela s’applique u
 
 | Valeur              | Position     | Description                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| Inconnu            | 0            | Initialiseur Enum.                                                                          |
+| Inconnu.            | 0            | Initialiseur Enum.                                                                          |
 | Mensuelle            | 1            | Indique que le partenaire sera facturé chaque mois.                                        |
-| Annual             | 2            | Indique que le partenaire sera facturé annuellement.                                       |
+| Annuel             | 2            | Indique que le partenaire sera facturé annuellement.                                       |
 | Aucune               | 3            | Indique que le partenaire ne sera pas facturé. Cette valeur peut être utilisée pour les éléments d’essai.    |
 | OneTime            | 4            | Indique que le partenaire sera facturé une seule fois.                                       |
 
