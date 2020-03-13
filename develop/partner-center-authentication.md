@@ -1,45 +1,45 @@
 ---
-title: Authentification de l’espace partenaires
-description: L’espace partenaires utilise Azure AD pour l’authentification, et pour utiliser les API de l’espace partenaires, vous devez configurer correctement vos paramètres d’authentification.
+title: Authentification auprès de l’Espace partenaires
+description: L’Espace partenaires utilise Azure AD pour l’authentification ; pour utiliser les API Espace partenaires, vous devez configurer correctement vos paramètres d’authentification.
 ms.assetid: 2307F2A8-7BD4-4442-BEF7-F065F16DA0B2
 ms.date: 11/13/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 7a29d178774f301f5f3030df119bf30953fa0d8f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
-ms.translationtype: MT
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/07/2020
 ms.locfileid: "74486979"
 ---
-# <a name="partner-center-authentication"></a>Authentification de l’espace partenaires
+# <a name="partner-center-authentication"></a>Authentification auprès de l’Espace partenaires
 
-S’applique à :
+S'applique à :
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-L’espace partenaires utilise Azure Active Directory pour l’authentification. Quand vous interagissez avec l’API de l’espace partenaires, le kit de développement logiciel (SDK) ou le module PowerShell, vous devez configurer correctement une application Azure AD, puis demander un jeton d’accès. Les jetons d’accès obtenus à l’aide de l’application uniquement ou de l’authentification de l’utilisateur et de l’application peuvent être utilisés avec l’espace partenaires. Toutefois, deux éléments importants doivent être pris en compte.
+L’Espace partenaires utilise Azure Active Directory pour l’authentification. Quand vous interagissez avec l’API, le SDK ou le module PowerShell de l’Espace partenaires, vous devez configurer correctement une application Azure AD, puis demander un jeton d’accès. Les jetons d’accès obtenus avec l’authentification d’application uniquement ou d’application + utilisateur peuvent être utilisés avec l’Espace partenaires. Deux éléments importants doivent cependant être pris en compte.
 
-- Vous devez utiliser l’authentification multifacteur lors de l’accès à l’API espace partenaires à l’aide de l’authentification de l’utilisateur et de l’application. Pour plus d’informations sur cette modification, consultez [activer le modèle d’application sécurisée](enable-secure-app-model.md) .
-- Toutes les opérations ne prennent pas en charge l’authentification de l’application uniquement par l’API de l’espace partenaires. Cela signifie que vous devrez utiliser l’authentification d’application + utilisateur dans certains scénarios. Sous l’en-tête *conditions préalables* de chaque [scénario](https://docs.microsoft.com/partner-center/develop/scenarios) , vous trouverez la documentation qui indique si l’authentification de l’application uniquement, l’authentification de l’application + de l’utilisateur ou les deux sont prises en charge.
+- Vous devez utiliser l’authentification multifacteur lors de l’accès à l’API Espace partenaires avec l’authentification d’application + utilisateur. Pour plus d’informations sur cette modification, consultez [Activer le modèle d’application sécurisé](enable-secure-app-model.md)
+- Toutes les opérations de l’API Espace partenaires ne prennent pas en charge l’authentification d’application uniquement. Cela signifie que vous devrez utiliser l’authentification d’application + utilisateur dans certains scénarios. Sous le titre *Prérequis* de chaque article [Scénario](https://docs.microsoft.com/partner-center/develop/scenarios), vous trouverez la documentation qui indique si l’authentification d’application uniquement, l’authentification d’application + utilisateur ou les deux sont prises en charge.
 
 ## <a name="initial-setup"></a>Configuration initiale
 
-1. Pour commencer, vous devez vous assurer que vous disposez à la fois d’un compte de centre de partenaires principal et d’un compte de centre de partenaires d’intégration sandbox. Pour plus d’informations, consultez [configurer des comptes de l’espace partenaires pour l’accès aux API](set-up-api-access-in-partner-center.md). Notez l’ID d’inscription de l’application Azure AAD et le secret (la clé secrète client est requise pour l’identification de l’application uniquement) pour votre compte principal et votre compte de bac à sable (sandbox) d’intégration.
+1. Pour commencer, vous devez vérifier que vous disposez à la fois d’un compte Espace partenaires principal et d’un compte Espace partenaires de bac à sable (sandbox) d’intégration. Pour plus d’informations, consultez [Configurer des comptes Espace partenaires pour l’accès aux API](set-up-api-access-in-partner-center.md). Notez l’ID d’inscription et le secret de l’application Azure AAD et le secret (le secret client est nécessaire pour l’identification d’application uniquement) pour votre compte principal et votre compte de bac à sable (sandbox) d’intégration.
 
-2. Connectez-vous à Azure AD à partir du portail de gestion Azure. Dans **autorisations pour d’autres applications**, définissez les autorisations pour **Windows Azure Active Directory** sur **autorisations déléguées**et sélectionnez à **la fois accès au répertoire en tant qu’utilisateur connecté** et **Connectez-vous et lisez le profil utilisateur**.
+2. Connectez-vous à Azure AD à partir du portail de gestion Azure. Dans **Autorisations pour d’autres applications**, définissez des autorisations pour **Windows Azure Active Directory** sur **Autorisations déléguées**, puis sélectionnez **Accéder au répertoire en tant qu’utilisateur actuellement connecté** et **Activer la connexion et lire le profil utilisateur**.
 
-3. Dans le portail de gestion Azure, **Ajoutez application**. Recherchez « Microsoft Partner Center », qui est l’application Microsoft Partner Center. Définissez les **autorisations déléguées** pour **accéder à l’API espace partenaires**. Si vous utilisez l’espace partenaires pour Microsoft Cloud Allemagne ou l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis, cette étape est obligatoire. Si vous utilisez l’instance globale de l’espace partenaires, cette étape est facultative. Les partenaires CSP peuvent utiliser la fonctionnalité de gestion des applications dans le portail de l’espace partenaires pour contourner cette étape pour l’instance globale de l’espace partenaires.
+3. Dans le portail de gestion Azure, **ajoutez une application**. Recherchez « Espace partenaires Microsoft », qui est l’application Espace partenaires Microsoft. Définissez **Autorisations déléguées** sur **Accéder à l’API Espace partenaires**. Si vous utilisez l’Espace partenaires pour Microsoft Cloud Germany ou l’Espace partenaires pour Microsoft Cloud for US Government, cette étape est obligatoire. Si vous utilisez l’instance globale de l’Espace partenaires, cette étape est facultative. Les partenaires CSP peuvent utiliser la fonctionnalité de gestion des applications dans le portail de l’Espace partenaires pour ignorer cette étape pour l’instance globale de l’Espace partenaires.
 
 ## <a name="app-only-authentication"></a>Authentification d’application uniquement
 
-Si vous souhaitez utiliser l’authentification d’application uniquement pour accéder à l’API REST de l’espace partenaires, à l’API .NET, à l’API Java ou au module PowerShell, vous pouvez le faire en tirant parti des instructions suivantes.
+Si vous souhaitez utiliser l’authentification d’application uniquement pour accéder à l’API REST, l’API .NET, l’API Java ou le module PowerShell de l’Espace partenaires, vous pouvez le faire en tirant parti des instructions suivantes.
 
-### <a name="net-app-only-authentication"></a>.NET (authentification uniquement dans l’application)
+### <a name="net-app-only-authentication"></a>.NET (authentification d’application uniquement)
 
 ```csharp
 public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
@@ -55,7 +55,7 @@ public static IAggregatePartner GetPartnerCenterTokenUsingAppCredentials()
 }
 ```
 
-### <a name="java-app-only-authentication"></a>Java (authentification uniquement dans l’application)
+### <a name="java-app-only-authentication"></a>Java (authentification d’application uniquement)
 
 [!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
 
@@ -101,26 +101,26 @@ Content-Length: 1406
 {"token_type":"Bearer","expires_in":"3600","ext_expires_in":"3600","expires_on":"1546469802","not_before":"1546465902","resource":"https://graph.windows.net","access_token":"value-has-been-removed"}
 ```
 
-## <a name="app--user-authentication"></a>Application + authentification utilisateur
+## <a name="app--user-authentication"></a>Authentification d’application + utilisateur
 
-Historiquement, l' [octroi des informations d’identification du mot de passe du propriétaire](https://tools.ietf.org/html/rfc6749#section-4.3) de la ressource a été utilisé pour demander un jeton d’accès à utiliser avec l’API REST de l’espace partenaires, l’API .net, l’API Java ou le module PowerShell. C’est ici que vous demandez un jeton d’accès à partir de Azure Active Directory à l’aide d’un identificateur de client et des informations d’identification de l’utilisateur. Cette approche ne fonctionnera plus car l’espace partenaires requiert l’authentification multifacteur lors de l’utilisation de l’authentification d’application + utilisateur. Pour se conformer à cette exigence, Microsoft a introduit un Framework sécurisé et évolutif pour authentifier les partenaires du fournisseur de solutions Cloud (CSP) et les fournisseurs du panneau de configuration (CPV) à l’aide de Multi-Factor Authentication. Cette infrastructure est connue sous le nom de modèle d’application sécurisée et est constituée d’un processus de consentement et d’une demande de jeton d’accès à l’aide d’un jeton d’actualisation.
+Historiquement, l’[octroi d’informations d’identification du mot de passe du propriétaire de la ressource](https://tools.ietf.org/html/rfc6749#section-4.3) a été utilisé pour demander un jeton d’accès à utiliser avec l’API REST, l’API .NET, l’API Java ou le module PowerShell de l’Espace partenaires. C’est là que vous demandez un jeton d’accès auprès d’Azure Active Directory en utilisant un identificateur de client et des informations d’identification d’utilisateur. Cette approche ne fonctionnera plus car l’Espace partenaires exige l’authentification multifacteur lors de l’utilisation de l’authentification d’application + utilisateur. Pour se conformer à cette exigence, Microsoft a introduit un framework sécurisé et scalable pour l’authentification des partenaires du programme Fournisseur de solutions cloud (CSP) et des fournisseurs de panneaux de configuration (CPV) qui utilisent l’authentification multifacteur. Ce framework est connu sous le nom de Modèle d’application sécurisé, et il est constitué d’un processus de consentement et d’une demande de jeton d’accès avec un jeton d’actualisation.
 
 ### <a name="partner-consent"></a>Consentement du partenaire
 
-Le processus de consentement du partenaire est un processus interactif dans lequel le partenaire s’authentifie à l’aide de Multi-Factor Authentication, qui consent à l’application, et un jeton d’actualisation est stocké dans un référentiel sécurisé tel que Azure Key Vault. Nous vous recommandons d’utiliser un compte dédié à des fins d’intégration pour ce processus.
+Le processus de consentement du partenaire est un processus interactif où le partenaire s’authentifie avec l’authentification multifacteur et consent à l’application, et où un jeton d’actualisation est stocké dans un référentiel sécurisé comme Azure Key Vault. Nous vous recommandons d’utiliser un compte dédié à des fins d’intégration pour ce processus.
 
 > [!IMPORTANT]  
 > La solution d’authentification multifacteur appropriée doit être activée pour le compte de service utilisé dans le processus de consentement du partenaire. Si ce n’est pas le cas, le jeton d’actualisation qui en résulte n’est pas conforme aux exigences de sécurité.
 
-### <a name="samples-for-app--user-authentication"></a>Exemples d’authentification d’application + utilisateur
+### <a name="samples-for-app--user-authentication"></a>Exemples pour l’authentification d’application + utilisateur
 
-Le processus de consentement du partenaire peut être effectué de plusieurs façons. Pour aider les partenaires à comprendre comment effectuer chaque opération requise, nous avons développé les exemples suivants. Notez qu’il s’agit uniquement d’exemples. Lorsque vous implémentez la solution appropriée dans votre environnement, il est important de développer une solution qui est conforme aux normes de codage et aux stratégies de sécurité.
+Le processus de consentement du partenaire peut être effectué de différentes façons. Pour aider les partenaires à comprendre comment effectuer chaque opération nécessaire, nous avons développé les exemples suivants. Notez bien qu’il s’agit seulement d’exemples. Quand vous implémentez la solution appropriée dans votre environnement, il est important de développer une solution qui est conforme à vos standards de codage et à vos stratégies de sécurité.
 
-### <a name="net-appuser-authentication"></a>.NET (application + authentification utilisateur)
+### <a name="net-appuser-authentication"></a>.NET (authentification d’application + utilisateur)
 
-L’exemple de projet de [consentement de partenaire](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) montre comment utiliser un site Web développé à l’aide de ASP.net pour capturer le consentement, demander un jeton d’actualisation et le stocker en toute sécurité dans Azure Key Vault. Procédez comme suit pour créer les composants requis pour cet exemple.
+L’exemple de projet de [consentement de partenaire](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) montre comment utiliser un site web développé avec ASP.NET pour recueillir le consentement, demander un jeton d’actualisation et le stocker de façon sécurisée dans Azure Key Vault. Effectuez les étapes suivantes afin de créer les prérequis nécessaires pour cet exemple.
 
-1. Créez une instance de Azure Key Vault à l’aide du portail de gestion Azure ou des commandes PowerShell suivantes. Avant d’exécuter la commande, veillez à modifier les valeurs des paramètres en conséquence. Le nom du coffre doit être unique.
+1. Créez une instance Azure Key Vault en utilisant le portail de gestion Azure ou les commandes PowerShell suivantes. Avant d’exécuter la commande, veillez à modifier les valeurs des paramètres de façon appropriée. Le nom du coffre doit être unique.
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -131,9 +131,9 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    Si vous avez besoin d’aide pour créer l’instance de Azure Key Vault consultez [démarrage rapide : définir et récupérer un secret à partir de Azure Key Vault à l’aide du portail Azure ou du](https://docs.microsoft.com/azure/key-vault/quick-create-portal) [démarrage rapide : définir et récupérer un secret à partir de Azure Key Vault à l’aide de PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) pour obtenir des instructions pas à pas sur la création d’une instance de Azure Key Vault, puis définir et récupérer une clé secrète.
+    Si vous avez besoin d’aide pour créer l’instance Azure Key Vault, consultez [Démarrage rapide : Définir et récupérer un secret auprès d’Azure Key Vault avec le portail Azure](https://docs.microsoft.com/azure/key-vault/quick-create-portal) ou [Démarrage rapide : Définir et récupérer un secret auprès d’Azure Key Vault avec PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) pour obtenir des instructions pas à pas sur la création d’une instance Azure Key Vault, puis sur la définition et la récupération d’un secret.
 
-2. Créez une application Azure AD et une clé à l’aide du portail de gestion Azure ou des commandes suivantes.
+2. Créez une application Azure AD et une clé en utilisant le portail de gestion Azure ou les commandes suivantes.
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -147,9 +147,9 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Veillez à noter l’identificateur de l’application et les valeurs secrètes, car elles seront utilisées dans les étapes ci-dessous.
+    Veillez à prendre note des valeurs de l’identificateur de l’application et du secret, car elles seront utilisées dans les étapes ci-dessous.
 
-3. Accordez à l’application nouvellement créée Azure AD les autorisations lire les secrets à l’aide du portail de gestion Azure ou des commandes suivantes.
+3. Accordez à l’application Azure AD nouvellement créée les autorisations de lire les secrets en utilisant le portail de gestion Azure ou les commandes suivantes.
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -157,21 +157,21 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. Créez un Azure AD application configurée pour l’espace partenaires. Effectuez les actions suivantes pour effectuer cette étape.
+4. Créez une application Azure AD configurée pour l’Espace partenaires. Effectuez les actions suivantes pour réaliser cette étape.
 
-    - Accédez à la fonctionnalité de [gestion des applications](https://partner.microsoft.com/pcv/apiintegration/appmanagement) du tableau de bord espace partenaires
-    - Cliquez sur *Ajouter une nouvelle application Web* pour créer une application de Azure ad.
+    - Accédez à la fonctionnalité [Gestion des applications](https://partner.microsoft.com/pcv/apiintegration/appmanagement) du tableau de bord de l’Espace partenaires
+    - Cliquez sur *Ajouter une nouvelle application web* pour créer une application Azure AD.
 
-    Veillez à documenter l' *ID d’application*, * l’ID de compte * * et les valeurs de *clé* , car elles seront utilisées dans les étapes ci-dessous.
+    Veillez à renseigner les valeurs pour *ID d’application*, *ID de compte** et *Clé*, car elles seront utilisées dans les étapes ci-dessous.
 
-5. Clonez le référentiel [Partner-Center-dotnet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) à l’aide de Visual Studio ou de la commande suivante.
+5. Clonez le dépôt [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) en utilisant Visual Studio ou la commande suivante.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-6. Ouvrez le projet *PartnerConsent* situé dans le répertoire `Partner-Center-DotNet-Samples\secure-app-model\keyvault`.
-7. Remplir les paramètres d’application trouvés dans le [fichier Web. config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
+6. Ouvrez le projet *PartnerConsent* qui se trouve dans le répertoire `Partner-Center-DotNet-Samples\secure-app-model\keyvault`.
+7. Renseignez les paramètres de l’application qui se trouvent dans le fichier [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -200,15 +200,15 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     ```
 
     > [!IMPORTANT]  
-    > Les informations sensibles telles que les secrets d’application ne doivent pas être stockées dans des fichiers de configuration. Il a été effectué ici, car il s’agit d’un exemple d’application. Avec votre application de production, nous vous recommandons vivement d’utiliser l’authentification basée sur les certificats. Pour plus d’informations, consultez [informations d’identification de certificat pour l’authentification de l’application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials) .
+    > Les informations sensibles, comme les secrets d’application, ne doivent pas être stockées dans des fichiers de configuration. Cela a néanmoins été fait ici, car il ne s’agit que d’un exemple d’application. Avec votre application de production, nous vous recommandons fortement d’utiliser l’authentification basée sur les certificats. Pour plus d’informations, consultez [Informations d’identification de certificat pour l’authentification d’application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-8. Lorsque vous exécutez cet exemple de projet, il vous invite à confirmer l’authentification. Une fois l’authentification réussie, un jeton d’accès est demandé à partir de Azure AD. Les informations retournées par Azure AD incluent un jeton d’actualisation qui est stocké dans l’instance configurée de Azure Key Vault.  
+8. Quand vous exécutez cet exemple de projet, il vous invite à vous authentifier. Une fois l’authentification réussie, un jeton d’accès est demandé auprès d’Azure AD. Les informations retournées par Azure AD incluent un jeton d’actualisation qui est stocké dans l’instance configurée Azure Key Vault configurée.  
 
-### <a name="java-appuser-authentication"></a>Java (application + authentification utilisateur)
+### <a name="java-appuser-authentication"></a>Java (authentification d’application + utilisateur)
 
-L’exemple de projet de [consentement de partenaire](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) montre comment utiliser un site Web développé à l’aide de JSP pour capturer le consentement, demander un jeton d’actualisation et sécuriser le stockage dans Azure Key Vault. Pour créer les composants requis pour cet exemple, procédez comme suit.
+L’exemple de projet de [consentement de partenaire](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) montre comment utiliser un site web développé avec JSP pour recueillir le consentement, demander un jeton d’actualisation et le stocker de façon sécurisée dans Azure Key Vault. Effectuez ce qui suit afin de créer les prérequis nécessaires pour cet exemple.
 
-1. Créez une instance de Azure Key Vault à l’aide du portail de gestion Azure ou des commandes PowerShell suivantes. Avant d’exécuter la commande, veillez à modifier les valeurs des paramètres en conséquence. Le nom du coffre doit être unique.
+1. Créez une instance Azure Key Vault en utilisant le portail de gestion Azure ou les commandes PowerShell suivantes. Avant d’exécuter la commande, veillez à modifier les valeurs des paramètres de façon appropriée. Le nom du coffre doit être unique.
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -219,9 +219,9 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    Si vous avez besoin d’aide pour créer l’instance de Azure Key Vault consultez [démarrage rapide : définir et récupérer un secret à partir de Azure Key Vault à l’aide du portail Azure ou du](https://docs.microsoft.com/azure/key-vault/quick-create-portal) [démarrage rapide : définir et récupérer un secret à partir de Azure Key Vault à l’aide de PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) pour obtenir une procédure pas à pas sur la création d’une instance de Azure Key Vault et la définition et la récupération d’un secret.
+    Si vous avez besoin d’aide pour créer l’instance Azure Key Vault, consultez [Démarrage rapide : Définir et récupérer un secret auprès d’Azure Key Vault avec le portail Azure](https://docs.microsoft.com/azure/key-vault/quick-create-portal) ou [Démarrage rapide : Définir et récupérer un secret auprès d’Azure Key Vault avec PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell) pour obtenir des instructions pas à pas sur la création d’une instance Azure Key Vault, puis sur la définition et la récupération d’un secret.
 
-2. Créez une application Azure AD et une clé à l’aide du portail de gestion Azure ou des commandes suivantes.
+2. Créez une application Azure AD et une clé en utilisant le portail de gestion Azure ou les commandes suivantes.
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -235,9 +235,9 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Veillez à documenter l’identificateur de l’application et les valeurs secrètes, car elles seront utilisées dans les étapes ci-dessous.
+    Veillez à prendre note des valeurs de l’identificateur de l’application et du secret, car elles seront utilisées dans les étapes ci-dessous.
 
-3. Accordez à l’application de Azure AD nouvellement créée les autorisations lire les secrets à l’aide du portail de gestion Azure ou des commandes suivantes.
+3. Accordez à l’application Azure AD nouvellement créée les autorisations de lire les secrets en utilisant le portail de gestion Azure ou les commandes suivantes.
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -245,21 +245,21 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. Créez un Azure AD application configurée pour l’espace partenaires. Procédez comme suit pour effectuer cette étape.
+4. Créez une application Azure AD configurée pour l’Espace partenaires. Effectuez ce qui suit pour réaliser cette étape.
 
-    - Accédez à la fonctionnalité de [gestion des applications](https://partner.microsoft.com/pcv/apiintegration/appmanagement) du tableau de bord espace partenaires
-    - Cliquez sur *Ajouter une nouvelle application Web* pour créer une application de Azure ad.
+    - Accédez à la fonctionnalité [Gestion des applications](https://partner.microsoft.com/pcv/apiintegration/appmanagement) du tableau de bord de l’Espace partenaires
+    - Cliquez sur *Ajouter une nouvelle application web* pour créer une application Azure AD.
 
-    Veillez à documenter l' *ID d’application*, * l’ID de compte * * et les valeurs de *clé* , car elles seront utilisées dans les étapes ci-dessous.
+    Veillez à renseigner les valeurs pour *ID d’application*, *ID de compte** et *Clé*, car elles seront utilisées dans les étapes ci-dessous.
 
-5. Clonez le référentiel [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) à l’aide de la commande suivante :
+5. Clonez le dépôt [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) en utilisant la commande suivante.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-6. Ouvrez le projet *PartnerConsent* situé dans le répertoire `Partner-Center-Java-Samples\secure-app-model\keyvault`.
-7. Remplir les paramètres d’application trouvés dans le fichier [Web. xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml)
+6. Ouvrez le projet *PartnerConsent* qui se trouve dans le répertoire `Partner-Center-Java-Samples\secure-app-model\keyvault`.
+7. Renseignez les paramètres de l’application qui se trouvent dans le fichier [web.xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml)
 
     ```xml
     <filter>
@@ -293,29 +293,29 @@ L’exemple de projet de [consentement de partenaire](https://github.com/Microso
     ```
 
     > [!IMPORTANT]  
-    > Les informations sensibles telles que les secrets d’application ne doivent pas être stockées dans des fichiers de configuration. Il a été effectué ici, car il s’agit d’un exemple d’application. Avec votre application de production, nous vous recommandons vivement d’utiliser l’authentification par certificat. Pour plus d’informations, consultez [Key Vault l’authentification par certificat](https://github.com/Azure-Samples/key-vault-java-certificate-authentication) .
+    > Les informations sensibles, comme les secrets d’application, ne doivent pas être stockées dans des fichiers de configuration. Cela a néanmoins été fait ici, car il ne s’agit que d’un exemple d’application. Avec votre application de production, nous vous recommandons fortement d’utiliser l’authentification basée sur les certificats. Pour plus d’informations, consultez [Authentification par certificat de coffre de clés](https://github.com/Azure-Samples/key-vault-java-certificate-authentication).
 
-8. Lorsque vous exécutez cet exemple de projet, il vous invite à confirmer l’authentification. Une fois l’authentification réussie, un jeton d’accès est demandé à partir de Azure AD. Les informations retournées par Azure AD incluent un jeton d’actualisation qui est stocké dans l’instance configurée de Azure Key Vault.  
+8. Quand vous exécutez cet exemple de projet, il vous invite à vous authentifier. Une fois l’authentification réussie, un jeton d’accès est demandé auprès d’Azure AD. Les informations retournées par Azure AD incluent un jeton d’actualisation qui est stocké dans l’instance configurée Azure Key Vault configurée.  
 
-## <a name="cloud-solution-provider-authentication"></a>Authentification du fournisseur de solutions Cloud
+## <a name="cloud-solution-provider-authentication"></a>Authentification de fournisseur de solutions cloud
 
-Les partenaires du fournisseur de solutions Cloud peuvent utiliser le jeton d’actualisation obtenu par le biais du processus de [consentement du partenaire](#partner-consent) .
+Les partenaires du programme Fournisseur de solutions cloud peuvent utiliser le jeton d’actualisation obtenu via le processus de [consentement de partenaire](#partner-consent).
 
-### <a name="samples-for-cloud-solution-provider-authentication"></a>Exemples d’authentification du fournisseur de solutions Cloud
+### <a name="samples-for-cloud-solution-provider-authentication"></a>Exemples pour l’authentification de fournisseur de solutions cloud
 
-Pour aider les partenaires à comprendre comment effectuer chaque opération requise, nous avons développé les exemples suivants. Notez qu’il s’agit uniquement d’exemples. Lorsque vous implémentez la solution appropriée dans votre environnement, il est important de développer une solution qui est conforme aux normes de codage et aux stratégies de sécurité.
+Pour aider les partenaires à comprendre comment effectuer chaque opération nécessaire, nous avons développé les exemples suivants. Notez bien qu’il s’agit seulement d’exemples. Quand vous implémentez la solution appropriée dans votre environnement, il est important de développer une solution qui est conforme à vos standards de codage et à vos stratégies de sécurité.
 
-### <a name="net-csp-authentication"></a>.NET (authentification CSP)
+### <a name="net-csp-authentication"></a>.NET (authentification de fournisseur de solutions cloud)
 
-1. Si vous ne l’avez pas encore fait, effectuez le [processus de consentement du partenaire](#partner-consent).
-2. Clonez le référentiel [Partner-Center-dotnet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) à l’aide de Visual Studio ou de la commande suivante
+1. Si vous ne l’avez pas encore fait, effectuez le [processus de consentement de partenaire](#partner-consent).
+2. Clonez le dépôt [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) en utilisant Visual Studio ou la commande suivante.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
 3. Ouvrez le projet `CSPApplication` qui se trouve dans le répertoire `Partner-Center-DotNet-Samples\secure-app-model\keyvault`.
-4. Mettez à jour les paramètres d’application trouvés dans le fichier [app. config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config) .
+4. Mettez à jour les paramètres de l’application qui se trouvent dans le fichier [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/App.config).
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -339,7 +339,7 @@ Pour aider les partenaires à comprendre comment effectuer chaque opération req
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. Définissez les valeurs appropriées pour les variables **partenaire** et **CustomerID** trouvées dans le fichier [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs) .
+5. Définissez les valeurs appropriées pour les variables **PartnerId** et **CustomerId** qui se trouvent dans le fichier [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CSPApplication/Program.cs).
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -347,19 +347,19 @@ Pour aider les partenaires à comprendre comment effectuer chaque opération req
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. Lorsque vous exécutez cet exemple de projet, il obtient le jeton d’actualisation obtenu pendant le processus de consentement du partenaire. Ensuite, il demande un jeton d’accès pour interagir avec le kit de développement logiciel (SDK) de l’espace partenaires au nom du partenaire. Enfin, il demande un jeton d’accès pour interagir avec Microsoft Graph pour le compte du client spécifié.
+6. Quand vous exécutez cet exemple de projet, il obtient le jeton d’actualisation obtenu lors du processus de consentement de partenaire. Ensuite, il demande un jeton d’accès pour interagir avec le SDK de l’Espace partenaires pour le compte du partenaire. Enfin, il demande un jeton d’accès pour interagir avec Microsoft Graph pour le compte du client spécifié.
 
-### <a name="java-csp-authentication"></a>Java (authentification CSP)
+### <a name="java-csp-authentication"></a>Java (authentification de fournisseur de solutions cloud)
 
-1. Si vous ne l’avez pas déjà fait, effectuez le [processus de consentement du partenaire](#partner-consent).
-2. Clonez le référentiel [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) à l’aide de Visual Studio ou de la commande suivante
+1. Si vous ne l’avez pas encore fait, effectuez le [processus de consentement de partenaire](#partner-consent).
+2. Clonez le dépôt [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) en utilisant Visual Studio ou la commande suivante
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
 3. Ouvrez le projet `cspsample` qui se trouve dans le répertoire `Partner-Center-Java-Samples\secure-app-model\keyvault`.
-4. Mettez à jour les paramètres d’application trouvés dans le fichier [application. Properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties) .
+4. Mettez à jour les paramètres de l’application qui se trouvent dans le fichier [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cspsample/src/main/resources/application.properties).
 
      ```java
     azuread.authority=https://login.microsoftonline.com
@@ -371,32 +371,32 @@ Pour aider les partenaires à comprendre comment effectuer chaque opération req
     partnercenter.clientSecret=
     ```
 
-5. Lorsque vous exécutez cet exemple de projet, il obtient le jeton d’actualisation obtenu pendant le processus de consentement du partenaire. Ensuite, il demande un jeton d’accès pour interagir avec le kit de développement logiciel (SDK) de l’espace partenaires au nom du partenaire.
-6. Facultatif : annulez les marques de commentaire des appels de fonction *RunAzureTask* et *RunGraphTask* si vous souhaitez savoir comment interagir avec avec Azure Resource Manager et Microsoft Graph pour le compte du client.
+5. Quand vous exécutez cet exemple de projet, il obtient le jeton d’actualisation obtenu lors du processus de consentement de partenaire. Ensuite, il demande un jeton d’accès pour interagir avec le SDK de l’Espace partenaires pour le compte du partenaire.
+6. Facultatif : décommentez les appels de fonction *RunAzureTask* et *RunGraphTask* si vous voulez voir comment interagir avec Azure Resource Manager et Microsoft Graph pour le compte du client.
 
-## <a name="control-panel-provider-authentication"></a>Authentification du fournisseur du panneau de configuration
+## <a name="control-panel-provider-authentication"></a>Authentification de fournisseur de panneau de configuration
 
-Les fournisseurs du panneau de configuration doivent avoir chaque partenaire qu’ils prennent en charge pour effectuer le processus de [consentement du partenaire](#partner-consent) . Une fois cette opération terminée, le jeton d’actualisation obtenu par le biais de ce processus est utilisé pour accéder à l’API REST de l’espace partenaires et à l’API .NET.
+Les fournisseurs de panneau de configuration ont besoin que chaque partenaire qu’ils prennent en charge effectue le processus de [consentement de partenaire](#partner-consent). Une fois cette opération terminée, le jeton d’actualisation obtenu via ce processus est utilisé pour accéder à l’API REST et à l’API .NET de l’Espace partenaires.
 
-### <a name="samples-for-cloud-panel-provider-authentication"></a>Exemples d’authentification du fournisseur du panneau Cloud
+### <a name="samples-for-cloud-panel-provider-authentication"></a>Exemples pour l’authentification de fournisseur de panneau de configuration
 
-Pour aider les fournisseurs du panneau de contrôle à comprendre comment effectuer chaque opération requise, nous avons développé les exemples suivants. Notez qu’il s’agit uniquement d’exemples. Lorsque vous implémentez la solution appropriée dans votre environnement, il est important de développer une solution qui est conforme aux normes de codage et aux stratégies de sécurité.
+Pour aider les fournisseurs de panneau de configuration à comprendre comment effectuer chaque opération nécessaire, nous avons développé les exemples suivants. Notez bien qu’il s’agit seulement d’exemples. Quand vous implémentez la solution appropriée dans votre environnement, il est important de développer une solution qui est conforme à vos standards de codage et à vos stratégies de sécurité.
 
-### <a name="net-cpv-authentication"></a>.NET (authentification CPV)
+### <a name="net-cpv-authentication"></a>.NET (authentification de fournisseur de panneau de configuration)
 
-1. Développez et déployez un processus pour les partenaires de fournisseurs de solutions Cloud afin de fournir le consentement approprié. Pour obtenir des détails supplémentaires et un exemple, consultez le [consentement du partenaire](#partner-consent) .
+1. Développez et déployez un processus pour les partenaires fournisseurs de solutions cloud afin de fournir le consentement approprié. Pour plus d’informations et pour obtenir un exemple, consultez [consentement de partenaire](#partner-consent).
 
     > [!IMPORTANT]  
-    > Les informations d’identification de l’utilisateur d’un partenaire de fournisseur de solutions Cloud ne doivent pas être stockées. Le jeton d’actualisation obtenu par le biais du processus de consentement du partenaire doit être stocké et utilisé pour demander des jetons d’accès pour interagir avec toute API Microsoft.
+    > Les informations d’identification utilisateur d’un partenaire fournisseur de solutions cloud ne doivent pas être stockées. Le jeton d’actualisation obtenu via le processus de consentement de partenaire doit être stocké et utilisé afin de demander des jetons d’accès pour interagir avec les API Microsoft.
 
-2. Clonez le référentiel [Partner-Center-dotnet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) à l’aide de Visual Studio ou de la commande suivante
+2. Clonez le dépôt [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) en utilisant Visual Studio ou la commande suivante.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
 3. Ouvrez le projet `CPVApplication` qui se trouve dans le répertoire `Partner-Center-DotNet-Samples\secure-app-model\keyvault`.
-4. Mettez à jour les paramètres d’application trouvés dans le fichier [app. config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config) .
+4. Mettez à jour les paramètres de l’application qui se trouvent dans le fichier [App.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/App.config).
 
     ```xml
     <!-- AppID that represents Control panel vendor application -->
@@ -421,7 +421,7 @@ Pour aider les fournisseurs du panneau de contrôle à comprendre comment effect
     <add key="ida:KeyVaultClientSecret" value="" />
     ```
 
-5. Définissez les valeurs appropriées pour les variables **partenaire** et **CustomerID** trouvées dans le fichier [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs) .
+5. Définissez les valeurs appropriées pour les variables **PartnerId** et **CustomerId** qui se trouvent dans le fichier [Program.cs](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/CPVApplication/Program.cs).
 
     ```csharp
     // The following properties indicate which partner and customer context the calls are going to be made.
@@ -429,7 +429,7 @@ Pour aider les fournisseurs du panneau de contrôle à comprendre comment effect
     string CustomerId = "<Customer tenant id>";
     ```
 
-6. Lorsque vous exécutez cet exemple de projet, il obtient le jeton d’actualisation pour le partenaire spécifié. Ensuite, il demande un jeton d’accès pour accéder à l’espace partenaires et Azure AD graphique pour le compte du partenaire. La tâche suivante exécutée est la suppression et la création d’octrois d’autorisations dans le locataire client. Étant donné qu’il n’existe aucune relation entre le fournisseur du panneau de configuration et le client, ces autorisations doivent être ajoutées à l’aide de l’API espace partenaires. L’exemple suivant montre comment procéder.
+6. Quand vous exécutez cet exemple de projet, il obtient le jeton d’actualisation pour le partenaire spécifié. Ensuite, il demande un jeton d’accès pour accéder à l’Espace partenaires et à Azure AD Graph pour le compte du partenaire. La tâche suivante qu’il effectue est la suppression et la création d’octrois d’autorisations dans le locataire du client. Comme il n’existe aucune relation entre le fournisseur du panneau de configuration et le client, ces autorisations doivent être ajoutées en utilisant l’API Espace partenaires. L’exemple suivant montre comment procéder.
 
     ```csharp
     JObject contents = new JObject
@@ -463,23 +463,23 @@ Pour aider les fournisseurs du panneau de contrôle à comprendre comment effect
         contents.ToString());
     ```
 
-Une fois ces autorisations établies, l’exemple effectue des opérations à l’aide de Azure AD graphique pour le compte du client.
+Une fois ces autorisations établies, l’exemple effectue des opérations en utilisant Azure AD Graph pour le compte du client.
 
-### <a name="java-cpv-authentication"></a>Java (authentification CPV)
+### <a name="java-cpv-authentication"></a>Java (authentification de fournisseur de panneau de configuration)
 
-1. Développez et déployez un processus pour les partenaires de fournisseurs de solutions Cloud afin de fournir le consentement approprié. Pour obtenir des détails supplémentaires et un exemple, consultez le [consentement du partenaire](#partner-consent) .
+1. Développez et déployez un processus pour les partenaires fournisseurs de solutions cloud afin de fournir le consentement approprié. Pour plus d’informations et pour obtenir un exemple, consultez [consentement de partenaire](#partner-consent).
 
     > [!IMPORTANT]  
-    > Les informations d’identification de l’utilisateur d’un partenaire de fournisseur de solutions Cloud ne doivent pas être stockées. Le jeton d’actualisation obtenu par le biais du processus de consentement du partenaire doit être stocké et utilisé pour demander des jetons d’accès pour interagir avec toute API Microsoft.
+    > Les informations d’identification utilisateur d’un partenaire fournisseur de solutions cloud ne doivent pas être stockées. Le jeton d’actualisation obtenu via le processus de consentement de partenaire doit être stocké et utilisé afin de demander des jetons d’accès pour interagir avec les API Microsoft.
 
-2. Clonez le référentiel [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) à l’aide de la commande suivante :
+2. Clonez le dépôt [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) en utilisant la commande suivante.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
 3. Ouvrez le projet `cpvsample` qui se trouve dans le répertoire `Partner-Center-Java-Samples\secure-app-model\keyvault`.
-4. Mettez à jour les paramètres d’application trouvés dans le fichier [application. Properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties) .
+4. Mettez à jour les paramètres de l’application qui se trouvent dans le fichier [application.properties](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/resources/application.properties).
 
     ```java
     azuread.authority=https://login.microsoftonline.com
@@ -492,16 +492,16 @@ Une fois ces autorisations établies, l’exemple effectue des opérations à l�
     partnercenter.displayName=
     ```
 
-    La valeur de la `partnercenter.displayName` doit être le nom d’affichage de votre application Marketplace.
+    La valeur de `partnercenter.displayName` doit être le nom d’affichage de votre application de la Place de marché.
 
-5. Définissez les valeurs appropriées pour les variables **partenaire** et **CustomerID** trouvées dans le fichier [Program. Java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java) .
+5. Définissez les valeurs appropriées pour les variables **partnerId** et **customerId** qui se trouvent dans le fichier [Program.java](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/cpvsample/src/main/java/com/microsoft/store/samples/secureappmodel/cpvsample/Program.java).
 
     ```java
     partnerId = "SPECIFY-THE-PARTNER-TENANT-ID-HERE";
     customerId = "SPECIFY-THE-CUSTOMER-TENANT-ID-HERE";
     ```
 
-6. Lorsque vous exécutez cet exemple de projet, il obtient le jeton d’actualisation pour le partenaire spécifié. Ensuite, il demande un jeton d’accès pour accéder à l’espace partenaires pour le compte du partenaire. La tâche suivante exécutée est la suppression et la création d’octrois d’autorisations dans le locataire client. Étant donné qu’il n’existe aucune relation entre le fournisseur du panneau de configuration et le client, ces autorisations doivent être ajoutées à l’aide de l’API espace partenaires. L’exemple suivant montre comment procéder.
+6. Quand vous exécutez cet exemple de projet, il obtient le jeton d’actualisation pour le partenaire spécifié. Ensuite, il demande un jeton d’accès pour accéder à l’Espace partenaires pour le compte du partenaire. La tâche suivante qu’il effectue est la suppression et la création d’octrois d’autorisations dans le locataire du client. Comme il n’existe aucune relation entre le fournisseur du panneau de configuration et le client, ces autorisations doivent être ajoutées en utilisant l’API Espace partenaires. L’exemple suivant montre comment procéder.
 
     ```java
     ApplicationGrant azureAppGrant = new ApplicationGrant();
@@ -539,4 +539,4 @@ Une fois ces autorisations établies, l’exemple effectue des opérations à l�
         consent);
     ```
 
-Annulez les marques de commentaire des appels de fonction *RunAzureTask* et *RunGraphTask* si vous souhaitez savoir comment interagir avec avec Azure Resource Manager et Microsoft Graph pour le compte du client.
+Décommentez les appels de fonction *RunAzureTask* et *RunGraphTask* si vous voulez voir comment interagir avec Azure Resource Manager et Microsoft Graph pour le compte du client.

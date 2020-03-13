@@ -1,37 +1,37 @@
 ---
-title: Vérifier l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect
-description: Vous pouvez utiliser l’API AgreementStatus pour vérifier si un revendeur indirect a signé l’accord de partenariat Microsoft.
+title: Vérifier l’état de signature du Contrat Partenaire Microsoft d’un revendeur indirect
+description: Vous pouvez utiliser l’API AgreementStatus pour vérifier si un revendeur indirect a signé le Contrat Partenaire Microsoft.
 ms.date: 10/30/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 14a66334793bfe6a1b87f0976a4084e76c331b65
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
-ms.translationtype: MT
+ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/07/2020
 ms.locfileid: "74995175"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Vérifier l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Vérifier l’état de signature du Contrat Partenaire Microsoft d’un revendeur indirect
 
 S'applique à :
 
 * Espace partenaires
 * Espace partenaires de Microsoft Cloud for US Government
 
-Vous pouvez vérifier si un revendeur indirect a signé l’accord de partenariat Microsoft à l’aide de son ID d’Microsoft Partner Network (MPN) ou de son ID de locataire (ID Microsoft). Vous pouvez utiliser l’un de ces identificateurs pour vérifier l’état de signature de l’accord partenaire Microsoft à l’aide de l’API **AgreementStatus** .
+Vous pouvez vérifier si un revendeur indirect a signé le Contrat Partenaire Microsoft avec son ID Microsoft Partner Network (MPN) ou son ID de locataire de fournisseur de solutions Cloud (ID Microsoft). Vous pouvez utiliser l’un de ces identificateurs pour vérifier l’état de signature du Contrat Partenaire Microsoft à l’aide de l’API **AgreementStatus**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
-* ID MPN ou ID de locataire CSP (ID Microsoft) du revendeur indirect. *Vous devez utiliser l’un de ces deux identificateurs.*
+* Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+* ID MPN ou ID de locataire de fournisseur de solutions Microsoft Cloud (ID Microsoft) du revendeur indirect. *Vous devez utiliser l’un de ces deux identificateurs.*
 
 ## <a name="c"></a>C\#
 
-Pour connaître l’état de signature de l’accord partenaire Microsoft d’un revendeur indirect :
+Pour connaître l’état de signature du Contrat Partenaire Microsoft d’un revendeur indirect :
 
- 1. Utilisez votre collection **collection iaggregatepartner. Compliance** tocall la propriété **AgreementSignatureStatus** . 
- 2. Appelez la méthode [**obten ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) ou [**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) .
+ 1. Utilisez votre collection **IAggregatePartner.Compliance** pour appeler la propriété **AgreementSignatureStatus**. 
+ 2. Appelez la méthode [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) ou [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -41,9 +41,9 @@ var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSign
 var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
 ```
 
-- Exemple :  **[application de test](console-test-app.md) de la console**
-- Projet : **PartnerCenterSDK. FeaturesSamples**
-- Classe : **GetAgreementSignatureStatus.cs**
+- Exemple : **[Application de test de console](console-test-app.md)**
+- Projet : **PartnerCenterSDK.FeaturesSamples**
+- Class: **GetAgreementSignatureStatus.cs**
 
 ## <a name="rest"></a>REST
 
@@ -53,26 +53,26 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 
 | Méthode | URI de requête |
 | ------ | ----------- |
-| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/Compliance/{ProgramName}/agreementstatus ? mpnId = {mpnId} & tenantId = {tenantId} |
+| **GET** | *[{baseURL}](partner-center-rest-urls.md)* /v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
-Vous devez fournir l’un des deux paramètres de requête suivants pour identifier le partenaire. Si vous ne fournissez pas l’un de ces deux paramètres de requête, vous recevrez une erreur **400 (requête incorrecte)** .
+Vous devez fournir l’un des deux paramètres de requête suivants pour identifier le partenaire. Si vous ne fournissez pas l’un de ces deux paramètres de requête, vous recevez une erreur **400 (requête incorrecte)** .
 
-| Nom | Tapez | Obligatoire | Description |
+| Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| **MpnId** | entier | non | ID de Microsoft Partner Network qui identifie le revendeur indirect. |
-| **TenantId** | GUID | non | ID Microsoft identifiant le compte CSP du revendeur indirect. |
+| **MpnId** | int | Non | ID Microsoft Partner Network qui identifie le revendeur indirect. |
+| **TenantId** | GUID | Non | ID Microsoft identifiant le compte de fournisseur de solutions Cloud du revendeur indirect. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](https://docs.microsoft.com/partner-center/develop/headers).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](https://docs.microsoft.com/partner-center/develop/headers).
 
 #### <a name="request-examples"></a>Exemples de demande
 
-##### <a name="request-using-mpn-id"></a>Demande à l’aide de l’ID MPN
+##### <a name="request-using-mpn-id"></a>Requête avec l’ID MPN
 
-L’exemple de demande suivant obtient l’état de signature de l’accord partenaire Microsoft du revendeur indirect à l’aide de l’ID de Microsoft Partner Network du revendeur indirect.
+L’exemple de requête suivant obtient l’état de signature du Contrat Partenaire Microsoft du revendeur indirect en utilisant l’ID Microsoft Partner Network de ce dernier.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -84,9 +84,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-##### <a name="request-using-csp-tenant-id"></a>Demander l’ID du locataire CSP
+##### <a name="request-using-csp-tenant-id"></a>Requête avec l’ID de locataire de fournisseur de solutions Cloud
 
-L’exemple de demande suivant obtient l’état de signature de l’accord partenaire Microsoft du revendeur indirect à l’aide de l’ID de locataire CSP du revendeur indirect (ID Microsoft).
+L’exemple de requête suivant obtient l’état de signature du Contrat Partenaire Microsoft du revendeur indirect en utilisant l’ID de locataire de fournisseur de solutions Cloud de ce dernier.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -102,11 +102,11 @@ Host: api.partnercenter.microsoft.com
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](https://docs.microsoft.com/partner-center/develop/error-codes).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](https://docs.microsoft.com/partner-center/develop/error-codes).
 
 #### <a name="response-example-success"></a>Exemple de réponse (réussite)
 
-L’exemple de réponse suivant retourne correctement si le revendeur indirect a signé l’accord de partenariat Microsoft.
+L’exemple de réponse suivant indique correctement si le revendeur indirect a signé ou non le Contrat Partenaire Microsoft.
 
 ```http
 HTTP/1.1 200 OK
@@ -123,13 +123,13 @@ Connection: close
 }
 ```
 
-#### <a name="response-examples-failure"></a>Exemples de réponse (échec)
+#### <a name="response-examples-failure"></a>Exemples de réponse (échecs)
 
-Vous pouvez recevoir des réponses semblables aux exemples suivants lorsque l’état de signature de l’accord de partenariat Microsoft du revendeur indirect ne peut pas être renvoyé.
+Vous pouvez recevoir des réponses semblables aux exemples suivants lorsque l’état de signature du Contrat Partenaire Microsoft du revendeur indirect ne peut pas être retourné.
 
-##### <a name="non-guid-formatted-csp-tenant-id"></a>ID de locataire CSP au format non GUID
+##### <a name="non-guid-formatted-csp-tenant-id"></a>ID de locataire de fournisseur de solutions Cloud au format non-GUID
 
-L’exemple de réponse suivant est retourné lorsque l’ID de locataire CSP que vous avez passé à l’API n’est pas un GUID.
+L’exemple de réponse suivant est retourné quand l’ID de locataire de fournisseur de solutions Cloud que vous avez passé à l’API n’est pas un GUID.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -151,7 +151,7 @@ Connection: close
 
 ##### <a name="non-numeric-mpn-id"></a>ID MPN non numérique
 
-L’exemple de réponse suivant est retourné lorsque l’ID MPN que vous avez passé à l’API n’est pas numérique.
+L’exemple de réponse suivant est retourné quand l’ID MPN que vous avez passé à l’API n’est pas numérique.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -171,9 +171,9 @@ Connection: close
 }
 ```
 
-##### <a name="no-mpn-id-or-csp-tenant-id"></a>Aucun ID MPN ou ID de locataire CSP
+##### <a name="no-mpn-id-or-csp-tenant-id"></a>Aucun ID MPN ou ID de locataire de fournisseur de solutions Cloud
 
-L’exemple de réponse suivant est retourné lorsque vous n’avez pas passé un ID MPN ou un ID de locataire CSP à l’API. Vous devez passer l’un des deux types d’ID à l’API.
+L’exemple de réponse suivant est retourné quand vous n’avez pas passé d’ID MPN ni d’ID de locataire de fournisseur de solutions Cloud à l’API. Vous devez passer l’un de ces deux types d’ID à l’API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -193,9 +193,9 @@ Connection: close
 }
 ```
 
-##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>ID MPN et ID de locataire CSP transmis
+##### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>ID MPN et ID de locataire de fournisseur de solutions Cloud transmis
 
-L’exemple de réponse suivant est retourné lorsque vous transmettez l’ID MPN et l’ID du locataire CSP à l’API. Vous devez passer *un seul* des deux types d’identificateur à l’API.
+L’exemple de réponse suivant est retourné quand vous avez passé à la fois un ID MPN et un ID de locataire de fournisseur de solutions Cloud à l’API. Vous devez passer *un seul* des deux types d’identificateur à l’API.
 
 ```http
 HTTP/1.1 400 Bad Request
