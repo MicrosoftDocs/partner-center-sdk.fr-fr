@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 625209f834a7d89fbf288b7a1430624cb99485b1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486929"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083046"
 ---
 # <a name="license-resources"></a>Ressources de licence
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -50,7 +50,7 @@ Fournit des informations utilisées pour affecter ou supprimer des licences d’
 | Propriété         | Type                                                           | Description                                               |
 |------------------|----------------------------------------------------------------|-----------------------------------------------------------|
 | licensestoAssign | Tableau d’objets                                               | Tableau d’objets [LicenseAssignment](#licenseassignment) . |
-| licensesToRemove | Tableau de chaînes                                               | Identificateurs SKU du produit des licences à supprimer.    |
+| licensesToRemove | tableau de chaînes                                               | Identificateurs SKU du produit des licences à supprimer.    |
 | licenseWarnings  | Tableau d’objets                                               | Tableau d’objets [LicenseWarning](#licensewarning) .       |
 | attributs       | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                  |
 
@@ -63,7 +63,7 @@ Fournit les informations nécessaires pour une opération de mise à jour de lic
 
 | Propriété      | Type             | Description                                                                |
 |---------------|------------------|----------------------------------------------------------------------------|
-| excludedPlans | Tableau de chaînes | Identificateurs de plan de service à exclure de la disponibilité à l’utilisateur. |
+| excludedPlans | tableau de chaînes | Identificateurs de plan de service à exclure de la disponibilité à l’utilisateur. |
 | skuId         | chaîne           | Identificateur SKU du produit pour la licence.                                |
 
  
@@ -77,7 +77,7 @@ Contient des informations d’avertissement qui se sont produites lors d’une o
 |--------------|------------------|-----------------------------------------------------|
 | code         | chaîne           | Code d’avertissement.                                   |
 | message      | chaîne           | Message d’avertissement.                                |
-| servicePlans | Tableau de chaînes | Noms des plans de service associés à l’avertissement. |
+| servicePlans | tableau de chaînes | Noms des plans de service associés à l’avertissement. |
 
  
 
@@ -103,10 +103,10 @@ Décrit les détails du produit.
 <tr class="odd">
 <td>id</td>
 <td>chaîne</td>
-<td>Identificateur du produit.</td>
+<td>L'identificateur du produit.</td>
 </tr>
 <tr class="even">
-<td>name</td>
+<td>nom</td>
 <td>chaîne</td>
 <td>Identificateur du principal de l’utilisateur.</td>
 </tr>
@@ -154,12 +154,12 @@ Décrit un produit abonné appartenant à un locataire.
 
 | Propriété         | Type                                                           | Description                                                                                       |
 |------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| availableUnits   | Entier                                                        | Nombre d’unités disponibles pour l’assignation. Il est calculé comme nombre total d’unités consommées. |
-| activeUnits      | Entier                                                        | Nombre d’unités actives pour l’affectation.                                                        |
-| consumedUnits    | Entier                                                        | Nombre d’unités consommées.                                                                     |
-| suspendedUnits   | Entier                                                        | Nombre d’unités suspendues.                                                                    |
-| totalUnits       | Entier                                                        | Nombre total d’unités. Il s’agit de la somme des unités actives et d’avertissement.         |
-| warningUnits     | Entier                                                        | Nombre d’unités d’avertissement.                                                                      |
+| availableUnits   | integer                                                        | Nombre d’unités disponibles pour l’assignation. Il est calculé comme nombre total d’unités consommées. |
+| activeUnits      | integer                                                        | Nombre d’unités actives pour l’affectation.                                                        |
+| consumedUnits    | integer                                                        | Nombre d’unités consommées.                                                                     |
+| suspendedUnits   | integer                                                        | Nombre d’unités suspendues.                                                                    |
+| totalUnits       | integer                                                        | Nombre total d’unités. Il s’agit de la somme des unités actives et d’avertissement.         |
+| warningUnits     | integer                                                        | nombre d'unités d'avertissement.                                                                      |
 | productSku       | ProductSku                                                     | Référence SKU du produit.                                                                                  |
 | servicePlans     | Tableau de ressources ServicePlan                                 | Collection de plans de service d’un produit.                                                     |
 | capabilityStatus | chaîne                                                         | État des références (SKU) d’un produit.                                                                      |

@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 3449aeb3695a9f286f37668d3f0862dc7b5cfa9f
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899816"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083036"
 ---
 # <a name="profile-resources"></a>Ressources de profil
 
@@ -109,7 +109,7 @@ Décrit le profil de support d’un partenaire.
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | Messagerie       | chaîne                                                         | Adresse e-mail associée au profil.        |
 | téléphone   | chaîne                                                         | Numéro de téléphone associé au profil.         |
-| site web     | chaîne                                                         | Le site Web de support.                                  |
+| site Web     | chaîne                                                         | Le site Web de support.                                  |
 | profileType | chaîne                                                         | Type de profil du partenaire.                             |
 | liens       | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressource correspondant au profil.      |
 | attributs  | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil. |

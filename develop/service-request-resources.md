@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: e1fab576e69242a50549efc719f98eafad1ad9de
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899926"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082876"
 ---
 # <a name="service-request-resources"></a>Ressources de demande de service
 
@@ -32,7 +32,7 @@ Décrit une demande de service déposée par un partenaire, y compris comment ce
 | Propriété         | Type                                                          | Description                                                                          |
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Titre            | chaîne                                                        | Titre de la demande de service.                                                           |
-| Description      | chaîne                                                        | Description.                                                                     |
+| Description      | chaîne                                                        | La description.                                                                     |
 | Severity         | chaîne                                                        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
 | SupportTopicId   | chaîne                                                        | ID de la rubrique de support.                                                         |
 | SupportTopicName | chaîne                                                        | Nom de la rubrique de support.                                                       |

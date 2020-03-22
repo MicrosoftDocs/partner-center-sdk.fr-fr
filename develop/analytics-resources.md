@@ -7,17 +7,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 8098de53c3fc4632d17ef6cdba7fe983d9fffbbe
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489199"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082866"
 ---
 # <a name="analytics-resources"></a>Ressources d’analyse
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Les ressources définies ici contiennent des données utilisées pour signaler l’utilisation, le déploiement et la consommation.
 
@@ -57,7 +57,7 @@ La ressource **CustomerLicensesDeploymentInsights** contient des Insights au niv
 | licensesSold      | nombre                                                         | Nombre de licences vendues.                                                         |
 | deploymentPercent | nombre                                                         | Pourcentage ajusté de licences déployées.                                        |
 | customerId        | chaîne                                                         | Identificateur du client.                                                             |
-| Souhaite      | chaîne                                                         | Nom du client.                                                                   |
+| customerName      | chaîne                                                         | Nom du client.                                                                   |
 | productName       | chaîne                                                         | Nom du produit.                                                                    |
 | serviceCode       | chaîne                                                         | Code de service de la licence.                                                     |
 | processedDateTime | chaîne au format date-heure UTC                                 | Date et heure auxquelles les données ont été agrégées.                                      |
@@ -74,10 +74,10 @@ La ressource **CustomerLicensesUsageInsights** contient des Insights au niveau d
 | workloadCode      | chaîne                                                         | Code de charge de travail.                                                              |
 | workloadName      | nombre                                                         | Nom de la charge de travail (par exemple, Exchange).                                              |
 | usagePercent      | nombre                                                         | Pourcentage ajusté de licences utilisées.                                       |
-| licensesActive    | nombre                                                         | Nombre de licences actives.                                                  |
+| licensesActive    | nombre                                                         | nombre de licences actives.                                                  |
 | licensesQualified | nombre                                                         | Nombre de licences qualifiées.                                               |
 | customerId        | chaîne                                                         | Identificateur du client.                                                        |
-| Souhaite      | chaîne                                                         | Nom du client.                                                              |
+| customerName      | chaîne                                                         | Nom du client.                                                              |
 | productName       | chaîne                                                         | Nom du produit.                                                               |
 | serviceCode       | chaîne                                                         | Code de service de la licence.                                                |
 | processedDateTime | chaîne au format date-heure UTC                                 | Date et heure auxquelles les données ont été agrégées.                                 |

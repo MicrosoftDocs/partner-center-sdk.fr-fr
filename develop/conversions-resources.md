@@ -7,17 +7,17 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: e91e79ce77ac020495c2d09a4bf33dd947231dec
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488899"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80082846"
 ---
 # <a name="conversions-resources"></a>Ressources de conversions
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -33,8 +33,8 @@ Contient les informations utilisées pour convertir un abonnement d’évaluatio
 | offerId | chaîne | Identificateur de l’offre d’origine de l’offre d’essai. |
 | targetOfferId | chaîne | Identificateur de l’offre de l’offre cible. |
 | orderId | chaîne | Identificateur de l’ordre. |
-| quantity | entier | Nombre de licences. La valeur par défaut est le nombre de licences dans l’abonnement d’évaluation. |
-| billingCycle | chaîne | Indique la fréquence à laquelle le partenaire est facturé pour l’abonnement. Valeurs possibles : **mensuelle** (le partenaire est facturé mensuellement), **annuelle** (le partenaire est facturé annuellement) ou **None** (le partenaire n’est pas facturé. Utilisé pour les abonnements d’évaluation). |
+| quantity | int | Nombre de licences. La valeur par défaut est le nombre de licences dans l’abonnement d’évaluation. |
+| BillingCycle | chaîne | Indique la fréquence à laquelle le partenaire est facturé pour l’abonnement. Valeurs possibles : **mensuelle** (le partenaire est facturé mensuellement), **annuelle** (le partenaire est facturé annuellement) ou **None** (le partenaire n’est pas facturé. Utilisé pour les abonnements d’évaluation). |
 
 ## <a name="conversionerror"></a>ConversionError
 

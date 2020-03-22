@@ -7,18 +7,18 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: b19eb80c5be2cc07bd325681f9870a1af7fed481
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486249"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083076"
 ---
 # <a name="utility-resources"></a>Ressources de l’utilitaire
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -34,11 +34,11 @@ Adresse à utiliser pour le client ou pour les profils de partenaires. Pour plus
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
 | AddressLine1 | chaîne | (1, 200)          | Première ligne de l’adresse.                                                                   |
 | AddressLine2 | chaîne | (0, 200)          | Deuxième ligne de l’adresse. Cette propriété est facultative.                                       |
-| Ville         | chaîne | Non applicable               | Ville.                                                                                        |
+| Ville         | chaîne | Non applicable               | La ville.                                                                                        |
 | État        | chaîne | (0, 2)            | État.                                                                                       |
 | PostalCode   | chaîne | Non applicable               | Code postal.                                                                     |
 | Country      | chaîne | (2, 2)            | Pays/région au format de code pays ISO.                                                   |
-| Région       | chaîne | Non applicable               | Région.                                                                                      |
+| Région       | chaîne | Non applicable               | Région                                                                                      |
 | Prénom    | chaîne | (1, 50)           | Prénom d’un contact au niveau de la société ou de l’organisation du client.                              |
 | LastName     | chaîne | (1, 50)           | Nom d’un contact au niveau de la société ou de l’organisation du client.                               |
 | PhoneNumber  | chaîne | Non applicable               | Numéro de téléphone d’un contact au niveau de l’entreprise ou de l’entreprise du client. Cette propriété est facultative. |
@@ -50,10 +50,10 @@ Décrit les informations de contact d’une personne spécifique.
 
 | Propriété    | Type   | Description                  |
 |-------------|--------|------------------------------|
-| Prénom   | chaîne | Prénom du contact.    |
-| LastName    | chaîne | Nom du contact.     |
-| E-mail       | chaîne | Adresse de messagerie du contact. |
-| PhoneNumber | chaîne | Numéro de téléphone du contact.  |
+| Prénom   | chaîne | prénom du contact.    |
+| LastName    | chaîne | nom du contact.     |
+| E-mail       | chaîne | Adresse e-mail du contact. |
+| PhoneNumber | chaîne | numéro de téléphone du contact.  |
  
 
 ## <a name="span-idfieldfilterspan-idfieldfilterspan-idfieldfilterfieldfilter"></a><span id="FieldFilter"/><span id="fieldfilter"/><span id="FIELDFILTER"/>FieldFilter
@@ -74,8 +74,8 @@ Représente un fichier externe chargé dans l’espace partenaires.
 | Commentaire                  | chaîne | Commentaire associé au chargement du fichier.    |
 | FileExtension            | chaîne | Extension de fichier.                           |
 | FileNameWithoutExtension | chaîne | Nom du fichier, extension non inclus. |
-| FileSize                 | longue   | Taille du fichier.                         |
-| Id                       | chaîne | ID unique du chargement du fichier.            |
+| FileSize                 | long   | Taille du fichier.                         |
+| ID                       | chaîne | ID unique du chargement du fichier.            |
  
 
 ## <a name="span-idlinkspan-idlinkspan-idlinklink"></a><span id="Link"/><span id="link"/><span id="LINK"/>lien
@@ -98,7 +98,7 @@ Décrit un mot de passe spécifique et si ce mot de passe doit être modifié.
 
 | Propriété            | Type                          | Description                                                            |
 |---------------------|-------------------------------|------------------------------------------------------------------------|
-| Mot de passe            | [SecureString](#securestring) | Mot de passe.                                                          |
+| Password            | [SecureString](#securestring) | Mot de passe.                                                          |
 | ForceChangePassword | booléen                       | Détermine si le mot de passe doit être modifié de force lors de la prochaine connexion. |
  
 
@@ -130,7 +130,7 @@ Stocke des informations sécurisées, telles qu’un mot de passe.
 
 | Propriété | Type | Description                       |
 |----------|------|-----------------------------------|
-| Durée   | entier  | Longueur de la chaîne sécurisée. |
+| Length   | int  | Longueur de la chaîne sécurisée. |
 
 
 ## <a name="span-idvalidationcodespan-idvalidationcodespan-idvalidationcodevalidationcode"></a><span id="ValidationCode"/><span id="validationcode"/><span id="VALIDATIONCODE"/>ValidationCode
@@ -141,7 +141,7 @@ Représente le code de validation Cloud de la communauté gouvernementale d’un
 |------------------|--------------|--------------------------------------------------------------------------|
 | PartnerId        | GUID         | Identificateur du partenaire                                                       |
 | OrganizationName | chaîne       | Nom de l’organisation fourni pendant le processus de validation             |
-| ValidationId     | entier          | Identificateur unique pour la validation                                       |
+| ValidationId     | int          | Identificateur unique pour la validation                                       |
 | MaxCreates       | entier Nullable | Nombre maximal de clients autorisés à créer avec ce code de validation    |
 | RemainingCreates | entier Nullable | Le client restant crée sous cet ID de validation                      |
 | ETag             | chaîne       | Version spécifique de cette ressource. Change quand la ressource est modifiée. |

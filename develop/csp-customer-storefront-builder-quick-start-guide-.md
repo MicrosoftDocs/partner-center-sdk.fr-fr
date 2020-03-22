@@ -6,18 +6,18 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b36d1f64a9ab02483832674997c66e3fbffd36e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bdcf0fcc79b019460dfa821ea6ce6f88e48f5c1e
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489729"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80070124"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>Guide de démarrage rapide du générateur de vitrine du client CSP
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Créez une place de marché en ligne pour vendre des offres de fournisseur de solutions Cloud à l’aide du générateur de vitrine client du CSP.
 
@@ -62,11 +62,11 @@ Le processus de création d’un site Web de vitrine consiste à :
 
 Options de déploiement :
 
-- Déployer votre site Web à partir de l’espace partenaires
+- Téléchargez l’exemple de code de la boutique de l' [espace partenaires](https://github.com/Microsoft/Partner-Center-Storefront) à partir de GitHub
 - Intégrer avec Azure pour déployer le site Web configuré
 - Déployez sur un abonnement existant ou apportez votre propre abonnement
 
-### <a name="configure"></a>Configuration
+### <a name="configure"></a>Configurer
 
 Aucune compétence de développement n’est requise pour personnaliser une vitrine.
 
@@ -92,7 +92,7 @@ Les clients peuvent appartenir à ces pays :
 | AT           | Autriche        |
 | BE           | Belgique        |
 | BG           | Bulgarie       |
-| AC           | Canada         |
+| AUTORITÉ DE CERTIFICATION           | Canada         |
 | HR           | Croatie        |
 | CY           | Chypre         |
 | CZ           | République tchèque |
@@ -100,14 +100,14 @@ Les clients peuvent appartenir à ces pays :
 | EE           | Estonie        |
 | FI           | Finlande        |
 | FR           | France         |
-| DE           | Allemagne        |
+| DE           | Germany        |
 | GR           | Grèce         |
 | HU           | Hongrie        |
 | IS           | Islande        |
 | IN           | Inde          |
-| Internet Explorer           | Irlande        |
-| Informatique           | Italie          |
-| JP           | Japon          |
+| IE           | Irlande        |
+| IT           | Italie          |
+| JP           | Japan          |
 | LV           | Lettonie         |
 | LI           | Liechtenstein  |
 | LT           | Lituanie      |
@@ -128,26 +128,16 @@ Les clients peuvent appartenir à ces pays :
 | Go           | Royaume-Uni |
 | US           | États-Unis  |
 
-### <a name="additional-resources"></a>Ressources supplémentaires
-
-Pour améliorer ou personnaliser la vitrine cliente de votre fournisseur de solutions Cloud :
-
-- Téléchargez l’exemple de code de la boutique de l' [espace partenaires](https://github.com/Microsoft/Partner-Center-Storefront) apporter des personnalisations supplémentaires.
-- Utilisez Microsoft Visual Studio 2015 (ou version ultérieure) pour développer.
-- Générez des modifications supplémentaires et des améliorations (notamment les autorisations, les certifications, les modifications de manifeste et d’autres éléments).
 
 ## <a name="partner-experience-scenarios"></a>Scénarios d’expérience partenaire
 
 ### <a name="deployment-scenario"></a>Scénario de déploiement
 
-- Un administrateur partenaire peut utiliser l’espace partenaires pour déployer le site Web. Dans paramètres du compte, choisissez **vitrine Web** pour déployer un nouveau site Web.
-- Sur cette page, les partenaires peuvent voir la disponibilité d’un nouveau nom de site et le modifier (le cas échéant).
-- Cette page affiche tous les abonnements Azure actifs associés à ce locataire partenaire et qu’un partenaire peut choisir d’utiliser pour déployer le site Web.
-- Si un partenaire n’a pas d’abonnement actif associé à ce compte de l’espace partenaires, il peut ajouter ce compte en tant qu’administrateur à un abonnement Azure existant et l’actualiser pour voir cet abonnement dans cette liste.
-- Les partenaires choisissent l’emplacement du centre de données où ce site Web sera déployé.
-- Le lien **déployer votre boutique** déploie ce nouveau site Web en fonction des informations fournies et affiche l’URL.
-- Veillez à copier cette URL, car l’espace partenaires ne conserve pas l’État ou l’historique de ces sites Web. Si vous fermez la page du navigateur, vous perdez le nom du site Web.
-- Pendant le déploiement, le site Web sera déployé avec les informations d’identification de l’application Web créées dans l’espace partenaires. Si vous n’avez pas inscrit d’application Web, celle-ci sera inscrite au cours du déploiement.
+Pour déployer une vitrine cliente améliorée ou personnalisée :
+
+- Téléchargez l’exemple de code de la boutique de l' [espace partenaires](https://github.com/Microsoft/Partner-Center-Storefront) pour effectuer des personnalisations supplémentaires.
+- Utilisez Microsoft Visual Studio 2015 (ou version ultérieure) pour développer.
+- Générez des modifications supplémentaires et des améliorations (notamment les autorisations, les certifications, les modifications de manifeste et d’autres éléments).
 
 ### <a name="configuration-scenario"></a>Scénario de configuration
 
@@ -224,4 +214,4 @@ Pour améliorer ou personnaliser la vitrine cliente de votre fournisseur de solu
 
 - Ce site Web prend en charge le tarif au prorata dans les cas où les clients ajoutent des sièges à un abonnement existant.
 - Chaque abonnement expire au bout d’un an et ne peut pas être modifié une fois l’abonnement acheté.
-- La date de fin de l’abonnement n’est pas modifiée par l’ajout de sièges supplémentaires. Les clients sont facturés pour le nombre de jours restants jusqu’à la date de fin. Par exemple, si le coût de l’abonnement est de $365, et que vous ajoutez un autre siège le deuxième jour, le prix du nouveau siège sera de $364. Si vous ajoutez un délai de 10 jours plus tard, le prix sera de $354.
+- La date de fin de l’abonnement n’est pas modifiée par l’ajout de sièges supplémentaires. Les clients sont facturés pour le nombre de jours restants jusqu’à la date de fin. Par exemple, si le coût d’un abonnement est de $365, et que vous ajoutez un autre siège le deuxième jour, le prix du nouveau siège sera de $364. Si vous ajoutez un autre siège 10 jours plus tard, le prix sera de $354.

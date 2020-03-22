@@ -7,11 +7,11 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 ms.localizationpriority: medium
 ms.openlocfilehash: 6540af51e462974592ec18d7dd9ede8517ba1725
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899796"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80083106"
 ---
 # <a name="invoice-resources"></a>Ressources de facturation
 
@@ -52,7 +52,7 @@ Une facture contient une collection d’articles facturés, et chaque élément 
 | Propriété            | Type                                                           | Description                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | invoiceLineItemType | chaîne                                                         | Type de détail de la facture : « None », « usage\_Line\_Items », « Billing\_Line\_Items ». |
-| billingProvider     | chaîne                                                         | Le fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».         |
+| BillingProvider     | chaîne                                                         | Le fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».         |
 | liens               | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens vers les ressources.                                                               |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                          |
 
@@ -63,7 +63,7 @@ Chaque facture individuelle au sein d’une facture est représentée sous la fo
 | Propriété            | Type                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | invoiceLineItemType | chaîne                                                         | Type de ligne de facturation : « None », « usage\_Line\_Items », « facturation\_Line\_Items ». |
-| billingProvider     | chaîne                                                         | Le fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».            |
+| BillingProvider     | chaîne                                                         | Le fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».            |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                             |
 
 ## <a name="invoicesummary"></a>InvoiceSummary
@@ -110,7 +110,7 @@ Représente un élément de facturation de facture pour les abonnements basés s
 | proportion                   | chaîne                                                         | Obtient ou définit la quantité totale. Montant total = prix unitaire * quantité.  |
 | attributs               | chaîne                                                         | Obtient les attributs.                                                  |
 | billingCycleType         | chaîne                                                         | Obtient ou définit le type de cycle de facturation.                                  |
-| billingProvider          | chaîne                                                         | Obtient le fournisseur de facturation.                                            |
+| BillingProvider          | chaîne                                                         | Obtient le fournisseur de facturation.                                            |
 | chargeEndDate            | chaîne au format date-heure UTC                                 | Obtient ou définit la date de fin des frais.                             |
 | chargeStartDate          | chaîne au format date-heure UTC                                 | Obtient ou définit la date de début des frais.                           |
 | chargeType               | chaîne                                                         | Obtient ou définit le type de frais.                                      |
@@ -147,7 +147,7 @@ Représente un élément de facturation de facture pour les abonnements basés s
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | attributs               | chaîne                                                         | Obtient les attributs.                                                  |
 | billingCycleType         | chaîne                                                         | Obtient ou définit le type de cycle de facturation.                                  |
-| billingProvider          | chaîne                                                         | Obtient le fournisseur de facturation.                                            |
+| BillingProvider          | chaîne                                                         | Obtient le fournisseur de facturation.                                            |
 | chargeEndDate            | chaîne au format date-heure UTC                                 | Obtient ou définit la date de fin des frais.                             |
 | chargeStartDate          | chaîne au format date-heure UTC                                 | Obtient ou définit la date de début des frais.                           |
 | chargeType               | chaîne                                                         | Obtient ou définit le type de frais.                                      |
@@ -222,7 +222,7 @@ Représente un élément de facturation de facture pour les abonnements basés s
 | Sous-total | decimal | Obtient ou définit le montant après la remise. |
 | TaxTotal | decimal | Obtient ou définit les taxes facturées. |
 | TotalForCustomer | decimal | Obtient ou définit le montant total après la remise et la taxe. |
-| Currency | chaîne | Obtient ou définit la devise utilisée pour cet élément de ligne. |
+| Symbole monétaire | chaîne | Obtient ou définit la devise utilisée pour cet élément de ligne. |
 | PublisherName | chaîne | Obtient ou définit le nom de l’éditeur associé à cet achat. |
 | PublisherId | chaîne | Obtient ou définit l’ID d’éditeur associé à cet achat. |
 | SubscriptionDescription | chaîne | Obtient ou définit la description de l’abonnement associée à cet achat. |
@@ -240,7 +240,7 @@ Représente un élément de facturation de facture pour les abonnements basés s
 | MeterDescription | chaîne | Obtient ou définit la description du compteur pour l’élément de ligne de consommation. |
 | ReservationOrderId | chaîne | Obtient ou définit l’identificateur d’ordre de réservation pour un achat Azure RI. |
 | BillingFrequency | chaîne | Obtient ou définit la fréquence de facturation. |
-| InvoiceLineItemType | InvoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
+| invoiceLineItemType | invoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
 | BillingProvider | BillingProvider | Retourne le fournisseur de facturation. |
 
 ## <a name="dailyratedusagelineitem"></a>DailyRatedUsageLineItem
@@ -278,7 +278,7 @@ Représente les Articles de ligne de rapprochement non facturés pour une utilis
 | ConsumedService | chaîne | Obtient ou définit le nom du service consommé. |
 | ResourceGroup | chaîne | Obtient ou définit le nom du groupe de ressources. |
 | URI | chaîne | Obtient ou définit l’URI de l’instance de ressource sur le sujet de l’utilisation. |
-| Tags | chaîne | Obtient ou définit les balises ajoutées par le client. |
+| Balises | chaîne | Obtient ou définit les balises ajoutées par le client. |
 | AdditionalInfo | chaîne | Obtient ou définit les métadonnées spécifiques au service. Par exemple, un type d’image pour un ordinateur virtuel. |
 | ServiceInfo1 | chaîne | Obtient ou définit les métadonnées de service Azure internes. |
 | ServiceInfo2 | chaîne | Obtient ou définit les informations de service, par exemple, un type d’image pour un ordinateur virtuel et un nom de fournisseur de services Internet pour ExpressRoute. |
@@ -300,5 +300,5 @@ Représente les Articles de ligne de rapprochement non facturés pour une utilis
 | EffectiveUnitPrice | decimal | Obtient ou définit le prix unitaire effectif. |
 | RateOfPartnerEarnedCredit | decimal | Obtient ou définit le taux de crédit gagné du partenaire. |
 | hasPartnerEarnedCredit | bool | Obtient ou définit le crédit gagné du partenaire appliqué. |
-| InvoiceLineItemType | InvoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
+| invoiceLineItemType | invoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
 | BillingProvider | BillingProvider | Retourne le fournisseur de facturation. |
