@@ -283,7 +283,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Lituanie | LT | fr-fr, LT-LT |
 | Luxembourg | LU | en-US, fr-FR |
 | Macao R.A.S. | MOLYBDÈN | fr-fr, zh-HK |
-| Macédoine, Ex.-Rép. yougoslave de | MK | fr-FR |
+| Macédoine du Nord | MK | fr-FR |
 | Madagascar | MG | fr-FR |
 | Malawi | MW | fr-FR |
 | Malaisie | MY | en-US, MS-MY |
@@ -297,7 +297,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Mayotte | YT | fr-FR |
 | Mexique | MX | en-US, es-ES |
 | Micronésie | Radio | fr-FR |
-| République de Moldavie | MD | en-US, RO-RO |
+| République de Moldova | MD | en-US, RO-RO |
 | Monaco | MC | en-US, fr-FR |
 | Mongolie | PORTABLE | fr-FR |
 | Monténégro | ME | fr-FR |
@@ -363,7 +363,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Soudan du Sud | SÉCURITÉ | fr-FR |
 | Espagne | ES | en-US, es-ES, en-US, en-US |
 | Sri Lanka | LK | fr-FR |
-| Sainte-Hélène, ascension, Tristan da Cunha | &AMP; | fr-FR |
+| Sainte-Hélène, Ascension, Tristan da Cunha | &AMP; | fr-FR |
 | Surinam | SR | fr-FR |
 | Svalbard | SJ | fr-FR |
 | Suède | SE | en-US, SV-SE |
