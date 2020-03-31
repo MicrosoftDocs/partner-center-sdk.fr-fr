@@ -4,20 +4,20 @@ description: Comment obtenir une carte de tarifs Azure avec des prix pour Micros
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1a11731aedbe3014f6f9b4eb4c26207e3372d070
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d8e4fb8364c05a4e50524a1a75cb20a6755e0ba5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489999"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416706"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Obtenir les prix des services partagés du partenaire Microsoft Azure
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -63,15 +63,15 @@ Get-PartnerAzureRateCard -SharedServices
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                               |
+| Méthode  | URI de demande                                                               |
 |---------|---------------------------------------------------------------------------|
-| **Télécharger** | *{baseURL}* /v1/ratecards/Azure-Shared ? Currency = {currency} & region = {region} |
+| **GET** | *{baseURL}* /v1/ratecards/Azure-Shared ? Currency = {currency} & region = {region} |
 
 **Paramètres d’URI**
 
 | Nom     | Type   | Obligatoire | Description                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| accès | chaîne | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple, « EUR »). La valeur par défaut est la devise associée au marché dans le profil de partenaire. |
+| devise | chaîne | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple, « EUR »). La valeur par défaut est la devise associée au marché dans le profil de partenaire. |
 | région   | chaîne | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple, « FR »). La valeur par défaut est le code de pays/région défini dans le profil de partenaire.        |
 
 Si l’en-tête X-locale facultatif est inclus dans la demande, sa valeur détermine la langue utilisée pour les détails dans la réponse.
@@ -82,7 +82,7 @@ Si l’en-tête X-locale facultatif est inclus dans la demande, sa valeur déter
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -103,7 +103,7 @@ Si cette opération réussit, elle retourne une ressource de [carte de tarifs Az
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

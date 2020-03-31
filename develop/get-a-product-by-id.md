@@ -4,26 +4,26 @@ description: Obtient la ressource de produit spécifiée à l’aide d’un ID d
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 752245d5a307da69fff105de09de6ae167b736fc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1b71816ab1a682999704fceb1384518b84b52584
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489479"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413685"
 ---
 # <a name="get-a-product-by-id"></a>Obtenir un produit par ID
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Obtient la ressource de produit spécifiée à l’aide d’un ID de produit.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID de produit.
 
 ## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
@@ -64,9 +64,9 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                   |
+| Méthode  | URI de demande                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID} ? pays = {Country} http/1.1  | 
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID} ? pays = {Country} http/1.1  | 
 
 **Paramètre URI**
 
@@ -84,7 +84,7 @@ Utilisez les paramètres de chemin d’accès suivants pour accéder au produit 
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -103,7 +103,7 @@ En cas de réussite, le corps de la réponse contient une ressource de [produit]
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 Cette méthode retourne les codes d’erreur suivants :
 

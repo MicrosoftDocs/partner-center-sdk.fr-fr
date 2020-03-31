@@ -4,22 +4,22 @@ description: Pour vous aider à être rapidement opérationnel avec les API de l
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a134988ed2e9015e9c044ee537a1631679c0e92
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: 9cc3605287da38cee9a67e4e7fe9ec5b5784b7dc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995214"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416391"
 ---
 # <a name="partner-center-samples"></a>Exemples de l’espace partenaires
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de C# programme, des extraits de code managés et des exemples de demandes et de réponses Rest.

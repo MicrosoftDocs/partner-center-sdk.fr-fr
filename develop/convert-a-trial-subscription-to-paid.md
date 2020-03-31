@@ -4,26 +4,26 @@ description: Conversion d’un abonnement d’évaluation en un abonnement payan
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 593b995c8d17ff5bc2425cb9b2672ad1fc125944
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d41fa94a78d49a6537834ddaf9d4c62c54d8f911
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488889"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413564"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>Convertir un abonnement d’évaluation en payant
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez convertir un abonnement d’évaluation en payant.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 - ID d’abonnement pour un abonnement d’évaluation actif.
 - Offre de conversion disponible.
@@ -69,7 +69,7 @@ Procédez comme suit pour convertir un abonnement d’évaluation par le biais d
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
     ```
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour convertir un abonnement d’évaluation en un abonnement payant :
 
@@ -112,9 +112,9 @@ else
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                                                                                 |
+| Méthode   | URI de demande                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/conversions http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/conversions http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -129,7 +129,7 @@ Utilisez les paramètres de chemin d’accès suivants pour identifier le client
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Une ressource de [conversion](conversions-resources.md#conversion) remplie doit être incluse dans le corps de la demande.
 
@@ -165,7 +165,7 @@ En cas de réussite, le corps de la réponse contient une ressource [ConversionR
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

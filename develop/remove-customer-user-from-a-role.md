@@ -4,28 +4,28 @@ description: Comment supprimer un utilisateur d’un rôle d’annuaire dans un 
 ms.assetid: 5129AB77-0A66-47A3-8DE8-1AC23C53F81A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 280e13b48ed21bc5cddc1f6e45dc901c0abcae78
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bfbbecfe67b4c1711c290e0da198a63894e2a209
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486639"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415464"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Supprimer un utilisateur client d’un rôle
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment supprimer un utilisateur d’un rôle d’annuaire dans un compte client.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -49,7 +49,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selecte
 
 **Syntaxe de la requête**
 
-| Méthode     | URI de requête                                                                                                                           |
+| Méthode     | URI de demande                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | **SUPPRIMER** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/directoryroles/{Role-ID}/usermembers/{user-ID} http/1.1 |
 
@@ -73,7 +73,7 @@ Utilisez les paramètres URI suivants pour identifier le client, le rôle et l�
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -96,7 +96,7 @@ Si l’utilisateur est correctement supprimé du rôle, le corps de la réponse 
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

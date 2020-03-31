@@ -4,20 +4,20 @@ description: Vous pouvez utiliser la ressource MeterUsageRecord pour décrire le
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 003db39c92e96b12863edebb46b3e3341ffae10e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 48ed74f0440a7743415368fd565e43b6f06b1771
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488309"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416459"
 ---
 # <a name="meter-usage-record-resource"></a>Ressource enregistrement de l’utilisation du compteur
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez utiliser la ressource **MeterUsageRecord** pour décrire le coût monétaire estimé de l’utilisation du niveau de mesure d’un abonnement dans le cycle de facturation actuel.
 
@@ -29,12 +29,12 @@ Vous pouvez utiliser la ressource **MeterUsageRecord** pour décrire le coût mo
 | MeterId  | chaîne             | Obtient ou définit l’identificateur du compteur.                                                        |
 | MeterName          | chaîne             | Obtient ou définit le nom du compteur.                                       |
 | Catégorie               | chaîne             | Obtient ou définit la catégorie de ressources Azure.                                                 |
-| Sous-catégorie             | chaîne             |  Obtient ou définit la sous-catégorie de ressources Azure.                                                     |
-| QuantityUsed        | décimal             | Obtient ou définit la quantité de la ressource Azure utilisée.   |
+| Subcategory             | chaîne             |  Obtient ou définit la sous-catégorie de ressources Azure.                                                     |
+| QuantityUsed        | decimal             | Obtient ou définit la quantité de la ressource Azure utilisée.   |
 | Unit   | chaîne             | Obtient ou définit l’unité de mesure de la ressource Azure. |
-| PrixTotal   | décimal             | Obtient ou définit le coût total d’utilisation estimé. |
+| TotalCost   | decimal             | Obtient ou définit le coût total d’utilisation estimé. |
 | CurrencyLocale   | chaîne             | Paramètres régionaux dans lesquels l’abonnement a été utilisé. Cette propriété détermine la devise utilisée sur la facture. Cette propriété est disponible pour les abonnements Microsoft Azure (MS-AZR-0145P). |
 | CurrencyCode   | chaîne             | Obtient ou définit le code de la devise. Cette propriété est disponible pour les plans Azure.                                         |
-| USDTotalCost   | décimal             | Obtient ou définit le coût total estimé en USD. Cette propriété est disponible pour les plans Azure.                                         |
+| USDTotalCost   | decimal             | Obtient ou définit le coût total estimé en USD. Cette propriété est disponible pour les plans Azure.                                         |
 | LastModifiedDate & | chaîne             | Jour (dans le format date-heure) de la dernière modification de cet enregistrement.                             |
 | Attributs       | ResourceAttributes | Attributs de métadonnées correspondant à la ressource.                                        |                                           |

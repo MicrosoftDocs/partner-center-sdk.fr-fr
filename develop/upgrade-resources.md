@@ -4,21 +4,21 @@ description: Décrit les ressources utilisées pour mettre à niveau un utilisat
 ms.assetid: 869007B3-D6D4-4E79-B4F0-445CA5D88D2C
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b085e6598ce9585e0bcea72724817b0b76b589a1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d75d81dffbe30633038c03cec2cdf85e05536eb9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486279"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414521"
 ---
 # <a name="upgrade-resources"></a>Mettre à niveau les ressources
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -35,7 +35,7 @@ Décrit le comportement d’une ressource de mise à niveau individuelle.
 | TargetOffer   | Offre                  | L’offre de l’abonnement cible.                                                        |
 | UpgradeType   | chaîne                 | Le type de mise à niveau : « None », « Upgrade\_Only » ou « Upgrade\_with\_License\_Transfer ».         |
 | isEligible    | booléen                | Indique si la mise à niveau peut être effectuée.                                                  |
-| Quantité      | Entier                | Quantification de la nouvelle offre à acheter. La valeur par défaut est la quantité de l’abonnement source. |
+| Quantité      | integer                | Quantification de la nouvelle offre à acheter. La valeur par défaut est la quantité de l’abonnement source. |
 | UpgradeErrors | Tableau de UpgradeErrors | Raisons pour lesquelles la mise à niveau ne peut pas être effectuée, le cas échéant.                                      |
 | Attributs    | ResourceAttributes     | Attributs de métadonnées correspondant à la mise à niveau.                                        |
 

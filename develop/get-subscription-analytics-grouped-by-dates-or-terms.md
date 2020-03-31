@@ -4,20 +4,20 @@ description: Comment faire regrouper les informations d’analyse d’abonnement
 ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 15387d0cbf00917628a4f401094c23458e59064c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: eb16bcde0b2e246f797926276eab02d6ac7a3f4f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487159"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416647"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Récupération de l’analyse d’abonnement par dates ou termes
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ Comment obtenir des informations d’analyse d’abonnement pour vos clients reg
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
@@ -36,9 +36,9 @@ Comment obtenir des informations d’analyse d’abonnement pour vos clients reg
 
 **Syntaxe de la requête**
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |--------|-------------|
-| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? GroupBy = {groupby_queries} |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? GroupBy = {groupby_queries} |
 
  
 **Paramètres d’URI**
@@ -65,27 +65,27 @@ Le tableau suivant présente la liste des champs pris en charge pour Group by.
 
 | Champ | Type | Description |
 |-------|------|-------------|
-| customerTenantId | chaîne | Chaîne au format GUID qui identifie le locataire client. |  
-| Souhaite | chaîne | Nom du client. |  
+| CustomerTenantId | chaîne | Chaîne au format GUID qui identifie le locataire client. |  
+| customerName | chaîne | Nom du client. |  
 | customerMarket | chaîne | Pays/région dans lequel le client fait des affaires. |  
 | id | chaîne | Chaîne au format GUID qui identifie l’abonnement. |  
-| status | chaîne | État de l’abonnement. Les valeurs prises en charge sont : « ACTIVE », « SUSPENDed » ou « deprovision ». |  
+| statut | chaîne | État de l'abonnement. Les valeurs prises en charge sont : « ACTIVE », « SUSPENDed » ou « deprovision ». |  
 | productName | chaîne | Le nom du produit. |  
 | subscriptionType | chaîne | Type d’abonnement. Remarque : ce champ respecte la casse. Les valeurs prises en charge sont : « Office », « Azure », « Microsoft365 », « Dynamics », « EMS ». |  
 | autoRenewEnabled | Booléen | Valeur indiquant si l’abonnement est renouvelé automatiquement. |  
 | Partenaire  | chaîne | ID MPN. Pour un revendeur direct, il s’agit de l’ID MPN du partenaire. Pour un revendeur indirect, il s’agit de l’ID MPN du revendeur indirect. |  
-| friendlyName | chaîne | Nom de l’abonnement. |  
+| friendlyName | chaîne | Nom de l'abonnement. |  
 | partnerName | chaîne | Nom du partenaire pour lequel l’abonnement a été acheté |  
-| Désigne | chaîne | Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.
-| CreationDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été créé. |  
-| effectiveStartDate | chaîne au format date/heure UTC | Date de début de l’abonnement. |  
-| commitmentEndDate | chaîne au format date/heure UTC | Date de fin de l’abonnement. |  
-| currentStateEndDate | chaîne au format date/heure UTC | Date à laquelle l’état actuel de l’abonnement sera modifié. |  
-| trialToPaidConversionDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement convertit de l’essai au paiement. La valeur par défaut est null. |  
-| trialStartDate | chaîne au format date/heure UTC | Date de début de la période d’évaluation de l’abonnement. La valeur par défaut est null. |  
-| lastUsageDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été utilisé pour la dernière fois. La valeur par défaut est null. |  
-| deprovisionedDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été annulé. La valeur par défaut est null. |  
-| lastRenewalDate | chaîne au format date/heure UTC | Date à laquelle l’abonnement a été renouvelé pour la dernière fois. La valeur par défaut est null. |  
+| providerName | chaîne | Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.
+| creationDate | Chaîne au format date/heure UTC | Date à laquelle l’abonnement a été créé. |  
+| effectiveStartDate | Chaîne au format date/heure UTC | Date de début de l’abonnement. |  
+| commitmentEndDate | Chaîne au format date/heure UTC | Date de fin de l’abonnement. |  
+| currentStateEndDate | Chaîne au format date/heure UTC | Date à laquelle l’état actuel de l’abonnement sera modifié. |  
+| trialToPaidConversionDate | Chaîne au format date/heure UTC | Date à laquelle l’abonnement convertit de l’essai au paiement. La valeur par défaut est null. |  
+| trialStartDate | Chaîne au format date/heure UTC | Date de début de la période d’évaluation de l’abonnement. La valeur par défaut est null. |  
+| lastUsageDate | Chaîne au format date/heure UTC | Date à laquelle l’abonnement a été utilisé pour la dernière fois. La valeur par défaut est null. |  
+| deprovisionedDate | Chaîne au format date/heure UTC | Date à laquelle l’abonnement a été annulé. La valeur par défaut est null. |  
+| lastRenewalDate | Chaîne au format date/heure UTC | Date à laquelle l’abonnement a été renouvelé pour la dernière fois. La valeur par défaut est null. |  
 
 **Filtrer les champs**
 
@@ -93,9 +93,9 @@ Le tableau suivant répertorie les champs de filtre facultatifs et leurs descrip
 
 | Champ | Type |  Description |
 |-------|------|--------------|
-| top | entier | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
-| skip | entier | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, Top = 10000 et Skip = 0 récupère les 10000 premières lignes de données, Top = 10000 et Skip = 10000 récupère les 10000 lignes de données suivantes. |
-| filter | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à l’opérateur **EQ** **, ne, ou**pour certains champs, l’opérateur **Contains** . Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Les valeurs de chaîne doivent être entourées de guillemets simples dans le paramètre de filtre. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
+| top | int | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
+| skip | int | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, Top = 10000 et Skip = 0 récupère les 10000 premières lignes de données, Top = 10000 et Skip = 10000 récupère les 10000 lignes de données suivantes. |
+| filtre | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à l’opérateur **EQ** **, ne, ou**pour certains champs, l’opérateur **Contains** . Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Les valeurs de chaîne doivent être entourées de guillemets simples dans le paramètre de filtre. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
 | aggregationLevel | chaîne | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. **Remarque**: ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre GroupBy. |
 | Comportant | chaîne | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
 
@@ -106,7 +106,7 @@ Le tableau suivant répertorie les champs de filtre facultatifs et leurs descrip
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -126,7 +126,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 
@@ -181,4 +181,4 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
 
- - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)
+ - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

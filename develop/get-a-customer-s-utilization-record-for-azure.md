@@ -4,28 +4,28 @@ description: Vous pouvez utiliser l’API d’utilisation d’Azure pour obtenir
 ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 825b5ea8c65d5ae52979ca5b412f36dfdff8ab59
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 07e915f769a0eda998a07333544424d912ea8629
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489589"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413720"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Obtenir les enregistrements d’utilisation d’un client pour Azure
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez obtenir les enregistrements d’utilisation de l’abonnement Azure d’un client pendant une période donnée à l’aide de l’API d’utilisation d’Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 - Identificateur d’abonnement.
 
@@ -39,7 +39,7 @@ Par exemple, le système de facturation utilise les mêmes données d’utilisat
 
 Cette API REST est paginée. Si la charge utile de la réponse est supérieure à une page unique, vous devez suivre le lien suivant pour obtenir la page suivante des enregistrements d’utilisation.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour obtenir les enregistrements d’utilisation Azure :
 
@@ -132,9 +132,9 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |------- | ----------- |
-| **Télécharger** | *{baseURL}* /v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/utilizations/Azure ? Start\_Time = {Start-time} & end\_Time = {End-time} & Granularity = {granularité} & show\_Details = {true} |
+| **GET** | *{baseURL}* /v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/utilizations/Azure ? Start\_Time = {Start-time} & end\_Time = {End-time} & Granularity = {granularité} & show\_Details = {true} |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -142,7 +142,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 
 | Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| client-locataire-ID | chaîne | Oui | Chaîne au format GUID qui identifie le client. |
+| customer-tenant-id | chaîne | Oui | Chaîne au format GUID qui identifie le client. |
 | ID d’abonnement | chaîne | Oui | Chaîne au format GUID qui identifie l’abonnement. |
 | start_time | chaîne au format de décalage de date/heure UTC | Oui | Début de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
 | end_time | chaîne au format de décalage de date/heure UTC | Oui | Fin de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
@@ -154,7 +154,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
 Aucune
 
@@ -180,7 +180,7 @@ En cas de réussite, cette méthode retourne une collection de ressources d' [en
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de suivi réseau pour lire le code d’état HTTP, le [type de code d’erreur](error-codes.md)et des paramètres supplémentaires.
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de suivi réseau pour lire le code d’état HTTP, le [type de code d’erreur](error-codes.md)et des paramètres supplémentaires.
 
 #### <a name="response-example"></a>Exemple de réponse
 

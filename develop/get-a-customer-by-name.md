@@ -4,21 +4,21 @@ description: Obtient une collection des ressources client qui correspondent à u
 ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cd050514f49fbb867df117d2220d4f60f94e32b8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f99a91139a1341dcd82efe3727a9603beb3f1622
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490119"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413361"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Obtenir la liste des clients filtrés à l’aide d’un champ de recherche
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ Obtient une collection des ressources [client](customer-resources.md#customer) q
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Filtre construit par l’utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -66,9 +66,9 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                   |
+| Méthode  | URI de demande                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {size} & filtre = {filter} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {size} & filtre = {filter} http/1.1 |
 
  
 
@@ -78,8 +78,8 @@ Utilisez les paramètres de requête suivants.
 
 | Nom   | Type   | Obligatoire | Description                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| size   | entier    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
-| filter | filter | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
+| size   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
+| filtre | filtre | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
 
  
 
@@ -109,7 +109,7 @@ Le tableau suivant décrit les paires clé-valeur requises :
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -131,7 +131,7 @@ En cas de réussite, cette méthode retourne une collection de ressources [clien
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

@@ -1,22 +1,22 @@
 ---
-title: Effectuer un achat unique
+title: Effectuer un achat ponctuel
 description: Comment effectuer un achat unique des logiciels et des produits de réservation, tels que les abonnements logiciels, les logiciels perpétuelles et les instances de machines virtuelles réservées Azure, à l’aide de l’API espace partenaires.
 ms.date: 10/09/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 088f60bb249985a01d955aa53fc1ab7fb995f759
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c94afb2a8e1167bfad0dca8ab750fe209ad97436
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488369"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416520"
 ---
-# <a name="make-a-one-time-purchase"></a>Effectuer un achat unique
+# <a name="make-a-one-time-purchase"></a>Effectuer un achat ponctuel
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment effectuer un achat unique des logiciels et des produits de réservation, tels que les abonnements logiciels, les logiciels perpétuelles et les instances de machines virtuelles réservées Azure, à l’aide de l’API espace partenaires.
@@ -33,7 +33,7 @@ Comment effectuer un achat unique des logiciels et des produits de réservation,
 > | Antarctique                     | Guernesey                          | Saba                                     |
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
-> | Bénin                          | Guyana                            | Saint-Martin                             |
+> | Bénin                          | Guyana                            | Saint-Martin (partie française)                             |
 > | Bhoutan                         | Haïti                             | Saint-Pierre-et-Miquelon                |
 > | Bonaire                        | Heard et McDonald (Îles) | Saint-Vincent-et-les-Grenadines         |
 > | Bouvet (Île)                  | Île de Man                       | Samoa                                    |
@@ -42,12 +42,12 @@ Comment effectuer un achat unique des logiciels et des produits de réservation,
 > | Îles Vierges britanniques         | Kiribati                          | Seychelles                               |
 > | Burkina-Faso                   | Kosovo                            | Sierra Leone                             |
 > | Burundi                        | Laos                              | Saint-Eustache                           |
-> | Cambodge                       | Lesotho                           | Saint-Martin (Royaume des Pays-Bas)                             |
+> | Cambodge                       | Lesotho                           | Saint-Martin (partie néerlandaise)                             |
 > | République centrafricaine       | Liberia                           | Salomon (îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
+> | Chine                          | Malawi                            | Géorgie du Sud et les îles Sandwich du Sud |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Surinam                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
@@ -68,9 +68,9 @@ Comment effectuer un achat unique des logiciels et des produits de réservation,
 > [!NOTE]
 > Pour acheter un logiciel perpétuel, vous devez avoir été préalablement qualifié. Pour plus d’informations, contactez le support.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
 ## <a name="making-a-one-time-purchase"></a>Achat unique
@@ -105,18 +105,18 @@ Avant d’effectuer un achat unique, procédez comme suit :
 
 1. Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter. Pour ce faire, vous pouvez répertorier les produits et les références SKU en premier, ou si vous connaissez déjà les ID du produit et de la référence SKU, en les sélectionnant.
 
-    - [Obtenir une liste de produits](get-a-list-of-products.md)
+    - [Obtenir la liste des produits](get-a-list-of-products.md)
     - [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
-    - [Obtenir la liste des références (SKU) d’un produit](get-a-list-of-skus-for-a-product.md)
+    - [Obtenir la liste des références SKU d’un produit](get-a-list-of-skus-for-a-product.md)
     - [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
 2. Vérifiez l’inventaire d’une référence (SKU). Cette étape n’est nécessaire que pour les références (SKU) marquées avec un prérequis **InventoryCheck** .
 
-    - [Vérifier l’inventaire](check-inventory.md)
+    - [Vérifier le stock](check-inventory.md)
 
 3. Récupérez la [disponibilité](product-resources.md#availability) de la [référence SKU](product-resources.md#sku). Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande. Pour ce faire, utilisez l’une des API suivantes :
 
-    - [Obtenir la liste des disponibilités pour une référence (SKU)](get-a-list-of-availabilities-for-a-sku.md)
+    - [Obtenir la liste des disponibilités d’une référence SKU](get-a-list-of-availabilities-for-a-sku.md)
     - [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)  
 
 ## <a name="order-submission"></a>Soumission de commande

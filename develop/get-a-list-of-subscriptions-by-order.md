@@ -4,21 +4,21 @@ description: Obtient une collection de ressources d’abonnement qui corresponde
 ms.assetid: C6DCE351-8C02-42CD-9A80-8156BC6BF1B8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b94c8069ce38e94e9e30f79a8fc6114aad5ee850
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4fa77a9c3bd99188e57f4c3c3d72fadc99b441ac
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488489"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413824"
 ---
 # <a name="get-a-list-of-subscriptions-by-order"></a>Obtenir une liste d’abonnements par commande
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ Obtient une collection de ressources d' [abonnement](subscription-resources.md) 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - ID de commande.
 
@@ -52,9 +52,9 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                                   |
+| Méthode  | URI de demande                                                                                                                   |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions ? commande\_ID = {ID-pour-Order} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions ? commande\_ID = {ID-pour-Order} http/1.1 |
 
 
 
@@ -75,7 +75,7 @@ Ce tableau répertorie le paramètre de requête requis pour obtenir tous les ab
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -95,7 +95,7 @@ En cas de réussite, cette méthode retourne une collection de ressources d' [ab
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 

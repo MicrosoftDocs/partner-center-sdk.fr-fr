@@ -4,20 +4,20 @@ description: Obtention de toutes les informations d’analyse de l’utilisation
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 49df0ac0741ed486ab34015b409eced7fde59afd
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4e15830afba475e7de694151f67e1731e56c286e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485999"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416161"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Récupération de toutes les informations d’analyse d’utilisation Azure
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,16 +28,16 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
 
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête |
+| Méthode  | URI de demande |
 |---------|-------------|
-| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/usage/Azure http/1.1 |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/usage/Azure http/1.1 |
 
  
 
@@ -72,7 +72,7 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
         <p>skip</p>
       </td>
       <td>
-        <p>entier</p>
+        <p>int</p>
       </td>
       <td>
         <p>Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, <code>top=10000 and skip=0</code> récupère les 10000 premières lignes de données, <code>top=10000 and skip=10000</code> récupère les 10000 lignes de données suivantes, et ainsi de suite.</p>
@@ -80,7 +80,7 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
     </tr>
     <tr>
       <td>
-        <p>filter</p>
+        <p>filtre</p>
       </td>
       <td>
         <p>chaîne</p>
@@ -193,7 +193,7 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -212,7 +212,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 
@@ -237,5 +237,5 @@ Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réus
 
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
-  - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)
+  - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)
 

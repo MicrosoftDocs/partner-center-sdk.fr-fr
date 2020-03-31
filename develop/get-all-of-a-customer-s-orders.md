@@ -4,32 +4,32 @@ description: Obtient une collection de toutes les commandes pour un client spéc
 ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a4e40634ef2f7477ca46be27b318cb4cc4711b65
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d307f747dcf487b2806970aa26d2bfa970dd48b4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485899"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416120"
 ---
 # <a name="get-all-of-a-customers-orders"></a>Obtenir toutes les commandes d’un client
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient une collection de toutes les commandes pour un client spécifié. Notez qu’il y a un délai de 15 minutes au maximum entre le moment où une commande est soumise et le moment où elle apparaîtra dans un regroupement de commandes d’un client.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour obtenir une collection de toutes les commandes d’un client :
 
@@ -49,9 +49,9 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                   |
+| Méthode  | URI de demande                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders http/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders http/1.1  |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -59,15 +59,15 @@ Utilisez le paramètre de requête suivant pour obtenir toutes les commandes.
 
 | Nom                   | Type     | Obligatoire | Description                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
-| client-locataire-ID     | chaîne   | Oui      | Chaîne au format GUID correspondant au client.    |
+| customer-tenant-id     | chaîne   | Oui      | Chaîne au format GUID correspondant au client.    |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -86,7 +86,7 @@ En cas de réussite, cette méthode retourne une collection de ressources de [co
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

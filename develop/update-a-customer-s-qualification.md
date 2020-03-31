@@ -3,21 +3,21 @@ title: Mettre à jour la qualification d’un client
 description: Met à jour la qualification d’un client, y compris l’adresse associée au profil.
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f1faf509f67fa5dbb370acb9e0985a36810ed439
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0896c44ab193ca564ee210f48f536382c8070305
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486439"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414955"
 ---
 # <a name="update-a-customers-qualification"></a>Mettre à jour la qualification d’un client
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Met à jour la qualification d’un client.
 
@@ -25,7 +25,7 @@ Un partenaire peut mettre à jour la qualification d’un client pour qu’il so
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID client (client-locataire-ID).
 
 
@@ -54,9 +54,9 @@ var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                             |
+| Méthode  | URI de demande                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **POSÉ** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{customer_id}/qualification ? code = {VALIDATIONCODE} http/1.1 |
+| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{customer_id}/qualification ? code = {VALIDATIONCODE} http/1.1 |
 
 
 **Paramètre URI**
@@ -66,7 +66,7 @@ Utilisez le paramètre de requête suivant pour mettre à jour la qualification.
 | Nom                   | Type | Obligatoire | Description                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **client-locataire-ID** | GUID | Oui      | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
-| **validationCode**     | entier  | Non       | Nécessaire uniquement pour le Cloud de la communauté gouvernementale.                                                                                                            |
+| **validationCode**     | int  | Non       | Nécessaire uniquement pour le Cloud de la communauté gouvernementale.                                                                                                            |
 
 
 **En-têtes de demande**
@@ -95,7 +95,7 @@ En cas de réussite, cette méthode retourne la propriété de [**qualification*
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 

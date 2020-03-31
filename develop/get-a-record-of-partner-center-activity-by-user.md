@@ -4,21 +4,21 @@ description: Comment obtenir un enregistrement des opérations effectuées par u
 ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ef53290570d3e1c4eb8c8db0418c8b0080d80151
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: aa140c4deb71e4660078ac4f9496da3a834b2f0e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490249"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416753"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>Obtenir un enregistrement de l’activité espace partenaires
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -29,7 +29,7 @@ Utilisez cette API pour récupérer les enregistrements d’audit des 30 jours p
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -89,13 +89,13 @@ while (auditRecordEnumerator.HasValue)
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                                                                                                    |
+| Méthode  | URI de demande                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {StartDate} http/1.1                                                                                                     |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {ENDDATE} http/1.1                                                                                   |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {endDate} & filter = {"Field" : "CompanyName", "value" : "{searchSubstring}", "opérateur" : "SUBSTRING"} http/1.1 |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {endDate} & filter = {"Field" : "CustomerID", "value" : "{CustomerID}", "opérateur" : "Equals"} http/1.1          |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {endDate} & filter = {"Field" : "ResourceType", "value" : "{ResourceType}", "opérateur" : "Equals"} http/1.1      |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {StartDate} http/1.1                                                                                                     |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {ENDDATE} http/1.1                                                                                   |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {endDate} & filter = {"Field" : "CompanyName", "value" : "{searchSubstring}", "opérateur" : "SUBSTRING"} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {endDate} & filter = {"Field" : "CustomerID", "value" : "{CustomerID}", "opérateur" : "Equals"} http/1.1          |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/AuditRecords ? StartDate = {startDate} & EndDate = {endDate} & filter = {"Field" : "ResourceType", "value" : "{ResourceType}", "opérateur" : "Equals"} http/1.1      |
 
  
 
@@ -107,7 +107,7 @@ Utilisez les paramètres de requête suivants lors de la création de la demande
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | startDate | date   | Non       | Date de début au format aaaa-mm-jj. Si aucune valeur n’est fournie, le jeu de résultats est défini par défaut sur 30 jours avant la date de la demande. Ce paramètre est facultatif lorsqu’un filtre est fourni.                                          |
 | endDate   | date   | Non       | Date de fin au format aaaa-mm-jj. Ce paramètre est facultatif lorsqu’un filtre est fourni. Lorsque la date de fin est omise ou définie sur null, la demande retourne la fenêtre Max ou utilise la date de fin du jour, selon la valeur la plus petite. |
-| filter    | chaîne | Non       | Filtre à appliquer. Il doit s’agir d’une chaîne encodée. Ce paramètre est facultatif lorsque la date de début ou la date de fin sont fournies.                                                                                              |
+| filtre    | chaîne | Non       | Filtre à appliquer. Il doit s’agir d’une chaîne encodée. Ce paramètre est facultatif lorsque la date de début ou la date de fin sont fournies.                                                                                              |
 
  
 
@@ -164,7 +164,7 @@ Le tableau suivant décrit les paires clé-valeur requises :
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -186,7 +186,7 @@ En cas de réussite, cette méthode retourne un ensemble d’activités qui rép
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

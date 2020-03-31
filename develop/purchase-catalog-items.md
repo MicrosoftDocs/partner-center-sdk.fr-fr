@@ -4,21 +4,21 @@ description: Comment acheter des éléments de catalogue à l’aide de l’API 
 ms.assetid: B9B1B66A-D1AD-44E8-85AA-49D9C2A94BE5
 ms.date: 07/12/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ff4f04bc53f96e6e7670922093bca830456de921
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 083bb517f20c0a733f7d87bb7107bcface4f79ec
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486739"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416281"
 ---
 # <a name="purchase-catalog-items"></a>Éléments du catalogue d’achat
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 
 Le scénario suivant illustre le processus générique pour l’achat d’éléments à partir du catalogue à l’aide de l’API espace partenaires.
@@ -36,18 +36,18 @@ Pour acheter un élément dans le catalogue, procédez comme suit :
 
 1.  Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter.
 
-    - [Obtenir une liste de produits](get-a-list-of-products.md)
+    - [Obtenir la liste des produits](get-a-list-of-products.md)
     - [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
-    - [Obtenir la liste des références (SKU) d’un produit](get-a-list-of-skus-for-a-product.md)
+    - [Obtenir la liste des références SKU d’un produit](get-a-list-of-skus-for-a-product.md)
     - [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
 2.  Vérifiez l’inventaire d’une référence (SKU). Cette étape n’est nécessaire que pour les références (SKU) marquées avec une valeur **InventoryCheck** dans la propriété [purchasePrerequisites](product-resources.md#sku) .
 
-    - [Vérifier l’inventaire](check-inventory.md) 
+    - [Vérifier le stock](check-inventory.md) 
 
 3.  Récupérez la [disponibilité](product-resources.md#availability) de la [référence SKU](product-resources.md#sku). Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande. Pour ce faire, utilisez l’une des API suivantes : 
 
-    - [Obtenir la liste des disponibilités pour une référence (SKU)](get-a-list-of-availabilities-for-a-sku.md)
+    - [Obtenir la liste des disponibilités d’une référence SKU](get-a-list-of-availabilities-for-a-sku.md)
     - [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)
 
 

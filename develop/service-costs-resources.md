@@ -4,20 +4,20 @@ description: Décrit les ressources associées aux services achetés par un clie
 ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a7d08c740e0a338e1c8b09908b346257f60fe444
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 58ec7fc5806a86c3d4f3aad00c4aaef418b753ca
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488079"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415322"
 ---
 # <a name="service-costs-resources"></a>Ressources des coûts de service
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Décrit les ressources associées aux services achetés par un client.
 
@@ -27,7 +27,7 @@ Décrit les ressources associées aux services achetés par un client.
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| details | Tableau d’objets [ServiceCostsSummaryDetail](#servicecostssummarydetail) | Liste détaillée du résumé du coût du service, distingué par le type de facture.|
+| détails | Tableau d’objets [ServiceCostsSummaryDetail](#servicecostssummarydetail) | Liste détaillée du résumé du coût du service, distingué par le type de facture.|
 | liens | [ResourceLinks](utility-resources.md#resourcelinks) | Liens vers les ressources. |
 | attributs | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées. |
 
@@ -37,10 +37,10 @@ Décrit les ressources associées aux services achetés par un client.
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | BillingStartDate | date | Début de la période de facturation. |
-| billingEndDate | date | Fin de la période de facturation. |
-| pretaxTotal | Double | Total de tous les coûts pour le client. |
-| TTC  | Double | Taxe totale imputée sur tous les articles achetés par le client. |
-| afterTaxTotal | Double | Coût total net pour tous les articles achetés par le client. |
+| BillingEndDate | date | Fin de la période de facturation. |
+| pretaxTotal | double | Total de tous les coûts pour le client. |
+| TTC  | double | Taxe totale imputée sur tous les articles achetés par le client. |
+| afterTaxTotal | double | Coût total net pour tous les articles achetés par le client. |
 | currencyCode | chaîne | Représente la devise utilisée pour les coûts. |
 | currencySymbol | chaîne | Symbole monétaire utilisé pour les coûts. |
 | customerId | chaîne | ID du client effectuant l’achat. |
@@ -52,7 +52,7 @@ Décrit les ressources associées aux services achetés par un client.
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | invoiceType | chaîne | InvoiceType que le résumé du coût du service a été généré. |
-| Tête | [ServiceCostsSummary](#servicecostssummary) | Résumé du coût du service agrégé par un client sous un type de facture. |
+| tête | [ServiceCostsSummary](#servicecostssummary) | Résumé du coût du service agrégé par un client sous un type de facture. |
 
 ## <a name="servicecostlineitem"></a>ServiceCostLineItem
 
@@ -73,23 +73,23 @@ Décrit les ressources associées aux services achetés par un client.
 | resellerMPNId            | chaîne                         | Utilisé uniquement dans les scénarios de partenaires à deux niveaux. Fait référence à l’identificateur MPN. |
 | chargeType               | chaîne                         | Type de frais associé.                                          |
 | quantity                 | nombre                         | Quantité d’unités utilisées ou achetées.                             |
-| Prix                | nombre                         | Prix unitaire.                                                  |
+| unitPrice                | nombre                         | Prix unitaire.                                                  |
 | pretaxTotal              | nombre                         | Total des frais pour cet article avant les taxes.                         |
 | TTC                      | nombre                         | Montant total des frais de taxe engagés pour cet article.                         |
 | afterTaxTotal            | nombre                         | Coût total net de cet article.                                    |
 | currencyCode             | chaîne                         | Représente la devise utilisée pour les coûts.                          |
 | currencySymbol           | chaîne                         | Symbole monétaire utilisé pour les coûts.                              |
 | customerId               | chaîne                         | ID du client effectuant l’achat.                          |
-| Souhaite             | chaîne                         | Nom du client qui effectue l’achat.                        |
+| customerName             | chaîne                         | Nom du client qui effectue l’achat.                        |
 | invoiceNumber            | chaîne                         | Numéro de la facture à laquelle cet article appartient.                   |
-| productId                | chaîne                         | Identificateur du produit.                                              |
+| productId                | chaîne                         | L'identificateur du produit.                                              |
 | skuId                    | chaîne                         | Identificateur de référence (SKU).                                                  |
 | availabilityId           | chaîne                         | Identificateur de disponibilité.                                         |
 | productName              | chaîne                         | Nom du produit.                                                    |
 | skuName                  | chaîne                         | Nom de la référence (SKU).                                                        |
 | publisherName            | chaîne                         | Nom de l’éditeur.                                                  |
 | PublisherId              | chaîne                         | Identificateur de l’éditeur.                                            |
-| termAndBillingCycle      | chaîne                         | Le terme et le cycle de facturation.                                          |
+| TermAndBillingCycle      | chaîne                         | Le terme et le cycle de facturation.                                          |
 | discountDetails          | chaîne                         | Détails de la remise.                                                |
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
@@ -97,4 +97,4 @@ Décrit les ressources associées aux services achetés par un client.
 | Propriété             | Type                               | Description                         |
 |----------------------|------------------------------------|-------------------------------------|
 | serviceCostLineItems | [Lien](utility-resources.md#link) | URI pour récupérer les éléments de ligne. |
-| rythme                 | [Lien](utility-resources.md#link) | URI auto.                       |
+| self                 | [Lien](utility-resources.md#link) | URI auto.                       |

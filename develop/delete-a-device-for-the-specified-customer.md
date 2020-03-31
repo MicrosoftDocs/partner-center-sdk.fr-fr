@@ -4,32 +4,32 @@ description: Comment supprimer un appareil qui appartient à un client spécifi�
 ms.assetid: 44F06D4B-E9DE-470F-BAE2-15205CC7C699
 ms.date: 06/20/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c5a8a1e69bd79b9444ec19bcac3c0b62374fbd3f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: dd742086c9aa97dac0f45c8d124476a37028708f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489899"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412634"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>Supprimer un appareil pour le client spécifié
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
 Cette rubrique explique comment supprimer un appareil qui appartient à un client spécifié.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 - Identificateur du lot de l’appareil.
-- Identificateur de l’appareil.
+- Identificateur de périphérique.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour supprimer un appareil pour le client spécifié :
 
@@ -53,7 +53,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                                                                        |
+| Méthode     | URI de demande                                                                                                                        |
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
 | DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices/{Device-ID} http/1.1  |
 
@@ -65,13 +65,13 @@ Utilisez les paramètres de chemin d’accès suivants lors de la création de l
 |----------------|--------|----------|--------------------------------------------------------------------|
 | ID client    | chaîne | Oui      | Chaîne au format GUID qui identifie le client.              |
 | ID d’devicebatch | chaîne | Oui      | Identificateur du lot de l’appareil qui contient l’appareil. |
-| ID de l’appareil      | chaîne | Oui      | Identificateur de l’appareil.                                             |
+| ID de l’appareil      | chaîne | Oui      | Identificateur de périphérique.                                             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Aucune
 
@@ -94,7 +94,7 @@ En cas de réussite, la réponse retourne un code d’état **204 aucun contenu*
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

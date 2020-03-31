@@ -3,36 +3,36 @@ title: Obtenir la liste des droits Azure pour un abonnement
 description: Vous pouvez utiliser la ressource AzureEntitlement pour obtenir une collection de ressources de droits Azure qui appartiennent à un abonnement.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 788ad84ca128995067886f67fa70c17239cfd95a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d2aaaed8fd4455cc2e7b57281ea1e104fdbe030c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487499"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412298"
 ---
 # <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Obtenir la liste des droits Azure pour un abonnement
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez utiliser la [ressource d’habilitation Azure](subscription-resources.md#azureentitlement) (**AzureEntitlement**) pour obtenir une collection de ressources appartenant à un abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client (**Customer-client-ID**). Si vous n’avez pas d’identificateur de client, vous pouvez le Rechercher dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Identificateur d’un client (**customer-tenant-id**). Si vous n’avez pas d’identificateur de client, vous pouvez le Rechercher dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
 - Identificateur d’abonnement.
 
 ## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                                                   |
+| Méthode  | URI de demande                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/azureentitlements http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/azureentitlements http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -47,9 +47,9 @@ Le tableau suivant répertorie les paramètres de requête requis pour obtenir t
 
 Pour plus d’informations, consultez [en-têtes](headers.md).
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -68,7 +68,7 @@ En cas de réussite, cette méthode retourne une collection de ressources [**Azu
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

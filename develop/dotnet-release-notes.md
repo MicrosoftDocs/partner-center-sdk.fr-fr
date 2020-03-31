@@ -3,14 +3,14 @@ title: Notes de publication du kit de développement logiciel (SDK) .NET Partner
 description: Notes de publication de la dernière version du kit de développement logiciel (SDK) .NET de l’espace partenaires.
 ms.date: 12/09/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2b98c6ef23b08947a7dec219ba40b7e19a3e5026
-ms.sourcegitcommit: 7e5e3590931010eb0e0fef3e7f6d5d7d084a69ba
+ms.openlocfilehash: c924f691f9d0315d58cf53630776d532ebf8c089
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995616"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415681"
 ---
 # <a name="net-sdk-release-notes"></a>Notes de publication du SDK .NET
 

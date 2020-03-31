@@ -4,20 +4,20 @@ description: La carte de tarifs Azure fournit des tarifs en temps réel pour les
 ms.assetid: A42B4FFA-278E-41FF-B51E-E48C2CA70EEF
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e81debb15c30ba024d897a00075bffe28be3acaf
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 993489f553e0353b7b53a5c707fc69fff169b08a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489139"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413203"
 ---
 # <a name="azure-rate-card-resources"></a>Ressources de la carte de tarifs Azure
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -33,7 +33,7 @@ Décrit les propriétés d’une ressource de carte de tarifs Azure.
 
 | Propriété      | Type                                      | Description                                                       |
 |---------------|-------------------------------------------|-------------------------------------------------------------------|
-| accès      | chaîne                                    | Devise dans laquelle les tarifs sont fournis.                     |
+| devise      | chaîne                                    | Devise dans laquelle les tarifs sont fournis.                     |
 | isTaxIncluded | booléen                                   | Tous les tarifs étant tarif, ils sont toujours retournés en tant que « false ». |
 | paramètres régionaux        | chaîne                                    | Culture dans laquelle les informations sur les ressources sont localisées.       |
 | compteurs        | Tableau d’objets                          | Tableau d’objets [AzureMeter](#azuremeter) .                       |
@@ -43,20 +43,20 @@ Décrit les propriétés d’une ressource de carte de tarifs Azure.
 
 ### <a name="operations-on-the-azureratecard-resource"></a>Opérations sur la ressource AzureRateCard
 
-- [Obtenir des prix pour Microsoft Azure](get-prices-for-microsoft-azure.md)
+- [Obtenir les prix de Microsoft Azure](get-prices-for-microsoft-azure.md)
 
 ## <a name="azuremeter"></a>AzureMeter
 
 | Propriété         | Type             | Description                                                                                   |
 |------------------|------------------|-----------------------------------------------------------------------------------------------|
 | id               | chaîne           | Identificateur unique du compteur.                                                                    |
-| name             | chaîne           | Nom convivial du compteur.                                                                   |
+| nom             | chaîne           | Nom convivial du compteur.                                                                   |
 | tarifs            | objet           | Taux de mesure. La clé est la quantité de compteur (chaîne) et la valeur est la fréquence du compteur (nombre). |
-| tags             | Tableau de chaînes | Balises de compteur facultatives. Ce tableau peut être vide.                                                 |
-| catégorie         | chaîne           | Catégorie de la ressource.                                                                     |
+| tags             | tableau de chaînes | Balises de compteur facultatives. Ce tableau peut être vide.                                                 |
+| category         | chaîne           | Catégorie de la ressource.                                                                     |
 | sous-catégorie      | chaîne           | Sous-catégorie de la ressource.                                                                 |
 | région           | chaîne           | Région de l’ID.                                                                             |
-| unités             | chaîne           | Type de quantité (heures, octets, etc.)                                                     |
+| unité             | chaîne           | Type de quantité (heures, octets, etc.)                                                     |
 | includedQuantity | nombre           | Nombre de compteurs inclus gratuitement.                                               |
 | effectiveDate    | chaîne           | Date à laquelle ce compteur est appliqué.                                                             |
 
@@ -64,7 +64,7 @@ Décrit les propriétés d’une ressource de carte de tarifs Azure.
 
 | Propriété         | Type             | Description                             |
 |------------------|------------------|-----------------------------------------|
-| name             | chaîne           | Nom convivial du terme de l’offre.        |
+| nom             | chaîne           | Nom convivial du terme de l’offre.        |
 | remises         | nombre           | Remise appliquée, le cas échéant.           |
-| excludedMeterIds | Tableau de chaînes | Compteurs exclus de l’offre, le cas échéant. |
+| excludedMeterIds | tableau de chaînes | Compteurs exclus de l’offre, le cas échéant. |
 | effectiveDate    | chaîne           | Date d’effet de l’offre.        |

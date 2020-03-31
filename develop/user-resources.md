@@ -4,14 +4,14 @@ description: Décrit un utilisateur de l’espace partenaires, ses informations 
 ms.assetid: A2DEDDAB-C4DA-4ECA-931F-2054AB005973
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: edce4bb1b13550445b49979dd59b2bce0486e7fd
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: d3ee186b56ab7553b21e5625579c2a00a50e4492
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082986"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414443"
 ---
 # <a name="user-resources"></a>Ressources utilisateur
 

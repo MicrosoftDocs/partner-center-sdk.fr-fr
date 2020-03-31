@@ -4,20 +4,20 @@ description: Vous pouvez acheter des réservations Azure pour un client à l’a
 ms.assetid: 1BCDA7B8-93FC-4AAC-94E0-B15BFC95737F
 ms.date: 11/01/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 85e6325054c6a5dc257ac7a70169fa020a68345d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a3c0f64bf6bddb483a485cc4f1e1d96ed1599cb0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488129"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416296"
 ---
 # <a name="purchase-azure-reservations"></a>Acheter des réservations Azure
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud for US Government
 
 Pour acheter une réservation Azure pour un client à l’aide de l’API de l’espace partenaires, vous devez disposer d’un abonnement Microsoft Azure (**MS-AZR-0145P**) existant ou d’un plan Azure.
@@ -34,7 +34,7 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Antarctique                     | Guernesey                          | Saba                                     |
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
-> | Bénin                          | Guyana                            | Saint-Martin                             |
+> | Bénin                          | Guyana                            | Saint-Martin (partie française)                             |
 > | Bhoutan                         | Haïti                             | Saint-Pierre-et-Miquelon                |
 > | Bonaire                        | Heard et McDonald (Îles) | Saint-Vincent-et-les-Grenadines         |
 > | Bouvet (Île)                  | Île de Man                       | Samoa                                    |
@@ -43,12 +43,12 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Îles Vierges britanniques         | Kiribati                          | Seychelles                               |
 > | Burkina-Faso                   | Kosovo                            | Sierra Leone                             |
 > | Burundi                        | Laos                              | Saint-Eustache                           |
-> | Cambodge                       | Lesotho                           | Saint-Martin (Royaume des Pays-Bas)                             |
+> | Cambodge                       | Lesotho                           | Saint-Martin (partie néerlandaise)                             |
 > | République centrafricaine       | Liberia                           | Salomon (îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
+> | Chine                          | Malawi                            | Géorgie du Sud et les îles Sandwich du Sud |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Surinam                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
@@ -66,9 +66,9 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - ID d’abonnement pour un abonnement Azure CSP actif ou un plan Azure.
 
@@ -114,18 +114,18 @@ Avant d’acheter une réservation Azure, procédez comme suit :
 
 1. Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter. Pour ce faire, vous pouvez répertorier les produits et les références SKU en premier, ou si vous connaissez déjà les ID du produit et de la référence SKU, en les sélectionnant.
 
-    - [Obtenir une liste de produits (par pays)](get-a-list-of-products.md)
+    - [Obtenir la liste de produits (par pays)](get-a-list-of-products.md)
     - [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
-    - [Obtenir la liste des références (SKU) d’un produit (par pays)](get-a-list-of-skus-for-a-product.md)
+    - [Obtenir la liste des références SKU d’un produit (par pays)](get-a-list-of-skus-for-a-product.md)
     - [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
 2. Vérifiez l’inventaire d’une référence (SKU). Cette étape n’est nécessaire que pour les références (SKU) marquées avec un prérequis **InventoryCheck** .
 
-    - [Vérifier l’inventaire](check-inventory.md)
+    - [Vérifier le stock](check-inventory.md)
 
 3. Récupérez la [disponibilité](product-resources.md#availability) de la [référence SKU](product-resources.md#sku). Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande. Pour ce faire, utilisez l’une des API suivantes :
 
-    - [Obtenir la liste des disponibilités pour une référence (par pays)](get-a-list-of-availabilities-for-a-sku.md)
+    - [Obtenir la liste des disponibilités d’une référence SKU (par pays)](get-a-list-of-availabilities-for-a-sku.md)
     - [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)
 
 > [!IMPORTANT]  

@@ -4,29 +4,29 @@ description: Vous pouvez obtenir et filtrer une collection de références SKU p
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1c1bbc6defb67e7196139ce524af42c9c627786c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 9613290c34cde57008247eeee05d71e99436d959
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489759"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416797"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>Obtenir la liste des références (SKU) d’un produit (par pays)
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez obtenir un ensemble de références SKU disponibles dans un pays pour un produit spécifique à l’aide des API de l’espace partenaires.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur de produit.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour obtenir la liste des références SKU pour un produit :
 
@@ -97,7 +97,7 @@ Pour obtenir la liste des références SKU pour un produit :
 # $targetSegment
 
 # Get the available SKUs.
-Get-PartnerProductSku -ProudctId $productId
+Get-PartnerProductSku -ProductId $productId
 
 # Get the available SKUs, filtered by target segment.
 Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
@@ -109,9 +109,9 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                                                              |
+| Méthode  | URI de demande                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs ? Country = {pays-code} & targetSegment = {Target-segment} http/1.1  |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs ? Country = {pays-code} & targetSegment = {Target-segment} http/1.1  |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -128,9 +128,9 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 
 Pour plus d’informations, consultez [en-têtes](headers.md).
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 #### <a name="request-examples"></a>Exemples de demande
 
@@ -170,7 +170,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 Cette méthode retourne les codes d’erreur suivants :
 

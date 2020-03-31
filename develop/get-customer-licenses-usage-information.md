@@ -4,21 +4,21 @@ description: Obtention d’informations sur l’utilisation des licences pour un
 ms.assetid: 02B98495-9FE7-4A9F-B1DD-B14563D0FF29
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b8230ae3ab8927e1c599318e60a55ca866d1a9f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 89b80479a91a25a475d6e1f446b6d4d84ae7d259
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486349"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415967"
 ---
 # <a name="get-customer-licenses-usage-information"></a>Recevoir des informations sur l’utilisation des licences client
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment obtenir des informations de déploiement de licences pour un client spécifique.
 
@@ -28,7 +28,7 @@ Comment obtenir des informations de déploiement de licences pour un client spé
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
+Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -47,9 +47,9 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                              |
+| Méthode  | URI de demande                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Analytics/licenses/usage http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Analytics/licenses/usage http/1.1 |
 
  
 
@@ -69,7 +69,7 @@ Utilisez le paramètre Path suivant pour identifier le client.
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -91,7 +91,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

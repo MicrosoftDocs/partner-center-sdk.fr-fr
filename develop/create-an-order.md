@@ -4,36 +4,36 @@ description: Comment créer une commande pour un client.
 ms.assetid: FE4949FA-7C4D-462D-8F32-FAADCF166875
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7600ab546f7bcde0e8c01c3216949bcfef290b1d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7047da45ef14d7749abfadb0aee08147b7df67c2
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489659"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412255"
 ---
 # <a name="create-an-order"></a>Créer une commande
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud for US Government
 
 La création d’une **commande pour les produits d’instance de machine virtuelle réservée Azure** s’applique *uniquement* aux éléments suivants :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 - Identificateur d’offre.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour créer une commande pour un client :
 
@@ -76,9 +76,9 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                                            |
+| Méthode   | URI de demande                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -92,21 +92,21 @@ Utilisez le paramètre Path suivant pour identifier le client.
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-#### <a name="order"></a>Ordre
+#### <a name="order"></a>Order
 
 Ce tableau décrit les propriétés d' [ordre](order-resources.md) dans le corps de la demande.
 
 | Propriété             | Type                        | Obligatoire                        | Description                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
 | id                   | chaîne                      | Non                              | Identificateur d’ordre qui est fourni lors de la création réussie de la commande.   |
-| ReferenceCustomerId  | chaîne                      | Non                              | Identificateur du client. |
-| billingCycle         | chaîne                      | Non                              | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). La valeur par défaut est « Monthly » ou « OneTime » lors de la création de la commande. Ce champ est appliqué lors de la création réussie de la commande. |
-| LineItems            | Tableau de ressources [OrderLineItem](order-resources.md#orderlineitem) | Oui      | Liste répertoriant les offres achetées par le client, y compris la quantité.        |
+| referenceCustomerId  | chaîne                      | Non                              | Identificateur du client. |
+| BillingCycle         | chaîne                      | Non                              | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). La valeur par défaut est « Monthly » ou « OneTime » lors de la création de la commande. Ce champ est appliqué lors de la création réussie de la commande. |
+| lineItems            | Tableau de ressources [OrderLineItem](order-resources.md#orderlineitem) | Oui      | Liste répertoriant les offres achetées par le client, y compris la quantité.        |
 | currencyCode         | chaîne                      | Non                              | Lecture seule. Devise utilisée lors de la mise en place de la commande. Appliqué en cas de création réussie de la commande.           |
-| CreationDate         | DateHeure                    | Non                              | Lecture seule. Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande.                                   |
-| status               | chaîne                      | Non                              | Lecture seule. État de la commande.  Les valeurs prises en charge sont les noms des membres trouvés dans [OrderStatus](order-resources.md#orderstatus).        |
+| creationDate         | datetime                    | Non                              | Lecture seule. Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande.                                   |
+| statut               | chaîne                      | Non                              | Lecture seule. État de la commande.  Les valeurs prises en charge sont les noms des membres trouvés dans [OrderStatus](order-resources.md#orderstatus).        |
 | liens                | [OrderLinks](utility-resources.md#resourcelinks)              | Non                              | Liens de ressource correspondant à la commande. |
 | attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Non                              | Attributs de métadonnées correspondant à l’ordre. |
 
@@ -119,12 +119,12 @@ Ce tableau décrit les propriétés [OrderLineItem](order-resources.md#orderline
 
 | Nom                 | Type   | Obligatoire | Description                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LineItemNumber       | entier    | Oui      | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1.                                                                                                                                                 |
+| lineItemNumber       | int    | Oui      | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1.                                                                                                                                                 |
 | offerId              | chaîne | Oui      | Identificateur de l’offre.                                                                                                                                                                                                                      |
 | subscriptionId       | chaîne | Non       | Identificateur d’abonnement.                                                                                                                                                                                                               |
-| ParentSubscriptionId | chaîne | Non       | Facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif.                                                                                                                                                     |
-| friendlyName         | chaîne | Non       | Facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté.                                                                                                                                              |
-| quantity             | entier    | Oui      | Nombre de licences pour un abonnement basé sur une licence.                                                                                                                                                                                   |
+| parentSubscriptionId | chaîne | Non       | Ce paramètre est facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif.                                                                                                                                                     |
+| friendlyName         | chaîne | Non       | Ce paramètre est facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté.                                                                                                                                              |
+| quantity             | int    | Oui      | Nombre de licences pour un abonnement basé sur une licence.                                                                                                                                                                                   |
 | partnerIdOnRecord    | chaîne | Non       | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une gestion correcte des incentives. |
 | provisioningContext  | Dictionary < String, String >                | Non       |  Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue.                  |
 | liens                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | Non       |  Lecture seule. Liens de ressource correspondant à l’élément de ligne de commande.  |
@@ -173,7 +173,7 @@ En cas de réussite, la méthode retourne une ressource [Order](order-resources.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 Cette méthode retourne les codes d’erreur suivants :
 

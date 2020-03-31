@@ -3,22 +3,22 @@ title: Annuler une commande à partir du bac à sable (sandbox) d’intégration
 description: Annulez les commandes des comptes du bac à sable (sandbox) d’intégration.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 960d35e71dda4ee30d6fc775299bd8954dcd1a6e
-ms.sourcegitcommit: 9a8a501481f8bdf15bf464bce6c21d25d383aca5
+ms.openlocfilehash: 4e3aa651731b4cf624d1266e3c780e2acbb9c0d4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75033455"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413085"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande à partir du bac à sable (sandbox) d’intégration
 
 S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Procédure d’annulation des commandes d’abonnement de l’instance réservée, du logiciel et du marché commercial en tant que service (SaaS) à partir des comptes sandbox d’intégration.
@@ -26,9 +26,9 @@ Procédure d’annulation des commandes d’abonnement de l’instance réservé
 >[!NOTE]
 >N’oubliez pas que l’annulation des commandes d’abonnement de l’instance réservée, du logiciel ou du marché commercial SaaS n’est possible qu’à partir des comptes sandbox d’intégration. Pour annuler des ordres de fabrication, contactez le support de l’espace partenaires.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Un compte de partenaire du bac à sable (sandbox) d’intégration avec un client avec une instance réservée active ou des commandes d’abonnement SaaS tierces.
 
 ## <a name="c"></a>C#
@@ -57,24 +57,24 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                            |
+| Méthode     | URI de demande                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le paramètre de requête suivant pour supprimer un client.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 | **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui dénote l’ID d’ordre qui doit être annulé. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 ```http
 {  
     "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",  
@@ -102,7 +102,7 @@ En cas de réussite, cette méthode retourne l’ordre annulé.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

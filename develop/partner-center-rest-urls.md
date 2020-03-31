@@ -4,21 +4,21 @@ description: L’espace partenaires est disponible dans différents pays et rég
 ms.assetid: D4E1AC16-3FB1-4192-A06A-5766BF00A6D8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ba06e7eaac0ae8857a6c99bb8d9ee32bfee61182
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 83a85e573fbeb90542a283d150acc6e6cd13982a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488279"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416398"
 ---
 # <a name="partner-center-rest-urls"></a>URL REST de l’espace partenaires
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -40,7 +40,7 @@ Le tableau suivant décrit les URL de base à utiliser avec les différentes ver
 </thead>
 <tbody>
 <tr class="odd">
-<td><p>Espace partenaires</p>
+<td><p>Centre pour partenaires</p>
 <p>Espace partenaires de Microsoft Cloud Germany</p>
 <p>Espace partenaires de Microsoft Cloud for US Government</p></td>
 <td><em><a href="https://api.partnercenter.microsoft.com">https://api.partnercenter.microsoft.com</a></em></td>

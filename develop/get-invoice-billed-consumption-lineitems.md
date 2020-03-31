@@ -3,28 +3,28 @@ title: Recevoir les Articles de ligne facturation commerciale facturés
 description: Vous pouvez obtenir un regroupement des détails de la facturation de la consommation commerciale (élément de ligne d’utilisation évalué quotidiennement) pour une facture spécifiée à l’aide des API de l’espace partenaires.
 ms.date: 01/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 09f2c36c2b1d3adfa57eda687572533ffd0fde78
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: fb207223c99597402ca855ab91f985e891b92a0c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923507"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415918"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Recevoir les Articles de ligne facturation commerciale facturés
 
 S'applique à :
  
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de détails pour les éléments de ligne de facture de consommation commerciale (également appelés éléments de ligne d’utilisation évalués quotidiennement fermés) pour une facture spécifiée.
 
 Cette API prend également en charge les types de fournisseur **Azure** pour les abonnements Microsoft Azure (MS-AZR-0145P). Cela signifie que cette API est une fonctionnalité à compatibilité descendante.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
 
 ## <a name="c"></a>C\#
@@ -113,9 +113,9 @@ Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-Utilisez la première syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. Pour les factures de grande taille, utilisez la deuxième syntaxe avec une taille spécifiée et un décalage basé sur 0 pour renvoyer une liste paginée des éléments de ligne. Utilisez la troisième syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"`.
+Utilisez la première syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. Pour les factures volumineuses, utilisez la deuxième syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. Utilisez la troisième syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"`.
 
-| Méthode  | URI de requête                                                                                                                                                     |
+| Méthode  | URI de demande                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {CURRENCYCODE} http/1.1                              |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & Size = {Size} http/1.1  |
@@ -125,23 +125,23 @@ Utilisez la première syntaxe pour retourner une liste complète de chaque élé
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Tapez   | Requis | Description                                                       |
+| Nom                   | Type   | Obligatoire | Description                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | ID de la facture             | chaîne | Oui      | Chaîne qui identifie la facture.                             |
 | fournisseur               | chaîne | Oui      | Le fournisseur : « OneTime ».                                  |
 | facture-ligne-élément-type | chaîne | Oui      | Type de détail de la facture : « UsageLineItems ». |
 | currencyCode           | chaîne | Oui      | Code de la devise pour les lignes de facturation facturées.                    |
 | heures                 | chaîne | Oui      | Période pour le rapprochement facturé. exemple : actuel, précédent.        |
-| size                   | nombre | non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000       |
-| seekOperation          | chaîne | non       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement. |
+| size                   | nombre | Non       | Nombre maximal d'éléments à retourner. La taille par défaut est 2000       |
+| seekOperation          | chaîne | Non       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement. |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 #### <a name="request-body"></a>Corps de demande
 
-Aucune.
+None.
 
 ### <a name="rest-response"></a>Réponse REST
 
@@ -151,7 +151,7 @@ Pour l’élément de ligne **ChargeType**, la valeur **Purchase** est mappée s
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="rest-examples"></a>Exemples REST
 

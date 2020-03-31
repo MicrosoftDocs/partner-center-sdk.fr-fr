@@ -3,14 +3,14 @@ title: Obtenir l’état de signature directe du client pour le contrat client M
 description: Vous pouvez utiliser la ressource DirectSignedCustomerAgreementStatus pour obtenir l’état de la signature directe d’un client (acceptation directe) du contrat de client Microsoft.
 ms.date: 02/11/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f44e64061690603fb82088b03ebacb01ce5515f2
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 0d07630a23ad4d18f992f2fcd9db2d19c637df98
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78909065"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415954"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>Obtenir l’état de la signature directe d’un client (acceptation directe) du contrat de client Microsoft
 
@@ -46,11 +46,11 @@ Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
 | Nom             | Type | Obligatoire | Description                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| client-locataire-ID | GUID | Oui | La valeur est un **CustomerTenantId** au format GUID qui vous permet de spécifier l’ID de locataire d’un client. |
+| customer-tenant-id | GUID | Oui | La valeur est un **CustomerTenantId** au format GUID qui vous permet de spécifier l’ID de locataire d’un client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -79,7 +79,7 @@ La ressource a une propriété **IsSigned** qui indique l’état de la signatur
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. 
 
-Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

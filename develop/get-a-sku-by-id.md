@@ -4,28 +4,28 @@ description: Obtient une référence (SKU) pour le produit spécifié à l’aid
 ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ed09684463c1e67cdfc96c6d674be50dadae798f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 33c8eb16c1327c8a92e48621d3f793c78aceaa19
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486129"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415646"
 ---
 # <a name="get-a-sku-by-id"></a>Obtenir une référence (SKU) par ID
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Obtient une référence (SKU) pour le produit spécifié à l’aide de l’ID de référence SKU spécifié.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID de produit. 
 - ID DE RÉFÉRENCE (SKU). 
 
@@ -50,9 +50,9 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                         |
+| Méthode  | URI de demande                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs/{SKU-ID} ? pays = {country-code} http/1.1   |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs/{SKU-ID} ? pays = {country-code} http/1.1   |
 
  
 
@@ -74,7 +74,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -97,7 +97,7 @@ En cas de réussite, le corps de la réponse contient une ressource de [référe
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 Cette méthode retourne les codes d’erreur suivants :
 

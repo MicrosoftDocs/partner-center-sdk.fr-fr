@@ -4,20 +4,20 @@ description: Obtention de l’état d’approvisionnement de l’abonnement pour
 ms.assetid: CC3A13FE-D6D3-4A65-981F-0235A4A8382E
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0e08342b3d712a38dee857b06095e41a6fe9df24
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 189ff5d3d452c27e248d4051cfb337c87d4c4d7d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487149"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416639"
 ---
 # <a name="get-subscription-provisioning-status"></a>Obtient l’état d’approvisionnement de l’abonnement
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -27,7 +27,7 @@ Obtention de l’état d’approvisionnement de l’abonnement pour un abonnemen
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 - Identificateur d’abonnement.
 - Les autorisations d’administrateur déléguées sur l’abonnement sont requises pour effectuer cette opération.
@@ -51,9 +51,9 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                                        |
+| Méthode  | URI de demande                                                                                                                        |
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/provisioningstatus http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/provisioningstatus http/1.1 |
 
  
 
@@ -74,7 +74,7 @@ Utilisez les paramètres de chemin d’accès suivants pour identifier le client
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -95,7 +95,7 @@ En cas de réussite, le corps de la réponse contient une ressource [Subscriptio
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

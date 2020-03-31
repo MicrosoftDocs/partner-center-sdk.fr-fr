@@ -4,28 +4,28 @@ description: Comment restaurer un utilisateur supprimé à l’aide d’un ID cl
 ms.assetid: A48A4718-6EAF-4FC8-8B44-F3FDCA2B3298
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 95e74d1f7719efae7b04aba5dab3e1ad66dfa8ee
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cfedefd5b9b8547b79b817c06f44e9b21f12d51c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486569"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415393"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>Restaurer un utilisateur supprimé pour un client
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment restaurer un **utilisateur** supprimé à l’aide d’un ID client et d’un ID utilisateur.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - ID de l’utilisateur. Si vous ne disposez pas de l’ID utilisateur, consultez [afficher les utilisateurs supprimés pour un client](view-a-deleted-user.md).
 
@@ -60,7 +60,7 @@ var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomer
 
 **Syntaxe de la requête**
 
-| Méthode    | URI de requête                                                                                            |
+| Méthode    | URI de demande                                                                                            |
 |-----------|--------------------------------------------------------------------------------------------------------|
 | **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users/{User-ID} http/1.1 |
 
@@ -121,7 +121,7 @@ En cas de réussite, cette méthode retourne les informations utilisateur restau
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

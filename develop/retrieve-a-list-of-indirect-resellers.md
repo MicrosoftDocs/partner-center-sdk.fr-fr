@@ -4,28 +4,28 @@ description: Comment récupérer la liste des revendeurs indirects du partenaire
 ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e796312e76038174329967d106eefb4ac40d629f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a1ed1d4d3c0d105a489774d698d832f2e0212934
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486529"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415383"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>Récupérer une liste de revendeurs indirects
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment récupérer la liste des revendeurs indirects du partenaire connecté.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
 
@@ -45,9 +45,9 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                                |
+| Méthode  | URI de demande                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Relationships ? relation\_type = IsIndirectCloudSolutionProviderOf http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Relationships ? relation\_type = IsIndirectCloudSolutionProviderOf http/1.1 |
 
  
 
@@ -90,7 +90,7 @@ Utilisez le paramètre de requête suivant pour identifier le type de relation.
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -111,7 +111,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

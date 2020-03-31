@@ -3,14 +3,14 @@ title: Obtenir un lien de téléchargement pour le modèle de contrat client Mic
 description: Obtenir un lien de téléchargement pour le modèle de contrat de client Microsoft.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cfce85865b41674955b7de5dcd57083a00935c0
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: a84f1d2e5d6c156cba10284a5718bdaee3c9fe93
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899936"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414159"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Obtenir un lien de téléchargement pour le modèle de contrat client Microsoft
 
@@ -28,8 +28,8 @@ Cet article explique comment obtenir un lien pour télécharger le modèle de co
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,14 ou une version ultérieure est requise.
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
+- Si vous utilisez le SDK .NET de l’Espace partenaires, la version 1.14 ou une version ultérieure est nécessaire.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
 - Pays du client auquel le modèle de contrat de client Microsoft s’applique.
 - Langue dans laquelle le modèle de contrat de licence utilisateur Microsoft doit être localisé.
 
@@ -42,7 +42,7 @@ Cet article explique comment obtenir un lien pour télécharger le modèle de co
 
 Pour récupérer un lien permettant de télécharger le modèle de contrat client Microsoft :
 
-1. Récupérez les métadonnées de l’accord pour le contrat client Microsoft. Vous devez obtenir l' **TemplateID** du contrat du client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](get-customer-agreement-metadata.md).
+1. Récupérez les métadonnées du Contrat client Microsoft. Vous devez obtenir la valeur **templateId** du Contrat client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](get-customer-agreement-metadata.md).
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -76,7 +76,7 @@ Un exemple complet est disponible dans la classe [GetAgreementDocument](https://
 
 Pour récupérer un lien permettant de télécharger le modèle de contrat client Microsoft :
 
-1. Récupérez les métadonnées de l’accord pour le contrat client Microsoft. Vous devez obtenir l' **TemplateID** du contrat du client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](get-customer-agreement-metadata.md).
+1. Récupérez les métadonnées du Contrat client Microsoft. Vous devez obtenir la valeur **templateId** du Contrat client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](get-customer-agreement-metadata.md).
 2. Créez une demande REST pour extraire une [ressource **AgreementDocument** ](./agreement-document-resources.md). Pour obtenir un exemple, consultez l’exemple de [syntaxe de requête](#request-syntax) . Vous devez spécifier les informations suivantes :
     - L' **TemplateID** du contrat du client Microsoft.
     - Pays auquel le modèle de contrat de client Microsoft s’applique.
@@ -102,7 +102,7 @@ Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -128,7 +128,7 @@ La ressource a une propriété **downloadUri** , qui contient une chaîne d’UR
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires.
 
-Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 
@@ -283,7 +283,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Lituanie | LT | fr-fr, LT-LT |
 | Luxembourg | LU | en-US, fr-FR |
 | Macao R.A.S. | MOLYBDÈN | fr-fr, zh-HK |
-| Macédoine du Nord | MK | fr-FR |
+| Macédoine, Ex.-Rép. yougoslave de | MK | fr-FR |
 | Madagascar | MG | fr-FR |
 | Malawi | MW | fr-FR |
 | Malaisie | MY | en-US, MS-MY |
@@ -297,7 +297,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Mayotte | YT | fr-FR |
 | Mexique | MX | en-US, es-ES |
 | Micronésie | Radio | fr-FR |
-| République de Moldova | MD | en-US, RO-RO |
+| République de Moldavie | MD | en-US, RO-RO |
 | Monaco | MC | en-US, fr-FR |
 | Mongolie | PORTABLE | fr-FR |
 | Monténégro | ME | fr-FR |
@@ -341,7 +341,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Saint--Barthélemy | BL | fr-FR |
 | Saint Kitts et Nevis | KN | fr-FR |
 | Sainte-Lucie | EUROS | fr-fr, en-US |
-| Saint-Martin | INSTANTANÉ | fr-fr, en-US |
+| Saint-Martin (partie française) | INSTANTANÉ | fr-fr, en-US |
 | Saint-Pierre-et-Miquelon | Manuel | fr-FR |
 | Saint-Vincent-et-les-Grenadines | VC | fr-FR |
 | Samoa | Web | fr-FR |
@@ -353,17 +353,17 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Sierra Leone | SL | fr-FR |
 | Singapour | SG | fr-fr, zh-SG |
 | Saint-Eustache | XE | fr-FR |
-| Saint-Martin (Royaume des Pays-Bas) | SX | fr-fr, en-US |
+| Saint-Martin (partie néerlandaise) | SX | fr-fr, en-US |
 | Slovaquie | SK | fr-fr, SK-SK |
 | Slovénie | SI | fr-fr, SL-SI |
 | Salomon (îles) | ASPIRATEUR | fr-FR |
 | Somalie | SO | fr-FR |
 | Afrique du Sud | ZA | fr-FR |
-| Géorgie du Sud et Sandwich du Sud (îles) | GS | fr-FR |
+| Géorgie du Sud et les îles Sandwich du Sud | GS | fr-FR |
 | Soudan du Sud | SÉCURITÉ | fr-FR |
 | Espagne | ES | en-US, es-ES, en-US, en-US |
 | Sri Lanka | LK | fr-FR |
-| Sainte-Hélène, Ascension, Tristan da Cunha | &AMP; | fr-FR |
+| Sainte-Hélène, Ascension et Tristan da Cunha | &AMP; | fr-FR |
 | Surinam | SR | fr-FR |
 | Svalbard | SJ | fr-FR |
 | Suède | SE | en-US, SV-SE |

@@ -4,21 +4,21 @@ description: Comment récupérer la stratégie de configuration spécifiée pour
 ms.assetid: A26B5CDA-C23C-4DC3-BC56-A27F3DDDCFB1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 38420d6d1edac94db0c2e3d4800a62bc48dc7e96
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d3750ac7b0b655904ad79fbfec8d1881d6a7541c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486559"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415386"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>Récupérer la stratégie de configuration d’un client
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
 Comment récupérer la stratégie de configuration spécifiée pour le client spécifié.
@@ -26,7 +26,7 @@ Comment récupérer la stratégie de configuration spécifiée pour le client sp
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 - Identificateur de la stratégie.
 
@@ -51,9 +51,9 @@ ConfigurationPolicy retrievedConfigurationPolicy =
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                          |
+| Méthode  | URI de demande                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies/{Policy-ID} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies/{Policy-ID} http/1.1 |
 
  
 
@@ -96,7 +96,7 @@ En cas de réussite, la réponse contient la ressource [ConfigurationPolicy](dev
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

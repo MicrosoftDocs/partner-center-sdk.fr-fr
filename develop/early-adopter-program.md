@@ -3,20 +3,20 @@ title: Rejoindre le programme Utilisateur précoce du SDK et de l'API de l’Esp
 description: Les partenaires peuvent collaborer avec Microsoft sur le développement de fonctionnalités et de fonctionnalités de partenaires.
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8bb07bd99e860e3b094908ab100f39f310ccf80f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 5e0a7a554efbcd519a5c06e82053e47c909a56bc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489929"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412192"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Rejoindre le programme Utilisateur précoce du SDK et de l'API de l’Espace partenaires
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government

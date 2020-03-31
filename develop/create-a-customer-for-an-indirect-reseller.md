@@ -4,30 +4,30 @@ description: Un fournisseur indirect peut créer un client pour un revendeur ind
 ms.assetid: F6196EE1-1B72-4D0A-BE6E-56A243671CDE
 ms.date: 06/03/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b6f41d4e76cc41d9a2611c95762954e37157f8ab
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 2b9780800b6278d1cfeef902793ef51b61d79982
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488769"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413482"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>Créer un client pour un revendeur indirect
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Un fournisseur indirect peut créer un client pour un revendeur indirect.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du locataire du revendeur indirect.
 - Le revendeur indirect doit avoir un partenariat avec le fournisseur indirect.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour ajouter un nouveau client pour un revendeur indirect :
 
@@ -79,15 +79,15 @@ var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                       |
+| Méthode   | URI de demande                                                       |
 |----------|-------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers http/1.1 |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Ce tableau décrit les propriétés requises dans le corps de la demande.
 
@@ -104,10 +104,10 @@ Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerBil
 | Nom             | Type                                     | Obligatoire | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Messagerie            | chaîne                                   | Oui      | Adresse de messagerie du client.                                                                                                                                                                                   |
-| Culturel          | chaîne                                   | Oui      | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
+| culture          | chaîne                                   | Oui      | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
 | language         | chaîne                                   | Oui      | Langue par défaut. Les codes de langue à deux caractères (par exemple, fr) sont pris en charge.                                                                                                                                |
 | nom de l'\_de la société    | chaîne                                   | Oui      | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
-| adresse de\_par défaut | [-](utility-resources.md#address) | Oui      | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
+| adresse de\_par défaut | [Address](utility-resources.md#address) | Oui      | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
 
 #### <a name="company-profile"></a>Profil d’entreprise
 
@@ -184,7 +184,7 @@ En cas de réussite, la réponse contient une ressource [client](customer-resour
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

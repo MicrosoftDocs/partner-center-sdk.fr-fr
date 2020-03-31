@@ -4,14 +4,14 @@ description: Vous pouvez utiliser plusieurs ressources liées aux mises à nivea
 ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3f891c3e7d25dfc6ec47ef861fa79345c32c1f9f
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: bcdf8e0413bcccc7fa9641b16266adf93a14808b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083066"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416335"
 ---
 # <a name="product-upgrade-resources"></a>Ressources de mise à niveau de produit
 

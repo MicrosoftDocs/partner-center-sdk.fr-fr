@@ -4,28 +4,28 @@ description: Comment obtenir la liste des licences des groupes de licences spéc
 ms.assetid: 1677A68C-0298-49C7-BAE1-5E74D8449C3F
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e28f6fee9a514c5bfa6bfd9395112a60ac11aae8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 81fa1d8cbffe4ccc3e5008ff8a4b8a5ec032e3cc
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487519"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413339"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>Obtenir la liste des licences disponibles par groupe de licences
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment obtenir la liste des licences des groupes de licences spécifiés disponibles pour les utilisateurs du client spécifié.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 - Liste d’un ou plusieurs identificateurs de groupe de licences.
 
@@ -56,11 +56,11 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                                                  |
+| Méthode  | URI de demande                                                                                                                                  |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group1 http/1.1                        |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group2 http/1.1                        |
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = group1 & LicenseGroupIds = Group2 http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group1 http/1.1                        |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group2 http/1.1                        |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = group1 & LicenseGroupIds = Group2 http/1.1 |
 
  
 
@@ -81,7 +81,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour ident
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -102,7 +102,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

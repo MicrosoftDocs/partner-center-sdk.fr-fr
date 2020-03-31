@@ -3,21 +3,21 @@ title: Langues et paramètres régionaux pris en charge par l’espace partenair
 description: Liste des paramètres régionaux pris en charge par ISO2 et ISO3 pour l’espace partenaires.
 ms.date: 12/03/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6b066c4afb87656717327e57cef94ab84eb93309
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bf12829decaebd8525ef0a51a7856c75aa69785d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488289"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416380"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>Langues et paramètres régionaux pris en charge par l’espace partenaires
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -29,14 +29,14 @@ Dans les API gérées par l’espace partenaires, la classe [CountryValidationRu
 Le tableau suivant répertorie les cultures et les codes de pays ISO (International Standards Organization) qui sont pris en charge dans les API de l’espace partenaires. 
 
 
-| Pays/région                           | Code du pays ISO alpha 2 | Code du pays ISO alpha 3 | Culture (s) prise en charge                  |
+| Country/Region                           | Code du pays ISO alpha 2 | Code du pays ISO alpha 3 | Culture (s) prise en charge                  |
 |------------------------------------------|--------------------------|--------------------------|---------------------------------------|
 | Afghanistan                              | AF                       | AFG                      | PS-AF/fr-fr                         |
 | Åland (îles d’)                            | PASSANT                       | Unis                      | SV-SE/en-US                         |
 | Albanie                                  | AL                       | ALB                      | Sq-AL/fr-fr                         |
 | Algérie                                  | DZ                       | DZA                      | ar-DZ/fr-fr                         |
 | Samoa américaines                           | AS                       | ASM                      | fr-FR                                 |
-| Andorre                                  | AD                       | ET                      | ca-ES/en-US                         |
+| Andorre                                  | AD                       | AND                      | ca-ES/en-US                         |
 | Angola                                   | AO                       | EU                      | PT-PT/en-US                         |
 | Anguilla                                 | IA                       | AIA                      | fr-FR                                 |
 | Antarctique                               | INACTIF                       | ATA                      | fr-FR                                 |
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Bahreïn                                  | BH                       | BHR                      | AR-BH/fr-fr                         |
 | Bangladesh                               | BD                       | BGD                      | -BD/fr-fr                         |
 | Barbade (La)                                 | BB                       | BRB                      | en-GB/fr-fr                         |
-| Bélarus                                  | BY                       | BLR                      | être par/en-US                         |
+| Biélorussie                                  | BY                       | BLR                      | être par/en-US                         |
 | Belgique                                  | BE                       | BEL                      | fr-a/NL-is/fr-US                 |
 | Belize                                   | Via                       | BLZ                      | en-via/fr-fr                         |
 | Bénin                                    | BJ                       | BEN                      | fr-FR/fr-fr                         |
@@ -72,7 +72,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Cap Vert                               | CV                       | CPV                      | PT-CV/fr-fr                         |
 | Cambodge                                 | KH                       | KHM                      | km-KH/en-US                         |
 | Cameroun                                 | CM                       | ENVOYÉS                      | fr-FR/fr-fr                         |
-| Canada                                   | AC                       | PUISSIEZ                      | fr-CA/fr-fr                         |
+| Canada                                   | AUTORITÉ DE CERTIFICATION                       | PUISSIEZ                      | fr-CA/fr-fr                         |
 | Caïmans (îles)                           | KY                       | CYM                      | en-GB/fr-fr                         |
 | République centrafricaine                 | CF                       | CAF                      | fr-FR/fr-fr                         |
 | Tchad                                     | ÉQUIPEMENTS                       | TCD                      | fr-FR/fr-fr                         |
@@ -83,21 +83,21 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Colombie                                 | CO                       | COL                      | es-CO/en-US                         |
 | Comores (Les)                                  | KILOMÈTRES                       | COM                      | fr-FR/fr-fr                         |
 | Congo                                    | CG                       | ROUE dentée                      | fr-FR/fr-fr                         |
-| Congo (RDC)                              | CD-ROM                       | VENDUS                      | fr-FR/fr-fr                         |
+| Congo (RDC)                              | CD-ROM                       | COD                      | fr-FR/fr-fr                         |
 | Cook (îles)                             | HT                       | COK                      | fr-FR                                 |
 | Costa Rica                               | CR                       | RAPPORT personnalisé                      | es-CR/fr-fr                         |
-| Côte d’Ivoire                            | CI                       | CIV                      | fr-FR/fr-fr                         |
+| Côte d’Ivoire                            | Élément de configuration                       | CIV                      | fr-FR/fr-fr                         |
 | Croatie                                  | HR                       | HRV                      | HR-HR/fr-fr                         |
 | Curaçao                                  | APPROXIMATIF                       | CUW                      | NL-NL/en-US                         |
 | Chypre                                   | CY                       | CYP                      | El-GR/fr-fr                         |
 | Czechia                                  | CZ                       | CZE                      | CS-CZ/fr-fr                         |
 | Danemark                                  | DK                       | DNK                      | da-DK/fr-fr                         |
 | Djibouti                                 | EFFECTUÉ                       | DJI                      | fr-FR/fr-fr                         |
-| Dominique                                 | EXPLORATION                       | CANAL                      | fr-FR                                 |
-| République dominicaine                       | DO                       | Loc                      | es-DO/en-US                         |
-| Équateur (République de)                                  | EC                       | ÉCU                      | es-EC/fr-fr                         |
+| Dominique                                 | DM                       | CANAL                      | fr-FR                                 |
+| République dominicaine                       | DO                       | DOM                      | es-DO/en-US                         |
+| Équateur                                  | EC                       | ÉCU                      | es-EC/fr-fr                         |
 | Égypte                                    | EG                       | EGY                      | AR-EG/fr-fr                         |
-| Salvador                              | SV                       | SLV                      | es-VP/en-US                         |
+| El Salvador                              | SV                       | SLV                      | es-VP/en-US                         |
 | Guinée équatoriale                        | GQ                       | GNQ                      | es-ES/en-US                         |
 | Érythrée                                  | ERRE                       | ERI                      | ar-SA/en-US                         |
 | Estonie                                  | EE                       | ESTIMÉ                      | et-EE/fr-fr                         |
@@ -111,10 +111,10 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Guyane française                            | GF                       | GUF                      | fr-FR/fr-fr                         |
 | Polynésie française                         | UTIL                       | PYF                      | fr-FR/fr-fr                         |
 | Terres australes françaises              | TF                       | ATF                      | fr-FR/fr-fr                         |
-| Gabon                                    | GA                       | CARNET                      | fr-FR/fr-fr                         |
+| Gabon                                    | GA                       | GAB                      | fr-FR/fr-fr                         |
 | Gambie                                   | GÉNÉTIQUE                       | GMB                      | fr-FR                                 |
 | Géorgie                                  | GE                       | LOCAL                      | Ka-GE/en-US                         |
-| Allemagne                                  | DE                       | DEU                      | de-fr/fr-fr                         |
+| Germany                                  | DE                       | DEU                      | de-fr/fr-fr                         |
 | Ghana                                    | GH                       | GHA                      | en-GB/fr-fr                         |
 | Gibraltar                                | GI                       | Gio                      | fr-FR                                 |
 | Grèce                                   | GR                       | GRC                      | El-GR/fr-fr                         |
@@ -125,24 +125,24 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Guatemala                                | GT                       | GTM                      | es-GT/en-US                         |
 | Guernesey                                 | GG                       | GGY                      | fr-FR                                 |
 | Guinée                                   | GN                       | GIN                      | fr-FR/fr-fr                         |
-| Guinée-Bissau                            | ENTREPÔT                       | GNB                      | PT-PT/en-US                         |
+| Guinée-Bissau                            | GW                       | GNB                      | PT-PT/en-US                         |
 | Guyana                                   | GY                       | EXPERT                      | fr-FR                                 |
 | Haïti                                    | HT                       | HTI                      | fr-FR/fr-fr                         |
 | Heard et McDonald (Îles)        | Britannique                       | HMD                      | fr-FR                                 |
 | Honduras                                 | HN                       | HND                      | es-HN/en-US                         |
-| Hong Kong R.A.S.                            | HK                       | HKG                      | zh-HK/fr-fr                         |
+| Hong Kong (R.A.S.)                            | HK                       | HKG                      | zh-HK/fr-fr                         |
 | Hongrie                                  | HU                       | HUN                      | HU-HU/fr-fr                         |
 | Islande                                  | IS                       | SANDWICH                      | IS-IS/fr-fr                         |
-| Inde                                    | IN                       | HERCHER                      | en-IN/HI-IN/fr-fr                 |
+| Inde                                    | IN                       | IND                      | en-IN/HI-IN/fr-fr                 |
 | Indonésie                                | ID                       | IDN                      | ID-ID/fr-fr                         |
 | Irak                                     | IQ                       | IRQ                      | AR-IQ/fr-fr                         |
-| Irlande                                  | Internet Explorer                       | IRL                      | en-IE/en-US                         |
+| Irlande                                  | IE                       | IRL                      | en-IE/en-US                         |
 | Île de Man                              | Messagerie instantanée                       | IMN                      | fr-FR                                 |
 | Israël                                   | IL                       | ISR                      | He-IL/en-US                         |
-| Italie                                    | Informatique                       | ITA                      | informatique-informatique/fr-fr                         |
+| Italie                                    | IT                       | ITA                      | informatique-informatique/fr-fr                         |
 | Jamaïque                                  | JM                       | BOURRAGE                      | en-JM/fr-fr                         |
 | Jan Mayen                                | XJ                       | XJA                      | NB-non/en-US                         |
-| Japon                                    | JP                       | JPN                      | ja-JP/fr-fr                         |
+| Japan                                    | JP                       | JPN                      | ja-JP/fr-fr                         |
 | Jersey                                   | JE                       | JEY                      | fr-FR                                 |
 | Jordanie                                   | JO                       | JOR                      | AR-JO/en-US                         |
 | Kazakhstan                               | KZ                       | KAZ                      | KK-KZ/en-US                         |
@@ -162,21 +162,21 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Lituanie                                | LT                       | LTU                      | lt-LT/fr-fr                         |
 | Luxembourg                               | LU                       | LUX                      | de-LU/FR-LU/fr-fr                 |
 | Macao R.A.S.                                | MOLYBDÈN                       | MAC                      | zh-MO/fr-fr                         |
-| Macédoine du Nord                          | MK                       | MKD                      | MK-MK/fr-fr                         |
-| Madagascar                               | ML                       | MDG                      | fr-FR/fr-fr                         |
+| Macédoine, Ex.-Rép. yougoslave de                          | MK                       | MKD                      | MK-MK/fr-fr                         |
+| Madagascar                               | MG                       | MDG                      | fr-FR/fr-fr                         |
 | Malawi                                   | MW                       | MWI                      | fr-FR                                 |
 | Malaisie                                 | MY                       | MYS                      | en-MY/fr-US                         |
 | Maldives                                 | MV                       | MDV                      | DV-MV/en-US                         |
 | Mali                                     | ENVIRON                       | MLI                      | fr-FR/fr-fr                         |
 | Malte                                    | MT                       | MLT                      | MT-MT/fr-US                         |
-| Marshall (îles)                         | MH                       | MHL                      | fr-FR                                 |
+| Marshall (îles)                         | LP                       | MHL                      | fr-FR                                 |
 | Martinique                               | MQ                       | MTQ                      | fr-FR/fr-fr                         |
 | Mauritanie                               | MR                       | MRT                      | ar-SA/en-US                         |
 | Maurice                                | MU                       | MUS                      | en-GB/fr-fr                         |
 | Mayotte                                  | YT                       | MYT                      | fr-FR/fr-fr                         |
 | Mexique                                   | MX                       | MEX                      | es-MX/fr-fr                         |
 | Micronésie                               | Radio                       | FSM                      | fr-FR                                 |
-| Moldova                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
+| République de Moldavie                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
 | Monaco                                   | MC                       | MCO                      | fr-MC/fr-fr                         |
 | Mongolie                                 | PORTABLE                       | MNG                      | mn-MN/fr-fr                         |
 | Monténégro                               | ME                       | MNE                      | SR-LATN-ME/fr-fr                    |
@@ -201,7 +201,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Oman                                     | OM                       | OMN                      | AR-OM/en-US                         |
 | Pakistan                                 | PK                       | RESOURCEPAK                      | Your-PK/fr-fr                         |
 | Palau                                    | CONFIGURER passe                       | PLW                      | fr-FR                                 |
-| Autorité palestinienne                    | PS                       | PRODUIT                      | ar-SA/en-US                         |
+| Autorité palestinienne                    | PS                       | PSE                      | ar-SA/en-US                         |
 | Panama                                   | AF                       | PAN                      | es-PA/en-US                         |
 | Papouasie-Nouvelle-Guinée                         | SOUHAITABLE                       | PNG                      | fr-FR                                 |
 | Paraguay                                 | PY                       | ARRACH                      | es-PY/fr-fr                         |
@@ -211,7 +211,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Pologne                                   | PL                       | POL                      | PL-PL/fr-fr                         |
 | Portugal                                 | PT                       | PRT                      | PT-PT/en-US                         |
 | Porto Rico                              | PR                       | PRI                      | es-PR/fr-fr                         |
-| Qatar                                    | QA                       | QAT                      | AR-QA/fr-fr                         |
+| Qatar                                    | AQ                       | QAT                      | AR-QA/fr-fr                         |
 | La Réunion                                  | RE                       | REU                      | fr-FR/fr-fr                         |
 | Roumanie                                  | RO                       | ROU                      | RO-RO/fr-fr                         |
 | Russie                                   | RU                       | RUS                      | ru-RU/en-US                         |
@@ -219,31 +219,31 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Saba                                     | XS                       | XSA                      | NL-NL/en-US                         |
 | Saint Kitts et Nevis                    | KN                       | KNA                      | en-GB/fr-fr                         |
 | Sainte-Lucie                              | EUROS                       | LCA                      | fr-FR                                 |
-| Saint-Martin                             | INSTANTANÉ                       | MAF                      | fr-FR/fr-fr                         |
+| Saint-Martin (partie française)                             | INSTANTANÉ                       | MAF                      | fr-FR/fr-fr                         |
 | Saint-Pierre-et-Miquelon                | Manuel                       | SPM                      | fr-FR/fr-fr                         |
-| Saint-Vincent-et-les-Grenadines         | VIRTUEL                       | VCT                      | fr-FR                                 |
+| Saint-Vincent-et-les-Grenadines         | VC                       | VCT                      | fr-FR                                 |
 | Saint--Barthélemy                         | BL                       | BLM                      | fr-FR/fr-fr                         |
 | Samoa                                    | Web                       | WSM                      | fr-FR                                 |
 | Saint-Marin                               | MS                       | SMR                      | informatique-informatique/fr-fr                         |
 | São Tomé et Príncipe                    | ST                       | Protocole                      | PT-PT/en-US                         |
-| Arabie saoudite                             | SA                       | SAU                      | ar-SA/en-US                         |
+| Arabie Saoudite                             | SA                       | SAU                      | ar-SA/en-US                         |
 | Sénégal                                  | SN                       | Send                      | WO-SN/en-US                         |
 | Serbie                                   | RS                       | SRB                      | SR-LATN-RS/SR-Cyrl-RS/fr-US       |
 | Seychelles                               | SC                       | SYC                      | fr-FR                                 |
 | Sierra Leone                             | SL                       | UNIQUE                      | fr-FR                                 |
 | Singapour                                | SG                       | SGP                      | fr-SG/zh-SG/fr-fr                 |
 | Saint-Eustache                           | XE                       | XSE                      | NL-NL/en-US                         |
-| Saint-Martin (Royaume des Pays-Bas)                             | SX                       | SXM                      | fr-FR                                 |
+| Saint-Martin (partie néerlandaise)                             | SX                       | SXM                      | fr-FR                                 |
 | Slovaquie                                 | SK                       | SVK                      | SK-SK/fr-fr                         |
 | Slovénie                                 | SI                       | SVN                      | SL-SI/en-US                         |
 | Salomon (îles)                          | ASPIRATEUR                       | SLB                      | fr-FR                                 |
-| Somalie                                  | AFIN                       | MODÈLE                      | ar-SA/en-US                         |
+| Somalie                                  | SO                       | SOM                      | ar-SA/en-US                         |
 | Afrique du Sud                             | ZA                       | ZAF                      | en-ZA/fr-fr                         |
-| Géorgie du Sud et Sandwich du Sud (îles) | GS                       | SGS                      | fr-FR                                 |
+| Géorgie du Sud et les îles Sandwich du Sud | GS                       | SGS                      | fr-FR                                 |
 | Soudan du Sud                              | SÉCURITÉ                       | SSD                      | fr-FR                                 |
 | Espagne                                    | ES                       | ESP                      | es-ES/ca-ES/UE-ES/GL-ES/fr-fr |
 | Sri Lanka                                | LK                       | LKA                      | Si-LK/fr-fr                         |
-| Sainte-Hélène, Ascension et Tristan da Cunha   | &                       | SHN                      | fr-FR                                 |
+| Sainte-Hélène, Ascension et Tristan da Cunha   | &AMP;                       | SHN                      | fr-FR                                 |
 | Surinam                                 | SR                       | SUR                      | nl-NL                                 |
 | Svalbard                                 | SJ                       | SJM                      | NB-non/en-US                         |
 | Suède                                   | SE                       | $ $                      | SV-SE/en-US                         |

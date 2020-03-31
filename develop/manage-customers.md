@@ -4,14 +4,14 @@ description: Cette section décrit les manières dont les partenaires fournisseu
 ms.assetid: C8D81324-5D5A-4C42-933F-6C0552FB882D
 ms.date: 02/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b6f5a99d1a0a9ffe05337f1fa628318eb56dc83
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: b91125e313dcad0e582687354339ad885147e659
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899669"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416497"
 ---
 # <a name="manage-customers"></a>Gérer les clients
 
@@ -49,7 +49,7 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Ajouter un domaine vérifié pour un client](add-a-verified-domain-for-a-customer.md)   
 - [Obtenir les métadonnées de l’accord pour le contrat Microsoft Cloud](get-agreement-metadata.md)
 - [Obtenir une confirmation de l'acceptation du contrat Microsoft Cloud par le client](get-confirmation-of-customer-consent.md)
-- [Obtient l’état de la signature directe (acceptation directe) du contrat client Microsoft](get-direct-sign-status-of-customer-agreement.md)
+- [Obtenir l’état de la signature directe (acceptation directe) du Contrat client Microsoft](get-direct-sign-status-of-customer-agreement.md)
 - [Confirmer l'acceptation par le client du Contrat client Microsoft](confirm-customer-consent-customer-agreement.md)
 - [Obtenir les codes de validation d’un partenaire](get-a-partner-s-validation-codes.md)
 - [Obtenir la qualification d’un client](get-a-customer-s-qualification.md)

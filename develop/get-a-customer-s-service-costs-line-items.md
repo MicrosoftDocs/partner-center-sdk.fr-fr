@@ -4,14 +4,14 @@ description: Obtient les éléments de ligne de coût du service d’un client p
 ms.assetid: 1D6364A2-51FE-44E4-96A0-444EDB3BB56A
 ms.date: 07/12/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 67e6c803995759942748aac79473911b2aa2f9e7
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: df99beb15820a33204a114b68de6cd87cbba13db
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80070114"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415694"
 ---
 # <a name="get-a-customers-service-costs-line-items"></a>Obtenir les éléments de ligne des coûts de service d’un client
 
@@ -23,11 +23,11 @@ Obtient les éléments de ligne de coût du service d’un client pour la pério
 
 ## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
 - Identificateur du client.
 - Un indicateur de période de facturation (**mostRecent**).
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour récupérer un récapitulatif des coûts de service pour le client spécifié :
 
@@ -89,7 +89,7 @@ En cas de réussite, le corps de la réponse contient une ressource [ServiceCost
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

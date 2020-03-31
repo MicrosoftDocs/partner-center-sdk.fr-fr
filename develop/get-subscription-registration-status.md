@@ -3,20 +3,20 @@ title: Afficher l’état d’inscription de l’abonnement
 description: Obtenir l’état d’un abonnement inscrit pour une utilisation avec Azure Reserved VM Instances.
 ms.date: 03/19/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: fe9ea6d21465996b28367ff2fe5d374ac551bfe2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0671ab9bfc9bf254a9bc5472c4ed0f65153af1af
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487119"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416625"
 ---
 # <a name="get-subscription-registration-status"></a>Afficher l’état d’inscription de l’abonnement 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment obtenir l’état d’inscription d’un abonnement client qui a été activé pour l’achat de Azure Reserved VM Instances.  
 
@@ -25,7 +25,7 @@ Pour acheter une instance de machine virtuelle réservée Azure à l’aide de l
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - ID d’abonnement.
 
@@ -47,9 +47,9 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 **Syntaxe de la requête**
 
-| Méthode    | URI de requête                                                                                                                        |
+| Méthode    | URI de demande                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/RegistrationStatus http/1.1 |
+| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/RegistrationStatus http/1.1 |
 
 **Paramètres d’URI**
 
@@ -67,7 +67,7 @@ Utilisez les paramètres de chemin d’accès suivants pour identifier le client
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -89,7 +89,7 @@ En cas de réussite, le corps de la réponse contient une ressource [Subscriptio
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 

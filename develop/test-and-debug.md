@@ -4,21 +4,21 @@ description: Pour tester votre code, vous devez utiliser votre compte de bac à 
 ms.assetid: 0A84F92F-CE66-42DF-B686-4D9E6FFECB16
 ms.date: 09/11/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4773474582c1eac17291c0021be1b4d085c57ed3
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 6830803d450afb4ef6594324d6052fac783c89e8
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487979"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415147"
 ---
 # <a name="test-and-debug"></a>Test et débogage
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -31,7 +31,7 @@ Si vous exécutez des tests de vérification de build automatisés, effectuez de
 
 Cela signifie que vous ne pouvez pas acquérir une offre dans le bac à sable (sandbox) qui a une exigence minimale de siège supérieure à 25 sièges. Cela comprend les essais. 
 
-### <a name="azure-plan"></a>Plan Azure
+### <a name="azure-plan"></a>plan Azure
 Par défaut, les partenaires ne peuvent pas approvisionner des plans Azure à l’aide de leurs comptes sandbox. Les partenaires qui doivent le faire avec leur compte sandbox doivent s’appliquer à l’accès. Pour demander l’accès, contactez votre responsable de compte Microsoft ou votre contact professionnel. Les partenaires qui ont précédemment demandé l’accès aux abonnements Microsoft Azure (MS-AZR-0145P) dans leurs comptes sandbox n’ont pas besoin de s’appliquer à nouveau à l’accès. Ils se voient accorder l’accès pour approvisionner les plans Azure automatiquement.
 
 Pour les partenaires dont les comptes bac à sable (sandbox) ont été approuvés pour approvisionner des plans Azure, les limites suivantes s’appliquent :
@@ -76,7 +76,7 @@ Dans l’environnement du bac à sable (sandbox) CSP, il n’existe aucune inté
 
 Pour effectuer un nettoyage à la fin de votre série de tests, il y a de l’espace pour l’essai suivant, consultez les rubriques suivantes :
 
-- [Supprimer un compte client du bac à sable (sandbox) d’intégration](delete-a-customer-account-from-the-integration-sandbox.md)
+- [Supprimer un compte client du bac à sable d’intégration](delete-a-customer-account-from-the-integration-sandbox.md)
 
 - [Réduire la quantité d’un abonnement](change-the-quantity-of-a-subscription.md)
 
@@ -87,7 +87,7 @@ Pour effectuer un nettoyage à la fin de votre série de tests, il y a de l’es
 
 - Utilisez un outil de trace réseau pour voir votre demande, la réponse et, si le code d’état HTTP comportait des erreurs dans la réponse. Pour plus d’informations sur la gestion des erreurs, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
-- Utilisez un nouvel ID de corrélation pour chaque appel effectué à l’API REST de l’espace partenaires. Cela garantit une meilleure journalisation et vous aidera lors du débogage. Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+- Utilisez un nouvel ID de corrélation pour chaque appel effectué à l’API REST de l’espace partenaires. Cela garantit une meilleure journalisation et vous aidera lors du débogage. Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ## <a name="span-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemsspan-idtroubleshooting_tips_for_common_rest_problemstroubleshooting-tips-for-common-rest-problems"></a><span id="Troubleshooting_tips_for_common_REST_problems"/><span id="troubleshooting_tips_for_common_rest_problems"/><span id="TROUBLESHOOTING_TIPS_FOR_COMMON_REST_PROBLEMS"/>conseils de dépannage pour les problèmes REST courants
 

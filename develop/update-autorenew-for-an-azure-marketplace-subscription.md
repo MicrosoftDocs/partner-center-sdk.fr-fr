@@ -4,21 +4,21 @@ description: Mettez à jour la propriété renouvellement autorenouvelé pour un
 ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 48d16a730825f287c3b10607c28ab15194087a0e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: ead0ea160b642d1b06fb8d0234fdbd778766ec12
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486399"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414741"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>Mettre à jour le renouvellement autorenouvelé pour un abonnement à la place de marché commercial
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Mettez à jour la propriété renouvellement autorenouvelé pour une ressource d' [abonnement](subscription-resources.md) de la place de marché commercial qui correspond à l’ID du client et de l’abonnement.
 
@@ -27,7 +27,7 @@ Dans le tableau de bord de l’espace partenaires, cette opération est effectu�
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - ID d’abonnement.
 
@@ -53,7 +53,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 **Syntaxe de la requête**
 
-| Méthode    | URI de requête                                                                                                                |
+| Méthode    | URI de demande                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
 | **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
  
@@ -125,7 +125,7 @@ En cas de réussite, cette méthode retourne les propriétés de ressource d' [a
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 

@@ -4,14 +4,14 @@ description: Décrit le comportement des profils d’un fournisseur de solutions
 ms.assetid: 42F2959B-D70D-41A7-9A50-E22A2356A339
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3449aeb3695a9f286f37668d3f0862dc7b5cfa9f
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: e2f7813ef3e41c06b7575e4119a364cb4e037e9b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083036"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416330"
 ---
 # <a name="profile-resources"></a>Ressources de profil
 
@@ -34,7 +34,7 @@ Décrit le profil de facturation d’un partenaire.
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
 | Prennent         | chaîne                                                         | Nom de la société de facturation.                                   |
 | adresse             | [Address](utility-resources.md#address)                       | Adresse de facturation de l’entreprise ou de l’organisation. |
-| primaryContact      | [Communiquer](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.        |
+| primaryContact      | [Contact](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.        |
 | purchaseOrderNumber | chaîne                                                         | Numéro de bon de commande de la société ou de l’organisation.        |
 | taxI               | chaîne                                                         | L’ID de taxe de la société ou de l’organisation.                       |
 | BillingCurrency     | chaîne                                                         | Devise utilisée par la société ou l’organisation.           |
@@ -53,7 +53,7 @@ Décrit le profil d’entreprise juridique d’un partenaire.
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Prennent            | chaîne                                                         | Nom de la société légale.                                                                                                                                              |
 | adresse                | [Address](utility-resources.md#address)                       | Adresse de la société ou de l’organisation.                                                                                                                          |
-| primaryContact         | [Communiquer](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.                                                                                                                 |
+| primaryContact         | [Contact](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.                                                                                                                 |
 | companyApproverAddress | [Address](utility-resources.md#address)                       | Adresse de l’approbateur de l’entreprise.                                                                                                                                        |
 | companyApproverEmail   | chaîne                                                         | E-mail de l’approbateur de l’entreprise.                                                                                                                                          |
 | vettingStatus          | chaîne                                                         | État d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |

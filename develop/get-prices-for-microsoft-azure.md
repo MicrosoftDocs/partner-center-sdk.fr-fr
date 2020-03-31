@@ -4,20 +4,20 @@ description: Comment obtenir une carte de tarifs Azure avec des prix en temps r�
 ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7aaa68d4a1eab5595d2325e84e555c3ec5117e08
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a306e488a33c96822b8ed9ddc58c9b1edbbd62b7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487309"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412624"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Obtenir des prix pour Microsoft Azure
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -67,15 +67,15 @@ Get-PartnerAzureRateCard
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                        |
+| Méthode  | URI de demande                                                        |
 |---------|--------------------------------------------------------------------|
-| **Télécharger** | *{baseURL}* /v1/ratecards/Azure ? Currency = {currency} & region = {region} |
+| **GET** | *{baseURL}* /v1/ratecards/Azure ? Currency = {currency} & region = {region} |
 
 ### <a name="uri-parameters"></a>Paramètres d’URI
 
 | Nom     | Type   | Obligatoire | Description                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| accès | chaîne | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple, « EUR »). La valeur par défaut est « USD ». |
+| devise | chaîne | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple, « EUR »). La valeur par défaut est « USD ». |
 | région   | chaîne | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple, « FR »). La valeur par défaut est « US ».        |
 
 Vous pouvez inclure l' [en-tête](headers.md#request-headers) X-locale facultatif dans votre demande. Si vous n’incluez pas l’en-tête X-locale, la valeur par défaut (« en-US ») est utilisée.
@@ -87,9 +87,9 @@ Vous pouvez inclure l' [en-tête](headers.md#request-headers) X-locale facultati
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -111,7 +111,7 @@ Si cette opération réussit, elle retourne une ressource de [carte de tarifs Az
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

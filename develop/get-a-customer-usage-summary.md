@@ -4,31 +4,31 @@ description: Vous pouvez utiliser la ressource CustomerUsageSummary pour obtenir
 ms.assetid: 58FA3CBD-27CF-46C5-9EB2-188D83896F7D
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5733773e011701d13ce5aee5bbcd37417dfedaab
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: afa4b40d18b104270ea047eab383a917d6bc7a0a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487659"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415671"
 ---
 # <a name="get-a-usage-summary-for-all-of-a-customers-subscriptions"></a>Obtenir un récapitulatif de l’utilisation de tous les abonnements d’un client
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez utiliser la ressource **CustomerUsageSummary** pour obtenir l’utilisation par un client d’un service ou d’une ressource Azure spécifique au cours de la période de facturation en cours.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
-- Identificateur du client (**Customer-client-ID**). Si vous n’avez pas d’identificateur de client, vous pouvez rechercher l’identificateur dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+- Identificateur d’un client (**customer-tenant-id**). Si vous n’avez pas d’identificateur de client, vous pouvez rechercher l’identificateur dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour obtenir un résumé de l’utilisation de tous les abonnements d’un client :
 
@@ -54,9 +54,9 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                         |
+| Méthode  | URI de demande                                                                                         |
 |---------|-----------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/usagesummary http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/usagesummary http/1.1 |
 
 ##### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -70,9 +70,9 @@ Ce tableau répertorie le paramètre de requête requis pour obtenir les informa
 
 Pour plus d’informations, consultez [en-têtes](headers.md) .
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -90,7 +90,7 @@ En cas de réussite, cette méthode retourne une ressource **CustomerUsageSummar
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
 
 #### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscription"></a>Exemple de réponse pour l’abonnement Microsoft Azure (MS-AZR-0145P)
 

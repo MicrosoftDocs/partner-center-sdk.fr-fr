@@ -3,21 +3,21 @@ title: Supprimer une relation de revendeur avec un client
 description: Comment supprimer une relation de revendeur avec un client pour lequel vous n’avez plus de transactions.
 ms.date: 01/12/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 950b4c275acbbc699504344108799f6662de607e
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3e64b6b9921e500d4f4926a45a624c909988ec00
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486709"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415481"
 ---
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>Supprimer une relation de revendeur avec un client
 
 
 **S’applique à**
 
-- Espace partenaires  
+- Centre pour partenaires  
 
 
 Supprimer une relation de revendeur avec un client pour lequel vous n’avez plus de transactions. 
@@ -25,7 +25,7 @@ Supprimer une relation de revendeur avec un client pour lequel vous n’avez plu
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - Toutes les commandes d’instance de machine virtuelle réservées Azure doivent être annulées avant la suppression d’une relation de revendeur. Appelez le support Azure pour annuler les commandes de l’instance de machine virtuelle réservée Azure.
 
@@ -91,7 +91,7 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 
 **Syntaxe de la requête**
 
-| Méthode     | URI de requête                                                                                                                           |
+| Méthode     | URI de demande                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | **CORRECTIF**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/http/1.1 |
 
@@ -141,7 +141,7 @@ En cas de réussite, cette méthode supprime une relation de revendeur pour le c
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

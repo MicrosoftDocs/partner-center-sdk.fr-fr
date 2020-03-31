@@ -3,27 +3,27 @@ title: Obtenir la qualification d’un client
 description: Comment obtenir la qualification d’un client.
 ms.date: 08/07/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 352ddaf62d2ea2f47dba99fcda53db7d1f9661b8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7bf6e7271cf250b53b139a6a1cef4cd3fcba8933
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488449"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412181"
 ---
 # <a name="get-a-customers-qualification"></a>Obtenir la qualification d’un client
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment obtenir la qualification d’un client.
 
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 
 
@@ -43,9 +43,9 @@ var customerQualification = partnerOperations.Customers.ById(customerId).Qualifi
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                          |
+| Méthode  | URI de demande                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/qualification http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/qualification http/1.1 |
 
  
 **Paramètre URI**
@@ -62,7 +62,7 @@ Ce tableau répertorie le paramètre de requête requis pour obtenir toutes les 
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -81,7 +81,7 @@ En cas de réussite, cette méthode retourne une valeur de qualification dans le
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

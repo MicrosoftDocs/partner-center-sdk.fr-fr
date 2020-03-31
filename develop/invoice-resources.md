@@ -4,14 +4,14 @@ description: Plusieurs ressources liées aux factures sont disponibles par le bi
 ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6540af51e462974592ec18d7dd9ede8517ba1725
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 151c2c0bbd486790c472c4c65f163561c93d303e
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083106"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416541"
 ---
 # <a name="invoice-resources"></a>Ressources de facturation
 

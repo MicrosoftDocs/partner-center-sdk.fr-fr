@@ -4,20 +4,20 @@ description: Comment créer un nouveau client.
 ms.assetid: 7EA3E23F-0EA8-49CB-B98A-C4B74F559873
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 94ce486779ca53d27d7a53a5277060324b7acc23
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: bf9007c4f3750b66326475e15479006c87e9f6a7
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489329"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413485"
 ---
 # <a name="create-a-customer"></a>Créer un client
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -34,14 +34,14 @@ En tant que partenaire fournisseur de solutions Cloud (CSP), lorsque vous créez
 
 Une fois le client créé, veillez à enregistrer l’ID client et Azure AD détails pour une utilisation ultérieure avec le kit de développement logiciel (SDK) de l’espace partenaires (par exemple, la gestion des comptes).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
 > [!IMPORTANT]
 > Pour créer un locataire client, vous devez fournir une adresse physique valide pendant le processus de création. Une adresse peut être validée en suivant les étapes décrites dans le scénario [valider une adresse](validate-an-address.md) . Si vous créez un client à l’aide d’une adresse non valide dans l’environnement du bac à sable (sandbox), vous ne pourrez pas supprimer ce locataire client.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour ajouter un client :
 
@@ -150,9 +150,9 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                       |
+| Méthode   | URI de demande                                                       |
 |----------|-------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers http/1.1 |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -160,7 +160,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 - Un ID de demande et un ID de corrélation sont requis.
 - Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Ce tableau décrit les propriétés requises dans le corps de la demande.
 
@@ -176,10 +176,10 @@ Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerBil
 | Nom             | Type                                     | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Messagerie            | chaîne                                   | Adresse de messagerie du client.                                                                                                                                                                                   |
-| Culturel          | chaîne                                   | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
+| culture          | chaîne                                   | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
 | language         | chaîne                                   | Langue par défaut. Les codes de langue à deux caractères (par exemple, fr) sont pris en charge.                                                                                                                                |
 | nom de l'\_de la société    | chaîne                                   | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
-| adresse de\_par défaut | [-](utility-resources.md#address) | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
+| adresse de\_par défaut | [Address](utility-resources.md#address) | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
 
 #### <a name="company-profile"></a>Profil d’entreprise
 
@@ -232,7 +232,7 @@ En cas de réussite, cette API retourne une ressource [client](customer-resource
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

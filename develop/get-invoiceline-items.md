@@ -4,22 +4,22 @@ description: Vous pouvez obtenir des détails sur une collection d’éléments 
 ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/27/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 758ccbeff877973f9b317ef4008fd7cf8b962939
-ms.sourcegitcommit: 534656a8e1f5f31773721892c4735f14379b1019
+ms.openlocfilehash: 9232e27755f253d4ef017765f8f58e9a04f38b59
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76923099"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415843"
 ---
 # <a name="get-invoice-line-items"></a>Récupérer les éléments de ligne de facture
 
 S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez utiliser les méthodes suivantes pour obtenir les détails d’une collection d’éléments de ligne de facturation (également appelés éléments de ligne de facturation clôturés) pour une facture spécifiée.
@@ -30,9 +30,9 @@ Vous devez utiliser **OneTime** pour interroger tous les Articles de la consomma
 
 Cette API prend également en charge les types de **fournisseurs** **Azure** et **office** pour les abonnements Microsoft Azure (MS-AZR-0145P) et les offres Office, ce qui rend la fonctionnalité d’API à compatibilité descendante.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
 
 ## <a name="c"></a>C\#
@@ -116,7 +116,7 @@ Effectuez votre demande à l’aide de la syntaxe appropriée pour le fournisseu
 
 La syntaxe suivante s’applique lorsque le fournisseur de facturation est **Office**.
 
-| Méthode  | URI de requête                                                                                                                                                     |
+| Méthode  | URI de demande                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = Office & invoicelineitemtype = billinglineitems & Size = {size} & offset = {offset} http/1.1                               |
 
@@ -124,7 +124,7 @@ La syntaxe suivante s’applique lorsque le fournisseur de facturation est **Off
 
 Les syntaxes suivantes s’appliquent lorsque le fournisseur de facturation a un abonnement Microsoft Azure (MS-AZR-0145P).
 
-| Méthode  | URI de requête                                                                                                                                                     |
+| Méthode  | URI de demande                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = Azure & invoicelineitemtype = billinglineitems & taille = {size} & offset = {offset} http/1.1  |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = Azure & invoicelineitemtype = usagelineitems & taille = {size} & offset = {offset} http/1.1  |
@@ -133,7 +133,7 @@ Les syntaxes suivantes s’appliquent lorsque le fournisseur de facturation a un
 
 Les syntaxes suivantes s’appliquent lorsque le fournisseur de facturation est **OneTime**. Cela comprend les frais liés aux réservations Azure, aux logiciels, aux plans Azure et aux produits de la place de marché commercial.
 
-| Méthode  | URI de requête                                                                                                                                                     |
+| Méthode  | URI de demande                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime & invoicelineitemtype = billinglineitems & Size = {Size} http/1.1  |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/OneTime/billinglineitems & Size = {Size} ? SeekOperation = Next                           |
@@ -146,7 +146,7 @@ Si vous utilisez les syntaxes suivantes, assurez-vous d’utiliser la syntaxe ap
 
 Vous devez utiliser **OneTime** pour interroger tous les Articles de la consommation commerciale au lieu de la place de **marché**. Vous pouvez ou suivre les liens de l’appel d’estimation des liens.
 
-| Méthode | URI de requête | Description du cas d’usage de syntaxe |
+| Méthode | URI de demande | Description du cas d’usage de syntaxe |
 | ------ | ----------- | -------------------------------- |
 | GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/{Billing-Provider}/{Invoice-line-item-type} http/1.1                              | Vous pouvez utiliser cette syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. |
 | GET | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/{Billing-Provider}/{Invoice-line-item-type} ? Size = {size} & offset = {offset} http/1.1  | Pour les factures volumineuses, vous pouvez utiliser cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
@@ -156,25 +156,25 @@ Vous devez utiliser **OneTime** pour interroger tous les Articles de la consomma
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Tapez   | Requis | Description                                                       |
+| Nom                   | Type   | Obligatoire | Description                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | ID de la facture             | chaîne | Oui      | Chaîne qui identifie la facture.                             |
 | fournisseur de facturation       | chaîne | Oui      | Fournisseur de facturation : « Office », « Azure », « OneTime ».               |
 | facture-ligne-élément-type | chaîne | Oui      | Type de détail de la facture : « BillingLineItems », « UsageLineItems ». |
-| size                   | nombre | non       | Nombre maximal d’éléments à retourner.                            |
-| offset                 | nombre | non       | Index de base zéro du premier élément de ligne à retourner.            |
-| seekOperation          | chaîne | non       | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
-| hasPartnerEarnedCredit | bool | non | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
+| size                   | nombre | Non       | Nombre maximal d'éléments à retourner.                            |
+| offset                 | nombre | Non       | Index de base zéro du premier élément de ligne à retourner.            |
+| seekOperation          | chaîne | Non       | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
+| hasPartnerEarnedCredit | bool | Non | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
 
  
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 #### <a name="request-body"></a>Corps de demande
 
-Aucune.
+None.
 
 ### <a name="rest-response"></a>Réponse REST
 
@@ -184,7 +184,7 @@ En cas de réussite, la réponse contient la collection des détails de l’él�
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="rest-request-response-examples"></a>Exemples de demande-réponse REST
 
@@ -721,7 +721,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
 
 #### <a name="request-response-example-5"></a>Exemple de requête-réponse 5
 
-Dans l’exemple suivant, il existe une pagination à l’aide d’un jeton de continuation. Les détails sont les suivants :
+Dans l’exemple suivant, il existe une pagination à l’aide d’un jeton de continuation. Les détails sont les suivants :
 
 - **BillingProvider**: **OneTime**
 - **InvoiceLineItemType**: **BillingLineItems**

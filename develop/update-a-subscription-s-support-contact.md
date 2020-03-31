@@ -4,21 +4,21 @@ description: Comment mettre à jour le contact de support d’un abonnement à l
 ms.assetid: 6DE6EF60-6F8B-46F2-8278-CD706081B180
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 96cb4ae8bd938b5ab486e2bd81602132c449be55
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 8bd46c84d169924288b87b0c6a349a192d702e6b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486419"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414779"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>Mettre à jour le contact de support d’un abonnement
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -27,7 +27,7 @@ Comment mettre à jour le contact de support d’un abonnement à l’un des rev
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 - Identificateur d’abonnement.
 - Informations sur le nouveau contact de support : identificateur de locataire, identificateur de Microsoft Partner Network et nom. Le contact du support technique doit être l’un des revendeurs à valeur ajoutée du partenaire.
@@ -61,9 +61,9 @@ var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscri
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                                    |
+| Méthode  | URI de demande                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **POSÉ** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/supportcontact http/1.1 |
+| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/supportcontact http/1.1 |
 
  
 
@@ -124,7 +124,7 @@ En cas de réussite, le corps de la réponse contient la ressource [SupportConta
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

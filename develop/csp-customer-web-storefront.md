@@ -4,20 +4,20 @@ description: Cet exemple de code de site Web montre un magasin en ligne opérati
 ms.assetid: 0726B1CA-97A1-42E6-92AD-25787BFE0C67
 ms.date: 05/29/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b8e8a87e0ed22d1703b65085cf6eb9e1743c9f09
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1db077eb789146f945f6d507be84f948ae2cb0a9
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489739"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415547"
 ---
 # <a name="csp-customer-web-storefront"></a>Vitrine Web client CSP
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 > [!NOTE]
 > Cet exemple d’application s’applique uniquement à l’instance globale de l’espace partenaires. Elle ne s’applique pas à l’espace partenaires pour Microsoft Cloud Allemagne ni au centre partenaires pour Microsoft Cloud pour le gouvernement des États-Unis.
@@ -50,7 +50,7 @@ Cet exemple de site Web effectue le suivi des informations de la société et de
 
 - Nom de l'organisation
 - Logo de l’Organisation
-- Image d’en-tête
+- Image d'en-tête
 - Accord de confidentialité
 - Adresse de messagerie du contact
 - Numéro de téléphone du contact

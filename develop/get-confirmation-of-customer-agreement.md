@@ -3,20 +3,20 @@ title: Recevez une confirmation de l’acceptation par le client du contrat clie
 description: Cette rubrique explique comment demander la confirmation de l’acceptation du client par le contrat de client Microsoft.
 ms.date: 09/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b25e48955ed8fb89934c5296492a9525154c264
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4cf76af611d05913f04d8c9268d61acf16334d76
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486589"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416008"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Recevez une confirmation de l’acceptation par le client du contrat client Microsoft
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 La ressource d' **accord** est actuellement prise en charge par l’espace partenaires uniquement dans le *cloud public Microsoft*. Cette ressource ne s’applique pas à :
 
@@ -26,11 +26,11 @@ La ressource d' **accord** est actuellement prise en charge par l’espace parte
 
 Cet article explique comment vous pouvez récupérer la ou les confirmations de l’acceptation par un client du contrat de client Microsoft.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,14 ou une version ultérieure est requise.
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
-- Identificateur du client (**Customer-client-ID**).
+- Si vous utilisez le SDK .NET de l’Espace partenaires, la version 1.14 ou une version ultérieure est nécessaire.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](./partner-center-authentication.md). Ce scénario ne prend en charge que l’authentification d’application + utilisateur.
+- Identificateur d’un client (**customer-tenant-id**).
 
 ## <a name="net"></a>.NET
 
@@ -63,7 +63,7 @@ Pour récupérer la confirmation de l’acceptation du client fournie précédem
 
 Utilisez la syntaxe de requête suivante :
 
-| Méthode | URI de requête                                                                                      |
+| Méthode | URI de demande                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
 | GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Agreements ? agreementType = {contrat-type} http/1.1 |
 
@@ -73,16 +73,16 @@ Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
 | Nom             | Type | Obligatoire | Description                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| client-locataire-ID | GUID | Oui | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
+| customer-tenant-id | GUID | Oui | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
 | type d’accord | chaîne | Non | Ce paramètre retourne toutes les métadonnées de l’accord. Utilisez ce paramètre pour étendre la réponse de la requête à un type de contrat spécifique. Les valeurs prises en charge sont les suivantes : <ul><li>**MicrosoftCloudAgreement** qui comprend uniquement les métadonnées d’accord de type *MicrosoftCloudAgreement*.</li><li>**MicrosoftCustomerAgreement** qui comprend uniquement les métadonnées d’accord de type *MicrosoftCustomerAgreement*.</li><li>**\*** qui retourne toutes les métadonnées de l’accord. (N’utilisez pas **\*** , sauf si votre code a la logique nécessaire pour gérer les types d’accord inattendus.)</li></ul> Si le paramètre URI n’est pas spécifié, la requête est définie par défaut sur **MicrosoftCloudAgreement** pour des raisons de compatibilité descendante. Microsoft peut introduire des métadonnées de l’accord avec de nouveaux types de contrat à tout moment.  |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -100,9 +100,9 @@ En cas de réussite, cette méthode retourne une collection de ressources de **c
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. 
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. 
 
-Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

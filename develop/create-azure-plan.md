@@ -4,24 +4,24 @@ description: Les développeurs peuvent acheter, créer et gérer des plans Azure
 ms.assetid: ''
 ms.date: 01/02/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 65d7e33d5a05cbf0b6ca938ea45f0ba03dfefd2e
-ms.sourcegitcommit: efffee16923d06f37d24cd50cbce9bdc82a56a5e
+ms.openlocfilehash: 2e17f2c42e8f0c78d9a406e8cd0314fb08cb1683
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75621657"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413828"
 ---
 # <a name="create-an-azure-plan"></a>Créer un plan Azure
 
 S'applique à :
 
-* Espace partenaires
+* Centre pour partenaires
 
 Vous pouvez acheter, créer et gérer un plan Azure à l’aide des API de l’espace partenaires. Le processus est similaire à la création d’un abonnement Microsoft Azure (MS-AZR-0145P). Vous devez [obtenir l’élément de catalogue pour le plan Azure](#get-the-catalog-item-for-azure-plan), puis [créer et envoyer une commande](#create-and-submit-an-order).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
 * Informations d' [authentification de l’espace partenaires](partner-center-authentication.md) . Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 * Identificateur du client. Si vous n’avez pas d’identificateur de client, suivez les étapes de la section [obtenir une liste de clients](get-a-list-of-customers.md) ou connectez-vous à l’espace partenaires, choisissez le client dans la liste clients, sélectionnez **compte**, puis enregistrez son **identifiant Microsoft**.

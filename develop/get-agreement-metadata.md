@@ -3,14 +3,14 @@ title: Obtenir les métadonnées de l'accord pour le contrat Microsoft Cloud
 description: Cette rubrique explique comment obtenir les métadonnées d’un accord pour Microsoft Cloud accord.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a0bf235be9415b75cc4f766f4a92cb37a14a0d96
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: f3868efef7e1eaca2f408efbf8f631a3fed198fb
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899956"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416207"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Obtenir les métadonnées de l'accord pour le contrat Microsoft Cloud
 
@@ -19,7 +19,7 @@ ms.locfileid: "78899956"
 - Centre pour partenaires
 
 > [!NOTE]  
-> La ressource **AgreementMetaData** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle ne s’applique pas aux éléments suivants :
+> La ressource **AgreementMetaData** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle n’est pas applicable aux éléments suivants :
 > - Espace partenaires géré par 21Vianet
 > - Espace partenaires de Microsoft Cloud Germany
 > - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ ms.locfileid: "78899956"
 
 - Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,9 ou une version ultérieure est requise.
 - Si vous utilisez le kit de développement logiciel (SDK) Java de l’espace partenaires, la version 1,8 ou une version ultérieure est requise.
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge l’authentification d’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge l’authentification d’application + utilisateur.
 
 ## <a name="net-version-114-or-newer"></a>.NET (version 1,14 ou ultérieure)
 
@@ -138,7 +138,7 @@ En cas de réussite, cette méthode retourne une collection de ressources **Agre
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

@@ -4,20 +4,20 @@ description: Comment obtenir la liste des abonnements fournis par un partenaire 
 ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 45f899a429c81faaff8dc4ea8747ebc0df289a45
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: d2029e9079d31d06995dad5c8e57cacfb2ae2015
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485829"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416066"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Obtenir les abonnements d’un client par ID MPN partenaire
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -27,7 +27,7 @@ Comment obtenir la liste des abonnements fournis par un partenaire donné à un 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 - Identificateur d’Microsoft Partner Network de partenaire (MPN).
 
@@ -78,9 +78,9 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête |
+| Méthode  | URI de demande |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions ? MPN\_ID = {MPN-ID} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions ? MPN\_ID = {MPN-ID} http/1.1 |
 
 **Paramètres d’URI**
 
@@ -89,7 +89,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour ident
 | Nom        | Type   | Obligatoire | Description                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
 | ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client.       |
-| MPN-ID      | entier    | Oui      | ID de Microsoft Partner Network qui identifie le partenaire. |
+| MPN-ID      | int    | Oui      | ID de Microsoft Partner Network qui identifie le partenaire. |
 
  
 **En-têtes de demande**
@@ -98,7 +98,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour ident
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -119,7 +119,7 @@ En cas de réussite, le corps de la réponse contient la collection de ressource
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 
@@ -178,4 +178,4 @@ Date: Thu, 13 Apr 2017 20:58:08 GMT
 ```
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
- - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)
+ - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

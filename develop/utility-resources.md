@@ -4,14 +4,14 @@ description: L’API REST de l’espace partenaires contient de nombreuses resso
 ms.assetid: C77219B9-FFDD-4779-AE15-5B15BA7BA863
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b19eb80c5be2cc07bd325681f9870a1af7fed481
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 50f60dd17faca5f71e309bcc5c656a8ea3c4cf61
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80083076"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414342"
 ---
 # <a name="utility-resources"></a>Ressources de l’utilitaire
 
@@ -34,7 +34,7 @@ Adresse à utiliser pour le client ou pour les profils de partenaires. Pour plus
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
 | AddressLine1 | chaîne | (1, 200)          | Première ligne de l’adresse.                                                                   |
 | AddressLine2 | chaîne | (0, 200)          | Deuxième ligne de l’adresse. Cette propriété est facultative.                                       |
-| Ville         | chaîne | Non applicable               | La ville.                                                                                        |
+| Ville         | chaîne | Non applicable               | Ville.                                                                                        |
 | État        | chaîne | (0, 2)            | État.                                                                                       |
 | PostalCode   | chaîne | Non applicable               | Code postal.                                                                     |
 | Country      | chaîne | (2, 2)            | Pays/région au format de code pays ISO.                                                   |

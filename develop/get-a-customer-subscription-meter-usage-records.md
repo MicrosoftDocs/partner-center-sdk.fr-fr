@@ -4,34 +4,34 @@ description: Vous pouvez utiliser la collection de ressources MeterUsageRecord p
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 48aff5f8bde2dd9c51bb54e07c81715f18993597
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c99c10eda64964ca4b35a19aec400723e590b59b
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487699"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416286"
 ---
 # <a name="get-usage-data-for-subscription-by-meter"></a>Obtenir les données d’utilisation de l’abonnement par compteur
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez utiliser la collection de ressources **MeterUsageRecord** pour obtenir les enregistrements d’utilisation de compteur d’un client pour des services ou des ressources Azure spécifiques pendant la période de facturation en cours. Cette collection de ressources représente un total agrégé pour chaque compteur du cycle de facturation actuel, sur l’ensemble de votre plan Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID client (**client-locataire-ID**). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - Un ID d’abonnement
 
 *Ce nouvel itinéraire est équivalent à `subscriptions/{subscription-id}/usagerecords/resources`, qui continuera à fonctionner uniquement pour les abonnements Microsoft Azure (MS-AZR-0145P).* Ce nouvel itinéraire prendra en charge à la fois les abonnements Microsoft Azure (MS-AZR-0145P) et les plans Azure. Pour obtenir ces informations pour votre plan Azure, vous devrez basculer vers ce nouvel itinéraire. À part les propriétés mentionnées dans les sections suivantes, la réponse est la même que l’ancien itinéraire.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour obtenir les enregistrements d’utilisation de compteur d’un client pour un service ou une ressource Azure spécifique pendant la période de facturation actuelle :
 
@@ -58,9 +58,9 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                                                             |
+| Méthode  | URI de demande                                                                                                                             |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/meterusagerecords http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/meterusagerecords http/1.1 |
 
 ##### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -75,9 +75,9 @@ Ce tableau répertorie les paramètres de requête requis pour obtenir les infor
 
 Pour plus d’informations, consultez [en-têtes](headers.md).
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -95,7 +95,7 @@ En cas de réussite, cette méthode retourne un **PagedResourceCollection\<Meter
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
 
 #### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Exemple de réponse pour les abonnements Microsoft Azure (MS-AZR-0145P)
 

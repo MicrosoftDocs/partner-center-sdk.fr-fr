@@ -4,21 +4,21 @@ description: Comment obtenir l’état d’un téléchargement par lots d’un a
 ms.assetid: 2965869E-824A-497E-9A77-6FC1BA18C55B
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: aaf4132b826046ee724c0aaca942694346185228
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 0e60fad2247cf9e87f1b7e1b494e693c35d8fb8c
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487089"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416573"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>Obtenir l’état d’un téléchargement par lots d’appareils
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
 Comment obtenir l’état d’un téléchargement par lots d’un appareil pour un client spécifié.
@@ -26,7 +26,7 @@ Comment obtenir l’état d’un téléchargement par lots d’un appareil pour 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 - Identificateur de suivi de lot renvoyé dans l’en-tête d’emplacement lors de l’envoi du lot d’appareils. Pour plus d’informations, voir [Télécharger une liste d’appareils pour le client spécifié](upload-a-list-of-devices-for-the-specified-customer.md).
 
@@ -51,9 +51,9 @@ var status =
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                       |
+| Méthode  | URI de demande                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/batchJobStatus/{batchtracking-ID} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/batchJobStatus/{batchtracking-ID} http/1.1 |
 
  
 
@@ -95,7 +95,7 @@ En cas de réussite, la réponse contient une ressource [BatchUploadDetails](dev
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

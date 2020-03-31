@@ -3,32 +3,32 @@ title: Créer un panier
 description: Comment ajouter une commande pour un client dans un panier.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7838bf47e2d7f7a2459a24b1d4fd85e100ba5f8a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7a95cb54857e4c8d62c8f2a87eba7b119052f81f
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488779"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413551"
 ---
 # <a name="create-a-cart"></a>Créer un panier
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez ajouter une commande pour un client dans un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour créer une commande pour un client :
 
@@ -198,9 +198,9 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                                                                 |
+| Méthode   | URI de demande                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts http/1.1                        |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts http/1.1                        |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -214,7 +214,7 @@ Utilisez le paramètre Path suivant pour identifier le client.
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps de la demande.
 
@@ -225,7 +225,7 @@ Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps
 | lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
 | expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
 | lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
-| LineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                     |
+| lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                     |
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
@@ -233,14 +233,14 @@ Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineite
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         id          |           chaîne            |    Non    |                                                     Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                     |
 |      catalogId      |           chaîne            |   Oui    |                                                                                Identificateur de l’élément de catalogue.                                                                                 |
-|    friendlyName     |           chaîne            |    Non    |                                                    Facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                    |
-|      quantity       |             entier             |   Oui    |                                                                            Nombre de licences ou d’instances.                                                                             |
+|    friendlyName     |           chaîne            |    Non    |                                                    Ce paramètre est facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                    |
+|      quantity       |             int             |   Oui    |                                                                            Nombre de licences ou d’instances.                                                                             |
 |    currencyCode     |           chaîne            |    Non    |                                                                                     Code de la devise.                                                                                      |
-|    billingCycle     |           Objet            |   Oui    |                                                                    Type de cycle de facturation défini pour la période actuelle.                                                                    |
+|    BillingCycle     |           Object            |   Oui    |                                                                    Type de cycle de facturation défini pour la période actuelle.                                                                    |
 |    participants     | Liste de paires de chaînes d’objets |    Non    |                                                                Collection de partenaire sur l’enregistrement (MPNID) sur l’achat.                                                                 |
 | provisioningContext | Dictionary < String, String >  |    Non    | Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue. |
 |     orderGroup      |           chaîne            |    Non    |                                                                   Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                   |
-|        erreur        |           Objet            |    Non    |                                                                     Appliqué après la création du panier en cas d’erreur.                                                                      |
+|        erreur        |           Object            |    Non    |                                                                     Appliqué après la création du panier en cas d’erreur.                                                                      |
 |     RenewsTo        | Tableau d’objets            |    Non    |                                                    Tableau de ressources [RenewsTo](cart-resources.md#renewsto) .                                                                            |
 
 Ce tableau décrit les propriétés [RenewsTo](cart-resources.md#renewsto) dans le corps de la demande.
@@ -334,7 +334,7 @@ En cas de réussite, cette méthode retourne la ressource [Cart](cart-resources.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

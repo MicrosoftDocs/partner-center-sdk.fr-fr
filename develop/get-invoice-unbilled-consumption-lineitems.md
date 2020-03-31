@@ -3,28 +3,28 @@ title: Obtient les éléments de ligne de facturation commerciale non facturés
 description: Vous pouvez obtenir une collection de détails sur la facturation commerciale non facturée pour une facture spécifiée à l’aide des API de l’espace partenaires.
 ms.date: 01/13/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b0be2c6f27e208fe9e212363a60085c46ef34f12
-ms.sourcegitcommit: 80f8292f1b31649c59fd292d36023aa4d1877031
+ms.openlocfilehash: 2544ae1a719792e8645c855d426bad640eb2510d
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923539"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415864"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Obtient les éléments de ligne de facturation commerciale non facturés
 
 S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Procédure d’obtention d’un regroupement de détails sur les lignes de consommation commerciale non facturées.
 
 Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de détails lignes de consommation commerciale non facturées (également appelées « éléments de ligne d’utilisation ouverts ») par programmation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur de la facture. Cela permet d’identifier la facture pour laquelle récupérer les éléments de ligne.
 
 ## <a name="c"></a>C\#
@@ -114,7 +114,7 @@ Pour obtenir un exemple similaire, consultez :
 
 Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction de votre cas d’utilisation. Pour plus d’informations, consultez les descriptions de chaque syntaxe.
 
- | Méthode  | URI de requête         | Description du cas d’usage de syntaxe |                                                                                                                                            |
+ | Méthode  | URI de demande         | Description du cas d’usage de syntaxe |                                                                                                                                            |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & période = {period} http/1.1                              | Utilisez cette syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. |
 | **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime & invoicelineitemtype = usagelineitems & CurrencyCode = {currencycode} & période = {period} & Size = {Size} http/1.1  | Utilisez cette syntaxe pour les factures volumineuses. Utilisez cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
@@ -124,22 +124,22 @@ Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Tapez   | Requis | Description                                                                     |
+| Nom                   | Type   | Obligatoire | Description                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | fournisseur               | chaîne | Oui      | Le fournisseur : «**OneTime**».                                                |
 | facture-ligne-élément-type | chaîne | Oui      | Type de détail de la facture : «**UsageLineItems**», «**UsageLineItems**».               |
 | currencyCode           | chaîne | Oui      | Code de la devise pour les éléments de ligne non facturés.                                  |
 | heures                 | chaîne | Oui      | Période pour le rapprochement non facturé (par exemple : **actuel**, **précédent**).                      |
-| size                   | nombre | non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000.                    |
-| seekOperation          | chaîne | non       | Définissez `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
+| size                   | nombre | Non       | Nombre maximal d'éléments à retourner. La taille par défaut est 2000.                    |
+| seekOperation          | chaîne | Non       | Définissez `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 #### <a name="request-body"></a>Corps de demande
 
-Aucune.
+None.
 
 ### <a name="rest-response"></a>Réponse REST
 
@@ -149,7 +149,7 @@ En cas de réussite, la réponse contient la collection des détails de l’él�
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="request-response-examples"></a>Exemples de requêtes-réponses
 

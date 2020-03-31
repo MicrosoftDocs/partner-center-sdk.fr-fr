@@ -3,20 +3,20 @@ title: Instruction de réception de facture
 description: Récupère une déclaration de réception de facture à l’aide de l’ID de facture et de l’ID de reçu.
 ms.date: 02/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 11549ad4de66d45f8375a6afb9956b2928c8045f
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 17b31717ff8dde2364e1d5347113a799c08d1209
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489519"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415890"
 ---
 # <a name="get-invoice-receipt-statement"></a>Instruction de réception de facture
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Récupère une déclaration de réception de facture à l’aide de l’ID de facture et de l’ID de reçu. 
 
@@ -25,7 +25,7 @@ Récupère une déclaration de réception de facture à l’aide de l’ID de fa
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Un ID de facture valide et un ID de réception correspondant.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -45,9 +45,9 @@ var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                            |
+| Méthode  | URI de demande                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/Receipts/{receipt-ID}/documents/Statement http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/Receipts/{receipt-ID}/documents/Statement http/1.1 |
 
 **Paramètre URI**
 
@@ -82,7 +82,7 @@ En cas de réussite, cette méthode retourne un flux PDF dans le corps de la ré
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 

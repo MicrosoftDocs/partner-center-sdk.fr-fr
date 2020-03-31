@@ -3,20 +3,20 @@ title: Obtenir une analyse d’abonnement par requête de recherche
 description: Comment obtenir des informations d’analyse d’abonnement filtrées par une requête de recherche.
 ms.date: 05/10/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d742dce1d9f3cb24da4da70281ca04b0030d87b2
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 4cb71638c5ad2c3a708d2eaf874fe904803cd712
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74487259"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416655"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Obtenir des informations d’analyse d’abonnement filtrées par une requête de recherche
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -27,7 +27,7 @@ Comment obtenir des informations d’analyse d’abonnement pour vos clients fil
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
@@ -35,9 +35,9 @@ Comment obtenir des informations d’analyse d’abonnement pour vos clients fil
 
 **Syntaxe de la requête**
 
-| Méthode | URI de requête |
+| Méthode | URI de demande |
 |--------|-------------|
-| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? Filter = {filter_string} |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? Filter = {filter_string} |
 
  
 
@@ -76,19 +76,19 @@ Le tableau suivant répertorie les champs pris en charge et les opérateurs de p
 
 | Paramètre | Opérateurs pris en charge | Description |
 |-----------|---------------------|-------------|
-| customerTenantId | EQ, ne | Chaîne au format GUID qui identifie le locataire client. |
-| Souhaite | comprend | Nom du client. |
+| CustomerTenantId | EQ, ne | Chaîne au format GUID qui identifie le locataire client. |
+| customerName | comprend | Nom du client. |
 | customerMarket | EQ, ne | Pays/région dans lequel le client fait des affaires. |
 | id | EQ, ne | Chaîne au format GUID qui identifie l’abonnement. |
-| status | EQ, ne | État de l’abonnement. Les valeurs prises en charge sont : « ACTIVE », « SUSPENDed » ou « deprovision ». |
+| statut | EQ, ne | État de l'abonnement. Les valeurs prises en charge sont : « ACTIVE », « SUSPENDed » ou « deprovision ». |
 | productName | Contains, EQ, ne | Le nom du produit. |
 | subscriptionType | EQ, ne | Type d’abonnement. **Remarque**: ce champ respecte la casse. Les valeurs prises en charge sont : « Office », « Azure », « Microsoft365 », « Dynamics », « EMS ». |
 | autoRenewEnabled | EQ, ne | Valeur indiquant si l’abonnement est renouvelé automatiquement. |
 | Partenaire | EQ, ne | ID MPN. Pour un revendeur direct, il s’agit de l’ID MPN du partenaire. Pour un revendeur indirect, il s’agit de l’ID MPN du revendeur indirect. |
-| friendlyName | comprend | Nom de l’abonnement. |
+| friendlyName | comprend | Nom de l'abonnement. |
 | partnerName | chaîne | Nom du partenaire pour lequel l’abonnement a été acheté |  
-| Désigne | chaîne | Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.
-| CreationDate | eq, ne, gt, lt, ge, le  | Date à laquelle l’abonnement a été créé. |
+| providerName | chaîne | Lorsque la transaction d’abonnement est destinée au revendeur indirect, le nom du fournisseur est le fournisseur indirect qui a acheté l’abonnement.
+| creationDate | eq, ne, gt, lt, ge, le  | Date à laquelle l’abonnement a été créé. |
 | effectiveStartDate | eq, ne, gt, lt, ge, le | Date de début de l’abonnement. |
 | commitmentEndDate | eq, ne, gt, lt, ge, le  | Date de fin de l’abonnement. |
 | currentStateEndDate | eq, ne, gt, lt, ge, le | Date à laquelle l’état actuel de l’abonnement sera modifié. |
@@ -105,7 +105,7 @@ Le tableau suivant répertorie les champs pris en charge et les opérateurs de p
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -126,7 +126,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 
@@ -164,4 +164,4 @@ MS-RequestId: ec8f62e5-1d92-47e9-8d5d-1924af105123
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
 
- - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)
+ - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

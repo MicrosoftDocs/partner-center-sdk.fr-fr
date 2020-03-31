@@ -7,18 +7,18 @@ MS-HAID:
 ms.assetid: 13D45776-4837-48F5-AB8B-605FD1D3D52D
 ms.date: 06/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cb94124a8ba12d8ab03a3215266fb351963da5d6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7302b1a7f7c2fc498936708f48bbdb110b8b2d23
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488469"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415631"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Développement pour l’espace partenaires pour les clouds Microsoft nationaux
 
-S’applique à :
+S'applique à :
 
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
@@ -70,6 +70,6 @@ Les *différences entre l’espace partenaires* et l' *espace partenaires pour M
   - Les relations multicanaux et multipartenaires et de demande avec un client existant au sein de Microsoft Cloud pour les scénarios gouvernementaux des États-Unis ne s’appliquent pas. Cela est dû au fait qu’Office 365 n’est pas disponible actuellement.
 - Les partenaires ne peuvent pas créer d’utilisateurs pour l’organisation de leur client ou attribuer des rôles.
   - Les partenaires peuvent lire les champs, mais ils ne peuvent pas les écrire ou les mettre à jour. Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le Portail Azure. Consultez [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/).
-- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. Utilisez l’Portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud pour le gouvernement des États-Unis.
+- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. utilisez le portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud pour le gouvernement des États-Unis.
 - Les points de terminaison REST de l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis sont les mêmes que pour l’espace partenaires : `https://api.partnercenter.microsoft.com`.
 - Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) d’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds) .

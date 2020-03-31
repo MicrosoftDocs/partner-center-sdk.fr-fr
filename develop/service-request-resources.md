@@ -4,14 +4,14 @@ description: Les partenaires peuvent traiter les demandes de service au nom de l
 ms.assetid: E9FBF7D8-A7E8-4DC6-B370-8339B9EE16B7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e1fab576e69242a50549efc719f98eafad1ad9de
-ms.sourcegitcommit: 07153b06dae146418ca5213c7e6fe1c869ba164d
+ms.openlocfilehash: 8437e847d5de273b7b5c8eb870e1f0de91fc2ace
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80082876"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415312"
 ---
 # <a name="service-request-resources"></a>Ressources de demande de service
 

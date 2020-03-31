@@ -4,20 +4,20 @@ description: Comment vérifier l’identificateur de Microsoft Partner Network d
 ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f2aa72aa00575e42ff0cb38640aeca78164f77f1
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cc18ee559bd3ceafd7239ccb46e7d616d8fc5f13
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490049"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415700"
 ---
 # <a name="verify-a-partner-mpn-id"></a>Vérifier un ID MPN de partenaire
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ La technique illustrée ici vérifie l’identificateur de Microsoft Partner Net
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID MPN du partenaire à vérifier. Si vous omettez cette valeur, la demande récupère le profil MPN du partenaire connecté.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -49,9 +49,9 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                         |
+| Méthode  | URI de demande                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Profiles/MPN ? mpnId = {MPN-ID} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Profiles/MPN ? mpnId = {MPN-ID} http/1.1 |
 
 **Paramètre URI**
 
@@ -59,7 +59,7 @@ Fournissez le paramètre de requête suivant pour identifier le partenaire. Si v
 
 | Nom   | Type | Obligatoire | Description                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| MPN-ID | entier  | Non       | ID de Microsoft Partner Network qui identifie le partenaire. |
+| MPN-ID | int  | Non       | ID de Microsoft Partner Network qui identifie le partenaire. |
 
 **En-têtes de demande**
 
@@ -67,7 +67,7 @@ Fournissez le paramètre de requête suivant pour identifier le partenaire. Si v
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -89,7 +89,7 @@ En cas de réussite, le corps de la réponse contient la ressource [MpnProfile](
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse (réussite)**
 

@@ -4,26 +4,26 @@ description: Obtenir la liste des licences attribuées à un utilisateur au sein
 ms.assetid: 87DC74A1-92E2-4639-BC4C-168A677F5F52
 ms.date: 05/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 73997593b0997a0faca8d702b527e57266a45dfb
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: c51a7b2bb03d21ed1a83c1773267772042d56e63
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74488959"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412888"
 ---
 # <a name="get-licenses-assigned-to-a-user"></a>Obtenir les licences attribuées à un utilisateur
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment obtenir la liste des licences attribuées à un utilisateur au sein d’un compte client. Les exemples indiqués ici renvoient les licences attribuées à partir de Group1, le groupe de licences par défaut qui représente les licences gérées par Azure Active Directory. Pour obtenir les licences attribuées à partir de groupes de licences spécifiés, consultez [obtenir des licences attribuées à un utilisateur par groupe de licences](get-licenses-assigned-to-a-user-by-license-group.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 - Identificateur d’utilisateur.
 
@@ -45,9 +45,9 @@ var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCust
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                              |
+| Méthode  | URI de demande                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenses http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenses http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -62,9 +62,9 @@ Utilisez les paramètres de chemin d’accès suivants pour identifier le client
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -84,7 +84,7 @@ En cas de réussite, le corps de la réponse contient la collection de ressource
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

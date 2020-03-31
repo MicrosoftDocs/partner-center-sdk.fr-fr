@@ -4,28 +4,28 @@ description: Obtient une liste de ressources CustomerUser supprimées pour un cl
 ms.assetid: B2248C7D-0F68-4F52-9249-D3168C2F6E83
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bce2fd22e301e7a8cdfe25afcbe2078ff811f7bc
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: cab6b1cd309757f0754610eca362bcf205d199fb
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486229"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80414254"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Afficher les utilisateurs supprimés d’un client
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 
 Obtient une liste de ressources CustomerUser supprimées pour un client par ID de client. Vous pouvez éventuellement définir une taille de page. Vous devez fournir un filtre.
 
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 
 ## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a><span id="What_happens_when_you_delete_a_user_account_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/>que se passe-t-il lorsque vous supprimez un compte d’utilisateur ?
@@ -59,9 +59,9 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                                       |
+| Méthode  | URI de demande                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users ? Size = {size} & filtre = {filter} http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users ? Size = {size} & filtre = {filter} http/1.1 |
 
  
 
@@ -72,8 +72,8 @@ Utilisez le chemin d’accès et les paramètres de requête suivants lors de la
 | Nom        | Type   | Obligatoire | Description                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID client | GUID   | Oui      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
-| size        | entier    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                     |
-| filter      | filter | Oui      | Requête qui filtre la recherche utilisateur. Pour récupérer les utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field" : "UserState", "value" : "inactive", "opérateur" : "Equals"}. |
+| size        | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                     |
+| filtre      | filtre | Oui      | Requête qui filtre la recherche utilisateur. Pour récupérer les utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field" : "UserState", "value" : "inactive", "opérateur" : "Equals"}. |
 
  
 
@@ -83,7 +83,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants lors de la
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -104,7 +104,7 @@ En cas de réussite, cette méthode retourne une collection de ressources [Custo
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

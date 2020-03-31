@@ -3,20 +3,20 @@ title: Événements du webhook de l’espace partenaires
 description: Documentation pour tous les événements de webhook pris en charge par l’espace partenaires.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c06f109132ba147baa2c243414ed1512998682ed
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: a1ff31e3aeed4ebc57cbab6717e724a15613ee6a
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486969"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416369"
 ---
 # <a name="partner-center-webhook-events"></a>Événements du webhook de l’espace partenaires
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government

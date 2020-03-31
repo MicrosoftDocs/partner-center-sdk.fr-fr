@@ -3,23 +3,23 @@ title: Webhooks de l’espace partenaires
 description: Les webhooks permettent aux partenaires de s’inscrire pour les événements de changement de ressource.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ead6d1da325534f2b58667365a509ef07ee295b1
-ms.sourcegitcommit: b9d44c881015065e2c375afa4deb05fe6bf3aeb8
+ms.openlocfilehash: 9a470ad6e3ee049f2cea3bc71b8a26f47aba1601
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559471"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416355"
 ---
 # <a name="partner-center-webhooks"></a>Webhooks de l’espace partenaires
 
 
 **S’applique à**
 
-- Espace partenaires   
+- Centre pour partenaires   
 - Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
+- Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government   
 
 
@@ -33,14 +33,14 @@ Les partenaires peuvent sélectionner des événements de webhook, comme ci-dess
 
 - **Événement de mise à jour d’abonnement (« abonnement-mis à jour »)**
 
-    Cet événement se déclenche lors d'une modification de l'abonnement. Ces événements seront générés lorsqu'il se produit un changement interne en plus des modifications apportées par le biais de l'API de l'Espace partenaires. 
+    Cet événement se déclenche lors d’une modification de l’abonnement. Ces événements seront générés lorsqu’il se produit un changement interne en plus des modifications apportées par le biais de l’API de l’Espace partenaires. 
     
     >[!NOTE]
     >Il y a un délai de 48 heures entre le moment où un abonnement est modifié et le moment où l’événement mis à jour de l’abonnement est déclenché. 
 
 - **Événement de seuil dépassé (« usagerecords-thresholdExceeded »)**
 
-    Cet événement se déclenche lorsque la quantité d'utilisation de Microsoft Azure d'un client dépasse son budget de dépenses d'utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+    Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
 
 - **Événement créé par la référence (« référence créée »)**
 
@@ -59,10 +59,10 @@ Les événements de webhook ultérieurs seront ajoutés pour les ressources qui 
 
 Pour obtenir la liste complète des événements webhook pris en charge par l’espace partenaires, consultez [événements de webhook de l’espace partenaires](partner-center-webhook-events.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.   
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.   
 
 
 
@@ -123,7 +123,7 @@ Le tableau suivant décrit les propriétés d’un événement de l’espace par
 | **Protégée**             | Nom de l’événement. Sous la forme {Resource}-{action}. Par exemple, « test créé ».  |
 | **URI**           | URI de la ressource qui a été modifiée.                                                 |
 | **ResourceName**          | Nom de la ressource qui a été modifiée.                                                |
-| **AuditUrl**              | Facultatif. URI de l’enregistrement d’audit.                                                |
+| **AuditUrl**              | Ce paramètre est facultatif. URI de l’enregistrement d’audit.                                                |
 | **ResourceChangeUtcDate** | Date et heure, au format UTC, auxquelles la modification de ressource s’est produite.                  |
 
 

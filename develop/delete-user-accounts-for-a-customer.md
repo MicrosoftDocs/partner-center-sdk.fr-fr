@@ -4,26 +4,26 @@ description: Comment supprimer un compte d’utilisateur existant pour un client
 ms.assetid: 12097809-A62D-4929-9F1D-08676784BA39
 ms.date: 06/20/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 676865671a4b1fb4512564c7576c39dc6ff4dc73
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 728694cc236e0257a24940ad4c3a9284e4e28b21
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486119"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415594"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>Supprimer un compte d’utilisateur pour un client
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Cette rubrique explique comment supprimer un compte d’utilisateur existant pour un client.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - ID client (**client-locataire-ID**). Si vous n’avez pas d’ID de client, recherchez l’ID dans l’espace partenaires. Sélectionnez le client dans la liste clients, sélectionnez **compte**, puis enregistrez son ID Microsoft.
 - Un ID d’utilisateur. Si vous ne disposez pas de l’ID utilisateur, consultez [obtenir la liste de tous les comptes d’utilisateur d’un client](get-a-list-of-all-user-accounts-for-a-customer.md).
 
@@ -33,7 +33,7 @@ Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur e
 
 Vous pouvez [restaurer un compte d’utilisateur supprimé pour un client](restore-a-user-for-a-customer.md) si le compte inactif est dans la période de 30 jours. Toutefois, lorsque vous restaurez un compte qui a été supprimé et marqué comme étant inactif, le compte n’est plus renvoyé en tant que membre du regroupement utilisateur (par exemple, lorsque vous [recevez une liste de tous les comptes d’utilisateur d’un client](get-a-list-of-all-user-accounts-for-a-customer.md)).
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour supprimer un compte d’utilisateur client existant :
 
@@ -55,7 +55,7 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                                            |
+| Méthode     | URI de demande                                                                                            |
 |------------|--------------------------------------------------------------------------------------------------------|
 | DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users/{User-ID} http/1.1 |
 
@@ -65,16 +65,16 @@ Utilisez les paramètres de requête suivants pour identifier le client et l’u
 
 | Nom                   | Type     | Obligatoire | Description                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| client-locataire-ID     | GUID     | Y        | La valeur est un **client-client-ID** au format GUID qui permet au revendeur de filtrer les résultats pour un client donné. |
+| customer-tenant-id     | GUID     | Y        | La valeur est un **client-client-ID** au format GUID qui permet au revendeur de filtrer les résultats pour un client donné. |
 | ID utilisateur                | GUID     | Y        | La valeur est un **ID utilisateur** au format GUID qui appartient à un compte d’utilisateur unique.                                          |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-Aucun.
+None.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -95,7 +95,7 @@ En cas de réussite, cette méthode retourne un code d’état **204 no content*
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

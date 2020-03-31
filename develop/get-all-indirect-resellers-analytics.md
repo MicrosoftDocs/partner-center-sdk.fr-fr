@@ -4,20 +4,20 @@ description: Obtention des informations d’analyse des revendeurs indirects.
 ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a13814e2e53d89e326b436bba4e134ba41c72547
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 7e9de270c7619de51363b2226c6b8a79ac382ef4
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485979"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416147"
 ---
 # <a name="get-all-indirect-resellers-analytics-information"></a>Obtient toutes les informations d’analyse des revendeurs indirects
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,16 +28,16 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
 
 ## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
 
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête |
+| Méthode  | URI de demande |
 |---------|-------------|
-| **Télécharger** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/indirectresellers http/1.1 |
+| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/indirectresellers http/1.1 |
 
  
 
@@ -61,7 +61,7 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
         <td>ID de revendeur indirect</td>
     </tr>
     <tr>
-        <td>name</td>
+        <td>nom</td>
         <td>chaîne</td>
         <td>Nom du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects.</td>
     </tr>
@@ -72,57 +72,57 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
     </tr>
     <tr>
         <td>firstSubscriptionCreationDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>Date de création du premier abonnement basé sur lequel vous souhaitez récupérer les données des revendeurs indirects.</td>
     </tr>
     <tr>
         <td>latestSubscriptionCreationDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>Date de création du dernier abonnement.</td>
     </tr>
     <tr>
         <td>firstSubscriptionEndDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>La première fois qu’un abonnement est terminé.</td>
     </tr>
     <tr>
         <td>latestSubscriptionEndDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>Dernière date de fin d’un abonnement. </td>
     </tr>
     <tr>
         <td>firstSubscriptionSuspendedDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>La première fois qu’un abonnement a été suspendu.</td>
     </tr>
     <tr>
         <td>latestSubscriptionSuspendedDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>Date la plus récente à laquelle un abonnement a été suspendu.</td>
     </tr>
     <tr>
         <td>firstSubscriptionDeprovisionedDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>La première fois qu’un abonnement a été annulé.</td>
     </tr>
     <tr>
         <td>latestSubscriptionDeprovisionedDate</td>
-        <td>chaîne au format date/heure UTC</td>
+        <td>Chaîne au format date/heure UTC</td>
         <td>Date la plus récente de l’annulation de l’approvisionnement d’un abonnement.</td>
     </tr>
     <tr>
         <td>subscriptionCount</td>
-        <td>Double</td>
+        <td>double</td>
         <td>Nombre d’abonnements pour tous les revendeurs à valeur ajoutée</td>
     </tr>
     <tr>
         <td>licenseCount</td>
-        <td>Double</td>
+        <td>double</td>
         <td>Nombre de licences pour tous les revendeurs à valeur ajoutée</td>
     </tr>
     <tr>
         <td>indirectResellerCount</td>
-        <td>Double</td>
+        <td>double</td>
         <td>Nombre de revendeurs indirects</td>
     </tr>
     <tr>
@@ -132,13 +132,13 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
     </tr>
     <tr>
         <td>skip</td>
-        <td>entier</td>
+        <td>int</td>
         <td>
           <p>Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, <code>top=10000 and skip=0</code> récupère les 10000 premières lignes de données, <code>top=10000 and skip=10000</code> récupère les 10000 lignes de données suivantes, et ainsi de suite.</p>
         </td>
     </tr>
     <tr>
-        <td>filter</td>
+        <td>filtre</td>
         <td>chaîne</td>
         <td>
             <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs <strong>eq</strong> ou <strong>ne</strong>, et les instructions peuvent être combinées à l’aide des opérateurs <strong>and</strong> ou <strong>or</strong>. Vous pouvez spécifier les champs suivants :</p>
@@ -238,7 +238,7 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -257,7 +257,7 @@ En cas de réussite, le corps de la réponse contient une collection de ressourc
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
 **Exemple de réponse**
 
@@ -282,4 +282,4 @@ Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réus
 
 
 ## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
- - [Analyse de l’espace partenaires-Ressources](partner-center-analytics-resources.md)
+ - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

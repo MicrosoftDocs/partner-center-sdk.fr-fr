@@ -4,21 +4,21 @@ description: Comment obtenir un regroupement des abonnements d’un client.
 ms.assetid: 1C9E986B-2887-460B-9D71-4520BB18C32A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cdedd6231209f75aceef6f80468e7b457640709c
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 502b86fb4b9544f852e94b9f1eb54294bd222341
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74485909"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416108"
 ---
 # <a name="get-a-customers-subscriptions"></a>Obtenir les abonnements d’un client
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ Comment obtenir un regroupement des abonnements d’un client.
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Identificateur du client.
 
 ## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
@@ -50,9 +50,9 @@ var customerSubscriptions = partnerOperations.Customers.ById(customerId).Subscri
 
 **Syntaxe de la requête**
 
-| Méthode  | URI de requête                                                                                          |
+| Méthode  | URI de demande                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **Télécharger** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions http/1.1 |
+| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions http/1.1 |
 
  
 
@@ -62,7 +62,7 @@ Ce tableau répertorie le paramètre de requête requis pour obtenir tous les ab
 
 | Nom               | Type   | Obligatoire | Description                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| client-locataire-ID | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
+| customer-tenant-id | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
 
  
 
@@ -72,7 +72,7 @@ Ce tableau répertorie le paramètre de requête requis pour obtenir tous les ab
 
 **Corps de la demande**
 
-Aucun.
+None.
 
 **Exemple de requête**
 
@@ -92,7 +92,7 @@ En cas de réussite, cette méthode retourne une collection de ressources d' [ab
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

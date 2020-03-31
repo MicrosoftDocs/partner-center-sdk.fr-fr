@@ -4,21 +4,21 @@ description: Comment acheter un module complémentaire à un abonnement existant
 ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e90aa545e2e1b76ccdb9f8e812df73d3113dfd86
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: f49685eb142945fc94e551e2113799c4c5b959e5
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486749"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416308"
 ---
 # <a name="span-idpc_apiv2purchase_an_add-on_to_a_subscriptionpurchase-an-add-on-to-a-subscription"></a><span id="pc_apiv2.purchase_an_add-on_to_a_subscription"/>acheter un module complémentaire à un abonnement
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -27,7 +27,7 @@ Comment acheter un module complémentaire à un abonnement existant.
 ## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
 
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
 - ID d’abonnement. Il s’agit de l’abonnement existant pour lequel vous souhaitez acheter une offre complémentaire.
 - Un ID d’offre qui identifie l’offre complémentaire à acheter.
@@ -121,7 +121,7 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 **Syntaxe de la requête**
 
-| Méthode    | URI de requête                                                                                              |
+| Méthode    | URI de demande                                                                                              |
 |-----------|----------------------------------------------------------------------------------------------------------|
 | **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
@@ -151,9 +151,9 @@ Les tableaux suivants décrivent les propriétés dans le corps de la demande.
 
 | Nom                | Type             | Obligatoire | Description                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
-| Id                  | chaîne           | N        | ID de la commande.                                        |
-| ReferenceCustomerId | chaîne           | Y        | ID client.                                     |
-| LineItems           | Tableau d’objets | Y        | Tableau d’objets [OrderLineItem](#orderlineitem) . |
+| ID                  | chaîne           | N        | ID de la commande.                                        |
+| referenceCustomerId | chaîne           | Y        | ID client.                                     |
+| lineItems           | Tableau d’objets | Y        | Tableau d’objets [OrderLineItem](#orderlineitem) . |
 | CreationDate        | chaîne           | N        | Date à laquelle la commande a été créée, au format date/heure. |
 | Attributs          | objet           | N        | Contient « ObjectType » : « Order ».                      |
 
@@ -164,13 +164,13 @@ Les tableaux suivants décrivent les propriétés dans le corps de la demande.
 
 | Nom                 | Type   | Obligatoire | Description                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| LineItemNumber       | nombre | Y        | Numéro d’élément de ligne, à partir de 0.                       |
+| lineItemNumber       | nombre | Y        | Numéro d’élément de ligne, à partir de 0.                       |
 | OfferId              | chaîne | Y        | ID d’offre du module complémentaire.                                  |
 | SubscriptionId       | chaîne | N        | ID de l’abonnement au module complémentaire acheté.                 |
-| ParentSubscriptionId | chaîne | Y        | ID de l’abonnement parent qui possède l’offre complémentaire. |
+| parentSubscriptionId | chaîne | Y        | ID de l’abonnement parent qui possède l’offre complémentaire. |
 | FriendlyName         | chaîne | N        | Nom convivial de cet élément de ligne.                        |
 | Quantité             | nombre | Y        | Nombre de licences.                                      |
-| PartnerIdOnRecord    | chaîne | N        | ID MPN du partenaire de l’enregistrement.                         |
+| partnerIdOnRecord    | chaîne | N        | ID MPN du partenaire de l’enregistrement.                         |
 | Attributs           | objet | N        | Contient « ObjectType » : « OrderLineItem ».                      |
 
  
@@ -219,7 +219,7 @@ En cas de réussite, cette méthode retourne l’ordre d’abonnement mis à jou
 
 **Codes d’erreur et de réussite de la réponse**
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 **Exemple de réponse**
 

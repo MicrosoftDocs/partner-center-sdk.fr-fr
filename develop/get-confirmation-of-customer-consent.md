@@ -3,14 +3,14 @@ title: Recevoir la confirmation de l’acceptation du client du contrat de Micro
 description: Cette rubrique explique comment demander la confirmation de l’acceptation du client du contrat de Microsoft Cloud.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d6282a82793f2bc9fa6f436ed9c7a6a31ad0969d
-ms.sourcegitcommit: 98ec47d226a0b56f329e55ba881e476e2afff971
+ms.openlocfilehash: 3151eb851a3ae3204fd2a9b6004d6ae31ddb9174
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78899886"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416001"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Recevoir la confirmation de l’acceptation du client du contrat de Microsoft Cloud
 
@@ -19,7 +19,7 @@ ms.locfileid: "78899886"
 - Centre pour partenaires
 
 > [!NOTE]  
-> La ressource d' **accord** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle ne s’applique pas aux éléments suivants :
+> La ressource d' **accord** est actuellement prise en charge par l’espace partenaires dans le cloud public Microsoft uniquement. Elle n’est pas applicable aux éléments suivants :
 > - Espace partenaires géré par 21Vianet
 > - Espace partenaires de Microsoft Cloud Germany
 > - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ ms.locfileid: "78899886"
 
 - Si vous utilisez le kit de développement logiciel (SDK) .NET de l’espace partenaires, la version 1,9 ou une version ultérieure est requise.
 - Si vous utilisez le kit de développement logiciel (SDK) Java de l’espace partenaires, la version 1,8 ou une version ultérieure est requise.
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification d’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification d’application + utilisateur.
 - ID client (client-locataire-ID).
 
 ## <a name="net-version-14-or-newer"></a>.NET (version 1,4 ou ultérieure)
@@ -104,7 +104,7 @@ Créez une nouvelle ressource de **contrat** avec les informations de certificat
 
 | Méthode | URI de demande                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Agreements http/1.1 |
+| GET    | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
 ##### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -138,7 +138,7 @@ En cas de réussite, cette méthode retourne une collection de ressources de **c
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 

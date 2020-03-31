@@ -4,31 +4,31 @@ description: Comment créer une commande pour un client d’un revendeur indirec
 ms.assetid: 3B89F8CE-96A8-443F-927E-6351E24FDBFF
 ms.date: 07/22/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 08926408e8cc6cab62a3edf5885724f943f1ccc8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 126c90e936daa50fcf84b8ec97a8f3e4db0f5321
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489539"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413908"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Créer une commande pour un client d’un revendeur indirect
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment créer une commande pour un client d’un revendeur indirect.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client.
 - Identificateur d’offre de l’article à acheter.
 - Identificateur du locataire du revendeur indirect.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour créer une commande pour un client d’un revendeur indirect :
 
@@ -81,9 +81,9 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                                            |
+| Méthode   | URI de demande                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -97,19 +97,19 @@ Utilisez le paramètre Path suivant pour identifier le client.
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
-#### <a name="order"></a>Ordre
+#### <a name="order"></a>Order
 
 Ce tableau décrit les propriétés d' **ordre** dans le corps de la demande.
 
 | Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
 | id | chaîne | Non | Identificateur d’ordre qui est fourni lors de la création réussie de la commande. |
-| ReferenceCustomerId | chaîne | Oui | Identificateur du client. |
-| billingCycle | chaîne | Non | Fréquence à laquelle le partenaire est facturé pour cette commande. La valeur par défaut est &quot;&quot; mensuelle et est appliquée lors de la création réussie de la commande. Les valeurs prises en charge sont les noms des membres trouvés dans [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Remarque : la fonctionnalité de facturation annuelle n’est pas encore disponible en général. La facturation annuelle sera bientôt prise en charge. |
-| LineItems | Tableau d’objets | Oui | Tableau de ressources [**OrderLineItem**](#orderlineitem) . |
-| CreationDate | chaîne | Non | Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande. |
+| referenceCustomerId | chaîne | Oui | Identificateur du client. |
+| BillingCycle | chaîne | Non | Fréquence à laquelle le partenaire est facturé pour cette commande. La valeur par défaut est &quot;&quot; mensuelle et est appliquée lors de la création réussie de la commande. Les valeurs prises en charge sont les noms des membres trouvés dans [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Remarque : la fonctionnalité de facturation annuelle n’est pas encore disponible en général. La facturation annuelle sera bientôt prise en charge. |
+| lineItems | Tableau d’objets | Oui | Tableau de ressources [**OrderLineItem**](#orderlineitem) . |
+| creationDate | chaîne | Non | Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande. |
 | attributs | objet | Non | Contient « ObjectType » : « Order ». |
 
 #### <a name="orderlineitem"></a>OrderLineItem
@@ -118,12 +118,12 @@ Ce tableau décrit les propriétés **OrderLineItem** dans le corps de la demand
 
 | Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| LineItemNumber | entier | Oui | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1. |
+| lineItemNumber | int | Oui | Chaque élément de ligne de la collection obtient un numéro de ligne unique, en comptant de 0 à Count-1. |
 | offerId | chaîne | Oui | Identificateur de l’offre. |
 | subscriptionId | chaîne | Non | Identificateur d’abonnement. |
-| ParentSubscriptionId | chaîne | Non | Facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif. |
-| friendlyName | chaîne | Non | Facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté. |
-| quantity | entier | Oui | Nombre de licences pour un abonnement basé sur une licence. |
+| parentSubscriptionId | chaîne | Non | Ce paramètre est facultatif. ID de l’abonnement parent dans une offre complémentaire. S’applique uniquement au correctif. |
+| friendlyName | chaîne | Non | Ce paramètre est facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté. |
+| quantity | int | Oui | Nombre de licences pour un abonnement basé sur une licence. |
 | partnerIdOnRecord | chaîne | Non | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une gestion correcte des incentives. **Si vous ne fournissez pas l’ID MPN du revendeur, cela ne provoque pas l’échec de la commande. Toutefois, le revendeur n’est pas enregistré et, par conséquent, les calculs de l’incentive peuvent ne pas inclure la vente.** |
 | attributs | objet | Non | Contient « ObjectType » : « OrderLineItem ». |
 
@@ -171,7 +171,7 @@ En cas de réussite, le corps de la réponse contient la ressource de [commande]
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

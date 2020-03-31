@@ -3,26 +3,26 @@ title: Annuler les achats de logiciels
 description: Option libre-service pour annuler les abonnements logiciels et les achats de logiciels perpétuels à l’aide des API de l’espace partenaires.
 ms.date: 12/19/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 17850452b3789fed861dc7855acd40cac186d5fb
-ms.sourcegitcommit: 9b98bc43ccf70e7f49917292de4b70316c215e0c
+ms.openlocfilehash: 1da4e45bcfa3c54316139fefa348044643256190
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75302387"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413054"
 ---
 # <a name="cancel-software-purchases"></a>Annuler les achats de logiciels
 
 S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez annuler les abonnements logiciels et les achats de logiciels perpétuels qui se trouvent dans la fenêtre d’annulation de la date d’achat à l’aide des API de l’espace partenaires. Vous n’avez pas besoin de créer un ticket de support pour effectuer de telles annulations, et vous pouvez utiliser les méthodes en libre-service suivantes à la place.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
 ## <a name="c"></a>C\#
 
@@ -30,7 +30,7 @@ Pour annuler une commande de logiciel,
 
 1. Transmettez les informations d’identification de votre compte à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’accéder aux opérations du partenaire.
 
-2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
+2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
 
 3. Appelez la méthode **obtenir** ou **GetAsync** pour récupérer la commande.
 
@@ -61,24 +61,24 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                            |
+| Méthode     | URI de demande                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de requête suivants pour supprimer un client.
 
-| Nom                   | Tapez     | Obligatoire | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **client-locataire-ID** | **guid** | Y        | La valeur est un identificateur de locataire client au format GUID qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **client-locataire-ID** | **uniques** | Y        | La valeur est un identificateur de locataire client au format GUID qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 | **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui indique l’identificateur de l’ordre que vous souhaitez annuler. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 ```http
 {
@@ -121,7 +121,7 @@ L’état de la commande est marqué comme **annulé** (si tous les Articles de 
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

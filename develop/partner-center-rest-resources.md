@@ -4,21 +4,21 @@ description: Cette section fournit des définitions pour les éléments JSON né
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4be969f9bced111c3ba95f773920f4aecfc4942d
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 3e84ce1f55eedd94519582fc57ce75eed2fddee0
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486819"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80416406"
 ---
 # <a name="partner-center-rest-resources"></a>Ressources REST de l’espace partenaires
 
 
 **S’applique à**
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -66,7 +66,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="cart-resources.md">Caddie</a></td>
+<td><a href="cart-resources.md">Panier</a></td>
 <td><ul>
 <li>Caddie</li>
 <li>CartLineItem</li>
@@ -89,7 +89,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="customer-resources.md">Assistance</a></td>
+<td><a href="customer-resources.md">Client</a></td>
 <td><ul>
 <li>Client</li>
 <li>CustomerCompanyProfile</li>
@@ -107,10 +107,10 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="entitlement-resources.md">Droit</a></td>
+<td><a href="entitlement-resources.md">Droits</a></td>
 <td><ul>
 <li>Droit</li>
-<li>ReferenceOrder</li>
+<li>referenceOrder</li>
 <li>entitlementType</li>
 <li>Artefact</li>
 <li>artifactType</li>
@@ -122,7 +122,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="odd">
 <td><a href="invoice-resources.md">Facture</a></td>
 <td><ul>
-<li>Facture</li>
+<li>Facturation</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
@@ -140,7 +140,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <li>LicenseUpdate</li>
 <li>LicenseAssignment</li>
 <li>LicenseWarning</li>
-<li>ProductSku</li>
+<li>productSku</li>
 <li>ServicePlan</li>
 <li>SubscribedSku</li>
 </ul></td>
@@ -162,9 +162,9 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="order-resources.md">Ordre</a></td>
+<td><a href="order-resources.md">Commande</a></td>
 <td><ul>
-<li>Ordre</li>
+<li>Order</li>
 <li>OrderLineItem</li>
 <li>OrderLinks</li>
 <li>OrderLineItemLinks</li>
@@ -174,7 +174,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="even">
 <td><a href="profile-resources.md">Profil</a></td>
 <td><ul>
-<li>BillingProfile</li>
+<li>billingProfile</li>
 <li>LegalBusinessProfile</li>
 <li>MpnProfile</li>
 <li>OrganizationProfile</li>
@@ -221,7 +221,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="subscription-resources.md">Récurrent</a></td>
+<td><a href="subscription-resources.md">Abonnement</a></td>
 <td><ul>
 <li>Abonnement</li>
 <li>SubscriptionLinks</li>
@@ -240,9 +240,9 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="upgrade-resources.md">Installation</a></td>
+<td><a href="upgrade-resources.md">Mise à niveau</a></td>
 <td><ul>
-<li>Mettre à niveau/Mise à niveau</li>
+<li>Mise à niveau</li>
 <li>UpgradeError</li>
 <li>UpgradeResult</li>
 <li>UserLicenseError</li>
@@ -253,7 +253,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <td><ul>
 <li>Utilisateur</li>
 <li>CustomerUser</li>
-<li>UserCredentials</li>
+<li>userCredentials</li>
 <li>UserMember</li>
 </ul></td>
 </tr>

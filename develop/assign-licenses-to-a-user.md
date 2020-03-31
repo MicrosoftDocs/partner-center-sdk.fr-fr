@@ -4,26 +4,26 @@ description: Comment attribuer des licences à un utilisateur client.
 ms.assetid: 872C7444-DF89-4EB5-8C1E-1D8E2934A40E
 ms.date: 10/11/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 615e2dba04556647c358d5b382047e37e70606f8
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 1f968ce90d4bbed3f3c9384b82c70a9ee7811f71
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489189"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413230"
 ---
 # <a name="assign-licenses-to-a-user"></a>Attribuer des licences à un utilisateur
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Comment attribuer des licences à un utilisateur client.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du client. Le client doit disposer d’un abonnement avec une licence disponible à affecter.
 - Identificateur d’utilisateur du client. Cela identifie l’utilisateur auquel attribuer la licence.
 - Identificateur SKU du produit qui identifie le produit de la licence.
@@ -78,7 +78,7 @@ Voici les étapes à suivre pour attribuer des licences par le biais du code :
     var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
     ```
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour attribuer une licence à un utilisateur client, commencez par instancier un objet [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) et renseignez les propriétés [**SkuID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) et [**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) . Vous utilisez cet objet pour spécifier la référence SKU du produit à assigner et les plans de service à exclure. Ensuite, instanciez une nouvelle liste de type **LicenseAssignment**et ajoutez l’objet de licence à la liste. Créez ensuite une instance [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) et affectez la liste des attributions de licence à la propriété [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) .
 
@@ -115,9 +115,9 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                                                                    |
+| Méthode   | URI de demande                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenseupdates http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenseupdates http/1.1 |
 
 #### <a name="uri-parameters"></a>Paramètres d’URI
 
@@ -132,7 +132,7 @@ Utilisez les paramètres de chemin d’accès suivants pour identifier le client
 
 Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Vous devez inclure une ressource [LicenseUpdate](license-resources.md#licenseupdate) dans le corps de la requête qui spécifie les licences à affecter.
 
@@ -171,7 +171,7 @@ En cas de réussite, un code d’état de réponse HTTP 201 est retourné et le 
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example-success"></a>Exemple de réponse (réussite)
 

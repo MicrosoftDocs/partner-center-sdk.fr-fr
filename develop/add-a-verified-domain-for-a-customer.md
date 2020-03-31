@@ -3,30 +3,30 @@ title: Ajouter un domaine vérifié pour un client
 description: Ajoutez un domaine vérifié à la liste des domaines approuvés pour un client dans l’espace partenaires.
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f5abd926389c1c81a178fe5cd2476929070657f6
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 89ff3dd9ad8d752f559f23a886d632f60b846eac
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74486219"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80412603"
 ---
 # <a name="add-a-verified-domain-for-a-customer"></a>Ajouter un domaine vérifié pour un client
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment ajouter un domaine vérifié à la liste des domaines approuvés pour un client existant.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
 - Vous devez être un partenaire qui est un bureau d’enregistrement de domaines.
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 - Un ID de client (**CustomerTenantId**). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son ID Microsoft.
 
 ## <a name="adding-a-verified-domain"></a>Ajout d’un domaine vérifié
@@ -41,7 +41,7 @@ Lorsque vous ajoutez un domaine vérifié personnalisé, un domaine qui n’est 
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de requête                                                                                        |
+| Méthode | URI de demande                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
 | POST   | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{CustomerTenantId}/verifieddomain http/1.1 |
 
@@ -51,13 +51,13 @@ Utilisez le paramètre de requête suivant pour spécifier le client pour lequel
 
 | Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customerTenantId | GUID | Y        | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
+| CustomerTenantId | GUID | Y        | La valeur est un GUID mis en forme **CustomerTenantId** qui vous permet de spécifier un client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de demande
 
 Ce tableau décrit les propriétés requises dans le corps de la demande.
 
@@ -74,12 +74,12 @@ Ce tableau décrit les propriétés de **domaine** obligatoires et facultatives 
 | Nom               | Type                                     | Obligatoire | Description                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AuthenticationType                                    | chaîne           | Oui      | Définit si le domaine est un domaine « géré » ou un domaine « fédéré ». Valeurs prises en charge : Managed, Federated.|
-| Fonctionnalité                                            | chaîne           | Oui      | Spécifie la fonctionnalité de domaine. Par exemple, « email ».                  |
+| Capability                                            | chaîne           | Oui      | Spécifie la fonctionnalité de domaine. Par exemple, « email ».                  |
 | IsDefault                                             | valeur booléenne Nullable | Non       | Indique si le domaine est le domaine par défaut pour le locataire. Valeurs prises en charge : true, false, null.        |
 | IsInitial                                             | valeur booléenne Nullable | Non       | Indique si le domaine est un domaine initial. Valeurs prises en charge : true, false, null.                       |
 | Nom                                                  | chaîne           | Oui      | Nom du domaine.                                                          |
 | RootDomain                                            | chaîne           | Non       | Nom du domaine racine.                                              |
-| État                                                | chaîne           | Oui      | État du domaine. Par exemple, « vérifié ». Valeurs prises en charge : unverified, Verified, PendingDeletion.                               |
+| Statut                                                | chaîne           | Oui      | État du domaine. Par exemple, « vérifié ». Valeurs prises en charge : unverified, Verified, PendingDeletion.                               |
 | VerificationMethod                                    | chaîne           | Oui      | Type de méthode de vérification du domaine. Valeurs prises en charge : None, DnsRecord, email.                                    |
 
 ##### <a name="domain-federation-settings"></a>Paramètres de Fédération de domaine
@@ -151,7 +151,7 @@ En cas de réussite, cette API retourne une ressource de [domaine](#domain) pour
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 ### <a name="response-example"></a>Exemple de réponse
 

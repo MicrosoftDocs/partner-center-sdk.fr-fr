@@ -4,20 +4,20 @@ description: Ressources utilisées avec les opérations d’audit de l’espace 
 ms.assetid: FEF0BED4-2CEB-46D2-9365-D7D3C50AF0E3
 ms.date: 05/21/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 53b9f879177f5d891c1a7969f6ef108cb7c3624a
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: 719ddd1b2e5003842ea85e0f4710c2cf01970564
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74489149"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80413653"
 ---
 # <a name="auditing-resources"></a>Audit des ressources
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez utiliser les ressources suivantes avec des opérations d’audit.
 
@@ -28,7 +28,7 @@ Représente un enregistrement d’une opération effectuée par un utilisateur p
 | Propriété | Type | Description |
 | --- | --- | ---|
 | customerId | chaîne | Chaîne au format GUID qui identifie le client. |
-| Souhaite | chaîne | Nom du client. |
+| customerName | chaîne | Nom du client. |
 | userPrincipalName | chaîne | Nom d’utilisateur principal ou identificateur d’utilisateur. En règle générale, il s’agit d’un nom de connexion de style Internet pour un utilisateur dans un format d’adresse de messagerie basé sur Internet standard RFC 822. |
 | applicationId | chaîne | Chaîne qui identifie l’application qui a effectué l’opération. |
 | resourceType | chaîne | Type de ressource traité par l’opération. Les valeurs possibles sont les suivantes : &quot;Customer&quot;, &quot;customer_user&quot;, &quot;Order&quot;, &quot;subscription&quot;, &quot;&quot;&quot;, third_party_add_on&quot;&quot;, mpn_association&quot;&quot;,&quot;&quot;&quot;, &quot;application_credential&quot;.&quot;&quot;&quot;&quot; |

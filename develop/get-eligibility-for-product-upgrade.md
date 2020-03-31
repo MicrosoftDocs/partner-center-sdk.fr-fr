@@ -3,30 +3,30 @@ title: Vérifier l’éligibilité d’un client pour la mise à niveau vers un 
 description: Vous pouvez utiliser la ressource ProductUpgradeRequest pour retourner une ressource ProductUpgradesEligibility afin de déterminer si un client est éligible pour la mise à niveau d’un abonnement Microsoft Azure (MS-AZR-0145P) à un plan Azure.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 71a9cc393b9273a156e0fd3cc434ee668cdaa324
-ms.sourcegitcommit: fbfad1ae706c8e4bdae080e5d79bc158d6b55d02
+ms.openlocfilehash: b94aa50364ef770a843624d397240e35eaa8cecf
+ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74490299"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80415940"
 ---
 # <a name="check-a-customers-eligibility-for-upgrading-to-an-azure-plan"></a>Vérifier l’éligibilité d’un client pour la mise à niveau vers un plan Azure
 
-S’applique à :
+S'applique à :
 
-- Espace partenaires
+- Centre pour partenaires
 
 Vous pouvez utiliser la ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) pour vérifier si un client est autorisé à effectuer une mise à niveau vers un plan Azure à partir d’un abonnement Microsoft Azure (MS-AZR-0145P). cette méthode renvoie une ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) avec l’éligibilité à la mise à niveau du produit du client.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Composants requis
 
-- Informations d’identification, comme décrit dans [authentification de l’espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur. Suivez le [modèle d’application sécurisée](enable-secure-app-model.md) lors de l’utilisation de l’authentification d’application + utilisateur avec les API de l’espace partenaires.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur. Suivez le [modèle d’application sécurisée](enable-secure-app-model.md) lors de l’utilisation de l’authentification d’application + utilisateur avec les API de l’espace partenaires.
 - Identificateur du client.
 - Famille de produits.
 
-## <a name="c"></a>\# C
+## <a name="c"></a>C\#
 
 Pour vérifier si un client est éligible pour la mise à niveau vers Azure plan :
 
@@ -62,15 +62,15 @@ if (productUpgradeEligibility.IsEligibile)
 
 #### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                                                   |
+| Méthode   | URI de demande                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **Publier** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/Eligibility http/1.1 |
+| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/Eligibility http/1.1 |
 
 #### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-#### <a name="request-body"></a>Corps de la requête
+#### <a name="request-body"></a>Corps de demande
 
 Le corps de la demande doit contenir une ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) .
 
@@ -106,7 +106,7 @@ En cas de réussite, cette méthode retourne une ressource [**ProductUpgradesEli
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec, ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [codes d’erreur REST de l’espace partenaires](error-codes.md).
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
 #### <a name="response-example"></a>Exemple de réponse
 
