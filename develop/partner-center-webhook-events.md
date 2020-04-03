@@ -5,12 +5,12 @@ ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a1ff31e3aeed4ebc57cbab6717e724a15613ee6a
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 50e10b8d36e801e0b8e176c5e8567e77cab1ae67
+ms.sourcegitcommit: d7d67522405c5b1903bea6560e2353a8e925b0de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416369"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80588913"
 ---
 # <a name="partner-center-webhook-events"></a>Événements du webhook de l’espace partenaires
 
@@ -64,7 +64,9 @@ Cet événement vous permet d’auto-intégrer et de tester votre inscription en
 
 ### <a name="subscription-updated-event"></a>Événement de mise à jour d’abonnement
 
-Cet événement est déclenché lorsque l’abonnement spécifié est modifié. Un événement de mise à jour d’abonnement est généré en cas de modification interne en plus de lorsque des modifications sont apportées via l’API espace partenaires. 
+Cet événement est déclenché lorsque l’abonnement spécifié est modifié. Un événement de mise à jour d’abonnement est généré en cas de modification interne en plus de lorsque des modifications sont apportées via l’API espace partenaires.  Cet événement est généré uniquement en cas de modification du niveau de commerce, par exemple lorsque le nombre de licences est modifié et lorsque l’état de l’abonnement change. Elle ne sera pas générée lors de la création de ressources dans l’abonnement. 
+
+
 
 >[!NOTE]
 >Il y a un délai de 48 heures entre le moment où un abonnement est modifié et le moment où l’événement mis à jour de l’abonnement est déclenché.  
