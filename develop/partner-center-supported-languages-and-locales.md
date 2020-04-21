@@ -162,7 +162,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Lituanie                                | LT                       | LTU                      | lt-LT/fr-fr                         |
 | Luxembourg                               | LU                       | LUX                      | de-LU/FR-LU/fr-fr                 |
 | Macao R.A.S.                                | MOLYBDÈN                       | MAC                      | zh-MO/fr-fr                         |
-| Macédoine, Ex.-Rép. yougoslave de                          | MK                       | MKD                      | MK-MK/fr-fr                         |
+| Macédoine du Nord                          | MK                       | MKD                      | MK-MK/fr-fr                         |
 | Madagascar                               | MG                       | MDG                      | fr-FR/fr-fr                         |
 | Malawi                                   | MW                       | MWI                      | fr-FR                                 |
 | Malaisie                                 | MY                       | MYS                      | en-MY/fr-US                         |
@@ -176,7 +176,7 @@ Le tableau suivant répertorie les cultures et les codes de pays ISO (Internatio
 | Mayotte                                  | YT                       | MYT                      | fr-FR/fr-fr                         |
 | Mexique                                   | MX                       | MEX                      | es-MX/fr-fr                         |
 | Micronésie                               | Radio                       | FSM                      | fr-FR                                 |
-| République de Moldavie                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
+| République de Moldova                                  | MD                       | MDA                      | RO-RO/fr-fr                         |
 | Monaco                                   | MC                       | MCO                      | fr-MC/fr-fr                         |
 | Mongolie                                 | PORTABLE                       | MNG                      | mn-MN/fr-fr                         |
 | Monténégro                               | ME                       | MNE                      | SR-LATN-ME/fr-fr                    |
