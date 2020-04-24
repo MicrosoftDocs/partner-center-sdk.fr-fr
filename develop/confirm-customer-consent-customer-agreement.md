@@ -5,16 +5,16 @@ ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 8215fa2a39e269195d2b13d88561b6fbf61875e2
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 33a2dacc622c87feb3058931259ad7fbea7a0758
+ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412868"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82093811"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Confirmer que le client a accepté le Contrat client Microsoft
 
-S'applique à :
+**S’applique à :**
 
 - Espace partenaires
 
@@ -77,7 +77,6 @@ Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agree
 
 Vous trouverez un exemple complet dans la classe [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) à partir du projet d’[application de test de console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples).
 
-
 ## <a name="rest-request"></a>Demande REST
 
 Pour confirmer ou reconfirmer l’acceptation du Contrat client Microsoft par les clients :
@@ -107,9 +106,9 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Ce tableau décrit les propriétés nécessaires dans le corps de la requête REST.
 
-| Nom      | Type   | Description                                                                                  |  
-|-----------|--------|----------------------------------------------------------------------------------------------|  
-| Contrat | objet | Détails fournis par le partenaire pour confirmer l’acceptation du Contrat client Microsoft par les clients. |  
+| Nom      | Type   | Description                                                                                  |
+|-----------|--------|----------------------------------------------------------------------------------------------|
+| Contrat | objet | Détails fournis par le partenaire pour confirmer l’acceptation du Contrat client Microsoft par les clients. |
 
 #### <a name="agreement"></a>Contrat
 
@@ -121,7 +120,7 @@ Ce tableau décrit les champs obligatoires pour créer une [ressource **Agreemen
 | dateAgreed     | Chaîne au format date/heure UTC |Date à laquelle le client a accepté le contrat. |
 | templateId     | string | Identificateur unique du type de contrat accepté par le client. Vous pouvez obtenir la valeur de **templateId** du Contrat client Microsoft en récupérant les métadonnées du Contrat client Microsoft. Consultez [Obtenir les métadonnées du Contrat client Microsoft](./get-customer-agreement-metadata.md) pour plus d’informations. |
 | type           | string | Type de contrat accepté par le client. Utilisez « MicrosoftCustomerAgreement » si le client a accepté le Contrat client Microsoft. |
-  
+
 #### <a name="request-example"></a>Exemple de requête
 
 ```http
@@ -149,7 +148,7 @@ En cas de réussite, cette méthode retourne une [ressource **Agreement**](./agr
 
 #### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
-Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. 
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires.
 
 Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
