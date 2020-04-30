@@ -5,25 +5,27 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b94aa50364ef770a843624d397240e35eaa8cecf
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 4f4ddd6be8eb05245c23395f85ec81a6ec20de4c
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415940"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157501"
 ---
 # <a name="check-a-customers-eligibility-for-upgrading-to-an-azure-plan"></a>Vérifier l’éligibilité d’un client pour la mise à niveau vers un plan Azure
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Vous pouvez utiliser la ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) pour vérifier si un client est autorisé à effectuer une mise à niveau vers un plan Azure à partir d’un abonnement Microsoft Azure (MS-AZR-0145P). cette méthode renvoie une ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) avec l’éligibilité à la mise à niveau du produit du client.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur. Suivez le [modèle d’application sécurisée](enable-secure-app-model.md) lors de l’utilisation de l’authentification d’application + utilisateur avec les API de l’espace partenaires.
-- Identificateur du client.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Famille de produits.
 
 ## <a name="c"></a>C\#
@@ -31,6 +33,7 @@ Vous pouvez utiliser la ressource [**ProductUpgradeRequest**](product-upgrade-re
 Pour vérifier si un client est éligible pour la mise à niveau vers Azure plan :
 
 1. Créez un objet **ProductUpgradesRequest** et spécifiez l’identificateur du client et « Azure » comme famille de produits.
+
 2. Utilisez la collection **collection iaggregatepartner. ProductUpgrades** .
 3. Appelez la méthode **CheckEligibility** et transmettez l’objet **ProductUpgradesRequest** , qui renverra un objet **ProductUpgradesEligibility** .
 
@@ -56,28 +59,26 @@ if (productUpgradeEligibility.IsEligibile)
 
 ```
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>Demande REST
 
-### <a name="rest-request"></a>Demande REST
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-#### <a name="request-syntax"></a>Syntaxe de la requête
-
-| Méthode   | URI de demande                                                                                   |
+| Méthode   | URI de requête                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/productUpgrades/Eligibility http/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/Eligibility http/1.1 |
 
-#### <a name="request-headers"></a>En-têtes de requête
+### <a name="request-headers"></a>En-têtes de requête
 
 Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-#### <a name="request-body"></a>Corps de demande
+### <a name="request-body"></a>Corps de demande
 
 Le corps de la demande doit contenir une ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) .
 
-#### <a name="request-example"></a>Exemple de requête
+### <a name="request-example"></a>Exemple de requête
 
 ```http
-POST https://api.partnercenter.microsoft.com/v1/productupgrades HTTP/1.1
+POST https://api.partnercenter.microsoft.com/v1/productupgrades/eligibility HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: c245d5f2-1de3-4ae0-9e42-95e38e3cb8ff
@@ -90,25 +91,20 @@ Content-Length: 340
 Expect: 100-continue
 Connection: Keep-Alive
 {
-    {
         "customerId": "4c721420-72ad-4708-a0a7-371a2f7b0969",
         "productFamily": "azure"
-    }
-    "Attributes": {
-    "ObjectType": "ProductUpgradeRequest"
-    }
 }
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) dans le corps.
 
-#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-#### <a name="response-example"></a>Exemple de réponse
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 Ok

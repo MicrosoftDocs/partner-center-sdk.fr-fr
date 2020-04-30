@@ -1,35 +1,33 @@
 ---
-title: Obtenir des prix pour Microsoft Azure
-description: Comment obtenir une carte de tarifs Azure avec des prix en temps réel pour une offre Azure. La tarification Azure est relativement dynamique et change fréquemment.
+title: Obtenir les prix de Microsoft Azure
+description: Comment obtenir une carte de tarifs Azure avec des prix en temps réel pour une offre Azure. La tarification Azure est assez dynamique et elle change fréquemment.
 ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a306e488a33c96822b8ed9ddc58c9b1edbbd62b7
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 011c95c80fa793606a62ebb8fa8645b22da413bc
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412624"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157281"
 ---
-# <a name="get-prices-for-microsoft-azure"></a>Obtenir des prix pour Microsoft Azure
+# <a name="get-prices-for-microsoft-azure"></a>Obtenir les prix de Microsoft Azure
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Comment obtenir une carte de tarifs [Azure](azure-rate-card-resources.md) avec des prix en temps réel pour une offre Azure. La tarification Azure est relativement dynamique et change fréquemment.
+Comment obtenir une carte de tarifs [Azure](azure-rate-card-resources.md) avec des prix en temps réel pour une offre Azure. La tarification Azure est assez dynamique et elle change fréquemment.
 
 Pour suivre l’utilisation et aider à prédire votre facture mensuelle et les factures des clients individuels, vous pouvez combiner cette requête de carte de tarifs Azure pour obtenir les prix de Microsoft Azure avec une demande d' [obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md).
 
-Les prix varient selon le marché et la devise, et cette API prend en compte l’emplacement. Vous pouvez personnaliser la devise, la région et la langue renvoyées dans la réponse. Cela s’avère particulièrement utile si vous gérez les ventes sur plusieurs marchés à partir d’un seul bureau centralisé. Pour plus d’informations, consultez [paramètres URI](#uri-parameters) . 
+Les prix varient selon le marché et la devise, et cette API prend en compte l’emplacement. Par défaut, l’API utilise vos paramètres de profil de partenaire dans l’espace partenaires et la langue de votre navigateur, et ces paramètres sont personnalisables. La sensibilisation à l’emplacement est particulièrement pertinente si vous gérez les ventes sur plusieurs marchés à partir d’un seul bureau centralisé. Pour plus d’informations, consultez [URI, paramètres](#uri-parameters).
 
-## <a name="examples"></a>Exemples
-
-### <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 Pour obtenir la carte de tarifs Azure, appelez la méthode [**IAzureRateCard. obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get) pour retourner une ressource [**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) qui contient les prix Azure.
 
@@ -41,9 +39,9 @@ var azureRateCard = partner.RateCards.Azure.Get();
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetAzureRateCard.cs
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 Pour obtenir la carte de tarifs Azure, appelez la fonction **IAzureRateCard. obten** pour retourner les détails de la carte à taux contenant les prix Azure.
 
@@ -53,9 +51,9 @@ Pour obtenir la carte de tarifs Azure, appelez la fonction **IAzureRateCard. obt
 AzureRateCard azureRateCard = partner.getRateCards().getAzure().get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 Pour obtenir la carte Azure, exécutez la commande [**obtenir-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) pour retourner les détails de la carte de taux qui contient les prix Azure.
 
@@ -63,33 +61,34 @@ Pour obtenir la carte Azure, exécutez la commande [**obtenir-PartnerAzureRateCa
 Get-PartnerAzureRateCard
 ```
 
-## <a name="request"></a>Requête
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                        |
+| Méthode  | URI de requête                                                        |
 |---------|--------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/ratecards/Azure ? Currency = {currency} & region = {region} |
+| **GET** | *{baseURL}*/v1/ratecards/Azure ? Currency = {currency} &region = {region} |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 | Nom     | Type   | Obligatoire | Description                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| devise | chaîne | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple, « EUR »). La valeur par défaut est « USD ». |
-| région   | chaîne | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple, « FR »). La valeur par défaut est « US ».        |
+| currency | string | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par `EUR`exemple). Par défaut, il s’agit de `USD`. |
+| region   | string | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée ( `FR`par exemple). Par défaut, il s’agit de `US`.        |
 
-Vous pouvez inclure l' [en-tête](headers.md#request-headers) X-locale facultatif dans votre demande. Si vous n’incluez pas l’en-tête X-locale, la valeur par défaut (« en-US ») est utilisée.
-* Si vous fournissez des paramètres de devise et de région dans votre demande, la valeur de X-locale est utilisée pour déterminer la langue de la réponse.
-* Si vous ne fournissez pas de paramètres de région et de devise dans votre demande, la valeur de X-locale est utilisée pour déterminer la région, la devise et la langue de la réponse.
+Vous pouvez inclure l' [en-tête](headers.md#rest-request-headers) X-locale facultatif dans votre demande. Si vous n’incluez pas l’en-tête X-locale, la valeur par défaut (« en-US ») est utilisée.
 
+- Si vous fournissez des paramètres de devise et de région dans votre demande, la valeur de X-locale est utilisée pour déterminer la langue de la réponse.
+
+- Si vous ne fournissez pas de paramètres de région et de devise dans votre demande, la valeur de X-locale est utilisée pour déterminer la région, la devise et la langue de la réponse.
 
 ### <a name="request-header"></a>En-tête de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -104,10 +103,9 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="response"></a>Réponse
+## <a name="rest-response"></a>Response REST
 
-
-Si cette opération réussit, elle retourne une ressource de [carte de tarifs Azure](azure-rate-card-resources.md) .
+Si la demande aboutit, elle retourne une ressource de [carte de tarifs Azure](azure-rate-card-resources.md) .
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

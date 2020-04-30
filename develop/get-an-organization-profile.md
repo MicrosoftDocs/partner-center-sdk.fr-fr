@@ -1,38 +1,36 @@
 ---
-title: Récupération d’un profil d’organisation
+title: Obtenir un profil d’organisation
 description: Obtient un objet représentant le profil d’organisation du partenaire.
 ms.assetid: 2AA159F1-CC84-4367-A2AF-DFA4C8B0E673
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c4b75b001afbc6e9c7e9c772e9c3f43d85e1dbd8
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 93a1ea368baa3ad776fcd1fcae4d0a86aec20c15
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416021"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157731"
 ---
-# <a name="get-an-organization-profile"></a>Récupération d’un profil d’organisation
+# <a name="get-an-organization-profile"></a>Obtenir un profil d’organisation
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient un objet représentant le profil d’organisation du partenaire.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
+## <a name="c"></a>C\#
 
-### <a name="c"></a>C#
-
-Pour accéder au profil de votre organisation, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **OrganizationProfile** . Enfin, appelez les méthodes d' [**extraction ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) ou de [**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) .
+Pour accéder au profil de votre organisation, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **OrganizationProfile** . Enfin, appelez les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -42,9 +40,9 @@ OrganizationProfile organizationProfile = partnerOperations.Profiles.Organizatio
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerCenterSDK. FeaturesSamples, **classe**: GetOrganizationProfile.cs
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 Pour accéder au profil de votre organisation, utilisez votre fonction **collection iaggregatepartner. getProfiles** et appelez la fonction **getOrganizationProfile** . Enfin, appelez la fonction d' **extraction ()** .
 
@@ -54,33 +52,33 @@ Pour accéder au profil de votre organisation, utilisez votre fonction **collect
 OrganizationProfile organizationProfile = partnerOperations.getProfiles().getOrganizationProfile().get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Pour accéder à votre profil organiztion, exécutez la commande [**PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) . 
+Pour accéder au profil de votre organisation, exécutez la commande [**PartnerOrganizationProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOrganizationProfile.md) .
 
 ```powershell
 Get-PartnerOrganizationProfile
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
-**Syntaxe de la requête**
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                   |
+| Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Profiles/Organization http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/Organization http/1.1 |
 
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/profiles/organization HTTP/1.1
@@ -90,15 +88,15 @@ MS-RequestId: b85cb7ab-cc2e-4966-93f0-cf0d8377a93f
 MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne un objet **OrganizationProfile** dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK

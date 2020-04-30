@@ -1,32 +1,33 @@
 ---
-title: Recevoir des résumés de facture
+title: Obtenir des récapitulatifs de facture
 description: Vous pouvez utiliser une ressource résumés de la facture pour chaque type de devise pour afficher le solde et les frais totaux des frais périodiques et ponctuels.
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9123104494523d158058ef55e7d6790f201012f3
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: ea3eedf7b19f3160cd9d1eee76d58f80700151a8
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415867"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157431"
 ---
-# <a name="get-invoice-summaries"></a>Recevoir des résumés de facture
+# <a name="get-invoice-summaries"></a>Obtenir des récapitulatifs de facture
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez utiliser l' **InvoiceSummaries** pour récupérer un résumé de la facture qui indique le solde et le coût total des frais périodiques et ponctuels. La ressource **InvoiceSummaries** contient un résumé de la facture pour chaque type de devise.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+
 - Identificateur de facture valide.
 
 ## <a name="c"></a>C\#
@@ -34,6 +35,7 @@ Vous pouvez utiliser l' **InvoiceSummaries** pour récupérer un résumé de la 
 Pour récupérer une collection [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) qui contient un [**InvoiceSummary**](invoice-resources.md#invoicesummary) pour chaque type de devise :
 
 1. Utilisez votre collection **collection iaggregatepartner. Invoices** pour appeler la propriété **résumés** .
+
 2. Appelez la méthode d' **extraction ()** .
 3. Pour obtenir le solde d’un [**InvoiceSummary**](invoice-resources.md#invoicesummary)individuel, accédez à la propriété **BalanceAmount** de ce membre de la collection.
 
@@ -53,29 +55,27 @@ Pour plus d’informations, consultez l’exemple de code suivant :
 - Projet : **PartnerSDK. FeatureSample**
 - Classe : **GetInvoiceSummaries.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>Demande REST
 
-### <a name="rest-request"></a>Demande REST
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-#### <a name="request-syntax"></a>Syntaxe de la requête
-
-| Méthode  | URI de demande                                                                   |
+| Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/Summaries http/1.1     |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/Summaries http/1.1     |
 
-##### <a name="uri-parameter"></a>Paramètre d’URI
+#### <a name="uri-parameter"></a>Paramètre d’URI
 
-None.
+Aucun.
 
-#### <a name="request-headers"></a>En-têtes de requête
+### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-#### <a name="request-body"></a>Corps de demande
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-#### <a name="request-example"></a>Exemple de requête
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/summaries HTTP/1.1
@@ -86,15 +86,15 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 Connection: Keep-Alive
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-#### <a name="response-example"></a>Exemple de réponse
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK

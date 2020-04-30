@@ -5,39 +5,34 @@ ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f58aaef8f61deaa17e178b9196f644f9d45137ec
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f6e0a54f088c3e1ecbc00338e67a143b655b708e
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415029"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157641"
 ---
 # <a name="update-a-cart"></a>Mettre à jour un panier
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
+Procédure de mise à jour d’une commande pour un client dans un panier.
 
-Procédure de mise à jour d’une commande pour un client dans un panier. 
-
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID de panier d’un panier existant.
 
-
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour mettre à jour une commande pour un client, récupérez le panier à l’aide de la méthode **obtenir ()** en transmettant l’ID du client et du panier à l’aide de la fonction **méthode BYID ()** . Apportez les modifications nécessaires au panier. À présent, appelez la méthode **put** à l’aide de la méthode **méthode BYID ()** à l’aide de l’ID du client et du panier.
 
 Enfin, appelez la méthode **put ()** ou **PutAsync ()** pour créer la commande.
-
-
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -51,63 +46,56 @@ cart.LineItems.ToArray()[0].Quantity++;
 var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Put(cart);
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                                 |
+| Méthode  | URI de requête                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts/{Cart-ID} http/1.1              |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts/{Cart-ID} http/1.1              |
 
- 
-
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et spécifiez le panier à mettre à jour.
 
 | Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
-| **Cart-ID**     | chaîne   | Oui      | GUID-ID au format GUID qui identifie le panier.                     |
+| **ID client** | string   | Oui      | ID client au format GUID qui identifie le client.             |
+| **Cart-ID**     | string   | Oui      | GUID-ID au format GUID qui identifie le panier.                     |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
-
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
 Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps de la demande.
 
 | Propriété              | Type             | Obligatoire        | Description                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | chaîne           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
-| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.        |
-| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
-| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
-| lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| id                    | string           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | Non               | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.        |
+| lastModifiedTimeStamp | DateTime         | Non               | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non               | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | string           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
 | lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                               |
-
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
 | Propriété             | Type                        | Obligatoire     | Description                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| id                   | chaîne                      | Non           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                |
-| catalogId            | chaîne                      | Oui          | Identificateur de l’élément de catalogue.                                                                       |
-| friendlyName         | chaîne                      | Non           | Ce paramètre est facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.              |
-| quantity             | int                         | Oui          | Nombre de licences ou d’instances.     |
-| currencyCode         | chaîne                      | Non           | Code de la devise.                                                                                 |
-| BillingCycle         | Object                      | Oui          | Type de cycle de facturation défini pour la période actuelle.                                              |
-| participants         | Liste de paires de chaînes d’objets | Non           | Collection de participants sur l’achat.                                                      |
-| provisioningContext  | Dictionary < String, String >  | Non           | Contexte utilisé pour l’approvisionnement de l’offre.                                                          |
-| orderGroup           | chaîne                      | Non           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                            |
-| erreur                | Object                      | Non           | Appliqué après la création du panier en cas d’erreur.                                                 |
+| id                   | string                      | Non           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                |
+| catalogId            | string                      | Oui          | Identificateur de l’élément de catalogue.                                                                       |
+| friendlyName         | string                      | Non           | facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.              |
+| quantité             | int                         | Oui          | Nombre de licences ou d’instances.     |
+| currencyCode         | string                      | Non           | Code de la devise.                                                                                 |
+| billingCycle         | Object                      | Oui          | Type de cycle de facturation défini pour la période actuelle.                                              |
+| participants         | Liste de paires de chaînes d’objets | Non            | Collection de participants sur l’achat.                                                      |
+| provisioningContext  | Dictionary<String, String>  | Non            | Contexte utilisé pour l’approvisionnement de l’offre.                                                          |
+| orderGroup           | string                      | Non           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                            |
+| error                | Object                      | Non            | Appliqué après la création du panier en cas d’erreur.                                                 |
 
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 PUT /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/65faf57b-0205-47ee-92b3-08dcf233ea73/ HTTP/1.1
@@ -118,19 +106,19 @@ MS-CorrelationId: 0e93c70c-977a-4a88-9580-7cf084c73286
 X-Locale: en-US
 MS-PartnerCenter-Client: Partner Center .NET SDK
 Content-Type: application/json
-Host: api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com
 Content-Length: 496
 Expect: 100-continue
 
-{  
-    {  
+{
+    {
         "Id":"b4c8fdea-cbe4-4d17-9576-13fcacbf9605",
         "CreationTimestamp":"2018-03-15T17:15:02.3840528Z",
         "LastModifiedTimestamp":"2018-03-15T17:15:02.3840528Z",
         "ExpirationTimestamp":"0001-01-01T00:00:00",
         "LastModifiedUser":"2713ccd7-ea3b-470a-9cfb-451d5d0482cc",
-        "LineItems":[  
-            {  
+        "LineItems":[
+            {
                 "Id":0,
                 "CatalogItemId":"DG7GMGF0DWTL:0001:DG7GMGF0DSJB",
                 "FriendlyName":"A_sample_Azure_RI",
@@ -147,16 +135,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponserest-response"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse REST
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne la ressource [Cart](cart-resources.md) remplie dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 201 Created
@@ -185,7 +172,7 @@ Date: Thu, 15 Mar 2018 17:15:01 GMT
                 "subscriptionId": "3D5ECED6-1151-44C7-AEE6-70A4BB725666",
                 "scope": "shared",
                 "duration": "1Year"
-            }            
+            }
             "orderGroup": "0"
         }
     ],
@@ -201,11 +188,3 @@ Date: Thu, 15 Mar 2018 17:15:01 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

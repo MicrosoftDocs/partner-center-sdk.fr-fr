@@ -1,33 +1,33 @@
 ---
-title: Obtenir les prix des services partagés du partenaire Microsoft Azure
+title: Obtenir les prix de Microsoft Azure Partner Shared Services
 description: Comment obtenir une carte de tarifs Azure avec des prix pour Microsoft Azure les services partagés de partenaires.
 ms.assetid: B5B2F63A-D33F-4D76-8917-9952E6355746
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d8e4fb8364c05a4e50524a1a75cb20a6755e0ba5
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f8da51f0f23e8a45aa4708d7cc6891483ebf46a7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416706"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157291"
 ---
-# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Obtenir les prix des services partagés du partenaire Microsoft Azure
+# <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Obtenir les prix de Microsoft Azure Partner Shared Services
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment obtenir une carte de tarifs [Azure](azure-rate-card-resources.md) avec des prix pour Microsoft Azure les services partagés de partenaires.
 
-Les prix varient selon le marché et la devise, et cette API prend en compte l’emplacement. Par défaut, il utilise vos paramètres de profil de partenaire dans l’espace partenaires et la langue de votre navigateur, mais ceux-ci sont personnalisables. Cela s’avère particulièrement utile si vous gérez les ventes sur plusieurs marchés à partir d’un seul bureau centralisé.
+Les prix varient selon le marché et la devise, et cette API prend en compte l’emplacement. Par défaut, l’API utilise vos paramètres de profil de partenaire dans l’espace partenaires et la langue de votre navigateur, et ces paramètres sont personnalisables. La sensibilisation à l’emplacement est particulièrement pertinente si vous gérez les ventes sur plusieurs marchés à partir d’un seul bureau centralisé.
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
+## <a name="example-code"></a>Exemple de code
 
-### <a name="c"></a>C# 
+## <a name="c"></a>C\#
 
 Pour obtenir la carte de tarifs Azure, appelez la méthode [**IAzureRateCard. GetShared**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) pour retourner une ressource [**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) qui contient les prix Azure.
 
@@ -37,9 +37,9 @@ Pour obtenir la carte de tarifs Azure, appelez la méthode [**IAzureRateCard. Ge
 var azureRateCard = partner.RateCards.Azure.GetShared();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 Pour obtenir la carte de tarifs Azure, appelez la fonction **IAzureRateCard. getShared** pour retourner les détails de la carte de taux qui contient les prix Azure.
 
@@ -49,42 +49,42 @@ Pour obtenir la carte de tarifs Azure, appelez la fonction **IAzureRateCard. get
 AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Pour obtenir la carte Azure, exécutez la commande [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) et spécifiez le paramètre **SharedServices** pour retrun les détails de la carte de taux qui contiennent les prix Azure.
+Pour obtenir la carte Azure, exécutez la commande [**PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) et spécifiez le paramètre **SharedServices** pour retourner les détails de la carte de taux qui contient les prix Azure.
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
-**Syntaxe de la requête**
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                               |
+| Méthode  | URI de requête                                                               |
 |---------|---------------------------------------------------------------------------|
-| **GET** | *{baseURL}* /v1/ratecards/Azure-Shared ? Currency = {currency} & region = {region} |
+| **GET** | *{baseURL}*/v1/ratecards/Azure-Shared ? Currency = {currency} &region = {region} |
 
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
 | Nom     | Type   | Obligatoire | Description                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| devise | chaîne | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple, « EUR »). La valeur par défaut est la devise associée au marché dans le profil de partenaire. |
-| région   | chaîne | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple, « FR »). La valeur par défaut est le code de pays/région défini dans le profil de partenaire.        |
+| currency | string | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par `EUR`exemple). La valeur par défaut est la devise associée au marché dans le profil du partenaire. |
+| region   | string | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée ( `FR`par exemple). La valeur par défaut est le code de pays/région défini dans le profil du partenaire.        |
 
 Si l’en-tête X-locale facultatif est inclus dans la demande, sa valeur détermine la langue utilisée pour les détails dans la réponse.
 
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/ratecards/azure-shared HTTP/1.1
@@ -97,15 +97,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
-Si cette opération réussit, elle retourne une ressource de [carte de tarifs Azure](azure-rate-card-resources.md) .
+Si la demande aboutit, elle retourne une ressource de [carte de tarifs Azure](azure-rate-card-resources.md) .
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK

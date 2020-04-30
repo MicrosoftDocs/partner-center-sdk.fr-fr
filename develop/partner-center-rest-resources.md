@@ -1,32 +1,30 @@
 ---
-title: Ressources REST de l’espace partenaires
+title: Ressources REST de l’Espace partenaires
 description: Cette section fournit des définitions pour les éléments JSON nécessaires à la création de requêtes et à l’analyse des réponses à l’aide de l’API REST de l’espace partenaires.
 ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3e84ce1f55eedd94519582fc57ce75eed2fddee0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e452681406a717ef618808b4b699cda5f6684931
+ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416406"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559043"
 ---
-# <a name="partner-center-rest-resources"></a>Ressources REST de l’espace partenaires
-
+# <a name="partner-center-rest-resources"></a>Ressources REST de l’Espace partenaires
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Cette section fournit des définitions pour les éléments JSON nécessaires à la création de requêtes et à l’analyse des réponses à l’aide de l’API REST de l’espace partenaires. Pour plus d’informations sur l’utilisation de ces éléments, y compris des exemples de code, consultez la section [scénarios](scenarios.md) et la section Exemples de l' [espace partenaires](partner-center-samples.md) .
 
-## <a name="span-idin_this_sectionspan-idin_this_sectionspan-idin_this_sectionin-this-section"></a><span id="In_this_section"/><span id="in_this_section"/><span id="IN_THIS_SECTION"/>dans cette section
-
+## <a name="in-this-section"></a>Contenu de cette section
 
 <table>
 <colgroup>
@@ -35,7 +33,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><a href="analytics-resources.md">Analyses</a></td>
+<td><a href="analytics-resources.md">Analytique</a></td>
 <td><ul>
 <li>PartnerLicensesDeploymentInsights</li>
 <li>PartnerLicensesUsageInsights</li>
@@ -68,7 +66,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="odd">
 <td><a href="cart-resources.md">Panier</a></td>
 <td><ul>
-<li>Caddie</li>
+<li>Panier</li>
 <li>CartLineItem</li>
 <li>CartError</li>
 </ul></td>
@@ -91,7 +89,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="even">
 <td><a href="customer-resources.md">Client</a></td>
 <td><ul>
-<li>Client</li>
+<li>Customer</li>
 <li>CustomerCompanyProfile</li>
 <li>CustomerBillingProfile</li>
 <li>CustomerRelationshipRequest</li>
@@ -109,11 +107,11 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="even">
 <td><a href="entitlement-resources.md">Droits</a></td>
 <td><ul>
-<li>Droit</li>
-<li>referenceOrder</li>
-<li>entitlementType</li>
+<li>Entitlement</li>
+<li>ReferenceOrder</li>
+<li>EntitlementType</li>
 <li>Artefact</li>
-<li>artifactType</li>
+<li>ArtifactType</li>
 <li>VirtualMachineReservedInstanceArtifact</li>
 <li>VirtualMachineReservedInstanceArtifactDetails</li>
 <li>VirtualMachineReservation</li>
@@ -122,7 +120,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="odd">
 <td><a href="invoice-resources.md">Facture</a></td>
 <td><ul>
-<li>Facturation</li>
+<li>Facture</li>
 <li>InvoiceDetail</li>
 <li>InvoiceLineItem</li>
 <li>InvoiceSummary</li>
@@ -140,7 +138,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <li>LicenseUpdate</li>
 <li>LicenseAssignment</li>
 <li>LicenseWarning</li>
-<li>productSku</li>
+<li>ProductSku</li>
 <li>ServicePlan</li>
 <li>SubscribedSku</li>
 </ul></td>
@@ -164,7 +162,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="odd">
 <td><a href="order-resources.md">Commande</a></td>
 <td><ul>
-<li>Order</li>
+<li>JSON</li>
 <li>OrderLineItem</li>
 <li>OrderLinks</li>
 <li>OrderLineItemLinks</li>
@@ -174,7 +172,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <tr class="even">
 <td><a href="profile-resources.md">Profil</a></td>
 <td><ul>
-<li>billingProfile</li>
+<li>BillingProfile</li>
 <li>LegalBusinessProfile</li>
 <li>MpnProfile</li>
 <li>OrganizationProfile</li>
@@ -185,9 +183,9 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <td><a href="product-resources.md">Produits</a></td>
 <td><ul>
 <li>Produit</li>
-<li>ItemType</li>
+<li>itemType</li>
 <li>ProductLinks</li>
-<li>Paire</li>
+<li>Sku</li>
 <li>Disponibilité</li>
 <li>InventoryCheckRequest</li>
 <li>InventoryItem</li>
@@ -203,7 +201,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="odd">
-<td><a href="service-costs-resources.md">ServiceCosts</a></td>
+<td><a href="self-serve-policy-resources.md">SelfServePolicy</a></td>
 <td><ul>
 <li>ServiceCostsSummary</li>
 <li>ServiceCostsLineItem</li>
@@ -211,6 +209,14 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="even">
+<td><a href="service-costs-resources.md">ServiceCosts</a></td>
+<td><ul>
+<li>ServiceCostsSummary</li>
+<li>ServiceCostsLineItem</li>
+<li>ServiceCostsSummaryLinks</li>
+</ul></td>
+</tr>
+<tr class="odd">
 <td><a href="service-request-resources.md">ServiceRequest</a></td>
 <td><ul>
 <li>ServiceRequest</li>
@@ -220,7 +226,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <li>SupportTopic</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="subscription-resources.md">Abonnement</a></td>
 <td><ul>
 <li>Abonnement</li>
@@ -231,7 +237,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <li>RegisterSubscription</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="subscription-usage-resources.md">Utilisation de l’abonnement</a></td>
 <td><ul>
 <li>SubscriptionDailyUsageRecord <em>(obsolète)</em></li>
@@ -239,28 +245,28 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 <li>SubscriptionUsageSummary</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="upgrade-resources.md">Mise à niveau</a></td>
 <td><ul>
-<li>Mise à niveau</li>
+<li>Mettre à niveau</li>
 <li>UpgradeError</li>
 <li>UpgradeResult</li>
 <li>UserLicenseError</li>
 </ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="user-resources.md">Utilisateur</a></td>
 <td><ul>
 <li>Utilisateur</li>
 <li>CustomerUser</li>
-<li>userCredentials</li>
+<li>UserCredentials</li>
 <li>UserMember</li>
 </ul></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="utility-resources.md">Ressources de l’utilitaire</a></td>
 <td><ul>
-<li>Address</li>
+<li>Adresse</li>
 <li>Contact</li>
 <li>FieldFilter</li>
 <li>FileInfo</li>

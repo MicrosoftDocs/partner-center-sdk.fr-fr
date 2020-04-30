@@ -6,34 +6,33 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dcb867455b2f0c67f294ac2de54d7b2ad52c1231
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cd61260cdf5308af5cf327529737e2181e3c7629
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416807"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157621"
 ---
 # <a name="get-a-subscription-by-id"></a>Obtenir un abonnement par ID
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient une ressource d' [abonnement](subscription-resources.md) qui correspond à l’ID de client et à l’ID d’abonnement.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID d’abonnement.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour obtenir un abonnement par ID, commencez par obtenir une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’abonnement. Utilisez cette [**interface**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) pour récupérer les détails de l’abonnement en appelant [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get).
 
@@ -47,41 +46,36 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetSubscription.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                                                |
+| Méthode  | URI de requête                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir l’abonnement.
 
 | Nom                    | Type     | Obligatoire | Description                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.     |
-| **ID-pour l’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement. |
+| **customer-tenant-id**  | **guid** | O        | GUID correspondant au client.     |
+| **id-for-subscription** | **guid** | O        | GUID correspondant à l’abonnement. |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/subscriptions/A356AC8C-E310-44F4-BF85-C7F29044AF99 HTTP/1.1
-Authorization: Bearer <token> 
+Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 8f489776-a3f3-47cb-91c3-538e1f70f560
 MS-CorrelationId: e72e1dc3-4abd-4ce0-908b-d23fdaedcb28
@@ -89,16 +83,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource d' [abonnement](subscription-resources.md) dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse pour un abonnement standard**
+### <a name="response-example-for-a-standard-subscription"></a>Exemple de réponse pour un abonnement standard
 
 ```http
 HTTP/1.1 200 OK
@@ -111,7 +104,7 @@ MS-ServerId: 202010406
 Date: Fri, 27 Jan 2017 21:51:40 GMT
 
 {
-    "id": "A356AC8C-E310-44F4-BF85-C7F29044AF99", 
+    "id": "A356AC8C-E310-44F4-BF85-C7F29044AF99",
     "entitlementId": "42226ED6-070A-4E0F-B80C-4CDFB3E97AA7",
     "offerId": "MS-AZR-0145P",
     "offerName": "Microsoft Azure",
@@ -145,7 +138,7 @@ Date: Fri, 27 Jan 2017 21:51:40 GMT
 }
 ```
 
-**Exemple de réponse pour un abonnement complémentaire**
+### <a name="response-example-for-an-add-on-subscription"></a>Exemple de réponse pour un abonnement complémentaire
 
 La réponse pour un abonnement complémentaire comprend l’ID d’abonnement parent dans le corps et dans les liens.
 
@@ -198,11 +191,3 @@ Date: Fri, 27 Jan 2017 00:12:53 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

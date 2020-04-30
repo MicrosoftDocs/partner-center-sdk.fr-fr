@@ -1,48 +1,45 @@
 ---
-title: Mettre à jour le profil d’entreprise juridique partenaire
+title: Mettre à jour le profil d’entreprise juridique du partenaire
 description: Comment mettre à jour le profil d’entreprise juridique partenaire.
 ms.assetid: DEB60680-145D-47C5-BB19-374752D45236
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 102a84f385eb4e6229312fe890ab801b44dcabb1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 1bc87737d74aee56dcfb25872b055d4a5653f202
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414732"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157781"
 ---
-# <a name="update-the-partner-legal-business-profile"></a>Mettre à jour le profil d’entreprise juridique partenaire
-
+# <a name="update-the-partner-legal-business-profile"></a>Mettre à jour le profil d’entreprise juridique du partenaire
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment mettre à jour le profil d’entreprise juridique partenaire.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+Pour mettre à jour le profil d’entreprise juridique partenaire, commencez par instancier un objet **LegalBusinessProfile** et le remplir avec le profil existant. Pour plus d’informations, consultez [obtenir le profil d’entreprise juridique partenaire](get-legal-business-profile.md). Ensuite, mettez à jour les propriétés que vous souhaitez modifier. L’exemple de code suivant illustre la modification de l’adresse et des numéros de téléphone du contact principal.
 
-
-Pour mettre à jour le profil d’entreprise juridique partenaire, commencez par instancier un objet **LegalBusinessProfile** et le remplir avec le profil existant. Pour plus d’informations, consultez [obtenir le profil d’entreprise juridique partenaire](get-legal-business-profile.md). Ensuite, mettez à jour les propriétés que vous devez modifier. L’exemple de code suivant illustre la modification de l’adresse et des numéros de téléphone du contact principal.
-
-Ensuite, récupérez une interface avec la collection d’opérations de profil de partenaire à partir de la propriété **collection iaggregatepartner. Profiles** . Ensuite, récupérez la valeur de la propriété **LegalBusinessProfile** pour obtenir une interface pour les opérations de profil d’entreprise juridique. Enfin, appelez la méthode [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) ou [**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) avec l’objet modifié pour mettre à jour le profil.
+Ensuite, obtenez une interface vers la collection d’opérations de profil du partenaire à partir de la propriété **IAggregatePartner.Profiles**. Récupérez alors la valeur de la propriété **LegalBusinessProfile** pour obtenir une interface vers les opérations de profil d’entreprise juridique. Enfin, appelez la méthode [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) ou [**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) avec l’objet modifié pour mettre à jour le profil.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
 
 var legalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 
-// Change the address and primary contact phone number. 
+// Change the address and primary contact phone number.
 legalBusinessProfile.Address.PhoneNumber = "4255550110";
 legalBusinessProfile.PrimaryContact.PhoneNumber = "4255550110";
 
@@ -50,26 +47,23 @@ legalBusinessProfile.PrimaryContact.PhoneNumber = "4255550110";
 var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfile.Update(legalBusinessProfile);
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                    |
+| Méthode  | URI de requête                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **PUT** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
-
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
 Ressource du profil d’entreprise juridique.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/profiles/legalbusiness HTTP/1.1
@@ -131,16 +125,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient le **LegalBusinessProfile** mis à jour
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -195,11 +188,3 @@ Date: Tue, 21 Mar 2017 22:03:15 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

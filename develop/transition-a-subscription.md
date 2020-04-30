@@ -1,39 +1,38 @@
 ---
-title: Transition d’un abonnement
+title: Changer un abonnement
 description: Met à niveau l’abonnement d’un client vers un abonnement cible spécifié.
 ms.assetid: 54618BC1-6AF7-4518-925B-8A6A4C926CE7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a81a7b8bca0e61b128a22cb960a3905800f1acd2
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 936d01c608e26d02d14934d1b585c7b142ff0186
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415039"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157651"
 ---
-# <a name="transition-a-subscription"></a>Transition d’un abonnement
-
+# <a name="transition-a-subscription"></a>Changer un abonnement
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Met à niveau l’abonnement d’un client vers un abonnement cible spécifié.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Deux ID d’abonnement, un pour l’abonnement initial et un pour l’abonnement cible.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour mettre à niveau l’abonnement d’un client, commencez [par obtenir l’abonnement customer’s](get-a-subscription-by-id.md). Ensuite, obtenez la liste des mises à niveau de cet abonnement en appelant la propriété **upgrades** , puis les méthodes d' **obtention ()** ou **de GetAsync ()** . Choisissez une mise à niveau de la cible dans cette liste de mises à niveau, puis appelez la propriété **mises à niveau** de l’abonnement initial, suivie de la méthode **Create ()** .
 
@@ -41,46 +40,41 @@ Pour mettre à niveau l’abonnement d’un client, commencez [par obtenir l’a
 // IAggregatePartner partnerOperations;
 // string selectedCustomerId;
 // string subscriptionIdForUpgrade;
-// Upgrade targetOffer; 
+// Upgrade targetOffer;
 
 UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionIdForUpgrade).Upgrades.Create(targetOffer);
 ```
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSamples, **classe**: UpgradeSubscription.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode   | URI de demande                                                                                                                         |
+| Méthode   | URI de requête                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription}/upgrades http/1.1 |
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-Target}/upgrades http/1.1       |
+| **GET**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription}/upgrades http/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-Target}/upgrades http/1.1       |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le paramètre de requête suivant pour effectuer la transition de l’abonnement.
 
 | Nom                    | Type     | Obligatoire | Description                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
-| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.             |
-| **ID-pour l’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement initial. |
-| **ID-pour-cible**       | **uniques** | Y        | GUID correspondant à l’abonnement cible.  |
+| **customer-tenant-id**  | **guid** | O        | GUID correspondant au client.             |
+| **id-for-subscription** | **guid** | O        | GUID correspondant à l’abonnement initial. |
+| **ID-pour-cible**       | **guid** | O        | GUID correspondant à l’abonnement cible.  |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+None
 
-Aucune
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1
@@ -153,16 +147,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource de résultat de **mise à niveau** dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -264,11 +257,3 @@ Date: Fri, 29 Jan 2016 20:44:21 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

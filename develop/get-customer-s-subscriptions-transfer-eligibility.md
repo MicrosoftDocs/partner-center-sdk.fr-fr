@@ -1,67 +1,60 @@
 ---
-title: Obtenir le droit de transfert des abonnements d’un client
+title: Obtenir un droit de transfert des abonnements d’un client
 description: Obtention d’un regroupement des abonnements d’un client éligibles/ineligibile pour le transfert.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 32c1ece936908c22d185c6039fb449e94f62a067
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: f5a8ba18a53492abcb3396c78de108b4fe98c0aa
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220775"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157531"
 ---
-# <a name="get-a-customers-subscriptions-transfer-eligibility"></a>Obtenir le droit de transfert des abonnements d’un client
-
+# <a name="get-a-customers-subscriptions-transfer-eligibility"></a>Obtenir un droit de transfert des abonnements d’un client
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment obtenir un regroupement des abonnements d’un client éligibles/non éligibles pour le transfert.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client.
 
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                          |
+| Méthode  | URI de requête                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/transferseligibility ? TransferType = {Transfer-type} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/transferseligibility ? TransferType = {Transfer-type} http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Ce tableau répertorie le paramètre de requête requis pour obtenir tous les abonnements.
 
 | Nom               | Type   | Obligatoire | Description                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
-| type de transfert      | chaîne | Oui      | Type de transfert prévu.                |
+| customer-tenant-id | string | Oui      | Chaîne au format GUID qui identifie le client. |
+| type de transfert      | string | Oui      | Type de transfert prévu.                |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de requête**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET /v1/customers/823c6c3f-9259-4d51-bae2-5dd06743177f/transferseligibility?transferType=directtoindirect HTTP/1.1
@@ -72,16 +65,15 @@ MS-CorrelationId: cd589c16-dc94-49ad-e529-125c258573d6
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [TransferEligibility](transfer-eligibility-resources.md) dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -117,11 +109,3 @@ Date: Tue, 24 Mar 2020 23:43:25 GMT
   }
 ]
 ```
-
- 
-
- 
-
-
-
-

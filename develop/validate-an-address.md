@@ -6,18 +6,18 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 254fad11cbca2ea8e3c5068b67b7b3cbbcbccc9d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 402c7ff4d1c713eb57ade674a76f4e66033ba428
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414387"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157861"
 ---
 # <a name="validate-an-address"></a>Valider une adresse
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -26,13 +26,11 @@ Comment valider une adresse à l’aide de l’API de validation d’adresse.
 
 L’API de validation d’adresse doit être utilisée uniquement pour la pré-validation des mises à jour de profil client. Utilisez-le pour comprendre que si le pays est le États-Unis, le Canada, la Chine ou le Mexique, le champ État est validé par rapport à une liste d’États valides pour le pays respectif. Dans tous les autres pays, ce test n’a pas lieu, et l’API vérifie uniquement que l’État est une chaîne valide.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
-
-### <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 Pour valider une adresse, commencez par instancier un nouvel objet d' **adresse** et remplissez-le avec l’adresse à valider. Ensuite, récupérez une interface pour les opérations de **validations** à partir de la propriété **collection iaggregatepartner. validations** et appelez la méthode **IsAddressValid** avec l’objet Address.
 
@@ -45,7 +43,7 @@ Address address = new Address()
     AddressLine1 = "One Microsoft Way",
     City = "Redmond",
     State = "WA",
-    PostalCode = "98052",    
+    PostalCode = "98052",
     Country = "US"
 };
 
@@ -60,10 +58,10 @@ try
 {
     // Change to an invalid postal code for this address.
     address.PostalCode = "98007";
-             
+
     // Validate the address.
     result = partnerOperations.Validations.IsAddressValid(address);
-    
+
     Console.WriteLine("ERROR: The code should have thrown an exception - BadRequest(400).");
 }
 catch (PartnerException exception)
@@ -81,11 +79,11 @@ catch (PartnerException exception)
 }
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
 Pour valider une adresse, commencez par instancier un nouvel objet d' **adresse** et remplissez-le avec l’adresse à valider. Ensuite, récupérez une interface pour les opérations de **validations** à partir de la fonction **collection iaggregatepartner. getValidations** , puis appelez la méthode **isAddressValid** avec l’objet Address.
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -109,7 +107,7 @@ try
 catch (Exception exception)
 {
     System.out.println("Address is invalid");
-    
+
     if (! StringHelper.isNullOrWhiteSpace(exception.getMessage()))
     {
         System.out.println(exception.getMessage());
@@ -117,9 +115,9 @@ catch (Exception exception)
 }
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 Pour valider une adresse, exécutez [**test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) avec les paramètres d’adresse remplis.
 
@@ -127,37 +125,37 @@ Pour valider une adresse, exécutez [**test-PartnerAddress**](https://github.com
 Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Country 'US' -PostalCode '98004' -State 'WA'
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
+## <a name="rest-request"></a>Demande REST
 
-**Syntaxe de la requête**
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                 |
+| Méthode   | URI de requête                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
 
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
 Ce tableau décrit les propriétés requises dans le corps de la demande.
 
 | Nom         | Type   | Obligatoire | Description                                                |
 |--------------|--------|----------|------------------------------------------------------------|
-| AddressLine1 | chaîne | Y        | Première ligne de l’adresse.                             |
-| AddressLine2 | chaîne | N        | Deuxième ligne de l’adresse. Cette propriété est facultative. |
-| city         | chaîne | Y        | Ville.                                                  |
-| state        | chaîne | Y        | État.                                                 |
-| postalcode   | chaîne | Y        | Code postal.                                           |
-| country      | chaîne | Y        | Code du pays alpha-2 ISO à deux caractères.                |
+| addressline1 | string | O        | La première ligne de l’adresse.                             |
+| addressline2 | string | N        | Deuxième ligne de l’adresse. Cette propriété est facultative. |
+| city         | string | O        | La ville.                                                  |
+| state        | string | O        | État.                                                 |
+| postalcode   | string | O        | Le code postal.                                           |
+| country      | string | O        | Le code pays alpha-2 ISO à deux caractères.                |
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/validations/address HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer <token> 
+Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 0b30452a-8be2-4b8b-b25b-2d4850f4345f
 MS-CorrelationId: 8a853a1a-b0e6-4cb0-ae87-d6dd32ac3a0c
@@ -174,17 +172,17 @@ Content-Length: 129
 }
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, la méthode retourne un code d’état 200, comme illustré dans l’exemple de validation de réponse qui a réussi, comme indiqué ci-dessous.
 
 Si la requête échoue, la méthode retourne le code d’état 400, comme illustré dans l’exemple d’échec de validation de réponse illustré ci-dessous. Le corps de la réponse contient une charge utile JSON avec des informations supplémentaires sur l’erreur.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Réponse-exemple de validation réussie**
+### <a name="response---validation-succeeded-example"></a>Réponse-exemple de validation réussie
 
 ```http
 HTTP/1.1 200 OK
@@ -196,7 +194,7 @@ MS-ServerId: 030011719
 Date: Mon, 13 Mar 2017 23:56:12 GMT
 ```
 
-**Réponse-exemple d’échec de validation**
+### <a name="response---validation-failed-example"></a>Réponse-exemple d’échec de validation
 
 ```http
 HTTP/1.1 400 Bad Request

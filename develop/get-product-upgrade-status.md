@@ -5,26 +5,29 @@ ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c99b70f4046a0018d43f395fe7539f608cecf11f
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 98737e75c643cb9ca90572544173fe5000f475d9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416696"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157271"
 ---
 # <a name="get-the-product-upgrade-status-for-a-customer"></a>Obtenir l’état de mise à niveau du produit pour un client
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Vous pouvez utiliser la ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) pour obtenir l’état d’une mise à niveau vers une nouvelle famille de produits. Cette ressource s’applique lorsque vous mettez à niveau un client à partir d’un abonnement Microsoft Azure (MS-AZR-0145P) à un plan Azure. Une demande réussie retourne la ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) .
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur. Suivez le [modèle d’application sécurisée](enable-secure-app-model.md) lors de l’utilisation de l’authentification d’application + utilisateur avec les API de l’espace partenaires.
-- Identificateur du client.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Famille de produits.
+
 - L’ID de mise à niveau d’une demande de mise à niveau.
 
 ## <a name="c"></a>C\#
@@ -32,9 +35,12 @@ Vous pouvez utiliser la ressource [**ProductUpgradeRequest**](product-upgrade-re
 Pour vérifier si un client est éligible pour la mise à niveau vers Azure plan :
 
 1. Créez un objet **ProductUpgradesRequest** et spécifiez l’identificateur du client et « Azure » comme famille de produits.
+
 2. Utilisez la collection **collection iaggregatepartner. ProductUpgrades** .
-2. Appelez la méthode **méthode BYID** et transmettez l' **ID de mise à niveau**.
-3. Appelez la méthode **CheckStatus** et transmettez l’objet **ProductUpgradesRequest** , qui renverra un objet **ProductUpgradeStatus** .
+
+3. Appelez la méthode **méthode BYID** et transmettez l' **ID de mise à niveau**.
+
+4. Appelez la méthode **CheckStatus** et transmettez l’objet **ProductUpgradesRequest** , qui renverra un objet **ProductUpgradeStatus** .
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -57,35 +63,32 @@ if (productUpgradeEligibility.IsEligibile)
 }
 
 ```
-```
 
-## REST
+## <a name="rest-request"></a>Demande REST
 
-### REST request
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-#### Request syntax
-
-| Method   | Request URI |
+| Méthode   | URI de requête |
 |----------|-----------------------------------------------------------------------------------------------|
-| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-id}/status HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{Upgrade-ID}/Status http/1.1 |
 
-#### URI parameter
+### <a name="uri-parameter"></a>Paramètre d’URI
 
-Use the following query parameter to specify the customer for whom you're getting a product upgrade status.
+Utilisez le paramètre de requête suivant pour spécifier le client pour lequel vous obtenez un état de mise à niveau de produit.
 
-| Name               | Type | Required | Description                                                                                 |
+| Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **upgrade-id** | GUID | Yes | The value is a GUID-formatted upgrade identifier. You can use this identifier to specify an upgrade to track. |
+| **Upgrade-ID** | GUID | Oui | La valeur est un identificateur de mise à niveau au format GUID. Vous pouvez utiliser cet identificateur pour spécifier une mise à niveau à suivre. |
 
-#### Request headers
+### <a name="request-headers"></a>En-têtes de requête
 
-For more information, see [Partner Center REST headers](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-#### Request body
+### <a name="request-body"></a>Corps de demande
 
-The request body must contain a [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) resource.
+Le corps de la demande doit contenir une ressource [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) .
 
-#### Request example
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/productupgrades/42d075a4-bfe7-43e7-af6d-7c68a57edcb4/status  HTTP/1.1
@@ -111,15 +114,15 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) dans le corps.
 
-#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-#### <a name="response-example"></a>Exemple de réponse
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 Ok

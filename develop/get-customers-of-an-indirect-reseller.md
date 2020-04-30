@@ -1,35 +1,33 @@
 ---
-title: Procurez-vous des clients d’un revendeur indirect
+title: Obtenir les clients d’un revendeur indirect
 description: Obtention d’une liste des clients d’un revendeur indirect.
 ms.assetid: 2920F056-E6B8-4C66-9EEA-4577BEC034F9
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7237a2175ec6eb117b8fd1125aaa7fd28690667b
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f03c3dc15c71c2a435280ee4138a6b5beddb9a92
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415960"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157511"
 ---
-# <a name="get-customers-of-an-indirect-reseller"></a>Procurez-vous des clients d’un revendeur indirect
-
+# <a name="get-customers-of-an-indirect-reseller"></a>Obtenir les clients d’un revendeur indirect
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Obtention d’une liste des clients d’un revendeur indirect.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 - Identificateur du locataire du revendeur indirect.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour obtenir une collection de clients qui ont une relation avec le revendeur indirect spécifié, commencez par instancier un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) pour créer le filtre. Vous devez passer le membre de l’énumération [**CustomerSearchField. IndirectReseller**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) converti en une chaîne et indiquer à [**FieldFilterOperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) comme type d’opération de filtre. Vous devez également fournir l’identificateur de locataire du revendeur indirect sur lequel filtrer.
 
@@ -45,8 +43,8 @@ string indirectResellerId;
 
 // Create a filter.
 var filter = new SimpleFieldFilter(
-    CustomerSearchField.IndirectReseller.ToString(), 
-    FieldFilterOperation.StartsWith, 
+    CustomerSearchField.IndirectReseller.ToString(),
+    FieldFilterOperation.StartsWith,
     indirectResellerId);
 
 // Create an iQuery object to pass to the Query method.
@@ -74,37 +72,32 @@ while (customersEnumerator.HasValue)
 
 **Exemple**:**projet**d' [application de test console](console-test-app.md): **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetCustomersOfIndirectReseller.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                   |
+| Méthode  | URI de requête                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {Size} ? Filter = {Filter} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers ? Size = {Size} ? Filter = {Filter} http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez les paramètres de requête suivants pour créer la demande.
 
 | Nom   | Type   | Obligatoire | Description                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| size   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                                                                                                                                |
-| filtre | filtre | Oui      | Requête qui filtre la recherche. Pour récupérer les clients d’un revendeur indirect spécifié, vous devez insérer l’identificateur de revendeur indirect et inclure et encoder la chaîne suivante : {"Field" : "IndirectReseller", "value" : "{indirect Reseller identifier}", "Operator" : "commence\_par"}. |
+| taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                                                                                                                                |
+| Filter | Filter | Oui      | Requête qui filtre la recherche. Pour récupérer les clients d’un revendeur indirect spécifié, vous devez insérer l’identificateur de revendeur indirect et inclure et encoder la chaîne suivante : {"Field" : "IndirectReseller", "value" : "{indirect Reseller identifier}", "Operator" : "commence\_par"}. |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête (encodé)**
+### <a name="request-example-encoded"></a>Exemple de requête (encodé)
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter=%7B%22Field%22%3A%22IndirectReseller%22%2C%22Value%22%3A%22484e548c-f5f3-4528-93a9-c16c6373cb59%22%2C%22Operator%22%3A%22starts_with%22%7D HTTP/1.1
@@ -116,7 +109,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-**Exemple de requête (décodé)**
+### <a name="request-example-decoded"></a>Exemple de requête (décodé)
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter={"Field":"IndirectReseller","Value":"484e548c-f5f3-4528-93a9-c16c6373cb59","Operator":"starts_with"} HTTP/1.1
@@ -128,16 +121,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient des informations sur les clients du revendeur.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -207,18 +199,10 @@ Date: Tue, 11 Apr 2017 23:31:28 GMT
             "attributes": {
                 "objectType": "Customer"
             }
-        }, 
+        },
     ],
     "attributes": {
         "objectType": "Collection"
     }
 }
 ```
-
- 
-
- 
-
-
-
-

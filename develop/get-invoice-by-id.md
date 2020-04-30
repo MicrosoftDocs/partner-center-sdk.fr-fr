@@ -1,32 +1,33 @@
 ---
-title: Recevoir la facture par ID
+title: Obtenir une facture par ID
 description: Récupère une facture donnée à l’aide de l’ID de facture.
 ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4045369991f37d3ef562f9966bb1206ad60aa677
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: f0abd0abbf090b9ad6f06903c45a58d85f2168b1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415914"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157451"
 ---
-# <a name="get-invoice-by-id"></a>Recevoir la facture par ID
+# <a name="get-invoice-by-id"></a>Obtenir une facture par ID
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Récupère une facture donnée à l’aide de l’ID de facture.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+
 - Un ID de facture valide.
 
 ## <a name="c"></a>C\#
@@ -34,6 +35,7 @@ Récupère une facture donnée à l’aide de l’ID de facture.
 Pour récupérer une facture par ID :
 
 1. Utilisez votre collection **collection ipartner. Invoices** et appelez la méthode **méthode BYID ()** .
+
 2. Appelez les méthodes d' **extraction ()** ou de **GetAsync ()** .
 
 ``` csharp
@@ -49,9 +51,9 @@ var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                   |
+| Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -59,15 +61,15 @@ Utilisez le paramètre de requête suivant pour obtenir la facture.
 
 | Nom           | Type       | Obligatoire | Description                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **ID de la facture** | **chaîne** | Oui      | La valeur est un **ID de facture** qui permet au revendeur de filtrer les résultats pour une facture donnée. |
+| **ID de la facture** | **string** | Oui      | La valeur est un **ID de facture** qui permet au revendeur de filtrer les résultats pour une facture donnée. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-Aucune
+None
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -79,7 +81,7 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource de [facture](invoice-resources.md#invoice) dans le corps de la réponse.
 

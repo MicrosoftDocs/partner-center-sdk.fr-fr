@@ -1,47 +1,42 @@
 ---
-title: Obtient toutes les informations d’analyse des revendeurs indirects
+title: Obtenir toutes les informations analytiques sur les revendeurs indirects
 description: Obtention des informations d’analyse des revendeurs indirects.
 ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7e9de270c7619de51363b2226c6b8a79ac382ef4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 4a8bf1a958b28b5ea8c471a3bbee9009243f7455
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416147"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157771"
 ---
-# <a name="get-all-indirect-resellers-analytics-information"></a>Obtient toutes les informations d’analyse des revendeurs indirects
+# <a name="get-all-indirect-resellers-analytics-information"></a>Obtenir toutes les informations analytiques sur les revendeurs indirects
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
+Comment obtenir toutes les informations d’analyse des revendeurs indirects pour vos clients.
 
-Comment obtenir toutes les informations d’analyse des revendeurs indirects pour vos clients. 
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
+## <a name="rest-request"></a>Demande REST
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
-
-
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande |
+| Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/indirectresellers http/1.1 |
+| **GET** | baseURL/Partner/v1/Analytics/indirectresellers http/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
- 
-
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
 <table>
 <thead>
@@ -52,22 +47,22 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
 <tbody>
     <tr>
         <td>partnerTenantId</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td>ID de locataire du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects. </td>
     </tr>
     <tr>
         <td>id</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td>ID de revendeur indirect</td>
     </tr>
     <tr>
-        <td>nom</td>
-        <td>chaîne</td>
+        <td>name</td>
+        <td>string</td>
         <td>Nom du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects.</td>
     </tr>
     <tr>
         <td>market</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td>Le marché du partenaire pour lequel vous souhaitez récupérer les données des revendeurs indirects.</td>
     </tr>
     <tr>
@@ -127,7 +122,7 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
     </tr>
     <tr>
         <td>top</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td>Le nombre de lignes de données à renvoyer dans la requête. La valeur maximale et la valeur par défaut en l’absence de définition est 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données.</td>
     </tr>
     <tr>
@@ -138,13 +133,13 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
         </td>
     </tr>
     <tr>
-        <td>filtre</td>
-        <td>chaîne</td>
+        <td>Filter</td>
+        <td>string</td>
         <td>
             <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs <strong>eq</strong> ou <strong>ne</strong>, et les instructions peuvent être combinées à l’aide des opérateurs <strong>and</strong> ou <strong>or</strong>. Vous pouvez spécifier les champs suivants :</p>
             <ul>
                 <li><em>partnerTenantId</em></li>
-                <li><em>identifi</em></li>
+                <li><em>id</em></li>
                 <li><em>Nom</em></li>
                 <li><em>négoci</em></li>
                 <li><em>firstSubscriptionCreationDate</em></li>
@@ -156,55 +151,55 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
                 <li><em>firstSubscriptionDeprovisionedDate</em></li>
                 <li><em>latestSubscriptionDeprovisionedDate</em></li>
             </ul>
-            <p><strong>Exemple :</strong></br>
+            <p><strong>Exemple :</strong></br>
               <code>.../indirectresellers?filter=market eq &#39;US&#39;</code></p>
-            <p><strong>Exemple :</strong></br>
+            <p><strong>Exemple :</strong></br>
                 <code>.../indirectresellers?filter=market eq &#39;US&#39; or (firstSubscriptionCreationDate le cast(&#39;2018-01-01&#39;,Edm.DateTimeOffset) and firstSubscriptionCreationDate le cast(&#39;2018-04-01&#39;,Edm.DateTimeOffset))</code>
             </p>
         </td>
     </tr>
     <tr>
         <td>aggregationLevel</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td><p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : &quot;day&quot;, &quot;week&quot; ou &quot;month&quot;. Par défaut, la valeur est &quot;day&quot;.</p>
-        <p><em>aggregationLevel</em> n’est pas pris en charge sans <strong>GroupBy</strong>. <em>aggregationLevel</em> s’applique à toutes les <strong>datefields</strong> présentes dans le <strong>GroupBy</strong></p>
+        <p><code>aggregationLevel</code>n’est pas pris <code>aggregationLevel</code>en charge sans. <code>aggregationLevel</code>s’applique à tous les <strong>datefields</strong> présents dans le<code>aggregationLevel</code></p>
         </td>
     </tr>
     <tr>
         <td>orderby</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td>
-            <p>Une instruction qui commande les valeurs de données de résultats pour chaque installation. La syntaxe est <code>...&orderby=field[order],field [order],...</code> le paramètre Field peut être l’une des chaînes suivantes :</p>
+            <p>Instruction qui classe les valeurs des données de résultat pour chaque installation. La syntaxe est <code>...&orderby=field[order],field [order],...</code>. Le paramètre field peut comporter l’une des chaînes suivantes :</p>
             <ul>
-                <li>&quot;partnerTenantId&quot;</li> 
-                <li>ID de &quot;&quot;</li> 
-                <li>&quot;name&quot;</li> 
-                <li>&quot;marché&quot;</li> 
-                <li>&quot;firstSubscriptionCreationDate&quot;</li> 
-                <li>&quot;latestSubscriptionCreationDate&quot;</li> 
-                <li>&quot;firstSubscriptionEndDate&quot;</li> 
-                <li>&quot;latestSubscriptionEndDate&quot;</li> 
-                <li>&quot;firstSubscriptionSuspendedDate&quot;</li> 
-                <li>&quot;latestSubscriptionSuspendedDate&quot;</li> 
-                <li>&quot;firstSubscriptionDeprovisionedDate&quot;</li> 
+                <li>&quot;partnerTenantId&quot;</li>
+                <li>&quot;id&quot;</li>
+                <li>&quot;name&quot;</li>
+                <li>&quot;négoci&quot;</li>
+                <li>&quot;firstSubscriptionCreationDate&quot;</li>
+                <li>&quot;latestSubscriptionCreationDate&quot;</li>
+                <li>&quot;firstSubscriptionEndDate&quot;</li>
+                <li>&quot;latestSubscriptionEndDate&quot;</li>
+                <li>&quot;firstSubscriptionSuspendedDate&quot;</li>
+                <li>&quot;latestSubscriptionSuspendedDate&quot;</li>
+                <li>&quot;firstSubscriptionDeprovisionedDate&quot;</li>
                 <li>&quot;latestSubscriptionDeprovisionedDate&quot;</li>
-                <li>&quot;subscriptionCount&quot;</li> 
+                <li>&quot;subscriptionCount&quot;</li>
                 <li>&quot;licenseCount&quot;</li>
             </ul>
-            <p>Le paramètre <em>order</em>, facultatif, peut comporter les valeurs &quot;asc&quot; ou &quot;desc&quot; afin de spécifier l’ordre croissant ou décroissant pour chaque champ. La valeur par défaut est &quot;asc&quot;.</p>
-            <p><strong>Exemple :</strong></br> 
+            <p>Le paramètre <em>Order</em> est facultatif et peut être <code>asc</code> ou ; <code>desc</code> pour spécifier l’ordre croissant ou décroissant pour chaque champ. Par défaut, il s’agit de <code>asc</code>.</p>
+            <p><strong>Exemple :</strong></br>
                 <code>...&orderby=market,subscriptionCount</code>
-            </p> 
+            </p>
         </td>
     </tr>
     <tr>
         <td>groupby</td>
-        <td>chaîne</td>
+        <td>string</td>
         <td>
             <p>Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. Vous pouvez spécifier les champs suivants :</p>
             <ul>
                 <li><em>partnerTenantId</em></li>
-                <li><em>identifi</em></li>
+                <li><em>id</em></li>
                 <li><em>Nom</em></li>
                 <li><em>négoci</em></li>
                 <li><em>firstSubscriptionCreationDate</em></li>
@@ -216,31 +211,30 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
                 <li><em>firstSubscriptionDeprovisionedDate</em></li>
                 <li><em>latestSubscriptionDeprovisionedDate</em></li>
             </ul>
-            <p>Les lignes de données renvoyées comportent les champs spécifiés dans le paramètre <em>groupby</em>, ainsi que dans les paramètres suivants :</p>
+            <p>Les lignes de données retournées contiennent les champs <code>groupby</code> spécifiés dans la clause et les champs suivants :</p>
             <ul>
                 <li><em>indirectResellerCount</em></li>
                 <li><em>licenseCount</em></li>
                 <li><em>subscriptionCount</em></li>
             </ul>
-            <p>Le paramètre <em>groupby</em> peut être utilisé avec le paramètre <em>aggregationLevel</em>.</p>
-            <p><strong>Exemple :</strong></br>
+            <p>Le <code>groupby</code> paramètre peut être utilisé avec le <code>aggregationLevel</code> paramètre.</p>
+            <p><strong>Exemple :</strong></br>
                 <code>...&groupby=ageGroup,market&aggregationLevel=week</code>
             </p>
         </td>
     </tr>
 </tbody>
 </table>
- 
 
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/indirectresellers HTTP 1.1
@@ -250,36 +244,35 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
+En cas de réussite, le corps de la réponse contient une collection de ressources de [revendeurs indirects](partner-center-analytics-resources.md#csp-program-indirect-resellers-analytics) .
 
-En cas de réussite, le corps de la réponse contient une collection de ressources de [revendeurs indirects](partner-center-analytics-resources.md#indirect_resellers) .
-
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
-{ 
-    "partnerTenantId": "AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE", 
-    "id": "1111111", 
-    "name": "RESELLER NAME", 
-    "market": "US", 
-    "firstSubscriptionCreationDate": "2016-10-18T19:16:25.107", 
-    "latestSubscriptionCreationDate": "2016-10-18T19:16:25.107", 
-    "firstSubscriptionEndDate": "2018-11-07T00:00:00", 
-    "latestSubscriptionEndDate": "2018-11-07T00:00:00", 
-    "firstSubscriptionSuspendedDate": "0001-01-01T00:00:00", 
-    "latestSubscriptionSuspendedDate": "0001-01-01T00:00:00", 
-    "firstSubscriptionDeprovisionedDate": "0001-01-01T00:00:00", 
-    "latestSubscriptionDeprovisionedEndDate": "0001-01-01T00:00:00", 
-    "subscriptionCount": 10, 
-    "licenseCount": 20 
+{
+    "partnerTenantId": "AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE",
+    "id": "1111111",
+    "name": "RESELLER NAME",
+    "market": "US",
+    "firstSubscriptionCreationDate": "2016-10-18T19:16:25.107",
+    "latestSubscriptionCreationDate": "2016-10-18T19:16:25.107",
+    "firstSubscriptionEndDate": "2018-11-07T00:00:00",
+    "latestSubscriptionEndDate": "2018-11-07T00:00:00",
+    "firstSubscriptionSuspendedDate": "0001-01-01T00:00:00",
+    "latestSubscriptionSuspendedDate": "0001-01-01T00:00:00",
+    "firstSubscriptionDeprovisionedDate": "0001-01-01T00:00:00",
+    "latestSubscriptionDeprovisionedEndDate": "0001-01-01T00:00:00",
+    "subscriptionCount": 10,
+    "licenseCount": 20
 }
 ```
 
+## <a name="see-also"></a>Voir aussi
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
- - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)
+- [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

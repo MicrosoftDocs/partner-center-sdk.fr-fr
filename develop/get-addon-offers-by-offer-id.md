@@ -1,38 +1,36 @@
 ---
-title: Obtenir des modules complémentaires pour un ID d’offre
+title: Obtenir les extensions d’un ID d’offre
 description: Comment obtenir les modules complémentaires d’un ID d’offre.
 ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0969ae1d347946fbbe9aa2fe1a14d5c582ef0dae
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 67b8a2c636ff56a1624635e5756782c067e2662f
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416188"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157571"
 ---
-# <a name="get-add-ons-for-an-offer-id"></a>Obtenir des modules complémentaires pour un ID d’offre
-
+# <a name="get-add-ons-for-an-offer-id"></a>Obtenir les extensions d’un ID d’offre
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment obtenir les modules complémentaires d’un ID d’offre.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+
 - Un ID d’offre. Si vous ne disposez pas de l’ID d’offre, consultez [obtenir une liste des offres pour un marché](get-a-list-of-offers-for-a-market.md).
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour obtenir les modules complémentaires pour une offre par ID, appelez d’abord la méthode [**collection iaggregatepartner. offers. ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) avec l’indicatif de pays pour obtenir une interface permettant d’effectuer des opérations basées sur le pays donné. Appelez ensuite la méthode [**méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) avec l’ID de l’offre pour identifier l’offre dont vous souhaitez récupérer les modules complémentaires. Ensuite, utilisez la propriété [**addons**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) pour obtenir une interface pour les opérations de module complémentaire pour l’offre actuelle. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) [**pour obtenir une**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) collection de tous les modules complémentaires de l’offre spécifiée.
 
@@ -46,37 +44,32 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetOffer.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                             |
+| Méthode  | URI de requête                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-ID}/addons ? pays = {country-code} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-ID}/addons ? pays = {country-code} http/1.1 |
 
- 
-
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres suivants pour fournir l’ID de l’offre et le code du pays.
 
 | Nom         | Type       | Obligatoire | Description                       |
 |--------------|------------|----------|-----------------------------------|
-| **ID de l’offre** | **uniques**   | Y        | GUID qui identifie l’offre. |
-| **nationale**  | **chaîne** | Y        | L’indicatif du pays (par exemple, US).       |
+| **ID de l’offre** | **guid**   | O        | GUID qui identifie l’offre. |
+| **nationale**  | **string** | O        | Indicatif du pays (par exemple `US`).       |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/195416C1-3447-423A-B37B-EE59A99A19C4/addons?country=us HTTP/1.1
@@ -88,16 +81,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection d’objets [offer](offer-resources.md) dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -211,11 +203,3 @@ Date: Wed, 01 Feb 2017 22:37:58 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

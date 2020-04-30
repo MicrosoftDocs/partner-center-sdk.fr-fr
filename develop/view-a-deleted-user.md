@@ -6,37 +6,34 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cab6b1cd309757f0754610eca362bcf205d199fb
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cfa2b6a5b48f9120b6fe5d12f882d0d0f36a18bd
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414254"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157831"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Afficher les utilisateurs supprimés d’un client
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Obtient une liste de ressources CustomerUser supprimées pour un client par ID de client. Vous pouvez éventuellement définir une taille de page. Vous devez fournir un filtre.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- Identificateur du client.
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
-## <a name="span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_span-idwhat_happens_when_you_delete_a_user_account_what-happens-when-you-delete-a-user-account"></a><span id="What_happens_when_you_delete_a_user_account_"/><span id="what_happens_when_you_delete_a_user_account_"/><span id="WHAT_HAPPENS_WHEN_YOU_DELETE_A_USER_ACCOUNT_"/>que se passe-t-il lorsque vous supprimez un compte d’utilisateur ?
+## <a name="what-happens-when-you-delete-a-user-account"></a>Que se passe-t-il lorsque vous supprimez un compte d’utilisateur ?
 
+Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur est défini sur « inactif ». Elle reste ainsi pendant trente jours, après quoi le compte d’utilisateur et ses données associées sont purgés et rendus irrécupérables. Si vous souhaitez restaurer un compte d’utilisateur supprimé au cours de la période de 30 jours, consultez [restaurer un utilisateur supprimé pour un client](restore-a-user-for-a-customer.md). Une fois supprimée et marquée comme « inactive », le compte d’utilisateur n’est plus renvoyé en tant que membre du regroupement d’utilisateurs (par exemple, à l’aide de la fonction [obtenir une liste de tous les comptes d’utilisateurs d’un client](get-a-list-of-all-user-accounts-for-a-customer.md)). Pour obtenir la liste des utilisateurs supprimés qui n’ont pas encore été purgés, vous devez rechercher les comptes d’utilisateur qui ont été définis comme étant inactifs.
 
-Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur est défini sur « inactif ». Elle reste ainsi pendant trente jours, après quoi le compte d’utilisateur et ses données associées sont purgés et rendus irrécupérables. Si vous souhaitez restaurer un compte d’utilisateur supprimé au cours de la période de 30 jours, consultez [restaurer un utilisateur supprimé pour un client](restore-a-user-for-a-customer.md). Notez qu’une fois supprimée et marquée comme « inactive », le compte d’utilisateur n’est plus renvoyé en tant que membre du regroupement d’utilisateurs (par exemple, en utilisant [obtenir une liste de tous les comptes d’utilisateur d’un client](get-a-list-of-all-user-accounts-for-a-customer.md)). Pour obtenir la liste des utilisateurs supprimés qui n’ont pas encore été purgés, vous devez rechercher les comptes d’utilisateur qui ont été définis comme étant inactifs.
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
-
-Pour récupérer une liste d’utilisateurs supprimés, construisez une requête qui filtre les utilisateurs dont l’État est défini sur inactif. Tout d’abord, créez le filtre en instanciant un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) avec les paramètres, comme indiqué dans l’extrait de code suivant. Ensuite, créez la requête à l’aide de la méthode [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) . Notez que si vous ne souhaitez pas obtenir de résultats paginés, vous pouvez utiliser la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) à la place. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Enfin, appelez la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) pour envoyer la demande.
+Pour récupérer une liste d’utilisateurs supprimés, construisez une requête qui filtre les utilisateurs dont l’État est défini sur inactif. Tout d’abord, créez le filtre en instanciant un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) avec les paramètres, comme indiqué dans l’extrait de code suivant. Ensuite, créez la requête à l’aide de la méthode [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) . Si vous ne souhaitez pas obtenir de résultats paginés, vous pouvez utiliser la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) à la place. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Enfin, appelez la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) pour envoyer la demande.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,38 +51,33 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetCustomerInactiveUsers.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                                       |
+| Méthode  | URI de requête                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users ? Size = {size} & filtre = {filter} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users ? Size = {size} &filtre = {filter} http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants lors de la création de la demande.
 
 | Nom        | Type   | Obligatoire | Description                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID client | GUID   | Oui      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
-| size        | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                     |
-| filtre      | filtre | Oui      | Requête qui filtre la recherche utilisateur. Pour récupérer les utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field" : "UserState", "value" : "inactive", "opérateur" : "Equals"}. |
+| customer-id | guid   | Oui      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
+| taille        | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                     |
+| Filter      | Filter | Oui      | La requête qui filtre la recherche de l’utilisateur. Pour récupérer des utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04/users?size=500&filter=%7B%22Field%22%3A%22UserState%22%2C%22Value%22%3A%22Inactive%22%2C%22Operator%22%3A%22equals%22%7D HTTP/1.1
@@ -97,16 +89,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> réponse REST
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [CustomerUser](user-resources.md#customeruser) dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -154,11 +145,3 @@ Date: Fri, 20 Jan 2017 19:13:14 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

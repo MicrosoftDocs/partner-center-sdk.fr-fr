@@ -1,54 +1,53 @@
 ---
-title: Recevoir une offre par ID
+title: Obtenir une offre par ID
 description: Obtient une ressource d’offre qui correspond à l’ID de l’offre.
 ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 51d5ad603dc813225ace49b90abf7af5c1d36479
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0b3cb5856bb9b4259267c2284d8b00668f4427cf
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416040"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157751"
 ---
-# <a name="get-an-offer-by-id"></a>Recevoir une offre par ID
+# <a name="get-an-offer-by-id"></a>Obtenir une offre par ID
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient une ressource d' **offre** qui correspond à l’ID de l’offre.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+
 - Un ID d’offre.
 
-## <a name="span-idexamplesspan-idexamplesspan-idexamplesexamples"></a><span id="Examples"/><span id="examples"><span id="EXAMPLES"/>exemples
+## <a name="c"></a>C\#
 
-### <a name="c"></a>C#
-
-Pour rechercher une offre spécifique par ID, utilisez votre collection **collection iaggregatepartner. offers** , établissez le pays avec un appel à **ByCountry ()** , puis appelez la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) . Ensuite, appelez la méthode d' [**extraction ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) ou d’accès [**asynchrone ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) .
+Pour rechercher une offre spécifique par ID, utilisez votre collection **collection iaggregatepartner. offers** , établissez le pays avec un appel à **ByCountry ()**, puis appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) . Ensuite, appelez la méthode d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) ou d’accès [**asynchrone ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) .
 
 ```csharp
 // IAggretagePartner partnerOperations;
 // string countryCode;
 // string offerId;
 
-// retrieve the offer 
+// retrieve the offer
 var offer = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).Get();
 ```
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: GetOffer.cs
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 Pour rechercher une offre spécifique par ID, utilisez votre fonction **collection iaggregatepartner. getOffers** , établissez le pays avec un appel à la fonction **byCountry ()** , puis appelez la fonction **méthode BYID ()** . Appelez ensuite la fonction d' **extraction ()** .
 
@@ -61,9 +60,9 @@ Pour rechercher une offre spécifique par ID, utilisez votre fonction **collecti
 Offer offer = partnerOperations.getOffers().byCountry(countryCode).byId(offerId).get();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 Pour rechercher une offre spécifique par ID, exécutez la commande [**obtenir-PartnerOffer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerOffer.md) et spécifiez les paramètres **CountryCode** et **OfferID** .
 
@@ -74,31 +73,31 @@ Pour rechercher une offre spécifique par ID, exécutez la commande [**obtenir-P
 Get-PartnerOffer -Country $countryCode -OfferId $offerId
 ```
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
-**Syntaxe de la requête**
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                                    |
+| Méthode  | URI de requête                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers/{offer-ID} ? Country = {pays-ID} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-ID} ? Country = {pays-ID} http/1.1 |
 
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 | Nom           | Type       | Obligatoire | Description                           |
 |----------------|------------|----------|---------------------------------------|
-| **ID de l’offre**   | **uniques**   | Y        | GUID qui correspond à l’offre. |
-| **pays-ID** | **chaîne** | Y        | ID du pays/de la région.                |
+| **ID de l’offre**   | **guid**   | O        | GUID correspondant à l’offre. |
+| **country-id** | **string** | O        | ID du pays/de la région.                |
 
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
 - Un **ID de paramètres régionaux** mis en forme en tant que chaîne est requis.
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/<offer-id>?country=<country-id> HTTP/1.1
@@ -110,15 +109,15 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une ressource **offer** dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
