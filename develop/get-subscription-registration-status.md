@@ -1,38 +1,38 @@
 ---
-title: Afficher l’état d’inscription de l’abonnement
+title: Obtenir l’état d’inscription d’un abonnement
 description: Obtenir l’état d’un abonnement inscrit pour une utilisation avec Azure Reserved VM Instances.
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 0671ab9bfc9bf254a9bc5472c4ed0f65153af1af
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 86c7254876110a5f5b03317c7cd79a23d1f63332
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416625"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157201"
 ---
-# <a name="get-subscription-registration-status"></a>Afficher l’état d’inscription de l’abonnement 
+# <a name="get-subscription-registration-status"></a>Obtenir l’état d’inscription d’un abonnement
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
-Comment obtenir l’état d’inscription d’un abonnement client qui a été activé pour l’achat de Azure Reserved VM Instances.  
+Comment obtenir l’état d’inscription d’un abonnement client qui a été activé pour l’achat de Azure Reserved VM Instances.
 
-Pour acheter une instance de machine virtuelle réservée Azure à l’aide de l’API espace partenaires, vous devez disposer d’au moins un abonnement Azure CSP existant. La méthode [inscrire un abonnement](register-a-subscription.md) vous permet d’inscrire votre abonnement Azure CSP existant et de l’activer pour l’achat de Azure reserved VM instances. Cette méthode vous permet de récupérer l’état de cette inscription. 
+Pour acheter une instance de machine virtuelle réservée Azure à l’aide de l’API espace partenaires, vous devez disposer d’au moins un abonnement Azure CSP existant. La méthode [inscrire un abonnement](register-a-subscription.md) vous permet d’inscrire votre abonnement Azure CSP existant et de l’activer pour l’achat de Azure reserved VM instances. Cette méthode vous permet de récupérer l’état de cette inscription.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID d’abonnement.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
-
-Pour obtenir l’état d’inscription d’un abonnement, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**subscription. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) avec l’ID d’abonnement pour identifier l’abonnement. Ensuite, utilisez la propriété RegistrationStatus pour obtenir une interface pour les opérations d’état d’inscription de l’abonnement actuel et appelez la méthode **obtenir** ou **GetAsync** pour récupérer l’objet **SubscriptionRegistrationStatus** .
+Pour obtenir l’état d’inscription d’un abonnement, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**subscription. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) avec l’ID d’abonnement pour identifier l’abonnement. Ensuite, utilisez la propriété RegistrationStatus pour obtenir une interface pour les opérations d’état d’inscription de l’abonnement actuel et appelez la méthode **obtenir** ou **GetAsync** pour récupérer l’objet **SubscriptionRegistrationStatus** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,33 +43,32 @@ Pour obtenir l’état d’inscription d’un abonnement, commencez par utiliser
 var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).RegistrationStatus.Get();
 ```
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
+## <a name="rest-request"></a>Demande REST
 
-**Syntaxe de la requête**
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode    | URI de demande                                                                                                                        |
+| Méthode    | URI de requête                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **GET**  | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/RegistrationStatus http/1.1 |
+| **GET**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/RegistrationStatus http/1.1 |
 
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
-Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement. 
+Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement.
 
 | Nom                    | Type       | Obligatoire | Description                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| ID client             | chaîne     | Oui      | Chaîne au format GUID qui identifie le client.         |
-| ID d’abonnement         | chaîne     | Oui      | Chaîne au format GUID qui identifie l’abonnement.     |
+| customer-id             | string     | Oui      | Chaîne au format GUID qui identifie le client.         |
+| subscription-id         | string     | Oui      | Chaîne au format GUID qui identifie l’abonnement.     |
 
- 
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-id>/subscriptions/<subscription-id>/registrationstatus HTTP/1.1
@@ -83,15 +82,15 @@ Expect: 100-continue
 Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
+## <a name="rest-response"></a>Response REST
 
-En cas de réussite, le corps de la réponse contient une ressource [SubscriptionRegistrationStatus](subscription-resources.md#subscriptionregistrationstatus) .  
+En cas de réussite, le corps de la réponse contient une ressource [SubscriptionRegistrationStatus](subscription-resources.md#subscriptionregistrationstatus) .
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK

@@ -1,30 +1,30 @@
 ---
-title: Récupération de toutes les informations d’analyse d’abonnement
+title: Obtenir toutes les informations analytiques sur l’abonnement
 description: Obtention de toutes les informations d’analyse d’abonnement.
 ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 051103450cc0d13dc8a5bc6d77047fc3f6907768
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: b0afac55646980fb59f9cc42051a5532f45bf223
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416058"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156441"
 ---
-# <a name="get-all-subscription-analytics-information"></a>Récupération de toutes les informations d’analyse d’abonnement
+# <a name="get-all-subscription-analytics-information"></a>Obtenir toutes les informations analytiques sur l’abonnement
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Cette rubrique explique comment obtenir toutes les informations d’analyse d’abonnement pour vos clients.
+Cet article explique comment obtenir toutes les informations d’analyse d’abonnement pour vos clients.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
@@ -32,29 +32,29 @@ Cette rubrique explique comment obtenir toutes les informations d’analyse d’
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de demande |
+| Méthode | URI de requête |
 |--------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions http/1.1 |
+| **GET** | baseURL/Partner/v1/Analytics/subscriptions http/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Le tableau suivant répertorie les paramètres facultatifs et leurs descriptions :
 
 | Paramètre | Type |  Description |
 |-----------|------|--------------|
-| top | int | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont `10000`. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
-| skip | int | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, `top=10000` et `skip=0` récupère les 10000 premières lignes de données, `top=10000` et `skip=10000` récupère les 10000 lignes de données suivantes. |
-| filtre | chaîne | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à l’opérateur **EQ** **, ne, ou**pour certains champs, l’opérateur **Contains** . Les instructions peuvent être combinées à l’aide des opérateurs **and** ou **or**. Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre **filter**. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
-| aggregationLevel | chaîne | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. Ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre **GroupBy** . |
-| Comportant | chaîne | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
+| top | int | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur `10000`par défaut sont. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
+| skip | int | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, `top=10000` et `skip=0` récupère les 10000 premières lignes de données `top=10000` et `skip=10000` récupère les 10000 lignes de données suivantes. |
+| Filter | string | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à **`eq`**, **`ne`** ou pour certains champs, l' **`contains`** opérateur. Les instructions peuvent être combinées à l’aide **`and`** de ou de **`or`**. Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre **filter**. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
+| aggregationLevel | string | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. Ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre **GroupBy** . |
+| Comportant | string | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -66,9 +66,9 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
-En cas de réussite, le corps de la réponse contient une collection de ressources d' [**abonnement**](partner-center-analytics-resources.md#subscription) .
+En cas de réussite, le corps de la réponse contient une collection de ressources d' [**abonnement**](partner-center-analytics-resources.md#subscription-resource) .
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

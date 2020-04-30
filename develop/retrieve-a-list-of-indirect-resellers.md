@@ -1,36 +1,33 @@
 ---
-title: Récupérer une liste de revendeurs indirects
+title: Récupérer la liste des revendeurs indirects
 description: Comment récupérer la liste des revendeurs indirects du partenaire connecté.
 ms.assetid: 1767BD6C-651A-4C14-930B-35D7EFD46C19
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: a1ed1d4d3c0d105a489774d698d832f2e0212934
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: c3f672626b5ebe2514d0e17e88b6f98eb3d806b2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415383"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156961"
 ---
-# <a name="retrieve-a-list-of-indirect-resellers"></a>Récupérer une liste de revendeurs indirects
-
+# <a name="retrieve-a-list-of-indirect-resellers"></a>Récupérer la liste des revendeurs indirects
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment récupérer la liste des revendeurs indirects du partenaire connecté.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
+## <a name="c"></a>C\#
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
-
-Pour récupérer une liste des revendeurs indirects avec lesquels le partenaire connecté a une relation, commencez par obtenir une interface pour les opérations de collection de relations à partir de la propriété [**partnerOperations. Relationships**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) . Appelez ensuite la méthode Async [**ou obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) [ **\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) , en passant un membre de l’énumération [**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) pour identifier le type de relation. Pour récupérer des revendeurs indirects, vous devez utiliser IsIndirectCloudSolutionProviderOf.
+Pour récupérer une liste des revendeurs indirects avec lesquels le partenaire connecté a une relation, commencez par obtenir une interface pour les opérations de collection de relations à partir de la propriété [**partnerOperations. Relationships**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) . Appelez ensuite la [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) méthode [**Async ou\_obtenir Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) , en passant un membre de l’énumération [**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) pour identifier le type de relation. Pour récupérer des revendeurs indirectes, vous devez utiliser IsIndirectCloudSolutionProviderOf.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,18 +37,15 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 **Exemple**:**projet**d' [application de test console](console-test-app.md): **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetIndirectResellers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                                                |
+| Méthode  | URI de requête                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Relationships ? relation\_type = IsIndirectCloudSolutionProviderOf http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Relationships ? type\_de relation = IsIndirectCloudSolutionProviderOf http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le paramètre de requête suivant pour identifier le type de relation.
 
@@ -73,7 +67,7 @@ Utilisez le paramètre de requête suivant pour identifier le type de relation.
 <tbody>
 <tr class="odd">
 <td>relationship_type</td>
-<td>chaîne</td>
+<td>string</td>
 <td>Oui</td>
 <td>La valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>.
 <p>Si le partenaire est connecté en tant que fournisseur et que vous souhaitez obtenir la liste des revendeurs indirects avec lesquels ils ont établi une relation, utilisez IsIndirectCloudSolutionProviderOf.</p>
@@ -82,17 +76,15 @@ Utilisez le paramètre de requête suivant pour identifier le type de relation.
 </tbody>
 </table>
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/relationships?relationship_type=IsIndirectCloudSolutionProviderOf HTTP/1.1
@@ -104,16 +96,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [PartnerRelationship](relationships-resources.md) pour identifier les revendeurs.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -154,11 +145,3 @@ Date: Wed, 05 Apr 2017 21:08:44 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

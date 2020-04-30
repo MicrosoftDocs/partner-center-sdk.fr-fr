@@ -1,34 +1,35 @@
 ---
-title: Obtenir les données d’utilisation de l’abonnement par ressource
+title: Obtenir les données d’utilisation d’abonnement par ressource
 description: Vous pouvez utiliser la ressource ResourceUsageRecord pour obtenir les enregistrements d’utilisation des ressources d’un client pour des services ou des ressources Azure spécifiques pendant la période de facturation en cours.
-ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dc96bcddf49aea70fbf97eaf009181ffdc1776b5
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 75e36f0779f7414a03e8de4f5fe0a753a717cacd
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412789"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156241"
 ---
-# <a name="get-usage-data-for-subscription-by-resource"></a>Obtenir les données d’utilisation de l’abonnement par ressource
+# <a name="get-usage-data-for-subscription-by-resource"></a>Obtenir les données d’utilisation d’abonnement par ressource
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Cette rubrique explique comment récupérer la ressource **ResourceUsageRecord** . Cette ressource représente un total agrégé du mois pour les ressources individuelles approvisionnées dans votre plan Azure. Vous pouvez utiliser cette ressource pour obtenir les enregistrements d’utilisation des ressources d’un client pour des services ou des ressources Azure spécifiques pendant la période de facturation en cours. Cette API retourne des données qui n’étaient pas disponibles précédemment via les API de dépense Azure.
+Cet article explique comment récupérer la ressource **ResourceUsageRecord** . Cette ressource représente un total agrégé du mois pour les ressources individuelles approvisionnées dans votre plan Azure. Vous pouvez utiliser cette ressource pour obtenir les enregistrements d’utilisation des ressources d’un client pour des services ou des ressources Azure spécifiques pendant la période de facturation en cours. Cette API retourne des données qui n’étaient pas disponibles précédemment via les API de dépense Azure.
 
 *Cet itinéraire ne prend pas en charge les abonnements Microsoft Azure (MS-AZR-0145P).*
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- Identificateur d’un client (**customer-tenant-id**). Si vous n’avez pas d’identificateur de client, vous pouvez rechercher l’identificateur dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Un identificateur d’abonnement
 
 ## <a name="c"></a>C\#
@@ -36,6 +37,7 @@ Cette rubrique explique comment récupérer la ressource **ResourceUsageRecord**
 Pour obtenir les enregistrements d’utilisation des ressources d’un client pour un service ou une ressource Azure spécifique au cours de la période de facturation actuelle :
 
 1. Utilisez votre collection **collection iaggregatepartner. Customers** pour appeler la méthode **méthode BYID ()** .
+
 2. Appelez la propriété Subscriptions, ainsi que **UsageRecords**, puis la propriété **Resources** . Terminez en appelant les méthodes d’extraction () ou GetAsync ().
 
     ``` csharp
@@ -52,34 +54,32 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 - Projet : **PartnerSDK. FeatureSamples**
 - Classe : **GetSubscriptionUsageRecordsByResource.cs**
 
-## <a name="rest"></a>REST
+## <a name="rest-request"></a>Demande REST
 
-### <a name="rest-request"></a>Demande REST
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-#### <a name="request-syntax"></a>Syntaxe de la requête
-
-| Méthode  | URI de demande                                                                                                           |
+| Méthode  | URI de requête                                                                                                           |
 |---------|-----------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/resourceusagerecords http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/resourceusagerecords http/1.1 |
 
-##### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir les informations d’utilisation évaluées du client.
 
 | Nom                   | Type     | Obligatoire | Description                               |
 |------------------------|----------|----------|-------------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | GUID correspondant au client.     |
-| **ID d’abonnement**    | **uniques** | Y        | GUID correspondant à l’identificateur d’une [ressource d’abonnement](subscription-resources.md#subscription)de l’espace partenaires, qui représente un abonnement Microsoft Azure (MS-AZR-0145P) ou un plan Azure. *Pour les ressources d’abonnement de plan Azure, indiquez l' **ID de plan** en tant qu' **ID d’abonnement** dans cet itinéraire.* |
+| **customer-tenant-id** | **guid** | O        | GUID correspondant au client.     |
+| **ID d’abonnement**    | **guid** | O        | GUID correspondant à l’identificateur d’une [ressource d’abonnement](subscription-resources.md#subscription)de l’espace partenaires, qui représente un abonnement Microsoft Azure (MS-AZR-0145P) ou un plan Azure. *Pour les ressources d’abonnement de plan Azure, indiquez l' **ID de plan** en tant qu' **ID d’abonnement** dans cet itinéraire.* |
 
-#### <a name="request-headers"></a>En-têtes de requête
+### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-#### <a name="request-body"></a>Corps de demande
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-#### <a name="request-example"></a>Exemple de requête
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/resourceusagerecords HTTP/1.1
@@ -89,15 +89,15 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
-En cas de réussite, cette méthode retourne un **PagedResourceCollection\<ResourceUsageRecord >** ressource dans le corps de la réponse.
+En cas de réussite, cette méthode retourne une ressource **\<PagedResourceCollection ResourceUsageRecord>** dans le corps de la réponse.
 
-#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir une liste complète, consultez [codes d’erreur](error-codes.md).
 
-#### <a name="response-example"></a>Exemple de réponse
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK

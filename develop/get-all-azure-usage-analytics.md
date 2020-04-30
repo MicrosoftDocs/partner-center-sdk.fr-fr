@@ -1,47 +1,42 @@
 ---
-title: Récupération de toutes les informations d’analyse d’utilisation Azure
+title: Obtenir toutes les informations analytiques sur l’utilisation d’Azure
 description: Obtention de toutes les informations d’analyse de l’utilisation d’Azure.
 ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e15830afba475e7de694151f67e1731e56c286e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e05ab42b154457ae0db079ff0d90d836a7da7d3e
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416161"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156761"
 ---
-# <a name="get-all-azure-usage-analytics-information"></a>Récupération de toutes les informations d’analyse d’utilisation Azure
+# <a name="get-all-azure-usage-analytics-information"></a>Obtenir toutes les informations analytiques sur l’utilisation d’Azure
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
+Obtention de toutes les informations d’analyse de l’utilisation d’Azure pour vos clients.
 
-Obtention de toutes les informations d’analyse de l’utilisation d’Azure pour vos clients. 
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur.
 
+## <a name="rest-request"></a>Demande REST
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification avec les informations d’identification de l’utilisateur. 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrest-request"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande REST
-
-
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande |
+| Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | [ *\{baseURL\}* ](partner-center-rest-urls.md)/Partner/v1/Analytics/usage/Azure http/1.1 |
+| **GET** | baseURL/Partner/v1/Analytics/usage/Azure http/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
- 
-
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
 <table>
   <thead>
@@ -61,7 +56,7 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
         <p>top</p>
       </td>
       <td>
-        <p>chaîne</p>
+        <p>string</p>
       </td>
       <td>
         <p>Le nombre de lignes de données à renvoyer dans la requête. La valeur maximale et la valeur par défaut en l’absence de définition est 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données.</p>
@@ -80,32 +75,32 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
     </tr>
     <tr>
       <td>
-        <p>filtre</p>
+        <p>Filter</p>
       </td>
       <td>
-        <p>chaîne</p>
+        <p>string</p>
       </td>
       <td>
-        <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction comporte un champ et une valeur qui sont associés aux opérateurs <strong>eq</strong> ou <strong>ne</strong>, et les instructions peuvent être combinées à l’aide des opérateurs <strong>and</strong> ou <strong>or</strong>. Vous pouvez spécifier les champs suivants :</p>
+        <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque <strong> <code>eq</code> </strong> instruction contient un champ et une valeur associés aux opérateurs ou <strong> <code>ne</code> </strong> , et les instructions peuvent être combinées à <strong> <code>and</code> </strong> l' <strong> <code>or</code> </strong>aide de ou de. Vous pouvez spécifier les éléments suivants :</p>
         <ul>
-          <li><em>customerTenantId</em></li>
-          <li><em>Souhaite</em></li>
-          <li><em>subscriptionId</em></li>
-          <li><em>subscriptionName</em></li>
-          <li><em>usageDate</em></li>
-          <li><em>resourceLocation</em></li>
-          <li><em>meterCategory</em></li>
-          <li><em>meterSubcategory</em></li>
-          <li><em>meterUnit</em></li>
-          <li><em>reservationOrderId</em></li>
-          <li><em>Réservation</em></li>
-          <li><em>consumptionMeterId</em></li>
-          <li><em>serviceType</em></li>
+          <li><code>customerTenantId</code></li>
+          <li><code>customerName</code></li>
+          <li><code>subscriptionId</code></li>
+          <li><code>subscriptionName</code></li>
+          <li><code>usageDate</code></li>
+          <li><code>resourceLocation</code></li>
+          <li><code>meterCategory</code></li>
+          <li><code>meterSubcategory</code></li>
+          <li><code>meterUnit</code></li>
+          <li><code>reservationOrderId</code></li>
+          <li><code>reservationId</code></li>
+          <li><code>consumptionMeterId</code></li>
+          <li><code>serviceType</code></li>
         </ul>
-        <p><strong>Exemple :</strong></br>
+        <p><strong>Exemple :</strong></br>
           <code>.../usage/azure?filter=meterCategory eq &#39;Data Management&#39;</code>
         </p>
-        <p><strong>Exemple :</strong></br>
+        <p><strong>Exemple :</strong></br>
           <code>.../usage/azure?filter=meterCategory eq &#39;Data Management&#39; or (usageDate le cast(&#39;2018-01-01&#39;, Edm.DateTimeOffset) and usageDate le cast(&#39;2018-04-01&#39;, Edm.DateTimeOffset))</code>
         </p>
       </td>
@@ -115,11 +110,11 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
         <p>aggregationLevel</p>
       </td>
       <td>
-        <p>chaîne</p>
+        <p>string</p>
       </td>
       <td>
-        <p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : &quot;day&quot;, &quot;week&quot; ou &quot;month&quot;. Par défaut, la valeur est &quot;day&quot;.</p>
-      <p>Le paramètre <em>aggregationLevel</em> n’est pas pris en charge sans <em>GroupBy</em>. Le paramètre <em>aggregationLevel</em> s’applique à tous les champs de date présents dans le <em>GroupBy</em>.</p>
+        <p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agir de l’une des <code>day</code>chaînes <code>week</code>suivantes : <code>month</code>, ou. S’il n’est pas spécifié, <code>day</code>la valeur par défaut est.</p>
+      <p>Le <code>aggregationLevel</code> paramètre n’est pas pris <code>groupby</code>en charge sans. Le <code>aggregationLevel</code> paramètre s’applique à tous les champs de date <code>groupby</code>présents dans le.</p>
       </td>
     </tr>
     <tr>
@@ -127,58 +122,58 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
         <p>orderby</p>
       </td>
       <td>
-        <p>chaîne</p>
+        <p>string</p>
       </td>
       <td>
-        <p>Une instruction qui commande les valeurs de données de résultats pour chaque installation. La syntaxe est <code>...&orderby=field [order],field [order],...</code> le paramètre <em>Field</em> peut être l’une des chaînes suivantes :</p>
+        <p>Instruction qui classe les valeurs des données de résultat pour chaque installation. La syntaxe est <code>...&orderby=field [order],field [order],...</code>. Le <code>field</code> paramètre peut être l’une des chaînes suivantes :</p>
         <ul>
-          <li>&quot;customerTenantId&quot;</li>
-          <li>&quot;customerName&quot;</li>
-          <li>&quot;subscriptionId&quot;</li>
-          <li>&quot;subscriptionName&quot;</li>
-          <li>&quot;usageDate&quot;</li>
-          <li>&quot;resourceLocation&quot;</li>
-          <li>&quot;meterCategory&quot;</li>
-          <li>&quot;meterSubcategory&quot;</li>
-          <li>&quot;meterUnit&quot;</li>
-          <li>&quot;reservationOrderId&quot;</li>
-          <li>&quot;réservation&quot;</li>
-          <li>&quot;consumptionMeterId&quot;</li>
-          <li>&quot;serviceType&quot;</li>
+          <li><code>customerTenantId</code></li>
+          <li><code>customerName</code></li>
+          <li><code>subscriptionId</code></li>
+          <li><code>subscriptionName</code></li>
+          <li><code>usageDate</code></li>
+          <li><code>resourceLocation</code></li>
+          <li><code>meterCategory</code></li>
+          <li><code>meterSubcategory</code></li>
+          <li><code>meterUnit</code></li>
+          <li><code>reservationOrderId</code></li>
+          <li><code>reservationId</code></li>
+          <li><code>consumptionMeterId</code></li>
+          <li><code>serviceType</code></li>
         </ul>
-        <p>Le paramètre <em>Order</em> est facultatif et peut être &quot;ASC&quot; ou &quot;DESC&quot; pour spécifier l’ordre croissant ou décroissant pour chaque champ, respectivement. La valeur par défaut est &quot;asc&quot;.</p>
-        <p><strong>Exemple :</strong><br/> 
+        <p>Le paramètre <em>Order</em> est facultatif et peut être <code>asc</code> ou <code>desc</code>; pour spécifier l’ordre croissant ou décroissant pour chaque champ, respectivement. Par défaut, il s’agit de <code>asc</code>.</p>
+        <p><strong>Exemple :</strong><br/>
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p>groupby</p>
+        <p><code>groupby</code></p>
       </td>
       <td>
-        <p>chaîne</p>
+        <p>string</p>
       </td>
       <td>
         <p>Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. Vous pouvez spécifier les champs suivants :</p>
         <ul>
-          <li><em>customerTenantId</em></li>
-          <li><em>Souhaite</em></li>
-          <li><em>subscriptionId</em></li>
-          <li><em>subscriptionName</em></li>
-          <li><em>usageDate</em></li>
-          <li><em>resourceLocation</em></li>
-          <li><em>meterCategory</em></li>
-          <li><em>meterSubcategory</em></li>
-          <li><em>meterUnit</em></li>
-          <li><em>reservationOrderId</em></li>
-          <li><em>Réservation</em></li>
-          <li><em>consumptionMeterId</em></li>
-          <li><em>serviceType</em></li>
+          <li><code>customerTenantId</code></li>
+          <li><code>customerName</code></li>
+          <li><code>subscriptionId</code></li>
+          <li><code>subscriptionName</code></li>
+          <li><code>usageDate</code></li>
+          <li><code>resourceLocation</code></li>
+          <li><code>meterCategory</code></li>
+          <li><code>meterSubcategory</code></li>
+          <li><code>meterUnit</code></li>
+          <li><code>reservationOrderId</code></li>
+          <li><code>reservationId</code></li>
+          <li><code>consumptionMeterId</code></li>
+          <li><code>serviceType</code></li>
         </ul>
-        <p>Les lignes de données retournées contiendront les champs spécifiés dans le paramètre <em>GroupBy</em> ainsi que la <em>quantité</em>.</p>
-        <p>Le paramètre <em>groupby</em> peut être utilisé avec le paramètre <em>aggregationLevel</em>.</p>
-        <p><strong>Exemple :</strong></br>
+        <p>Les lignes de données retournées contiennent les champs spécifiés dans le <code>groupby</code> paramètre ainsi que la <em>quantité</em>.</p>
+        <p>Le <code>groupby</code> paramètre peut être utilisé avec le <code>aggregationLevel</code> paramètre.</p>
+        <p><strong>Exemple :</strong></br>
           <code>...&groupby=meterCategory,meterUnit</code>
         </p>
       </td>
@@ -186,16 +181,15 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
   </tbody>
 </table>
 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/partner/v1/analytics/usage/azure HTTP/1.1
@@ -205,16 +199,15 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
+En cas de réussite, le corps de la réponse contient une collection de ressources d' [utilisation Azure](partner-center-analytics-resources.md#csp-program-azure-usage-analytics) .
 
-En cas de réussite, le corps de la réponse contient une collection de ressources d' [utilisation Azure](partner-center-analytics-resources.md#azure_usage) .
-
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 {
@@ -231,11 +224,10 @@ Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réus
   "reservationId": "",
   "consumptionMeterId": "",
   "serviceType": "",
-  "quantity": 20  
+  "quantity": 20
 }
 ```
 
+## <a name="see-also"></a>Voir aussi
 
-## <a name="span-idsee_alsospan-idsee_alsospan-idsee_alsosee-also"></a><span id="See_Also"/><span id="see_also"/><span id="SEE_ALSO"/>Voir aussi
-  - [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)
-
+- [Analytique de l’Espace partenaires - Ressources](partner-center-analytics-resources.md)

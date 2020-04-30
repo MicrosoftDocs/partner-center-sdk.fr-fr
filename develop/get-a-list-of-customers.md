@@ -1,33 +1,33 @@
 ---
-title: Obtenir une liste de clients
+title: Obtenir la liste des clients
 description: Comment obtenir une collection de ressources représentant tous les clients d’un partenaire.
 ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e4b7b78f51351e40851a743b45d2049b7921126a
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8f1115385ad020f8a7c20810765842e19dd53cd1
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416741"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156881"
 ---
-# <a name="get-a-list-of-customers"></a>Obtenir une liste de clients
+# <a name="get-a-list-of-customers"></a>Obtenir la liste des clients
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Cette rubrique explique comment obtenir une collection de ressources qui représente tous les clients d’un partenaire.
+Cet article explique comment obtenir une collection de ressources qui représente tous les clients d’un partenaire.
 
 > [!TIP]
 > Vous pouvez également effectuer cette opération dans le tableau de bord de l’espace partenaires. Sur la page principale, sous **gestion des clients**, sélectionnez **afficher les clients**. Ou, dans la barre latérale, sélectionnez **Customers**.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
@@ -36,7 +36,8 @@ Cette rubrique explique comment obtenir une collection de ressources qui représ
 Pour obtenir la liste de tous les clients :
 
 1. Utilisez la collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour créer un objet **collection ipartner** .
-2. Récupérez la liste des clients à l’aide des méthodes [**query ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) . (Pour obtenir des instructions sur la création d’une requête, consultez la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .)
+
+2. Récupérez la liste des clients à l’aide des méthodes [**query ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) . (Pour obtenir des instructions sur la création d’une requête, consultez la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -57,11 +58,12 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 Pour obtenir la liste de tous les clients :
 
 1. Utilisez la fonction [**collection iaggregatepartner. getCustomers**] pour obtenir une référence aux opérations du client.
+
 2. Récupérez la liste des clients à l’aide de la fonction **query ()** .
 
 ```java
@@ -88,7 +90,7 @@ while (customersEnumerator.hasValue())
 
 ## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 Exécutez la commande [**obtenir-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomer.md) sans paramètres pour obtenir une liste complète des clients.
 
@@ -100,9 +102,9 @@ Get-PartnerCustomer
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                   |
+| Méthode  | URI de requête                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {Size} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers ? Size = {Size} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -110,15 +112,15 @@ Utilisez le paramètre de requête suivant pour obtenir la liste des clients.
 
 | Nom     | Type    | Obligatoire | Description                                        |
 |----------|---------|----------|----------------------------------------------------|
-| **size** | **tiers** | Y        | Nombre de résultats à afficher en même temps. |
+| **size** | **int** | O        | Nombre de résultats à afficher en même temps. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -130,7 +132,7 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) dans le corps de la réponse.
 

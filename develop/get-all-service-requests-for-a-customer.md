@@ -1,24 +1,23 @@
 ---
-title: Obtenir toutes les demandes de service pour un client
+title: Obtenir des demandes de service pour un client
 description: Obtient toutes les demandes de service d’un client.
 ms.assetid: 21F01038-EE51-4FB3-8BE5-9086DBD0F393
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 07dcce54ba84a42a4e09425073a59888482be526
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0e53157b3ab06cc37e59475bdafb65274139214a
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416081"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156471"
 ---
-# <a name="get-all-service-requests-for-a-customer"></a>Obtenir toutes les demandes de service pour un client
-
+# <a name="get-all-service-requests-for-a-customer"></a>Obtenir des demandes de service pour un client
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
@@ -26,16 +25,15 @@ Obtient toutes les demandes de service d’un client.
 
 Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en [sélectionnant d’abord un client](get-a-customer-by-name.md). Ensuite, sélectionnez **gestion des services** dans la barre latérale gauche. Les demandes de service du client sont affichées sous **tickets de support**.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
-
-Pour afficher la liste de toutes les demandes de service d’un client, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests) , suivie des méthodes d' [**extraction ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get) ou de [**GetAsync ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync) .
+Pour afficher la liste de toutes les demandes de service d’un client, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests) , suivie des méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync) .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,36 +44,31 @@ ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerCenterSDK. FeaturesSamples, **classe**: CustomerManagedServices.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                            |
+| Méthode  | URI de requête                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/servicerequests http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/servicerequests http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le paramètre de requête suivant pour obtenir toutes les demandes de service pour le client.
 
 | Nom                   | Type     | Obligatoire | Description                            |
 |------------------------|----------|----------|----------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | GUID correspondant au client. |
+| **customer-tenant-id** | **guid** | O        | GUID correspondant au client. |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/servicerequests HTTP/1.1
@@ -85,16 +78,15 @@ MS-RequestId: 53d5d48c-9693-46b6-8071-2eed07797d6c
 MS-CorrelationId: 998e31a1-3f17-4471-a9ee-7678dd72e033
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources de **demande de service** dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -127,11 +119,3 @@ Date: Tue, 24 Nov 2015 07:19:21 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

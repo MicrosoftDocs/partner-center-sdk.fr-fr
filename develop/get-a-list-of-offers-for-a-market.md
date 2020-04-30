@@ -1,37 +1,34 @@
 ---
-title: Obtenir la liste des offres pour un marché
+title: Obtenir la liste des offres d’un marché
 description: Obtient une collection qui contient toutes les offres pour un marché spécifique.
 ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f338525929446476a96fef16edb429f27c3bbf99
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 93ffb0d87daee327825673c217233e502a4779a5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414069"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156841"
 ---
-# <a name="get-a-list-of-offers-for-a-market"></a>Obtenir la liste des offres pour un marché
-
+# <a name="get-a-list-of-offers-for-a-market"></a>Obtenir la liste des offres d’un marché
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient une collection qui contient toutes les offres pour un marché spécifique.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour obtenir la liste des offres sur un marché donné, utilisez votre collection **collection iaggregatepartner. offers** , sélectionnez le marché par pays, puis appelez la méthode **obtenir ()** ou **obtenir Async ()** .
 
@@ -43,57 +40,51 @@ ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get(
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: PartnerSDK. FeatureSample, **classe**: offers.cs
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                          |
+| Méthode  | URI de requête                                                                          |
 |---------|--------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offers ? country = {pays-ID} http/1.1   |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers ? country = {pays-ID} http/1.1   |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir les offres.
 
 | Nom           | Type       | Obligatoire | Description            |
 |----------------|------------|----------|------------------------|
-| **pays-ID** | **chaîne** | Y        | ID du pays/de la région. |
+| **country-id** | **string** | O        | ID du pays/de la région. |
 
- 
-
-**En-têtes de demande**
+### <a name="request-headers"></a>En-têtes de requête
 
 - Un **ID de paramètres régionaux** mis en forme en tant que chaîne est requis.
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-**Corps de la demande**
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers?country=<country-id> HTTP/1.1
-Authorization: Bearer 
+Authorization: Bearer
 Accept: application/json
 MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 X-Locale: <locale-id>
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources d' **offre** dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -170,11 +161,3 @@ Date: Mon, 23 Nov 2015 23:20:44 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

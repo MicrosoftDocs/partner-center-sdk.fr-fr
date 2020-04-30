@@ -5,58 +5,53 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e9a7e5b2cf0e82d64c3ede7abf680f6be4040c43
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: e532b3d174ddb1c95591a22ea9ce58dc631e91f2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220705"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156631"
 ---
 # <a name="get-a-customers-transfers"></a>Obtenir les transferts d’un client
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment obtenir la liste des transferts d’un client.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client.
 
-**Syntaxe de la requête**
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
-| Méthode  | URI de demande                                                                                          |
+### <a name="request-syntax"></a>Syntaxe de la requête
+
+| Méthode  | URI de requête                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Transfers http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Transfers http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Ce tableau répertorie le paramètre de requête requis pour obtenir tous les abonnements.
 
 | Nom               | Type   | Obligatoire | Description                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| customer-tenant-id | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
+| customer-tenant-id | string | Oui      | Chaîne au format GUID qui identifie le client. |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de requête**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET /v1/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers HTTP/1.1
@@ -67,16 +62,15 @@ MS-CorrelationId: dec58181-67b5-4831-c2c9-2fa099122f5d
 Connection: Keep-Alive
 ```
 
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une liste de ressources [TransferEntity](transfer-entity-resources.md) dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -109,7 +103,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "quantity": 1,
         "partnerIdOnRecord": "5139005",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -121,7 +115,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "quantity": 20,
         "partnerIdOnRecord": "5139005",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -130,7 +124,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/ab724652-3442-4912-8615-61525bb9903d",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -163,7 +157,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "0",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -178,7 +172,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "1",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -193,7 +187,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "2",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -202,7 +196,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/38a00d97-421c-4c33-8ae4-c8750604e02c",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -235,7 +229,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "0",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -250,7 +244,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "1",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -259,7 +253,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/d4f478d2-61e0-4550-b85d-c427abfe1e62",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -291,7 +285,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "0",
         "status": "Failed",
         "addonItems": [
-          
+
         ],
         "transferError": "Subscription has already been transfered. Subscription: 586dfb1a-e65c-48f4-bf6c-0d62d68af1d0"
       },
@@ -307,7 +301,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "1",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -316,7 +310,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/f10421cd-d4af-4939-82b9-cd0e75022759",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -346,7 +340,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "quantity": 1,
         "partnerIdOnRecord": "5139005",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -358,7 +352,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "quantity": 1,
         "partnerIdOnRecord": "5139005",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -367,7 +361,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/ddb933ad-02f4-4678-a09a-7fecca481acc",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -400,7 +394,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "0",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -415,7 +409,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "1",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -424,7 +418,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/0a25bd0e-e6c1-40ac-9e96-40b56d46e902",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -457,7 +451,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "0",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -466,7 +460,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/8dc673dd-d6a6-4739-9e8f-0b66bbf2a2c8",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -496,7 +490,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "quantity": 20,
         "partnerIdOnRecord": "5139005",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -505,7 +499,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/ac4a9d22-ba07-444e-890f-cfe084eed498",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -538,7 +532,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "0",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       },
       {
@@ -552,7 +546,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "1",
         "status": "Failed",
         "addonItems": [
-          
+
         ],
         "transferError": "Subscription SyncState must be SyncComplete for the Subscription to be a source in a Subscription Ownership Transfer. Subscription: 637ff8f6-d842-4573-8da8-89765356cd1a, current state: None"
       },
@@ -568,7 +562,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "transferGroupId": "2",
         "status": "Complete",
         "addonItems": [
-          
+
         ]
       }
     ],
@@ -577,7 +571,7 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
         "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/7b1ce5e6-5829-45c6-b3bb-89bfb791a69e",
         "method": "GET",
         "headers": [
-          
+
         ]
       }
     },
@@ -587,11 +581,3 @@ Date: Fri, 27 Mar 2020 17:50:34 GMT
   }
 ]
 ```
-
- 
-
- 
-
-
-
-

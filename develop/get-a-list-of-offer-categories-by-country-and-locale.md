@@ -1,30 +1,30 @@
 ---
-title: Obtenir la liste des catégories d’offres par marché
+title: Obtenir la liste des catégories d’offre par marché
 description: Comment obtenir une collection qui contient toutes les catégories d’offres dans un pays/une région et des paramètres régionaux donnés.
 ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e04fb68aa3e75ddd0171386b3f9eab7064e7d2ab
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0cb3d64444558b301fb1f5991f8d5e78c58c53b2
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416788"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156871"
 ---
-# <a name="get-a-list-of-offer-categories-by-market"></a>Obtenir la liste des catégories d’offres par marché
+# <a name="get-a-list-of-offer-categories-by-market"></a>Obtenir la liste des catégories d’offre par marché
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Cette rubrique explique comment obtenir une collection qui contient toutes les catégories d’offre dans un pays/une région et des paramètres régionaux donnés.
+Cet article explique comment obtenir une collection qui contient toutes les catégories d’offres dans un pays/une région et des paramètres régionaux donnés.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
@@ -32,7 +32,8 @@ Cette rubrique explique comment obtenir une collection qui contient toutes les c
 
 Pour obtenir la liste des catégories d’offres dans un pays/une région et des paramètres régionaux donnés :
 
-1. Utilisez votre collection [**collection iaggregatepartner. Operations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**with ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) sur un contexte donné.
+1. Utilisez votre collection [**collection iaggregatepartner. Operations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**with ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) sur un contexte donné.
+
 2. Inspectez la propriété [**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) de l’objet résultant.
 
 ``` csharp
@@ -51,9 +52,9 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                                  |
+| Méthode  | URI de requête                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/offercategories ? Country = {pays-ID} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories ? Country = {pays-ID} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -61,17 +62,17 @@ Ce tableau répertorie les paramètres de requête requis pour obtenir les caté
 
 | Nom           | Type       | Obligatoire | Description            |
 |----------------|------------|----------|------------------------|
-| **pays-ID** | **chaîne** | Y        | ID du pays/de la région. |
+| **country-id** | **string** | O        | ID du pays/de la région. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Un **ID de paramètres régionaux** mis en forme en tant que chaîne est requis.
 
-Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -85,7 +86,7 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources **OfferCategory** dans le corps de la réponse.
 

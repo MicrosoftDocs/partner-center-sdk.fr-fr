@@ -1,37 +1,39 @@
 ---
-title: Obtenir la liste des stratégies d’un client
+title: Obtenir la liste de toutes les stratégies d’un client
 description: Comment récupérer un regroupement des stratégies de configuration du client spécifiées.
 ms.assetid: 37C40EFC-7BC9-4111-BB9E-27018B583391
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: abb66f98363587afff2ffb35ea4840e3bb7486ee
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 04c91b939765817c97ac45786f20f516871140f7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415655"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156801"
 ---
-# <a name="get-a-list-of-a-customers-policies"></a>Obtenir la liste des stratégies d’un client
+# <a name="get-a-list-of-a-customers-policies"></a>Obtenir la liste de toutes les stratégies d’un client
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
-Cette rubrique explique comment récupérer un regroupement des stratégies de configuration du client spécifiées.
+Cet article explique comment récupérer un regroupement des stratégies de configuration du client spécifiées.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
 ## <a name="c"></a>C\#
 
 Pour obtenir la liste de toutes les stratégies d’un client :
 
 1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+
 2. Récupérez la propriété [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) pour obtenir une interface pour les opérations de collecte de stratégie de configuration.
 3. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.get) de stratégies.
 
@@ -52,9 +54,9 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                              |
+| Méthode  | URI de requête                                                                              |
 |---------|------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -62,15 +64,15 @@ Utilisez le paramètre Path suivant lors de la création de la demande :
 
 | Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
+| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-Aucune
+None
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -85,7 +87,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient la collection de ressources [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) .
 

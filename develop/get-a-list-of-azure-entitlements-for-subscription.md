@@ -1,55 +1,57 @@
 ---
-title: Obtenir la liste des droits Azure pour un abonnement
+title: Obtenir la liste des droits Azure d’un abonnement
 description: Vous pouvez utiliser la ressource AzureEntitlement pour obtenir une collection de ressources de droits Azure qui appartiennent à un abonnement.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d2aaaed8fd4455cc2e7b57281ea1e104fdbe030c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 91a356ad22281f50d180645989fa06eb631a3305
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412298"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156861"
 ---
-# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Obtenir la liste des droits Azure pour un abonnement
+# <a name="get-a-list-of-azure-entitlements-for-a-subscription"></a>Obtenir la liste des droits Azure d’un abonnement
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Vous pouvez utiliser la [ressource d’habilitation Azure](subscription-resources.md#azureentitlement) (**AzureEntitlement**) pour obtenir une collection de ressources appartenant à un abonnement.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur d’un client (**customer-tenant-id**). Si vous n’avez pas d’identificateur de client, vous pouvez le Rechercher dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant **compte**, puis en enregistrant son **ID Microsoft**.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Identificateur d’abonnement.
 
 ## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                                                                   |
+| Méthode  | URI de requête                                                                                                                   |
 |---------|---------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/azureentitlements http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/azureentitlements http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Le tableau suivant répertorie les paramètres de requête requis pour obtenir toutes les habilitations Azure pour un abonnement.
 
 | Nom                   | Type     | Obligatoire | Description                           |
 |------------------------|----------|----------|---------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | GUID correspondant au client. |
-| **ID d’abonnement**       | **uniques** | Y        | GUID correspondant à l’abonnement.    |
+| **customer-tenant-id** | **guid** | O        | GUID correspondant au client. |
+| **ID d’abonnement**       | **guid** | O        | GUID correspondant à l’abonnement.    |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -62,7 +64,7 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [**AzureEntitlement**](subscription-resources.md#azureentitlement) dans le corps de la réponse.
 

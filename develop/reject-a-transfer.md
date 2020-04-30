@@ -5,36 +5,37 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e197cd9e1d756c0a5c9a826d0156266735261290
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: 0a76d30ca66c8d056341077bd85b7a36b169d9d9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220725"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157081"
 ---
 # <a name="reject-a-transfer"></a>Rejeter un transfert
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Identificateur de transfert pour un transfert existant.
 
 ## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                 |
+| Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Transfers/{Transfer-ID} http/1.1                    |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Transfers/{Transfer-ID} http/1.1                    |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -42,12 +43,12 @@ Utilisez le paramètre Path suivant pour identifier le client et spécifier le t
 
 | Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
-| **ID de transfert** | chaîne   | Oui      | Identificateur de transfert au format GUID qui identifie le transfert.             |
+| **ID client** | string   | Oui      | ID client au format GUID qui identifie le client.             |
+| **ID de transfert** | string   | Oui      | Identificateur de transfert au format GUID qui identifie le transfert.             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -55,8 +56,8 @@ Ce tableau décrit les propriétés [TransferEntity](transfer-entity-resources.m
 
 | Propriété              | Type          | Obligatoire  | Description                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | chaîne        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
-| statut                | chaîne        | Non    | État du transferEntity. Pour rejeter un transfert, la valeur doit être définie sur « Reject ».|
+| id                    | string        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
+| status                | string        | Non    | État du transferEntity. Pour rejeter un transfert, la valeur doit être définie sur « Reject ».|
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -73,7 +74,7 @@ Content-Length: 63
 
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne la ressource [TransferEntity](transfer-entity-resources.md) remplie dans le corps de la réponse.
 
@@ -114,7 +115,7 @@ Date: Fri, 27 Mar 2020 17:50:33 GMT
       "quantity": 20,
       "partnerIdOnRecord": "5139005",
       "addonItems": [
-        
+
       ]
     }
   ],
@@ -123,7 +124,7 @@ Date: Fri, 27 Mar 2020 17:50:33 GMT
       "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/transfers/ac4a9d22-ba07-444e-890f-cfe084eed498",
       "method": "GET",
       "headers": [
-        
+
       ]
     }
   },

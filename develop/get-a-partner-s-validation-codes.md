@@ -5,32 +5,32 @@ ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: ea547798e591731bba2ec23ab3c125d00e758887
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 1f671229f5c427c9c25f7fe3c2799f1ed739a7f3
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412557"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156941"
 ---
 # <a name="get-a-partners-validation-codes"></a>Obtenir les codes de validation d’un partenaire
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment obtenir une collection de codes de validation Cloud de la communauté gouvernementale d’un partenaire. Un code de validation est nécessaire pour créer un client dans le Cloud de la communauté gouvernementale.
 
-Si vous souhaitez que votre organisation ou l’organisation de vos clients soit approuvée pour Office 365 Government GCC pour CSP, consultez [office 365 Government GCC pour le partenaire CSP et les critères d’éligibilité du client](https://docs.microsoft.com/partner-center/csp-gcc-validate).  
+Si vous souhaitez que votre organisation ou l’organisation de vos clients soit approuvée pour Office 365 Government GCC pour CSP, consultez [office 365 Government GCC pour le partenaire CSP et les critères d’éligibilité du client](https://docs.microsoft.com/partner-center/csp-gcc-validate).
 
-
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+
 - Confirmation de la validation après avoir complété le formulaire [ici](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).
+
 - Un client sans qualification.
 
-
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
+## <a name="c"></a>C\#
 
 Pour obtenir la liste de tous les codes de validation d’un partenaire, appelez **GetValidationCodes**.
 
@@ -41,25 +41,23 @@ IAggregatePartner partnerOperations = PartnerService.Instance.CreatePartnerOpera
 var gccValidations = partnerOperations.Validations.GetValidationCodes();
 ```
 
+## <a name="rest-request"></a>Demande REST
 
-## <a name="span-idrequestspan-idrequestspan-idrequestrequest"></a><span id="Request"/><span id="request"/><span id="REQUEST"/>demande
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                          |
+| Méthode  | URI de requête                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/All/validations http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/All/validations http/1.1 |
 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/all/validations HTTP/1.1
@@ -69,16 +67,15 @@ MS-CorrelationId: 283b9b70-963a-4159-9920-f2bdf7ab7fce
 MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 ```
 
-
-## <a name="span-idresponsespan-idresponsespan-idresponseresponse"></a><span id="Response"/><span id="response"/><span id="RESPONSE"/>réponse
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une liste de ressources [**ValidationCode**](utility-resources.md#validationcode) dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK

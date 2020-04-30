@@ -1,31 +1,33 @@
 ---
-title: Obtenir la liste des appareils pour le lot et le client spécifiés
+title: Obtenir la liste des appareils pour le client et le lot spécifiés
 description: Comment récupérer une collection de périphériques et les détails de l’appareil dans le lot d’appareils spécifié pour un client.
 ms.assetid: 13FD2D2D-1EF3-4BE2-977D-83577DA57F51
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: b6e1c06ede7c240b9bd86179e35402cc956a7bd4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 95ee58852713dbf1f7e16855bd001285647de2e9
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415606"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156851"
 ---
-# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Obtenir la liste des appareils pour le lot et le client spécifiés
+# <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Obtenir la liste des appareils pour le client et le lot spécifiés
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
-Cette rubrique explique comment récupérer un regroupement d’appareils dans un lot spécifié pour un client spécifié. Chaque ressource d’appareil contient des détails sur l’appareil.
+Cet article explique comment récupérer un regroupement d’appareils dans un lot spécifié pour un client spécifié. Chaque ressource d’appareil contient des détails sur l’appareil.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Identificateur de lot de l’appareil.
 
 ## <a name="c"></a>C\#
@@ -33,8 +35,11 @@ Cette rubrique explique comment récupérer un regroupement d’appareils dans u
 Pour récupérer un regroupement des appareils dans un lot d’appareils spécifié pour le client spécifié :
 
 1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+
 2. Appelez la méthode [**DeviceBatches. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) pour obtenir une interface pour les opérations de collection de lots de périphériques pour le lot spécifié.
+
 3. Récupérez la propriété [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) pour obtenir une interface pour les opérations de collecte d’appareils pour le lot.
+
 4. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) d’appareils.
 
 ``` csharp
@@ -56,26 +61,26 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                                                            |
+| Méthode  | URI de requête                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
 | Nom           | Type   | Obligatoire | Description                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| ID client    | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
-| ID d’devicebatch | chaîne | Oui      | Identificateur de chaîne qui identifie le lot de l’appareil. |
+| customer-id    | string | Oui      | Chaîne au format GUID qui identifie le client. |
+| ID d’devicebatch | string | Oui      | Identificateur de chaîne qui identifie le lot de l’appareil. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-Aucune
+None
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -89,7 +94,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient une collection paginée des ressources de l' [appareil](device-deployment-resources.md#device) . La collection contient 100 périphériques dans une page. Pour récupérer la page suivante de 100 appareils, continuationToken dans le corps de la réponse doit être inclus dans la requête suivante en tant qu’en-tête MS-ContinuationToken.
 

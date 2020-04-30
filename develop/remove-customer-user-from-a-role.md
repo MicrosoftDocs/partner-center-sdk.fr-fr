@@ -6,30 +6,28 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: bfbbecfe67b4c1711c290e0da198a63894e2a209
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e5ad5d6c592b0e0d576cf9f84f04ee40336b3680
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415464"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157011"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Supprimer un utilisateur client d’un rôle
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment supprimer un utilisateur d’un rôle d’annuaire dans un compte client.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour supprimer un utilisateur d’un rôle d’annuaire, sélectionnez le client avec l’utilisateur à modifier à l’aide d’un appel à la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) , à partir de là, spécifiez le rôle à l’aide de la méthode [**DirectoryRoles. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) avec l’ID de rôle d’annuaire. Ensuite, accédez à la méthode [**UserMembers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) pour identifier l’utilisateur à supprimer et la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) pour supprimer l’utilisateur du rôle.
 
@@ -44,38 +42,33 @@ partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selecte
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : RemoveCustomerUserMemberFromDirectoryRole.cs
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>demande REST
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode     | URI de demande                                                                                                                           |
+| Méthode     | URI de requête                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **SUPPRIMER** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/directoryroles/{Role-ID}/usermembers/{user-ID} http/1.1 |
+| **DELETE** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/directoryroles/{Role-ID}/usermembers/{user-ID} http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez les paramètres URI suivants pour identifier le client, le rôle et l’utilisateur appropriés.
 
 | Nom                   | Type     | Obligatoire | Description                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui identifie le client. |
-| **ID de rôle**            | **uniques** | Y        | La valeur est un ID de **rôle** au format GUID qui identifie le rôle.                |
-| **ID utilisateur**            | **uniques** | Y        | La valeur est un ID d' **utilisateur** au format GUID qui identifie un compte d’utilisateur unique.   |
+| **customer-tenant-id** | **guid** | O        | La valeur est un GUID **client-ID-client-ID** qui identifie le client. |
+| **ID de rôle**            | **guid** | O        | La valeur est un ID de **rôle** au format GUID qui identifie le rôle.                |
+| **ID utilisateur**            | **guid** | O        | La valeur est un ID d' **utilisateur** au format GUID qui identifie un compte d’utilisateur unique.   |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 DELETE https://api.partnercenter.microsoft.com/v1/customers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04%20/directoryroles/729827e3-9c14-49f7-bb1b-9608f156bbb8/usermembers/4d3cf487-70f4-4e1e-9ff1-b2bfce8d9f04%20 HTTP/1.1
@@ -86,19 +79,18 @@ MS-CorrelationId: 87d18a45-81fc-40cf-921a-b91cb82d67fe
 X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 Content-Length: 0
-Connection: Keep-Alive  
+Connection: Keep-Alive
 ```
 
-## <a name="span-idrest_responsespan-idrest_responsespan-idrest_responserest-response"></a><span id="REST_Response"/><span id="rest_response"/><span id="REST_RESPONSE"/>réponse REST
-
+## <a name="rest-response"></a>Response REST
 
 Si l’utilisateur est correctement supprimé du rôle, le corps de la réponse est vide.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 204 No Content
@@ -109,11 +101,3 @@ MS-CV: es01VX8do0u2aTXw.0
 MS-ServerId: 101112616
 Date: Tue, 20 Dec 2016 23:16:35 GMT
 ```
-
- 
-
- 
-
-
-
-
