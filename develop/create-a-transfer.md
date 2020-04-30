@@ -5,47 +5,47 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f113fd1cf43f26d01e74ea337079d9ac1c9f1fd3
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: e77711f2bda6d4e5af536ed2658df63241462c31
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220755"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154811"
 ---
 # <a name="create-a-transfer"></a>Créer un transfert
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
 ## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                 |
+| Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Transfers http/1.1                    |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Transfers http/1.1                    |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
-Utilisez le paramètre Path suivant pour identifier le client.
+Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
 | Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
+| **ID client** | string   | Oui      | ID client au format GUID qui identifie le client.             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -53,36 +53,34 @@ Ce tableau décrit les propriétés [TransferEntity](transfer-entity-resources.m
 
 | Propriété              | Type          | Obligatoire  | Description                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | chaîne        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
-| createdTime           | DateTime      | Non    | Date à laquelle le transferEntity a été créé, au format date/heure. Appliqué en cas de création réussie du transferEntity.      |
-| lastModifiedTime      | DateTime      | Non    | Date à laquelle le transferEntity a été mis à jour pour la dernière fois au format date-heure. Appliqué en cas de création réussie du transferEntity. |
-| lastModifiedUser      | chaîne        | Non    | Utilisateur qui a mis à jour la transferEntity. Appliqué en cas de réussite de la création de transferEntity.                          |
-| customerName          | chaîne        | Non    | Ce paramètre est facultatif. Nom du client dont les abonnements sont en cours de transfert.                                              |
-| customerTenantId      | chaîne        | Non    | ID client au format GUID qui identifie le client. Appliqué en cas de création réussie du transferEntity.         |
-| partnertenantid       | chaîne        | Non    | Identificateur de partenaire au format GUID qui identifie le partenaire.                                                                   |
-| sourcePartnerName     | chaîne        | Non    | Ce paramètre est facultatif. Nom de l’organisation partenaire qui lance le transfert.                                           |
-| sourcePartnerTenantId | chaîne        | Oui   | Un ID de partenaire au format GUID qui identifie le partenaire qui lance le transfert.                                           |
-| targetPartnerName     | chaîne        | Non    | Ce paramètre est facultatif. Nom de l’organisation du partenaire à laquelle le transfert est destiné.                                         |
-| targetPartnerTenantId | chaîne        | Oui   | Un ID de partenaire au format GUID qui identifie le partenaire auquel le transfert est destiné.                                  |
+| id                    | string        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
+| createdTime           | DateTime      | Non     | Date à laquelle le transferEntity a été créé, au format date/heure. Appliqué en cas de création réussie du transferEntity.      |
+| lastModifiedTime      | DateTime      | Non     | Date à laquelle le transferEntity a été mis à jour pour la dernière fois au format date-heure. Appliqué en cas de création réussie du transferEntity. |
+| lastModifiedUser      | string        | Non    | Utilisateur qui a mis à jour la transferEntity. Appliqué en cas de réussite de la création de transferEntity.                          |
+| customerName          | string        | Non    | facultatif. Nom du client dont les abonnements sont en cours de transfert.                                              |
+| customerTenantId      | string        | Non    | ID client au format GUID qui identifie le client. Appliqué en cas de création réussie du transferEntity.         |
+| partnertenantid       | string        | Non    | Identificateur de partenaire au format GUID qui identifie le partenaire.                                                                   |
+| sourcePartnerName     | string        | Non    | facultatif. Nom de l’organisation partenaire qui lance le transfert.                                           |
+| sourcePartnerTenantId | string        | Oui   | Un ID de partenaire au format GUID qui identifie le partenaire qui lance le transfert.                                           |
+| targetPartnerName     | string        | Non    | facultatif. Nom de l’organisation du partenaire à laquelle le transfert est destiné.                                         |
+| targetPartnerTenantId | string        | Oui   | Un ID de partenaire au format GUID qui identifie le partenaire auquel le transfert est destiné.                                  |
 | lineItems             | Tableau d’objets | Oui| Tableau de ressources [TransferLineItem](transfer-entity-resources.md#transferlineitem) .                                   |
-| statut                | chaîne        | Non    | État du transferEntity. Les valeurs possibles sont « active » (peut être supprimée/envoyée) et « Completed » (a déjà été effectué). Appliqué en cas de création réussie du transferEntity.|
+| status                | string        | Non    | État du transferEntity. Les valeurs possibles sont « active » (peut être supprimée/envoyée) et « Completed » (a déjà été effectué). Appliqué en cas de création réussie du transferEntity.|
 
 Ce tableau décrit les propriétés [TransferLineItem](transfer-entity-resources.md#transferlineitem) dans le corps de la demande.
 
 |      Propriété       |            Type             | Obligatoire | Description                                                                                     |
 |---------------------|-----------------------------|----------|-------------------------------------------------------------------------------------------------|
-| id                   | chaîne                     | Non       | Identificateur unique pour un élément de ligne de transfert. Appliqué en cas de création réussie du transferEntity.|
-| subscriptionId       | chaîne                     | Oui      | Identificateur d’abonnement.                                                                         |
-| quantity             | int                        | Non       | Nombre de licences ou d’instances.                                                                 |
-| billingCycle         | Object                     | Non       | Type de cycle de facturation défini pour la période actuelle.                                                |
-| friendlyName         | chaîne                     | Non       | Ce paramètre est facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                |
-| partnerIdOnRecord    | chaîne                     | Non       | Partenaire sur l’enregistrement (MPNID) de l’achat qui se produit lorsque le transfert est accepté.              |
-| offerId              | chaîne                     | Non       | Identificateur de l’offre.                                                                                |
-| addonItems           | Liste d’objets **TransferLineItem** | Non | Collection d’éléments de ligne transferEntity pour les modules complémentaires qui seront transférés avec l’abonnement de base en cours de transfert. Appliqué en cas de création réussie du transferEntity.|
-| transferError        | chaîne                     | Non       | Appliqué après l’acceptation de transferEntity en cas d’erreur.                                        |
-| statut               | chaîne                     | Non       | État de l’LineItem dans transferEntity.                                                    |
-
-
+| id                   | string                     | Non        | Identificateur unique pour un élément de ligne de transfert. Appliqué en cas de création réussie du transferEntity.|
+| subscriptionId       | string                     | Oui      | Identificateur de l’abonnement.                                                                         |
+| quantité             | int                        | Non       | Nombre de licences ou d’instances.                                                                 |
+| billingCycle         | Object                     | Non        | Type de cycle de facturation défini pour la période actuelle.                                                |
+| friendlyName         | string                     | Non       | facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                |
+| partnerIdOnRecord    | string                     | Non        | Partenaire sur l’enregistrement (MPNID) de l’achat qui se produit lorsque le transfert est accepté.              |
+| offerId              | string                     | Non        | Identificateur de l’offre.                                                                                |
+| addonItems           | Liste d’objets **TransferLineItem** | Non  | Collection d’éléments de ligne transferEntity pour les modules complémentaires qui seront transférés avec l’abonnement de base en cours de transfert. Appliqué en cas de création réussie du transferEntity.|
+| transferError        | string                     | Non        | Appliqué après l’acceptation de transferEntity en cas d’erreur.                                        |
+| status               | string                     | Non        | État de l’LineItem dans transferEntity.                                                    |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -113,7 +111,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne la ressource [TransferEnity](transfer-entity-resources.md) remplie dans le corps de la réponse.
 

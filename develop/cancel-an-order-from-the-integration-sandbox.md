@@ -1,22 +1,22 @@
 ---
-title: Annuler une commande à partir du bac à sable (sandbox) d’intégration
+title: Annuler une commande du bac à sable d’intégration
 description: Annulez les commandes des comptes du bac à sable (sandbox) d’intégration.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 4e3aa651731b4cf624d1266e3c780e2acbb9c0d4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 05c54d753548b6fadfc0595e43720877393cd0c4
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413085"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154721"
 ---
-# <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande à partir du bac à sable (sandbox) d’intégration
+# <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande du bac à sable d’intégration
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -24,20 +24,21 @@ S'applique à :
 Procédure d’annulation des commandes d’abonnement de l’instance réservée, du logiciel et du marché commercial en tant que service (SaaS) à partir des comptes sandbox d’intégration.
 
 >[!NOTE]
->N’oubliez pas que l’annulation des commandes d’abonnement de l’instance réservée, du logiciel ou du marché commercial SaaS n’est possible qu’à partir des comptes sandbox d’intégration. Pour annuler des ordres de fabrication, contactez le support de l’espace partenaires.
+>N’oubliez pas que les annulations des commandes d’abonnement de l’instance réservée, du logiciel ou du Marketplace commercial sont possibles uniquement depuis les comptes sandbox d’intégration. Pour annuler des ordres de fabrication, contactez le support de l’espace partenaires.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Un compte de partenaire du bac à sable (sandbox) d’intégration avec un client avec une instance réservée active ou des commandes d’abonnement SaaS tierces.
 
-## <a name="c"></a>C#
+- Un compte de partenaire du bac à sable (sandbox) d’intégration avec un client avec une instance réservée active/des commandes d’abonnement SaaS/logiciel/tiers.
 
-Pour annuler une commande du bac à sable (sandbox) d’intégration, transmettez vos informations d’identification de compte à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’effectuer des opérations de partenaire.
+## <a name="c"></a>C\#
 
-Pour sélectionner un [ordre](order-resources.md#order) particulier, utilisez la méthode Partner Operations et appelez [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order pour spécifier l’ordre **et finaliser** la méthode ou la méthode **GetAsync** pour le récupérer.
+Pour annuler une commande à partir du bac à sable (sandbox) d’intégration, [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) transmettez vos informations [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) d’identification de compte à la méthode afin d’accéder à une interface permettant d’effectuer des opérations de partenaire.
 
-Définissez la propriété [**Order. Status**](order-resources.md#order) sur « Cancelled » et utilisez la méthode **patch ()** pour mettre à jour la commande.
+Pour sélectionner un [ordre](order-resources.md#order)particulier, utilisez les opérations du partenaire et [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) appelez la méthode avec l’identificateur du client pour spécifier le client, **`Orders.ById()`** suivi de l’identificateur de commande pour spécifier la commande **`Get`** et **`GetAsync`** finally ou la méthode pour la récupérer.
+
+Affectez [**`Order.Status`**](order-resources.md#order) à la `cancelled` propriété la valeur **`Patch()`** et utilisez la méthode pour mettre à jour la commande.
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -57,9 +58,9 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de demande                                                                            |
+| Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -67,18 +68,19 @@ Utilisez le paramètre de requête suivant pour supprimer un client.
 
 | Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
-| **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui dénote l’ID d’ordre qui doit être annulé. |
+| **customer-tenant-id** | **guid** | O        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID de commande** | **string** | O        | La valeur est une chaîne qui dénote les ID de commande qui doivent être annulés. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
+
 ```http
-{  
-    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",  
-    "status": "cancelled",  
+{
+    "id": "UKXASSO1dezh3HdxClHxSp5UEFXGbAnt1",
+    "status": "cancelled",
 }
 ```
 
@@ -96,7 +98,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 }
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne l’ordre annulé.
 

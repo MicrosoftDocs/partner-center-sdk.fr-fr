@@ -6,29 +6,30 @@ ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1dfd831917689f8d06dfb5b30b4d07a899f6eee0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5d874b1d69750a08506669061573e511dd6704de
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412914"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154621"
 ---
 # <a name="check-inventory"></a>Vérifier l’inventaire
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment vérifier l’inventaire pour un ensemble spécifique d’éléments de catalogue.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+
 - Un ou plusieurs ID de produit. Vous pouvez également spécifier des ID de référence (SKU).
-- Tout contexte supplémentaire nécessaire pour vérifier l’inventaire des références (SKU) référencées par le ou les ID de produit/SKU fournis. Ces exigences peuvent varier selon le type de produit/référence et peuvent être déterminées à partir de la propriété **InventoryVariables** [de la référence SKU](product-resources.md#sku) . 
 
-## <a name="c"></a>C#
+- Tout contexte supplémentaire nécessaire pour vérifier l’inventaire des références (SKU) référencées par le ou les ID de produit/SKU fournis. Ces exigences peuvent varier selon le type de produit/référence et peuvent être déterminées à partir de la propriété **InventoryVariables** [de la référence SKU](product-resources.md#sku) .
 
+## <a name="c"></a>C\#
 
 Pour vérifier l’inventaire, générez un objet [InventoryCheckRequest](product-resources.md#inventorycheckrequest) à l’aide d’un objet [InventoryItem](product-resources.md#inventoryitem) pour chaque élément à vérifier. Utilisez ensuite un accesseur **collection iaggregatepartner. extensions** , délimitez-le à **Product** , puis sélectionnez le pays à l’aide de la méthode **ByCountry ()** . Enfin, appelez la méthode **CheckInventory ()** avec votre objet **InventoryCheckRequest** .
 
@@ -59,9 +60,9 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                                              |
+| Méthode   | URI de requête                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/extensions/Product/checkInventory ? pays = {country-code} http/1.1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/Product/checkInventory ? pays = {country-code} http/1.1                        |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -69,15 +70,15 @@ Utilisez le paramètre de requête suivant pour vérifier l’inventaire.
 
 | Nom                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| pays-code           | chaîne   | Oui      | ID de pays/région.                                            |
+| pays-code           | string   | Oui      | ID de pays/région.                                            |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-Détails de la demande d’inventaire, comprenant une ressource [InventoryCheckRequest](product-resources.md#inventorycheckrequest) contenant une ou plusieurs ressources [InventoryItem](product-resources.md#inventoryitem) . 
+Détails de la demande d’inventaire, comprenant une ressource [InventoryCheckRequest](product-resources.md#inventorycheckrequest) contenant une ou plusieurs ressources [InventoryItem](product-resources.md#inventoryitem) .
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -94,7 +95,7 @@ Content-Type: application/json
 {"TargetItems":[{"ProductId":"DZH318Z0BQ3P"}],"InventoryContext":{"customerId":"d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d","azureSubscriptionId":"3A231FBE-37FE-4410-93FD-730D3D5D4C75","armRegionName":"Europe"}}
 ```
 
-## <a name="response"></a>Réponse
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient une collection d’objets [InventoryItem](product-resources.md#inventoryitem) renseignés avec les détails de la restriction, le cas échéant.
 
@@ -107,7 +108,7 @@ Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réus
 
 Cette méthode retourne les codes d’erreur suivants :
 
-| Code d'état HTTP     | Error code   | Description                                                                                               |
+| Code d’état HTTP     | Code d'erreur   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 400                  | 2001         | Le corps de la demande est manquant.                                                                              |
 | 400                  | 400026       | Un élément de contexte d’inventaire requis est manquant.                                                             |

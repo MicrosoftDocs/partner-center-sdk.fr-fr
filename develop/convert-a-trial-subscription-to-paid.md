@@ -1,31 +1,34 @@
 ---
-title: Convertir un abonnement d’évaluation en payant
+title: Convertir un abonnement d’essai en abonnement payant
 description: Conversion d’un abonnement d’évaluation en un abonnement payant.
 ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d41fa94a78d49a6537834ddaf9d4c62c54d8f911
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 3bf468dd7f4a38d711cef41b3560fa2c82065e14
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413564"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154951"
 ---
-# <a name="convert-a-trial-subscription-to-paid"></a>Convertir un abonnement d’évaluation en payant
+# <a name="convert-a-trial-subscription-to-paid"></a>Convertir un abonnement d’essai en abonnement payant
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Vous pouvez convertir un abonnement d’évaluation en payant.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- Identificateur du client.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID d’abonnement pour un abonnement d’évaluation actif.
+
 - Offre de conversion disponible.
 
 ## <a name="convert-a-trial-subscription-to-paid-through-code"></a>Conversion d’un abonnement d’évaluation en paiement par code
@@ -74,12 +77,16 @@ Procédez comme suit pour convertir un abonnement d’évaluation par le biais d
 Pour convertir un abonnement d’évaluation en un abonnement payant :
 
 1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+
 2. Procurez-vous une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement d’évaluation. Enregistrer une référence à l’interface des opérations d’abonnement dans une variable locale.
+
 3. Utilisez la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions, puis [**appelez la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) pour récupérer une collection d’offres de [**conversion**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) disponibles. Vous devez en choisir un. L’exemple suivant est la première conversion disponible par défaut.
+
 4. Utilisez la référence à l’interface d’opérations d’abonnement que vous avez enregistrée dans une variable locale et la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions.
+
 5. Transmettez l’objet de l’offre de conversion sélectionné à la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour tenter la conversion de l’essai.
 
-### <a name="c-example"></a>C#Tels
+### <a name="c-example"></a>Exemple\# C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -112,9 +119,9 @@ else
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                                 |
+| Méthode   | URI de requête                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/conversions http/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/conversions http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -122,12 +129,12 @@ Utilisez les paramètres de chemin d’accès suivants pour identifier le client
 
 | Nom            | Type   | Obligatoire | Description                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| ID client     | chaîne | Oui      | Chaîne au format GUID qui identifie le client.           |
-| ID d’abonnement | chaîne | Oui      | Chaîne au format GUID qui identifie l’abonnement d’évaluation. |
+| customer-id     | string | Oui      | Chaîne au format GUID qui identifie le client.           |
+| subscription-id | string | Oui      | Chaîne au format GUID qui identifie l’abonnement d’évaluation. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -159,7 +166,7 @@ Expect: 100-continue
 }
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient une ressource [ConversionResult](conversions-resources.md#conversionresult) .
 

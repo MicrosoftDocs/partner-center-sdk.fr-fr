@@ -1,23 +1,23 @@
 ---
-title: Modifier la quantité d’un abonnement
+title: Changer la quantité d’un abonnement
 description: Mettez à jour un abonnement pour augmenter ou diminuer le nombre de licences d’un client.
 ms.assetid: 10535C45-63BF-4E75-A6E5-E03ADC1DF8DC
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7392b8846dcba6dc4d1a395601289655e05920d1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8dd9704fb97ed879feed8d0b35aa5fe1b507bb1b
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412969"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154631"
 ---
-# <a name="change-the-quantity-of-a-subscription"></a>Modifier la quantité d’un abonnement
+# <a name="change-the-quantity-of-a-subscription"></a>Changer la quantité d’un abonnement
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -26,15 +26,17 @@ Met à jour un [abonnement](subscription-resources.md) pour augmenter ou diminue
 
 Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en [sélectionnant d’abord un client](get-a-customer-by-name.md). Sélectionnez ensuite l’abonnement en question que vous souhaitez renommer. Pour terminer, modifiez la valeur dans le champ **quantité** , puis sélectionnez **Envoyer.**
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID d’abonnement.
 
 ## <a name="c"></a>C\#
 
-Pour modifier la quantité de l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
+Pour modifier la quantité de l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -57,9 +59,9 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode    | URI de demande                                                                                                                |
+| Méthode    | URI de requête                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -67,16 +69,16 @@ Ce tableau répertorie le paramètre de requête requis pour modifier la quantit
 
 | Nom                    | Type     | Obligatoire | Description                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **client-locataire-ID**  | **uniques** | Y        | GUID correspondant au client.     |
-| **ID-pour l’abonnement** | **uniques** | Y        | GUID correspondant à l’abonnement. |
+| **customer-tenant-id**  | **guid** | O        | GUID correspondant au client.     |
+| **id-for-subscription** | **guid** | O        | GUID correspondant à l’abonnement. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-Une ressource d' **abonnement** complète est requise dans le corps de la demande. Assurez-vous que la propriété **Quantity** a été mise à jour.
+Une ressource **Abonnement** complète est requise dans le corps de la requête. Assurez-vous que la propriété **Quantity** a été mise à jour.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -113,7 +115,7 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne le code d’état **HTTP 200** et les propriétés de [ressource d’abonnement](subscription-resources.md) mises à jour dans le corps de la réponse.
 

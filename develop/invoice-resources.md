@@ -6,42 +6,42 @@ ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 151c2c0bbd486790c472c4c65f163561c93d303e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 04de53676527330ed1ff0bdfa2d762ce0bcae13a
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416541"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82124702"
 ---
 # <a name="invoice-resources"></a>Ressources de facturation
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Les ressources liées aux factures suivantes sont disponibles via les API de l’espace partenaires.
 
-## <a name="invoice"></a>Facturation
+## <a name="invoice"></a>Facture
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| id | chaîne | Identificateur de la facture. |
+| id | string | Identificateur de la facture. |
 | invoiceDate | chaîne au format date-heure UTC | Date à laquelle la facture a été générée. |
 | billingPeriodStartDate | chaîne au format date-heure UTC | Date de début de la période de facturation en heure UTC. |
 | billingPeriodEndDate | chaîne au format date-heure UTC   | Date de fin de la période de facturation en heure UTC. |
 | totalCharges | nombre | Total des frais. Comprend les frais liés aux transactions et les ajustements éventuels.     |
 | paidAmount | nombre  | Montant payé par le partenaire. Négatif si un paiement a été reçu.  |
-| currencyCode | chaîne  | Code qui indique la devise utilisée pour tous les montants et totaux des factures. |
-| currencySymbol  | chaîne | Symbole monétaire utilisé pour tous les montants et totaux des factures. |
-| pdfDownloadLink | chaîne  | Un lien pour télécharger la facture au format PDF. Ce lien n’est pas renvoyé dans le cadre des résultats de la recherche et est rempli uniquement si la facture est accessible par ID. Ce lien expire automatiquement dans 30 minutes. |
+| currencyCode | string  | Code qui indique la devise utilisée pour tous les montants et totaux des factures. |
+| currencySymbol  | string | Symbole monétaire utilisé pour tous les montants et totaux des factures. |
+| pdfDownloadLink | string  | Un lien pour télécharger la facture au format PDF. Ce lien n’est pas renvoyé dans les résultats de la recherche et est rempli uniquement si la facture est accessible par ID. Ce lien expire automatiquement dans 30 minutes. |
 | invoiceDetails  | Tableau d’objets [InvoiceDetail](#invoicedetail)  | Détails de la facture.  |
 | changement      | Tableau d’objets de [facture](#invoice)   | Les modifications apportées à cette facture.  |
-| documentType    | chaîne | Type de document de la facture : « note de crédit », « facture ». |
-| amendsOf        | chaîne | Numéro de référence du document dont ce document est un amendement.  |
-| invoiceType     | chaîne  | Type de facture : « périodique », « un\_heure ».   |
+| documentType    | string | Type de document de la facture : « note de crédit », « facture ». |
+| amendsOf        | string | Numéro de référence du document dont ce document est un amendement.  |
+| invoiceType     | string  | Type de facture : « périodique », « une\_fois ».   |
 | liens           | [ResourceLinks](utility-resources.md#resourcelinks)  | Liens vers les ressources.  |
 | attributs      | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.  |
 
@@ -51,8 +51,8 @@ Une facture contient une collection d’articles facturés, et chaque élément 
 
 | Propriété            | Type                                                           | Description                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | chaîne                                                         | Type de détail de la facture : « None », « usage\_Line\_Items », « Billing\_Line\_Items ». |
-| BillingProvider     | chaîne                                                         | Le fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».         |
+| invoiceLineItemType | string                                                         | Type de détail de la facture : « aucun », «\_éléments\_de ligne d’utilisation »\_,\_« éléments de ligne de facturation ». |
+| billingProvider     | string                                                         | Fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».         |
 | liens               | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens vers les ressources.                                                               |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                          |
 
@@ -62,8 +62,8 @@ Chaque facture individuelle au sein d’une facture est représentée sous la fo
 
 | Propriété            | Type                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | chaîne                                                         | Type de ligne de facturation : « None », « usage\_Line\_Items », « facturation\_Line\_Items ». |
-| BillingProvider     | chaîne                                                         | Le fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».            |
+| invoiceLineItemType | string                                                         | Type de ligne de facturation : « aucun », « éléments de\_ligne\_d’utilisation », «\_éléments\_de ligne de facturation ». |
+| billingProvider     | string                                                         | Fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».            |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                             |
 
 ## <a name="invoicesummary"></a>InvoiceSummary
@@ -73,14 +73,14 @@ Décrit un résumé du solde et des frais totaux d’une facture.
 | Propriété                 | Type                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | balanceAmount            | nombre                                                         | Solde de la facture. Il s’agit de la quantité totale de factures non payées. |
-| currencyCode             | chaîne                                                         | Code qui indique la devise utilisée pour le montant du solde.       |
-| currencySymbol           | chaîne                                                         | Symbole monétaire utilisé.                                             |
+| currencyCode             | string                                                         | Code qui indique la devise utilisée pour le montant du solde.       |
+| currencySymbol           | string                                                         | Symbole monétaire utilisé.                                             |
 | accountingDate           | chaîne au format date-heure UTC                                 | Date de la dernière mise à jour du montant du solde.                         |
 | firstInvoiceCreationDate | chaîne au format date-heure UTC                                 | Date à laquelle la première facture du client a été créée.              |
 | lastPaymentDate          | chaîne au format date-heure UTC                                 | Date du dernier paiement.                                         |
 | lastPaymentAmount        | nombre                                                         | Montant du dernier paiement.                                       |
 | latestInvoiceDate        | chaîne au format date-heure UTC                                 | Date à laquelle la dernière facture du client a été créée.               |
-| détails                  | Tableau d’objets [InvoiceSummaryDetail](#invoicesummarydetail) | Détails du résumé de la facture.                                           |
+| details                  | Tableau d’objets [InvoiceSummaryDetail](#invoicesummarydetail) | Détails du résumé de la facture.                                           |
 | liens                    | [ResourceLinks](utility-resources.md#resourcelinks)            | Liens vers les ressources.                                                   |
 | attributs               | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                              |
 
@@ -90,12 +90,12 @@ Représente un résumé des détails individuels d’un type de facture (par exe
 
 | Propriété            | Type                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceType         | chaîne                                                         | Type de facture : « périodique », « un\_heure ».                                       |
-| tête             | Objet [InvoiceSummary](#invoicesummary)                       | Résumé de la facture par type de facture.                                         |
+| invoiceType         | string                                                         | Type de facture : « périodique », « une\_fois ».                                       |
+| summary             | Objet [InvoiceSummary](#invoicesummary)                       | Résumé de la facture par type de facture.                                         |
 
 ## <a name="invoicesummaries"></a>InvoiceSummaries
 
-Représente une collection de type [InvoiceSummary](#invoicesummary) qui contient les détails individuels d’un type de facture par devise.  
+Représente une collection de type [InvoiceSummary](#invoicesummary) qui contient les détails individuels d’un type de facture par devise.
 
 | Propriété            | Type                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -107,33 +107,33 @@ Représente un élément de facturation de facture pour les abonnements basés s
 
 | Propriété                 | Type                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| proportion                   | chaîne                                                         | Obtient ou définit la quantité totale. Montant total = prix unitaire * quantité.  |
-| attributs               | chaîne                                                         | Obtient les attributs.                                                  |
-| billingCycleType         | chaîne                                                         | Obtient ou définit le type de cycle de facturation.                                  |
-| BillingProvider          | chaîne                                                         | Obtient le fournisseur de facturation.                                            |
+| proportion                   | string                                                         | Obtient ou définit la quantité totale. Montant total = prix unitaire * quantité.  |
+| attributs               | string                                                         | Obtient les attributs.                                                  |
+| billingCycleType         | string                                                         | Obtient ou définit le type de cycle de facturation.                                  |
+| billingProvider          | string                                                         | Obtient le fournisseur de facturation.                                            |
 | chargeEndDate            | chaîne au format date-heure UTC                                 | Obtient ou définit la date de fin des frais.                             |
 | chargeStartDate          | chaîne au format date-heure UTC                                 | Obtient ou définit la date de début des frais.                           |
-| chargeType               | chaîne                                                         | Obtient ou définit le type de frais.                                      |
-| devise                 | chaîne                                                         | Obtient ou définit la devise utilisée pour cet élément de ligne.                    |
-| customerId               | chaîne                                                         | Obtient ou définit l’identificateur unique du client dans la plateforme de facturation Microsoft.  |
+| chargeType               | string                                                         | Obtient ou définit le type de frais.                                      |
+| currency                 | string                                                         | Obtient ou définit la devise utilisée pour cet élément de ligne.                    |
+| customerId               | string                                                         | Obtient ou définit l’identificateur unique du client dans la plateforme de facturation Microsoft.  |
 | customerName             | chaîne au format date-heure UTC                                 | Obtient ou définit le nom du client.                                       |
-| NomDomaine               | chaîne                                                         | Obtient ou définit le nom de domaine.                                             |
-| durableOfferId           | chaîne                                                         | Obtient ou définit l’identificateur unique de l’offre durable.                     |
-| invoiceLineItemType      | chaîne                                                         | Obtient le type de l’élément de ligne de facture.                                   |
+| domainName               | string                                                         | Obtient ou définit le nom de domaine.                                             |
+| durableOfferId           | string                                                         | Obtient ou définit l’identificateur unique de l’offre durable.                     |
+| invoiceLineItemType      | string                                                         | Obtient le type de l’élément de ligne de facture.                                   |
 | mpnId                    | nombre                                                         | Obtient ou définit l’ID MPN associé à cet élément de ligne. Pour les revendeurs directs, il s’agit de l’ID MPN du revendeur. Pour les revendeurs indirects, il s’agit de l’ID MPN de la valeur ajoutée revendeur (VAR).                                   |
-| offerId                  | chaîne                                                         | Obtient ou définit l’identificateur unique de l’offre.                             |
-| offerName                | chaîne                                                         | Obtient ou définit le nom de l’offre.                                          |
-| orderId                  | chaîne                                                         | Obtient ou définit l’identificateur unique de l’ordre.                             |
-| Partenaire                | chaîne                                                         | Obtient ou définit l’ID du locataire Azure Active Directory partenaire.            |
-| quantity                 | nombre                                                         | Obtient ou définit le nombre d’unités associées à cet élément de ligne.      |
-| subscriptionDescription  | chaîne                                                         | Obtient ou définit la description de l’abonnement.                            |
+| offerId                  | string                                                         | Obtient ou définit l’identificateur unique de l’offre.                             |
+| offerName                | string                                                         | Obtient ou définit le nom de l’offre.                                          |
+| orderId                  | string                                                         | Obtient ou définit l’identificateur unique de l’ordre.                             |
+| Partenaire                | string                                                         | Obtient ou définit l’ID du locataire Azure Active Directory partenaire.            |
+| quantité                 | nombre                                                         | Obtient ou définit le nombre d’unités associées à cet élément de ligne.      |
+| subscriptionDescription  | string                                                         | Obtient ou définit la description de l’abonnement.                            |
 | subscriptionEndDate      | chaîne au format date-heure UTC                                 | Obtient ou définit la date à laquelle l’abonnement expire.                      |
-| subscriptionId           | chaîne                                                         | Obtient ou définit l’identificateur unique de l’abonnement.                      |
-| subscriptionName         | chaîne                                                         | Obtient ou définit le nom de l’abonnement.                                   |
+| subscriptionId           | string                                                         | Obtient ou définit l’identificateur unique de l’abonnement.                      |
+| subscriptionName         | string                                                         | Obtient ou définit le nom de l’abonnement.                                   |
 | subscriptionStartDate    | chaîne au format date-heure UTC                                 | Obtient ou définit la date de début de l’abonnement.                   |
 | sous                 | nombre                                                         | Obtient ou définit le montant après la remise.                               |
-| syndicationPartnerSubscriptionNumber | chaîne                                             | Obtient ou définit le numéro d’abonnement du partenaire de syndication.             |
-| TTC                      | nombre                                                         | Obtient ou définit les taxes facturées.                                       |
+| syndicationPartnerSubscriptionNumber | string                                             | Obtient ou définit le numéro d’abonnement du partenaire de syndication.             |
+| tax                      | nombre                                                         | Obtient ou définit les taxes facturées.                                       |
 | tier2MpnId               | nombre                                                         | Obtient ou définit l’ID MPN du partenaire de niveau 2 associé à cet élément de ligne. |
 | totalForCustomer         | nombre                                                         | Obtient ou définit le montant total après la remise et la taxe.                 |
 | totalOtherDiscount       | nombre                                                         | Obtient ou définit la remise associée à cet achat.              |
@@ -145,46 +145,46 @@ Représente un élément de facturation de facture pour les abonnements basés s
 
 | Propriété                 | Type                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| attributs               | chaîne                                                         | Obtient les attributs.                                                  |
-| billingCycleType         | chaîne                                                         | Obtient ou définit le type de cycle de facturation.                                  |
-| BillingProvider          | chaîne                                                         | Obtient le fournisseur de facturation.                                            |
+| attributs               | string                                                         | Obtient les attributs.                                                  |
+| billingCycleType         | string                                                         | Obtient ou définit le type de cycle de facturation.                                  |
+| billingProvider          | string                                                         | Obtient le fournisseur de facturation.                                            |
 | chargeEndDate            | chaîne au format date-heure UTC                                 | Obtient ou définit la date de fin des frais.                             |
 | chargeStartDate          | chaîne au format date-heure UTC                                 | Obtient ou définit la date de début des frais.                           |
-| chargeType               | chaîne                                                         | Obtient ou définit le type de frais.                                      |
+| chargeType               | string                                                         | Obtient ou définit le type de frais.                                      |
 | consumedQuantity         | nombre                                                         | Obtient ou définit le nombre total d’unités consommées.                                |
-| consumptionDiscount      | chaîne                                                         | Obtient ou définit la remise sur la consommation.                             |
-| consumptionPrice         | chaîne                                                         | Obtient ou définit le prix de la quantité consommée.                          |
-| devise                 | chaîne                                                         | Obtient ou définit la devise associée aux prix.                 |
-| customerName             | chaîne                                                         | Obtient ou définit le nom du client.                                       |
-| customerId               | chaîne                                                         | Obtient ou définit l’identificateur unique du client.                          |
+| consumptionDiscount      | string                                                         | Obtient ou définit la remise sur la consommation.                             |
+| consumptionPrice         | string                                                         | Obtient ou définit le prix de la quantité consommée.                          |
+| currency                 | string                                                         | Obtient ou définit la devise associée aux prix.                 |
+| customerName             | string                                                         | Obtient ou définit le nom du client.                                       |
+| customerId               | string                                                         | Obtient ou définit l’identificateur unique du client.                          |
 | detailLineItemId         | nombre                                                         | Obtient ou définit l’ID d’élément de ligne de détail. Identifie de façon unique les éléments de ligne pour les cas où le calcul est différent pour les unités consommées. Exemple : total consommé = 1338, 1024 est facturé avec un taux, 314 est facturé avec un taux différent.        |
-| NomDomaine               | chaîne                                                         | Obtient ou définit le nom de domaine.                                             |
+| domainName               | string                                                         | Obtient ou définit le nom de domaine.                                             |
 | includedQuantity         | nombre                                                         | Obtient ou définit les unités incluses dans l’ordre.                         |
-| invoiceLineItemType      | chaîne                                                         | Obtient le type de l’élément de ligne de facture.                                   |
-| invoiceNumber            | chaîne                                                         | Obtient ou définit le numéro de la facture.                                      |
+| invoiceLineItemType      | string                                                         | Obtient le type de l’élément de ligne de facture.                                   |
+| invoiceNumber            | string                                                         | Obtient ou définit le numéro de la facture.                                      |
 | listPrice                | nombre                                                         | Obtient ou définit le prix de chaque unité.                                  |
 | mpnId                    | nombre                                                         | Obtient ou définit l’ID MPN associé à cet élément de ligne. Pour les revendeurs directs, il s’agit de l’ID MPN du revendeur. Pour les revendeurs indirects, il s’agit de l’ID MPN de la valeur ajoutée revendeur (VAR).                                   |
-| orderId                  | chaîne                                                         | Obtient ou définit l’identificateur unique de l’ordre.                             |
+| orderId                  | string                                                         | Obtient ou définit l’identificateur unique de l’ordre.                             |
 | Divisé par overagequantity          | nombre                                                         | Obtient ou définit la quantité consommée au-dessus de l’utilisation autorisée.               |
-| partnerBillableAccountId | chaîne                                                         | Obtient ou définit l’ID de compte facturable du partenaire.                         |
-| Partenaire                | chaîne                                                         | Obtient ou définit l’ID du locataire Azure Active Directory partenaire.            |
-| partnerName              | chaîne                                                         | Obtient ou définit le nom du partenaire.                                      |
+| partnerBillableAccountId | string                                                         | Obtient ou définit l’ID de compte facturable du partenaire.                         |
+| Partenaire                | string                                                         | Obtient ou définit l’ID du locataire Azure Active Directory partenaire.            |
+| partnerName              | string                                                         | Obtient ou définit le nom du partenaire.                                      |
 | postTaxEffectiveRate     | nombre                                                         | Obtient ou définit le tarif effectif après taxes.                         |
 | postTaxTotal             | nombre                                                         | Obtient ou définit le total des frais après taxe. Frais tarif + montant des taxes |
 | preTaxCharges            | nombre                                                         | Obtient ou définit le prix facturé avant les taxes.                          |
 | preTaxEffectiveRate      | nombre                                                         | Obtient ou définit le prix effectif avant les taxes.                        |
-| région                   | chaîne                                                         | Obtient ou définit la région associée à l’instance de ressource.        |
-| resourceGuid             | chaîne                                                         | Obtient ou définit l’identificateur de ressource.                                 |
-| resourceName             | chaîne                                                         | Obtient ou définit le nom de la ressource. Exemple : base de données (Go/mois).         |
-| FormName              | chaîne                                                         | Obtient ou définit le nom du service. Exemple : Azure Data Service.           |
-| serviceType              | chaîne                                                         | Obtient ou définit le type de service. Exemple : Azure SQL Azure DB.           |
-| référence                      | chaîne                                                         | Obtient ou définit la référence SKU du service.                                         |
-| subscriptionDescription  | chaîne                                                         | Obtient ou définit la description de l’abonnement.                            |
-| subscriptionId           | chaîne                                                         | Obtient ou définit l’identificateur unique de l’abonnement.                      |
-| subscriptionName         | chaîne                                                         | Obtient ou définit le nom de l’abonnement.                                   |
+| region                   | string                                                         | Obtient ou définit la région associée à l’instance de ressource.        |
+| resourceGuid             | string                                                         | Obtient ou définit l’identificateur de ressource.                                 |
+| resourceName             | string                                                         | Obtient ou définit le nom de ressource. Exemple : base de données (Go/mois).         |
+| serviceName              | string                                                         | Obtient ou définit le nom du service. Exemple : Azure Data Service.           |
+| serviceType              | string                                                         | Obtient ou définit le type de service. Exemple : Azure SQL Azure DB.           |
+| sku                      | string                                                         | Obtient ou définit la référence SKU du service.                                         |
+| subscriptionDescription  | string                                                         | Obtient ou définit la description de l’abonnement.                            |
+| subscriptionId           | string                                                         | Obtient ou définit l’identificateur unique de l’abonnement.                      |
+| subscriptionName         | string                                                         | Obtient ou définit le nom de l’abonnement.                                   |
 | taxAmount                | nombre                                                         | Obtient ou définit le montant des taxes facturées.                               |
 | tier2MpnId               | nombre                                                         | Obtient ou définit l’ID MPN du partenaire de niveau 2 associé à cet élément de ligne. |
-| unité                     | chaîne                                                         | Obtient ou définit l’unité de mesure pour l’utilisation d’Azure.                     |
+| unité                     | string                                                         | Obtient ou définit l’unité de mesure pour l’utilisation d’Azure.                     |
 
 ## <a name="invoicestatement"></a>InvoiceStatement
 
@@ -192,7 +192,7 @@ Représente les opérations disponibles sur une instruction de facture dans appl
 
 | Propriété                 | Type                                                           | Description                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| httpResponseMessage      | objet                                                         | ByteArrayContent avec contentType = application/pdf.                  |
+| httpResponseMessage      | object                                                         | ByteArrayContent avec contentType = application/pdf.                  |
 
 ## <a name="onetimeinvoicelineitem"></a>OneTimeInvoiceLineItem
 
@@ -200,47 +200,47 @@ Représente un élément de facturation de facture pour les abonnements basés s
 
 | Propriété | Type | Description |
 | --- | --- | --- |
-| PartnerId | chaîne | Obtient ou définit l’ID de locataire du partenaire. |
-| CustomerId | chaîne | Obtient ou définit l’ID du locataire client. |
-| CustomerName | chaîne | Obtient ou définit le nom du client. |
-| CustomerDomainName | chaîne | Obtient ou définit le nom de domaine du client. |
-| CustomerCountry | chaîne | Obtient ou définit le pays du client. |
-| InvoiceNumber | chaîne | Obtient ou définit le numéro de la facture. |
-| MpnId | chaîne | Obtient ou définit l’ID MPN associé à cet élément de ligne. |
+| PartnerId | string | Obtient ou définit l’ID de locataire du partenaire. |
+| CustomerId | string | Obtient ou définit l’ID du locataire client. |
+| CustomerName | string | Obtient ou définit le nom du client. |
+| CustomerDomainName | string | Obtient ou définit le nom de domaine du client. |
+| CustomerCountry | string | Obtient ou définit le pays du client. |
+| InvoiceNumber | string | Obtient ou définit le numéro de la facture. |
+| MpnId | string | Obtient ou définit l’ID MPN associé à cet élément de ligne. |
 | ResellerMpnId | int | Obtient ou définit l’identificateur unique de l’ordre. |
 | OrderDate | DateTime | Obtient ou définit la date de création de l’ordre. |
-| ProductId | chaîne | Obtient ou définit l’identificateur unique du produit. |
-| SkuId | chaîne | Obtient ou définit l’identificateur unique de la référence (SKU). |
-| AvailabilityId | chaîne | Obtient ou définit l’identificateur unique de disponibilité. |
-| ProductName | chaîne | Obtient ou définit le nom du produit. |
-| SkuName | chaîne | Obtient ou définit le nom de la référence (SKU). |
-| ChargeType | chaîne | Obtient ou définit le type de frais. |
-| UnitPrice | decimal | Obtient ou définit le prix unitaire. |
-| EffectiveUnitPrice | decimal | Obtient ou définit le prix unitaire effectif. |
-| Unité | chaîne | Obtient ou définit le type d’unité. |
+| ProductId | string | Obtient ou définit l’identificateur unique du produit. |
+| SkuId | string | Obtient ou définit l’identificateur unique de la référence (SKU). |
+| AvailabilityId | string | Obtient ou définit l’identificateur unique de disponibilité. |
+| ProductName | string | Obtient ou définit le nom du produit. |
+| SkuName | string | Obtient ou définit le nom de la référence (SKU). |
+| ChargeType | string | Obtient ou définit le type de frais. |
+| UnitPrice | Décimal | Obtient ou définit le prix unitaire. |
+| EffectiveUnitPrice | Décimal | Obtient ou définit le prix unitaire effectif. |
+| Unité | string | Obtient ou définit le type d’unité. |
 | Quantité | int | Obtient ou définit le nombre d’unités associées à cet élément de ligne. |
-| Sous-total | decimal | Obtient ou définit le montant après la remise. |
-| TaxTotal | decimal | Obtient ou définit les taxes facturées. |
-| TotalForCustomer | decimal | Obtient ou définit le montant total après la remise et la taxe. |
-| Symbole monétaire | chaîne | Obtient ou définit la devise utilisée pour cet élément de ligne. |
-| PublisherName | chaîne | Obtient ou définit le nom de l’éditeur associé à cet achat. |
-| PublisherId | chaîne | Obtient ou définit l’ID d’éditeur associé à cet achat. |
-| SubscriptionDescription | chaîne | Obtient ou définit la description de l’abonnement associée à cet achat. |
-| SubscriptionId | chaîne | Obtient ou définit l’ID d’abonnement associé à cet achat. |
+| Sous-total | Décimal | Obtient ou définit le montant après la remise. |
+| TaxTotal | Décimal | Obtient ou définit les taxes facturées. |
+| TotalForCustomer | Décimal | Obtient ou définit le montant total après la remise et la taxe. |
+| Devise | string | Obtient ou définit la devise utilisée pour cet élément de ligne. |
+| PublisherName | string | Obtient ou définit le nom de l’éditeur associé à cet achat. |
+| PublisherId | string | Obtient ou définit l’ID d’éditeur associé à cet achat. |
+| SubscriptionDescription | string | Obtient ou définit la description de l’abonnement associée à cet achat. |
+| SubscriptionId | string | Obtient ou définit l’ID d’abonnement associé à cet achat. |
 | ChargeStartDate | DateTime | Obtient ou définit la date de début de la facturation associée à cet achat. |
 | ChargeEndDate | DateTime | Obtient ou définit la date de fin de frais associée à cet achat. |
-| TermAndBillingCycle | chaîne | Obtient ou définit le terme et le cycle de facturation associés à cet achat. |
-| AlternateId | chaîne | Obtient ou définit l’ID de remplacement (ID de devis). |
-| PriceAdjustmentDescription | chaîne | Obtient ou définit la description de l’ajustement de prix. |
-| DiscountDetails | chaîne |  **Deprecated**. Obtient ou définit les détails de la remise associés à cet achat. |
-| PricingCurrency | chaîne | Obtient ou définit le code de la devise de tarification. |
-| PCToBCExchangeRate | decimal | Obtient ou définit la devise de tarification au taux de change de la devise de facturation. |
+| TermAndBillingCycle | string | Obtient ou définit le terme et le cycle de facturation associés à cet achat. |
+| AlternateId | string | Obtient ou définit l’ID de remplacement (ID de devis). |
+| PriceAdjustmentDescription | string | Obtient ou définit la description de l’ajustement de prix. |
+| DiscountDetails | string |  **Déconseillé**. Obtient ou définit les détails de la remise associés à cet achat. |
+| PricingCurrency | string | Obtient ou définit le code de la devise de tarification. |
+| PCToBCExchangeRate | Décimal | Obtient ou définit la devise de tarification au taux de change de la devise de facturation. |
 | PCToBCExchangeRateDate | DateTime | Obtient ou définit la date du taux de change à laquelle la devise de tarification du taux de change de la devise de facturation a été déterminée. |
-| BillableQuantity | decimal | Obtient ou définit les unités achetées. Pour chaque colonne de conception nommée **BillableQuantity**. |
-| MeterDescription | chaîne | Obtient ou définit la description du compteur pour l’élément de ligne de consommation. |
-| ReservationOrderId | chaîne | Obtient ou définit l’identificateur d’ordre de réservation pour un achat Azure RI. |
-| BillingFrequency | chaîne | Obtient ou définit la fréquence de facturation. |
-| invoiceLineItemType | invoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
+| BillableQuantity | Décimal | Obtient ou définit les unités achetées. Pour chaque colonne de conception nommée **BillableQuantity**. |
+| MeterDescription | string | Obtient ou définit la description du compteur pour l’élément de ligne de consommation. |
+| ReservationOrderId | string | Obtient ou définit l’identificateur d’ordre de réservation pour un achat Azure RI. |
+| BillingFrequency | string | Obtient ou définit la fréquence de facturation. |
+| InvoiceLineItemType | InvoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
 | BillingProvider | BillingProvider | Retourne le fournisseur de facturation. |
 
 ## <a name="dailyratedusagelineitem"></a>DailyRatedUsageLineItem
@@ -249,56 +249,56 @@ Représente les Articles de ligne de rapprochement non facturés pour une utilis
 
 | Propriété | Type | Description |
 | --- | --- | --- |
-| PartnerId | chaîne | Obtient ou définit l’ID de locataire du partenaire. |
-| PartnerName | chaîne | Obtient ou définit le nom du partenaire. |
-| CustomerId | chaîne | Obtient ou définit l’ID de locataire du client auquel appartient l’utilisation. |
-| CustomerName | chaîne | Obtient ou définit le nom de la société cliente à laquelle l’utilisation appartient. |
-| CustomerDomainName | chaîne | Obtient ou définit le nom de domaine du client auquel appartient l’utilisation. |
-| InvoiceNumber | chaîne | Obtient ou définit l’ID de la facture à laquelle l’utilisation appartient. |
-| ProductId | chaîne | Obtient ou définit l’identificateur unique du produit. |
-| SkuId | chaîne | Obtient ou définit l’identificateur unique de la référence (SKU). |
-| AvailabilityId | chaîne | Obtient ou définit l’identificateur unique de disponibilité. |
-| SkuName | chaîne | Obtient ou définit le nom de la référence (SKU) pour le service. |
-| ProductName | chaîne | Obtient ou définit le nom du produit. |
-| PublisherName | chaîne | Obtient ou définit le nom de l’éditeur. |
-| PublisherId | chaîne | Obtient ou définit l’ID du serveur de publication. |
-| SubscriptionId | chaîne | Obtient ou définit l'ID d'abonnement. |
-| SubscriptionDescription | chaîne | Obtient ou définit la description de l’abonnement. |
+| PartnerId | string | Obtient ou définit l’ID de locataire du partenaire. |
+| PartnerName | string | Obtient ou définit le nom du partenaire. |
+| CustomerId | string | Obtient ou définit l’ID de locataire du client auquel appartient l’utilisation. |
+| CustomerName | string | Obtient ou définit le nom de la société cliente à laquelle l’utilisation appartient. |
+| CustomerDomainName | string | Obtient ou définit le nom de domaine du client auquel appartient l’utilisation. |
+| InvoiceNumber | string | Obtient ou définit l’ID de la facture à laquelle l’utilisation appartient. |
+| ProductId | string | Obtient ou définit l’identificateur unique du produit. |
+| SkuId | string | Obtient ou définit l’identificateur unique de la référence (SKU). |
+| AvailabilityId | string | Obtient ou définit l’identificateur unique de disponibilité. |
+| SkuName | string | Obtient ou définit le nom de la référence (SKU) pour le service. |
+| ProductName | string | Obtient ou définit le nom du produit. |
+| PublisherName | string | Obtient ou définit le nom de l’éditeur. |
+| PublisherId | string | Obtient ou définit l’ID du serveur de publication. |
+| SubscriptionId | string | Obtient ou définit l'ID d'abonnement. |
+| SubscriptionDescription | string | Obtient ou définit la description de l’abonnement. |
 | ChargeStartDate | DateTime | Obtient ou définit la date de début des frais. |
 | ChargeEndDate | DateTime | Obtient ou définit la date de fin de la facturation. |
 | UsageDate | DateTime | Obtient ou définit la date d’utilisation. |
-| MeterType | chaîne | Obtient ou définit le type de compteur. |
-| MeterCategory | chaîne | Obtient ou définit la catégorie du compteur. |
-| MeterId | chaîne | Obtient ou définit l’ID de compteur (GUID). |
-| MeterSubCategory | chaîne | Obtient ou définit la sous-catégorie du compteur. |
-| MeterName | chaîne | Obtient ou définit le nom du compteur. |
-| MeterRegion | chaîne | Obtient ou définit la région du compteur. |
-| UnitOfMeasure | chaîne | Obtient ou définit l’unité de mesure. |
-| ResourceLocation | chaîne | Obtient ou définit l’emplacement de la ressource. |
-| ConsumedService | chaîne | Obtient ou définit le nom du service consommé. |
-| ResourceGroup | chaîne | Obtient ou définit le nom du groupe de ressources. |
-| URI | chaîne | Obtient ou définit l’URI de l’instance de ressource sur le sujet de l’utilisation. |
-| Balises | chaîne | Obtient ou définit les balises ajoutées par le client. |
-| AdditionalInfo | chaîne | Obtient ou définit les métadonnées spécifiques au service. Par exemple, un type d’image pour un ordinateur virtuel. |
-| ServiceInfo1 | chaîne | Obtient ou définit les métadonnées de service Azure internes. |
-| ServiceInfo2 | chaîne | Obtient ou définit les informations de service, par exemple, un type d’image pour un ordinateur virtuel et un nom de fournisseur de services Internet pour ExpressRoute. |
-| CustomerCountry | chaîne | Obtient ou définit le pays du client. |
-| MpnId | chaîne | Obtient ou définit l’ID MPN associé à cet élément de ligne. |
-| ResellerMpnId | chaîne | Obtient ou définit l’ID MPN du revendeur du niveau 2 associé à cet élément de ligne. |
-| ChargeType | chaîne | Obtient ou définit le type de frais. |
-| UnitPrice | decimal | Obtient ou définit le prix unitaire. |
-| Quantité | decimal | Obtient ou définit la quantité d’utilisation. |
-| Unité | chaîne | Obtient ou définit le type d’unité (par exemple, 1 heure). |
-| BillingPreTaxTotal | decimal | Obtient ou définit le coût total ou le coût total avant les taxes dans la devise locale du client ou de la devise de facturation. |
-| BillingCurrency | chaîne | Obtient ou définit la devise ISO dans laquelle le compteur est facturé en devise locale du client ou de la devise de facturation. |
-| PricingPreTaxTotal | decimal | Obtient ou définit le coût total ou le coût total avant les taxes dans la devise USD ou le catalogue utilisé pour l’évaluation. |
-| PricingCurrency | chaîne | Obtient ou définit la devise ISO dans laquelle le compteur est facturé dans la devise USD ou dans le catalogue utilisé pour l’évaluation. |
-| EntitlementId | chaîne | Obtient ou définit l’ID du droit (abonnement Azure). |
-| EntitlementDescription | chaîne | Obtient ou définit la description du droit (abonnement Azure). |
-| PCToBCExchangeRate | chaîne | Obtient ou définit la devise de tarification au taux de change de la devise de facturation. |
+| MeterType | string | Obtient ou définit le type de compteur. |
+| MeterCategory | string | Obtient ou définit la catégorie du compteur. |
+| ID du compteur | string | Obtient ou définit l’ID de compteur (GUID). |
+| MeterSubCategory | string | Obtient ou définit la sous-catégorie du compteur. |
+| MeterName | string | Obtient ou définit le nom du compteur. |
+| MeterRegion | string | Obtient ou définit la région du compteur. |
+| UnitOfMeasure | string | Obtient ou définit l’unité de mesure. |
+| ResourceLocation | string | Obtient ou définit l’emplacement de la ressource. |
+| ConsumedService | string | Obtient ou définit le nom du service consommé. |
+| ResourceGroup | string | Obtient ou définit le nom du groupe de ressources. |
+| URI | string | Obtient ou définit l’URI de l’instance de ressource sur le sujet de l’utilisation. |
+| Balises | string | Obtient ou définit les balises ajoutées par le client. |
+| AdditionalInfo | string | Obtient ou définit les métadonnées spécifiques au service. Par exemple, le type d’image d’une machine virtuelle. |
+| ServiceInfo1 | string | Obtient ou définit les métadonnées de service Azure internes. |
+| ServiceInfo2 | string | Obtient ou définit les informations de service, par exemple, un type d’image pour un ordinateur virtuel et un nom de fournisseur de services Internet pour ExpressRoute. |
+| CustomerCountry | string | Obtient ou définit le pays du client. |
+| MpnId | string | Obtient ou définit l’ID MPN associé à cet élément de ligne. |
+| ResellerMpnId | string | Obtient ou définit l’ID MPN du revendeur du niveau 2 associé à cet élément de ligne. |
+| ChargeType | string | Obtient ou définit le type de frais. |
+| UnitPrice | Décimal | Obtient ou définit le prix unitaire. |
+| Quantité | Décimal | Obtient ou définit la quantité d’utilisation. |
+| Unité | string | Obtient ou définit le type d’unité (par exemple, 1 heure). |
+| BillingPreTaxTotal | Décimal | Obtient ou définit le coût total ou le coût total avant les taxes dans la devise locale du client ou de la devise de facturation. |
+| BillingCurrency | string | Obtient ou définit la devise ISO dans laquelle le compteur est facturé en devise locale du client ou de la devise de facturation. |
+| PricingPreTaxTotal | Décimal | Obtient ou définit le coût total ou le coût total avant les taxes dans la devise USD ou le catalogue utilisé pour l’évaluation. |
+| PricingCurrency | string | Obtient ou définit la devise ISO dans laquelle le compteur est facturé dans la devise USD ou dans le catalogue utilisé pour l’évaluation. |
+| EntitlementId | string | Obtient ou définit l’ID du droit (abonnement Azure). |
+| EntitlementDescription | string | Obtient ou définit la description du droit (abonnement Azure). |
+| PCToBCExchangeRate | string | Obtient ou définit la devise de tarification au taux de change de la devise de facturation. |
 | PCToBCExchangeRateDate | DateTime | Obtient ou définit la devise de tarification à la date du taux de change de la devise de facturation. |
-| EffectiveUnitPrice | decimal | Obtient ou définit le prix unitaire effectif. |
-| RateOfPartnerEarnedCredit | decimal | Obtient ou définit le taux de crédit gagné du partenaire. |
+| EffectiveUnitPrice | Décimal | Obtient ou définit le prix unitaire effectif. |
+| RateOfPartnerEarnedCredit | Décimal | Obtient ou définit le taux de crédit gagné du partenaire. |
 | hasPartnerEarnedCredit | bool | Obtient ou définit le crédit gagné du partenaire appliqué. |
-| invoiceLineItemType | invoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
+| InvoiceLineItemType | InvoiceLineItemType | Retourne le type de l’élément de ligne de facture. |
 | BillingProvider | BillingProvider | Retourne le fournisseur de facturation. |

@@ -1,41 +1,46 @@
 ---
-title: Créer un panier avec des modules complémentaires
+title: Créer un panier avec des extensions
 description: Comment ajouter une commande avec des modules complémentaires pour un client dans un panier.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 99556ccb26dfe8ce8a43e62bc4a24ea5e7760ef0
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eb5177b9263f8a21aec20fa5e4a3b4970f4525f7
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413531"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154971"
 ---
-# <a name="create-a-cart-with-add-ons"></a>Créer un panier avec des modules complémentaires
+# <a name="create-a-cart-with-add-ons"></a>Créer un panier avec des extensions
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Vous pouvez acheter des modules complémentaires par le biais d’un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
 ## <a name="c"></a>C\#
 
 Un panier permet l’achat d’une offre de base et de ses modules complémentaires correspondants. Pour créer un panier, procédez comme suit :
 
 1. Instanciez un objet de [**panier**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart) .
+
 2. Créez une liste d’objets [**CartLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) qui représentent les offres de base et attribuez la liste à [**la propriété de**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) liste de propriétés du panier.
+
 3. Sous l’élément de ligne de panier de chaque offre de base, renseignez la liste des **AddOnItems** avec d’autres objets **CartLineItem** qui représentent chacun un module complémentaire qui sera acheté dans le cadre de cette offre de base.
+
 4. Obtenez une interface pour les opérations de panier à l’aide de [**collection iaggregatepartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**ICustomerCollection. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérer l’interface à partir de la propriété **Cart** .
+
 5. Enfin, appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) pour créer le panier.
 
-### <a name="c-example"></a>Exemple de\# C
+### <a name="c-example"></a>Exemple\# C
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -79,6 +84,7 @@ var createdCart = partnerOperations.Customers.ById(customerId).Carts.Create(cart
 Suivez les étapes ci-dessous pour créer un panier permettant d’acheter des modules complémentaires sur des abonnements de base existants :
 
 1. Créez un **panier** avec une nouvelle **CARTLINEITEM** contenant l’ID d’abonnement dans la propriété **ProvisioningContext** avec la clé « ParentSubscriptionId ».
+
 2. Appelez la méthode **Create** ou **CreateAsync** .
 
 ```csharp
@@ -112,21 +118,21 @@ var createdCart = partnerOperations.Customers.ById(selectedCustomerId).Carts.Cre
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                 |
+| Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts http/1.1                        |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts http/1.1                        |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Utilisez le paramètre Path suivant pour identifier le client.
+Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
 | Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
+| **ID client** | string   | Oui      | ID client au format GUID qui identifie le client.             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -134,28 +140,28 @@ Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | chaîne           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
-| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
-| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
-| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
-| lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| id                    | string           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | Non               | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
+| lastModifiedTimeStamp | DateTime         | Non               | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non               | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | string           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
 | lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
 | Propriété             | Type                             | Description                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                   | chaîne                           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                                   |
-| catalogId            | chaîne                           | Identificateur de l’élément de catalogue.                                                                                                                          |
-| friendlyName         | chaîne                           | Ce paramètre est facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                                 |
-| quantity             | int                              | Nombre de licences ou d’instances.                                                                                                                  |
-| currencyCode         | chaîne                           | Code de la devise.                                                                                                                                    |
-| BillingCycle         | Object                           | Type de cycle de facturation défini pour la période actuelle.                                                                                                 |
+| id                   | string                           | Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                                   |
+| catalogId            | string                           | Identificateur de l’élément de catalogue.                                                                                                                          |
+| friendlyName         | string                           | facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                                 |
+| quantité             | int                              | Nombre de licences ou d’instances.                                                                                                                  |
+| currencyCode         | string                           | Code de la devise.                                                                                                                                    |
+| billingCycle         | Object                           | Type de cycle de facturation défini pour la période actuelle.                                                                                                 |
 | participants         | Liste de paires de chaînes d’objets      | Collection de partenaire sur l’enregistrement (MPNID) sur l’achat.                                                                                          |
-| provisioningContext  | Dictionary < String, String >       | Contexte utilisé pour l’approvisionnement de l’offre.                                                                                                             |
-| orderGroup           | chaîne                           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                                               |
+| provisioningContext  | Dictionary<String, String>       | Contexte utilisé pour l’approvisionnement de l’offre.                                                                                                             |
+| orderGroup           | string                           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                                               |
 | addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires qui seront achetés vers l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier parent. |
-| erreur                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
+| error                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>Exemple de requête (nouvel abonnement de base)
 
@@ -219,7 +225,7 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 }
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne la ressource [Cart](cart-resources.md) remplie dans le corps de la réponse.
 

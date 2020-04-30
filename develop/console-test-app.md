@@ -1,28 +1,28 @@
 ---
-title: Application de test de la console
+title: Application de test de console
 description: Cette application de test de console fournit un exemple de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
 ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 35ebb92e8e9705cbce8c629d0a862613cc2f50b6
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: a75f01a6636b20865d5f5a0e6ec59aa3f7779e00
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412851"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155031"
 ---
-# <a name="console-test-app"></a>Application de test de la console
+# <a name="console-test-app"></a>Application de test de console
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-L’application de test console est fournie C# dans et Java, elle fournit des exemples de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
+L’application de test console est fournie en C# et Java. elle fournit des exemples de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
 
 ## <a name="get-the-code"></a>Obtenir le code
 
@@ -37,11 +37,11 @@ Téléchargez l’exemple de code pour l’application de test de la console.
 
 Sous **ScenarioSettings** dans le fichier *app. config* , vous pouvez définir les paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
 
-Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes dans **IPartnerScenario\[\] mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program.cs* .
+Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes **dans\[ \] IPartnerScenario mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program.cs* .
 
 ## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
 [Téléchargez l’exemple de code](https://go.microsoft.com/fwlink/p/?LinkId=2026887) et modifiez-le si nécessaire.
 
@@ -50,7 +50,7 @@ Pour modifier la liste des scénarios exécutés, mettez en commentaire les lign
 
 Sous **ScenarioSettings** dans le fichier *SamplesConfiguration. JSON* , vous pouvez définir les paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
 
-Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes dans **IPartnerScenario\[\] mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program. Java* .
+Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes **dans\[ \] IPartnerScenario mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program. Java* .
 
 ## <a name="what-to-change"></a>Éléments à modifier
 
@@ -77,7 +77,7 @@ Pour **UserAuthentication**, vous devez modifier :
 
 Ne pas modifier :
 
-- **Resourceurl n'**
+- **ResourceUrl**
 - **RedirectUrl**
 
 ### <a name="appauthentication"></a>AppAuthentication

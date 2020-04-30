@@ -6,33 +6,36 @@ ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1f968ce90d4bbed3f3c9384b82c70a9ee7811f71
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 02a104f53113ef46ecab42314b57a8fe7cff0a54
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413230"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154781"
 ---
 # <a name="assign-licenses-to-a-user"></a>Attribuer des licences à un utilisateur
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment attribuer des licences à un utilisateur client.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- Identificateur du client. Le client doit disposer d’un abonnement avec une licence disponible à affecter.
-- Identificateur d’utilisateur du client. Cela identifie l’utilisateur auquel attribuer la licence.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
+- Identificateur d’utilisateur du client. Cet ID identifie l’utilisateur auquel attribuer la licence.
+
 - Identificateur SKU du produit qui identifie le produit de la licence.
 
 ## <a name="assigning-licenses-through-code"></a>Attribution de licences à l’aide de code
 
 Lorsque vous affectez des licences à un utilisateur, vous devez choisir parmi le regroupement du client des références (SKU) souscrites. Ensuite, après avoir identifié les produits que vous souhaitez affecter, vous devez obtenir l’ID de référence du produit pour chaque produit afin d’effectuer les attributions. Chaque instance [**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) contient une propriété [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) à partir de laquelle vous pouvez référencer l’objet [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) et obtenir l' [**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id).
 
-Une demande d’attribution de licence doit contenir des licences d’un seul groupe de licences. Par exemple, vous ne pouvez pas attribuer des licences à partir de [**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) et de **Group2** dans la même demande. Une tentative d’attribution de licences à partir de plusieurs groupes dans une demande unique échouera avec une erreur appropriée. Pour savoir quelles licences sont disponibles par groupe de licences, consultez [obtenir une liste des licences disponibles par groupe de licences](get-a-list-of-available-licenses-by-license-group.md).
+Une demande d’attribution de licence doit contenir des licences d’un seul groupe de licences. Par exemple, vous ne pouvez pas attribuer des licences du [**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) et du **Group2** dans la même demande. Toute tentative pour attribuer dans une seule demande des licences de plusieurs groupes échouera en générant l’erreur appropriée. Pour savoir quelles licences sont disponibles par groupe de licences, consultez [obtenir une liste des licences disponibles par groupe de licences](get-a-list-of-available-licenses-by-license-group.md).
 
 Voici les étapes à suivre pour attribuer des licences par le biais du code :
 
@@ -42,8 +45,8 @@ Voici les étapes à suivre pour attribuer des licences par le biais du code :
     LicenseAssignment license = new LicenseAssignment();
     ```
 
-2. Renseignez les propriétés de l’objet comme indiqué ci-dessous. Ce code part du principe que vous disposez déjà de l’ID de référence du produit et que tous les plans de service disponibles seront affectés (c.-à-d. aucun sera exclu).
-  
+2. Renseignez les propriétés de l’objet comme indiqué ci-dessous. Ce code part du principe que vous disposez déjà de l’ID de référence du produit et que tous les plans de service disponibles seront affectés (c’est-à-dire qu’aucun ne sera exclu).
+
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
@@ -111,30 +114,30 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : CustomerUserAssignLicenses.cs
 
-## <a name="request"></a>Requête
+## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                    |
+| Méthode   | URI de requête                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenseupdates http/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenseupdates http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’utilisateur.
 
 | Nom        | Type   | Obligatoire | Description                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| ID client | chaîne | Oui      | ID au format GUID qui identifie le client. |
-| ID utilisateur     | chaîne | Oui      | ID au format GUID qui identifie l’utilisateur.     |
+| customer-id | string | Oui      | ID au format GUID qui identifie le client. |
+| user-id     | string | Oui      | ID au format GUID qui identifie l’utilisateur.     |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-Vous devez inclure une ressource [LicenseUpdate](license-resources.md#licenseupdate) dans le corps de la requête qui spécifie les licences à affecter.
+Incluez une ressource [LicenseUpdate](license-resources.md#licenseupdate) dans le corps de la requête qui spécifie les licences à affecter.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -165,7 +168,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, un code d’état de réponse HTTP 201 est retourné et le corps de la réponse contient une ressource [LicenseUpdate](license-resources.md#licenseupdate) avec les informations de licence.
 
@@ -197,7 +200,7 @@ Date: Thu, 20 Apr 2017 21:50:39 GMT
 }
 ```
 
-### <a name="response-example-license-is-not-available"></a>Exemple de réponse (licence non disponible)
+### <a name="response-example-license-isnt-available"></a>Exemple de réponse (la licence n’est pas disponible)
 
 ```http
 HTTP/1.1 400 Bad Request

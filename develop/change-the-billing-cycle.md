@@ -1,44 +1,46 @@
 ---
-title: Modifier le cycle de facturation
+title: Changer le cycle de facturation
 description: Mettez à jour un abonnement à la facturation mensuelle ou annuelle.
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f3c040745ead22e92a7012155b0fcfc50fe97739
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 93c33886d22ea9d4a72ed650da6ec14904cfdb28
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412958"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154761"
 ---
-# <a name="change-the-billing-cycle"></a>Modifier le cycle de facturation
+# <a name="change-the-billing-cycle"></a>Changer le cycle de facturation
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Met à jour une [commande](order-resources.md) d’une facturation mensuelle à une facturation annuelle ou d’une facturation annuelle à une facturation mensuelle.
 
-Dans le tableau de bord de l’espace partenaires, vous pouvez effectuer cette opération en accédant à la page de détails de l’abonnement d’un client. Une fois ici, vous verrez une option qui définit le cycle de facturation actuel de l’abonnement avec la possibilité de le modifier et de l’envoyer.  
+Dans le tableau de bord de l’espace partenaires, vous pouvez effectuer cette opération en accédant à la page de détails de l’abonnement d’un client. Une fois ici, vous verrez une option qui définit le cycle de facturation actuel de l’abonnement avec la possibilité de le modifier et de l’envoyer.
 
-**Hors de portée** pour cette rubrique :  
+**Hors de portée** pour cet article :
 
 - Modification du cycle de facturation pour les versions d’évaluation
 - Modification des cycles de facturation pour les offres non annuelles (mensuelle, 6 ans) & les abonnements Azure
 - Modification des cycles de facturation des abonnements inactifs
 - Modification des cycles de facturation pour les abonnements basés sur des licences Microsoft services en ligne
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- ID client (client-locataire-ID). Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID de commande.
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 Pour modifier la fréquence du cycle de facturation, mettez à jour la propriété [**Order. BillingCycle**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle?view=partnercenter-dotnet-latest#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) .
 
@@ -71,48 +73,48 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode    | URI de demande                                                                                             |
+| Méthode    | URI de requête                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
 Ce tableau répertorie le paramètre de requête requis pour modifier la quantité de l’abonnement.
 
-| Nom                   | Type | Obligatoire | Description                                                          |  
-|------------------------|------|----------|----------------------------------------------------------------------|  
-| **client-locataire-ID** | GUID |    Y     | Un identificateur de **locataire client** au format GUID qui identifie le client |  
-| **ID de commande**           | GUID |    Y     | Identificateur de l’ordre                                                 |  
+| Nom                   | Type | Obligatoire | Description                                                          |
+|------------------------|------|----------|----------------------------------------------------------------------|
+| **customer-tenant-id** | GUID |    O     | Un identificateur de **locataire client** au format GUID qui identifie le client |
+| **ID de commande**           | GUID |    O     | Identificateur de l’ordre                                                 |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-- Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
 Les tableaux suivants décrivent les propriétés dans le corps de la demande.
 
-## <a name="order"></a>Order
+### <a name="order"></a>JSON
 
 | Propriété           | Type             | Obligatoire | Description                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| ID                 | chaîne           |    N     | Un identificateur de commande qui est fourni lors de la création réussie de la commande |
-|referenceCustomerId | chaîne           |    Y     | Identificateur du client                                                    |
-| BillingCycle       | chaîne           |    Y     | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). |
-| lineItems          | Tableau d’objets |    Y     | Tableau de ressources [OrderLineItem](#orderlineitem)                      |
-| CreationDate       | datetime         |    N     | Date à laquelle la commande a été créée, au format date/heure                        |
+| Id                 | string           |    N     | Un identificateur de commande qui est fourni lors de la création réussie de la commande |
+|ReferenceCustomerId | string           |    O     | Identificateur du client                                                    |
+| BillingCycle       | string           |    O     | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). |
+| LineItems          | tableau d’objets |    O     | Tableau de ressources [OrderLineItem](#orderlineitem)                      |
+| CreationDate       | DATETIME         |    N     | Date à laquelle la commande a été créée, au format date/heure                        |
 | Attributs         | Object           |    N     | Contient « ObjectType » : « OrderLineItem »                                     |
 
-## <a name="orderlineitem"></a>OrderLineItem
+### <a name="orderlineitem"></a>OrderLineItem
 
 | Propriété             | Type   | Obligatoire | Description                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| lineItemNumber       | nombre |    Y     | Numéro d’élément de ligne, à partir de 0                                              |
-| OfferId              | chaîne |    Y     | ID de l’offre                                                                |
-| SubscriptionId       | chaîne |    Y     | ID de l’abonnement                                                         |
-| FriendlyName         | chaîne |    N     | Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté |
-| Quantité             | nombre |    Y     | Nombre de licences ou d’instances                                                |
-| partnerIdOnRecord    | chaîne |    N     | ID MPN du partenaire d’enregistrement                                                |
+| LineItemNumber       | nombre |    O     | Numéro d’élément de ligne, à partir de 0                                              |
+| OfferId              | string |    O     | ID de l’offre                                                                |
+| SubscriptionId       | string |    O     | ID de l’abonnement                                                         |
+| FriendlyName         | string |    N     | Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté |
+| Quantité             | nombre |    O     | Nombre de licences ou d’instances                                                |
+| PartnerIdOnRecord    | string |    N     | ID MPN du partenaire d’enregistrement                                                |
 | Attributs           | Object |    N     | Contient « ObjectType » : « OrderLineItem »                                             |
 
 ### <a name="request-example"></a>Exemple de requête
@@ -154,7 +156,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne l’ordre d’abonnement mis à jour dans le corps de la réponse.
 

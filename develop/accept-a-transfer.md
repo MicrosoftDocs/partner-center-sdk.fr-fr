@@ -5,36 +5,37 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 714c3d76e84d1076335ca4578d19052f8f0fc5e7
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: 400f33139d8b9260a82c631f897ccadc8a39bebe
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220785"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154361"
 ---
 # <a name="accept-a-transfer"></a>Accepter un transfert
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Identificateur de transfert pour un transfert existant.
 
 ## <a name="rest-request"></a>Demande REST
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                 |
+| Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Transfers/{Transfer-ID}/Accept http/1.1                    |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Transfers/{Transfer-ID}/Accept http/1.1                    |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -42,12 +43,12 @@ Utilisez le paramètre Path suivant pour identifier le client et spécifier le t
 
 | Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
-| **ID de transfert** | chaîne   | Oui      | Identificateur de transfert au format GUID qui identifie le transfert.             |
+| **ID client** | string   | Oui      | ID client au format GUID qui identifie le client.             |
+| **ID de transfert** | string   | Oui      | Identificateur de transfert au format GUID qui identifie le transfert.             |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -64,7 +65,7 @@ Content-Length: 0
 
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne la ressource [TransferSubmitResult](transfer-entity-resources.md#transfersubmitresult) remplie dans le corps de la réponse.
 
@@ -101,7 +102,6 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
           "quantity": 1,
           "partnerIdOnRecord": "5139005",
           "links": {
-            
           }
         }
       ],
@@ -112,16 +112,12 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
         "self": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/21b92393-ffce-4bc7-87c5-62cfa897d8f9",
           "method": "GET",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         },
         "patchOperation": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/21b92393-ffce-4bc7-87c5-62cfa897d8f9",
           "method": "PATCH",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         }
       },
       "attributes": {
@@ -145,7 +141,6 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
           "quantity": 1,
           "partnerIdOnRecord": "5139005",
           "links": {
-            
           }
         }
       ],
@@ -156,16 +151,12 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
         "self": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/7414b8ea-c167-4cc4-bc8e-b43efc177a46",
           "method": "GET",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         },
         "patchOperation": {
           "uri": "/customers/b67f0b00-f9e8-4c57-bcb5-0b8b95c6ccf0/orders/7414b8ea-c167-4cc4-bc8e-b43efc177a46",
           "method": "PATCH",
-          "headers": [
-            
-          ]
+          "headers": [ ]
         }
       },
       "attributes": {
@@ -186,9 +177,7 @@ Date: Wed, 25 Mar 2020 19:13:06 GMT
           "friendlyName": "Project Online Essentials",
           "quantity": 1,
           "transferGroupId": "1",
-          "addonItems": [
-            
-          ],
+          "addonItems": [ ],
           "partnerIdOnRecord": "5139005",
           "billingCycle": "annual",
           "sourceSubscriptionId": "637FF8F6-D842-4573-8DA8-89765356CD1A"

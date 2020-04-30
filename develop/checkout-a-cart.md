@@ -1,37 +1,37 @@
 ---
-title: Extraire un panier
+title: Valider un panier
 description: Procédure d’extraction d’une commande pour un client dans un panier.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 123ff771fad9982f6fb84484010456d38e785a74
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 8aedb24b9f11b10e37f0a145c86bf17cbad3f42f
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412898"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154501"
 ---
-# <a name="checkout-a-cart"></a>Extraire un panier
+# <a name="checkout-a-cart"></a>Valider un panier
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Procédure d’extraction d’une commande pour un client dans un panier.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur du client. Si vous n’avez pas d’ID de client, vous pouvez rechercher l’ID dans l’espace partenaires en choisissant le client dans la liste clients, en sélectionnant compte, puis en enregistrant son ID Microsoft.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - ID de panier d’un panier existant.
 
-## <a name="examples"></a>Exemples
-
-### <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 Pour extraire une commande pour un client, vous pouvez obtenir une référence au panier à l’aide de l’identificateur du panier et du client. Enfin, appelez les fonctions **Create** ou **CreateAsync** pour terminer la commande.
 
@@ -43,9 +43,9 @@ Pour extraire une commande pour un client, vous pouvez obtenir une référence a
 var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checkout();
 ```
 
-### <a name="java"></a>Java
+## <a name="java"></a>Java
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
 Pour extraire une commande pour un client, vous pouvez obtenir une référence au panier à l’aide de l’identificateur du panier et du client. Enfin, appelez la fonction **Create** pour terminer l’ordre.
 
@@ -57,9 +57,9 @@ Pour extraire une commande pour un client, vous pouvez obtenir une référence a
 Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(cartId).checkout();
 ```
 
-### <a name="powershell"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
 Pour extraire une commande pour un client, exécutez [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) pour terminer la commande.
 
@@ -74,26 +74,26 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de demande                                                                                                 |
+| Méthode   | URI de requête                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **POST** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts/{Cart-ID}/checkout http/1.1     |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/carts/{Cart-ID}/checkout http/1.1     |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et spécifier le panier à extraire.
 
 | Nom            | Type     | Obligatoire | Description                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **ID client** | chaîne   | Oui      | ID client au format GUID qui identifie le client.             |
-| **Cart-ID**     | chaîne   | Oui      | GUID-ID au format GUID qui identifie le panier.                     |
+| **ID client** | string   | Oui      | ID client au format GUID qui identifie le client.             |
+| **Cart-ID**     | string   | Oui      | GUID-ID au format GUID qui identifie le panier.                     |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -113,7 +113,7 @@ Expect: 100-continue
 No-Content-Body
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient la ressource [CartCheckoutResult](cart-resources.md#cartcheckoutresult) remplie.
 

@@ -1,71 +1,76 @@
 ---
-title: Activer un abonnement sandbox pour les produits de la place de marché commercial
+title: Activer un abonnement de bac à sable pour des produits de la place de marché commerciale
 description: Activez un abonnement sandbox pour les produits de la place de marché commercial.
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e4641f5a623a1c3cf42634b409d4c2c0514cc0c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cee833f110c45e8f53a47aed3d8a8c3b1ccd6946
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412478"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154371"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activer un abonnement sandbox pour les produits de la place de marché commercial
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activer un abonnement de bac à sable pour des produits de la place de marché commerciale
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment activer l’abonnement pour les produits SaaS (Software as a service) de la place de marché commercial à partir de comptes sandbox d’intégration pour activer la facturation.
 
->[!NOTE]
->Il est uniquement possible d’activer un abonnement pour les produits SaaS de la place de marché commercial à partir de comptes sandbox d’intégration. Si vous avez un abonnement de production, vous devez visiter le site de l’éditeur pour terminer le processus d’installation. La facturation de l’abonnement commence uniquement une fois l’installation terminée.
+> [!NOTE]
+> Il est uniquement possible d’activer un abonnement pour les produits SaaS de la place de marché commercial à partir de comptes sandbox d’intégration. Si vous avez un abonnement de production, vous devez visiter le site de l’éditeur pour terminer le processus d’installation. La facturation de l’abonnement commence uniquement une fois l’installation terminée.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+
 - Un compte de partenaire du bac à sable (sandbox) d’intégration avec un client ayant un abonnement actif aux produits SaaS de la place de marché commercial.
+
 - Pour les partenaires qui utilisent le kit de développement logiciel (SDK) .NET Partner Center, vous devez utiliser le SDK version 1.14.0 ou ultérieure pour accéder à cette fonctionnalité.
 
-## <a name="c"></a>C#
+## <a name="c"></a>C\#
 
 Procédez comme suit pour activer un abonnement pour les produits SaaS de la place de marché commercial :
 
 1. Rendez une interface avec les opérations d’abonnement disponibles. Vous devez identifier le client et spécifier l’identificateur d’abonnement de l’abonnement d’évaluation.
 
-    ``` csharp
-    var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
+   ```csharp
+   var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
+   ```
 
-2. Activate the subscription using the **Activate** operation.
+2. Activez l’abonnement à l’aide de l’opération d' **activation** .
 
-    ``` csharp
-    var subscriptionActivationResult = subscriptionOperations.Activate();
-## REST request
+   ```csharp
+   var subscriptionActivationResult = subscriptionOperations.Activate();
+   ```
 
-### Request syntax
+## <a name="rest-request"></a>Demande REST
 
-| Method     | Request URI                                                                            |
+### <a name="request-syntax"></a>Syntaxe de la requête
+
+| Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/activate HTTP/1.1 |
+| **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/Activate http/1.1 |
 
-### URI parameter
+### <a name="uri-parameter"></a>Paramètre d’URI
 
-| Name                   | Type     | Required | Description                                                                                                                                            |
+| Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y | The value is a GUID-formatted customer tenant identifier (**customer-tenant-id**), which allows you to specify a customer. |
-| **subscription-id** | **guid** | Y | The value is a GUID-formatted subscription identifier (**subscription-id**), which allows you to specify a subscription. |
+| **customer-tenant-id** | **guid** | O | La valeur est un identificateur de locataire client au format GUID (**Customer-client-ID**), qui vous permet de spécifier un client. |
+| **ID d’abonnement** | **guid** | O | La valeur est un identificateur d’abonnement au format GUID (**ID d’abonnement**), qui vous permet de spécifier un abonnement. |
 
-### Request headers
+### <a name="request-headers"></a>En-têtes de requête
 
-See [Partner Center REST headers](headers.md) for more information.
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-### Request body
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-### Request example
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/42b5f772-5c5c-4bce-b9d7-bdadeecca411/subscriptions/87363db7-39ab-dd25-d371-94340aaa2f97/activate HTTP/1.1
@@ -76,7 +81,7 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 Cette méthode retourne les propriétés d' **État** et d' **ID d’abonnement** .
 

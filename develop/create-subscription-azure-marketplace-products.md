@@ -1,52 +1,51 @@
 ---
 title: Créer un abonnement pour les produits de la place de marché commercial
 description: Les développeurs peuvent créer et gérer un abonnement pour les produits de la place de marché commercial à l’aide des API de l’espace partenaires.
-ms.assetid: ''
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1db279b2e377ee5e24bf80709a7e84755fc2f132
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7d3c030d7e808e5bc40b985ce02dda84672a020c
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412230"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82125424"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>Créer un abonnement pour les produits de la place de marché commercial
 
-S'applique à :
+**S’applique à :**
 
-* Centre pour partenaires
+* Espace partenaires
 
 Vous pouvez créer un abonnement pour des produits de la place de marché commerciale à l’aide des API de l’Espace partenaires. Vous devez [obtenir une liste des offres pour un marché](#get-a-list-of-offers-for-a-market), [créer et envoyer une commande](#create-and-submit-an-order) pour un abonnement de la place de marché commercial, puis [récupérer un lien d’activation](#get-activation-link).
 
 Vous pouvez également [effectuer la gestion du cycle de vie](#lifecycle-management) et [gérer les factures](#invoice-and-reconciliation) pour ces abonnements.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 * Informations d' [authentification de l’espace partenaires](partner-center-authentication.md) . Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-* Identificateur du client. Si vous n’avez pas d’identificateur de client : Connectez-vous à l’espace partenaires, sélectionnez le client dans la liste clients, sélectionnez **compte**, puis enregistrez son **identifiant Microsoft**.
+* Identificateur du client. Si vous n’avez pas d’identificateur de client, suivez les étapes de la section [obtenir une liste de clients](get-a-list-of-customers.md). Vous pouvez également vous connecter à l’espace partenaires, choisir le client dans la liste des clients, sélectionner un **compte**, puis enregistrer son **identifiant Microsoft**.
 
-## <a name="get-a-list-of-offers-for-a-market"></a>Obtenir la liste des offres pour un marché
+## <a name="get-a-list-of-offers-for-a-market"></a>Obtenir la liste des offres d’un marché
 
 Vous pouvez vérifier les offres disponibles pour un marché à l’aide des modèles d’API de l’espace partenaires suivants :
 
-* **[Produit](product-resources.md#product)** : construction de regroupement pour les biens ou services pouvant être achetés. Un produit lui-même n’est pas un élément pouvant être acheté.
-* **[Référence (SKU](product-resources.md#sku)** ) : une référence SKU (Stock Keeping Unit) sous un produit. Celles-ci représentent les différentes formes du produit.
-* **[Disponibilité](product-resources.md#availability)** : configuration dans laquelle une référence (SKU) est disponible à l’achat (par exemple, pays, devise ou secteur d’activité).
+* **[Produit](product-resources.md#product)**: construction de regroupement pour les biens ou services pouvant être achetés. Un produit lui-même n’est pas un élément pouvant être acheté.
+* **[Référence (SKU](product-resources.md#sku)**) : une référence SKU (Stock Keeping Unit) sous un produit. Celles-ci représentent les différentes formes du produit.
+* **[Disponibilité](product-resources.md#availability)**: configuration dans laquelle une référence (SKU) est disponible à l’achat (par exemple, pays, devise ou secteur).
 
 Avant d’acheter une réservation Azure, procédez comme suit :
 
 1. Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter. Si vous connaissez déjà l’ID de produit et l’ID de référence (SKU), sélectionnez-les.
 
-    * [Obtenir la liste des produits](get-a-list-of-products.md)
+    * [Obtenir une liste de produits](get-a-list-of-products.md)
     * [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
-    * [Obtenir la liste des références SKU d’un produit](get-a-list-of-skus-for-a-product.md)
+    * [Obtenir la liste des références (SKU) d’un produit](get-a-list-of-skus-for-a-product.md)
     * [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
     > [!NOTE]
-    > Vous pouvez identifier les produits de la place de marché commercial en fonction de leur propriété **ProductType** **« Azure »** et de leur propriété de **sous-type** « **Saas »** .
+    > Vous pouvez identifier les produits de la place de marché commercial en fonction de leur propriété **ProductType** **« Azure »** et de leur propriété de **sous-type** « **Saas »**.
 
 2. Si les références SKU sont marquées d’un prérequis **InventoryCheck** , [Vérifiez l’inventaire d’une référence (SKU](check-inventory.md)).
 
@@ -55,7 +54,7 @@ Avant d’acheter une réservation Azure, procédez comme suit :
 
 3. Récupérez la disponibilité de la référence SKU. Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande, que vous pouvez récupérer via les API suivantes :
 
-    * [Obtenir la liste des disponibilités d’une référence SKU](get-a-list-of-availabilities-for-a-sku.md)
+    * [Obtenir la liste des disponibilités pour une référence (SKU)](get-a-list-of-availabilities-for-a-sku.md)
     * [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>Créer et envoyer une commande
@@ -74,7 +73,7 @@ Vous pouvez [récupérer les détails d’une commande individuelle à l’aide 
 
 ## <a name="get-activation-link"></a>Accéder au lien d’activation
 
-Le partenaire ou le client doit activer les abonnements aux produits Azure Marketplace. Vous pouvez [recevoir un lien d’activation par élément de ligne de commande](get-activation-link-by-order-line-item.md). Vous pouvez également [obtenir un abonnement par ID](get-a-subscription-by-id.md), puis énumérer sa propriété **Links** pour créer un lien d’activation.
+Le partenaire ou le client doit activer les abonnements aux produits de la place de marché Azure. Vous pouvez [recevoir un lien d’activation par élément de ligne de commande](get-activation-link-by-order-line-item.md). Vous pouvez également [obtenir un abonnement par ID](get-a-subscription-by-id.md), puis énumérer sa propriété **Links** pour créer un lien d’activation.
 
 ## <a name="lifecycle-management"></a>Gestion du cycle de vie
 
@@ -93,9 +92,9 @@ La quantité d’un abonnement au marché commercial doit être comprise dans le
 
 Vous pouvez gérer les [factures](invoice-resources.md) client (y compris les frais liés aux abonnements à des produits de la place de marché commercial) à l’aide des méthodes suivantes :
 
-* [Obtenir les éléments de ligne de consommation de la place de marché commerciale facturés](get-invoice-billed-consumption-lineitems.md)
+* [Obtient les éléments de ligne de la consommation de la place de marché commercial facturés](get-invoice-billed-consumption-lineitems.md)
 * [Obtenir des liens d’estimation de facture](get-invoice-estimate-links.md)
-* [Obtenir les éléments de ligne de consommation de la place de marché commerciale non facturés](get-invoice-unbilled-consumption-lineitems.md)
+* [Obtient les éléments de ligne de facturation de la place de marché commercial non facturés](get-invoice-unbilled-consumption-lineitems.md)
 * [Obtient les éléments de ligne de rapprochement non facturés de facture](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>Test à l’aide du compte sandbox d’intégration
