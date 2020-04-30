@@ -1,38 +1,36 @@
 ---
-title: Obtenir la liste des clients filtrés à l’aide d’un champ de recherche
+title: Obtenir la liste des clients filtrée par un champ de recherche
 description: Obtient une collection des ressources client qui correspondent à un filtre. Vous pouvez éventuellement définir une taille de page. Vous pouvez filtrer par nom de société, domaine, revendeur indirect ou fournisseur de solutions Cloud indirect (CSP).
 ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f99a91139a1341dcd82efe3727a9603beb3f1622
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 833c84e08ee1a8ec7ad606504ea4076db9a42377
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413361"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155901"
 ---
-# <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Obtenir la liste des clients filtrés à l’aide d’un champ de recherche
-
+# <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Obtenir la liste des clients filtrée par un champ de recherche
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient une collection des ressources [client](customer-resources.md#customer) qui correspondent à un filtre. Vous pouvez éventuellement définir une taille de page. Vous pouvez filtrer par nom de société, domaine, revendeur indirect ou fournisseur de solutions Cloud indirect (CSP).
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
-
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
+
 - Filtre construit par l’utilisateur.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour obtenir une collection de clients qui correspondent à un filtre, commencez par instancier un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) pour créer le filtre. Vous devez passer une chaîne qui contient le [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)et indiquer le type d’opération de filtre en tant que [**FieldFilterOperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation). Il s’agit de la seule opération de filtre de champ prise en charge par le point de terminaison Customers. Vous devez également fournir la chaîne de filtrage.
 
@@ -44,7 +42,7 @@ Enfin, pour exécuter le filtre et obtenir le résultat, utilisez d’abord [**c
 IAggregatePartner partnerOperations;
 
 // Specify the partial string to filter by (to match Contoso).
-string searchPrefix = "cont"  
+string searchPrefix = "cont"
 
 // Create a simple field filter.
 var fieldFilter = new SimpleFieldFilter(
@@ -61,57 +59,50 @@ var customers = partnerOperations.Customers.Query(myQuery);
 
 **Exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : FilterCustomers.cs
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                   |
+| Méthode  | URI de requête                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers ? Size = {size} & filtre = {filter} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers ? Size = {size} &filtre = {filter} http/1.1 |
 
- 
-
-**Paramètres d’URI**
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de requête suivants.
 
 | Nom   | Type   | Obligatoire | Description                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| size   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
-| filtre | filtre | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
+| taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
+| Filter | Filter | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
 
- 
+### <a name="filter-syntax"></a>Syntaxe de filtre
 
-**Syntaxe de filtre**
+Vous devez composer le paramètre de filtre sous la forme d’une série de paires clé-valeur séparées par des virgules. Chaque clé et valeur doit être placée entre des guillemets et séparée par deux points. La totalité du filtre doit être encodée.
 
-Vous devez composer le paramètre de filtre sous la forme d’une série de paires clé-valeur séparées par des virgules. Chaque clé et valeur doit être placée individuellement entre guillemets et séparés par un signe deux-points. Le filtre entier doit être encodé.
-
-Un exemple non encodé ressemble à ceci :
+Voici un exemple d’encodage : 
 
 ```http
 ?filter{"Field":"CompanyName","Value":"cont","Operator":"starts_with"}
-```  
-  
+```
+
 Le tableau suivant décrit les paires clé-valeur requises :
 
 | Clé      | Valeur                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
 | Champ    | Champ à filtrer. Les valeurs valides se trouvent dans [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
-| Valeur    | Valeur par laquelle filtrer. La casse de la valeur est ignorée.                                                                |
-| Opérateur | Opérateur à appliquer. La seule valeur prise en charge pour ce scénario client est « commence\_par ».                            |
+| Valeur    | Valeur sur laquelle filtrer. La casse de la valeur est ignorée.                                                                |
+| Opérateur | Opérateur à appliquer. La seule valeur prise en charge pour ce scénario client est\_« commence par ».                            |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter=%7B%22Field%22%3A%22CompanyName%22%2C%22Value%22%3A%22Cont%22%2C%22Operator%22%3A%22starts_with%22%7D HTTP/1.1
@@ -124,16 +115,15 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> réponse REST
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) correspondantes dans le corps de la réponse.
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez [Codes d’erreur REST de l’Espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -245,11 +235,3 @@ Date: Fri, 24 Feb 2017 22:08:20 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-

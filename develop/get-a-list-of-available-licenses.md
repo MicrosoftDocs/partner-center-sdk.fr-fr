@@ -6,34 +6,37 @@ ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 15bdd66a248b33ef543fbd186ba897a4a7063db1
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e0ddb15b931f21aea535bbff25f64488e2a93907
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416267"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155781"
 ---
 # <a name="get-a-list-of-available-licenses"></a>Obtenir une liste des licences disponibles
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
-Cette rubrique explique comment obtenir la liste des licences disponibles pour les utilisateurs du client spécifié.
+Cet article explique comment obtenir la liste des licences disponibles pour les utilisateurs du client spécifié.
 
 Les exemples suivants retournent des licences disponibles à partir de **Group1**, le groupe de licences par défaut qui représente les licences gérées par Azure Active Directory (Azure AD). Pour obtenir les licences disponibles pour un groupe de licences spécifié, consultez [obtenir une liste des licences disponibles par groupe de licences](get-a-list-of-available-licenses-by-license-group.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- Identificateur du client.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
 ## <a name="c"></a>C\#
 
 Pour récupérer la liste des licences disponibles dans le groupe de licences par défaut pour les utilisateurs d’un client :
 
 1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+
 2. Obtient la valeur de la propriété [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client.
+
 3. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour [**récupérer la liste**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) des licences.
 
 ``` csharp
@@ -53,25 +56,25 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de demande                                                                                    |
+| Méthode  | URI de requête                                                                                    |
 |---------|------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
-Utilisez le paramètre Path suivant pour identifier le client.
+Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
 | Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| ID client | chaîne | Oui      | Chaîne au format GUID qui identifie le client. |
+| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -85,7 +88,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [SubscribedSku](license-resources.md#subscribedsku) .
 

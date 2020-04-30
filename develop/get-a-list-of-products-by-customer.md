@@ -1,60 +1,59 @@
 ---
-title: Obtenir une liste de produits (par client)
+title: Obtenir la liste de produits (par client)
 description: Vous pouvez utiliser un identificateur de client pour obtenir une collection de produits par client.
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2141de3cd52f4e270b6668321d7736f33b578b3c
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 6252209dca0a2fada15ee5e44f2f65c4b4230eca
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412293"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82156011"
 ---
-# <a name="get-a-list-of-products-by-customer"></a>Obtenir une liste de produits (par client)
+# <a name="get-a-list-of-products-by-customer"></a>Obtenir la liste de produits (par client)
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de produits pour un client existant.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- Identificateur d’un client (**customer-tenant-id**).
 
-## <a name="rest"></a>REST
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
 
-### <a name="rest-request"></a>Demande Rest
+## <a name="rest-request"></a>Demande REST
 
-#### <a name="request-syntax"></a>Syntaxe de la requête
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de demande                                                                                                              |
+| Méthode | URI de requête                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | [ *\{baseURL\}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Products ? targetView = {TargetView} http/1.1 |
+| POST   | baseURL/v1/Customers/{Customer-tenant-ID}/Products ? targetView = {targetView} http/1.1 [* \{\}*](partner-center-rest-urls.md) |
 
-#### <a name="request-uri-parameters"></a>Paramètres d’URI de demande
+#### <a name="request-uri-parameters"></a>Paramètres de l’URI de demande
 
 | Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **client-locataire-ID** | GUID | Oui | La valeur est un paramètre **customer-tenant-id** au format GUID, à savoir un identificateur qui vous permet de spécifier un client. |
-| **targetView** | chaîne | Oui | Identifie la vue cible du catalogue. Les valeurs prises en charge sont les suivantes : <ul><li>**Azure**, qui comprend tous les éléments Azure</li><li>**AzureReservations**, qui comprend tous les éléments de réservation Azure</li><li>**AzureReservationsVM**, qui comprend tous les éléments de réservation des machines virtuelles</li><li>**AzureReservationsSQL**, qui comprend tous les éléments de réservation SQL</li><li>**AzureReservationsCosmosDb**, qui comprend tous les éléments de réservation de base de données Cosmos</li><li>**MicrosoftAzure**, qui comprend des éléments pour les abonnements Microsoft Azure (**MS-AZR-0145P**) et les plans Azure</li><li>**OnlineServices**, qui inclut tous les éléments de service en ligne, y compris les produits de la place de marché commerciale</li><li>**Logiciel**, qui comprend tous les éléments logiciels</li><li>**SoftwareSUSELinux**, qui comprend tous les éléments logiciels SUSE Linux</li><li>**SoftwarePerpetual**, qui comprend tous les éléments logiciels perpétuels</li><li>**SoftwareSubscriptions**, qui comprend tous les éléments d’abonnement logiciel </ul> |
+| **customer-tenant-id** | GUID | Oui | La valeur est un paramètre **customer-tenant-id** au format GUID, à savoir un identificateur qui vous permet de spécifier un client. |
+| **targetView** | string | Oui | Identifie la vue cible du catalogue. Les valeurs prises en charge sont les suivantes : <ul><li>**Azure**, qui comprend tous les éléments Azure</li><li>**AzureReservations**, qui comprend tous les éléments de réservation Azure</li><li>**AzureReservationsVM**, qui comprend tous les éléments de réservation des machines virtuelles</li><li>**AzureReservationsSQL**, qui comprend tous les éléments de réservation SQL</li><li>**AzureReservationsCosmosDb**, qui comprend tous les éléments de réservation de base de données Cosmos</li><li>**MicrosoftAzure**, qui comprend des éléments pour les abonnements Microsoft Azure (**MS-AZR-0145P**) et les plans Azure</li><li>**OnlineServices**, qui inclut tous les éléments de service en ligne, y compris les produits de la place de marché commerciale</li><li>**Logiciel**, qui comprend tous les éléments logiciels</li><li>**SoftwareSUSELinux**, qui comprend tous les éléments logiciels SUSE Linux</li><li>**SoftwarePerpetual**, qui comprend tous les éléments logiciels perpétuels</li><li>**SoftwareSubscriptions**, qui comprend tous les éléments d’abonnement logiciel </ul> |
 
-#### <a name="request-header"></a>En-tête de requête
+### <a name="request-header"></a>En-tête de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md).
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-#### <a name="request-body"></a>Corps de demande
+### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
-#### <a name="request-example"></a>Exemple de requête
+### <a name="request-example"></a>Exemple de requête
 
 Demandez une liste de produits Azure basés sur l’utilisation disponibles pour un client donné. Les produits pour les Microsoft Azure (MS-AZR-0145P) et les plans Azure sont renvoyés pour les clients dans le cloud public :
 
@@ -66,19 +65,19 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-### <a name="rest-response"></a>Réponse Rest
+## <a name="rest-response"></a>Réponse Rest
 
-#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 Cette méthode retourne les codes d’erreur suivants :
 
-| Code d'état HTTP | Error code   | Description                     |
+| Code d’état HTTP | Code d'erreur   | Description                     |
 |------------------|--------------|---------------------------------|
-| 403 | 400036 | L’accès au targetView demandé n’est pas autorisé. | 
+| 403 | 400036 | L’accès au targetView demandé n’est pas autorisé. |
 
-#### <a name="response-example"></a>Exemple de réponse
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -86,7 +85,7 @@ Content-Length: 1909
 Content-Type: application/json; charset=utf-8
 MS-CorrelationId: cad955c2-8efc-47fe-b112-548ff002ba18
 MS-RequestId: ae7288e2-2673-4ad4-8c12-7aad818d5949
- 
+
 {
     "totalCount": 2,
     "items": [

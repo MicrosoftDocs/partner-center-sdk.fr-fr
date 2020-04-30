@@ -1,36 +1,38 @@
 ---
-title: Supprimer un compte client du bac à sable (sandbox) d’intégration
+title: Supprimer un compte client du bac à sable d’intégration
 description: Comment supprimer un compte client du bac à sable (sandbox) d’intégration test en production (TIP).
 ms.assetid: B95431F6-EA7F-4C21-835F-6D6C303B05A5
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 31756f1ff4d4cc4a33e37ba2581cabeb8d5c438b
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d81341f46d9131ac19ba5ae48e424423b4b761e5
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412514"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155441"
 ---
-# <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Supprimer un compte client du bac à sable (sandbox) d’intégration
+# <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Supprimer un compte client du bac à sable d’intégration
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Cette rubrique explique comment supprimer un compte client du bac à sable (sandbox) d’intégration test en production (TIP).
+Cet article explique comment supprimer un compte client du bac à sable (sandbox) d’intégration test en production (TIP).
 
 > [!IMPORTANT]
 > Lorsque vous supprimez un compte client, toutes les ressources associées à ce locataire client sont purgées.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
-- ID client (**client-locataire-ID**).
+
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Tous les Azure Reserved Virtual Machine Instances et les bons de commande logiciels doivent être annulés avant de supprimer un client du bac à sable (sandbox) d’intégration Tip.
 
 ## <a name="c"></a>C\#
@@ -38,14 +40,23 @@ Cette rubrique explique comment supprimer un compte client du bac à sable (sand
 Pour supprimer un client du bac à sable (sandbox) d’intégration Tip :
 
 1. Transmettez les informations d’identification de votre compte Tip à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) pour les opérations de partenaire.
+
 2. Utilisez l’interface opérateur partenaire pour récupérer la collection de droits :
-    1. Appelez la méthode [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client.
+
+    1. Appelez la méthode [**Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client.
+
     2. Appelez la propriété de **droits** .
+
     3. Appelez la méthode **GetAsync** pour **récupérer la collection** de [**droits**](entitlement-resources.md) .
+
 3. Assurez-vous que tous les Azure Reserved Virtual Machine Instances et les bons de commande logiciels pour ce client sont annulés. Pour chaque [**droit**](entitlement-resources.md) du regroupement :
+
     1. Utilisez le [**droit. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) pour obtenir une copie locale de la [commande](order-resources.md#order) correspondante à partir de la collection de commandes du client.
+
     2. Définissez la propriété [**Order. Status**](order-resources.md#order) sur « Cancelled ».
+
     3. Utilisez la méthode **patch ()** pour mettre à jour la commande.
+
 4. Annulez toutes les commandes. Par exemple, l’exemple de code suivant utilise une boucle pour interroger chaque commande jusqu’à ce que son état soit « annulé ».
 
     ``` csharp
@@ -98,7 +109,7 @@ Pour supprimer un client du bac à sable (sandbox) d’intégration Tip :
 
 | Méthode     | URI de demande                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| DELETE     | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID} http/1.1 |
+| Suppression     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID} http/1.1 |
 
 #### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -106,15 +117,15 @@ Utilisez le paramètre de requête suivant pour supprimer un client.
 
 | Nom                   | Type     | Obligatoire | Description                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| customer-tenant-id     | GUID     | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| customer-tenant-id     | GUID     | O        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
-None.
+Aucun.
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -126,7 +137,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne une réponse vide.
 

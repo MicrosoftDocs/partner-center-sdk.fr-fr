@@ -5,18 +5,18 @@ ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 5e0a7a554efbcd519a5c06e82053e47c909a56bc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 486b2e9002c1b0130c96345c2b5ed296418be4da
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412192"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155591"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Rejoindre le programme Utilisateur précoce du SDK et de l'API de l’Espace partenaires
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,9 @@ Les partenaires peuvent collaborer avec Microsoft sur le développement d’API 
 Les fonctionnalités suivantes sont disponibles pour les partenaires qui rejoignent l’API espace partenaires et le programme SDK early adopter :
 
 - **Accès aux versions préliminaires des API et du kit de développement logiciel (SDK) de l’espace partenaires**: nous annoncerons de nouvelles fonctionnalités et fonctionnalités au groupe accès au début du programme d’adoption de l’espace partenaires privé.
+
 - **Webinaires mensuels**: un webinaire mensuel destiné aux premiers utilisateurs sera dirigé pour répondre à des questions, rassembler des commentaires, partager des calendriers et des chronologies, et fournir un support pour les nouvelles fonctionnalités.
+
 - **Support de la part d’experts**: les participants peuvent fournir des commentaires et communiquer avec les experts du groupe Yammer privé.
 
 ## <a name="join-the-program"></a>Rejoindre le programme
@@ -40,7 +42,7 @@ Vous devez être un **partenaire CSP existant** ou un **fournisseur de plateform
    > [!NOTE]
    > Vous devrez peut-être rejoindre le Microsoft Cloud réseau de la communauté Yammer avant de rejoindre le programme d’adoption précoce du programme de l’espace partenaires.
 
-2. **Envoyez un e-mail à [pctap@microsoft.com](mailto:pctap@microsoft.com)**  à l’aide de votre ID Microsoft ou de votre compte sandbox (test en production), et de votre domaine principal.
+2. **Envoyez un e-mail à [pctap@microsoft.com](mailto:pctap@microsoft.com) ** avec votre ID Microsoft ou votre compte sandbox (test en production) sandbox et votre domaine principal.
 
    > [!TIP]
    > Vous pouvez trouver votre ID Microsoft dans la page profil de l' **organisation** dans le menu **paramètres du compte** .

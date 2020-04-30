@@ -1,23 +1,23 @@
 ---
-title: Codes d’erreur REST de l’espace partenaires
+title: Codes d’erreur REST de l’Espace partenaires
 description: Description des codes d’erreur et des réponses de réussite à partir des API de l’espace partenaires.
 ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 2bb945de632b0bf18eea73db739ad0aa6085eecc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: d4f31783b94ed8cae85687b806624945bb185486
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415644"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155751"
 ---
-# <a name="partner-center-rest-error-codes"></a>Codes d’erreur REST de l’espace partenaires
+# <a name="partner-center-rest-error-codes"></a>Codes d’erreur REST de l’Espace partenaires
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -28,7 +28,7 @@ Les API REST de l’espace partenaires retournent un objet JSON qui contient un 
 
 Un code d’état **2xx** indique que la demande du client a été correctement reçue, comprise et acceptée.
 
-## <a name="error-codes"></a>Codes d’erreur
+## <a name="error-codes"></a>Codes d'erreur
 
 Les codes d’état **4xx** et **5xx** suivants indiquent une erreur :
 
@@ -55,10 +55,10 @@ Le tableau et l’exemple de code suivants décrivent le schéma d’une répons
 
 | Nom        | Type   | Description                                                                                                                                            |
 |-------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| code        | chaîne | Toujours retourné. Indique le type d’erreur qui s’est produit. Non Null.                                                                                  |
-| description | chaîne | Toujours retourné. Décrit l’erreur et fournit des informations de débogage supplémentaires. Non Null, non vide. La longueur maximale est de 1 024 caractères. |
-| data        | array  | Retourné uniquement pour certains types d’erreur. Liste d’objets d’erreur.                                                                                           |
-| source      | chaîne | Toujours retourné. Source de l’erreur.                                                                                                              |
+| code        | string | Toujours retourné. Indique le type d’erreur qui s’est produit. Non Null.                                                                                  |
+| description | string | Toujours retourné. Décrit l’erreur et fournit des informations de débogage supplémentaires. Non Null, non vide. La longueur maximale est de 1 024 caractères. |
+| data        | tableau  | Retourné uniquement pour certains types d’erreur. Liste d’objets d’erreur.                                                                                           |
+| source      | string | Toujours retourné. Source de l’erreur.                                                                                                              |
 
 ```json
 {
@@ -68,6 +68,6 @@ Le tableau et l’exemple de code suivants décrivent le schéma d’une répons
 
   ],
   "source": <string>
-## }
+}
 WWW-Authenticate: OAuth realm=urn:cpsvc:cpid:{some cid}
 ```

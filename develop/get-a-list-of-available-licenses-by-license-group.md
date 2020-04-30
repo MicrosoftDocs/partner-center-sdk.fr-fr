@@ -6,31 +6,30 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 81fa1d8cbffe4ccc3e5008ff8a4b8a5ec032e3cc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5cacbc986474954e0ec217cd33121f05edc5220e
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413339"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82155761"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>Obtenir la liste des licences disponibles par groupe de licences
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 
 Comment obtenir la liste des licences des groupes de licences spécifiés disponibles pour les utilisateurs du client spécifié.
 
-## <a name="span-idprerequisitesspan-idprerequisitesspan-idprerequisitesprerequisites"></a><span id="Prerequisites"/><span id="prerequisites"/><span id="PREREQUISITES"/>conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
-- Identificateur du client.
+- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+
 - Liste d’un ou plusieurs identificateurs de groupe de licences.
 
-## <a name="span-idc_span-idc_c"></a><span id="C_"/><span id="c_"/>C#
-
+## <a name="c"></a>C\#
 
 Pour obtenir la liste des licences disponibles pour les groupes de licences spécifiés, commencez par instancier une [liste](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) de type [**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid), puis ajoutez les groupes de licences à la liste. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez la valeur de la propriété [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client. Enfin, transmettez la liste des groupes de licences [**à la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour récupérer la liste des références (SKU) souscrites avec des détails sur les unités de licence disponibles.
 
@@ -38,7 +37,7 @@ Pour obtenir la liste des licences disponibles pour les groupes de licences spé
 // string selectedCustomerId;
 // IAggregatePartner partnerOperations;
 
-// To get subscribed SKUs available for group1, the license group for Azure Active Directory (AAD). 
+// To get subscribed SKUs available for group1, the license group for Azure Active Directory (AAD).
 List<LicenseGroupId> licenseGroupIds = new List<LicenseGroupId>() { LicenseGroupId.Group1};
 var customerUserAadSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get(licenseGroupIds);
 
@@ -51,39 +50,34 @@ List<LicenseGroupId> licenseGroupIds = new List<LicenseGroupId>() { LicenseGroup
 var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get(licenseGroupIds);
 ```
 
-## <a name="span-id_requestspan-id_requestspan-id_request-rest-request"></a><span id="_Request"/><span id="_request"/><span id="_REQUEST"/> demande REST
+## <a name="rest-request"></a>Demande REST
 
+### <a name="request-syntax"></a>Syntaxe de la requête
 
-**Syntaxe de la requête**
-
-| Méthode  | URI de demande                                                                                                                                  |
+| Méthode  | URI de requête                                                                                                                                  |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group1 http/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group2 http/1.1                        |
-| **GET** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = group1 & LicenseGroupIds = Group2 http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group1 http/1.1                        |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group2 http/1.1                        |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscribedskus ? LicenseGroupIds = Group1&LicenseGroupIds = Group2 http/1.1 |
 
- 
-
-**Paramètre URI**
+### <a name="uri-parameter"></a>Paramètre d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour identifier le client et les groupes de licences.
 
 | Nom            | Type   | Obligatoire | Description                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID client     | chaîne | Oui      | Chaîne au format GUID qui identifie le client.                                                                                                                                                                                                                 |
-| licenseGroupIds | chaîne | Non       | Valeur enum qui indique le groupe de licences des licences attribuées. Valeurs valides : Group1, Group2 Group1 : ce groupe contient tous les produits dont la licence peut être gérée dans le Azure Active Directory (AAD). Group2-ce groupe possède uniquement des licences de produits Minecraft. |
+| customer-id     | string | Oui      | Chaîne au format GUID qui identifie le client.                                                                                                                                                                                                                 |
+| licenseGroupIds | string | Non       | Valeur enum qui indique le groupe de licences des licences attribuées. Valeurs valides : Group1, Group2 Group1 : ce groupe contient tous les produits dont la licence peut être gérée dans le Azure Active Directory (AAD). Group2-ce groupe possède uniquement des licences de produits Minecraft. |
 
- 
+### <a name="request-headers"></a>En-têtes de requête
 
-**En-têtes de demande**
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
-- Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+### <a name="request-body"></a>Corps de demande
 
-**Corps de la demande**
+Aucun.
 
-None.
-
-**Exemple de requête**
+### <a name="request-example"></a>Exemple de requête
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/0c39d6d5-c70d-4c55-bc02-f620844f3fd1/subscribedskus?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1
@@ -95,16 +89,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="span-id_responsespan-id_responsespan-id_response-rest-response"></a><span id="_Response"/><span id="_response"/><span id="_RESPONSE"/> réponse REST
-
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [SubscribedSku](license-resources.md#subscribedsku) .
 
-**Codes d’erreur et de réussite de la réponse**
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
-**Exemple de réponse**
+### <a name="response-example"></a>Exemple de réponse
 
 ```http
 HTTP/1.1 200 OK
@@ -238,7 +231,7 @@ Date: Sat, 10 Jun 2017 00:19:44 GMT
 }
 ```
 
-**Exemple de réponse (aucune référence SKU correspondante trouvée)**
+### <a name="response-example-no-matching-skus-found"></a>Exemple de réponse (aucune référence SKU correspondante trouvée)
 
 Si aucune référence SKU correspondante ne peut être trouvée pour les groupes de licences spécifiés, la réponse contient une collection vide avec un élément totalCount dont la valeur est 0.
 
@@ -260,11 +253,3 @@ Date: Fri, 09 Jun 2017 22:50:11 GMT
     }
 }
 ```
-
- 
-
- 
-
-
-
-
