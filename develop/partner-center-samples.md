@@ -1,32 +1,32 @@
 ---
-title: Exemples de l’espace partenaires
+title: Exemples de l’Espace partenaires
 description: Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de programme, des extraits de code managé C et des exemples de demandes et de réponses REST.
 ms.assetid: FBE67405-88E2-42F4-B456-D4602A2719F5
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9cc3605287da38cee9a67e4e7fe9ec5b5784b7dc
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: e076e7d7c6b67eb8795e8f19ad6971459984f3db
+ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416391"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82095161"
 ---
-# <a name="partner-center-samples"></a>Exemples de l’espace partenaires
+# <a name="partner-center-samples"></a>Exemples de l’Espace partenaires
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de C# programme, des extraits de code managés et des exemples de demandes et de réponses Rest.
+Pour vous aider à être rapidement opérationnel avec les API de l’espace partenaires, nous proposons un exemple de programme, des extraits de code managés C# et des exemples de demandes et de réponses REST.
 
-[!INCLUDE [<Partner Center Java SDK support details>](<../includes/java-sdk-support.md>)]
+[!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-[!INCLUDE [<Partner Center PowerShell module support details>](<../includes/powershell-module-support.md>)]
+[!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 <table>
   <thead>
@@ -44,7 +44,7 @@ Pour vous aider à être rapidement opérationnel avec les API de l’espace par
     </tr>
     <tr>
       <td><a href="console-test-app.md">Application de test de console</a></td>
-      <td>Cette application est disponible dans C# et Java, elle fournit du code et une gestion des erreurs pour tous les scénarios listés dans la section scénarios.</td>
+      <td>Cette application est disponible en C# et Java, elle fournit du code et une gestion des erreurs pour tous les scénarios listés dans la section scénarios.</td>
     </tr>
     <tr>
       <td><a href="csp-customer-web-storefront.md">Vitrine web des clients fournisseurs de solutions cloud</a></td>
@@ -52,7 +52,7 @@ Pour vous aider à être rapidement opérationnel avec les API de l’espace par
     </tr>
     <tr>
       <td>Stocker le site Web</td>
-      <td><p><strong>Description :</strong></p>
+      <td><p><strong>Description :</strong></p>
           <p>Cette application montre comment créer un Web Store basé sur le catalogue des offres disponibles pour les partenaires du fournisseur de solutions Cloud. Les clients peuvent créer un compte de banque et commander des abonnements logiciels via votre site.</p>
         <p><strong>Récupérez le code :</strong></p>
         <p><a href="https://go.microsoft.com/fwlink/p/?LinkId=746683">Télécharger l’exemple de code</a></p>

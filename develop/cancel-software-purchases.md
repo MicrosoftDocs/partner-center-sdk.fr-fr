@@ -1,26 +1,26 @@
 ---
-title: Annuler les achats de logiciels
+title: Annuler des achats de logiciel
 description: Option libre-service pour annuler les abonnements logiciels et les achats de logiciels perpétuels à l’aide des API de l’espace partenaires.
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1da4e45bcfa3c54316139fefa348044643256190
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 7d984deb3c80a6f02ae1880ccbc8d9c7c882226f
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413054"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82123170"
 ---
-# <a name="cancel-software-purchases"></a>Annuler les achats de logiciels
+# <a name="cancel-software-purchases"></a>Annuler des achats de logiciel
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
-Vous pouvez annuler les abonnements logiciels et les achats de logiciels perpétuels qui se trouvent dans la fenêtre d’annulation de la date d’achat à l’aide des API de l’espace partenaires. Vous n’avez pas besoin de créer un ticket de support pour effectuer de telles annulations, et vous pouvez utiliser les méthodes en libre-service suivantes à la place.
+Vous pouvez utiliser les API de l’espace partenaires pour annuler les abonnements logiciels et les achats de logiciels perpétuels (à condition que ces achats aient été effectués dans la fenêtre d’annulation de la date d’achat). Vous n’avez pas besoin de créer un ticket de support pour effectuer de telles annulations, et vous pouvez utiliser les méthodes en libre-service suivantes à la place.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
@@ -30,11 +30,11 @@ Pour annuler une commande de logiciel,
 
 1. Transmettez les informations d’identification de votre compte à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’accéder aux opérations du partenaire.
 
-2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
+2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
 
 3. Appelez la méthode **obtenir** ou **GetAsync** pour récupérer la commande.
 
-4. Définissez la propriété [**Order. Status**](order-resources.md#order) sur « Cancelled ».
+4. Affectez à `cancelled`la propriété [**Order. Status**](order-resources.md#order) la valeur.
 
 5. Facultatif Si vous souhaitez spécifier certains éléments de ligne pour l’annulation, définissez [**Order. LineItem**](order-resources.md#order) sur la liste des éléments de ligne que vous souhaitez annuler.
 
@@ -61,22 +61,22 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de demande                                                                            |
+| Méthode     | URI de requête                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **CORRECTIF** | [ *{baseURL}* ](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
+| **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de requête suivants pour supprimer un client.
 
 | Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **client-locataire-ID** | **uniques** | Y        | La valeur est un identificateur de locataire client au format GUID qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
-| **ID de commande** | **chaîne** | Y        | La valeur est une chaîne qui indique l’identificateur de l’ordre que vous souhaitez annuler. |
+| **customer-tenant-id** | **guid** | O        | La valeur est un identificateur de locataire client au format GUID qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID de commande** | **string** | O        | La valeur est une chaîne qui indique l’identificateur de l’ordre que vous souhaitez annuler. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes REST de l’espace partenaires](headers.md) .
+Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires](headers.md).
 
 ### <a name="request-body"></a>Corps de demande
 
@@ -113,11 +113,11 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 }
 ```
 
-## <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Response REST
 
 En cas de réussite, cette méthode retourne l’ordre avec les éléments de ligne annulés.
 
-L’état de la commande est marqué comme **annulé** (si tous les Articles de la commande sont annulés) ou **terminés** (si tous les éléments de ligne de la commande sont annulés).
+L’état de la commande est marqué comme **annulé** si tous les Articles de la commande sont annulés, ou **terminés** si tous les Articles de la commande ne sont pas annulés.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
@@ -125,7 +125,7 @@ Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réus
 
 ### <a name="response-example"></a>Exemple de réponse
 
-Dans l’exemple de réponse suivant, vous pouvez voir que la quantité d’élément de ligne avec l’identificateur d’offre **DG7GMGF0FKZV : 0003 : DG7GMGF0DWMS** a été égale à zéro (0). Cette modification signifie que la ligne marquée pour l’annulation a été annulée avec succès. L’exemple de commande contient d’autres lignes qui n’ont pas été annulées, ce qui signifie que l’état de la commande globale sera marqué comme **terminé**, non **annulé**.
+Dans l’exemple de réponse suivant, vous pouvez voir que la quantité d’élément de ligne avec l’identificateur **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** d’offre est égale à zéro (0). Cette modification signifie que la ligne marquée pour l’annulation a été annulée avec succès. L’exemple de commande contient d’autres lignes qui n’ont pas été annulées, ce qui signifie que l’état de la commande globale sera marqué comme **terminé**, non **annulé**.
 
 ```http
 HTTP/1.1 200 OK

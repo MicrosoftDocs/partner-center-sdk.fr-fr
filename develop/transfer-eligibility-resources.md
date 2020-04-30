@@ -5,18 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 739631a4870268001c14f95490985ba18896e418
-ms.sourcegitcommit: 4b1c10f91962861244c9349d5b9a9ba354b35b24
+ms.openlocfilehash: cb0ba6a4ff0daf6fa3ed04561aeb997822b5bc2b
+ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2020
-ms.locfileid: "81220715"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82124314"
 ---
 # <a name="transfereligibility-resources"></a>Ressources TransferEligibility
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -29,6 +29,6 @@ Décrit un transferEligibility.
 
 | Propriété              | Type             | Description                                                                              |
 |-----------------------|------------------|------------------------------------------------------------------------------------------|
-| id                    | chaîne           | Identificateur d’abonnement du client.                                                  |
+| id                    | string           | Identificateur d’abonnement du client.                                                  |
 | isEligible            | bool             | Indique si l’abonnement est éligible pour le transfert.                         |
-| Raison                | chaîne           | Raison expliquant le ineligiblity si l’abonnement n’est pas éligible pour le transfert. |
+| Motif                | string           | La propriété Reason explique pourquoi l’abonnement n’est pas éligible pour le transfert. |

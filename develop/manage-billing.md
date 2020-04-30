@@ -6,19 +6,18 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: eb8dfcc9910b25028c453aa416b4627b48e08c28
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 35bc02253932a43f22e99afec5f3ab279edf738e
+ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416505"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82089379"
 ---
 # <a name="manage-billing"></a>Gérer la facturation
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -35,13 +34,13 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 **Factures**
 - [Obtenir une collection de factures](get-a-collection-of-invoices.md)
 - [Obtenir des liens d’estimation de facture](get-invoice-estimate-links.md)
-- [Obtenir les éléments de ligne de consommation de la place de marché commerciale facturés](get-invoice-billed-consumption-lineitems.md)
-- [Recevoir la facture par ID](get-invoice-by-id.md)
+- [Obtient les éléments de ligne de la consommation de la place de marché commercial facturés](get-invoice-billed-consumption-lineitems.md)
+- [Obtenir une facture par ID](get-invoice-by-id.md)
 - [Obtenir des éléments de ligne de facture](get-invoiceline-items.md)
 - [Obtenir l’instruction de réception de facture](get-invoice-receipt-statement.md)
-- [Obtenir l’instruction de facture](get-invoice-statement.md) 
+- [Obtenir l’instruction de facture](get-invoice-statement.md)
 - [Obtenir des récapitulatifs de facture](get-invoice-summaries.md)
-- [Obtenir les éléments de ligne de consommation de la place de marché commerciale non facturés](get-invoice-unbilled-consumption-lineitems.md)
+- [Obtient les éléments de ligne de facturation de la place de marché commercial non facturés](get-invoice-unbilled-consumption-lineitems.md)
 - [Obtenir les éléments de ligne de rapprochement non facturés](get-invoice-unbilled-recon-lineitems.md)
 - [Procurez-vous le solde actuel du compte du revendeur](get-the-reseller-s-current-account-balance.md)
 
@@ -50,11 +49,3 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Obtenir le résumé de l’utilisation de tous les abonnements d’un client](get-a-customer-usage-summary.md)
 
 Pour plus d’informations, consultez [scénarios](scenarios.md), en particulier la section d' [arrière-plan](scenarios.md#background) .
-
- 
-
- 
-
-
-
-

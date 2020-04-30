@@ -6,18 +6,18 @@ ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 910590a9670d7bfc3fe3e0b00d624026b73372e4
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 5aaf4c9dc80b681c274c68af3439654e27e27be7
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412359"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81664615"
 ---
 # <a name="device-deployment-resources"></a>Ressources de déploiement de l’appareil
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
 Les ressources suivantes sont liées au déploiement d’appareils.
@@ -28,12 +28,12 @@ Les ressources suivantes sont liées au déploiement d’appareils.
 
 | Propriété             | Type                                                           | Description                                                        |
 |----------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| id                   | chaîne                                       | Chaîne au format GUID qui identifie la stratégie.                                  |
-| nom                 | chaîne                                       | Nom convivial de la stratégie.                                                    |
-| category             | chaîne                                       | Catégorie.                                                                        |
-| description          | chaîne                                       | Description de la stratégie.                                                              |
+| id                   | string                                       | Chaîne au format GUID qui identifie la stratégie.                                  |
+| name                 | string                                       | Nom convivial de la stratégie.                                                    |
+| catégorie             | string                                       | Catégorie.                                                                        |
+| description          | string                                       | Description de la stratégie.                                                              |
 | devicesAssignedCount | nombre                                       | Nombre d’appareils affectés à cette stratégie.                                       |
-| policySettings       | tableau de chaînes                             | Les paramètres de stratégie : « aucun », « supprimer\_\_préinstallations OEM », « OOBE\_utilisateur\_pas\_administrateur de\_local », « ignorer les paramètres\_Express\_», « ignorer les\_l’inscription OEM\_», « ignorer\_CLUF ».    |
+| policySettings       | tableau de chaînes                             | Les paramètres de stratégie : « aucun », «\_supprimer\_les préinstallations OEM »,\_«\_l'\_utilisateur\_OOBE n’est pas administrateur\_local\_», « ignorer les\_paramètres\_Express », « ignorer\_l’inscription OEM », « ignorer le CLUF ».    |
 | createdDate          | chaîne au format date-heure UTC               | Date et heure de création de la stratégie.                                            |
 | LastModifiedDate &     | chaîne au format date-heure UTC               | Date et heure de la dernière modification de la stratégie.                                      |
 | attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                            |
@@ -44,13 +44,13 @@ L' **appareil** fournit des informations sur un appareil.
 
 | Propriété            | Type                                                           | Description                                                              |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| id                  | chaîne                                                         | Chaîne au format GUID qui identifie l’appareil.                      |
-| serialNumber        | chaîne                                                         | Numéro de série associé de manière unique à l’appareil.                   |
-| productKey          | chaîne                                                         | Clé de produit associée de manière unique à l’appareil.                     |
-| hardwareHash        | chaîne                                                         | Hachage matériel associé de manière unique à l’appareil.                   |
-| modelName           | chaîne                                                         | Nom de modèle associé à l’appareil.                               |
-| oemManufacturerName | chaîne                                                         | Nom du fabricant OEM associé à l’appareil.             |
-| stratégies            | Tableau d’objets                                               | Liste des stratégies affectées à l’appareil.                             |
+| id                  | string                                                         | Chaîne au format GUID qui identifie l’appareil.                      |
+| serialNumber        | string                                                         | Numéro de série associé de manière unique à l’appareil.                   |
+| productKey          | string                                                         | Clé de produit associée de manière unique à l’appareil.                     |
+| hardwareHash        | string                                                         | Hachage matériel associé de manière unique à l’appareil.                   |
+| modelName           | string                                                         | Nom de modèle associé à l’appareil.                               |
+| oemManufacturerName | string                                                         | Nom du fabricant OEM associé à l’appareil.             |
+| stratégies            | tableau d’objets                                               | Liste des stratégies affectées à l’appareil.                             |
 | uploadedDate        | chaîne au format date-heure UTC                                 | Date et heure auxquelles les détails de l’appareil ont été téléchargés.                      |
 | allowedOperations   | tableau de chaînes                                               | Liste des méthodes HTTP autorisées sur une synchronisation d’appareil en tant que obtenir, corriger, supprimer. |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                                 |
@@ -61,8 +61,8 @@ L' **appareil** fournit des informations sur un appareil.
 
 | Propriété        | Type     | Description                                                                  |
 |-----------------|----------|------------------------------------------------------------------------------|
-| batchTrackingId | chaîne   | Chaîne au format GUID qui est associée au lot des appareils téléchargés. |
-| statut          | chaîne   | État du chargement de lot : « inconnu », « en attente », « traitement », « terminé », « terminé\_avec des erreurs de\_». |
+| batchTrackingId | string   | Chaîne au format GUID qui est associée au lot des appareils téléchargés. |
+| status          | string   | État du chargement de lot : « inconnu », « en attente », « en cours de traitement », « terminé »,\_«\_terminé avec des erreurs ». |
 | startedTime     | chaîne au format date-heure UTC | Date et heure de début du processus de téléchargement de lot.   |
 | completedTime   | chaîne au format date-heure UTC  | Date et heure de fin du processus de téléchargement de lot.   |
 | devicesStatus   | Tableau de ressources [DeviceUploadDetails](#deviceuploaddetails) | Tableau d’objets qui spécifient l’état de chaque chargement d’informations sur l’appareil. |
@@ -74,12 +74,12 @@ L' **appareil** fournit des informations sur un appareil.
 
 | Propriété         | Type                    | Description                                 |
 |------------------|-------------------------|---------------------------------------------|
-| DeviceId         | chaîne                  | Chaîne au format GUID qui est associée à l’appareil. |
-| serialNumber     | chaîne                  | Numéro de série associé de manière unique à l’appareil. |
-| productKey       | chaîne                  | Clé de produit associée de manière unique à l’appareil. |
-| statut           | chaîne                  | État du chargement des informations sur l’appareil : « en cours », « terminé », « terminé\_avec des erreurs de\_». |
-| errorCode        | chaîne                  | Code d’erreur d’état HTTP renvoyé en cas d’échec du chargement de l’appareil. |
-| errorDescription | chaîne                  | Description de l’erreur HTTP en cas d’échec du chargement de l’appareil. |
+| deviceId         | string                  | Chaîne au format GUID qui est associée à l’appareil. |
+| serialNumber     | string                  | Numéro de série associé de manière unique à l’appareil. |
+| productKey       | string                  | Clé de produit associée de manière unique à l’appareil. |
+| status           | string                  | État du chargement des informations sur l’appareil : « en cours », « terminé », « terminé\_avec\_des erreurs ». |
+| errorCode        | string                  | Code d’erreur d’état HTTP renvoyé en cas d’échec du chargement de l’appareil. |
+| errorDescription | string                  | Description de l’erreur HTTP en cas d’échec du chargement de l’appareil. |
 | attributs       | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.   |
 
 ## <a name="devicebatch"></a>DeviceBatch
@@ -88,8 +88,8 @@ L' **appareil** fournit des informations sur un appareil.
 
 | Propriété     | Type                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| id           | chaîne                                                         | Chaîne au format GUID associée au lot d’appareils. |
-| createdBy    | chaîne                                                         | Nom du locataire qui a créé la collection.                   |
+| id           | string                                                         | Chaîne au format GUID associée au lot d’appareils. |
+| createdBy    | string                                                         | Nom du locataire qui a créé la collection.                   |
 | creationDate | chaîne au format date-heure UTC                                 | Les données et l’heure de création de la collection.                    |
 | deviceCount  | nombre                                                         | Nombre d’appareils dans la collection.                              |
 | devicesLink  | [Lien](utility-resources.md#link)                              | Un lien vers les appareils contenus dans ce lot.                        |
@@ -101,8 +101,8 @@ L' **appareil** fournit des informations sur un appareil.
 
 | Propriété     | Type                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| batchId      | chaîne                                                         | Chaîne au format GUID associée au lot d’appareils. |
-| devices      | Tableau d’objets [Device](#device)                             | Chaque objet spécifie un appareil. Les combinaisons de champs suivantes pour identifier un appareil sont acceptées : hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash uniquement, productKey only, serialNumber + oemManufacturerName + modelName. |
+| batchId      | string                                                         | Chaîne au format GUID associée au lot d’appareils. |
+| périphériques      | Tableau d’objets [Device](#device)                             | Chaque objet spécifie un appareil. Les combinaisons de champs suivantes pour identifier un appareil sont acceptées : hardwareHash + productKey, hardwareHash + serialNumber, hardwareHash + productKey + serialNumber, hardwareHash uniquement, productKey only, serialNumber + oemManufacturerName + modelName. |
 | attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                              |
 
 ## <a name="devicepolicyupdaterequest"></a>DevicePolicyUpdateRequest
@@ -111,5 +111,5 @@ L' **appareil** fournit des informations sur un appareil.
 
 | Propriété     | Type                                                           | Description                                                           |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| devices      | Tableau d’objets [Device](#device)                             | Chaque objet spécifie un appareil. Les propriétés suivantes sont requises : ID, stratégies. |
+| périphériques      | Tableau d’objets [Device](#device)                             | Chaque objet spécifie un appareil. Les propriétés suivantes sont requises : ID, stratégies. |
 | attributs   | [ResourceAttributes](utility-resources.md#resourceattributes)  | Attributs de métadonnées.                                              |

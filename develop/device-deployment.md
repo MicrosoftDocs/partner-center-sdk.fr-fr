@@ -1,23 +1,23 @@
 ---
-title: Déploiement de l’appareil
+title: Déploiement d’appareil
 description: Les fonctionnalités de déploiement d’appareils API de l’espace partenaires incluent des stratégies de configuration et des appareils.
 ms.assetid: 7403E326-5A33-4B39-9364-40D1E5CD2DE1
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 6842fdefd71a066e6b1be3a5ab302b24e445366d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: eff3dcdc9a5717699152eaa4980f07aa48325bae
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412427"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81666244"
 ---
-# <a name="device-deployment"></a>Déploiement de l’appareil
+# <a name="device-deployment"></a>Déploiement d’appareil
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires de Microsoft Cloud Germany
 
 Les API de l’espace partenaires offrent un accès aux fonctionnalités de déploiement Zero-Touch, ce qui vous permet de simplifier la configuration des appareils sécurisés pour vos clients.
@@ -32,7 +32,7 @@ Rubriques relatives à l’ajout, la suppression, la mise à jour et la récupé
 - [Récupérer la stratégie de configuration d’un client](retrieve-a-customer-s-configuration-policy.md)
 - [Mettre à jour une stratégie de configuration pour le client spécifié](update-a-configuration-policy-for-the-specified-customer.md)
 
-## <a name="devices"></a>Périphériques
+## <a name="devices"></a>Appareils
 
 Rubriques sur l’utilisation et le chargement des lots d’appareils et des métadonnées d’appareil :
 

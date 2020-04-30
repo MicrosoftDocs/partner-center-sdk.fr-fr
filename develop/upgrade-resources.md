@@ -6,90 +6,70 @@ ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d75d81dffbe30633038c03cec2cdf85e05536eb9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: cc89d1a4c4d31becbe3ec0f38c597d7f8aba9a0f
+ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414521"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82118095"
 ---
 # <a name="upgrade-resources"></a>Mettre à niveau les ressources
 
-
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
 Décrit les ressources utilisées pour mettre à niveau un utilisateur à partir d’un abonnement source vers un abonnement cible.
 
-## <a name="span-idupgradespan-idupgradespan-idupgradeupgrade"></a>Mise à niveau de <span id="Upgrade"/><span id="upgrade"/><span id="UPGRADE"/>
-
+## <a name="upgrade"></a>Mettre à niveau
 
 Décrit le comportement d’une ressource de mise à niveau individuelle.
 
 | Propriété      | Type                   | Description                                                                                  |
 |---------------|------------------------|----------------------------------------------------------------------------------------------|
 | TargetOffer   | Offre                  | L’offre de l’abonnement cible.                                                        |
-| UpgradeType   | chaîne                 | Le type de mise à niveau : « None », « Upgrade\_Only » ou « Upgrade\_with\_License\_Transfer ».         |
-| isEligible    | booléen                | Indique si la mise à niveau peut être effectuée.                                                  |
-| Quantité      | integer                | Quantification de la nouvelle offre à acheter. La valeur par défaut est la quantité de l’abonnement source. |
+| UpgradeType   | string                 | Type de mise à niveau : « aucun », «\_mettre à niveau uniquement » ou\_«\_mettre\_à niveau avec le transfert de licence ».         |
+| IsEligible    | boolean                | Indique si la mise à niveau peut être effectuée.                                                  |
+| Quantité      | entier                | Quantification de la nouvelle offre à acheter. La valeur par défaut est la quantité de l’abonnement source. |
 | UpgradeErrors | Tableau de UpgradeErrors | Raisons pour lesquelles la mise à niveau ne peut pas être effectuée, le cas échéant.                                      |
 | Attributs    | ResourceAttributes     | Attributs de métadonnées correspondant à la mise à niveau.                                        |
 
- 
-
-## <a name="span-idupgradeerrorspan-idupgradeerrorspan-idupgradeerrorupgradeerror"></a><span id="UpgradeError"/><span id="upgradeerror"/><span id="UPGRADEERROR"/>UpgradeError
-
+## <a name="upgradeerror"></a>UpgradeError
 
 Décrit une raison pour laquelle une mise à niveau ne peut pas être effectuée.
 
 | Propriété          | Type               | Description                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Code              | chaîne             | Code d’erreur associé au problème : « autre « », « délégué\_autorisations de\_administrateur\_désactivé », « état de\_d’abonnement\_pas de\_actif », « types de\_de service\_en conflit », « conflits de\_d’accès concurrentiel », «\_de contexte utilisateur\_requis », « abonnement\_ajouter des\_des\_de mise à niveau » , « abonnement\_\_cible de l’offre\_pas\_trouvé », ou « abonnement\_pas configuré ».\_\_\_\_\_\_\_ |
-| Description       | chaîne             | Texte convivial décrivant l’erreur.                                                                                                                                                                                                                                                                                                                                                             |
-| AdditionalDetails | chaîne             | Détails supplémentaires concernant l’erreur.                                                                                                                                                                                                                                                                                                                                                         |
+| Code              | string             | Code d'\_erreur associé au problème : « autre « », « autorisations\_\_d’administrateur déléguées désactivées »\_,\_«\_état de l’abonnement non actif\_»\_, « types de service en\_conflit », « conflits\_d'\_accès concurrentiel », «\_contexte\_utilisateur\_requis », « modules\_complémentaires\_d'\_abonnement\_présents\_»\_, « abonnement n’a\_pas\_de\_chemin\_de mise à niveau »,\_«\_offre de cible d’abonnement introuvable » |
+| Description       | string             | Texte convivial décrivant l’erreur.                                                                                                                                                                                                                                                                                                                                                             |
+| AdditionalDetails | string             | Détails supplémentaires concernant l’erreur.                                                                                                                                                                                                                                                                                                                                                         |
 | Attributs        | ResourceAttributes | Attributs de métadonnées correspondant à l’erreur.                                                                                                                                                                                                                                                                                                                                             |
 
- 
-
-## <a name="span-idupgraderesultspan-idupgraderesultspan-idupgraderesultupgraderesult"></a><span id="UpgradeResult"/><span id="upgraderesult"/><span id="UPGRADERESULT"/>UpgradeResult
-
+## <a name="upgraderesult"></a>UpgradeResult
 
 Décrit le résultat du processus de mise à niveau d’abonnement.
 
 | Propriété             | Type                        | Description                                                                          |
 |----------------------|-----------------------------|--------------------------------------------------------------------------------------|
-| SourceSubscriptionId | chaîne                      | Identificateur de l’abonnement source.                                           |
-| TargetSubscriptionID | chaîne                      | Identificateur de l’abonnement cible.                                           |
-| UpgradeType          | chaîne                      | Le type de mise à niveau : « None », « Upgrade\_Only » ou « Upgrade\_with\_License\_Transfer ». |
+| SourceSubscriptionId | string                      | Identificateur de l’abonnement source.                                           |
+| TargetSubscriptionID | string                      | Identificateur de l’abonnement cible.                                           |
+| UpgradeType          | string                      | Type de mise à niveau : « aucun », «\_mettre à niveau uniquement » ou\_«\_mettre\_à niveau avec le transfert de licence ». |
 | UpgradeErrors        | Tableau de UpgradeErrors      | Des erreurs se sont produites lors de la tentative d’exécution de la mise à niveau, le cas échéant.           |
 | LicenseErrors        | Tableau de UserLicenseErrrors | Des erreurs se sont produites lors de la tentative de migration des licences utilisateur, le cas échéant.          |
 | Attributs           | ResourceAttributes          | Attributs de métadonnées correspondant à la licence.                                |
 
- 
-
-## <a name="span-iduserlicenseerrorspan-iduserlicenseerrorspan-iduserlicenseerroruserlicenseerror"></a><span id="UserLicenseError"/><span id="userlicenseerror"/><span id="USERLICENSEERROR"/>UserLicenseError
-
+## <a name="userlicenseerror"></a>UserLicenseError
 
 Décrit les erreurs dues à un échec de transfert de licence utilisateur.
 
 | Propriété     | Type                   | Description                                                               |
 |--------------|------------------------|---------------------------------------------------------------------------|
-| UserObjectId | chaîne                 | Unique identifié de l’objet utilisateur.                                 |
-| Nom         | chaîne                 | Le nom de l'utilisateur.                                                     |
-| E-mail        | chaîne                 | Adresse de messagerie de l’utilisateur.                                                    |
+| UserObjectId | string                 | Unique identifié de l’objet utilisateur.                                 |
+| Nom         | string                 | Nom de l'utilisateur.                                                     |
+| E-mail        | string                 | L’e-mail de l’utilisateur.                                                    |
 | Erreurs       | Tableau de ServiceFaults | Liste des exceptions levées lors de la tentative de transfert de la licence utilisateur. |
 | Attributs   | ResourceAttributes     | Attributs de métadonnées correspondant à la licence.                     |
-
- 
-
- 
-
- 
-
-
-
 

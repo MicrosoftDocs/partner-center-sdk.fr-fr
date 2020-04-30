@@ -6,29 +6,29 @@ ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 07c529d85ca2246d9b39da92ada8910e1588fef9
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 6890a3b23c3c998baaf80f8aabf4fc36ed9354e7
+ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80416414"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82089829"
 ---
 # <a name="partner-center-rest-api-reference"></a>Informations de référence de l’API REST de l’Espace partenaires
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-## <a name="partner-center-rest-api"></a>API REST de l’espace partenaires
+## <a name="partner-center-rest-api"></a>API REST de l'Espace partenaires
 
 L’API REST de l’espace partenaires permet aux partenaires fournisseurs de solutions Cloud d’intégrer leurs logiciels CRM ou de facturation existants aux systèmes Microsoft qui gèrent les comptes clients, de passer des commandes, de gérer les abonnements et de gérer les demandes de support.
 
 Pour plus d’informations sur ce que l’API peut faire, y compris l’exemple de code, consultez la rubrique [scénarios](scenarios.md) , y compris la vue d’ensemble de l’arrière-plan.
 
-Avant de commencer le codage, consultez la rubrique [prise en main](get-started.md) . Cette rubrique contient des informations sur la configuration de vos comptes de test et de production, sur le fonctionnement de l’authentification et sur la recherche de l’exemple de code.
+Avant de commencer le codage, consultez la rubrique [prise en main](get-started.md) . Cet article contient des informations sur la configuration de vos comptes de test et de production, sur l’utilisation de l’authentification et sur la recherche de l’exemple de code.
 
 ## <a name="topics"></a>Rubriques
 

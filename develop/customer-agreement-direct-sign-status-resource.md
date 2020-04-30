@@ -5,18 +5,18 @@ ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 539d395aa096632dd7e15edeb2b2c98035c191ca
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 23397ab479f32879b00c04a817ef889221a6f091
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80412459"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81665984"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>Statut de signature directe (acceptation directe) d’un contrat client
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 
 La ressource **DirectSignedCustomerAgreementStatus** est actuellement prise en charge par l’espace partenaires uniquement dans le cloud public Microsoft.
 
@@ -34,4 +34,4 @@ Une ressource **DirectSignedCustomerAgreementStatus** comprend les propriétés 
 
 | Propriété       | Type   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| isSigned | booléen | Indique si le contrat client a été directement signé (accepté) par le client. |
+| isSigned | boolean | Indique si le contrat client a été directement signé (accepté) par le client. |

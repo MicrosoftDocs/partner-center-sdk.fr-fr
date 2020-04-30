@@ -6,18 +6,18 @@ ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e48531a59939d3af3210223db59bfad1bee9e761
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 74e974a3475015374a9014fb3dc372501d1348d9
+ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413588"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81665253"
 ---
 # <a name="conversions-resources"></a>Ressources de conversions
 
-S'applique à :
+**S’applique à :**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -30,11 +30,11 @@ Contient les informations utilisées pour convertir un abonnement d’évaluatio
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| offerId | chaîne | Identificateur de l’offre d’origine de l’offre d’essai. |
-| targetOfferId | chaîne | Identificateur de l’offre de l’offre cible. |
-| orderId | chaîne | Identificateur de l’ordre. |
-| quantity | int | Nombre de licences. La valeur par défaut est le nombre de licences dans l’abonnement d’évaluation. |
-| BillingCycle | chaîne | Indique la fréquence à laquelle le partenaire est facturé pour l’abonnement. Valeurs possibles : **mensuelle** (le partenaire est facturé mensuellement), **annuelle** (le partenaire est facturé annuellement) ou **None** (le partenaire n’est pas facturé. Utilisé pour les abonnements d’évaluation). |
+| offerId | string | Identificateur de l’offre d’origine de l’offre d’essai. |
+| targetOfferId | string | Identificateur de l’offre de l’offre cible. |
+| orderId | string | Identificateur de l’ordre. |
+| quantité | int | Nombre de licences. La valeur par défaut est le nombre de licences dans l’abonnement d’évaluation. |
+| billingCycle | string | Indique la fréquence à laquelle le partenaire est facturé pour l’abonnement. Valeurs possibles : **mensuelle** (le partenaire est facturé mensuellement), **annuelle** (le partenaire est facturé annuellement) ou **None** (le partenaire n’est pas facturé. Utilisé pour les abonnements d’évaluation). |
 
 ## <a name="conversionerror"></a>ConversionError
 
@@ -42,8 +42,8 @@ Représente une erreur qui s’est produite pendant la conversion.
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| code | chaîne | Code d’erreur associé au problème. Valeurs possibles : **other** (erreur générale), **ConversionsNotFound** (impossible de trouver les conversions de l’abonnement d’évaluation vers lequel effectuer la conversion).
-| description | chaîne | Texte convivial qui décrit le problème. |
+| code | string | Code d’erreur associé au problème. Valeurs possibles : **other** (erreur générale), **ConversionsNotFound** (impossible de trouver les conversions de l’abonnement d’évaluation vers lequel effectuer la conversion).
+| description | string | Texte convivial qui décrit le problème. |
 
 ## <a name="conversionresult"></a>ConversionResult
 
@@ -51,7 +51,7 @@ Représente le résultat de la conversion d’un abonnement.
 
 | Propriété       | Type                                | Description                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
-| subscriptionId | chaîne                              | Identificateur d’abonnement.                                           |
-| offerId        | chaîne                              | Identificateur d’offre d’origine.                                         |
-| targetOfferId  | chaîne                              | Identificateur de l’offre de l’offre cible.                             |
-| erreur          | [ConversionError](#conversionerror) | Erreur rencontrée lors de la tentative de conversion, le cas échéant. |
+| subscriptionId | string                              | Identificateur de l’abonnement.                                           |
+| offerId        | string                              | Identificateur d’offre d’origine.                                         |
+| targetOfferId  | string                              | Identificateur de l’offre de l’offre cible.                             |
+| error          | [ConversionError](#conversionerror) | Erreur rencontrée lors de la tentative de conversion, le cas échéant. |

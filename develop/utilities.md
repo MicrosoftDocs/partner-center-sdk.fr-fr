@@ -1,24 +1,23 @@
 ---
-title: Outils
+title: Services
 description: Cette section décrit les manières dont les partenaires peuvent utiliser l’espace partenaires pour gérer par programmation les fonctions utilitaires.
 ms.assetid: 646301CF-83E5-4BC3-987D-948E984D17F3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 90dc09190d215ad9d2caea9d8fcffebfe879b39e
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 4ba6e34e2048f5c91c62f95e8d88307acda83001
+ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80414363"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82088449"
 ---
-# <a name="utilities"></a>Outils
-
+# <a name="utilities"></a>Services
 
 **S’applique à**
 
-- Centre pour partenaires
+- Espace partenaires
 - Espace partenaires géré par 21Vianet
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
