@@ -6,12 +6,12 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 7199c03733c2bfdb496939af94e35c9aafa9931c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 734b9df837a7c036de89ba2ced7bb83ae051b5fe
+ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155801"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82882375"
 ---
 # <a name="get-a-collection-of-invoices"></a>Obtenir une collection de factures
 
@@ -76,6 +76,9 @@ while (invoicesEnumerator.HasValue)
 ```
 
 Pour obtenir un exemple légèrement différent, consultez **exemple**: [application de test console](console-test-app.md). **Projet**: **classe**d’exemples du kit de développement logiciel (SDK) Partner Center : GetPagedInvoices.cs
+
+> [!NOTE] 
+> La même API est utilisée pour tous les achats commerciaux modernes, ainsi que pour les licences 145p et Office. La taille et le décalage sont uniquement pris en compte pour les factures héritées. Pour tous les achats commerciaux modernes, le décalage de & de page est ignoré.
 
 ## <a name="rest-request"></a>Demande REST
 

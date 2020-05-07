@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 1267a10bff9e428720bf16d6dcb53ade69d6a343
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e20a7bbfbfcd557be1f27904eafed31e4a7691a6
+ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157401"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82882395"
 ---
 # <a name="get-invoice-line-items"></a>Obtenir les éléments de ligne de facture
 
@@ -162,9 +162,9 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | ID de la facture             | string | Oui      | Chaîne qui identifie la facture.                             |
 | billing-provider       | string | Oui      | Fournisseur de facturation : « Office », « Azure », « OneTime ».               |
 | invoice-line-item-type | string | Oui      | Type de détail de la facture : « BillingLineItems », « UsageLineItems ». |
-| taille                   | nombre | Non       | Nombre maximal d’éléments à retourner.                            |
+| taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. Taille maximale par défaut = 2000    |
 | offset                 | nombre | Non       | Index de base zéro du premier élément de ligne à retourner.            |
-| seekOperation          | string | Non        | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
+| seekOperation          | string | No       | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
 | hasPartnerEarnedCredit | bool | Non  | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
 
 ### <a name="request-headers"></a>En-têtes de requête
