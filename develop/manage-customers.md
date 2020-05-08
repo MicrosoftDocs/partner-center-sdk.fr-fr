@@ -6,12 +6,12 @@ ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 9317e84df5ef6789f7f555e9cb98bb603b412a54
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 80dc28411c78b7bf3524456d4c1426d8fad7e0a4
+ms.sourcegitcommit: caadf6300aac239f37e6964baf179a9d848308f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559066"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82973225"
 ---
 # <a name="manage-customers"></a>Gérer les clients
 
@@ -73,7 +73,8 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Attribuer des licences à un utilisateur](assign-licenses-to-a-user.md)
 - [Vérifier quelles licences sont attribuées à un utilisateur](check-which-licenses-are-assigned-to-a-user.md)
 
-**Gérer les stratégies de clients en libre-service**
+## <a name="manage-a-customers-self-serve-policies"></a>Gérer les stratégies libre-service d’un client
+
 - [Créer une stratégie libre-service](create-a-self-serve-policy.md)
 - [Supprimer une stratégie libre-service](delete-a-self-serve-policy.md)
 - [Mettre à jour une stratégie libre-service](update-a-self-serve-policy.md)
