@@ -5,14 +5,14 @@ ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 75d19c27dfbad8d35532239f6fb101311f67ccb3
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: d618d27dc7e17ff37b3186ad20fbc28057024538
+ms.sourcegitcommit: 093dd5bb3e1a4d3d02839b39cec2b62d5800fd3a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564367"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83383904"
 ---
-# <a name="create-a-selfservepolicy"></a>Créer un SelfServePolicy
+# <a name="update-a-selfservepolicy"></a>Mettre à jour un SelfServePolicy
 
 **S’applique à :**
 
