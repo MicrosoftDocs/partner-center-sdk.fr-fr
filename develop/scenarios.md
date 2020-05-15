@@ -6,16 +6,16 @@ ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c9192a5ed7055e280db219307cd539fcdc4be842
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 26ae536f766f799d0ebcab0ecc5640358f997d33
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80415327"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82157681"
 ---
 # <a name="scenarios"></a>Scénarios
 
-S'applique à :
+**S’applique à :**
 
 - Espace partenaires
 - Espace partenaires géré par 21Vianet
@@ -24,14 +24,16 @@ S'applique à :
 
 Cette section décrit les manières dont les partenaires du programme Fournisseur de solutions Cloud peuvent utiliser l’API de l’Espace partenaires pour gérer programmatiquement les comptes client, les comptes partenaire, les commandes, les abonnements, le support et la facturation.
 
-Notez qu’il existe différentes versions de l’Espace partenaires disponibles qui incluent des fonctionnalités différentes. Tous les scénarios ne sont pas pris en charge dans toutes les versions de l’Espace partenaires. Pour en savoir plus, consultez [Développement de l’Espace partenaires pour les clouds nationaux Microsoft](developing-for-partner-center-for-microsoft-national-cloud.md).
+Notez que différentes versions de l’Espace partenaires sont disponibles et incluent des fonctionnalités différentes. Tous les scénarios ne sont pas pris en charge dans toutes les versions de l’Espace partenaires. Pour en savoir plus, consultez [Développement de l’Espace partenaires pour les clouds nationaux Microsoft](developing-for-partner-center-for-microsoft-national-cloud.md).
 
 ## <a name="scenarios-supported-by-the-partner-center-sdk"></a>Scénarios pris en charge par le SDK de l’Espace Partenaires
 
 Tous les scénarios suivants peuvent être suivis de trois façons différentes :
 
-- Manuellement avec le tableau de bord de l’[Espace partenaires](https://go.microsoft.com/fwlink/p/?LinkId=620294).
+- Manuellement avec le tableau de bord de l’[Espace partenaires](https://partner.microsoft.com/dashboard).
+
 - Programmatiquement avec l’API gérée de l’Espace partenaires.
+
 - Programmatiquement avec l’API REST de l’Espace partenaires.
 
 <table>
@@ -146,7 +148,7 @@ Tous les scénarios suivants peuvent être suivis de trois façons différentes�
 <li><p><a href="create-a-customer.md">Créer un client</a></p></li>
 <li><p><a href="create-a-customer-for-an-indirect-reseller.md">Créer un client pour un revendeur indirect</a></p></li>
 <li><p><a href="request-reseller-relationship.md">Récupérer une URL de demande de relation</a></p></li>
-<li><p><a href="remove-a-reseller-relationship-with-a-customer.md">Supprimer une relation de revendeur avec un client</a></p></li> 
+<li><p><a href="remove-a-reseller-relationship-with-a-customer.md">Supprimer une relation de revendeur avec un client</a></p></li>
 </ul>
 <p>Rechercher un client</p>
 <ul>
@@ -158,7 +160,7 @@ Tous les scénarios suivants peuvent être suivis de trois façons différentes�
 <ul>
 <li><p><a href="get-all-of-a-customer-s-orders.md">Obtenir toutes les commandes d’un client</a></p></li>
 <li><p><a href="get-a-list-of-orders-by-customer-and-billing-cycle-type.md">Obtenir la liste des commandes par client et le type de cycle de facturation</a></p></li>
-<li><p><a href="get-a-collection-of-entitlements.md">Obtenir une collection de droits</a></p></li> 
+<li><p><a href="get-a-collection-of-entitlements.md">Obtenir une collection de droits</a></p></li>
 <li><p><a href="get-all-of-a-customer-s-subscriptions.md">Obtenir les abonnements d’un client</a></p></li>
 <li><p><a href="update-the-nickname-for-a-subscription.md">Mettre à jour le pseudo d’un abonnement</a></p></li>
 </ul>
@@ -206,7 +208,7 @@ Tous les scénarios suivants peuvent être suivis de trois façons différentes�
 </ul>
 <p>Effectuer un achat ponctuel</p>
 <ul>
-<li><p><a href="make-a-one-time-purchase.md">Effectuer un achat ponctuel</a></p></li> 
+<li><p><a href="make-a-one-time-purchase.md">Effectuer un achat ponctuel</a></p></li>
 </ul>
 <p>Recevoir des offres du catalogue</p>
 <ul>
@@ -278,7 +280,7 @@ Tous les scénarios suivants peuvent être suivis de trois façons différentes�
 <li><p><a href="create-a-service-request-.md">Créer une demande de service</a></p></li>
 <li><p><a href="get-service-request-support-topics--pending-.md">Obtenir les rubriques de support des demandes de service</a></p></li>
 <li><p><a href="get-all-service-requests-for-a-customer.md">Obtenir des demandes de service pour un client</a></p></li>
-<li><p><a href="get-service-request-details-by-id.md">Obtenir les détails de la demande de service par ID</a></p></li> 
+<li><p><a href="get-service-request-details-by-id.md">Obtenir les détails de la demande de service par ID</a></p></li>
 <li><p><a href="update-a-service-request.md">Mettre à jour une demande de service</a></p></li>
 </ul></td>
 </tr>
@@ -286,10 +288,10 @@ Tous les scénarios suivants peuvent être suivis de trois façons différentes�
   <td><p><a href="https://docs.microsoft.com/partner/develop/referrals">Références</a></p></td>
   <td><p>Références</p>
     <ul>
-      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">Créer une référence</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">Obtenir la liste de références</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">Obtenir une référence par ID</a></p></li> 
-      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">Mettre à jour une référence</a></p></li> 
+      <li><p><a href="https://docs.microsoft.com/partner/develop/create-a-referral">Créer une référence</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-list-of-referrals">Obtenir la liste de références</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/get-a-referral-by-id">Obtenir une référence par ID</a></p></li>
+      <li><p><a href="https://docs.microsoft.com/partner/develop/update-a-referral">Mettre à jour une référence</a></p></li>
     </ul>
   </td>
 </tr>
