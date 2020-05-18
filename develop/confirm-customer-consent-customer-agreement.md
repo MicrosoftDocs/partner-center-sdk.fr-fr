@@ -5,12 +5,12 @@ ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 33a2dacc622c87feb3058931259ad7fbea7a0758
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+ms.openlocfilehash: 2f59616191a4ce255a294e9c80c26a4e73eda267
+ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82093811"
+ms.lasthandoff: 04/25/2020
+ms.locfileid: "82154401"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Confirmer que le client a accepté le Contrat client Microsoft
 
@@ -29,9 +29,13 @@ Cet article explique comment confirmer ou reconfirmer l’acceptation du Contrat
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous utilisez le SDK .NET de l’Espace partenaires, la version 1.14 ou une version ultérieure est nécessaire.
+
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](./partner-center-authentication.md). *Ce scénario ne prend en charge que l’authentification de l’application et de l’utilisateur.*
-- Identificateur d’un client (**customer-tenant-id**).
+
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
+
 - Date (**dateAgreed**) à laquelle le client a accepté le Contrat client Microsoft.
+
 - Informations sur l’utilisateur issues de l’organisation du client qui a accepté le Contrat client Microsoft. Cela comprend les éléments suivants :
   - Prénom
   - Nom
@@ -44,36 +48,38 @@ Pour confirmer ou reconfirmer l’acceptation du Contrat client Microsoft par le
 
 1. Récupérez les métadonnées du Contrat client Microsoft. Vous devez obtenir la valeur **templateId** du Contrat client Microsoft. Pour plus d’informations, consultez [Obtenir les métadonnées du Contrat client Microsoft](get-customer-agreement-metadata.md).
 
-```csharp
-// IAggregatePartner partnerOperations;
+   ```csharp
+   // IAggregatePartner partnerOperations;
 
-string agreementType = "MicrosoftCustomerAgreement";
+   string agreementType = "MicrosoftCustomerAgreement";
 
-var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
-```
+   var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
+   ```
 
 2. Créez un objet **Agreement** contenant les détails de la confirmation.
+
 3. Utilisez la collection **IAgreggatePartner.Customers** et appelez la méthode **ById** avec la valeur **customer-tenant-id** spécifiée.
+
 4. Utilisez la propriété **Agreements**, puis appelez **Create** ou **CreateAsync**.
 
-```csharp
-// string selectedCustomerId;
+   ```csharp
+   // string selectedCustomerId;
 
-var agreementToCreate = new Agreement
-{
-    DateAgreed = DateTime.UtcNow,
-    TemplateId = microsoftCustomerAgreementDetails.TemplateId,
-    PrimaryContact = new Contact
-    {
-        FirstName = "Tania",
-        LastName = "Carr",
-        Email = "someone@example.com",
-        PhoneNumber = "1234567890"
-    }
-};
+   var agreementToCreate = new Agreement
+   {
+       DateAgreed = DateTime.UtcNow,
+       TemplateId = microsoftCustomerAgreementDetails.TemplateId,
+       PrimaryContact = new Contact
+       {
+           FirstName = "Tania",
+           LastName = "Carr",
+           Email = "someone@example.com",
+           PhoneNumber = "1234567890"
+       }
+   };
 
-Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
-```
+   Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
+   ```
 
 Vous trouverez un exemple complet dans la classe [CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) à partir du projet d’[application de test de console](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples).
 
@@ -82,6 +88,7 @@ Vous trouverez un exemple complet dans la classe [CreateCustomerAgreement](https
 Pour confirmer ou reconfirmer l’acceptation du Contrat client Microsoft par les clients :
 
 1. Récupérez les métadonnées du Contrat client Microsoft. Vous devez obtenir la valeur **templateId** du Contrat client Microsoft. Pour plus d’informations, consultez [Obtenir les métadonnées du Contrat client Microsoft](get-customer-agreement-metadata.md).
+
 2. Créez une [ressource **Agreement**](agreement-resources.md) pour confirmer qu’un client a accepté le Contrat client Microsoft. Utilisez la [syntaxe de requête REST](#request-syntax) suivante.
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
@@ -142,11 +149,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-### <a name="rest-response"></a>Réponse REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une [ressource **Agreement**](./agreement-resources.md).
 
-#### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires.
 
