@@ -5,12 +5,12 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 05c54d753548b6fadfc0595e43720877393cd0c4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 459db3cfb9a85fd2f4a0d32b065d6929ab40006b
+ms.sourcegitcommit: 99fa2c7669f3db84fd00cb5f28ef8d783900c8d3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154721"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84121233"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande du bac à sable d’intégration
 
@@ -24,7 +24,10 @@ ms.locfileid: "82154721"
 Procédure d’annulation des commandes d’abonnement de l’instance réservée, du logiciel et du marché commercial en tant que service (SaaS) à partir des comptes sandbox d’intégration.
 
 >[!NOTE]
->N’oubliez pas que les annulations des commandes d’abonnement de l’instance réservée, du logiciel ou du Marketplace commercial sont possibles uniquement depuis les comptes sandbox d’intégration. Pour annuler des ordres de fabrication, contactez le support de l’espace partenaires.
+>N’oubliez pas que les annulations de l’instance réservée, ou les commandes d’abonnement SaaS de la place de marché commercial, sont possibles uniquement à partir des comptes sandbox d’intégration.  
+
+Pour annuler les ordres de fabrication du logiciel via l’API, utilisez [Cancel-Software-Purchases](cancel-software-purchases.md).
+Vous pouvez également annuler des ordres de fabrication de logiciels via le tableau de bord à l’aide [d’annuler un achat](https://docs.microsoft.com/partner-center/csp-software-subscriptions.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,11 +37,11 @@ Procédure d’annulation des commandes d’abonnement de l’instance réservé
 
 ## <a name="c"></a>C\#
 
-Pour annuler une commande à partir du bac à sable (sandbox) d’intégration, [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) transmettez vos informations [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) d’identification de compte à la méthode afin d’accéder à une interface permettant d’effectuer des opérations de partenaire.
+Pour annuler une commande à partir du bac à sable (sandbox) d’intégration, transmettez vos informations d’identification de compte à la [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) méthode afin d’accéder à une [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) interface permettant d’effectuer des opérations de partenaire.
 
-Pour sélectionner un [ordre](order-resources.md#order)particulier, utilisez les opérations du partenaire et [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) appelez la méthode avec l’identificateur du client pour spécifier le client, **`Orders.ById()`** suivi de l’identificateur de commande pour spécifier la commande **`Get`** et **`GetAsync`** finally ou la méthode pour la récupérer.
+Pour sélectionner un [ordre](order-resources.md#order)particulier, utilisez les opérations du partenaire et appelez la [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) méthode avec l’identificateur du client pour spécifier le client, suivi de l' **`Orders.ById()`** identificateur de commande pour spécifier la commande et finally **`Get`** ou la **`GetAsync`** méthode pour la récupérer.
 
-Affectez [**`Order.Status`**](order-resources.md#order) à la `cancelled` propriété la valeur **`Patch()`** et utilisez la méthode pour mettre à jour la commande.
+Affectez à la propriété la valeur [**`Order.Status`**](order-resources.md#order) `cancelled` et utilisez la **`Patch()`** méthode pour mettre à jour la commande.
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -68,8 +71,8 @@ Utilisez le paramètre de requête suivant pour supprimer un client.
 
 | Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | O        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
-| **ID de commande** | **string** | O        | La valeur est une chaîne qui dénote les ID de commande qui doivent être annulés. |
+| **customer-tenant-id** | **guid** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID de commande** | **string** | Y        | La valeur est une chaîne qui dénote les ID de commande qui doivent être annulés. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -98,7 +101,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne l’ordre annulé.
 
