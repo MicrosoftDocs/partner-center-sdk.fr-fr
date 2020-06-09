@@ -5,21 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: cb0ba6a4ff0daf6fa3ed04561aeb997822b5bc2b
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 32ea176b079c48d7c48d114f6cfc96468699928f
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124314"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489186"
 ---
 # <a name="transfereligibility-resources"></a>Ressources TransferEligibility
 
 **S’applique à :**
 
 - Espace partenaires
-- Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
-- Espace partenaires de Microsoft Cloud for US Government
 
 Un partenaire crée un transfert lorsqu’un client souhaite que son abonnement au partenaire soit transféré à un autre partenaire.
 

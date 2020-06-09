@@ -5,27 +5,24 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: e77711f2bda6d4e5af536ed2658df63241462c31
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7d6e8efddc64bc2b4b36005f0892927f5b3454f8
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154811"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489176"
 ---
 # <a name="create-a-transfer"></a>Créer un transfert
 
 **S’applique à :**
 
 - Espace partenaires
-- Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
-- Espace partenaires de Microsoft Cloud for US Government
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="rest-request"></a>Demande REST
 
@@ -54,8 +51,8 @@ Ce tableau décrit les propriétés [TransferEntity](transfer-entity-resources.m
 | Propriété              | Type          | Obligatoire  | Description                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
 | id                    | string        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
-| createdTime           | DateTime      | Non     | Date à laquelle le transferEntity a été créé, au format date/heure. Appliqué en cas de création réussie du transferEntity.      |
-| lastModifiedTime      | DateTime      | Non     | Date à laquelle le transferEntity a été mis à jour pour la dernière fois au format date-heure. Appliqué en cas de création réussie du transferEntity. |
+| createdTime           | DateTime      | Non    | Date à laquelle le transferEntity a été créé, au format date/heure. Appliqué en cas de création réussie du transferEntity.      |
+| lastModifiedTime      | DateTime      | Non    | Date à laquelle le transferEntity a été mis à jour pour la dernière fois au format date-heure. Appliqué en cas de création réussie du transferEntity. |
 | lastModifiedUser      | string        | Non    | Utilisateur qui a mis à jour la transferEntity. Appliqué en cas de réussite de la création de transferEntity.                          |
 | customerName          | string        | Non    | facultatif. Nom du client dont les abonnements sont en cours de transfert.                                              |
 | customerTenantId      | string        | Non    | ID client au format GUID qui identifie le client. Appliqué en cas de création réussie du transferEntity.         |
@@ -71,16 +68,16 @@ Ce tableau décrit les propriétés [TransferLineItem](transfer-entity-resources
 
 |      Propriété       |            Type             | Obligatoire | Description                                                                                     |
 |---------------------|-----------------------------|----------|-------------------------------------------------------------------------------------------------|
-| id                   | string                     | Non        | Identificateur unique pour un élément de ligne de transfert. Appliqué en cas de création réussie du transferEntity.|
+| id                   | string                     | No       | Identificateur unique pour un élément de ligne de transfert. Appliqué en cas de création réussie du transferEntity.|
 | subscriptionId       | string                     | Oui      | Identificateur de l’abonnement.                                                                         |
 | quantité             | int                        | Non       | Nombre de licences ou d’instances.                                                                 |
 | billingCycle         | Object                     | Non        | Type de cycle de facturation défini pour la période actuelle.                                                |
 | friendlyName         | string                     | Non       | facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                |
-| partnerIdOnRecord    | string                     | Non        | Partenaire sur l’enregistrement (MPNID) de l’achat qui se produit lorsque le transfert est accepté.              |
-| offerId              | string                     | Non        | Identificateur de l’offre.                                                                                |
-| addonItems           | Liste d’objets **TransferLineItem** | Non  | Collection d’éléments de ligne transferEntity pour les modules complémentaires qui seront transférés avec l’abonnement de base en cours de transfert. Appliqué en cas de création réussie du transferEntity.|
-| transferError        | string                     | Non        | Appliqué après l’acceptation de transferEntity en cas d’erreur.                                        |
-| status               | string                     | Non        | État de l’LineItem dans transferEntity.                                                    |
+| partnerIdOnRecord    | string                     | No       | Partenaire sur l’enregistrement (MPNID) de l’achat qui se produit lorsque le transfert est accepté.              |
+| offerId              | string                     | No       | Identificateur de l’offre.                                                                                |
+| addonItems           | Liste d’objets **TransferLineItem** | Non | Collection d’éléments de ligne transferEntity pour les modules complémentaires qui seront transférés avec l’abonnement de base en cours de transfert. Appliqué en cas de création réussie du transferEntity.|
+| transferError        | string                     | No       | Appliqué après l’acceptation de transferEntity en cas d’erreur.                                        |
+| status               | string                     | No       | État de l’LineItem dans transferEntity.                                                    |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -111,7 +108,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne la ressource [TransferEnity](transfer-entity-resources.md) remplie dans le corps de la réponse.
 

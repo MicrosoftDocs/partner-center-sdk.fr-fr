@@ -5,27 +5,24 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: f11eb33c0e7d678e2280bce3b4b76e51e3999593
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 8eb9ad116312488f8d62d81c04e0138235728364
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157121"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489216"
 ---
 # <a name="get-transfer-details-by-id"></a>Recevoir les détails du transfert par ID
 
 **S’applique à :**
 
 - Espace partenaires
-- Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
-- Espace partenaires de Microsoft Cloud for US Government
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur de transfert pour un transfert existant.
 
@@ -61,7 +58,7 @@ MS-CorrelationId: 68eacc61-971c-43b0-c06f-2622bf79b090
 Accept: application/json
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne la ressource [TransferEntity](transfer-entity-resources.md) remplie dans le corps de la réponse.
 

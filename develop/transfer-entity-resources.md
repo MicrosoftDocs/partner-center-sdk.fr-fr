@@ -5,21 +5,18 @@ ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: c9b891673fb933ae787f8231e36158ed69224a04
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 0a9a357d9f2fd90069df0b39427e32fe25dc16af
+ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666618"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84489166"
 ---
 # <a name="transferentity-resources"></a>Ressources TransferEntity
 
 **S’applique à :**
 
 - Espace partenaires
-- Espace partenaires géré par 21Vianet
-- Espace partenaires de Microsoft Cloud Germany
-- Espace partenaires de Microsoft Cloud for US Government
 
 Un partenaire crée un transfert lorsqu’un client souhaite que son abonnement au partenaire soit transféré à un autre partenaire.
 
