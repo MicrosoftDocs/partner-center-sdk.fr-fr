@@ -6,12 +6,12 @@ ms.date: 11/01/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c171598871a44ae6614b826959989a8d6722e8d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 92cd267ea7364db7a804ef291c207a71ef6baa7b
+ms.sourcegitcommit: 51dc972a66af76d033d22f1d92f8ccc46ae3d36b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157051"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85096039"
 ---
 # <a name="purchase-azure-reservations"></a>Acheter des réservations Azure
 
@@ -25,7 +25,7 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > [!NOTE]
 > Les réservations Azure ne sont pas disponibles dans les marchés suivants :
 >
-> | Marchés non disponibles            | &nbsp;                            | &nbsp;                                   |
+> | Marchés non disponibles            | Marchés non disponibles (suite...) | Marchés non disponibles (suite...)      |
 > |--------------------------------|-----------------------------------|------------------------------------------|
 > | Åland (îles d’)                  | Groenland                         | Papouasie-Nouvelle-Guinée                         |
 > | Samoa américaines                 | Grenade                           | Pitcairn (îles)                         |
@@ -34,34 +34,34 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Antarctique                     | Guernesey                          | Saba                                     |
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
-> | Bénin                          | Guyane                            | Saint-Martin (partie française)                             |
-> | Bhoutan                         | Haïti                             | Saint-Pierre-et-Miquelon                |
-> | Bonaire                        | Heard et McDonald (Îles) | Saint-Vincent-et-les-Grenadines         |
-> | Bouvet (Île)                  | Île de Man                       | Samoa                                    |
+> | Bénin                          | Guyane                            | Saint-Martin                             |
+> | Bhoutan                         | Haïti                             | Saint Pierre et Miquelon                |
+> | Bonaire                        | Heard et McDonald (îles) | Saint-Vincent-et-les Grenadines         |
+> | Bouvet (Île)                  | Man (Île de)                       | Samoa                                    |
 > | Brésil                         | Jan Mayen                         | Saint-Marin                               |
 > | Territoires britanniques de l’océan Indien | Jersey                            | São Tomé et Príncipe                    |
 > | Îles Vierges britanniques         | Kiribati                          | Seychelles                               |
 > | Burkina-Faso                   | Kosovo                            | Sierra Leone                             |
 > | Burundi                        | Laos                              | Saint-Eustache                           |
 > | Cambodge                       | Lesotho                           | Saint-Martin (partie néerlandaise)                             |
-> | République centrafricaine       | Liberia                           | Salomon (îles)                          |
+> | République centrafricaine       | Liberia                           | Salomon (Îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | Géorgie du Sud et les îles Sandwich du Sud |
+> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
-> | Comores (Les)                        | Marshall (îles)                  | Surinam                                 |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
+> | Comores (Les)                        | Marshall (îles)                  | Suriname                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
 > | Cook (îles)                   | Mayotte                           | Timor-Leste                              |
 > | Djibouti                       | Micronésie                        | Togo                                     |
 > | Dominique                       | Montserrat                        | Tokelau                                  |
 > | Guinée équatoriale              | Mozambique                        | Tonga                                    |
-> | Érythrée                        | Myanmar                           | Turques-et-Caïques (îles)                 |
+> | Érythrée                        | Myanmar                           | Turks et Caicos (îles)                 |
 > | Malouines (îles)               | Nauru                             | Tuvalu                                   |
-> | Guyane française                  | Nouvelle-Calédonie                     | États-Unis Îles mineures éloignées                    |
+> | Guyane française                  | Nouvelle-Calédonie                     | États-Unis Îles éloignées                    |
 > | Polynésie française               | Niger                             | Vanuatu                                  |
 > | Terres australes françaises    | Niue                              | État de la Cité du Vatican                             |
-> | Gabon                          | Norfolk (île)                    | Wallis-et-Futuna                        |
+> | Gabon                          | Norfolk (île)                    | Wallis et Futuna                        |
 > | Gambie                         | Mariannes du Nord (îles)          | Yémen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >
@@ -70,7 +70,7 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID d’abonnement pour un abonnement Azure CSP actif ou un plan Azure.
 
@@ -108,7 +108,7 @@ Après l’inscription de votre abonnement, vous devez vérifier que le processu
 > [!NOTE]
 > Lorsque vous achetez Microsoft Azure réservation pour un client avec un plan Azure, vous devez d’abord inscrire le plan Azure. À l’instar d’un abonnement Microsoft Azure (**MS-AZR-0145P**), un plan Azure est représenté par une ressource d' [abonnement](subscription-resources.md) de l’espace partenaires. Par conséquent, vous pouvez utiliser la même méthode d’inscription d' [un abonnement](register-a-subscription.md) pour inscrire un plan Azure.
 
-## <a name="discovery"></a>Découverte
+## <a name="discovery"></a>découverte,
 
 Une fois l’abonnement activé pour l’achat des réservations Azure, vous êtes prêt à sélectionner les produits et références SKU et à vérifier leur disponibilité à l’aide des modèles d’API de l’espace partenaires suivants :
 
