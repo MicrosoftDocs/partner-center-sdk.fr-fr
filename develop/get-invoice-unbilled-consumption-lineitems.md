@@ -5,12 +5,12 @@ ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 537f39eb8c4c5bd786d69e6287fbaecb9e52c7c6
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b39efc495712476d72706e769957bec0484b268d
+ms.sourcegitcommit: 3a5154692071b5dee597c9d00e63a57efb2aff06
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157421"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85365798"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Obtient les éléments de ligne de facturation commerciale non facturés
 
@@ -21,6 +21,9 @@ ms.locfileid: "82157421"
 Procédure d’obtention d’un regroupement de détails sur les lignes de consommation commerciale non facturées.
 
 Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de détails lignes de consommation commerciale non facturées (également appelées « éléments de ligne d’utilisation ouverts ») par programmation.
+
+>[!NOTE]
+>L’utilisation à l’aide d’une évaluation quotidienne prend normalement 24 heures pour s’afficher dans l’espace partenaires ou pour être accessible via l’API.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -105,7 +108,7 @@ while (fetchNext)
 
 Pour obtenir un exemple similaire, consultez :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
 - Classe : **GetUnBilledConsumptionReconLineItemsPaging.cs**
 
@@ -115,13 +118,13 @@ Pour obtenir un exemple similaire, consultez :
 
 Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction de votre cas d’utilisation. Pour plus d’informations, consultez les descriptions de chaque syntaxe.
 
- | Méthode  | URI de requête         | Description du cas d’usage de syntaxe |                                                                                                                                            |
+ | Méthode  | URI de demande         | Description du cas d’usage de syntaxe |                                                                                                                                            |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &période = {period} http/1.1                              | Utilisez cette syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &période = {period} &Size = {Size} http/1.1  | Utilisez cette syntaxe pour les factures volumineuses. Utilisez cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &période = {period} &Size = {size} &SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne `seekOperation = "Next"`de rapprochement à l’aide de. |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &période = {period} &Size = {size} &SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"` . |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
@@ -132,7 +135,7 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | currencyCode           | string | Oui      | Code de la devise pour les éléments de ligne non facturés.                                  |
 | heures                 | string | Oui      | Période pour le rapprochement non facturé (par exemple : **actuel**, **précédent**).                      |
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000.                    |
-| seekOperation          | string | Non        | Défini `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
+| seekOperation          | string | No       | Défini `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -142,7 +145,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse contient la collection des détails de l’élément de ligne.
 
