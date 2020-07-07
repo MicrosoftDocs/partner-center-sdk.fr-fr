@@ -6,12 +6,13 @@ ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 54cc64be22740d5c27d6599c47a5ed03a3c1597e
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: MT
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 1e4782815c9b777c7cdb3e11e342dd9be94d9310
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82123176"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022695"
 ---
 # <a name="azure-utilization-record-resources"></a>Ressources de l’enregistrement d’utilisation Azure
 
@@ -44,7 +45,7 @@ Décrit les propriétés d’une ressource d’enregistrement d’utilisation Az
 
 ### <a name="operations-on-the-azureutilizationrecord-resource"></a>Opérations sur la ressource AzureUtilizationRecord
 
-- [Obtenir les enregistrements d’utilisation d’Azure d’un client](get-a-customer-s-utilization-record-for-azure.md)
+- [Obtenir les enregistrements d’utilisation d’un client pour Azure](get-a-customer-s-utilization-record-for-azure.md)
 
 ## <a name="azureresource"></a>AzureResource
 
@@ -68,5 +69,5 @@ Décrit les propriétés d’une ressource de données d’instance Azure.
 | location       | string           | Oui      | Région dans laquelle le service a été exécuté.                                                                               |
 | partNumber     | object           | Oui      | Espace de noms unique utilisé pour identifier la ressource pour une utilisation tierce de la place de marché commercial. Cette propriété peut être une chaîne vide. |
 | orderNumber    | nombre           | Oui      | Espace de noms unique utilisé pour identifier l’ordre tiers pour la place de marché commercial. Cette propriété peut être une chaîne vide.          |
-| tags           | tableau de chaînes | Non        | Balises de ressource spécifiées par l’utilisateur. Cette propriété est facultative et ne peut pas être incluse.                            |
-| additionalInfo | tableau de chaînes | Non        | Données supplémentaires pour une ressource Azure. Cette propriété est facultative et ne peut pas être incluse.                          |
+| tags           | tableau de chaînes | Non       | Balises de ressource spécifiées par l’utilisateur. Cette propriété est facultative et ne peut pas être incluse.                            |
+| additionalInfo | tableau de chaînes | Non       | Données supplémentaires pour une ressource Azure. Cette propriété est facultative et ne peut pas être incluse.                          |

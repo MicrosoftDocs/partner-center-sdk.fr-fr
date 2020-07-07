@@ -5,12 +5,13 @@ ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 93c33886d22ea9d4a72ed650da6ec14904cfdb28
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: 7333d2a7216551e50672db3beac0624776709701
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154761"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022626"
 ---
 # <a name="change-the-billing-cycle"></a>Changer le cycle de facturation
 
@@ -36,7 +37,7 @@ Dans le tableau de bord de l’espace partenaires, vous pouvez effectuer cette o
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID de commande.
 
@@ -73,7 +74,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode    | URI de requête                                                                                             |
+| Méthode    | URI de demande                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
@@ -156,7 +157,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne l’ordre d’abonnement mis à jour dans le corps de la réponse.
 

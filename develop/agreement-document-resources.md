@@ -5,12 +5,13 @@ ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 21035d465094ab306d65ce3f24a006a97bf96354
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
-ms.translationtype: MT
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 233277daece48cebe434ea3f458fd98fe6436de7
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665151"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022597"
 ---
 # <a name="agreement-document-resources"></a>Ressources de document de contrat
 

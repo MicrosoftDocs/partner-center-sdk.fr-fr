@@ -6,12 +6,13 @@ ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 29060eb2234cafc7ea32f05798f9b6c192b1511f
-ms.sourcegitcommit: 685137f5dd204912efcb4c406a1bf02278ce5dae
-ms.translationtype: MT
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: d3bc9b6e93bfbfbf49b1c900c9ace15cd586864d
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81785096"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022776"
 ---
 # <a name="azure-rate-card-resources"></a>Ressources de la carte de tarifs Azure
 
@@ -34,7 +35,7 @@ Décrit les propriétés d’une ressource de carte de tarifs Azure.
 | Propriété      | Type                                      | Description                                                       |
 |---------------|-------------------------------------------|-------------------------------------------------------------------|
 | currency      | string                                    | Devise dans laquelle les tarifs sont fournis.                     |
-| isTaxIncluded | boolean                                   | Tous les tarifs étant tarif, cette propriété retourne la `false`valeur. |
+| isTaxIncluded | boolean                                   | Tous les tarifs étant tarif, cette propriété retourne la valeur `false` . |
 | locale        | string                                    | Culture dans laquelle les informations sur les ressources sont localisées.       |
 | compteurs        | tableau d’objets                          | Tableau d’objets [AzureMeter](#azuremeter) .                       |
 | offerTerms    | tableau d’objets                          | Tableau d’objets [AzureOfferTerm](#azureofferterm) .               |

@@ -5,12 +5,13 @@ ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: d2ec1ab76a718b7bef51d98335ac49b68621a11b
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
-ms.translationtype: MT
+author: aarzh-AaronZhang
+ms.author: v-aarzh
+ms.openlocfilehash: 3e59debb59700f7d2d4f0eba9dc156c325b3688d
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82122447"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022666"
 ---
 # <a name="agreement-resources"></a>Ressources de l’accord
 

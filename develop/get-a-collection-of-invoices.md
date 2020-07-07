@@ -6,12 +6,13 @@ ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 734b9df837a7c036de89ba2ced7bb83ae051b5fe
-ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
-ms.translationtype: MT
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: f288dd201faa99480fe42bf190611faaa0cf8b0e
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82882375"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022566"
 ---
 # <a name="get-a-collection-of-invoices"></a>Obtenir une collection de factures
 
@@ -88,7 +89,7 @@ Pour obtenir un exemple légèrement différent, consultez **exemple**: [applica
 |---------|----------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices ? Size = {size} &offset = {offset} http/1.1  |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de requête suivants lors de la création de la demande.
 
@@ -118,7 +119,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient la collection de ressources de [facture](invoice-resources.md#invoice) .
 

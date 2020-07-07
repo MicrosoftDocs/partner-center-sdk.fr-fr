@@ -5,12 +5,13 @@ ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: dcc81acbab84e7f6ac9a495c00b2798c87075d89
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: fc7f96cf6518a3fc761270c8ae1d4ba3575abc90
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155579"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022766"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Obtenir un lien de téléchargement pour le modèle de Contrat client Microsoft
 
@@ -38,7 +39,7 @@ Cet article explique comment obtenir un lien pour télécharger le modèle de co
 
 > [!IMPORTANT]
 >
-> - Le contrat client Microsoft est spécifique au pays. Lorsque vous demandez un lien pour télécharger le modèle de contrat client Microsoft, veillez à spécifier le pays approprié en fonction de l’emplacement du client. ou la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
+> - Le Contrat client Microsoft est spécifique au pays. Lorsque vous demandez un lien pour télécharger le modèle de contrat client Microsoft, veillez à spécifier le pays approprié en fonction de l’emplacement du client. ou la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
 >
 > - Dans certains pays, le contrat client Microsoft est disponible dans plusieurs langues. Pour une expérience utilisateur optimale, choisissez la langue qui correspond le mieux aux besoins du client. Pour obtenir la liste des langues prises en charge, consultez la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).
 > - Cette méthode est uniquement prise en charge par le contrat client Microsoft.
@@ -99,9 +100,9 @@ Utilisez la syntaxe de requête suivante pour cette ressource :
 
 | Méthode | URI de demande |
 |--------|---------------------------------------------------------------------|
-| GET | baseURL/v1/agreementtemplates/{Agreement-template-ID}/document ? Language = {Language} &pays = {Country} http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/agreementtemplates/{Agreement-template-ID}/document ? Language = {Language} &pays = {Country} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
@@ -129,7 +130,7 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une [ressource **AgreementDocument** ](./agreement-document-resources.md) dans le corps de la réponse.
 
@@ -162,7 +163,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 > [!IMPORTANT]
 > La propriété de code Country respecte la casse. Veillez à utiliser la casse correcte spécifiée dans le tableau ci-dessous.
 
-| Country                   | Code pays   | Code (s) de langue pris en charge |
+| Pays ou région                   | Code du pays   | Code (s) de langue pris en charge |
 |------------------------|--------|----------|
 | Åland (îles d’) | AX | fr-FR |
 | Afghanistan | AF | fr-FR |
@@ -171,7 +172,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Samoa américaines | AS | fr-FR |
 | Andorre | AD | fr-FR |
 | Angola | AO | en-US, PT-PT |
-| Anguilla | AI | fr-FR |
+| Anguilla | Intelligence artificielle | fr-FR |
 | Antarctique | AQ | fr-FR |
 | Antigua-et-Barbuda | Groupe de disponibilité | fr-FR |
 | Argentine | AR | en-US, es-ES |
@@ -196,8 +197,8 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Botswana | BW | fr-FR |
 | Bouvet (Île) | BV | fr-FR |
 | Brésil | BR | fr-fr, PT-BR |
-| Territoires britanniques de l’océan Indien | IO | fr-FR |
-| Îles Vierges britanniques | VG | fr-FR |
+| Territoire britannique de l’Océan Indien | IO | fr-FR |
+| Vierges britanniques (îles) | VG | fr-FR |
 | Brunéi Darussalam | BN | fr-FR |
 | Bulgarie | BG | fr-fr, BG-BG |
 | Burkina Faso | BF | fr-FR |
@@ -211,13 +212,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | République centrafricaine | CF | fr-FR |
 | Tchad | TD | fr-FR |
 | Chili | CL | en-US, es-ES |
-| Christmas (île) | CX | fr-FR |
+| Christmas (Île) | CX | fr-FR |
 | Cocos-Keeling (îles) | CC | fr-FR |
 | Colombie | CO | en-US, es-ES |
 | Comores (Les) | KM | fr-FR |
 | Congo (RDC) | CD | fr-FR |
 | Congo | CG | fr-FR |
-| Cook (îles) | CK | fr-FR |
+| Cook (Îles) | CK | fr-FR |
 | Costa Rica | CR | en-US, es-ES |
 | Croatie | HR | fr-fr, RH-RH |
 | Curaçao | CW | fr-FR |
@@ -240,7 +241,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Fidji | FJ | fr-FR |
 | Finlande | FI | en-US, FI-FI |
 | France | FR | en-US, fr-FR |
-| Guyane française | GF | en-US, fr-FR  |
+| Guyane | GF | en-US, fr-FR  |
 | Polynésie française | PF | fr-FR |
 | Terres australes françaises | TF | fr-FR |
 | Gabon | GA | fr-FR |
@@ -269,7 +270,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Indonésie | id | en-US, ID-ID |
 | Irak | IQ | fr-fr, ar-SA |
 | Irlande | IE | fr-FR |
-| Île de Man | IM | fr-FR |
+| Man (Île de) | IM | fr-FR |
 | Israël | IL | en-US, HE-il |
 | Italie | IT | en-US, informatique |
 | Jamaïque | JM | fr-FR |
@@ -288,7 +289,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Lettonie | LV | en-US, LV-LV |
 | Liban | LB | fr-fr, ar-SA |
 | Lesotho | LS | fr-FR |
-| Liberia | LR | fr-FR |
+| Libéria | LR | fr-FR |
 | Libye | LY | fr-fr, ar-SA |
 | Liechtenstein | LI | fr-fr, de-DE |
 | Lituanie | LT | fr-fr, LT-LT |
@@ -301,7 +302,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Maldives | MV | fr-FR |
 | Mali | ML | fr-FR |
 | Malte | MT | fr-FR |
-| Marshall (îles) | MH | fr-FR |
+| Marshall (Îles) | MH | fr-FR |
 | Martinique | MQ | fr-FR |
 | Mauritanie | MR | fr-FR |
 | Maurice (île) | MU | fr-fr, ar-SA |
@@ -320,14 +321,14 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Nauru | NR | fr-FR |
 | Népal | NP | fr-FR |
 | Pays-Bas | NL | fr-fr, NL-NL |
-| Nouvelle-Calédonie | NC | fr-FR |
+| Nouvelle Calédonie | NC | fr-FR |
 | Nouvelle-Zélande | NZ | fr-FR |
 | Nicaragua | NI | en-US, es-ES |
 | Niger | NE | fr-FR |
 | Nigeria | NG | fr-FR |
 | Niue | NU | fr-FR |
-| Norfolk (île) | NF | fr-FR |
-| Îles Marianne du Nord | MP | fr-FR |
+| Norfolk (Île) | NF | fr-FR |
+| Mariannes du Nord (Îles) | MP | fr-FR |
 | Norvège | Non | fr-fr, NB-non |
 | Oman | OM | fr-fr, ar-SA |
 | Pakistan | PK | fr-FR |
@@ -352,9 +353,9 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Saint--Barthélemy | BL | fr-FR |
 | Saint-Christophe-et-Niévès | KN | fr-FR |
 | Sainte-Lucie | LC | fr-fr, en-US |
-| Saint-Martin (partie française) | MF | fr-fr, en-US |
+| Saint-Martin | MF | fr-fr, en-US |
 | Saint-Pierre-et-Miquelon | PM | fr-FR |
-| Saint-Vincent-et-les-Grenadines | VC | fr-FR |
+| Saint-Vincent-et-les Grenadines | VC | fr-FR |
 | Samoa | WS | fr-FR |
 | Saint-Marin | SM | fr-FR |
 | Arabie Saoudite | SA | fr-FR |
@@ -367,7 +368,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Saint-Martin (partie néerlandaise) | SX | fr-fr, en-US |
 | Slovaquie | SK | fr-fr, SK-SK |
 | Slovénie | SI | fr-fr, SL-SI |
-| Salomon (îles) | SB | fr-FR |
+| Salomon (Îles) | SB | fr-FR |
 | Somalie | SO | fr-FR |
 | Afrique du Sud | ZA | fr-FR |
 | Géorgie du Sud et les îles Sandwich du Sud | GS | fr-FR |
@@ -375,7 +376,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Espagne | ES | en-US, es-ES, en-US, en-US |
 | Sri Lanka | LK | fr-FR |
 | Sainte-Hélène, Ascension et Tristan da Cunha | SH | fr-FR |
-| Surinam | SR | fr-FR |
+| Suriname | SR | fr-FR |
 | Svalbard | SJ | fr-FR |
 | Suède | SE | en-US, SV-SE |
 | Suisse | CH | en-US, fr-FR, en-US, en-US |
@@ -391,10 +392,10 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Tunisie | TN | en-US, fr-FR, en-US |
 | Turquie | TR | fr-fr, TR-TR |
 | Turkménistan | TM | fr-FR |
-| Turques-et-Caïques (îles) | TC | fr-FR |
+| Turks et Caicos (îles) | TC | fr-FR |
 | Tuvalu | TV | fr-FR |
 | États-Unis Îles mineures éloignées | UM | fr-FR |
-| Îles Vierges (É.-U.) | VI | fr-FR |
+| États-Unis Îles Vierges | VI | fr-FR |
 | Ouganda | UG | fr-FR |
 | Ukraine | UA | en-US, Royaume-Uni-UA |
 | Émirats Arabes Unis | AE | fr-fr, ar-SA |

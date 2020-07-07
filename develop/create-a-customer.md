@@ -6,12 +6,13 @@ ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: 343b339a93d6542a6475cd2607a1da9a899d02b1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 35ed60b6053fc688249af40ab07b2245a7d8b92c
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154881"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022736"
 ---
 # <a name="create-a-customer"></a>Créer un client
 
@@ -51,7 +52,7 @@ Pour ajouter un client :
 
 2. Ajoutez le nouveau client à votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) en appelant [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync).
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -181,9 +182,9 @@ Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerBil
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | email            | string                                   | Adresse e-mail du client.                                                                                                                                                                                   |
 | culture          | string                                   | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
-| langage         | string                                   | Langue par défaut. Deux codes de langue de caractères ( `en` par `fr`exemple ou) sont pris en charge.                                                                                                                                |
-| nom\_de la société    | string                                   | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
-| adresse\_par défaut | [Adresse](utility-resources.md#address) | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
+| langage         | string                                   | Langue par défaut. Deux codes de langue de caractères (par exemple `en` ou `fr` ) sont pris en charge.                                                                                                                                |
+| nom de la société \_    | string                                   | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
+| adresse par défaut \_ | [Adresse](utility-resources.md#address) | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
 
 #### <a name="company-profile"></a>Profil de l’entreprise
 
@@ -230,7 +231,7 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette API retourne une ressource [client](customer-resources.md#customer) pour le nouveau client. Enregistrez l’ID client et les détails de Azure AD pour une utilisation ultérieure avec le kit de développement logiciel (SDK) de l’espace partenaires. Vous en aurez besoin pour une utilisation avec la gestion des comptes, par exemple.
 

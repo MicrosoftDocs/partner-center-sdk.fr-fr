@@ -5,12 +5,13 @@ ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.localizationpriority: medium
-ms.openlocfilehash: eb5177b9263f8a21aec20fa5e4a3b4970f4525f7
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
-ms.translationtype: MT
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 63dd12725ae488b6676077fe3a646551b793be73
+ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154971"
+ms.lasthandoff: 07/06/2020
+ms.locfileid: "86022676"
 ---
 # <a name="create-a-cart-with-add-ons"></a>Créer un panier avec des extensions
 
@@ -24,7 +25,7 @@ Vous pouvez acheter des modules complémentaires par le biais d’un panier. Pou
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -40,7 +41,7 @@ Un panier permet l’achat d’une offre de base et de ses modules complémentai
 
 5. Enfin, appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) pour créer le panier.
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -141,10 +142,10 @@ Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | id                    | string           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
-| creationTimeStamp     | DateTime         | Non               | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
-| lastModifiedTimeStamp | DateTime         | Non               | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
-| expirationTimeStamp   | DateTime         | Non               | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
-| lastModifiedUser      | string           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
+| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
 | lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
@@ -161,7 +162,7 @@ Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineite
 | provisioningContext  | Dictionary<String, String>       | Contexte utilisé pour l’approvisionnement de l’offre.                                                                                                             |
 | orderGroup           | string                           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                                               |
 | addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires qui seront achetés vers l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier parent. |
-| error                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
+| erreur                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>Exemple de requête (nouvel abonnement de base)
 
@@ -225,7 +226,7 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne la ressource [Cart](cart-resources.md) remplie dans le corps de la réponse.
 
