@@ -1,17 +1,17 @@
 ---
 title: Obtenir un abonnement par ID
 description: Obtient une ressource d’abonnement qui correspond à l’ID de client et à l’ID d’abonnement.
-ms.assetid: 0A91755F-C5AB-4CB1-9E61-6C927F6AA5C5
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cd61260cdf5308af5cf327529737e2181e3c7629
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 531d7a7adb6f987859dfcc4c42831ebb633495de
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157621"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097963"
 ---
 # <a name="get-a-subscription-by-id"></a>Obtenir un abonnement par ID
 
@@ -28,7 +28,7 @@ Obtient une ressource d' [abonnement](subscription-resources.md) qui correspond 
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID d’abonnement.
 
@@ -83,7 +83,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource d' [abonnement](subscription-resources.md) dans le corps de la réponse.
 

@@ -1,17 +1,17 @@
 ---
 title: Récupération de tous les enregistrements d’utilisation mensuelle pour un abonnement.
 description: Vous pouvez utiliser la collection de ressources AzureResourceMonthlyUsageRecord pour obtenir la liste des services inclus dans l’abonnement d’un client et les informations d’utilisation évaluées qui lui sont associées.
-ms.assetid: 037D71B9-8E8B-4BC0-8388-9CBC97218CED
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c90bed3b20aafa59799fadd03b848cfa4be4db76
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: f97f950a139af40a47d7c91af69da80000708558
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156741"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097076"
 ---
 # <a name="get-all-monthly-usage-records-for-a-subscription"></a>Récupération de tous les enregistrements d’utilisation mensuelle pour un abonnement.
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser la collection de ressources [**AzureResourceMonthlyUsageRec
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur d’abonnement.
 
@@ -52,7 +52,7 @@ var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscrip
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSample**
 - Classe : **SubscriptionResourceUsageRecords.cs**
 
@@ -64,7 +64,7 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription}/usagerecords/Resources http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir les informations d’utilisation évaluées.
 
@@ -91,7 +91,7 @@ MS-RequestId: 65b26053-37d0-4303-9fd1-46ad8012bcb6
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources **AzureResourceMonthlyUsageRecord** dans le corps de la réponse.
 

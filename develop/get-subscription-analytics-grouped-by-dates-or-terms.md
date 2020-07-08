@@ -1,17 +1,15 @@
 ---
 title: Récupération de l’analyse d’abonnement par dates ou termes
 description: Comment faire regrouper les informations d’analyse d’abonnement par dates ou termes.
-ms.assetid: 5D0C0649-F64D-40A9-ACCC-2077E2D2BA4E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 713dceb4c037918f2dfd7793659b70ae8ef3148b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 4a9946027fa89f5a93fff5eede86e36a6be5b721
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157221"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097526"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Récupération de l’analyse d’abonnement par dates ou termes
 
@@ -34,15 +32,15 @@ Comment obtenir des informations d’analyse d’abonnement pour vos clients reg
 
 | Méthode | URI de requête |
 |--------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/subscriptions ? GroupBy = {groupby_queries} [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ baseURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? GroupBy = {groupby_queries} |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de chemin d’accès requis suivants pour identifier votre organisation et regrouper les résultats.
 
 | Nom | Type | Obligatoire | Description |
 |------|------|----------|-------------|
-| groupby_queries | paires de chaînes et dateTime | Oui | Termes et dates pour filtrer le résultat. |
+| groupby_queries | paires de chaînes et dateTime | Yes | Termes et dates pour filtrer le résultat. |
 
 ### <a name="groupby-syntax"></a>Syntaxe GroupBy
 
@@ -88,7 +86,7 @@ Le tableau suivant répertorie les champs de filtre facultatifs et leurs descrip
 |-------|------|--------------|
 | top | int | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont 10000. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
 | skip | int | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, Top = 10000 et Skip = 0 récupère les 10000 premières lignes de données, Top = 10000 et Skip = 10000 récupère les 10000 lignes de données suivantes. |
-| Filter | string | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à **`eq`**, **`ne`** ou pour certains champs, l' **`contains`** opérateur. Les instructions peuvent être combinées à l’aide **`and`** de ou de **`or`**. Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre filter. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
+| Filter | string | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à **`eq`** , **`ne`** ou pour certains champs, l' **`contains`** opérateur. Les instructions peuvent être combinées à l’aide **`and`** de ou de **`or`** . Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre filter. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
 | aggregationLevel | string | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. **Remarque**: ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre GroupBy. |
 | Comportant | string | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
 
@@ -112,7 +110,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources d' [abonnement](partner-center-analytics-resources.md#subscription-resource) regroupées selon les conditions et les dates spécifiées.
 

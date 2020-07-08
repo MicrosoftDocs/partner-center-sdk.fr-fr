@@ -1,17 +1,17 @@
 ---
 title: Obtenir une référence SKU par ID
 description: Obtient une référence (SKU) pour le produit spécifié à l’aide de l’ID de référence SKU spécifié.
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f24b0881f1e09986e68547321d095c01d094faf2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 54ef72413d2d2b9e7154e82e4bbdd7427a79a2dd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097979"
 ---
 # <a name="get-a-sku-by-id"></a>Obtenir une référence SKU par ID
 
@@ -83,7 +83,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une ressource de [référence (SKU](product-resources.md#sku) ).
 

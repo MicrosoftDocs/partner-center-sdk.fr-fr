@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des références SKU d’un produit (par pays)
 description: Vous pouvez obtenir et filtrer une collection de références SKU par pays pour un produit à l’aide des API de l’espace partenaires.
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 18af0d68aae4d05e34c239c4dc8e473353507954
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 9d5ec9172ed92d33e6ff291eafd523cbc13bfbbd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156211"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098058"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>Obtenir la liste des références SKU d’un produit (par pays)
 
@@ -120,7 +120,7 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs ? Country = {pays-code} &targetSegment = {Target-segment} http/1.1  |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir la liste des références (SKU) d’un produit.
 
@@ -128,8 +128,8 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | ID de produit             | string   | Oui      | Chaîne qui identifie le produit.                           |
 | pays-code           | string   | Oui      | ID de pays/région.                                            |
-| segment cible         | string   | Non       | Chaîne qui identifie le segment cible utilisé pour le filtrage. |
-| reservationScope | string   | Non | Lors de l’interrogation d’une liste de références SKU pour un produit de `reservationScope=AzurePlan` réservation Azure, spécifiez pour obtenir la liste des références (SKU) applicables à AzurePlan. Excluez ce paramètre pour obtenir la liste des références (SKU) pour les produits de réservation Azure applicables aux abonnements Microsoft Azure (MS-AZR-0145P).  |
+| segment cible         | string   | No       | Chaîne qui identifie le segment cible utilisé pour le filtrage. |
+| reservationScope | string   | No | Lors de l’interrogation d’une liste de références SKU pour un produit de réservation Azure, spécifiez `reservationScope=AzurePlan` pour obtenir la liste des références (SKU) applicables à AzurePlan. Excluez ce paramètre pour obtenir la liste des références (SKU) pour les produits de réservation Azure applicables aux abonnements Microsoft Azure (MS-AZR-0145P).  |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -139,7 +139,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-### <a name="request-examples"></a>Exemples de requête
+### <a name="request-examples"></a>Exemples de demande
 
 Obtenir la liste des références (SKU) pour un produit donné :
 
@@ -171,7 +171,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [SKU](product-resources.md#sku) .
 

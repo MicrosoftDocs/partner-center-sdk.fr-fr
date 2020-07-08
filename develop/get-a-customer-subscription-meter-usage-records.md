@@ -4,13 +4,12 @@ description: Vous pouvez utiliser la collection de ressources MeterUsageRecord p
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9a84255f479b2faf1954cadabcf6f71274a5f053
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: df981eae8d2caee2dcb7f36696725ec011ead75b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154331"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098270"
 ---
 # <a name="get-usage-data-for-subscription-by-meter"></a>Obtenir les données d’utilisation d’abonnement par compteur
 
@@ -24,13 +23,13 @@ Vous pouvez utiliser la collection de ressources **MeterUsageRecord** pour obten
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Un ID d’abonnement
 
-*Ce nouvel itinéraire est équivalent à `subscriptions/{subscription-id}/usagerecords/resources`, qui continuera à fonctionner uniquement pour les abonnements Microsoft Azure (MS-AZR-0145P).* Ce nouvel itinéraire prendra en charge à la fois les abonnements Microsoft Azure (MS-AZR-0145P) et les plans Azure. Pour obtenir ces informations pour votre plan Azure, vous devez passer à ce nouvel itinéraire. À part les propriétés mentionnées dans les sections suivantes, la réponse est la même que l’ancien itinéraire.
+*Ce nouvel itinéraire est équivalent à `subscriptions/{subscription-id}/usagerecords/resources` , qui continuera à fonctionner uniquement pour les abonnements Microsoft Azure (MS-AZR-0145P).* Ce nouvel itinéraire prendra en charge à la fois les abonnements Microsoft Azure (MS-AZR-0145P) et les plans Azure. Pour obtenir ces informations pour votre plan Azure, vous devez passer à ce nouvel itinéraire. À part les propriétés mentionnées dans les sections suivantes, la réponse est la même que l’ancien itinéraire.
 
 ## <a name="c"></a>C\#
 
@@ -50,7 +49,7 @@ Pour obtenir les enregistrements d’utilisation de compteur d’un client pour 
 
 Pour obtenir un exemple, consultez l’exemple suivant :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSamples**
 - Classe : **GetSubscriptionUsageRecordsByMeter.cs**
 
@@ -62,7 +61,7 @@ Pour obtenir un exemple, consultez l’exemple suivant :
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/meterusagerecords http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir les informations d’utilisation évaluées du client.
 
@@ -89,9 +88,9 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
-En cas de réussite, cette méthode retourne une ressource **\<PagedResourceCollection MeterUsageRecord>** dans le corps de la réponse.
+En cas de réussite, cette méthode retourne une ressource **PagedResourceCollection \<MeterUsageRecord> ** dans le corps de la réponse.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

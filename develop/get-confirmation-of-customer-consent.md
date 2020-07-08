@@ -4,13 +4,14 @@ description: Cet article explique comment demander la confirmation de l’accept
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 03412538cc61d748edd3dea08558a3203b3e0f87
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+aauthor: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: d2a6b6d10d07abf8c3565fa568691a44691170e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157721"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096972"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Obtenir une confirmation de l’acceptation du contrat Microsoft Cloud par le client
 
@@ -33,7 +34,7 @@ ms.locfileid: "82157721"
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](./partner-center-authentication.md). Ce scénario prend en charge uniquement l’authentification d’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="net-version-14-or-newer"></a>.NET (version 1,4 ou ultérieure)
 
@@ -136,7 +137,7 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources de **contrat** dans le corps de la réponse.
 

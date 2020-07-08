@@ -1,17 +1,15 @@
 ---
 title: Ressources de produits
 description: Ressources qui représentent des biens ou services pouvant être achetés. Comprend des ressources pour décrire le type de produit et la forme (référence SKU) et pour vérifier la disponibilité du produit dans un inventaire.
-ms.assetid: 80C1F9B5-35FB-4DD8-B501-03467E1D75AD
 ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d733c956f4742a7299e847e7ff48130a6b268df6
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 0474f2e7e089d8e637e18fa9bd7f77ffd5fb2f4e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124646"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097325"
 ---
 # <a name="products-resources"></a>Ressources de produits
 
@@ -89,7 +87,7 @@ Représente une configuration dans laquelle une référence (SKU) est disponible
 | country         | string                                              | Pays ou région (au format de code pays ISO) auquel cette disponibilité s’applique. |
 | isPurchasable   | bool                                                | Indique si cette disponibilité est achetée. |
 | isRenewable     | bool                                                | Indique si cette disponibilité est renouvelable. |
-| product      | [Production](#product)               | Produit auquel cette disponibilité correspond. |
+| product      | [Produit](#product)               | Produit auquel cette disponibilité correspond. |
 | sku          | [Sku](#sku)            | Référence (SKU) à laquelle cette disponibilité correspond. |
 | terms           | Tableau de ressources de [terme](#term)  | Collection des termes applicables à cette disponibilité. |
 | liens           | [ResourceLinks](utility-resources.md#resourcelinks) | Liens de ressources contenus dans la disponibilité. |

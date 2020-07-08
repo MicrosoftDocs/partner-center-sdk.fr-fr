@@ -4,13 +4,14 @@ description: Les webhooks permettent aux partenaires de s’inscrire pour les é
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fc0749f146aa507cab27b36120722d2f6844e4cb
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 1ff3631ed70b197a781d2ca30d71eb8fbf211509
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157061"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097332"
 ---
 # <a name="partner-center-webhooks"></a>Webhooks de l’Espace partenaires
 
@@ -121,7 +122,7 @@ Le tableau suivant décrit les propriétés d’un événement de l’espace par
 |---------------------------|---------------------------------------------------------------------------------------|
 | **Protégée**             | Nom de l’événement. Sous la forme {Resource}-{action}. Par exemple, « test créé ».  |
 | **URI**           | URI de la ressource qui a été modifiée.                                                 |
-| **ResourceName**          | Nom de la ressource qui a été modifiée.                                                |
+| **Nom_ressource**          | Nom de la ressource qui a été modifiée.                                                |
 | **AuditUrl**              | facultatif. URI de l’enregistrement d’audit.                                                |
 | **ResourceChangeUtcDate** | Date et heure, au format UTC, auxquelles la modification de ressource s’est produite.                  |
 
@@ -143,7 +144,7 @@ L’exemple suivant illustre la structure d’un événement de l’espace parte
 
 ### <a name="authentication"></a>Authentification
 
-Tous les appels aux API webhook sont authentifiés à l’aide du jeton de porteur dans l’en-tête Authorization. Obtenir un jeton d’accès pour https://api.partnercenter.microsoft.comaccéder à. Ce jeton est le même que celui utilisé pour accéder au reste des API de l’espace partenaires.
+Tous les appels aux API webhook sont authentifiés à l’aide du jeton de porteur dans l’en-tête Authorization. Obtenir un jeton d’accès pour accéder à https://api.partnercenter.microsoft.com . Ce jeton est le même que celui utilisé pour accéder au reste des API de l’espace partenaires.
 
 ### <a name="get-a-list-of-events"></a>Obtenir une liste d’événements
 

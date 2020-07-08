@@ -4,13 +4,12 @@ description: Vous pouvez utiliser un budget de dépense (l’objet SpendingBudge
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a6b258ea9a4cd6ed8a2feec62903cd5e166853b6
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5b031759fce2dcde484fe741109f1c9e7ed73e41
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156251"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098293"
 ---
 # <a name="get-a-customers-usage-spending-budget"></a>Obtenir le budget des dépenses d’utilisation d’un client
 
@@ -26,7 +25,7 @@ Vous pouvez mettre à jour le budget des dépenses (objet **SpendingBudget** ) d
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -88,7 +87,7 @@ Content-Type: application/json;charset=utf-8
 X-Locale: "en-US"
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne le budget des dépenses d’un utilisateur avec le montant mis à jour.
 

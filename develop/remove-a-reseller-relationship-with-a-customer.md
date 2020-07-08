@@ -4,13 +4,14 @@ description: Comment supprimer une relation de revendeur avec un client pour leq
 ms.date: 01/12/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 00ab4361c7eb83ea14b52d7858ecb8f04b5c7550
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: e642b8977538e760f82233fe159af94f458df15c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157021"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096135"
 ---
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>Supprimer une relation de revendeur avec un client
 
@@ -22,9 +23,9 @@ Supprimer une relation de revendeur avec un client pour lequel vous n’avez plu
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Toutes les commandes d’instance de machine virtuelle réservées Azure doivent être annulées avant la suppression d’une relation de revendeur. Appelez le support Azure pour annuler les commandes de l’instance de machine virtuelle réservée Azure.
 
@@ -86,7 +87,7 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                                                                           |
+| Méthode     | URI de demande                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | **PATCH**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/http/1.1 |
 
@@ -125,7 +126,7 @@ Date: Fri, 12 Jan 2018 00:31:55 GMT
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode supprime une relation de revendeur pour le client spécifié.
 

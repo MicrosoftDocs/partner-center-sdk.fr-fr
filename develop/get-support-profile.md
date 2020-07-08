@@ -1,17 +1,15 @@
 ---
 title: Obtenir le profil de prise en charge
 description: Obtient un objet qui représente le profil de support d’un utilisateur.
-ms.assetid: 7161B81C-09E7-46C8-8EF4-214B3ED76FB7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9a76f860ebe662ddf85ee6dbbb70622a96867047
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 6107288c0885a6baf6140e66ef1b423ab9b2940d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157181"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097490"
 ---
 # <a name="get-support-profile"></a>Obtenir le profil de prise en charge
 
@@ -25,7 +23,7 @@ Obtient un objet qui représente le profil de support d’un utilisateur.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -65,7 +63,7 @@ MS-RequestId: 07029132-385d-416f-a9a6-df5e9e4c78d3
 MS-CorrelationId: 20604323-50bf-4738-9968-c5486ab32be0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un objet **SupportProfile** dans le corps de la réponse.
 

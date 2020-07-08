@@ -1,17 +1,15 @@
 ---
 title: Fournir une assistance
 description: Cette section décrit les manières dont les partenaires fournisseurs de solutions Cloud peuvent utiliser l’espace partenaires pour gérer par programmation les demandes de support et de service.
-ms.assetid: 2E92EEA0-13D6-4FAB-896F-F95C65E7B495
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 38fa47e81f92a9830bac558bddddaeb97eda7f82
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: 4dd6251841e3e854de66debcf316cec9d0af6b44
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089259"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097245"
 ---
 # <a name="provide-support"></a>Fournir une assistance
 

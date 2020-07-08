@@ -1,17 +1,15 @@
 ---
 title: Obtenir un récapitulatif des coûts de service d’un client
 description: Obtient les coûts de service d’un client pour la période de facturation spécifiée.
-ms.assetid: 99B250F7-6C29-4BC3-8427-0DF178D7BE68
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2bc21bd4fd956fc9c93545c351ae88bd9a3f5a21
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: bdcfd2273b8af37680b4aff7821d773a0f417688
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156201"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098313"
 ---
 # <a name="get-a-customers-service-costs-summary"></a>Obtenir un récapitulatif des coûts de service d’un client
 
@@ -25,9 +23,9 @@ Obtient les coûts de service d’un client pour la période de facturation spé
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
-- Un indicateur de période de**`mostrecent`** facturation ().
+- Un indicateur de période de facturation ( **`mostrecent`** ).
 
 ## <a name="c"></a>C\#
 
@@ -56,13 +54,13 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 |---------|---------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/servicecosts/{Billing-period} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et la période de facturation.
 
 | Nom           | Type   | Obligatoire | Description                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | Oui      | ID de client au format GUID qui identifie le client.                                                                       |
+| customer-id    | guid   | Yes      | ID de client au format GUID qui identifie le client.                                                                       |
 | billing-period | string | Oui      | Indicateur qui représente la période de facturation. La seule valeur prise en charge est MostRecent. La casse de la chaîne n’a pas d’importance. |
 
 ### <a name="request-headers"></a>En-têtes de requête
@@ -85,7 +83,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une ressource [ServiceCostsSummary](service-costs-resources.md) qui fournit des informations sur les coûts du service.
 

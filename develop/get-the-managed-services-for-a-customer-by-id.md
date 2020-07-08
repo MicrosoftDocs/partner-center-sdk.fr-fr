@@ -1,17 +1,15 @@
 ---
 title: Obtenir les services managés d’un client par ID
 description: Obtient les services managés pour un client. En d’autres termes, obtenir des liens vers tous les abonnements du client pour lesquels vous avez délégué des privilèges d’administrateur. Vous pouvez utiliser ces liens pour fournir une prise en charge et des demandes de service de fichiers avec Microsoft.
-ms.assetid: 32554787-4232-4574-9FC9-5E9F26411233
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 1034e517eb924ef41a706639c529613b0f7c4d00
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 52002b3ff3f002b45dadf6321178933cd4476b4b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157191"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097421"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>Obtenir les services managés d’un client par ID
 
@@ -25,9 +23,9 @@ Obtient les services managés pour un client. En d’autres termes, obtenir des 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -76,7 +74,7 @@ MS-RequestId: 4ff57220-f17b-4d8f-8e09-78334c57ba00
 MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection d’objets de **service managés** dans le corps de la réponse.
 

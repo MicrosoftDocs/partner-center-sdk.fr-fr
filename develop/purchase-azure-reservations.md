@@ -1,17 +1,15 @@
 ---
 title: Acheter des réservations Azure
 description: Vous pouvez acheter des réservations Azure pour un client à l’aide de l’API espace partenaires via votre abonnement Microsoft Azure existant (MS-AZR-0145P) ou un plan Azure.
-ms.assetid: 1BCDA7B8-93FC-4AAC-94E0-B15BFC95737F
 ms.date: 11/01/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 92cd267ea7364db7a804ef291c207a71ef6baa7b
-ms.sourcegitcommit: 51dc972a66af76d033d22f1d92f8ccc46ae3d36b
+ms.openlocfilehash: 4c09f65ae5105a74be41a7ec45824e3889217a1c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096039"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096185"
 ---
 # <a name="purchase-azure-reservations"></a>Acheter des réservations Azure
 
@@ -35,8 +33,8 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
 > | Bénin                          | Guyane                            | Saint-Martin                             |
-> | Bhoutan                         | Haïti                             | Saint Pierre et Miquelon                |
-> | Bonaire                        | Heard et McDonald (îles) | Saint-Vincent-et-les Grenadines         |
+> | Bhoutan                         | Haïti                             | Saint-Pierre-et-Miquelon                |
+> | Bonaire                        | Heard et McDonald (Îles) | Saint-Vincent-et-les Grenadines         |
 > | Bouvet (Île)                  | Man (Île de)                       | Samoa                                    |
 > | Brésil                         | Jan Mayen                         | Saint-Marin                               |
 > | Territoires britanniques de l’océan Indien | Jersey                            | São Tomé et Príncipe                    |
@@ -46,9 +44,9 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Cambodge                       | Lesotho                           | Saint-Martin (partie néerlandaise)                             |
 > | République centrafricaine       | Liberia                           | Salomon (Îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
+> | Chine                          | Malawi                            | Géorgie du Sud et les îles Sandwich du Sud |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Suriname                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
@@ -58,10 +56,10 @@ Pour acheter une réservation Azure pour un client à l’aide de l’API de l�
 > | Guinée équatoriale              | Mozambique                        | Tonga                                    |
 > | Érythrée                        | Myanmar                           | Turks et Caicos (îles)                 |
 > | Malouines (îles)               | Nauru                             | Tuvalu                                   |
-> | Guyane française                  | Nouvelle-Calédonie                     | États-Unis Îles éloignées                    |
+> | Guyane française                  | Nouvelle-Calédonie                     | États-Unis Îles mineures éloignées                    |
 > | Polynésie française               | Niger                             | Vanuatu                                  |
 > | Terres australes françaises    | Niue                              | État de la Cité du Vatican                             |
-> | Gabon                          | Norfolk (île)                    | Wallis et Futuna                        |
+> | Gabon                          | Norfolk (île)                    | Wallis-et-Futuna                        |
 > | Gambie                         | Mariannes du Nord (îles)          | Yémen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >

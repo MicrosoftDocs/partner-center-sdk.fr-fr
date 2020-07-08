@@ -4,13 +4,12 @@ description: Option libre-service pour annuler les abonnements logiciels et les 
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d984deb3c80a6f02ae1880ccbc8d9c7c882226f
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 364859172661832531e6d214e70dfeb6bc27a7fa
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82123170"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097315"
 ---
 # <a name="cancel-software-purchases"></a>Annuler des achats de logiciel
 
@@ -34,7 +33,7 @@ Pour annuler une commande de logiciel,
 
 3. Appelez la méthode **obtenir** ou **GetAsync** pour récupérer la commande.
 
-4. Affectez à `cancelled`la propriété [**Order. Status**](order-resources.md#order) la valeur.
+4. Affectez à la propriété [**Order. Status**](order-resources.md#order) la valeur `cancelled` .
 
 5. Facultatif Si vous souhaitez spécifier certains éléments de ligne pour l’annulation, définissez [**Order. LineItem**](order-resources.md#order) sur la liste des éléments de ligne que vous souhaitez annuler.
 
@@ -61,11 +60,11 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                            |
+| Méthode     | URI de demande                                                                            |
 |------------|----------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de requête suivants pour supprimer un client.
 
@@ -113,7 +112,7 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne l’ordre avec les éléments de ligne annulés.
 
@@ -125,7 +124,7 @@ Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réus
 
 ### <a name="response-example"></a>Exemple de réponse
 
-Dans l’exemple de réponse suivant, vous pouvez voir que la quantité d’élément de ligne avec l’identificateur **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** d’offre est égale à zéro (0). Cette modification signifie que la ligne marquée pour l’annulation a été annulée avec succès. L’exemple de commande contient d’autres lignes qui n’ont pas été annulées, ce qui signifie que l’état de la commande globale sera marqué comme **terminé**, non **annulé**.
+Dans l’exemple de réponse suivant, vous pouvez voir que la quantité d’élément de ligne avec l’identificateur d’offre **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** est égale à zéro (0). Cette modification signifie que la ligne marquée pour l’annulation a été annulée avec succès. L’exemple de commande contient d’autres lignes qui n’ont pas été annulées, ce qui signifie que l’état de la commande globale sera marqué comme **terminé**, non **annulé**.
 
 ```http
 HTTP/1.1 200 OK

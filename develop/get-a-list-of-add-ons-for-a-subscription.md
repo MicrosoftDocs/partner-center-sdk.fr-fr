@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des extensions d’un abonnement
 description: Comment obtenir une collection de modules complémentaires qu’un client a choisi d’ajouter à son abonnement.
-ms.assetid: F10823A2-CA77-4F80-9ED4-CFB4E4343049
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e5928dd1dc51026ad836be88aee10726b78bf376
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 43df1fd4674153d8e3016428f675ee5c9952f186
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156811"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098212"
 ---
 # <a name="get-a-list-of-add-ons-for-a-subscription"></a>Obtenir la liste des extensions d’un abonnement
 
@@ -28,7 +28,7 @@ Cet article explique comment obtenir un ensemble de modules complémentaires qu�
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID d’abonnement.
 
@@ -53,7 +53,7 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSample**
 - Classe : **SubscriptionAddons.cs**
 
@@ -92,7 +92,7 @@ MS-RequestId: 429902e2-ea2f-4704-b8a0-27fc53c539ba
 MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources dans le corps de la réponse.
 

@@ -1,17 +1,15 @@
 ---
 title: Obtenir des informations sur le déploiement des licences partenaire
 description: Comment faire en sorte que les informations de déploiement des licences partenaires soient agrégées pour inclure tous les clients.
-ms.assetid: BC78F9EA-C07C-4FD5-B06D-C87E8330B6E2
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 278f445a2e4072eecf6e1f91a5e2f9f2fd1d7c02
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: ac28f10c8d255d0d4fe7f92e9d1977b16d1ae962
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097734"
 ---
 # <a name="get-partner-licenses-deployment-information"></a>Obtenir des informations sur le déploiement des licences partenaire
 
@@ -66,7 +64,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [PartnerLicensesDeploymentInsights](analytics-resources.md#partnerlicensesdeploymentinsights) qui fournissent des informations sur les licences déployées.
 

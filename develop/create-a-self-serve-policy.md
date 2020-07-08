@@ -4,13 +4,12 @@ description: Comment créer une nouvelle stratégie libre-service.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 52b5a21874a1361d01f26907481a36f10c5e858f
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+ms.openlocfilehash: 7440da859a9086513725c27e1d6945a6941eea28
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564307"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096201"
 ---
 # <a name="create-a-selfservepolicy"></a>Créer un SelfServePolicy
 
@@ -87,7 +86,7 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette API retourne une ressource [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) pour la nouvelle stratégie SELD serv.
 

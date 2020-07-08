@@ -4,13 +4,12 @@ description: Rejet d’un transfert d’abonnements pour un client.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 62e934f0b2289b9cb235d7360bce01b5bf3474c4
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: e4a182ff92a21cf72ca1c2da9de7e211b433725f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489196"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096168"
 ---
 # <a name="reject-a-transfer"></a>Rejeter un transfert
 
@@ -53,8 +52,8 @@ Ce tableau décrit les propriétés [TransferEntity](transfer-entity-resources.m
 
 | Propriété              | Type          | Obligatoire  | Description                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | string        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
-| status                | string        | Non    | État du transferEntity. Pour rejeter un transfert, la valeur doit être définie sur « Reject ».|
+| id                    | string        | No    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
+| status                | string        | No    | État du transferEntity. Pour rejeter un transfert, la valeur doit être définie sur « Reject ».|
 
 ### <a name="request-example"></a>Exemple de requête
 

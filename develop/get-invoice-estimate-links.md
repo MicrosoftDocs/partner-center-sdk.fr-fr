@@ -5,13 +5,14 @@ ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.assetid: ''
-ms.localizationpriority: medium
-ms.openlocfilehash: 9003c388b80552b0f7a71df25e8ecab3a0364583
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 10801cdb1f9d4f50a1f8fc86c2d0eaf8610ed68c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096945"
 ---
 # <a name="get-invoice-estimate-links"></a>Obtenir des liens d’estimation de facture
 
@@ -47,7 +48,7 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 
 Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
 - Classe : **GetEstimatesLinks.cs**
 
@@ -59,7 +60,7 @@ Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 |---------|-------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/Estimates/Links ? CurrencyCode = {CURRENCYCODE} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez l’URI et le paramètre de requête suivants lors de la création de la demande.
 
@@ -88,7 +89,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse contient les liens permettant de récupérer les estimations non facturées.
 

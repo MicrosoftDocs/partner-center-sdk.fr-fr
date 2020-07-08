@@ -4,13 +4,14 @@ description: Vous pouvez utiliser la ressource PartnerUsageSummary pour obtenir 
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2e31c21001fc009b1bc4c380514102158f29724d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: ba1885f46043a75274595239fe61ce3ef0998acf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155271"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097148"
 ---
 # <a name="get-a-usage-summary-for-a-partner"></a>Obtenir un résumé de l’utilisation d’un partenaire
 
@@ -26,7 +27,7 @@ Vous pouvez utiliser la ressource **PartnerUsageSummary** pour obtenir un résum
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -44,7 +45,7 @@ Pour obtenir un résumé de l’utilisation de tous les clients qui ont acheté 
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSamples**
 - Classe : **GetPartnerUsageSummary.cs**
 
@@ -74,7 +75,7 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource **PartnerUsageSummary** dans le corps de la réponse.
 

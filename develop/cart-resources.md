@@ -4,13 +4,12 @@ description: Un partenaire passe une commande lorsqu’un client souhaite achete
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cb47c244934d25e6970440c55a3bdd13ffbc8951
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+ms.openlocfilehash: 561bffb905becd1bfc699eb13fe4dc6e10e8e07a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82090786"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096491"
 ---
 # <a name="cart-resources"></a>Ressources du panier
 
@@ -54,7 +53,7 @@ Représente un élément contenu dans un panier.
 | provisioningContext  | Dictionary<String, String>       | Contexte supplémentaire utilisé lors de la configuration de l’élément acheté. Pour déterminer les valeurs nécessaires pour un élément particulier, reportez-vous à la propriété provisioningVariables de la référence. |
 | orderGroup           | string                           | Groupe pour indiquer les éléments qui peuvent être envoyés ensemble dans le même ordre.                                                                          |
 | addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires. Ces éléments seront achetés pour l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier de la racine. |
-| error                | Object                           | Appliqué après la création du panier si une erreur s’est produite.                                                                                                    |
+| erreur                | Object                           | Appliqué après la création du panier si une erreur s’est produite.                                                                                                    |
 | renewsTo             | Tableau d’objets                 | Tableau de ressources [RenewsTo](#renewsto) .                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
@@ -63,7 +62,7 @@ Représente un élément contenu dans un élément de ligne de panier.
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
+| termDuration          | chaîne           | No              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
 
 ## <a name="carterror"></a>CartError
 
@@ -147,7 +146,7 @@ Représente une erreur qui se produit pendant l’extraction d’un panier lors 
 | AssetIdNotFound | 800037 | ID d’élément multimédia introuvable. |
 | AssetFutureBillingInfoNotFound | 800038 | FutureBillingInfo de ressource introuvable. |
 | ResellerProgramStatusNotActive | 800039 | L’état du programme du revendeur n’est pas actif. |
-| AssetStatusChangeNotValid | 800040 | L’état **{0}** de la ressource ne peut **{1}** pas être remplacé par. |
+| AssetStatusChangeNotValid | 800040 | L’état de la ressource ne peut pas être remplacé **{0}** par **{1}** . |
 | ItemAlreadyActivated | 800041 | Cet élément a déjà été activé. |
 | NotSupported | 800042 | Non pris en charge. |
 | PricingAccessForbidden | 800043 | L’accès aux informations de tarification n’est pas accordé. |
@@ -155,5 +154,5 @@ Représente une erreur qui se produit pendant l’extraction d’un panier lors 
 | OrderCannotBeCancelled | 800061 | Impossible d’annuler l’ordre. |
 | ReviewRejected | 800062 | Vous n’êtes pas éligible pour cette transaction. |
 | CancelLegacyOrder | 800063 | Cet ordre **{0}** ne peut pas être annulé. Utilisez `PATCH /customers/{1}/subscriptions/<subscriptionId>` pour suspendre des abonnements. |
-| CartProcessedByAnotherRequest | 800064 | Le **{0}** panier est en cours de traitement par une autre demande. |
-| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | Impossible d’extraire un panier **{0}** déjà envoyé. |
+| CartProcessedByAnotherRequest | 800064 | Le panier **{0}** est en cours de traitement par une autre demande. |
+| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | Impossible d’extraire un panier déjà envoyé **{0}** . |

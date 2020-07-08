@@ -4,13 +4,14 @@ description: Comment obtenir les codes de validation Cloud de la communauté gou
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 1f671229f5c427c9c25f7fe3c2799f1ed739a7f3
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: 5ad255dadb499fb6c311bb3a2e9d76892611a91b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097171"
 ---
 # <a name="get-a-partners-validation-codes"></a>Obtenir les codes de validation d’un partenaire
 
@@ -67,7 +68,7 @@ MS-CorrelationId: 283b9b70-963a-4159-9920-f2bdf7ab7fce
 MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une liste de ressources [**ValidationCode**](utility-resources.md#validationcode) dans le corps de la réponse.
 

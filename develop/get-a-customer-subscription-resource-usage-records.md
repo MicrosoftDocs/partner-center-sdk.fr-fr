@@ -4,13 +4,12 @@ description: Vous pouvez utiliser la ressource ResourceUsageRecord pour obtenir 
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 75e36f0779f7414a03e8de4f5fe0a753a717cacd
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e815430730dd7182380e9efd1fea80f9e84d2ce7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156241"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098267"
 ---
 # <a name="get-usage-data-for-subscription-by-resource"></a>Obtenir les données d’utilisation d’abonnement par ressource
 
@@ -26,9 +25,9 @@ Cet article explique comment récupérer la ressource **ResourceUsageRecord** . 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Un identificateur d’abonnement
 
@@ -50,7 +49,7 @@ Pour obtenir les enregistrements d’utilisation des ressources d’un client po
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSamples**
 - Classe : **GetSubscriptionUsageRecordsByResource.cs**
 
@@ -62,7 +61,7 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 |---------|-----------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/resourceusagerecords http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir les informations d’utilisation évaluées du client.
 
@@ -89,9 +88,9 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
-En cas de réussite, cette méthode retourne une ressource **\<PagedResourceCollection ResourceUsageRecord>** dans le corps de la réponse.
+En cas de réussite, cette méthode retourne une ressource **PagedResourceCollection \<ResourceUsageRecord> ** dans le corps de la réponse.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

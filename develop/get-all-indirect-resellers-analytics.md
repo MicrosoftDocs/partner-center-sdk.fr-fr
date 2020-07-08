@@ -1,17 +1,17 @@
 ---
 title: Obtenir toutes les informations analytiques sur les revendeurs indirects
 description: Obtention des informations d’analyse des revendeurs indirects.
-ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4a8bf1a958b28b5ea8c471a3bbee9009243f7455
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 65bbc79ff456022c399a0a0c08e4561f0c7babcd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097866"
 ---
 # <a name="get-all-indirect-resellers-analytics-information"></a>Obtenir toutes les informations analytiques sur les revendeurs indirects
 
@@ -34,9 +34,9 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
 
 | Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/indirectresellers http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/indirectresellers http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 <table>
 <thead>
@@ -162,7 +162,7 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
         <td>aggregationLevel</td>
         <td>string</td>
         <td><p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : &quot;day&quot;, &quot;week&quot; ou &quot;month&quot;. Par défaut, la valeur est &quot;day&quot;.</p>
-        <p><code>aggregationLevel</code>n’est pas pris <code>aggregationLevel</code>en charge sans. <code>aggregationLevel</code>s’applique à tous les <strong>datefields</strong> présents dans le<code>aggregationLevel</code></p>
+        <p><code>aggregationLevel</code>n’est pas pris en charge sans <code>aggregationLevel</code> . <code>aggregationLevel</code>s’applique à tous les <strong>datefields</strong> présents dans le<code>aggregationLevel</code></p>
         </td>
     </tr>
     <tr>
@@ -186,7 +186,7 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
                 <li>&quot;subscriptionCount&quot;</li>
                 <li>&quot;licenseCount&quot;</li>
             </ul>
-            <p>Le paramètre <em>Order</em> est facultatif et peut être <code>asc</code> ou ; <code>desc</code> pour spécifier l’ordre croissant ou décroissant pour chaque champ. Par défaut, il s’agit de <code>asc</code>.</p>
+            <p>Le paramètre <em>Order</em> est facultatif et peut avoir la <code>asc</code> <code>desc</code> valeur ou ; pour spécifier l’ordre croissant ou décroissant pour chaque champ. Par défaut, il s’agit de <code>asc</code>.</p>
             <p><strong>Exemple :</strong></br>
                 <code>...&orderby=market,subscriptionCount</code>
             </p>
@@ -211,7 +211,7 @@ Comment obtenir toutes les informations d’analyse des revendeurs indirects pou
                 <li><em>firstSubscriptionDeprovisionedDate</em></li>
                 <li><em>latestSubscriptionDeprovisionedDate</em></li>
             </ul>
-            <p>Les lignes de données retournées contiennent les champs <code>groupby</code> spécifiés dans la clause et les champs suivants :</p>
+            <p>Les lignes de données retournées contiennent les champs spécifiés dans la <code>groupby</code> clause et les champs suivants :</p>
             <ul>
                 <li><em>indirectResellerCount</em></li>
                 <li><em>licenseCount</em></li>
@@ -244,7 +244,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources de [revendeurs indirects](partner-center-analytics-resources.md#csp-program-indirect-resellers-analytics) .
 

@@ -1,17 +1,15 @@
 ---
 title: Obtenir les éléments de ligne de facture
 description: Vous pouvez obtenir des détails sur une collection d’éléments de ligne de facturation (ligne de facturation fermée) pour une facture spécifiée à l’aide des API de l’espace partenaires.
-ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e20a7bbfbfcd557be1f27904eafed31e4a7691a6
-ms.sourcegitcommit: 512f6af26ea282cce47214368175f63eabe8551e
+ms.openlocfilehash: 77f1c7cda97d5511c87933449586a52b17c93e97
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82882395"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096877"
 ---
 # <a name="get-invoice-line-items"></a>Obtenir les éléments de ligne de facture
 
@@ -103,7 +101,7 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
 - Classe : **GetInvoiceLineItems.cs**
 
@@ -147,13 +145,13 @@ Si vous utilisez les syntaxes suivantes, assurez-vous d’utiliser la syntaxe ap
 
 Vous devez utiliser **OneTime** pour interroger tous les Articles de la consommation commerciale au lieu de la place de **marché**. Vous pouvez ou suivre les liens de l’appel d’estimation des liens.
 
-| Méthode | URI de requête | Description du cas d’usage de syntaxe |
+| Méthode | URI de demande | Description du cas d’usage de syntaxe |
 | ------ | ----------- | -------------------------------- |
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/{Billing-Provider}/{Invoice-line-item-type} http/1.1                              | Vous pouvez utiliser cette syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. |
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/{Billing-Provider}/{Invoice-line-item-type} ? Size = {size} &offset = {offset} http/1.1  | Pour les factures volumineuses, vous pouvez utiliser cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/OneTime/{Invoice-line-item-type} ? SeekOperation = suivant                               | Vous pouvez utiliser cette syntaxe pour une facture avec une valeur de fournisseur de facturation de **OneTime** et définir **seekOperation** sur **Next** pour obtenir la page suivante d’éléments de ligne de facture. |
 
-##### <a name="uri-parameters"></a>Paramètres URI
+##### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
@@ -165,7 +163,7 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. Taille maximale par défaut = 2000    |
 | offset                 | nombre | Non       | Index de base zéro du premier élément de ligne à retourner.            |
 | seekOperation          | string | No       | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
-| hasPartnerEarnedCredit | bool | Non  | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
+| hasPartnerEarnedCredit | bool | No | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -175,7 +173,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse contient la collection des détails de l’élément de ligne.
 

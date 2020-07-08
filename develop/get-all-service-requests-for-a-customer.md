@@ -1,17 +1,17 @@
 ---
 title: Obtenir des demandes de service pour un client
 description: Obtient toutes les demandes de service d’un client.
-ms.assetid: 21F01038-EE51-4FB3-8BE5-9086DBD0F393
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0e53157b3ab06cc37e59475bdafb65274139214a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: b58f70fa0aae5deb90356707bb601a7a77d33e9d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097777"
 ---
 # <a name="get-all-service-requests-for-a-customer"></a>Obtenir des demandes de service pour un client
 
@@ -27,9 +27,9 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -78,7 +78,7 @@ MS-RequestId: 53d5d48c-9693-46b6-8071-2eed07797d6c
 MS-CorrelationId: 998e31a1-3f17-4471-a9ee-7678dd72e033
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources de **demande de service** dans le corps de la réponse.
 

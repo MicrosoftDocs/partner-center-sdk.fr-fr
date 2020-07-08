@@ -1,17 +1,15 @@
 ---
 title: Obtenir un enregistrement le l’activité de l’Espace partenaires
 description: Comment récupérer un enregistrement d’opérations, tel qu’il est effectué par un utilisateur partenaire ou une application, sur une période donnée.
-ms.assetid: C24054DA-3E31-4BCD-BEB5-085564C20C58
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9247573eff347784655b38e3315f4d1415dd5c2a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 7a17e5e7dbded778e5938d9f8024cee4b507111e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097128"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>Obtenir un enregistrement le l’activité de l’Espace partenaires
 
@@ -99,9 +97,9 @@ Utilisez les paramètres de requête suivants lors de la création de la demande
 
 | Nom      | Type   | Obligatoire | Description                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | Date   | Non        | Date de début au format aaaa-mm-jj. Si aucune valeur n’est fournie, le jeu de résultats est défini par défaut sur 30 jours avant la date de la demande. Ce paramètre est facultatif lorsqu’un filtre est fourni.                                          |
-| endDate   | Date   | Non        | Date de fin au format aaaa-mm-jj. Ce paramètre est facultatif lorsqu’un filtre est fourni. Lorsque la date de fin est omise ou définie sur null, la demande retourne la fenêtre Max ou utilise la date de fin du jour, selon la valeur la plus petite. |
-| Filter    | string | Non       | Filtre à appliquer. Ce paramètre doit être une chaîne encodée. Ce paramètre est facultatif lorsque la date de début ou la date de fin sont fournies.                                                                                              |
+| startDate | Date   | No       | Date de début au format aaaa-mm-jj. Si aucune valeur n’est fournie, le jeu de résultats est défini par défaut sur 30 jours avant la date de la demande. Ce paramètre est facultatif lorsqu’un filtre est fourni.                                          |
+| endDate   | Date   | No       | Date de fin au format aaaa-mm-jj. Ce paramètre est facultatif lorsqu’un filtre est fourni. Lorsque la date de fin est omise ou définie sur null, la demande retourne la fenêtre Max ou utilise la date de fin du jour, selon la valeur la plus petite. |
+| Filter    | string | No       | Filtre à appliquer. Ce paramètre doit être une chaîne encodée. Ce paramètre est facultatif lorsque la date de début ou la date de fin sont fournies.                                                                                              |
 
 ### <a name="filter-syntax"></a>Syntaxe des filtres
 Vous devez composer le paramètre de filtre sous la forme d’une série de paires clé-valeur séparées par des virgules. Chaque clé et valeur doit être placée entre des guillemets et séparée par deux points. La totalité du filtre doit être encodée.
@@ -134,12 +132,12 @@ Le tableau suivant décrit les paires clé-valeur requises :
 <td>Valeur</td>
 <td>Valeur sur laquelle filtrer. La casse de la valeur est ignorée. Les paramètres de valeur suivants sont pris en charge, comme indiqué dans la syntaxe de la <a href="#rest-request">requête</a>:
 <ul>
-<li><p>searchSubstring : remplacez par le nom de la société. Vous pouvez entrer une sous-chaîne qui correspond à une partie du nom de la `bri` société ( `Fabrikam, Inc`par exemple, correspond à).</p>
-<p>Exemple : &quot;valeur&quot;:&quot;BRI&quot;</p></li>
+<li><p>searchSubstring : remplacez par le nom de la société. Vous pouvez entrer une sous-chaîne qui correspond à une partie du nom de la société (par exemple `bri` , correspond à `Fabrikam, Inc` ).</p>
+<p>Exemple : &quot; valeur &quot; : &quot; BRI&quot;</p></li>
 <li><p>customerId-remplacez par une chaîne au format GUID qui représente l’identificateur du client.</p>
-<p>Exemple : &quot;valeur&quot;:&quot;0c39d6d5-c70d-4C55-BC02-f620844f3fd1&quot;</p></li>
+<p>Exemple : &quot; valeur &quot; : &quot; 0c39d6d5-c70d-4C55-BC02-f620844f3fd1&quot;</p></li>
 <li><p>resourceType : remplacez par le type de ressource pour lequel récupérer les enregistrements d’audit (par exemple, abonnement). Les types de ressources disponibles sont définis dans <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>resourceType</strong></a>.</p>
-<p>Exemple : &quot;valeur&quot;:&quot;abonnement&quot;</p></li>
+<p>Exemple : &quot; valeur &quot; : &quot; abonnement&quot;</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -170,7 +168,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un ensemble d’activités qui répondent aux critères des filtres.
 

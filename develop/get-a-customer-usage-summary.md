@@ -1,17 +1,15 @@
 ---
 title: Obtenir un récapitulatif de l’utilisation de tous les abonnements d’un client
 description: Vous pouvez utiliser la ressource CustomerUsageSummary pour obtenir l’utilisation par un client d’un service ou d’une ressource Azure spécifique au cours de la période de facturation en cours.
-ms.assetid: 58FA3CBD-27CF-46C5-9EB2-188D83896F7D
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4754abdcdc94280e454951bdd04000c0643d6baa
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 0c918434367a3514e6a6ad6034b4897c33f51025
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098235"
 ---
 # <a name="get-a-usage-summary-for-all-of-a-customers-subscriptions"></a>Obtenir un récapitulatif de l’utilisation de tous les abonnements d’un client
 
@@ -25,9 +23,9 @@ Vous pouvez utiliser la ressource **CustomerUsageSummary** pour obtenir l’util
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -46,7 +44,7 @@ Pour obtenir un résumé de l’utilisation de tous les abonnements d’un clien
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSamples**
 - Classe : **GetCustomerUsageSummary.cs**
 
@@ -84,7 +82,7 @@ MS-RequestId: e128c8e2-4c33-4940-a3e2-2e59b0abdc67
 MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource **CustomerUsageSummary** dans le corps de la réponse.
 

@@ -4,13 +4,14 @@ description: Cet article explique comment obtenir les métadonnées d’un accor
 ms.date: 8/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 419be44e0dc82f931826dbf849c7122a98bc8646
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khakiali
+ms.author: alikhaki
+ms.openlocfilehash: 45cc1284d872072a80a973cfee5a6218452a2409
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157701"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096960"
 ---
 # <a name="get-agreement-metadata-for-the-microsoft-customer-agreement"></a>Obtenir les métadonnées du Contrat client Microsoft
 
@@ -67,13 +68,13 @@ Pour récupérer les métadonnées de l’accord pour le contrat client Microsof
 
 | Méthode | URI de demande                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | baseURL/v1/Agreements ? agreementType = {accord-type} http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ baseURL \} *](partner-center-rest-urls.md)/v1/Agreements ? agreementType = {accord-type} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 | Nom                   | Type     | Obligatoire | Description                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| type d’accord | string | Non | Utilisez ce paramètre pour étendre la réponse de la requête à un type de contrat spécifique. Les valeurs prises en charge sont les suivantes : <ul><li>**MicrosoftCloudAgreement** qui contient les métadonnées d’accord uniquement du type *MicrosoftCloudAgreement*</li><li>**MicrosoftCustomerAgreement** qui contient les métadonnées d’accord uniquement du type *MicrosoftCustomerAgreement*.</li><li>**\*** qui retourne toutes les métadonnées d’accord. (N’utilisez **\*** pas à moins que votre code n’ait la logique d’exécution nécessaire pour gérer des types d’accord non familiers, car Microsoft peut introduire des métadonnées d’accord avec de nouveaux types de contrat à tout moment.)</li></ul> Si le paramètre URI n’est pas spécifié, la requête est définie par défaut sur **MicrosoftCloudAgreement** pour des raisons de compatibilité descendante.  |
+| type d’accord | string | No | Utilisez ce paramètre pour étendre la réponse de la requête à un type de contrat spécifique. Les valeurs prises en charge sont les suivantes : <ul><li>**MicrosoftCloudAgreement** qui contient les métadonnées d’accord uniquement du type *MicrosoftCloudAgreement*</li><li>**MicrosoftCustomerAgreement** qui contient les métadonnées d’accord uniquement du type *MicrosoftCustomerAgreement*.</li><li>**\*** qui retourne toutes les métadonnées d’accord. (N’utilisez pas **\*** à moins que votre code n’ait la logique d’exécution nécessaire pour gérer des types d’accord non familiers, car Microsoft peut introduire des métadonnées d’accord avec de nouveaux types de contrat à tout moment.)</li></ul> Si le paramètre URI n’est pas spécifié, la requête est définie par défaut sur **MicrosoftCloudAgreement** pour des raisons de compatibilité descendante.  |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -93,7 +94,7 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de [ressources **AgreementMetaData** ](./agreement-metadata-resources.md) dans le corps de la réponse.
 

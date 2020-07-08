@@ -5,13 +5,14 @@ ms.assetid: ''
 ms.date: 10/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 15d6e0d4454be657a750ba992af294607686e458
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 5f4067916fea911963182954eed77f4e230e79d6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155711"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098197"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>Obtenir la liste des disponibilités d’une référence SKU (par client)
 
@@ -28,7 +29,7 @@ Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de disp
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur de produit (**Product-ID**).
 
@@ -38,17 +39,17 @@ Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de disp
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de requête                                                                                                                 |
+| Méthode | URI de demande                                                                                                                 |
 |--------|-----------------------------------------------------------------------------------------------------------------------------|
-| POST   | baseURL/v1/Customers/{Customer-tenant-ID}/Products/{Product-ID}/SKUs/{SKU-ID} http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| POST   | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Products/{Product-ID}/SKUs/{SKU-ID} http/1.1 |
 
 ### <a name="request-uri-parameters"></a>Paramètres de l’URI de demande
 
 | Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | Oui | La valeur est un paramètre **customer-tenant-id** au format GUID, à savoir un identificateur qui vous permet de spécifier un client. |
-| ID de produit | string | Oui | Chaîne qui identifie le produit. |
-| Réf. SKU | string | Oui | Chaîne qui identifie la référence (SKU). |
+| ID de produit | string | Yes | Chaîne qui identifie le produit. |
+| Réf. SKU | string | Yes | Chaîne qui identifie la référence (SKU). |
 
 ### <a name="request-header"></a>En-tête de requête
 
@@ -68,7 +69,7 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

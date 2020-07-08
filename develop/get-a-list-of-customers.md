@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des clients
 description: Comment obtenir une collection de ressources représentant tous les clients d’un partenaire.
-ms.assetid: 6D636257-7C23-4DDF-9895-96F208B66232
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8f1115385ad020f8a7c20810765842e19dd53cd1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: feff7ee333914fd578d5cf7024b2417548d58027
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156881"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098156"
 ---
 # <a name="get-a-list-of-customers"></a>Obtenir la liste des clients
 
@@ -52,7 +52,7 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSamples**
 - Classe : **CustomerPaging.cs**
 
@@ -132,7 +132,7 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) dans le corps de la réponse.
 

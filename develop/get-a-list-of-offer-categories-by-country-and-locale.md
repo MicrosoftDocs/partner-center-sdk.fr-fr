@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des catégories d’offre par marché
 description: Comment obtenir une collection qui contient toutes les catégories d’offres dans un pays/une région et des paramètres régionaux donnés.
-ms.assetid: 69174433-74C6-4294-ACAA-C2CE3D69CFEE
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0cb3d64444558b301fb1f5991f8d5e78c58c53b2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: c94368219bce2242e79d142ae999d45b9145e2de
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156871"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098122"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Obtenir la liste des catégories d’offre par marché
 
@@ -44,7 +44,7 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 Pour obtenir un exemple, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSample**
 - Classe : **PartnerSDK. FeatureSample**
 
@@ -86,7 +86,7 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources **OfferCategory** dans le corps de la réponse.
 

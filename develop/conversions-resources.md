@@ -1,17 +1,15 @@
 ---
 title: Ressources de conversions
 description: Les ressources de conversion prennent en charge la conversion d’un abonnement d’évaluation en abonnement payant.
-ms.assetid: 4AE796E3-47D9-428B-8267-A5247B573E0C
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 74e974a3475015374a9014fb3dc372501d1348d9
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 10526af03ee66b81d790816dfa9925c28e410114
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665253"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096388"
 ---
 # <a name="conversions-resources"></a>Ressources de conversions
 
@@ -54,4 +52,4 @@ Représente le résultat de la conversion d’un abonnement.
 | subscriptionId | string                              | Identificateur de l’abonnement.                                           |
 | offerId        | string                              | Identificateur d’offre d’origine.                                         |
 | targetOfferId  | string                              | Identificateur de l’offre de l’offre cible.                             |
-| error          | [ConversionError](#conversionerror) | Erreur rencontrée lors de la tentative de conversion, le cas échéant. |
+| erreur          | [ConversionError](#conversionerror) | Erreur rencontrée lors de la tentative de conversion, le cas échéant. |

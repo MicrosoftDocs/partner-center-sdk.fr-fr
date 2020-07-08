@@ -4,13 +4,12 @@ description: Comment obtenir des informations d’analyse d’abonnement filtré
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e93582b004429f1e15fb00e29e4e80e898c8846c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c1046ea3c7e813eedae4890eebf6356337c80ede
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157231"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097552"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Obtenir des informations analytiques d’abonnement filtrées par une requête de recherche
 
@@ -33,9 +32,9 @@ Comment obtenir des informations d’analyse d’abonnement pour vos clients fil
 
 | Méthode | URI de requête |
 |--------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/subscriptions ? Filter = {filter_string} [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ baseURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions ? Filter = {filter_string} |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le paramètre de chemin d’accès requis suivant pour identifier votre organisation et filtrer la recherche.
 
@@ -45,7 +44,7 @@ Utilisez le paramètre de chemin d’accès requis suivant pour identifier votre
 
 ### <a name="filter-syntax"></a>Syntaxe des filtres
 
-Le paramètre de filtre doit être composé d’une série de combinaisons de champs, de valeurs et d’opérateurs. Plusieurs combinaisons peuvent être combinées **`and`** à **`or`** l’aide d’opérateurs or.
+Le paramètre de filtre doit être composé d’une série de combinaisons de champs, de valeurs et d’opérateurs. Plusieurs combinaisons peuvent être combinées à l’aide d' **`and`** **`or`** opérateurs or.
 
 Voici un exemple d’encodage : 
 
@@ -55,7 +54,7 @@ Voici un exemple d’encodage :
 
 ### <a name="filter-fields"></a>Champs de filtrage
 
-Le paramètre filter de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction contient un champ et une valeur associés aux opérateurs **`eq`** ou. **`ne`** Certains champs prennent également en **`contains`** charge **`gt`** les **`lt`** opérateurs **`ge`**,, **`le`** , et. Les instructions peuvent être combinées à l’aide **`and`** d’opérateurs or **`or`** .
+Le paramètre filter de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction contient un champ et une valeur associés aux **`eq`** **`ne`** opérateurs ou. Certains champs prennent également en charge les **`contains`** **`gt`** opérateurs,,, **`lt`** **`ge`** et **`le`** . Les instructions peuvent être combinées à l’aide d' **`and`** **`or`** opérateurs or.
 
 Voici des exemples de chaînes de filtre :
 
@@ -111,7 +110,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources d' [abonnement](partner-center-analytics-resources.md#subscription-resource) qui répondent aux critères de filtre.
 

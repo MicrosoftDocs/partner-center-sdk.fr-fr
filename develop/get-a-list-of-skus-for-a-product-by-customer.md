@@ -5,13 +5,14 @@ ms.assetid: ''
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f9d8d38c50445096791369048c0a68369fbc4b93
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 6b9c9bcd52798006d7f686405f059192a722c7e8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156891"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098028"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-customer"></a>Obtenir la liste des références (SKU) d’un produit (par le client)
 
@@ -28,7 +29,7 @@ Obtient une collection de références (SKU) pour un produit particulier qui est
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID de produit (**Product-ID**).
 
@@ -36,16 +37,16 @@ Obtient une collection de références (SKU) pour un produit particulier qui est
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode | URI de requête                                                                                                        |
+| Méthode | URI de demande                                                                                                        |
 |--------|--------------------------------------------------------------------------------------------------------------------|
-| POST   | baseURL/v1/Customers/{Customer-tenant-ID}/Products/{Product-ID}/SKUs http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| POST   | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Products/{Product-ID}/SKUs http/1.1 |
 
 ### <a name="request-uri-parameter"></a>Paramètre d’URI de demande
 
 | Nom               | Type | Obligatoire | Description                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | customer-tenant-id | GUID | Oui | La valeur est un paramètre **customer-tenant-id** au format GUID, à savoir un identificateur qui vous permet de spécifier un client. |
-| ID de produit | string | Oui | Chaîne qui identifie le produit. |
+| ID de produit | string | Yes | Chaîne qui identifie le produit. |
 
 ### <a name="request-header"></a>En-tête de requête
 
@@ -65,7 +66,7 @@ MS-RequestId: 83643f5e-5dfd-4375-88ed-054412460dc8
 MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

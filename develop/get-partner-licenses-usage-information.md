@@ -1,17 +1,15 @@
 ---
 title: Obtenir des informations sur l’utilisation des licences partenaire
 description: Comment faire en sorte que les informations relatives à l’utilisation des licences partenaire soient agrégées pour inclure tous les clients.
-ms.assetid: 87BCC8FC-5C29-4245-8607-BB62ABC03EDE
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f33af84c8a0e7fcf7b5720d0dd2aa1219bc65781
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: a9bad2d4bc5d7b607bbc472068a47cfe7c156f94
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157331"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097716"
 ---
 # <a name="get-partner-licenses-usage-information"></a>Obtenir des informations sur l’utilisation des licences partenaire
 
@@ -66,7 +64,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [PartnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) qui fournissent des informations sur les licences utilisées.
 

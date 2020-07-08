@@ -1,17 +1,17 @@
 ---
 title: Obtenir toutes les informations analytiques sur les références
 description: Obtention de toutes les informations analytiques de références.
-ms.assetid: C6051714-1D8A-4448-9705-12AEC9A6420E
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 397e36cf45fd2a43af58585ab8162a01086316b9
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: Kim-Davis
+ms.author: kimnich
+ms.openlocfilehash: b470c59cecf8b214e6d90a244e928e5d15ebd3e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156581"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097785"
 ---
 # <a name="get-all-referrals-analytics-information"></a>Obtenir toutes les informations analytiques sur les références
 
@@ -33,9 +33,9 @@ Obtention de toutes les informations analytiques de référence pour vos clients
 
 | Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/Referrals http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/Referrals http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 | Paramètre | Type | Description |
 |-----------|------|-------------|
@@ -63,7 +63,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources de [références](partner-center-analytics-resources.md#referrals-resource) .
 

@@ -1,24 +1,25 @@
 ---
-title: Obtenir une liste de prolicies libre-service
-description: Comment obtenir une collection de ressources représentant une stratégie de clients libre-service.
-ms.date: 04/13/2020
+title: Obtenir la liste des stratégies en libre-service
+description: Comment obtenir une collection de ressources représentant les stratégies libre-service d’un client.
+ms.date: 07/06/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c2a2b779a552af2f2071994c53f56038e9036169
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 8d2e7e461fee0993176f954aab2d020c2bbc9714
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564327"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098073"
 ---
-# <a name="get-a-list-of-self-serve-policies"></a>Obtenir la liste des stratégies libre-service
+# <a name="get-a-list-of-self-serve-policies"></a>Obtenir la liste des stratégies en libre-service
 
 **S’applique à :**
 
 - Espace partenaires
 
-Cette rubrique explique comment obtenir une collection de ressources qui représente des stratégies de libre-service pour une entité.
+Cet article explique comment obtenir une collection de ressources qui représentent des stratégies libre-service pour une entité.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,11 +39,11 @@ Utilisez le paramètre de requête suivant pour obtenir la liste des clients.
 
 | Nom          | Type       | Obligatoire | Description                                        |
 |---------------|------------|----------|----------------------------------------------------|
-| **entity_id** | **string** | O        | Identificateur d’entité demandant l’accès à. Il s’agit de l’ID client du client. |
+| **entity_id** | **string** | O        | Identificateur d’entité demandant l’accès à. Il s’agit de l’ID de locataire du client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Pour plus d’informations, consultez [en-têtes](headers.md) .
+Pour plus d’informations, consultez [en-têtes](headers.md).
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -58,7 +59,7 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) dans le corps de la réponse.
 

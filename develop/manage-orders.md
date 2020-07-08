@@ -1,17 +1,15 @@
 ---
 title: Gérer les commandes
 description: Cette section décrit les manières dont les partenaires fournisseurs de solutions Cloud peuvent utiliser l’espace partenaires pour gérer par programmation les commandes et les abonnements des clients.
-ms.assetid: D4E13B95-4E27-42E5-86E4-9DBF91564209
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 34c29d6bee23d5d8a65600870e1ed4736978b37d
-ms.sourcegitcommit: 97608a15a3f194aa1b3acd4209e78c77d5d62564
+ms.openlocfilehash: d87dc2f64ca54684990c6d044ba345c8e16e2971
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82095801"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096719"
 ---
 # <a name="manage-orders"></a>Gérer les commandes
 
@@ -37,11 +35,11 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Obtenir la liste des offres d’un marché](get-a-list-of-offers-for-a-market.md)
 - [Obtenir une offre par ID](get-an-offer-by-id.md)
 - [Obtenir les extensions d’un ID d’offre](get-addon-offers-by-offer-id.md)
-- [Obtenir une liste de produits](get-a-list-of-products.md)
+- [Obtenir la liste des produits](get-a-list-of-products.md)
 - [Obtenir un produit par ID](get-a-product-by-id.md)
-- [Obtenir la liste des références (SKU) d’un produit](get-a-list-of-skus-for-a-product.md)
+- [Obtenir la liste des références SKU d’un produit](get-a-list-of-skus-for-a-product.md)
 - [Obtenir une référence SKU par ID](get-a-sku-by-id.md)
-- [Obtenir la liste des disponibilités pour une référence (SKU)](get-a-list-of-availabilities-for-a-sku.md)
+- [Obtenir la liste des disponibilités d’une référence SKU](get-a-list-of-availabilities-for-a-sku.md)
 - [Obtenir une disponibilité par ID](get-an-availability-by-id.md)
 - [Vérifier le stock](check-inventory.md)
 
@@ -57,12 +55,12 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Acheter des éléments de catalogue](purchase-catalog-items.md)
 - [Mettre à jour un panier](update-a-cart.md)
 
-## <a name="enable-a-subscription-for-azure-reserved-vm-instance-purchases"></a>Activer un abonnement pour les achats de l’instance de machine virtuelle réservée Azure
+## <a name="enable-a-subscription-for-azure-reserved-vm-instance-purchases"></a>Activer un abonnement pour les achats Azure Reserved VM Instances
 
 - [Inscrire un abonnement](register-a-subscription.md)
 - [Obtenir l’état d’inscription d’un abonnement](get-subscription-registration-status.md)
 
-## <a name="get-subscription-details"></a>Obtenir les détails de l'abonnement
+## <a name="get-subscription-details"></a>Obtenir les détails de l’abonnement
 
 - [Obtenir un abonnement par ID](get-a-subscription-by-id.md)
 - [Obtenir une liste d’abonnements par commande](get-a-list-of-subscriptions-by-order.md)

@@ -1,17 +1,15 @@
 ---
 title: Récupérer une URL de demande de relation
 description: Comment récupérer une URL de demande de relation à envoyer à un client.
-ms.assetid: 31D9EDB2-4ABE-4C57-A394-2FF256F7D3CA
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: de6eaa1451e91df29f6a9ed0448e70b348b1e64c
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 90a749b7bb4e78391831aed162857d55e028158a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157001"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096706"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>Récupérer une URL de demande de relation
 
@@ -25,7 +23,7 @@ Comment récupérer une URL de demande de relation à envoyer à un client.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -68,7 +66,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse contient l’objet [RelationshipRequest](relationships-resources.md#relationshiprequest) .
 

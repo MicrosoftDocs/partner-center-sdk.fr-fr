@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des offres d’un marché
 description: Obtient une collection qui contient toutes les offres pour un marché spécifique.
-ms.assetid: 9251B841-498D-4B20-A90B-EB493A8FF212
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93ffb0d87daee327825673c217233e502a4779a5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 3a004f6f8f8de8cd398d82c300793e4f196efaaa
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098107"
 ---
 # <a name="get-a-list-of-offers-for-a-market"></a>Obtenir la liste des offres d’un marché
 
@@ -76,7 +76,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 X-Locale: <locale-id>
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources d' **offre** dans le corps de la réponse.
 

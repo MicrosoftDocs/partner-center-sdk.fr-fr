@@ -1,17 +1,17 @@
 ---
 title: Obtenir une liste d’abonnements par commande
 description: Obtient une collection de ressources d’abonnement qui correspondent à un ordre donné.
-ms.assetid: C6DCE351-8C02-42CD-9A80-8156BC6BF1B8
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 20bc7416059acd62caf940f976b4eddc3c3a0f23
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 45e855d53ca93cd109383e2413879b30c9416aff
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156921"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097310"
 ---
 # <a name="get-a-list-of-subscriptions-by-order"></a>Obtenir une liste d’abonnements par commande
 
@@ -28,7 +28,7 @@ Obtient une collection de ressources d' [abonnement](subscription-resources.md) 
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID de commande.
 
@@ -52,7 +52,7 @@ ResourceCollection<Subscription> customerSubscriptions = partnerOperations.Custo
 
 | Méthode  | URI de requête                                                                                                                   |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions ? Order\_ID = {ID-pour-Order} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions ? Order \_ ID = {ID-pour-Order} http/1.1 |
 
 ### <a name="uri-parameter"></a>Paramètre d’URI
 
@@ -82,7 +82,7 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources d' [abonnement](subscription-resources.md) dans le corps de la réponse.
 

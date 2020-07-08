@@ -1,17 +1,15 @@
 ---
 title: Obtenir les rubriques de support des demandes de service
 description: Obtient une collection d’éléments représentant des rubriques valides pour les demandes de service.
-ms.assetid: 50A61342-70C4-49F5-BEA2-2754338CF5A1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cccaa14c450e9c73b65172c85e5a09058c9fdef2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: dbc2197f47681b36cd66d0fd5d19732999f86066
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157251"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097616"
 ---
 # <a name="get-service-request-support-topics"></a>Obtenir les rubriques de support des demandes de service
 
@@ -25,7 +23,7 @@ Obtient une collection d’éléments représentant des rubriques valides pour l
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -64,7 +62,7 @@ MS-CorrelationId: f447b215-f9bc-48da-a05a-3b5322d86a9c
 X-Locale: en-US
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection des rubriques valides pour une demande de support.
 

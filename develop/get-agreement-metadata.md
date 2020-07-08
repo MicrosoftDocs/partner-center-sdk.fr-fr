@@ -4,13 +4,14 @@ description: Cet article explique comment obtenir les métadonnées d’un accor
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6a249bcac40294fa0d6966425b5135f8fbed2088
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 909dec77dd189005839d72caeb0e66a7ad5c8a1b
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157601"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097154"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Obtenir les métadonnées de contrat pour le contrat Microsoft Cloud
 
@@ -112,7 +113,7 @@ Pour récupérer les métadonnées d’accord pour Microsoft Cloud accord, comme
 
 | Méthode | URI de demande                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | baseURL/v1/Agreements http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/Agreements http/1.1 |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -132,7 +133,7 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources **AgreementMetaData** dans le corps de la réponse.
 

@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des commandes par client et le type de cycle de facturation
 description: Obtient une collection de ressources de commande pour le client et le type de cycle de facturation spécifiés.
-ms.assetid: DF1E52F6-1A3D-4B26-8BCC-6E429410C662
 ms.date: 06/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 80fd88e5df07f48064cbcf7903e15277597bc0a0
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 2fa1ee7ad360ad846d47fc9ac7bb64d5a96ab6c0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156831"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098093"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Obtenir la liste des commandes par client et le type de cycle de facturation
 
@@ -28,7 +28,7 @@ Obtient une collection de ressources de commande qui correspondent à un type de
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -37,7 +37,7 @@ Pour obtenir un regroupement des commandes d’un client :
 1. Utilisez votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client sélectionné.
 
 2. Appelez la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) et la méthode **ByBillingCycleType ()** avec le [**BillingCycleType**](product-resources.md#billingcycletype)spécifié.
-3. Appelez la méthode [**obten ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) ou [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) .
+3. Appelez la méthode [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) ou [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -55,14 +55,14 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders ? billingType = {facturation-cycle-type} http/1.1  |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir une collection de commandes par ID de client et type de cycle de facturation.
 
 | Nom                   | Type     | Obligatoire | Description                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
 | customer-tenant-id     | string   | Oui      | Chaîne au format GUID correspondant au client.    |
-| type de cycle de facturation     | string   | Non       | Chaîne correspondant au type de cycle de facturation.         |
+| type de cycle de facturation     | string   | No       | Chaîne correspondant au type de cycle de facturation.         |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -83,7 +83,7 @@ MS-CorrelationId: 8a53b025-d5be-4d98-ab20-229d1813de76
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources de [commande](order-resources.md) dans le corps de la réponse.
 

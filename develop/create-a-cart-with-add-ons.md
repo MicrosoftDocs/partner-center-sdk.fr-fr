@@ -4,14 +4,14 @@ description: Comment ajouter une commande avec des modules complémentaires pour
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 63dd12725ae488b6676077fe3a646551b793be73
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 6528c83b64908d08f058f18a987c5b7362312551
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022676"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096290"
 ---
 # <a name="create-a-cart-with-add-ons"></a>Créer un panier avec des extensions
 
@@ -141,12 +141,12 @@ Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
-| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
-| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
-| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
-| lastModifiedUser      | chaîne           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
-| lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
+| id                    | string           | No              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | No              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
+| lastModifiedTimeStamp | DateTime         | No              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | No              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | chaîne           | No              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| lineItems             | Tableau d’objets | Yes             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 

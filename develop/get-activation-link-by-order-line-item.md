@@ -1,17 +1,17 @@
 ---
 title: Obtenir un lien d’activation par élément de ligne de commande
 description: Obtient un lien d’activation d’abonnement par élément de ligne de commande.
-ms.assetid: ff1c1b59-f6c2-4f17-b0d6-00109761a1fd
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f35be68810cd270cb6564299399e5b7ad5480c6a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 110710650c758c9d38234566cd2c89a4b7f93a3e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157561"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097880"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>Obtenir un lien d’activation par élément de ligne de commande
 
@@ -72,7 +72,7 @@ MS-RequestId: 3705fc6d-4127-4a87-bdba-9658f73fe019
 MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) dans le corps de la réponse.
 

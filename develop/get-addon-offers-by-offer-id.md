@@ -1,17 +1,17 @@
 ---
 title: Obtenir les extensions d’un ID d’offre
 description: Comment obtenir les modules complémentaires d’un ID d’offre.
-ms.assetid: 647EBB14-7ABF-47A4-A342-7A691D8B2BA4
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 67b8a2c636ff56a1624635e5756782c067e2662f
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: cff024700c3ab04986d468c839053cbfa7670a86
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157571"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097877"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>Obtenir les extensions d’un ID d’offre
 
@@ -52,14 +52,14 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 |---------|---------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-ID}/addons ? pays = {country-code} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres suivants pour fournir l’ID de l’offre et le code du pays.
 
 | Nom         | Type       | Obligatoire | Description                       |
 |--------------|------------|----------|-----------------------------------|
 | **ID de l’offre** | **guid**   | O        | GUID qui identifie l’offre. |
-| **nationale**  | **string** | O        | Indicatif du pays (par exemple `US`).       |
+| **nationale**  | **string** | O        | Indicatif du pays (par exemple `US` ).       |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -81,7 +81,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection d’objets [offer](offer-resources.md) dans le corps de la réponse.
 

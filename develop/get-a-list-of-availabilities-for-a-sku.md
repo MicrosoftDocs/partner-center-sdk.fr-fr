@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des disponibilités d’une référence SKU (par pays)
 description: Comment obtenir une collection de disponibilités pour le produit et la référence SKU spécifiés par le pays du client.
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0ba3e0dcffbe709eac7d5885f72cf303c24b94d6
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: b97a4ce85b5edd9de1301a577988f8c54096ebeb
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155691"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098184"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Obtenir la liste des disponibilités d’une référence SKU (par pays)
 
@@ -74,7 +74,7 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Products/{Product-ID}/SKUs/{SKU-ID}/availabilities ? Country = {pays-code} &targetSegment = {Target-segment} http/1.1     |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir une liste des disponibilités pour une référence (SKU).
 
@@ -83,8 +83,8 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 | ID de produit             | string   | Oui      | Chaîne qui identifie le produit.                           |
 | Réf. SKU                 | string   | Oui      | Chaîne qui identifie la référence (SKU).                               |
 | pays-code           | string   | Oui      | ID de pays/région.                                            |
-| segment cible         | string   | Non       | Chaîne qui identifie le segment cible utilisé pour le filtrage. |
-| reservationScope | string   | Non | Lors de l’interrogation d’une liste de disponibilités pour une référence ( `reservationScope=AzurePlan` SKU) de réservation Azure, spécifiez pour obtenir une liste des disponibilités applicables à AzurePlan. Excluez ce paramètre pour obtenir une liste des disponibilités applicables aux abonnements Microsoft Azure (MS-AZR-0145P).  |
+| segment cible         | string   | No       | Chaîne qui identifie le segment cible utilisé pour le filtrage. |
+| reservationScope | string   | No | Lors de l’interrogation d’une liste de disponibilités pour une référence (SKU) de réservation Azure, spécifiez `reservationScope=AzurePlan` pour obtenir une liste des disponibilités applicables à AzurePlan. Excluez ce paramètre pour obtenir une liste des disponibilités applicables aux abonnements Microsoft Azure (MS-AZR-0145P).  |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -94,7 +94,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-### <a name="request-examples"></a>Exemples de requête
+### <a name="request-examples"></a>Exemples de demande
 
 #### <a name="availabilities-for-sku-by-country"></a>Disponibilités pour les références SKU par pays
 
@@ -132,7 +132,7 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources de [**disponibilité**](product-resources.md#availability) .
 

@@ -1,17 +1,15 @@
 ---
 title: Obtenir les prix de Microsoft Azure
 description: Comment obtenir une carte de tarifs Azure avec des prix en temps réel pour une offre Azure. La tarification Azure est assez dynamique et elle change fréquemment.
-ms.assetid: 65262585-0F3B-4BD0-83BE-B2695C33CDB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 011c95c80fa793606a62ebb8fa8645b22da413bc
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 9b56e4bbfdf93cf2f4e9c6c07d638f5a24436c3e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157281"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097700"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Obtenir les prix de Microsoft Azure
 
@@ -69,12 +67,12 @@ Get-PartnerAzureRateCard
 |---------|--------------------------------------------------------------------|
 | **GET** | *{baseURL}*/v1/ratecards/Azure ? Currency = {currency} &region = {region} |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 | Nom     | Type   | Obligatoire | Description                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | string | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par `EUR`exemple). Par défaut, il s’agit de `USD`. |
-| region   | string | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée ( `FR`par exemple). Par défaut, il s’agit de `US`.        |
+| currency | string | No       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple `EUR` ). Par défaut, il s’agit de `USD`. |
+| region   | string | No       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple `FR` ). Par défaut, il s’agit de `US`.        |
 
 Vous pouvez inclure l' [en-tête](headers.md#rest-request-headers) X-locale facultatif dans votre demande. Si vous n’incluez pas l’en-tête X-locale, la valeur par défaut (« en-US ») est utilisée.
 
@@ -103,7 +101,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 Si la demande aboutit, elle retourne une ressource de [carte de tarifs Azure](azure-rate-card-resources.md) .
 

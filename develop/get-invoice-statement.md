@@ -1,17 +1,17 @@
 ---
 title: Obtenir l’instruction de facture
 description: Récupère une déclaration de facture à l’aide de l’ID de facture.
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8a9107fc3de986c328f534dc420c8478a48b0b93
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 42e5201919eea5644da463dfe2584c8d55002083
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157441"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096913"
 ---
 # <a name="get-invoice-statement"></a>Obtenir l’instruction de facture
 
@@ -26,7 +26,7 @@ Récupère une déclaration de facture à l’aide de l’ID de facture.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - Un ID de facture valide.
 
@@ -77,7 +77,7 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource [InvoiceStatement](invoice-resources.md#invoicestatement) dans le corps de la réponse.
 

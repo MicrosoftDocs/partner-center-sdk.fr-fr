@@ -1,17 +1,15 @@
 ---
 title: Mettre à jour un profil d’organisation
 description: Met à jour le profil de facturation d’une organisation.
-ms.assetid: 8EC7E1A8-883A-4BF2-BAD7-36A0E043FCA3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: bf67bae2f505c15f80a2cea227a4b40280dd4f0b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: ccf938fff285704f54d4717b2678e1419d857d8d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157931"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096581"
 ---
 # <a name="update-an-organization-profile"></a>Mettre à jour un profil d’organisation
 
@@ -26,7 +24,7 @@ Met à jour le profil de facturation d’un partenaire.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -49,7 +47,7 @@ OrganizationProfile updatedOrganizationProfile = partnerOperations.Profiles.Orga
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                   |
+| Méthode  | URI de demande                                                                   |
 |---------|-------------------------------------------------------------------------------|
 | **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/Organization http/1.1 |
 
@@ -105,7 +103,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un objet **OrganizationProfile** dans le corps de la réponse.
 

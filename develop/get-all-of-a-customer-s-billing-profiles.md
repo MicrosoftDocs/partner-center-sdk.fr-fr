@@ -1,17 +1,17 @@
 ---
 title: Obtenir le profil de facturation d’un client
 description: Obtient le profil de facturation d’un client. Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opération en sélectionnant d’abord un client.
-ms.assetid: 32914A31-87CC-4F9D-869C-CAFEDA2CAE41
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9c2924b4de90e3a84620802df1a0a00803a208fd
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 38a784e4a4c295cdce7488bf4bded52a3f79d672
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156751"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097812"
 ---
 # <a name="get-a-customers-billing-profile"></a>Obtenir le profil de facturation d’un client
 
@@ -30,7 +30,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -79,7 +79,7 @@ MS-RequestId: a5581a74-2778-4e34-9172-18baa4877081
 MS-CorrelationId: 51d521b3-62db-4682-b75d-fb8ab09113b2
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources de [Profil](profile-resources.md) dans le corps de la réponse.
 

@@ -1,17 +1,17 @@
 ---
 title: Obtenir un produit par ID
 description: Obtient la ressource de produit spécifiée à l’aide d’un ID de produit.
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d3a6a7714e318f0b9c23bbd59098d0a0188d8c20
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 8aca626597e9ec903ebecca7d55577ba636c518e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155471"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097169"
 ---
 # <a name="get-a-product-by-id"></a>Obtenir un produit par ID
 
@@ -94,7 +94,7 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une ressource de [produit](product-resources.md#product) .
 

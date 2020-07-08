@@ -1,17 +1,15 @@
 ---
 title: Vérifier l’inventaire
 description: Vérifiez l’inventaire pour un ensemble spécifique d’éléments de catalogue.
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5d874b1d69750a08506669061573e511dd6704de
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c0860c4840df6924ffb8e222b79efa28fa33d9ea
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154621"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096440"
 ---
 # <a name="check-inventory"></a>Vérifier l’inventaire
 
@@ -95,7 +93,7 @@ Content-Type: application/json
 {"TargetItems":[{"ProductId":"DZH318Z0BQ3P"}],"InventoryContext":{"customerId":"d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d","azureSubscriptionId":"3A231FBE-37FE-4410-93FD-730D3D5D4C75","armRegionName":"Europe"}}
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection d’objets [InventoryItem](product-resources.md#inventoryitem) renseignés avec les détails de la restriction, le cas échéant.
 

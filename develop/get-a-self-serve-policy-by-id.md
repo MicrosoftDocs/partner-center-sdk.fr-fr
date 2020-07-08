@@ -4,13 +4,14 @@ description: Obtient la stratégie libre-service spécifiée à l’aide de son 
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 082f4ab240831379454f1479e35477262d9b5f8c
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: ec01d0d9b7c3858cdacf1dbaad3b2b0bb7b6a1a4
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564347"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098040"
 ---
 # <a name="get-a-self-serve-policy-by-id"></a>Obtenir une stratégie libre-service par ID
 
@@ -36,13 +37,13 @@ Obtient la stratégie libre-service spécifiée à l’aide de son ID.
 |---------|-------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{ID} http/1.1 |
 
-**Paramètre d’URI**
+**Paramètre URI**
 
 Utilisez les paramètres de chemin d’accès suivants pour accéder au produit spécifié.
 
 | Nom                       | Type         | Obligatoire | Description                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **ID d’SelfServePolicy**     | **string**   | Oui      | Chaîne qui identifie la stratégie libre-service.                 |
+| **ID d’SelfServePolicy**     | **string**   | Yes      | Chaîne qui identifie la stratégie libre-service.                 |
 
 **En-têtes de requête**
 
@@ -62,7 +63,7 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une ressource [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) .
 

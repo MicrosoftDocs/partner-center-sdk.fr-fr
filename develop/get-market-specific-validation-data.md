@@ -1,17 +1,15 @@
 ---
 title: Obtenir les règles de mise en forme des adresses par marché
 description: Obtenir le format d’adresse attendu en fonction du code ISO du marché.
-ms.assetid: B02B3ECF-8020-4818-872F-9D70DCBC0228
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6f9dd36ef3f2dca11f2d6ca690fb6950f22805d8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c755a38c11ed9803edb7777a0f661c1fbc5a6107
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157351"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096731"
 ---
 # <a name="get-address-formatting-rules-by-market"></a>Obtenir les règles de mise en forme des adresses par marché
 
@@ -60,7 +58,7 @@ MS-RequestId: 124b0e41-a093-4fec-b871-3eeb45fd734b
 MS-CorrelationId: 5cfd634d-b936-47af-87f0-0f0217425dcc
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un objet **CountryInformation** dans le corps de la réponse.
 

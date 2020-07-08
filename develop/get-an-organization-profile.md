@@ -1,17 +1,17 @@
 ---
 title: Obtenir un profil d’organisation
 description: Obtient un objet représentant le profil d’organisation du partenaire.
-ms.assetid: 2AA159F1-CC84-4367-A2AF-DFA4C8B0E673
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93a1ea368baa3ad776fcd1fcae4d0a86aec20c15
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: d0d4caed36b1ab58fdb40d32a7ccb159e3895207
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157731"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097053"
 ---
 # <a name="get-an-organization-profile"></a>Obtenir un profil d’organisation
 
@@ -26,7 +26,7 @@ Obtient un objet représentant le profil d’organisation du partenaire.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -88,7 +88,7 @@ MS-RequestId: b85cb7ab-cc2e-4966-93f0-cf0d8377a93f
 MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un objet **OrganizationProfile** dans le corps de la réponse.
 

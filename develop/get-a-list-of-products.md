@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste de produits (par pays)
 description: Vous pouvez utiliser la ressource de produit pour obtenir une collection de produits par pays du client.
-ms.assetid: 5E4160AB-6B73-4CA1-903D-7257927CA754
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7427c3b3f28ac3cd6a2694fe90ac9024f913c749
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: f04d030aac1256e7d76c9a9e644a50d771485090
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098112"
 ---
 # <a name="get-a-list-of-products-by-country"></a>Obtenir la liste de produits (par pays)
 
@@ -107,7 +107,7 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Products ? pays = {country} &targetView = {targetView} &targetSegment = {TARGETSEGMENT} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir une liste de produits.
 
@@ -115,8 +115,8 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 |------------------------|----------|----------|-------------------------------------------------------------------------|
 | country                | string   | Oui      | ID du pays/de la région.                                                  |
 | targetView             | string   | Oui      | Identifie la vue cible du catalogue. Les valeurs prises en charge sont les suivantes : <ul><li>**Azure**, qui comprend tous les éléments Azure</li><li>**AzureReservations**, qui comprend tous les éléments de réservation Azure</li><li>**AzureReservationsVM**, qui comprend tous les éléments de réservation des machines virtuelles</li><li>**AzureReservationsSQL**, qui comprend tous les éléments de réservation SQL</li><li>**AzureReservationsCosmosDb**, qui comprend tous les éléments de réservation de base de données Cosmos</li><li>**MicrosoftAzure**, qui comprend des éléments pour les abonnements Microsoft Azure (**MS-AZR-0145P**) et les plans Azure</li><li>**OnlineServices**, qui inclut tous les éléments de service en ligne (y compris les produits de la place de marché commercial)</li><li>**Logiciel**, qui comprend tous les éléments logiciels</li><li>**SoftwareSUSELinux**, qui comprend tous les éléments logiciels SUSE Linux</li><li>**SoftwarePerpetual**, qui comprend tous les éléments logiciels perpétuels</li><li>**SoftwareSubscriptions**, qui comprend tous les éléments d’abonnement logiciel</li></ul> |
-| targetSegment          | string   | Non       | Identifie le segment cible. Affichage pour différents publics cibles. Les valeurs prises en charge sont les suivantes : <ul><li>**but**</li><li>**Département**</li><li>**émis**</li><li>**organismes**</li></ul> |
-| reservationScope | string   | Non | Lors de l’interrogation d’une liste de produits pour Azure Reservations `reservationScope=AzurePlan` , spécifiez pour obtenir la liste des produits applicables aux plans Azure. Excluez ce paramètre pour obtenir une liste de produits pour les réservations Azure, applicables aux abonnements Microsoft Azure (**MS-AZR-0145P**).  |
+| targetSegment          | string   | No       | Identifie le segment cible. Affichage pour différents publics cibles. Les valeurs prises en charge sont les suivantes : <ul><li>**but**</li><li>**Département**</li><li>**émis**</li><li>**organismes**</li></ul> |
+| reservationScope | string   | No | Lors de l’interrogation d’une liste de produits pour Azure Reservations, spécifiez `reservationScope=AzurePlan` pour obtenir la liste des produits applicables aux plans Azure. Excluez ce paramètre pour obtenir une liste de produits pour les réservations Azure, applicables aux abonnements Microsoft Azure (**MS-AZR-0145P**).  |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -126,7 +126,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-### <a name="request-examples"></a>Exemples de requête
+### <a name="request-examples"></a>Exemples de demande
 
 #### <a name="products-by-country"></a>Produits par pays
 
@@ -164,7 +164,7 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources de [**produit**](product-resources.md#product) .
 

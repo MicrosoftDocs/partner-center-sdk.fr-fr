@@ -1,17 +1,15 @@
 ---
 title: Convertir un abonnement d’essai en abonnement payant
 description: Conversion d’un abonnement d’évaluation en un abonnement payant.
-ms.assetid: 06EB96D7-6260-47E0-ACAE-07D4213BEBB7
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 3bf468dd7f4a38d711cef41b3560fa2c82065e14
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: ac7b6c20c71e8af0e5cbd796aa4466056d780ce9
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154951"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096356"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>Convertir un abonnement d’essai en abonnement payant
 
@@ -23,9 +21,9 @@ Vous pouvez convertir un abonnement d’évaluation en payant.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID d’abonnement pour un abonnement d’évaluation actif.
 
@@ -86,7 +84,7 @@ Pour convertir un abonnement d’évaluation en un abonnement payant :
 
 5. Transmettez l’objet de l’offre de conversion sélectionné à la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour tenter la conversion de l’essai.
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -166,7 +164,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une ressource [ConversionResult](conversions-resources.md#conversionresult) .
 

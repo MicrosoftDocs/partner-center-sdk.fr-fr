@@ -1,17 +1,15 @@
 ---
 title: Acheter une extension d’abonnement
 description: Comment acheter un module complémentaire à un abonnement existant.
-ms.assetid: 743520E5-0501-4403-B977-5E6D3E32DEC3
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0ae6aa7a15340eb4173119b1ce3a3bc30ee9f7c2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 69c817cc89b97cea43533c170cef598df99095f7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157067"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096722"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>Acheter une extension d’abonnement
 
@@ -27,7 +25,7 @@ Comment acheter un module complémentaire à un abonnement existant.
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - ID d’abonnement. Il s’agit de l’abonnement existant pour lequel vous souhaitez acheter une offre complémentaire.
 
@@ -37,7 +35,7 @@ Comment acheter un module complémentaire à un abonnement existant.
 
 Lorsque vous achetez un module complémentaire à un abonnement, vous mettez à jour l’ordre d’abonnement d’origine avec la commande du module complémentaire. Dans l’exemple ci-dessous, customerId est l’ID de client, subscriptionId est l’ID d’abonnement et addOnOfferId est l’ID d’offre du module complémentaire.
 
-Voici la procédure à suivre :
+Voici les étapes à suivre :
 
 1.  Obtenir une interface pour les opérations de l’abonnement.
 
@@ -121,11 +119,11 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode    | URI de requête                                                                                              |
+| Méthode    | URI de demande                                                                                              |
 |-----------|----------------------------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres suivants pour identifier le client et la commande.
 
@@ -202,7 +200,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne l’ordre d’abonnement mis à jour dans le corps de la réponse.
 

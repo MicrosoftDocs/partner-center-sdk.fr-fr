@@ -1,17 +1,15 @@
 ---
 title: Ressources de profil
 description: Décrit le comportement des profils d’un fournisseur de solutions Cloud.
-ms.assetid: 42F2959B-D70D-41A7-9A50-E22A2356A339
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9bd3f5322de7fae9a919e4bcfdd747a6bbc89e80
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: bb3b4dab92091775a9a89bdf34ca33f7f378692f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82119175"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86097258"
 ---
 # <a name="profile-resources"></a>Ressources de profil
 

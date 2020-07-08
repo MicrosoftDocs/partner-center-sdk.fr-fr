@@ -1,17 +1,15 @@
 ---
 title: Obtenir les enregistrements d’utilisation d’un client pour Azure
 description: Vous pouvez utiliser l’API d’utilisation d’Azure pour obtenir les enregistrements d’utilisation de l’abonnement Azure d’un client pendant une période donnée.
-ms.assetid: 0270DBEA-AAA3-46FB-B5F0-D72B9BAC3112
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 3ee3f2187f0e4961a7945c865bbcb80b90a6cf4b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 478f91e85c0ab178804e24eaf77b8f7fd086ddf6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155321"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098305"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Obtenir les enregistrements d’utilisation d’un client pour Azure
 
@@ -27,7 +25,7 @@ Vous pouvez obtenir les enregistrements d’utilisation de l’abonnement Azure 
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur d’abonnement.
 
@@ -136,9 +134,9 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 
 | Méthode | URI de requête |
 |------- | ----------- |
-| **GET** | *{baseURL}*/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/utilizations/Azure ? Start\_Time = {start-Time} &Time\_end = {end-Time} &Granularity = {granularité} &Show\_Details = {true} |
+| **GET** | *{baseURL}*/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/utilizations/Azure ? Start \_ Time = {Start-Time} &\_ Time end = {end-Time} &Granularity = {granularité} &Show \_ Details = {true} |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir les enregistrements d’utilisation.
 
@@ -146,10 +144,10 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 | ---- | ---- | -------- | ----------- |
 | customer-tenant-id | string | Oui | Chaîne au format GUID qui identifie le client. |
 | subscription-id | string | Oui | Chaîne au format GUID qui identifie l’abonnement. |
-| start_time | chaîne au format de décalage de date/heure UTC | Oui | Début de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
-| end_time | chaîne au format de décalage de date/heure UTC | Oui | Fin de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
-| granularité | string | Non  | Granularité des agrégations d’utilisation. Les options disponibles sont `daily` les suivantes : ( `hourly`par défaut) et.
-| show_details | boolean | Non  | Indique s’il faut récupérer les détails d’utilisation au niveau de l’instance. Par défaut, il s’agit de `true`. |
+| start_time | chaîne au format de décalage de date/heure UTC | Yes | Début de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
+| end_time | chaîne au format de décalage de date/heure UTC | Yes | Fin de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
+| granularité | string | No | Granularité des agrégations d’utilisation. Les options disponibles sont les suivantes : `daily` (par défaut) et `hourly` .
+| show_details | boolean | No | Indique s’il faut récupérer les détails d’utilisation au niveau de l’instance. Par défaut, il s’agit de `true`. |
 | taille | nombre | Non | Nombre d’agrégations retournées par un seul appel d’API. La valeur par défaut est 1000. Le maximum est 1000. |
 
 ### <a name="request-headers"></a>En-têtes de requête
@@ -176,7 +174,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources d' [enregistrements d’utilisation Azure](azure-utilization-record-resources.md) dans le corps de la réponse. Si les données d’utilisation Azure ne sont pas encore prêtes dans un système dépendant, cette méthode retourne le code d’état HTTP 204 avec un en-tête Retry-after.
 
