@@ -1,17 +1,15 @@
 ---
 title: En-têtes REST de l’Espace partenaires
 description: Les en-têtes de requête et de réponse HTTP suivants sont pris en charge par l’API REST de l’espace partenaires.
-ms.assetid: 38A43A4C-EC31-4554-A747-0DC04B77CB99
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5ec3532ed30b3a9ff933bbda4e4923862091c895
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b0c8f25fa86c015066f8d0cb6ee080b88bbad782
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157141"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095185"
 ---
 # <a name="partner-center-rest-headers"></a>En-têtes REST de l’Espace partenaires
 

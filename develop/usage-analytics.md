@@ -1,17 +1,15 @@
 ---
 title: Analytics
 description: Vous pouvez utiliser le kit de développement logiciel (SDK) et les API de l’espace partenaires pour récupérer des informations analytiques par programmation. Pour plus d’informations, consultez les articles répertoriés ici.
-ms.assetid: 22C1320C-5EDF-443C-B545-88641FBA2358
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 00588b4c5a6f35c7f94821d650fe27eeca7e085e
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: d779b749b318f1cfadbbcc46943c533c9635b994
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096090"
 ---
 # <a name="analytics"></a>Analytics
 

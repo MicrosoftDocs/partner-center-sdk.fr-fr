@@ -1,17 +1,15 @@
 ---
 title: Ressources de licence
 description: Décrit les ressources associées aux licences.
-ms.assetid: 20592E06-8A87-41F4-B8B0-6F9200556FDA
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 60ef6082517fc0f5daa524ddb2da8f9e11e4be06
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: 1c8cfd1b6edd5b15db72afd7241f2c3d8ad38879
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124716"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095105"
 ---
 # <a name="license-resources"></a>Ressources de licence
 
@@ -97,19 +95,19 @@ Décrit les détails du produit.
 <tr class="odd">
 <td>skuPartNumber</td>
 <td>string</td>
-<td>Nom du numéro de référence SKU du produit. Par exemple, pour Office 365 plan E3, cette valeur est <code>EnterprisePack</code>. Cette propriété peut être utilisée à la place de l’ID si l’ID n’est pas disponible.</td>
+<td>Nom du numéro de référence SKU du produit. Par exemple, pour Office 365 plan E3, cette valeur est <code>EnterprisePack</code> . Cette propriété peut être utilisée à la place de l’ID si l’ID n’est pas disponible.</td>
 </tr>
 <tr class="even">
 <td>targetType</td>
 <td>string</td>
-<td>Type de cible du produit. Cette propriété indique si le produit est applicable à un <code>User</code> ou un <code>Tenant</code>.</td>
+<td>Type de cible du produit. Cette propriété indique si le produit est applicable à un <code>User</code> ou un <code>Tenant</code> .</td>
 </tr>
 <tr class="odd">
 <td>licenseGroupId</td>
 <td>string</td>
 <td>Identifie via un identificateur de groupe l’autorité ou le service qui gère la licence productSku. Les produits sont séparés sous des groupes de licences pour une meilleure gestion.
-<p><code>group1</code>- Tous les produits dont les licences peuvent être gérées par Azure Active Directory (AAD).</p>
-<p><code>group2</code>- Licences de produits Minecraft.</p></td>
+<p><code>group1</code>-Tous les produits dont les licences peuvent être gérées par Azure Active Directory (AAD).</p>
+<p><code>group2</code>-Licences de produits Minecraft.</p></td>
 </tr>
 </tbody>
 </table>

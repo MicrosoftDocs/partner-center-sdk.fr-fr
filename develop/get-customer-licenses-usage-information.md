@@ -1,17 +1,17 @@
 ---
 title: Obtenir des informations sur l’utilisation des licences client
 description: Obtention d’informations sur l’utilisation des licences pour un client spécifique.
-ms.assetid: 02B98495-9FE7-4A9F-B1DD-B14563D0FF29
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d853665bf4f7e9cac8e58871416d3f67c86cfe5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 5e54c002412bdea689c96f3ba5327612411424e7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157541"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093754"
 ---
 # <a name="get-customer-licenses-usage-information"></a>Obtenir des informations sur l’utilisation des licences client
 
@@ -53,7 +53,7 @@ Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
 | Nom        | Type | Obligatoire | Description                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| customer-id | guid | Oui      | ID client au format GUID qui identifie le client. |
+| customer-id | guid | Yes      | ID client au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -76,7 +76,7 @@ MS-PartnerCenter-Client: Partner Center .NET SDK
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [CustomerLicensesUsageInsights](analytics-resources.md#customerlicensesusageinsights) qui fournissent des informations sur l’utilisation des licences.
 

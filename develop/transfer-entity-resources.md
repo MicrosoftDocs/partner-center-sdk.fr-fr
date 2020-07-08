@@ -4,13 +4,12 @@ description: Un partenaire crée un transfert lorsqu’un client souhaite que so
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0a9a357d9f2fd90069df0b39427e32fe25dc16af
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: 467b113864b855b72626d6222e5e5b0980ee5de7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489166"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095769"
 ---
 # <a name="transferentity-resources"></a>Ressources TransferEntity
 

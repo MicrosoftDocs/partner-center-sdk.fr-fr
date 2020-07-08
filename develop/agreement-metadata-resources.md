@@ -4,14 +4,14 @@ description: La collection de ressources AgreementMetadata décrit les types de 
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 642c3d079020d423db48aa8d3e1c0c1e12280fe3
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 36ba2aa2f78552dc9a835168b5bbd5b6a3ce47f3
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022603"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094586"
 ---
 # <a name="agreement-metadata-resources"></a>Ressources de métadonnées d’accord
 

@@ -1,17 +1,15 @@
 ---
 title: Ressources de droits
 description: Décrit les ressources associées au droit.
-ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 28382b24c6956f9d5b95310ae0d21769207dcb48
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: d9dbba36fb8db8d040bd61d53483c56467987691
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125595"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094004"
 ---
 # <a name="entitlement-resources"></a>Ressources de droits
 

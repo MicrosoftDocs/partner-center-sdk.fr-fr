@@ -4,13 +4,12 @@ description: Les développeurs peuvent créer et gérer un abonnement pour les p
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d3c030d7e808e5bc40b985ce02dda84672a020c
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: df2a3707e00ba36a11c404b102304c08d105244e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82125424"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094374"
 ---
 # <a name="create-a-subscription-for-commercial-marketplace-products"></a>Créer un abonnement pour les produits de la place de marché commercial
 
@@ -39,9 +38,9 @@ Avant d’acheter une réservation Azure, procédez comme suit :
 
 1. Identifiez et récupérez le produit et la référence (SKU) que vous souhaitez acheter. Si vous connaissez déjà l’ID de produit et l’ID de référence (SKU), sélectionnez-les.
 
-    * [Obtenir une liste de produits](get-a-list-of-products.md)
+    * [Obtenir la liste des produits](get-a-list-of-products.md)
     * [Obtenir un produit à l’aide de l’ID de produit](get-a-product-by-id.md)
-    * [Obtenir la liste des références (SKU) d’un produit](get-a-list-of-skus-for-a-product.md)
+    * [Obtenir la liste des références SKU d’un produit](get-a-list-of-skus-for-a-product.md)
     * [Obtenir une référence SKU à l’aide de l’ID de référence](get-a-sku-by-id.md)
 
     > [!NOTE]
@@ -54,7 +53,7 @@ Avant d’acheter une réservation Azure, procédez comme suit :
 
 3. Récupérez la disponibilité de la référence SKU. Vous aurez besoin de la **CatalogItemId** de disponibilité lors de la mise en place de la commande, que vous pouvez récupérer via les API suivantes :
 
-    * [Obtenir la liste des disponibilités pour une référence (SKU)](get-a-list-of-availabilities-for-a-sku.md)
+    * [Obtenir la liste des disponibilités d’une référence SKU](get-a-list-of-availabilities-for-a-sku.md)
     * [Procurez-vous une disponibilité à l’aide de l’ID de disponibilité](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>Créer et envoyer une commande
@@ -92,9 +91,9 @@ La quantité d’un abonnement au marché commercial doit être comprise dans le
 
 Vous pouvez gérer les [factures](invoice-resources.md) client (y compris les frais liés aux abonnements à des produits de la place de marché commercial) à l’aide des méthodes suivantes :
 
-* [Obtient les éléments de ligne de la consommation de la place de marché commercial facturés](get-invoice-billed-consumption-lineitems.md)
+* [Obtenir les éléments de ligne de consommation de la place de marché commerciale facturés](get-invoice-billed-consumption-lineitems.md)
 * [Obtenir des liens d’estimation de facture](get-invoice-estimate-links.md)
-* [Obtient les éléments de ligne de facturation de la place de marché commercial non facturés](get-invoice-unbilled-consumption-lineitems.md)
+* [Obtenir les éléments de ligne de consommation de la place de marché commerciale non facturés](get-invoice-unbilled-consumption-lineitems.md)
 * [Obtient les éléments de ligne de rapprochement non facturés de facture](get-invoice-unbilled-recon-lineitems.md)
 
 ## <a name="test-using-integration-sandbox-account"></a>Test à l’aide du compte sandbox d’intégration

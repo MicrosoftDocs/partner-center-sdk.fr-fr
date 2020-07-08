@@ -4,13 +4,12 @@ description: Procédure de retrait d’un transfert créé d’abonnements pour 
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 4f4e0949ba9ee948e987d9cdb6b117285340d098
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: a9e1e2a33d21fc1338a36b8ac96b528e70b61c86
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489146"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093457"
 ---
 # <a name="withdraw-a-transfer"></a>Retirer un transfert
 

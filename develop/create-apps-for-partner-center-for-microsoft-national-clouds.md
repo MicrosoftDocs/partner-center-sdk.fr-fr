@@ -4,21 +4,19 @@ description: Les développeurs doivent inscrire des détails sur leur applicatio
 MS-HAID:
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_cloud\_germany
 - pc\_apiv2.create\_apps\_for\_partner\_center\_for\_microsoft\_national\_clouds
-ms.assetid: 73C5926A-0DEB-42E5-8982-7E44A2031F0B
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ada59eaae21c920aa94b5da13f8dd9f04e6012ad
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: acb84caddfc42de957b4e45b781f650ec9640038
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155041"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094427"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud
 
-**S’applique à :**
+**S’applique à :**
 
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
@@ -67,12 +65,12 @@ Pour les applications Web, utilisez les procédures suivantes pour inscrire votr
 
 Vous devez disposer des informations suivantes à partir de la configuration de l’application Web :
 
-- ID de l'application
-- Secret d’application
+- ID de l’application
+- Secret de l’application
 
 ### <a name="register-the-web-app-in-partner-center"></a>Inscrire l’application Web dans l’espace partenaires
 
-1. Connectez-vous [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com)à.
+1. Connectez-vous à [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) .
 
 2. Choisissez **tableau de bord**, choisissez **paramètres du compte**, puis gestion des **applications**.
 
@@ -89,7 +87,7 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 >[!NOTE]
 >Avant de créer une application native dans le Portail Azure, connectez-vous à l’espace partenaires à l’aide des informations d’identification de l’utilisateur administrateur du locataire partenaire. Cela crée les paramètres sur le locataire pour activer les autorisations de l’application.
 
-### <a name="create-native-app"></a>Créer une application native
+### <a name="create-native-app"></a>Création d’une application native
 
 1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
@@ -104,7 +102,7 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 3. Choisissez **Windows Azure Active Directory autorisations**. Dans **autorisations déléguées**, sélectionnez les autorisations suivantes :
 
     - **Connexion et lecture de profil utilisateur**
-    - **Lire les données du répertoire**
+    - **Lecture des données de l’annuaire**
     - **Accès à l’annuaire en tant qu’utilisateur connecté**
     - **Lire tous les groupes**
 
@@ -116,13 +114,13 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 
     1. Dans la zone de recherche, entrez **Microsoft Partner Center** et sélectionnez-le dans la liste des résultats.
 
-    2. Choisissez **Select**.
+    2. Choisissez **Sélectionner**.
 
 7. Choisissez **Sélectionner des autorisations**.
 
     1. Sélectionnez **accéder à l’espace partenaires des EPI**.
     
-    2. Choisissez **Select**.
+    2. Choisissez **Sélectionner**.
 
 8. Choisissez **terminé**.
 

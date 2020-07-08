@@ -4,14 +4,14 @@ description: La ressource DirectSignedCustomerAgreementStatus représente l’é
 ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 7575d5654cd8de9a65d4ee9ed484ff8cc0df2b0e
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 9c4fd12ac3319057f3c4034aa0c8d93dcda726c6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022616"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094316"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>Statut de signature directe (acceptation directe) d’un contrat client
 

@@ -1,17 +1,15 @@
 ---
 title: Supprimer un appareil pour le client spécifié
 description: Comment supprimer un appareil qui appartient à un client spécifié.
-ms.assetid: 44F06D4B-E9DE-470F-BAE2-15205CC7C699
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 5665b4bad82ee2ae51a1c33c2c7b85d3f1776c70
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 2e1727b36f7775f59c191172c5514f0accbf3091
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155451"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094168"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>Supprimer un appareil pour le client spécifié
 
@@ -26,7 +24,7 @@ Cet article explique comment supprimer un appareil qui appartient à un client s
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur du lot de l’appareil.
 
@@ -63,7 +61,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Suppression     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices/{Device-ID} http/1.1  |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
@@ -94,7 +92,7 @@ Content-Type: application/json
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse retourne un code d’état **204 aucun contenu** .
 

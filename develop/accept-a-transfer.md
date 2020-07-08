@@ -4,13 +4,12 @@ description: Comment accepter un transfert d’abonnements pour un client.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6e0604dd0f611e8a427e51b1b176cc50c476799a
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: f440d1e81f66f07c426e17546188108349f99eb6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489156"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094598"
 ---
 # <a name="accept-a-transfer"></a>Accepter un transfert
 

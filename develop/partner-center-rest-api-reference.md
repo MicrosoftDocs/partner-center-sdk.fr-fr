@@ -1,17 +1,17 @@
 ---
 title: Informations de référence de l’API REST de l’Espace partenaires
 description: L’API REST de l’espace partenaires permet aux partenaires CSP d’intégrer leurs logiciels CRM ou de facturation existants aux systèmes Microsoft qui gèrent les comptes clients, de passer des commandes, de gérer les abonnements et de gérer les demandes de support.
-ms.assetid: 25191A95-52BB-4E33-A63C-5D00FAF55806
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6890a3b23c3c998baaf80f8aabf4fc36ed9354e7
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: adab62c38d46c5ec0fbaf9fd7c7a03936788890c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089829"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094664"
 ---
 # <a name="partner-center-rest-api-reference"></a>Informations de référence de l’API REST de l’Espace partenaires
 

@@ -1,17 +1,17 @@
 ---
 title: Obtenir les revendeurs indirects d’un client
 description: Obtention d’une liste des revendeurs indirects qui ont une relation avec un client spécifié.
-ms.assetid: C3C4BE9A-97E8-41AD-AB28-6F9CB7DCE475
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8ea8422bb31e5614d714323b065fb866d52b4c2a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 08892b69b73235b27203648fa6cb6efd2fcac9f0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157491"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093642"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>Obtenir les revendeurs indirects d’un client
 
@@ -23,13 +23,13 @@ Obtention d’une liste des revendeurs indirects qui ont une relation avec un cl
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
-Pour récupérer une liste des revendeurs indirects avec lesquels le client spécifié a une relation, commencez par obtenir une interface pour les opérations de regroupement client pour le client spécifique à partir de la propriété [**partnerOperations. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) en fournissant l’ID client pour identifier le client. Appelez ensuite la méthode [**relations. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) ou la méthode [**\_Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) pour récupérer la liste des revendeurs indirects.
+Pour récupérer une liste des revendeurs indirects avec lesquels le client spécifié a une relation, commencez par obtenir une interface pour les opérations de regroupement client pour le client spécifique à partir de la propriété [**partnerOperations. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) en fournissant l’ID client pour identifier le client. Appelez ensuite la méthode [**relations. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) ou la méthode [** \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) pour récupérer la liste des revendeurs indirects.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -76,7 +76,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources [PartnerRelationship](relationships-resources.md) pour identifier les revendeurs.
 

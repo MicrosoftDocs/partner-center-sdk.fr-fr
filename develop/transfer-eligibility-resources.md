@@ -4,13 +4,12 @@ description: Un partenaire crée un transfert lorsqu’un client souhaite que so
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 32ea176b079c48d7c48d114f6cfc96468699928f
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: dcac5724a1f708bc540a3aac7ce74b2eda60a296
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489186"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095981"
 ---
 # <a name="transfereligibility-resources"></a>Ressources TransferEligibility
 

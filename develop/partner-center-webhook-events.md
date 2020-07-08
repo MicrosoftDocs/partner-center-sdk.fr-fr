@@ -4,13 +4,14 @@ description: Documentation pour tous les événements de webhook pris en charge 
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 9e88ae502d7426b13137484d0e9e85dc7188ef7f
-ms.sourcegitcommit: e5a29552fe24fbb87faab9f25afa47738e94c1a3
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: c874a44e1b43cb05ee20834f9c7a14d221edcab6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82092756"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094997"
 ---
 # <a name="partner-center-webhook-events"></a>Événements du webhook de l’espace partenaires
 
@@ -21,7 +22,7 @@ ms.locfileid: "82092756"
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Les événements de webhook de l’espace partenaires sont des événements de modification de ressources remis sous forme de publications HTTP à une URL inscrite. Pour recevoir un événement de l’espace partenaires, vous hébergez un rappel dans lequel Partner Center peut poster l’événement. L’événement est signé numériquement, ce qui vous permet de vérifier qu’il a été envoyé à partir de l’espace partenaires. 
+Les événements de webhook de l’espace partenaires sont des événements de modification de ressources remis sous forme de publications HTTP à une URL inscrite. Pour recevoir un événement de l’espace partenaires, vous hébergez un rappel dans lequel Partner Center peut poster l’événement. L’événement est signé numériquement, ce qui vous permet de vérifier qu’il a été envoyé à partir de l’espace partenaires.
 
 Pour plus d’informations sur la réception d’événements, l’authentification d’un rappel et l’utilisation des API de webhook de l’espace partenaires pour créer, afficher et mettre à jour une inscription d’événement, consultez la page des [webhooks de l’espace partenaires](partner-center-webhooks.md).
 
@@ -46,7 +47,7 @@ Cet événement vous permet d’auto-intégrer et de tester votre inscription en
 | AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
 | ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 ```json
 {
@@ -60,10 +61,10 @@ Cet événement vous permet d’auto-intégrer et de tester votre inscription en
 
 ### <a name="subscription-updated-event"></a>Événement de mise à jour d’abonnement
 
-Cet événement est déclenché lorsque l’abonnement spécifié est modifié. Un événement de mise à jour d’abonnement est généré en cas de modification interne en plus de lorsque des modifications sont apportées via l’API espace partenaires.  Cet événement est généré uniquement en cas de modification du niveau de commerce, par exemple lorsque le nombre de licences est modifié et lorsque l’état de l’abonnement change. Elle ne sera pas générée lors de la création de ressources dans l’abonnement. 
+Cet événement est déclenché lorsque l’abonnement spécifié est modifié. Un événement de mise à jour d’abonnement est généré en cas de modification interne en plus de lorsque des modifications sont apportées via l’API espace partenaires.  Cet événement est généré uniquement en cas de modification du niveau de commerce, par exemple lorsque le nombre de licences est modifié et lorsque l’état de l’abonnement change. Elle ne sera pas générée lors de la création de ressources dans l’abonnement.
 
 >[!NOTE]
->Il y a un délai de 48 heures entre le moment où un abonnement est modifié et le moment où l’événement mis à jour de l’abonnement est déclenché.  
+>Il y a un délai de 48 heures entre le moment où un abonnement est modifié et le moment où l’événement mis à jour de l’abonnement est déclenché.
 
 #### <a name="properties"></a>Propriétés
 
@@ -75,14 +76,14 @@ Cet événement est déclenché lorsque l’abonnement spécifié est modifié. 
 | AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
 | ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 ```json
 {
     "EventName": "subscription-updated",
     "ResourceUri": "http://api.partnercenter.microsoft.com/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}",
     "ResourceName": "subscription",
-    "AuditUri": "https://api.partnercenter.microsoft.com/v1/auditrecords/{{AuditId}}", 
+    "AuditUri": "https://api.partnercenter.microsoft.com/v1/auditrecords/{{AuditId}}",
     "ResourceChangeUtcDate": "2017-11-16T16:19:06.3520276+00:00"
 }
 ```
@@ -101,7 +102,7 @@ Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft�
 | AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
 | ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 ```json
 {
@@ -115,7 +116,7 @@ Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft�
 
 ### <a name="referral-created-event"></a>Événement créé par la référence
 
-Cet événement est déclenché lorsque la référence est créée. 
+Cet événement est déclenché lorsque la référence est créée.
 
 #### <a name="properties"></a>Propriétés
 
@@ -127,7 +128,7 @@ Cet événement est déclenché lorsque la référence est créée.
 | AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
 | ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 ```json
 {
@@ -153,7 +154,7 @@ Cet événement est déclenché lorsque la référence est mise à jour.
 | AuditUri                  | URI                                | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} » |
 | ResourceChangeUtcDate     | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite.                                                         |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 ```json
 {
@@ -177,7 +178,7 @@ Cet événement est déclenché lorsque la nouvelle facture est prête.
 | AuditUri |  URI | Facultatif URI permettant d’accéder à l’enregistrement d’audit, le cas échéant. Utilise la syntaxe : «[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/AuditRecords/{{AuditId}} ») |
 | ResourceChangeUtcDate | chaîne au format date/heure UTC | Date et heure auxquelles la modification de ressource s’est produite. |
 
-#### <a name="example"></a> Exemple
+#### <a name="example"></a>Exemple
 
 ```json
 {

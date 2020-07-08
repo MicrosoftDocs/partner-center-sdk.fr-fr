@@ -4,13 +4,12 @@ description: Comment créer un transfert d’abonnements pour un client.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7d6e8efddc64bc2b4b36005f0892927f5b3454f8
-ms.sourcegitcommit: e39e8dccf25020cccda8bcea83b72e7ef8a6a7c2
+ms.openlocfilehash: d5e70cc5b7ce4fcfa715f581a2151f0b8d1922b0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84489176"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094513"
 ---
 # <a name="create-a-transfer"></a>Créer un transfert
 
@@ -50,19 +49,19 @@ Ce tableau décrit les propriétés [TransferEntity](transfer-entity-resources.m
 
 | Propriété              | Type          | Obligatoire  | Description                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
-| id                    | string        | Non    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
-| createdTime           | DateTime      | Non    | Date à laquelle le transferEntity a été créé, au format date/heure. Appliqué en cas de création réussie du transferEntity.      |
-| lastModifiedTime      | DateTime      | Non    | Date à laquelle le transferEntity a été mis à jour pour la dernière fois au format date-heure. Appliqué en cas de création réussie du transferEntity. |
-| lastModifiedUser      | string        | Non    | Utilisateur qui a mis à jour la transferEntity. Appliqué en cas de réussite de la création de transferEntity.                          |
+| id                    | string        | No    | Identificateur transferEntity qui est fourni lors de la création réussie du transferEntity.                               |
+| createdTime           | DateTime      | No    | Date à laquelle le transferEntity a été créé, au format date/heure. Appliqué en cas de création réussie du transferEntity.      |
+| lastModifiedTime      | DateTime      | No    | Date à laquelle le transferEntity a été mis à jour pour la dernière fois au format date-heure. Appliqué en cas de création réussie du transferEntity. |
+| lastModifiedUser      | string        | No    | Utilisateur qui a mis à jour la transferEntity. Appliqué en cas de réussite de la création de transferEntity.                          |
 | customerName          | string        | Non    | facultatif. Nom du client dont les abonnements sont en cours de transfert.                                              |
-| customerTenantId      | string        | Non    | ID client au format GUID qui identifie le client. Appliqué en cas de création réussie du transferEntity.         |
-| partnertenantid       | string        | Non    | Identificateur de partenaire au format GUID qui identifie le partenaire.                                                                   |
+| customerTenantId      | string        | No    | ID client au format GUID qui identifie le client. Appliqué en cas de création réussie du transferEntity.         |
+| partnertenantid       | string        | No    | Identificateur de partenaire au format GUID qui identifie le partenaire.                                                                   |
 | sourcePartnerName     | string        | Non    | facultatif. Nom de l’organisation partenaire qui lance le transfert.                                           |
 | sourcePartnerTenantId | string        | Oui   | Un ID de partenaire au format GUID qui identifie le partenaire qui lance le transfert.                                           |
 | targetPartnerName     | string        | Non    | facultatif. Nom de l’organisation du partenaire à laquelle le transfert est destiné.                                         |
 | targetPartnerTenantId | string        | Oui   | Un ID de partenaire au format GUID qui identifie le partenaire auquel le transfert est destiné.                                  |
-| lineItems             | Tableau d’objets | Oui| Tableau de ressources [TransferLineItem](transfer-entity-resources.md#transferlineitem) .                                   |
-| status                | string        | Non    | État du transferEntity. Les valeurs possibles sont « active » (peut être supprimée/envoyée) et « Completed » (a déjà été effectué). Appliqué en cas de création réussie du transferEntity.|
+| lineItems             | Tableau d’objets | Yes| Tableau de ressources [TransferLineItem](transfer-entity-resources.md#transferlineitem) .                                   |
+| status                | string        | No    | État du transferEntity. Les valeurs possibles sont « active » (peut être supprimée/envoyée) et « Completed » (a déjà été effectué). Appliqué en cas de création réussie du transferEntity.|
 
 Ce tableau décrit les propriétés [TransferLineItem](transfer-entity-resources.md#transferlineitem) dans le corps de la demande.
 
@@ -72,10 +71,10 @@ Ce tableau décrit les propriétés [TransferLineItem](transfer-entity-resources
 | subscriptionId       | string                     | Oui      | Identificateur de l’abonnement.                                                                         |
 | quantité             | int                        | Non       | Nombre de licences ou d’instances.                                                                 |
 | billingCycle         | Object                     | Non        | Type de cycle de facturation défini pour la période actuelle.                                                |
-| friendlyName         | string                     | Non       | facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                |
+| friendlyName         | string                     | No       | facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                |
 | partnerIdOnRecord    | string                     | No       | Partenaire sur l’enregistrement (MPNID) de l’achat qui se produit lorsque le transfert est accepté.              |
 | offerId              | string                     | No       | Identificateur de l’offre.                                                                                |
-| addonItems           | Liste d’objets **TransferLineItem** | Non | Collection d’éléments de ligne transferEntity pour les modules complémentaires qui seront transférés avec l’abonnement de base en cours de transfert. Appliqué en cas de création réussie du transferEntity.|
+| addonItems           | Liste d’objets **TransferLineItem** | No | Collection d’éléments de ligne transferEntity pour les modules complémentaires qui seront transférés avec l’abonnement de base en cours de transfert. Appliqué en cas de création réussie du transferEntity.|
 | transferError        | string                     | No       | Appliqué après l’acceptation de transferEntity en cas d’erreur.                                        |
 | status               | string                     | No       | État de l’LineItem dans transferEntity.                                                    |
 

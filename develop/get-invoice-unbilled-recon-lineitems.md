@@ -4,13 +4,14 @@ description: Vous pouvez obtenir une collection de détails non facturés pour l
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b615565524b79877aa817aaf246655a7175b4ac2
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: sourishdeb
+ms.author: sodeb
+ms.openlocfilehash: 6101ddd6ead66c78531273af959d53d37c71f678
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157411"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093628"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>Récupérer les éléments de ligne de rapprochement non facturés de la facture
 
@@ -111,7 +112,7 @@ while (fetchNext)
 
 Pour obtenir un exemple similaire, consultez :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
 - Classe : **GetUnBilledReconLineItemsPaging.cs**
 
@@ -121,13 +122,13 @@ Pour obtenir un exemple similaire, consultez :
 
 Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction de votre cas d’utilisation. Pour plus d’informations, consultez les descriptions de chaque syntaxe.
 
- | Méthode  | URI de requête            | Description du cas d’usage de syntaxe                                                                                |
+ | Méthode  | URI de demande            | Description du cas d’usage de syntaxe                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = billinglineitems&CurrencyCode = {currencycode} &période = {period} http/1.1                              | Utilisez cette syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = billinglineitems&CurrencyCode = {currencycode} &période = {period} &Size = {Size} http/1.1  | Pour les factures volumineuses, utilisez cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = billinglineitems&CurrencyCode = {currencycode} &période = {period} &Size = {size} &SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne `seekOperation = "Next"`de rapprochement à l’aide de. |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = billinglineitems&CurrencyCode = {currencycode} &période = {period} &Size = {size} &SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"` . |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
@@ -136,11 +137,11 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | ID de la facture             | string | Oui      | Chaîne qui identifie la facture. Utilisez « non facturé » pour recevoir des estimations non facturées. |
 | provider               | string | Oui      | Le fournisseur : « OneTime ».                                                |
 | invoice-line-item-type | string | Oui      | Type de détail de la facture : « BillingLineItems ».               |
-| hasPartnerEarnedCredit | bool   | Non        | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur est OneTime et InvoiceLineItemType est UsageLineItems.
+| hasPartnerEarnedCredit | bool   | No       | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur est OneTime et InvoiceLineItemType est UsageLineItems.
 | currencyCode           | string | Oui      | Code de la devise pour les éléments de ligne non facturés.                                  |
 | heures                 | string | Oui      | Période pour la conciliation non facturée. exemple : actuel, précédent.                      |
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000                     |
-| seekOperation          | string | Non        | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement.                |
+| seekOperation          | string | No       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement.                |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -150,7 +151,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse contient la collection des détails de l’élément de ligne.
 

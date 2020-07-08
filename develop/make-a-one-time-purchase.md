@@ -4,13 +4,12 @@ description: Comment effectuer un achat unique des logiciels et des produits de 
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93582ccf08e7f97e7a6cfa05a18cbeae9754d7da
-ms.sourcegitcommit: 51dc972a66af76d033d22f1d92f8ccc46ae3d36b
+ms.openlocfilehash: 17a5f5c1e845ba36a94d7ce909df30e0146ba448
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85096023"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095050"
 ---
 # <a name="make-a-one-time-purchase"></a>Effectuer un achat ponctuel
 
@@ -34,8 +33,8 @@ Comment effectuer un achat unique des logiciels et des produits de réservation,
 > | Antigua-et-Barbuda            | Guinée                            | Saint-Barthélemy                         |
 > | Aruba                          | Guinée-Bissau                     | Sainte-Lucie                              |
 > | Bénin                          | Guyane                            | Saint-Martin                             |
-> | Bhoutan                         | Haïti                             | Saint Pierre et Miquelon                |
-> | Bonaire                        | Heard et McDonald (îles) | Saint-Vincent-et-les Grenadines         |
+> | Bhoutan                         | Haïti                             | Saint-Pierre-et-Miquelon                |
+> | Bonaire                        | Heard et McDonald (Îles) | Saint-Vincent-et-les Grenadines         |
 > | Bouvet (Île)                  | Man (Île de)                       | Samoa                                    |
 > | Brésil                         | Jan Mayen                         | Saint-Marin                               |
 > | Territoires britanniques de l’océan Indien | Jersey                            | São Tomé et Príncipe                    |
@@ -45,9 +44,9 @@ Comment effectuer un achat unique des logiciels et des produits de réservation,
 > | Cambodge                       | Lesotho                           | Saint-Martin (partie néerlandaise)                             |
 > | République centrafricaine       | Liberia                           | Salomon (Îles)                          |
 > | Tchad                           | Madagascar                        | Somalie                                  |
-> | Chine                          | Malawi                            | Géorgie du Sud et Sandwich du Sud (îles) |
+> | Chine                          | Malawi                            | Géorgie du Sud et les îles Sandwich du Sud |
 > | Christmas (île)               | Maldives                          | Soudan du Sud                              |
-> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
+> | Cocos-Keeling (îles)        | Mali                              | Sainte-Hélène, Ascension et Tristan da Cunha   |
 > | Comores (Les)                        | Marshall (îles)                  | Suriname                                 |
 > | Congo                          | Martinique                        | Svalbard                                 |
 > | Congo (RDC)                    | Mauritanie                        | Swaziland                                |
@@ -57,10 +56,10 @@ Comment effectuer un achat unique des logiciels et des produits de réservation,
 > | Guinée équatoriale              | Mozambique                        | Tonga                                    |
 > | Érythrée                        | Myanmar                           | Turks et Caicos (îles)                 |
 > | Malouines (îles)               | Nauru                             | Tuvalu                                   |
-> | Guyane française                  | Nouvelle-Calédonie                     | États-Unis Îles éloignées                    |
+> | Guyane française                  | Nouvelle-Calédonie                     | États-Unis Îles mineures éloignées                    |
 > | Polynésie française               | Niger                             | Vanuatu                                  |
 > | Terres australes françaises    | Niue                              | État de la Cité du Vatican                             |
-> | Gabon                          | Norfolk (île)                    | Wallis et Futuna                        |
+> | Gabon                          | Norfolk (île)                    | Wallis-et-Futuna                        |
 > | Gambie                         | Mariannes du Nord (îles)          | Yémen                                    |
 > | Gibraltar                      | Palau                             | &nbsp;                                   |
 >

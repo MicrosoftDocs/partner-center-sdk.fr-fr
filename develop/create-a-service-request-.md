@@ -1,17 +1,15 @@
 ---
 title: Créer une demande de service
 description: Comment créer une demande de service de l’espace partenaires.
-ms.assetid: 16DA9836-7052-4103-82D4-933E5EEB7E71
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0421d11b5a284f6537136d4e75672e73169c50e1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: dc38c613f19340b84389b82e939615504538ec97
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154871"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094544"
 ---
 # <a name="create-a-service-request"></a>Créer une demande de service
 
@@ -25,7 +23,7 @@ Comment créer une demande de service de l’espace partenaires.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - ID de rubrique de support. Si vous n’avez pas d’ID de rubrique de support, consultez les [rubriques obtenir un support de demande de service](get-service-request-support-topics--pending-.md).
 
@@ -37,7 +35,7 @@ Pour créer une demande de service :
 
 2. Une fois l’objet créé, appelez la méthode [**collection iaggregatepartner. ServiceRequests. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.ipartnerservicerequestcollection.create) , en lui transmettant l’objet ServiceRequest nouvellement créé et une chaîne contenant les paramètres régionaux de l’organisation qui crée la demande de service (paramètres régionaux de l’agent).
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -83,12 +81,12 @@ Ce tableau décrit les propriétés obligatoires et facultatives dans le corps d
 | Nom             | Type                                                                        | Obligatoire | Description                                                                          |
 |------------------|-----------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
 | Intitulé            | string                                                                      | O        | Titre de la demande de service.                                                           |
-| Description      | string                                                                      | O        | Description.                                                                     |
+| Description      | chaîne                                                                      | O        | Description.                                                                     |
 | severity         | string                                                                      | O        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
 | SupportTopicId   | string                                                                      | O        | ID de la rubrique de support.                                                         |
 | SupportTopicName | string                                                                      | N        | Nom de la rubrique de support.                                                       |
 | Id               | string                                                                      | N        | ID de la demande de service.                                                       |
-| Statut           | string                                                                      | N        | État de la demande de service : « None », « Open », « Closed » ou « attention\_needed ». |
+| Statut           | string                                                                      | N        | État de la demande de service : « None », « Open », « Closed » ou « attention \_ needed ». |
 | Organisation     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | Organisation pour laquelle la demande de service est créée.                               |
 | PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | Contact principal sur la demande de service.                                              |
 | LastUpdatedBy    | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | « Dernière mise à jour par » permet de contacter les modifications apportées à la demande de service.                        |
@@ -145,7 +143,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne les propriétés de la ressource de **demande de service** dans le corps de la réponse.
 

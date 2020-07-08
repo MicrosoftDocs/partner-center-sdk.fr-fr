@@ -4,13 +4,12 @@ description: Récupère une déclaration de réception de facture à l’aide de
 ms.date: 02/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 6767337f2d3510f7ac98d61c060e2ee8c1191514
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 96cef11d6778de2d9bf28e466d88a39f9415727d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157461"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093550"
 ---
 # <a name="get-invoice-receipt-statement"></a>Obtenir l’instruction de réception de facture
 
@@ -25,7 +24,7 @@ Récupère une déclaration de réception de facture à l’aide de l’ID de fa
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - Un ID de facture valide et un ID de réception correspondant.
 
@@ -77,7 +76,7 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un flux PDF dans le corps de la réponse.
 

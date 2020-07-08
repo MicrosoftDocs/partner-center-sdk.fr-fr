@@ -1,17 +1,15 @@
 ---
 title: Ressources d’abonnement
 description: Les ressources d’abonnement peuvent fournir des informations supplémentaires sur les abonnements tout au long du cycle de vie, telles que la prise en charge, les remboursements, les droits Azure.
-ms.assetid: E99B5EC3-2247-4CAD-B651-3000E36AF6B6
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: eb6a3c77b65e003db95a3959953077d35a2e79a6
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: fd835e46e99b1fcb1e0b0e694ad73b1dca1240c9
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666105"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095992"
 ---
 # <a name="subscription-resources"></a>Ressources d’abonnement
 
@@ -118,7 +116,7 @@ La ressource **RegisterSubscription** retourne un lien qui peut être utilisé p
 
 | Propriété                | Type                               | Description                                                                           |
 |-------------------------|------------------------------------|---------------------------------------------------------------------------------------|
-| httpResponseMessage     | object                             | Retourne le code d’état HTTP 202 « accepté », avec un en-tête d’emplacement contenant un lien pour interroger l’état de l’inscription. Par exemple : `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
+| httpResponseMessage     | object                             | Retourne le code d’état HTTP 202 « accepté », avec un en-tête d’emplacement contenant un lien pour interroger l’état de l’inscription. Par exemple, `"/customers/{customer-id}/subscriptions/{subscription-id}/registrationstatus"` |
 
 ## <a name="refundoption"></a>RefundOption
 

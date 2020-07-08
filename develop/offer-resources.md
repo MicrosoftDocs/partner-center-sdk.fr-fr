@@ -1,17 +1,15 @@
 ---
 title: Ressources de l’offre
 description: Décrit un produit figurant dans le catalogue des revendeurs qu’il peut offrir à ses clients.
-ms.assetid: 702B18DB-D78A-4E3B-BC8F-EFD4092131DE
 ms.date: 03/15/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a4bec5d83faa4454857cd093bb109495bce4c17a
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: 45af02705d2a03c7586ba6bf3a5537c3e4eec3c7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82118655"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094746"
 ---
 # <a name="offer-resources"></a>Ressources de l’offre
 

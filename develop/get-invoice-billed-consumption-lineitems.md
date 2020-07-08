@@ -4,13 +4,14 @@ description: Vous pouvez obtenir un regroupement des détails de la facturation 
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0b1fce3f2d5eea5713fe87c4c1f60ac5e70551b4
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 1fbc16217a45b8b5d5fb8513723ff28c01efe06d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157481"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093567"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Recevoir les Articles de ligne facturation commerciale facturés
 
@@ -106,7 +107,7 @@ while (fetchNext)
 
 Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **exemples du kit de développement logiciel (SDK) Partner Center**
 - Classe : **GetBilledConsumptionReconLineItemsPaging.cs**
 
@@ -114,7 +115,7 @@ Pour obtenir un exemple similaire, consultez les rubriques suivantes :
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-Utilisez la première syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. Pour les factures de grande taille, utilisez la deuxième syntaxe avec une taille spécifiée et un décalage basé sur 0 pour renvoyer une liste paginée des éléments de ligne. Utilisez la troisième syntaxe pour accéder à la page suivante des éléments de ligne `seekOperation = "Next"`de rapprochement à l’aide de.
+Utilisez la première syntaxe pour retourner une liste complète de chaque élément de ligne pour la facture donnée. Pour les factures de grande taille, utilisez la deuxième syntaxe avec une taille spécifiée et un décalage basé sur 0 pour renvoyer une liste paginée des éléments de ligne. Utilisez la troisième syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"` .
 
 | Méthode  | URI de requête                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -122,7 +123,7 @@ Utilisez la première syntaxe pour retourner une liste complète de chaque élé
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &Size = {Size} http/1.1  |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &Size = {size} &SeekOperation = Next                               |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
@@ -134,7 +135,7 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | currencyCode           | string | Oui      | Code de la devise pour les lignes de facturation facturées.                    |
 | heures                 | string | Oui      | Période pour le rapprochement facturé. exemple : actuel, précédent.        |
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000       |
-| seekOperation          | string | Non        | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement. |
+| seekOperation          | string | No       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -144,7 +145,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Aucun.
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse contient la collection des détails de l’élément de ligne.
 

@@ -1,17 +1,15 @@
 ---
 title: Obtenir le profil de facturation du partenaire
 description: Obtient un objet qui représente le profil de facturation du partenaire.
-ms.assetid: E5BAC2C4-8C58-4B5D-8FA9-C445896EEC4A
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 800d30d8934bcca1e5ea1c5d2de7b0d5868ffe72
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5d0b8aaf904f3f4fd63e508d0c18756c2b9c5492
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157341"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095221"
 ---
 # <a name="get-partner-billing-profile"></a>Obtenir le profil de facturation du partenaire
 
@@ -26,7 +24,7 @@ Obtient un objet qui représente le profil de facturation du partenaire.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -66,7 +64,7 @@ MS-RequestId: a0dd6cde-b24c-413c-af24-416446dc5599
 MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un objet **BillingProfile** dans le corps de la réponse.
 

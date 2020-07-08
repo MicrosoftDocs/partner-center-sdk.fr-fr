@@ -1,17 +1,15 @@
 ---
 title: Afficher les utilisateurs supprimés d’un client
 description: Obtient une liste de ressources CustomerUser supprimées pour un client par ID de client. Vous pouvez éventuellement définir une taille de page. Vous devez fournir un filtre.
-ms.assetid: B2248C7D-0F68-4F52-9249-D3168C2F6E83
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cfa2b6a5b48f9120b6fe5d12f882d0d0f36a18bd
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 849245b45c4cb763fb4da629caeb661c3f530fa7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157831"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093489"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Afficher les utilisateurs supprimés d’un client
 
@@ -23,9 +21,9 @@ Obtient une liste de ressources CustomerUser supprimées pour un client par ID d
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="what-happens-when-you-delete-a-user-account"></a>Que se passe-t-il lorsque vous supprimez un compte d’utilisateur ?
 
@@ -65,9 +63,9 @@ Utilisez le chemin d’accès et les paramètres de requête suivants lors de la
 
 | Nom        | Type   | Obligatoire | Description                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id | guid   | Oui      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
+| customer-id | guid   | Yes      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
 | taille        | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                     |
-| Filter      | Filter | Oui      | La requête qui filtre la recherche de l’utilisateur. Pour récupérer des utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
+| Filter      | Filter | Yes      | La requête qui filtre la recherche de l’utilisateur. Pour récupérer des utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -89,7 +87,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [CustomerUser](user-resources.md#customeruser) dans le corps de la réponse.
 

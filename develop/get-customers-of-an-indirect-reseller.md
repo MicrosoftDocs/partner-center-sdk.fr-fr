@@ -1,17 +1,17 @@
 ---
 title: Obtenir les clients d’un revendeur indirect
 description: Obtention d’une liste des clients d’un revendeur indirect.
-ms.assetid: 2920F056-E6B8-4C66-9EEA-4577BEC034F9
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f03c3dc15c71c2a435280ee4138a6b5beddb9a92
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 513fe5d1372dfcc69c076b72c16cfe4d05147ccf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157511"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093722"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>Obtenir les clients d’un revendeur indirect
 
@@ -23,7 +23,7 @@ Obtention d’une liste des clients d’un revendeur indirect.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - Identificateur du locataire du revendeur indirect.
 
@@ -87,7 +87,7 @@ Utilisez les paramètres de requête suivants pour créer la demande.
 | Nom   | Type   | Obligatoire | Description                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                                                                                                                                |
-| Filter | Filter | Oui      | Requête qui filtre la recherche. Pour récupérer les clients d’un revendeur indirect spécifié, vous devez insérer l’identificateur de revendeur indirect et inclure et encoder la chaîne suivante : {"Field" : "IndirectReseller", "value" : "{indirect Reseller identifier}", "Operator" : "commence\_par"}. |
+| Filter | Filter | Yes      | Requête qui filtre la recherche. Pour récupérer les clients d’un revendeur indirect spécifié, vous devez insérer l’identificateur de revendeur indirect et inclure et encoder la chaîne suivante : {"Field" : "IndirectReseller", "value" : "{indirect Reseller identifier}", "Operator" : "commence \_ par"}. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -121,7 +121,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient des informations sur les clients du revendeur.
 

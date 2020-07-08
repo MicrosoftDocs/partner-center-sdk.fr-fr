@@ -1,17 +1,15 @@
 ---
 title: Gérer les clients
 description: Cette section décrit les manières dont les partenaires fournisseurs de solutions Cloud peuvent utiliser l’espace partenaires pour gérer par programmation les comptes client.
-ms.assetid: C8D81324-5D5A-4C42-933F-6C0552FB882D
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 80dc28411c78b7bf3524456d4c1426d8fad7e0a4
-ms.sourcegitcommit: caadf6300aac239f37e6964baf179a9d848308f3
+ms.openlocfilehash: 9b89b7766bed42206df8b7d3612a660576a46d54
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82973225"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095863"
 ---
 # <a name="manage-customers"></a>Gérer les clients
 
@@ -35,7 +33,7 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Obtenir un client par nom de société ou domaine](get-a-customer-by-name.md)
 - [Obtenir la liste des clients](get-a-list-of-customers.md)
 
-## <a name="manage-customer-orders-and-subscriptions"></a>Gérer les commandes client et les abonnements
+## <a name="manage-customer-orders-and-subscriptions"></a>Gérer les commandes et les abonnements des clients
 
 - [Obtenir toutes les commandes d’un client](get-all-of-a-customer-s-orders.md)
 - [Obtenir la liste des commandes par client et le type de cycle de facturation](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
@@ -43,7 +41,7 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Obtenir tous les abonnements d’un client](get-all-of-a-customer-s-subscriptions.md)
 - [Mettre à jour le pseudo d’un abonnement](update-the-nickname-for-a-subscription.md)
 
-## <a name="manage-customer-account-details"></a>Gérer les détails du compte client
+## <a name="manage-customer-account-details"></a>Gérer les détails d’un compte client
 
 - [Obtenir le profil de facturation d’un client](get-all-of-a-customer-s-billing-profiles.md)
 - [Mettre à jour le profil de facturation d’un client](update-a-customer-s-billing-profile.md)
@@ -51,7 +49,7 @@ Cette section décrit les manières dont les partenaires fournisseurs de solutio
 - [Mettre à jour le budget des dépenses d’utilisation d’un client](update-a-customer-s-usage-spending-budget.md)
 - [Ajouter un domaine vérifié pour un client](add-a-verified-domain-for-a-customer.md)
 - [Obtenir les métadonnées de contrat pour le contrat Microsoft Cloud](get-agreement-metadata.md)
-- [Recevoir la confirmation de l’acceptation du client du contrat de Microsoft Cloud](get-confirmation-of-customer-consent.md)
+- [Obtenir une confirmation de l'acceptation du contrat Microsoft Cloud par le client](get-confirmation-of-customer-consent.md)
 - [Obtenir l’état de la signature directe (acceptation directe) du Contrat client Microsoft](get-direct-sign-status-of-customer-agreement.md)
 - [Confirmer que le client a accepté le Contrat client Microsoft](confirm-customer-consent-customer-agreement.md)
 - [Obtenir les codes de validation d’un partenaire](get-a-partner-s-validation-codes.md)

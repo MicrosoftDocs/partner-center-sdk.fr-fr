@@ -1,19 +1,17 @@
 ---
-title: Test et débogage
+title: Tester et déboguer
 description: Pour tester votre code, vous devez utiliser votre compte de bac à sable (sandbox) d’intégration dans l’espace partenaires (et les jetons correspondants) afin de ne pas occasionner accidentellement de nouveaux frais que votre entreprise est responsable du paiement.
-ms.assetid: 0A84F92F-CE66-42DF-B686-4D9E6FFECB16
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d24becdaf89798fd99ca0ed3fe0ea60d75d0d2f9
-ms.sourcegitcommit: 58fecbc8e6f20dae7cde34ae44b72d5d37ae09b4
+ms.openlocfilehash: a5b78454c6c41a9e4401ad44a43ca233049498b8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869056"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095974"
 ---
-# <a name="test-and-debug"></a>Test et débogage
+# <a name="test-and-debug"></a>Tester et déboguer
 
 **S’applique à**
 

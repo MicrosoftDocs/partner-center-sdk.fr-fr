@@ -4,13 +4,12 @@ description: Activez un abonnement sandbox pour les produits de la place de marc
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: cee833f110c45e8f53a47aed3d8a8c3b1ccd6946
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: f7b6edef3984b64f04bdbec1f02218a4a84ca04e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154371"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095241"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-products"></a>Activer un abonnement de bac à sable pour des produits de la place de marché commerciale
 
@@ -81,7 +80,7 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 Cette méthode retourne les propriétés d' **État** et d' **ID d’abonnement** .
 

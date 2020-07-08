@@ -1,18 +1,17 @@
 ---
 title: Ressources de l’enregistrement d’utilisation Azure
 description: L’enregistrement d’utilisation Azure contient des détails sur l’utilisation d’une ressource d’abonnement Azure.
-ms.assetid: 4C1EEEB3-DB25-4D61-BFED-C4AB5D3BB5CF
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 1e4782815c9b777c7cdb3e11e342dd9be94d9310
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 21d39c4497c00f5abeeeb771dfe20cd1e2b1c13a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022695"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094562"
 ---
 # <a name="azure-utilization-record-resources"></a>Ressources de l’enregistrement d’utilisation Azure
 
@@ -34,14 +33,14 @@ Décrit les propriétés d’une ressource d’enregistrement d’utilisation Az
 
 | Propriété       | Type                                      | Obligatoire | Description                                                                                                                                                                             |
 |----------------|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| usageStartTime | string                                    | Oui      | Début de la plage horaire d’agrégation de l’utilisation. La réponse est regroupée en fonction de la durée de la consommation (lorsque la ressource était réellement utilisée par rapport au moment où elle a été signalée au système de facturation). |
-| usageEndTime   | string                                    | Oui      | Fin de la plage horaire d’agrégation de l’utilisation. La réponse est regroupée en fonction de l’heure de la consommation. Autrement dit, lorsque la ressource était réellement utilisée par rapport à quand elle était signalée au système de facturation.   |
-| resource       | object                                    | Oui      | Contient un objet [AzureResource](#azureresource) .                                                                                                                                     |
+| usageStartTime | string                                    | Yes      | Début de la plage horaire d’agrégation de l’utilisation. La réponse est regroupée en fonction de la durée de la consommation (lorsque la ressource était réellement utilisée par rapport au moment où elle a été signalée au système de facturation). |
+| usageEndTime   | string                                    | Yes      | Fin de la plage horaire d’agrégation de l’utilisation. La réponse est regroupée en fonction de l’heure de la consommation. Autrement dit, lorsque la ressource était réellement utilisée par rapport à quand elle était signalée au système de facturation.   |
+| resource       | object                                    | Yes      | Contient un objet [AzureResource](#azureresource) .                                                                                                                                     |
 | quantité       | nombre                                    | Oui      | Quantité consommée du [AzureResource.](#azureresource)                                                                                                                           |
-| unité           | string                                    | Non       | Type de quantité (heures, octets, etc.) Cette propriété est facultative.                                                                                                                     |
-| infoFields     | object                                    | Oui      | Paires clé-valeur des détails au niveau de l’instance. Cet objet peut être vide.                                                                                                                    |
+| unité           | string                                    | No       | Type de quantité (heures, octets, etc.) Cette propriété est facultative.                                                                                                                     |
+| infoFields     | object                                    | Yes      | Paires clé-valeur des détails au niveau de l’instance. Cet objet peut être vide.                                                                                                                    |
 | instanceData   | object                                    | Non       | Contient un objet [AzureInstanceData](#azureinstancedata) qui contient des paires clé-valeur de détails au niveau de l’instance. Cette propriété est facultative et ne peut pas être incluse.                  |
-| attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Oui      | Attributs de métadonnées. Contient « objectType » : « AzureUtilizationRecord »                                                                                                                |
+| attributs     | [ResourceAttributes](utility-resources.md#resourceattributes) | Yes      | Attributs de métadonnées. Contient « objectType » : « AzureUtilizationRecord »                                                                                                                |
 
 ### <a name="operations-on-the-azureutilizationrecord-resource"></a>Opérations sur la ressource AzureUtilizationRecord
 
@@ -53,11 +52,11 @@ Décrit les propriétés d’une ressource Azure.
 
 | Propriété    | Type   | Obligatoire | Description                                                                         |
 |-------------|--------|----------|-------------------------------------------------------------------------------------|
-| id          | string | Oui      | Identificateur unique de la ressource Azure. Également appelé resourceID ou GUID de ressource. |
-| name        | string | Non       | Nom convivial de la ressource consommée. Cette propriété est facultative.            |
-| catégorie    | string | Non       | Catégorie de la ressource consommée. Cette propriété est facultative.                   |
-| sous-catégorie | string | Non       | Sous-catégorie de la ressource consommée. Cette propriété est facultative.               |
-| region      | string | Non       | Région de la ressource consommée. Cette propriété est facultative.                     |
+| id          | string | Yes      | Identificateur unique de la ressource Azure. Également appelé resourceID ou GUID de ressource. |
+| name        | string | No       | Nom convivial de la ressource consommée. Cette propriété est facultative.            |
+| catégorie    | string | No       | Catégorie de la ressource consommée. Cette propriété est facultative.                   |
+| sous-catégorie | string | No       | Sous-catégorie de la ressource consommée. Cette propriété est facultative.               |
+| region      | string | No       | Région de la ressource consommée. Cette propriété est facultative.                     |
 
 ## <a name="azureinstancedata"></a>AzureInstanceData
 
@@ -65,9 +64,9 @@ Décrit les propriétés d’une ressource de données d’instance Azure.
 
 | Propriété       | Type             | Obligatoire | Description                                                                                                        |
 |----------------|------------------|----------|--------------------------------------------------------------------------------------------------------------------|
-| resourceUri    | string           | Oui      | L’ID de ressource Azure complet, qui comprend les groupes de ressources et le nom de l’instance.                   |
-| location       | string           | Oui      | Région dans laquelle le service a été exécuté.                                                                               |
-| partNumber     | object           | Oui      | Espace de noms unique utilisé pour identifier la ressource pour une utilisation tierce de la place de marché commercial. Cette propriété peut être une chaîne vide. |
+| resourceUri    | string           | Yes      | L’ID de ressource Azure complet, qui comprend les groupes de ressources et le nom de l’instance.                   |
+| location       | string           | Yes      | Région dans laquelle le service a été exécuté.                                                                               |
+| partNumber     | object           | Yes      | Espace de noms unique utilisé pour identifier la ressource pour une utilisation tierce de la place de marché commercial. Cette propriété peut être une chaîne vide. |
 | orderNumber    | nombre           | Oui      | Espace de noms unique utilisé pour identifier l’ordre tiers pour la place de marché commercial. Cette propriété peut être une chaîne vide.          |
-| tags           | tableau de chaînes | Non       | Balises de ressource spécifiées par l’utilisateur. Cette propriété est facultative et ne peut pas être incluse.                            |
-| additionalInfo | tableau de chaînes | Non       | Données supplémentaires pour une ressource Azure. Cette propriété est facultative et ne peut pas être incluse.                          |
+| tags           | tableau de chaînes | No       | Balises de ressource spécifiées par l’utilisateur. Cette propriété est facultative et ne peut pas être incluse.                            |
+| additionalInfo | tableau de chaînes | No       | Données supplémentaires pour une ressource Azure. Cette propriété est facultative et ne peut pas être incluse.                          |

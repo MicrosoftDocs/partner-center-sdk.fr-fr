@@ -3,18 +3,19 @@ title: Obtenir une liste de toutes les demandes de l’utilisateur partenaire
 description: Obtenir la liste de toutes les demandes des utilisateurs partenaires à l’aide de l’API REST partenaire.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: 6e3f3c248d39ace5fc4aa82694d3120f15eff66c
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186357"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093780"
 ---
 # <a name="get-app-and-user-api-requests"></a>Recevoir des demandes d’API d’application et d’utilisateur
 
-S'applique à :
+S’applique à :
 
 - API d’Espace partenaires
 

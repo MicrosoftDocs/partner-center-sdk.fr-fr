@@ -4,13 +4,14 @@ description: Vous pouvez utiliser la ressource DirectSignedCustomerAgreementStat
 ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f92e3d57438260af0b8e7beb12e9c7a4448eaf13
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 3f1deb20a18bc6e7133cac91db528f2d1ad694e2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157521"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093682"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>Obtenir l’état de la signature directe d’un client (acceptation directe) du contrat de client Microsoft
 
@@ -38,9 +39,9 @@ Utilisez la syntaxe de requête suivante :
 
 | Méthode | URI de demande                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | baseURL/v1/Customers/{Customer-tenant-ID}/directSignedMicrosoftCustomerAgreementStatus http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| GET    | [* \{ BASEURL \} *](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/directSignedMicrosoftCustomerAgreementStatus http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 
@@ -66,7 +67,7 @@ MS-RequestId: 94e4e214-6b06-4fb7-96d1-94d559f9b47f
 MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une [ressource **DirectSignedCustomerAgreementStatus** ](./customer-agreement-direct-sign-status-resource.md) dans le corps de la réponse.
 

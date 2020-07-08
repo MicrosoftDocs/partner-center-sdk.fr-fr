@@ -1,17 +1,15 @@
 ---
 title: Ressources de service managées
 description: Les services gérés sont des services auxquels un partenaire a délégué des privilèges d’administrateur. Les partenaires peuvent assurer la prise en charge des demandes de service de fichiers et pour le compte de leurs services gérés.
-ms.assetid: B05E9585-72E4-4330-8721-A88EC4C193D7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a4de6e373748026c56599f8e7153569f04a0c9cf
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: ef644ac4d8ae9660cffc9558af33cc27832556c7
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82118645"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094796"
 ---
 # <a name="managed-service-resources"></a>Ressources de service managées
 
@@ -47,5 +45,5 @@ Contient les liens qui permettent au partenaire disposant d’autorisations d’
 | ServiceTicket, | Lien | URI de ticket de service.     |
 | Self          | Lien | URI auto.               |
 | Suivant          | Lien | Page suivante des éléments.     |
-| Previous      | Lien | Page d’éléments précédente. |
+| Précédente      | Lien | Page d’éléments précédente. |
 

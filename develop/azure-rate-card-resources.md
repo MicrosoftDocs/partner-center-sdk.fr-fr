@@ -1,18 +1,17 @@
 ---
 title: Ressources de la carte de tarifs Azure
 description: La carte de tarifs Azure fournit des tarifs en temps réel pour les offres Azure.
-ms.assetid: A42B4FFA-278E-41FF-B51E-E48C2CA70EEF
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: d3bc9b6e93bfbfbf49b1c900c9ace15cd586864d
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 24df2694916cebb5612e21843d50c9bf5d5cade3
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022776"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095370"
 ---
 # <a name="azure-rate-card-resources"></a>Ressources de la carte de tarifs Azure
 

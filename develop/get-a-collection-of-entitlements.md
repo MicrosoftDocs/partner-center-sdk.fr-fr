@@ -1,17 +1,15 @@
 ---
 title: Obtenir une collection de droits
 description: Comment obtenir une collection de droits.
-ms.assetid: 3EE2F67D-8D99-4FAB-A2D6-D33BAD1F324F
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 13e2b33d030eb344616e5db40c94447851804b3d
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b57e493958386df7a493bcbdc79121b09fcd72e0
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155771"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093960"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Obtenir une collection de droits
 
@@ -25,7 +23,7 @@ Comment obtenir une collection de droits.
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
@@ -52,14 +50,14 @@ Pour remplir les dates d’expiration des droits à récupérer, appelez les mê
 |--------|-------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{CustomerID}/Entitlements http/1.1                            |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants lors de la création de la demande.
 
 | Nom | Type | Obligatoire | Description |
 |------|------|----------|-------------|
 | customerId | string | Oui | GUID au format customerId qui identifie le client. |
-| entitlementType | string | Non  | Peut être utilisé pour spécifier le type de droits à récupérer (**Software** ou **reservedInstance** ). Si la valeur n’est pas définie, tous les types sont récupérés |
+| entitlementType | string | No | Peut être utilisé pour spécifier le type de droits à récupérer (**Software** ou **reservedInstance** ). Si la valeur n’est pas définie, tous les types sont récupérés |
 | showExpiry | boolean | Non | Indicateur facultatif qui indique si les dates d’expiration des droits sont requises. |
 
 ### <a name="request-headers"></a>En-têtes de requête
@@ -82,7 +80,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources de [droits](entitlement-resources.md#entitlement) .
 
@@ -179,7 +177,7 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 
 L’exemple suivant montre comment récupérer un type spécifique de droits avec des dates d’expiration (le cas échéant)
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
 Pour récupérer un type spécifique de droits, obtenez l’interface **ByEntitlementType** à partir de l’interface des **droits** et utilisez les méthodes d' **obtention ()** ou de **GetAsync ()** .
 
@@ -307,7 +305,7 @@ Les exemples suivants montrent comment récupérer des informations sur les prod
 
 ### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>Récupérer les détails de réservation d’ordinateur virtuel d’un droit à l’aide du kit de développement logiciel (SDK) V 1.8
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
 Pour obtenir plus de détails relatifs aux réservations de machines virtuelles d’un droit, appelez l’URI exposé sous entitledArtifacts. Link avec artifactType = virtual_machine_reserved_instance.
 
@@ -359,9 +357,9 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 
 ### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>Récupérer les détails de la réservation d’un droit à l’aide du kit de développement logiciel (SDK) V 1.9
 
-### <a name="c-example"></a>Exemple\# C
+### <a name="c-example"></a>\#Exemple C
 
-Pour obtenir plus de détails relatifs aux réservations d’un droit d’instance réservé, appelez l’URI exposé ```entitledArtifacts.link``` sous ```artifactType = reservedinstance```avec.
+Pour obtenir plus de détails relatifs aux réservations d’un droit d’instance réservé, appelez l’URI exposé sous ```entitledArtifacts.link``` avec ```artifactType = reservedinstance``` .
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();

@@ -1,17 +1,15 @@
 ---
 title: Ressources de demande de service
 description: Les partenaires peuvent traiter les demandes de service au nom de leurs partenaires pour signaler les services d’interruptions fournis par Microsoft ou pour demander un support technique qu’ils ne peuvent pas fournir.
-ms.assetid: E9FBF7D8-A7E8-4DC6-B370-8339B9EE16B7
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2154d9f166a5e3bac83b6fa57df81c47c715fb6b
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: 072f9eddaf9d854f1dcc8cc65f7928b6c95700fa
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82119795"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095253"
 ---
 # <a name="service-request-resources"></a>Ressources de demande de service
 
@@ -30,12 +28,12 @@ Décrit une demande de service déposée par un partenaire, y compris comment ce
 | Propriété         | Type                                                          | Description                                                                          |
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Intitulé            | string                                                        | Titre de la demande de service.                                                           |
-| Description      | string                                                        | Description.                                                                     |
+| Description      | chaîne                                                        | Description.                                                                     |
 | severity         | string                                                        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
 | SupportTopicId   | string                                                        | ID de la rubrique de support.                                                         |
 | SupportTopicName | string                                                        | Nom de la rubrique de support.                                                       |
 | Id               | string                                                        | ID de la demande de service.                                                       |
-| Statut           | string                                                        | État de la demande de service : « None », « Open », « Closed » ou « attention\_needed ». |
+| Statut           | string                                                        | État de la demande de service : « None », « Open », « Closed » ou « attention \_ needed ». |
 | Organisation     | [ServiceRequestOrganization](#servicerequestorganization)     | Organisation pour laquelle la demande de service est créée.                               |
 | PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Contact principal sur la demande de service.                                              |
 | LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | « Dernière mise à jour par » permet de contacter les modifications apportées à la demande de service.                        |
@@ -60,7 +58,7 @@ Décrit un contact qui crée ou modifie une demande de service.
 | ContactId    | string                                                    | ID unique du contact.                               |
 | LastName     | string                                                    | Nom du contact.                          |
 | FirstName    | string                                                    | Prénom du contact.                         |
-| E-mail        | string                                                    | Adresse de messagerie du contact.                              |
+| Courrier        | string                                                    | Adresse de messagerie du contact.                              |
 | PhoneNumber  | string                                                    | Numéro de téléphone du contact.                       |
 
 ## <a name="servicerequestnote"></a>ServiceRequestNote
@@ -90,7 +88,7 @@ Décrit une rubrique de support. Les demandes de service spécifient une rubriqu
 | Propriété    | Type               | Description                                                   |
 |-------------|--------------------|---------------------------------------------------------------|
 | Nom        | string             | Nom de la rubrique de support.                                |
-| Description | string             | Description de la rubrique de support.                         |
+| Description | chaîne             | Description de la rubrique de support.                         |
 | Id          | string             | ID unique de la rubrique de support.                           |
 | Attributs  | ResourceAttributes | Attributs de métadonnées correspondant à la demande de service. |
 

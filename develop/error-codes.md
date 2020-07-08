@@ -1,17 +1,15 @@
 ---
 title: Codes d’erreur REST de l’Espace partenaires
 description: Description des codes d’erreur et des réponses de réussite à partir des API de l’espace partenaires.
-ms.assetid: 08AC1F2E-5847-4AD8-AE5B-0173C5DB589A
 ms.date: 06/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d4f31783b94ed8cae85687b806624945bb185486
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: b75f7fa6b9b82c2b1744a21fa0dbac95aa7c7acd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155751"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093998"
 ---
 # <a name="partner-center-rest-error-codes"></a>Codes d’erreur REST de l’Espace partenaires
 
@@ -28,7 +26,7 @@ Les API REST de l’espace partenaires retournent un objet JSON qui contient un 
 
 Un code d’état **2xx** indique que la demande du client a été correctement reçue, comprise et acceptée.
 
-## <a name="error-codes"></a>Codes d'erreur
+## <a name="error-codes"></a>Codes d’erreur
 
 Les codes d’état **4xx** et **5xx** suivants indiquent une erreur :
 

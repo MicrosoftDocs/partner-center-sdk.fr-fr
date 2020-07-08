@@ -1,17 +1,15 @@
 ---
 title: Mettre à jour une stratégie de configuration pour le client spécifié
 description: Comment mettre à jour la stratégie de configuration spécifiée pour le client spécifié.
-ms.assetid: E2B91AC4-B8E8-4A77-AFB7-0CCEF5136621
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 93e876d17eabf458ae0cd1c73fa02c5f634296e3
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5fe3b30dd62fb0d2653f52d875310ff302f36bd2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157631"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095966"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Mettre à jour une stratégie de configuration pour le client spécifié
 
@@ -26,7 +24,7 @@ Comment mettre à jour la stratégie de configuration spécifiée pour le client
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur de la stratégie.
 
@@ -58,7 +56,7 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                                          |
+| Méthode  | URI de demande                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
 | **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies/{Policy-ID} http/1.1 |
 
@@ -66,10 +64,10 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Nom        | Type   | Obligatoire | Description                                                   |
+| Name        | Type   | Obligatoire | Description                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client.         |
-| ID de stratégie   | string | Oui      | Chaîne au format GUID qui identifie la stratégie à mettre à jour. |
+| customer-id | string | Yes      | Chaîne au format GUID qui identifie le client.         |
+| ID de stratégie   | string | Yes      | Chaîne au format GUID qui identifie la stratégie à mettre à jour. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -79,14 +77,14 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Le corps de la demande doit contenir un objet qui fournit les informations de stratégie.
 
-| Nom            | Type             | Obligatoire | Peut être mise à jour | Description                                                                                                                                              |
+| Name            | Type             | Obligatoire | Peut être mise à jour | Description                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | string           | Oui      | Non         | Chaîne au format GUID qui identifie la stratégie.                                                                                                    |
-| name            | string           | Oui      | Oui       | Nom convivial de la stratégie.                                                                                                                         |
-| catégorie        | string           | Oui      | Non         | Catégorie de stratégie.                                                                                                                                     |
-| description     | string           | Non       | Oui       | Description de la stratégie.                                                                                                                                  |
-| devicesAssigned | nombre           | Non        | Non         | Nombre d’appareils.                                                                                                                                   |
-| policySettings  | tableau de chaînes | Oui      | Oui       | Les paramètres de stratégie : « aucun », «\_supprimer\_les préinstallations OEM »,\_«\_l'\_utilisateur\_OOBE n’est pas administrateur\_local\_», « ignorer les \_paramètres\_Express », «\_ignorer l’inscription OEM », ignorer le CLUF. |
+| id              | string           | Oui      | No        | Chaîne au format GUID qui identifie la stratégie.                                                                                                    |
+| name            | string           | Yes      | Yes       | Nom convivial de la stratégie.                                                                                                                         |
+| catégorie        | string           | Oui      | No        | Catégorie de stratégie.                                                                                                                                     |
+| description     | string           | No       | Oui       | Description de la stratégie.                                                                                                                                  |
+| devicesAssigned | nombre           | Non       | Non        | Nombre d’appareils.                                                                                                                                   |
+| policySettings  | tableau de chaînes | Yes      | Yes       | Les paramètres de stratégie : « aucun », « supprimer les \_ \_ préinstallations OEM », \_ « \_ l’utilisateur OOBE n’est pas \_ \_ administrateur local », « ignorer les \_ \_ paramètres Express », « ignorer \_ \_ l’inscription OEM », ignorer le \_ CLUF. |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -111,7 +109,7 @@ Host: api.partnercenter.microsoft.com
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient la ressource [ConfigurationPolicy](device-deployment-resources.md#configurationpolicy) pour la nouvelle stratégie.
 

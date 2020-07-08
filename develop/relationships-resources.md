@@ -1,17 +1,15 @@
 ---
 title: Ressources de relations
 description: Décrit les ressources liées aux relations.
-ms.assetid: F6157FE3-7C9D-4A8F-AC11-6F4007594C3D
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 3e444653a8b5acd5dafbebe8e4526c50e7951155
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: c5701414bd704b375dc23859b920609d5a975d9f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124432"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094927"
 ---
 # <a name="relationships-resources"></a>Ressources de relations
 
@@ -32,7 +30,7 @@ Représente une relation entre deux partenaires.
 | mpnId            | string                                                         | Identificateur Microsoft Partner Network (MPN) du partenaire.                                                                                 |
 | name             | string                                                         | Nom du partenaire.                                                                                                                       |
 | relationshipType | string                                                         | Type de relation.                                                                                                                      |
-| state            | string                                                         | État de la relation (par exemple `active`).                                                                                                 |
+| state            | string                                                         | État de la relation (par exemple `active` ).                                                                                                 |
 | attributs       | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                                                                                       |
 
 ## <a name="relationshiprequest"></a>RelationshipRequest

@@ -1,17 +1,15 @@
 ---
 title: Ressources utilisateur
 description: Décrit un utilisateur de l’espace partenaires, ses informations personnelles et de compte, ainsi que les autorisations dont il dispose dans l’espace partenaires.
-ms.assetid: A2DEDDAB-C4DA-4ECA-931F-2054AB005973
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: bf338ea4eea57ff1164a72c95e86868c9320b970
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: 0c88b9b65dfb925712ff85fb42d34251cca6e0b5
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82119805"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093546"
 ---
 # <a name="user-resources"></a>Ressources utilisateur
 
@@ -56,7 +54,7 @@ Décrit un utilisateur client.
 | firstName             | string                                                         | Prénom de l’utilisateur.                                                                                                                                                                                                |
 | lastName              | string                                                         | Nom de l’utilisateur.                                                                                                                                                                                                 |
 | displayName           | string                                                         | Nom affiché de l’utilisateur.                                                                                                                                                                                            |
-| immutableId           | string                                                         | ID immuable de l’utilisateur.                                                                                                                                                                                              |
+| ImmutableID           | string                                                         | ID immuable de l’utilisateur.                                                                                                                                                                                              |
 | passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | Le profil de mot de passe de l’utilisateur.                                                                                                                                                                                               |
 | phoneNumber           | string                                                         | numéro de téléphone de l'utilisateur.                                                                                                                                                                                                   |
 | lastDirectorySyncTime | Chaîne au format date/heure UTC                                 | La dernière fois que les informations de cet utilisateur ont été synchronisées entre Azure Active Directory et les Active Directory locales. Une valeur de date et d’heure apparaît uniquement si Azure AD Connect synchronisation est activée. Dans le cas contraire, la valeur est null. |

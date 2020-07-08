@@ -1,17 +1,15 @@
 ---
 title: Ressources d’utilisation de l’abonnement
 description: Les ressources d’utilisation d’abonnement décrivent les abonnements avec la facturation basée sur l’utilisation. Ces abonnements ont des enregistrements d’utilisation quotidiens et mensuels, ainsi qu’un résumé de l’utilisation pour chaque période de paiement.
-ms.assetid: 61B98AB8-D802-4EC1-91FB-B7A2B95DE20C
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b5317596f8fe77e06aabcda98268186550e7c355
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: 8e23287d80f19084860f4597754448e81c01049f
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666095"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095798"
 ---
 # <a name="subscription-usage-resources"></a>Ressources d’utilisation de l’abonnement
 

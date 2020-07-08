@@ -1,17 +1,17 @@
 ---
 title: Ressources client
 description: Ressources client qui représentent un client ou un revendeur.
-ms.assetid: C7EC2657-62F2-43B3-B171-2F74498D45E0
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: fe2326692de3dca0da1cedcec3a933819ae33b55
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: edfde5a11d22460f30f2fc39a27341ce28eed9c1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81665171"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094305"
 ---
 # <a name="customer-resources"></a>Ressources client
 
@@ -35,7 +35,7 @@ La ressource **client** représente un client ou un revendeur. En règle génér
 | commerceId            | string                                                           | ID de commerce.                                                                                                                             |
 | companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Informations supplémentaires sur l’entreprise ou l’organisation.                                                                                    |
 | billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Informations supplémentaires utilisées pour la facturation.                                                                                                     |
-| relationshipToPartner | string                                                           | Définit le programme de licence que le partenaire utilise pour ce client : « None », « Reseller », « Advisor », « syndication » ou « support Microsoft\_». |
+| relationshipToPartner | string                                                           | Définit le programme de licence que le partenaire utilise pour ce client : « None », « Reseller », « Advisor », « syndication » ou « support Microsoft \_ ». |
 | allowDelegatedAccess  | boolean                                                          | Si le client a reçu des privilèges d’administrateur délégué par ce client. Cette propriété est disponible uniquement lors de l’obtention d’un client par son ID, et non par liste.                                                         |
 | userCredentials       | [UserCredentials](user-resources.md#usercredentials) | Informations d'identification de l'utilisateur.                                                                                                                        |
 | customDomains         | tableau de chaînes                                                 | Liste des domaines personnalisés d’un client.                                                                                                        |

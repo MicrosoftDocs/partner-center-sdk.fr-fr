@@ -1,17 +1,15 @@
 ---
 title: Ressources des exigences de sécurité des partenaires
 description: Comprenez les détails de l’adoption de l’authentification multifacteur (MFA) pour répondre aux exigences de sécurité des partenaires.
-ms.assetid: 1A8C28E2-2E67-41DA-B451-5A052FF12115
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 ms.date: 05/29/2020
-ms.openlocfilehash: 0a1e57d057c3a9c81fca85c3625e652467d05638
-ms.sourcegitcommit: 9c3c915b79846917b2075be632d5b9b013f53a27
+ms.openlocfilehash: 5eb77c3c10e95c9dc835cfe05e014b9256531b51
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84186327"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094760"
 ---
 # <a name="partner-security-requirements-resources"></a>Ressources des exigences de sécurité des partenaires
 

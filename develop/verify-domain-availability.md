@@ -1,17 +1,15 @@
 ---
 title: Vérifier la disponibilité du domaine
 description: Comment déterminer si un domaine peut être utilisé.
-ms.assetid: 9ECF8241-3672-441D-B34D-83F7C23138B3
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 7518253d937567e78c5afd59b9b0a1375d047c89
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: f0ae17a7f929e74a32647c616bb35bc20ed9bcc3
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157841"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093496"
 ---
 # <a name="verify-domain-availability"></a>Vérifier la disponibilité du domaine
 
@@ -28,7 +26,7 @@ Comment déterminer si un domaine peut être utilisé.
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un domaine (par exemple `contoso.onmicrosoft.com`).
+- Un domaine (par exemple `contoso.onmicrosoft.com` ).
 
 ## <a name="c"></a>C\#
 
@@ -47,7 +45,7 @@ bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                              |
+| Méthode   | URI de demande                                                              |
 |----------|--------------------------------------------------------------------------|
 | **SIÈGE** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} http/1.1 |
 
@@ -57,7 +55,7 @@ Utilisez le paramètre de requête suivant pour vérifier la disponibilité du d
 
 | Nom       | Type       | Obligatoire | Description                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **domaine** | **string** | O        | Chaîne identifiant le domaine à vérifier. |
+| **Domain** | **string** | O        | Chaîne identifiant le domaine à vérifier. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -80,7 +78,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 Si le domaine existe, il n’est pas utilisable et un code d’état de réponse 200 OK est retourné. Si le domaine est introuvable, il est disponible pour utilisation et un code d’état de réponse 404 introuvable est retourné.
 

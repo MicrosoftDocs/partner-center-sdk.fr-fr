@@ -1,17 +1,15 @@
 ---
 title: Vérifier l’ID MPN d’un partenaire
 description: Comment vérifier l’identificateur de Microsoft Partner Network d’un partenaire (ID MPN). La technique illustrée ici vérifie l’identificateur de Microsoft Partner Network du partenaire en demandant le profil MPN du partenaire à partir de l’espace partenaires.
-ms.assetid: 95CBA254-0980-4519-B95D-1F906C321863
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 429f6e14da1cd9ba310167beb148930d7d3e015e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 5c35cfb024a8894d7f40208f8f93f6f41ee94121
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157321"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095219"
 ---
 # <a name="verify-a-partner-mpn-id"></a>Vérifier l’ID MPN d’un partenaire
 
@@ -28,7 +26,7 @@ La technique illustrée ici vérifie l’identificateur de Microsoft Partner Net
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - ID MPN du partenaire à vérifier. Si vous omettez cette valeur, la demande récupère le profil MPN du partenaire connecté.
 
@@ -83,7 +81,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient la ressource [MpnProfile](profile-resources.md#mpnprofile) pour le partenaire.
 

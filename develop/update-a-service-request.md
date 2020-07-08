@@ -1,17 +1,15 @@
 ---
 title: Mettre à jour une demande de service
 description: Procédure de mise à jour d’une demande de service client existante qu’un fournisseur de solutions Cloud a déposée auprès de Microsoft au nom du client.
-ms.assetid: 09C13775-739B-4CB9-9442-456E17F91452
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ca618afa6e5dc2b6db141ec8a590554b9592eb94
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 96a856b8b246edbee516486641b478df485f91c4
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157941"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095594"
 ---
 # <a name="update-a-service-request"></a>Mettre à jour une demande de service
 
@@ -27,7 +25,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - ID de demande de service.
 
@@ -51,7 +49,7 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode    | URI de requête                                                                                 |
+| Méthode    | URI de demande                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{ServiceRequest-ID} http/1.1 |
 
@@ -115,7 +113,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource de **demande de service** avec des propriétés mises à jour dans le corps de la réponse.
 

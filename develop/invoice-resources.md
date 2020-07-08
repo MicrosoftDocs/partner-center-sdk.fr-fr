@@ -1,17 +1,15 @@
 ---
 title: Ressources de facturation
 description: Plusieurs ressources liées aux factures sont disponibles par le biais des API de l’espace partenaires. Ces ressources sont liées aux détails des factures et des articles.
-ms.assetid: FDD151CC-3473-46DF-A422-265DCBC8A498
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 04de53676527330ed1ff0bdfa2d762ce0bcae13a
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: bd2caefe4ae18c81a31083d084f1e87da1288dd9
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82124702"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095125"
 ---
 # <a name="invoice-resources"></a>Ressources de facturation
 
@@ -41,7 +39,7 @@ Les ressources liées aux factures suivantes sont disponibles via les API de l�
 | changement      | Tableau d’objets de [facture](#invoice)   | Les modifications apportées à cette facture.  |
 | documentType    | string | Type de document de la facture : « note de crédit », « facture ». |
 | amendsOf        | string | Numéro de référence du document dont ce document est un amendement.  |
-| invoiceType     | string  | Type de facture : « périodique », « une\_fois ».   |
+| invoiceType     | string  | Type de facture : « périodique », « une \_ fois ».   |
 | liens           | [ResourceLinks](utility-resources.md#resourcelinks)  | Liens vers les ressources.  |
 | attributs      | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.  |
 
@@ -51,8 +49,8 @@ Une facture contient une collection d’articles facturés, et chaque élément 
 
 | Propriété            | Type                                                           | Description                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | Type de détail de la facture : « aucun », «\_éléments\_de ligne d’utilisation »\_,\_« éléments de ligne de facturation ». |
-| billingProvider     | string                                                         | Fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».         |
+| invoiceLineItemType | string                                                         | Type de détail de la facture : « aucun », « \_ éléments de ligne d’utilisation \_ », « éléments de ligne de facturation \_ \_ ». |
+| billingProvider     | string                                                         | Fournisseur de facturation : « None », « Office », « Azure » ou « Azure \_ Data \_ Market ».         |
 | liens               | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens vers les ressources.                                                               |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                          |
 
@@ -62,8 +60,8 @@ Chaque facture individuelle au sein d’une facture est représentée sous la fo
 
 | Propriété            | Type                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceLineItemType | string                                                         | Type de ligne de facturation : « aucun », « éléments de\_ligne\_d’utilisation », «\_éléments\_de ligne de facturation ». |
-| billingProvider     | string                                                         | Fournisseur de facturation : « None », « Office », « Azure » ou « Azure\_Data\_Market ».            |
+| invoiceLineItemType | string                                                         | Type de ligne de facturation : « aucun », « éléments de \_ ligne d’utilisation \_ », « \_ éléments de ligne de facturation \_ ». |
+| billingProvider     | string                                                         | Fournisseur de facturation : « None », « Office », « Azure » ou « Azure \_ Data \_ Market ».            |
 | attributs          | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées.                                                             |
 
 ## <a name="invoicesummary"></a>InvoiceSummary
@@ -86,11 +84,11 @@ Décrit un résumé du solde et des frais totaux d’une facture.
 
 ## <a name="invoicesummarydetail"></a>InvoiceSummaryDetail
 
-Représente un résumé des détails individuels d’un type de facture (par exemple, périodique, une\_fois).
+Représente un résumé des détails individuels d’un type de facture (par exemple, périodique, une \_ fois).
 
 | Propriété            | Type                                                           | Description                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| invoiceType         | string                                                         | Type de facture : « périodique », « une\_fois ».                                       |
+| invoiceType         | string                                                         | Type de facture : « périodique », « une \_ fois ».                                       |
 | summary             | Objet [InvoiceSummary](#invoicesummary)                       | Résumé de la facture par type de facture.                                         |
 
 ## <a name="invoicesummaries"></a>InvoiceSummaries
@@ -269,7 +267,7 @@ Représente les Articles de ligne de rapprochement non facturés pour une utilis
 | UsageDate | DateTime | Obtient ou définit la date d’utilisation. |
 | MeterType | string | Obtient ou définit le type de compteur. |
 | MeterCategory | string | Obtient ou définit la catégorie du compteur. |
-| ID du compteur | string | Obtient ou définit l’ID de compteur (GUID). |
+| MeterId | string | Obtient ou définit l’ID de compteur (GUID). |
 | MeterSubCategory | string | Obtient ou définit la sous-catégorie du compteur. |
 | MeterName | string | Obtient ou définit le nom du compteur. |
 | MeterRegion | string | Obtient ou définit la région du compteur. |
@@ -278,7 +276,7 @@ Représente les Articles de ligne de rapprochement non facturés pour une utilis
 | ConsumedService | string | Obtient ou définit le nom du service consommé. |
 | ResourceGroup | string | Obtient ou définit le nom du groupe de ressources. |
 | URI | string | Obtient ou définit l’URI de l’instance de ressource sur le sujet de l’utilisation. |
-| Balises | string | Obtient ou définit les balises ajoutées par le client. |
+| Étiquettes | string | Obtient ou définit les balises ajoutées par le client. |
 | AdditionalInfo | string | Obtient ou définit les métadonnées spécifiques au service. Par exemple, le type d’image d’une machine virtuelle. |
 | ServiceInfo1 | string | Obtient ou définit les métadonnées de service Azure internes. |
 | ServiceInfo2 | string | Obtient ou définit les informations de service, par exemple, un type d’image pour un ordinateur virtuel et un nom de fournisseur de services Internet pour ExpressRoute. |

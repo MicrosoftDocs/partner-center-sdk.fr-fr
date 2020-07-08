@@ -1,17 +1,15 @@
 ---
 title: Opérations d’audit
 description: Obtenir un enregistrement de l’activité espace partenaires à l’aide d’opérations d’audit.
-ms.assetid: C6337A08-6009-4F12-A7A3-B1CA1AE016A1
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 36b20d41d3313a1151c45177f4c74ed0b44b180d
-ms.sourcegitcommit: def3d4b9d7ba2bf5b1fd268d2e71dae5d5f65a6e
+ms.openlocfilehash: 0e31990df06a67d4f02b97dab8422ee498a09b43
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80413223"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095393"
 ---
 # <a name="audit-operations"></a>Opérations d’audit
 
@@ -23,5 +21,5 @@ Vous pouvez récupérer des enregistrements d’audit pour les 30 derniers jours
 
 Obtenir des enregistrements d’audit historiques détaillés des opérations effectuées par un utilisateur partenaire ou une application :
 
-- [Obtenir un enregistrement des activités de l'Espace partenaires](get-a-record-of-partner-center-activity-by-user.md)
+- [Obtenir un enregistrement le l’activité de l’Espace partenaires](get-a-record-of-partner-center-activity-by-user.md)
 - [Audit des ressources](auditing-resources.md)

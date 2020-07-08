@@ -1,17 +1,15 @@
 ---
 title: Valider une adresse
 description: Comment valider une adresse à l’aide de l’API de validation d’adresse.
-ms.assetid: 38A136CD-5E42-46D2-85A4-ED08E30444B8
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 402c7ff4d1c713eb57ade674a76f4e66033ba428
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 22d5faec2fdab4907067bb01cb74e110032dea9a
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157861"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095499"
 ---
 # <a name="validate-an-address"></a>Valider une adresse
 
@@ -172,7 +170,7 @@ Content-Length: 129
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la méthode retourne un code d’état 200, comme illustré dans l’exemple de validation de réponse qui a réussi, comme indiqué ci-dessous.
 

@@ -1,17 +1,17 @@
 ---
 title: Obtenir une facture par ID
 description: Récupère une facture donnée à l’aide de l’ID de facture.
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: f0abd0abbf090b9ad6f06903c45a58d85f2168b1
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: 17880265d06e8e5eaacc5470d83c49defd10ad51
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157451"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093650"
 ---
 # <a name="get-invoice-by-id"></a>Obtenir une facture par ID
 
@@ -26,7 +26,7 @@ Récupère une facture donnée à l’aide de l’ID de facture.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - Un ID de facture valide.
 
@@ -61,7 +61,7 @@ Utilisez le paramètre de requête suivant pour obtenir la facture.
 
 | Nom           | Type       | Obligatoire | Description                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **ID de la facture** | **string** | Oui      | La valeur est un **ID de facture** qui permet au revendeur de filtrer les résultats pour une facture donnée. |
+| **ID de la facture** | **string** | Yes      | La valeur est un **ID de facture** qui permet au revendeur de filtrer les résultats pour une facture donnée. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -81,7 +81,7 @@ MS-RequestId: 8ac25aa5-9537-4b6d-b782-aa0c8e979e99
 MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource de [facture](invoice-resources.md#invoice) dans le corps de la réponse.
 

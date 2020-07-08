@@ -4,13 +4,12 @@ description: Comment mettre à jour une stratégie libre-service.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: d618d27dc7e17ff37b3186ad20fbc28057024538
-ms.sourcegitcommit: 093dd5bb3e1a4d3d02839b39cec2b62d5800fd3a
+ms.openlocfilehash: 23816461daab4339d35e19a1004a69fa8f713acf
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83383904"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095582"
 ---
 # <a name="update-a-selfservepolicy"></a>Mettre à jour un SelfServePolicy
 
@@ -28,7 +27,7 @@ Cette rubrique explique comment mettre à jour une stratégie libre-service.
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode   | URI de requête                                                       |
+| Méthode   | URI de demande                                                       |
 |----------|-------------------------------------------------------------------|
 | **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy http/1.1 |
 
@@ -90,7 +89,7 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette API retourne une ressource [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) pour la stratégie libre-service mise à jour.
 

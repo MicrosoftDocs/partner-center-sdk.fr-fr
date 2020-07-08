@@ -1,17 +1,15 @@
 ---
 title: Ressources d’utilitaire
 description: L’API REST de l’espace partenaires contient de nombreuses ressources qui décrivent des modèles de données à usage général utilisés dans le kit de développement logiciel (SDK).
-ms.assetid: C77219B9-FFDD-4779-AE15-5B15BA7BA863
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0451caae82ec29423ca8c40691d68c9eb2233cc8
-ms.sourcegitcommit: bea0d0cf3c1af7a75c9b150d53de53193a673fae
+ms.openlocfilehash: a842b6d3053fb7c23b7eea53fce3cc6cd642ce10
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82119285"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095488"
 ---
 # <a name="utility-resources"></a>Ressources d’utilitaire
 
@@ -35,7 +33,7 @@ Adresse à utiliser pour le client ou pour les profils de partenaires. Pour plus
 | City         | string | n/a               | La ville.                                                                                        |
 | State        | string | (0, 2)            | État.                                                                                       |
 | PostalCode   | string | n/a               | Code postal.                                                                     |
-| Country      | string | (2, 2)            | Pays ou région au format de code pays ISO.                                                   |
+| Pays ou région      | string | (2, 2)            | Pays ou région au format de code pays ISO.                                                   |
 | Région       | string | n/a               | Région                                                                                      |
 | FirstName    | string | (1, 50)           | Prénom d’un contact au niveau de la société ou de l’organisation du client.                              |
 | LastName     | string | (1, 50)           | Nom d’un contact au niveau de la société ou de l’organisation du client.                               |
@@ -49,7 +47,7 @@ Décrit les informations de contact d’une personne spécifique.
 |-------------|--------|------------------------------|
 | FirstName   | string | Prénom du contact.    |
 | LastName    | string | Nom du contact.     |
-| E-mail       | string | adresse e-mail du contact. |
+| Courrier       | string | adresse e-mail du contact. |
 | PhoneNumber | string | Numéro de téléphone du contact.  |
 
 ## <a name="fieldfilter"></a>FieldFilter
@@ -58,7 +56,7 @@ Décrit un filtre qui peut être appliqué aux résultats de la recherche.
 
 | Propriété | Type   | Description                                                                                                                                                                                        |
 |----------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Opérateur | string | L’opérateur de filtre : « égal à », «\_différent de », « supérieur\_à », « supérieur\_\_ou\_égal à », « inférieur\_à », « inférieur\_à\_ou\_égal à », « sous-chaîne », « et », « ou », « commence\_par « », «\_ne\_commence pas par ». |
+| Opérateur | string | L’opérateur de filtre : « égal à », « différent de \_ », « supérieur \_ à », « supérieur \_ \_ ou \_ égal à », « inférieur \_ à », « inférieur \_ à ou égal à » \_ \_ , « sous-chaîne », « et », « ou », « commence \_ par « », « ne \_ commence pas \_ par ». |
 
 ## <a name="fileinfo"></a>FileInfo
 
@@ -80,7 +78,7 @@ Contient un lien URI et des informations associées.
 |----------|------------------------|------------------------------------|
 | URI      | string                 | URI.                           |
 | Méthode   | string                 | Méthode représentée par l’URI. |
-| headers  | Tableau de KeyValuePair | En-têtes pour le lien.          |
+| En-têtes  | Tableau de KeyValuePair | En-têtes pour le lien.          |
 
 ## <a name="passwordprofile"></a>PasswordProfile
 
@@ -102,7 +100,7 @@ Contient une liste de liens pour une ressource.
 |------------|-------------------------------------------|----------------------------------------------------|
 | Self       | [Lien](#link)                             | URI auto.                                      |
 | Suivant       | [Lien](#link)                             | Page suivante des éléments.                            |
-| Previous   | [Lien](#link)                             | Page d’éléments précédente.                        |
+| Précédente   | [Lien](#link)                             | Page d’éléments précédente.                        |
 | Attributs | [ResourceAttributes](#resourceattributes) | Attributs de métadonnées correspondant à l’utilisateur. |
 
 ## <a name="resourceattributes"></a>ResourceAttributes

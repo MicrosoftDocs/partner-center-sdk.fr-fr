@@ -1,17 +1,15 @@
 ---
 title: Obtenir toutes les informations analytiques sur la recherche
 description: Obtention de toutes les informations d’analyse de recherche.
-ms.assetid: CCF9D929-EE5F-4141-9884-ECA559A5171B
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 10e607a0fd2c973909c4b8aa57d6c7074eab9503
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 967f8d0ed2d276e0f68a047204b64d83dc69da95
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156561"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093975"
 ---
 # <a name="get-all-search-analytics-information"></a>Obtenir toutes les informations analytiques sur la recherche
 
@@ -34,9 +32,9 @@ Comment obtenir toutes les informations d’analyse de recherche pour vos client
 
 | Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/Search http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/Search http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 |    Paramètre     |  Type  |                                                                                                                   Description                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -64,7 +62,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources de [recherche](partner-center-analytics-resources.md#search-resource) .
 

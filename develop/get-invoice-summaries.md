@@ -1,17 +1,17 @@
 ---
 title: Obtenir des récapitulatifs de facture
 description: Vous pouvez utiliser une ressource résumés de la facture pour chaque type de devise pour afficher le solde et les frais totaux des frais périodiques et ponctuels.
-ms.assetid: 60EAA1F1-AFE2-4FC3-A475-4DBEA58583D1
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ea3eedf7b19f3160cd9d1eee76d58f80700151a8
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: 82cd669117db72e1819d941f48f8ea69b2eddaec
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157431"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093535"
 ---
 # <a name="get-invoice-summaries"></a>Obtenir des récapitulatifs de facture
 
@@ -26,7 +26,7 @@ Vous pouvez utiliser l' **InvoiceSummaries** pour récupérer un résumé de la 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 - Identificateur de facture valide.
 
@@ -51,7 +51,7 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 
 Pour plus d’informations, consultez l’exemple de code suivant :
 
-- Exemple : [application de test](console-test-app.md) de la console
+- Exemple : [Application de test de console](console-test-app.md)
 - Projet : **PartnerSDK. FeatureSample**
 - Classe : **GetInvoiceSummaries.cs**
 
@@ -86,7 +86,7 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource [**InvoiceSummaries**](invoice-resources.md#invoicesummaries) dans le corps de la réponse.
 

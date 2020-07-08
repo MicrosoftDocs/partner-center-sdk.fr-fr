@@ -1,17 +1,17 @@
 ---
 title: Obtenir une offre par ID
 description: Obtient une ressource d’offre qui correspond à l’ID de l’offre.
-ms.assetid: F5165C5A-7C93-4F8E-A733-641511BC8FB7
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 0b3cb5856bb9b4259267c2284d8b00668f4427cf
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: brentserbus
+ms.author: brserbus
+ms.openlocfilehash: 2765859db2da91f544c926b264eeb7e32a22cd6c
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157751"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093830"
 ---
 # <a name="get-an-offer-by-id"></a>Obtenir une offre par ID
 
@@ -109,7 +109,7 @@ X-Locale: <locale-id>
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une ressource **offer** dans le corps de la réponse.
 

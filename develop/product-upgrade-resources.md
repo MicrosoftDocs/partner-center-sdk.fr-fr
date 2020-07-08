@@ -1,17 +1,15 @@
 ---
 title: Ressources de mise à niveau du produit
 description: Vous pouvez utiliser plusieurs ressources liées aux mises à niveau du produit de l’espace partenaires vers un plan Azure. Cela inclut ProductUpgradeRequest, ProductUpgradesEligibility, ProductUpgradesStatus, UpgradesLineItem, UpgradeProduct et ErrorDetails.
-ms.assetid: DF237297-7956-42EE-8F09-4304F6EFBF26
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 3da809a303580e79e03a7f0e0720901d1bf911d7
-ms.sourcegitcommit: 42b4d44796df44c18460145acb5a63566d9153c5
+ms.openlocfilehash: c0245141dc99832f47bff9b68741724d5d313ab8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82089289"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094965"
 ---
 # <a name="product-upgrade-resources"></a>Ressources de mise à niveau du produit
 

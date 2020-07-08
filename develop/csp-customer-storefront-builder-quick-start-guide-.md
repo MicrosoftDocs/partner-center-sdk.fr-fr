@@ -1,17 +1,15 @@
 ---
 title: Guide de démarrage rapide du créateur de vitrine pour les clients fournisseurs de solutions cloud
 description: Créez une place de marché en ligne pour vendre des offres de fournisseur de solutions Cloud à l’aide du générateur de vitrine client du CSP.
-ms.assetid: 333EE80D-E49E-4E89-87FB-3F02AC48C236
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ac3d053e8e6d6684cf9583c57e388da828bc8442
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: cc4b56e6fa51c2ebc8338559075c93e7eab4b378
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155311"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094341"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>Guide de démarrage rapide du créateur de vitrine pour les clients fournisseurs de solutions cloud
 
@@ -62,7 +60,7 @@ Les administrateurs du partenaire CSP de l’espace partenaires peuvent déploye
 
 Le processus de création d’un site Web de vitrine consiste à :
 
-1. [Déployer le site Web](#deploy)
+1. [Déployer le site web](#deploy)
 
 2. [Configurer la vitrine](#configure)
 
@@ -86,9 +84,9 @@ Connectez-vous avec vos informations d’identification d’administrateur de l�
 
 - **Offres**: afficher toutes les offres CSP. Vous pouvez sélectionner les offres qui peuvent être visualisées et achetées par vos clients. Vous pouvez également personnaliser les informations d’offre et ajouter votre prix.
 
-- **Configuration de paiement PayPal**: ajoutez vos informations de compte de paiement Paypal. Si vous n’avez pas de compte PayPal, vous pouvez [https://www.paypal.com](https://www.paypal.com) visiter et créer un nouveau compte. Ce compte sera utilisé pour PayPal pour créditer les paiements effectués par les clients. *Microsoft n’est pas responsable de la relation entre les partenaires et PayPal. L’utilisation de PayPal peut obliger les clients du partenaire ou du partenaire à accepter des conditions supplémentaires.*
+- **Configuration de paiement PayPal**: ajoutez vos informations de compte de paiement Paypal. Si vous n’avez pas de compte PayPal, vous pouvez visiter [https://www.paypal.com](https://www.paypal.com) et créer un nouveau compte. Ce compte sera utilisé pour PayPal pour créditer les paiements effectués par les clients. *Microsoft n’est pas responsable de la relation entre les partenaires et PayPal. L’utilisation de PayPal peut obliger les clients du partenaire ou du partenaire à accepter des conditions supplémentaires.*
 
-- (*Pour l’Inde*) **Configuration de paiement PayU**: ajoutez vos informations de compte de paiement PayU Money. Si vous n’avez pas de compte PayU Money, vous pouvez [https://www.payumoney.com/](https://www.payumoney.com/) visiter et créer un nouveau compte. Ce compte sera utilisé par PayU pour créditer les paiements effectués par les clients. *Microsoft n’est pas responsable de la relation entre les partenaires et PayU. L’utilisation de PayU peut obliger les clients du partenaire ou du partenaire à accepter des conditions supplémentaires.*
+- (*Pour l’Inde*) **Configuration de paiement PayU**: ajoutez vos informations de compte de paiement PayU Money. Si vous n’avez pas de compte PayU Money, vous pouvez visiter [https://www.payumoney.com/](https://www.payumoney.com/) et créer un nouveau compte. Ce compte sera utilisé par PayU pour créditer les paiements effectués par les clients. *Microsoft n’est pas responsable de la relation entre les partenaires et PayU. L’utilisation de PayU peut obliger les clients du partenaire ou du partenaire à accepter des conditions supplémentaires.*
 
 ### <a name="transact"></a>Transaction
 
@@ -188,13 +186,13 @@ Pour déployer une vitrine cliente améliorée ou personnalisée :
   - Les partenaires peuvent trouver ces informations [https://developer.paypal.com/](https://developer.paypal.com/) dans **mes applications & informations d’identification**. Vous pouvez également obtenir ces informations à partir d’une application actuelle ou en créant une nouvelle application dans PayPal.
   - Créez un nouveau compte PayPal si vous n’en avez pas déjà un. Ce compte sera utilisé pour PayPal pour créditer les paiements effectués par les clients.
 
-    - Pour ouvrir un compte professionnel PayPal, consultez [https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register).
+    - Pour ouvrir un compte professionnel PayPal, consultez [https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register) .
 
-    - Pour créer un compte PayPal sandbox, [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/)consultez.
+    - Pour créer un compte PayPal sandbox [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/) , consultez.
 
-- (Pour l’Inde) un partenaire CSP peut entrer les informations de son compte PayU Money, telles que l’ID client PayU et le mot de passe. Les partenaires peuvent obtenir plus d' [https://developer.payumoney.com/](https://developer.payumoney.com/)informations sur.
+- (Pour l’Inde) un partenaire CSP peut entrer les informations de son compte PayU Money, telles que l’ID client PayU et le mot de passe. Les partenaires peuvent obtenir plus d’informations sur [https://developer.payumoney.com/](https://developer.payumoney.com/) .
 
-  - Créez un compte PayU Money si vous n’en avez pas déjà un. Pour ouvrir un compte PayU Money, visitez [https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/). Ce compte sera utilisé par PayU pour créditer les paiements effectués par les clients.
+  - Créez un compte PayU Money si vous n’en avez pas déjà un. Pour ouvrir un compte PayU Money, visitez [https://www.payumoney.com/merchant-account/#/](https://www.payumoney.com/merchant-account/#/) . Ce compte sera utilisé par PayU pour créditer les paiements effectués par les clients.
 
 ## <a name="customer-experience-scenarios"></a>Scénarios de l’expérience utilisateur
 

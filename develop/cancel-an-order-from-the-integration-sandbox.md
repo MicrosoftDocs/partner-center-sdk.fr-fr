@@ -4,13 +4,12 @@ description: Annulez les commandes des comptes du bac à sable (sandbox) d’int
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 459db3cfb9a85fd2f4a0d32b065d6929ab40006b
-ms.sourcegitcommit: 99fa2c7669f3db84fd00cb5f28ef8d783900c8d3
+ms.openlocfilehash: 9960ee5281d5681a9b93470796f7141ba195ffe1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84121233"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096068"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande du bac à sable d’intégration
 
@@ -61,7 +60,7 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                            |
+| Méthode     | URI de demande                                                                            |
 |------------|----------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
@@ -71,8 +70,8 @@ Utilisez le paramètre de requête suivant pour supprimer un client.
 
 | Nom                   | Type     | Obligatoire | Description                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
-| **ID de commande** | **string** | Y        | La valeur est une chaîne qui dénote les ID de commande qui doivent être annulés. |
+| **customer-tenant-id** | **guid** | O        | La valeur est un GUID **client-ID-client-ID** qui permet au revendeur de filtrer les résultats pour un client donné qui appartient au revendeur. |
+| **ID de commande** | **string** | O        | La valeur est une chaîne qui dénote les ID de commande qui doivent être annulés. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

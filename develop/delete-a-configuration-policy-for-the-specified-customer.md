@@ -1,17 +1,15 @@
 ---
 title: Supprimer une stratégie de configuration pour le client spécifié
 description: Comment supprimer une stratégie de configuration pour un client et un identificateur de stratégie spécifiés.
-ms.assetid: DEFEC12E-3EA0-401B-B612-ACD1D71DB415
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 8741f036ce535e918b92552084ba84db6dff6899
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: c1a6a5d8a16eafb19dd84bc132c8a9d4caf3f852
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155291"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094201"
 ---
 # <a name="delete-a-configuration-policy-for-the-specified-customer"></a>Supprimer une stratégie de configuration pour le client spécifié
 
@@ -26,7 +24,7 @@ Comment supprimer une stratégie de configuration pour un client et un identific
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur de la stratégie.
 
@@ -54,11 +52,11 @@ partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode     | URI de requête                                                                                          |
+| Méthode     | URI de demande                                                                                          |
 |------------|------------------------------------------------------------------------------------------------------|
 | **DELETE** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies/{Policy-ID} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
@@ -88,7 +86,7 @@ Content-Type: application/json
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, la réponse retourne un code d’État 204 aucun contenu.
 

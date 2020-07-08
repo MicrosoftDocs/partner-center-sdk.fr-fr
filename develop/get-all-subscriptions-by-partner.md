@@ -1,17 +1,17 @@
 ---
 title: Obtenir les abonnements d’un client par l’ID MPN partenaire
 description: Comment obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié.
-ms.assetid: 02742789-97F0-4B9C-9948-42BF6F3D4D18
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2346ebec68b56e7449a7f70fc1bf34aaf8265c3a
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: 545eb08e54a5a74fb6e8ca27fd1f02d4ba5bf055
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156361"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093905"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Obtenir les abonnements d’un client par l’ID MPN partenaire
 
@@ -28,7 +28,7 @@ Comment obtenir la liste des abonnements fournis par un partenaire donné à un 
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 
-- Un ID client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le Rechercher dans le tableau de [bord](https://partner.microsoft.com/dashboard)de l’espace partenaires. Sélectionnez **CSP** dans le menu espace partenaires, puis **clients**. Sélectionnez le client dans la liste des clients, puis sélectionnez **compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client`customer-tenant-id`().
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 - Identificateur d’Microsoft Partner Network de partenaire (MPN).
 
@@ -79,15 +79,15 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 | Méthode  | URI de requête |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions ? MPN\_ID = {MPN-ID} http/1.1 |
+| **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions ? MPN \_ ID = {MPN-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour identifier le client et le partenaire.
 
 | Nom        | Type   | Obligatoire | Description                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client.       |
+| customer-id | string | Yes      | Chaîne au format GUID qui identifie le client.       |
 | mpn-id      | int    | Oui      | ID de Microsoft Partner Network qui identifie le partenaire. |
 
 ### <a name="request-headers"></a>En-têtes de requête
@@ -111,7 +111,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient la collection de ressources d' [abonnement](subscription-resources.md) .
 

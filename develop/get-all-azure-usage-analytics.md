@@ -1,17 +1,17 @@
 ---
 title: Obtenir toutes les informations analytiques sur l’utilisation d’Azure
 description: Obtention de toutes les informations d’analyse de l’utilisation d’Azure.
-ms.assetid: CDBD04A4-BA34-49B8-9815-7C19253E6C70
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e05ab42b154457ae0db079ff0d90d836a7da7d3e
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: khpavan
+ms.author: sakhanda
+ms.openlocfilehash: c6302a2223bbb9c56943b04175a9cba44db1d1d2
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156761"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86095235"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Obtenir toutes les informations analytiques sur l’utilisation d’Azure
 
@@ -34,9 +34,9 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
 
 | Méthode  | URI de requête |
 |---------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/usage/Azure http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/usage/Azure http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 <table>
   <thead>
@@ -81,7 +81,7 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
         <p>string</p>
       </td>
       <td>
-        <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque <strong> <code>eq</code> </strong> instruction contient un champ et une valeur associés aux opérateurs ou <strong> <code>ne</code> </strong> , et les instructions peuvent être combinées à <strong> <code>and</code> </strong> l' <strong> <code>or</code> </strong>aide de ou de. Vous pouvez spécifier les éléments suivants :</p>
+        <p>Le paramètre <em>filter</em> de la requête contient une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction contient un champ et une valeur associés aux <strong> <code>eq</code> </strong> <strong> <code>ne</code> </strong> opérateurs ou, et les instructions peuvent être combinées à l’aide <strong> <code>and</code> </strong> de ou de <strong> <code>or</code> </strong> . Vous pouvez spécifier les éléments suivants :</p>
         <ul>
           <li><code>customerTenantId</code></li>
           <li><code>customerName</code></li>
@@ -113,8 +113,8 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
         <p>string</p>
       </td>
       <td>
-        <p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agir de l’une des <code>day</code>chaînes <code>week</code>suivantes : <code>month</code>, ou. S’il n’est pas spécifié, <code>day</code>la valeur par défaut est.</p>
-      <p>Le <code>aggregationLevel</code> paramètre n’est pas pris <code>groupby</code>en charge sans. Le <code>aggregationLevel</code> paramètre s’applique à tous les champs de date <code>groupby</code>présents dans le.</p>
+        <p>Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agir de l’une des chaînes suivantes : <code>day</code> , <code>week</code> ou <code>month</code> . S’il n’est pas spécifié, la valeur par défaut est <code>day</code> .</p>
+      <p>Le <code>aggregationLevel</code> paramètre n’est pas pris en charge sans <code>groupby</code> . Le <code>aggregationLevel</code> paramètre s’applique à tous les champs de date présents dans le <code>groupby</code> .</p>
       </td>
     </tr>
     <tr>
@@ -141,7 +141,7 @@ Obtention de toutes les informations d’analyse de l’utilisation d’Azure po
           <li><code>consumptionMeterId</code></li>
           <li><code>serviceType</code></li>
         </ul>
-        <p>Le paramètre <em>Order</em> est facultatif et peut être <code>asc</code> ou <code>desc</code>; pour spécifier l’ordre croissant ou décroissant pour chaque champ, respectivement. Par défaut, il s’agit de <code>asc</code>.</p>
+        <p>Le paramètre <em>Order</em> est facultatif et peut avoir <code>asc</code> la <code>desc</code> valeur ou ; pour spécifier l’ordre croissant ou décroissant pour chaque champ, respectivement. Par défaut, il s’agit de <code>asc</code>.</p>
         <p><strong>Exemple :</strong><br/>
           <code>...&orderby=meterCategory,meterUnit</code>
         </p>
@@ -199,7 +199,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources d' [utilisation Azure](partner-center-analytics-resources.md#csp-program-azure-usage-analytics) .
 

@@ -1,17 +1,15 @@
 ---
 title: Ressources d’utilisation du client
 description: Ressources pour les clients ayant des abonnements basés sur l’utilisation et des budgets d’utilisation mensuelle (notamment CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary et SpendingBudget).
-ms.assetid: 268C7AF5-3A95-451F-8092-033A3E8126F2
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: c792e93f872b2224049d20a6de99f5dcaa15084b
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: ec82fcfe6c08a8ad55dd1fb48984859b954dd3c8
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666038"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094215"
 ---
 # <a name="customer-usage-resources"></a>Ressources d’utilisation du client
 

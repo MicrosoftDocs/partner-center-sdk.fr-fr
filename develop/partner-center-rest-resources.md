@@ -1,17 +1,17 @@
 ---
 title: Ressources REST de l’Espace partenaires
 description: Cette section fournit des définitions pour les éléments JSON nécessaires à la création de requêtes et à l’analyse des réponses à l’aide de l’API REST de l’espace partenaires.
-ms.assetid: E7C51D19-C6A7-4A4C-9F17-B4D39195972A
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e452681406a717ef618808b4b699cda5f6684931
-ms.sourcegitcommit: f71c7fb2fef51ac7ca0a28717d5f7276bd20ec56
+author: cychua
+ms.author: cychua
+ms.openlocfilehash: ec760a6643a90878a1c5c3c37f0a4f14046e6ce1
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559043"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094657"
 ---
 # <a name="partner-center-rest-resources"></a>Ressources REST de l’Espace partenaires
 
@@ -24,7 +24,7 @@ ms.locfileid: "82559043"
 
 Cette section fournit des définitions pour les éléments JSON nécessaires à la création de requêtes et à l’analyse des réponses à l’aide de l’API REST de l’espace partenaires. Pour plus d’informations sur l’utilisation de ces éléments, y compris des exemples de code, consultez la section [scénarios](scenarios.md) et la section Exemples de l' [espace partenaires](partner-center-samples.md) .
 
-## <a name="in-this-section"></a>Contenu de cette section
+## <a name="in-this-section"></a>Dans cette section
 
 <table>
 <colgroup>
@@ -33,7 +33,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><a href="analytics-resources.md">Analytique</a></td>
+<td><a href="analytics-resources.md">Analyse</a></td>
 <td><ul>
 <li>PartnerLicensesDeploymentInsights</li>
 <li>PartnerLicensesUsageInsights</li>
@@ -151,7 +151,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="offer-resources.md">Offre</a></td>
+<td><a href="offer-resources.md">Offer</a></td>
 <td><ul>
 <li>Offre</li>
 <li>OfferCategory</li>
@@ -246,7 +246,7 @@ Cette section fournit des définitions pour les éléments JSON nécessaires à 
 </ul></td>
 </tr>
 <tr class="even">
-<td><a href="upgrade-resources.md">Mise à niveau</a></td>
+<td><a href="upgrade-resources.md">Mettre à niveau</a></td>
 <td><ul>
 <li>Mettre à niveau</li>
 <li>UpgradeError</li>

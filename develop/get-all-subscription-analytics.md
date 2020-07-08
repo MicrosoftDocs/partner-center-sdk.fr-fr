@@ -1,17 +1,17 @@
 ---
 title: Obtenir toutes les informations analytiques sur l’abonnement
 description: Obtention de toutes les informations d’analyse d’abonnement.
-ms.assetid: 243E54BD-EA34-400E-B9AB-D735EB46B9F6
 ms.date: 08/02/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: b0afac55646980fb59f9cc42051a5532f45bf223
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: rbars
+ms.author: rbars
+ms.openlocfilehash: f32fb99ad52939ae8e9de26276588d3022f18fbc
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82156441"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86093861"
 ---
 # <a name="get-all-subscription-analytics-information"></a>Obtenir toutes les informations analytiques sur l’abonnement
 
@@ -34,17 +34,17 @@ Cet article explique comment obtenir toutes les informations d’analyse d’abo
 
 | Méthode | URI de requête |
 |--------|-------------|
-| **GET** | baseURL/Partner/v1/Analytics/subscriptions http/1.1 [* \{\}*](partner-center-rest-urls.md) |
+| **GET** | [* \{ BASEURL \} *](partner-center-rest-urls.md)/Partner/v1/Analytics/subscriptions http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres URI
+#### <a name="uri-parameters"></a>Paramètres d’URI
 
 Le tableau suivant répertorie les paramètres facultatifs et leurs descriptions :
 
 | Paramètre | Type |  Description |
 |-----------|------|--------------|
-| top | int | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur `10000`par défaut sont. Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
+| top | int | Le nombre de lignes de données à renvoyer dans la requête. Si la valeur n’est pas spécifiée, la valeur maximale et la valeur par défaut sont `10000` . Si la requête comporte davantage de lignes, le corps de la réponse inclut un lien sur lequel vous cliquez pour solliciter la page suivante de données. |
 | skip | int | Le nombre de lignes à ignorer dans la requête. Utilisez ce paramètre pour parcourir de grands ensembles de données. Par exemple, `top=10000` et `skip=0` récupère les 10000 premières lignes de données `top=10000` et `skip=10000` récupère les 10000 lignes de données suivantes. |
-| Filter | string | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à **`eq`**, **`ne`** ou pour certains champs, l' **`contains`** opérateur. Les instructions peuvent être combinées à l’aide **`and`** de ou de **`or`**. Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre **filter**. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
+| Filter | string | Une ou plusieurs instructions qui filtrent les lignes de la réponse. Chaque instruction de filtre contient un nom de champ du corps de la réponse et une valeur associée à **`eq`** , **`ne`** ou pour certains champs, l' **`contains`** opérateur. Les instructions peuvent être combinées à l’aide **`and`** de ou de **`or`** . Les valeurs de chaîne doivent être entourées par des guillemets dans le paramètre **filter**. Consultez la section suivante pour obtenir la liste des champs qui peuvent être filtrés et les opérateurs pris en charge avec ces champs. |
 | aggregationLevel | string | Indique la plage de temps pendant laquelle récupérer les données agrégées. Il peut s’agit des chaînes suivantes : **day**, **week** ou **month**. Si la valeur n’est pas spécifiée, la valeur par défaut est **dateRange**. Ce paramètre s’applique uniquement quand un champ de date est passé dans le cadre du paramètre **GroupBy** . |
 | Comportant | string | Une instruction qui applique l’agrégation des données uniquement sur les champs spécifiés. |
 
@@ -66,7 +66,7 @@ Content-Type: application/json
 Content-Length: 0
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient une collection de ressources d' [**abonnement**](partner-center-analytics-resources.md#subscription-resource) .
 
