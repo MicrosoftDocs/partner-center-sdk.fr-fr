@@ -1,17 +1,15 @@
 ---
 title: Application de test de console
 description: Cette application de test de console fournit un exemple de code pour tous les scénarios pris en charge par les API de l’espace partenaires. Vous pouvez également l’utiliser pour le test.
-ms.assetid: 56F5B4C6-CE87-4D13-9D8C-09F38E946292
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: a75f01a6636b20865d5f5a0e6ec59aa3f7779e00
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: e82bac3ccc22d0e7cf898e5b2d2e002c622584ae
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155031"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098416"
 ---
 # <a name="console-test-app"></a>Application de test de console
 
@@ -33,11 +31,11 @@ Téléchargez l’exemple de code pour l’application de test de la console.
 [Téléchargez l’exemple de code](https://go.microsoft.com/fwlink/p/?LinkId=746682) et modifiez-le si nécessaire.
 
 > [!IMPORTANT]
-> Avant de générer l’application, mettez à jour les valeurs dans le fichier *app. config* afin de refléter les informations d’authentification Azure ad que vous avez créées dans l’authentification de l' [espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
+> Avant de générer l’application, mettez à jour les valeurs dans le fichier *App.config* pour refléter les informations d’authentification Azure ad que vous avez créées dans l’authentification de l' [espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
 
-Sous **ScenarioSettings** dans le fichier *app. config* , vous pouvez définir les paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
+Sous **ScenarioSettings** dans le fichier *App.config* , vous pouvez définir des paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
 
-Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes **dans\[ \] IPartnerScenario mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program.cs* .
+Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes dans **IPartnerScenario \[ \] mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program.cs* .
 
 ## <a name="java"></a>Java
 
@@ -46,11 +44,11 @@ Pour modifier la liste des scénarios exécutés, mettez en commentaire les lign
 [Téléchargez l’exemple de code](https://go.microsoft.com/fwlink/p/?LinkId=2026887) et modifiez-le si nécessaire.
 
 > [!IMPORTANT]
-> Avant de générer l’application, mettez à jour les valeurs du fichier *SamplesConfigurations. JSON* pour refléter les informations d’authentification Azure ad que vous avez créées dans [l’authentification de l’espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
+> Avant de générer l’application, mettez à jour les valeurs dans le fichier *SamplesConfigurations.js* pour refléter les informations d’authentification Azure ad que vous avez créées dans [l’authentification de l’espace partenaires](partner-center-authentication.md). En particulier, vous devez utiliser les paramètres de votre compte sandbox d’intégration lors du développement anticipé ou pour les tests en production.
 
-Sous **ScenarioSettings** dans le fichier *SamplesConfiguration. JSON* , vous pouvez définir les paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
+Sous **ScenarioSettings** dans le fichierSamplesConfiguration.js, vous pouvez définir *des* paramètres qui seront automatiquement transmis dans les scénarios que vous exécutez.
 
-Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes **dans\[ \] IPartnerScenario mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program. Java* .
+Pour modifier la liste des scénarios exécutés, mettez en commentaire les lignes dans **IPartnerScenario \[ \] mainScenarios** ou dans une méthode d' **extraction de scénarios** individuelle trouvée dans le fichier *Program. Java* .
 
 ## <a name="what-to-change"></a>Éléments à modifier
 

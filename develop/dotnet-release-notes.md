@@ -4,13 +4,12 @@ description: Notes de publication de la dernière version du kit de développeme
 ms.date: 12/09/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e11e5d6f7f2372b3230d8ac26e02d00b2b554edc
-ms.sourcegitcommit: 506c69986f3d1ea650c935c42880048d6c4241f4
+ms.openlocfilehash: fe63c5bf5a7d3114f8914d432a64099e009698e6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82784704"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098400"
 ---
 # <a name="net-sdk-release-notes"></a>Notes de publication du SDK .NET
 
@@ -22,7 +21,7 @@ Le [Kit de développement logiciel (SDK) .net pour Microsoft Partner Center](htt
 
 * Accord de partenariat
   * Ajout de la capacité des fournisseurs indirects à [vérifier l’état de l’accord partenaire Microsoft des revendeurs indirects](verify-indirect-reseller-mpa-status.md).
-* Products
+* Produits
   * Les deux interfaces suivantes ont été placées de manière incorrecte sous l’espace de noms Microsoft. Store. PartnerCenter. Products. À présent, ils se trouvent sous l’espace de noms Microsoft. Store. PartnerCenter. Customers. Products.
     * ICustomerProductByReservationScope
     * ICustomerSkuByReservationScope

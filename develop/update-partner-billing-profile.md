@@ -1,17 +1,17 @@
 ---
 title: Mettre à jour le profil de facturation du partenaire
 description: Met à jour le profil de facturation d’un partenaire.
-ms.assetid: F924B390-90C6-43B3-BB12-F4831464EC1F
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: ab81eca1066af22382dee5c2f6d6fd95efc3a44b
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: 34e7d2396d6dbdd45a6cf87a3bda481f51326f1e
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157791"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098478"
 ---
 # <a name="update-the-partner-billing-profile"></a>Mettre à jour le profil de facturation du partenaire
 
@@ -26,7 +26,7 @@ Met à jour le profil de facturation d’un partenaire
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -49,7 +49,7 @@ BillingProfile updatedPartnerBillingProfile = partnerOperations.Profiles.Billing
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                              |
+| Méthode  | URI de demande                                                              |
 |---------|--------------------------------------------------------------------------|
 | **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/Billing http/1.1 |
 
@@ -107,7 +107,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne un objet **BillingProfile** dans le corps de la réponse.
 

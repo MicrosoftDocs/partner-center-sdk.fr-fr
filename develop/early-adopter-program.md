@@ -4,13 +4,12 @@ description: Les partenaires peuvent collaborer avec Microsoft sur le développe
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 486b2e9002c1b0130c96345c2b5ed296418be4da
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 62770ea695f63e1be7dbd624f1239286620a6432
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155591"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098392"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>Rejoindre le programme Utilisateur précoce du SDK et de l'API de l’Espace partenaires
 
@@ -42,7 +41,7 @@ Vous devez être un **partenaire CSP existant** ou un **fournisseur de plateform
    > [!NOTE]
    > Vous devrez peut-être rejoindre le Microsoft Cloud réseau de la communauté Yammer avant de rejoindre le programme d’adoption précoce du programme de l’espace partenaires.
 
-2. **Envoyez un e-mail à [pctap@microsoft.com](mailto:pctap@microsoft.com) ** avec votre ID Microsoft ou votre compte sandbox (test en production) sandbox et votre domaine principal.
+2. **Envoyer un e-mail à [pctap@microsoft.com](mailto:pctap@microsoft.com) ** avec votre ID Microsoft ou votre compte sandbox (test en production) et votre domaine principal.
 
    > [!TIP]
    > Vous pouvez trouver votre ID Microsoft dans la page profil de l' **organisation** dans le menu **paramètres du compte** .

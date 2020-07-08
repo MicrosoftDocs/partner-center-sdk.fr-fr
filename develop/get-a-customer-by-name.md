@@ -1,17 +1,17 @@
 ---
 title: Obtenir la liste des clients filtrée par un champ de recherche
 description: Obtient une collection des ressources client qui correspondent à un filtre. Vous pouvez éventuellement définir une taille de page. Vous pouvez filtrer par nom de société, domaine, revendeur indirect ou fournisseur de solutions Cloud indirect (CSP).
-ms.assetid: 7D5D8C83-1DBD-4C54-8CDA-FE0CAC911D14
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 833c84e08ee1a8ec7ad606504ea4076db9a42377
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: dineshvu
+ms.author: dineshvu
+ms.openlocfilehash: 60875f960c228c9eca90c21cc0c34f5747c04860
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82155901"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098352"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Obtenir la liste des clients filtrée par un champ de recherche
 
@@ -67,14 +67,14 @@ var customers = partnerOperations.Customers.Query(myQuery);
 |---------|-----------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers ? Size = {size} &filtre = {filter} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres URI
+### <a name="uri-parameters"></a>Paramètres d’URI
 
 Utilisez les paramètres de requête suivants.
 
 | Nom   | Type   | Obligatoire | Description                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
 | taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
-| Filter | Filter | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
+| Filter | Filter | Yes      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
 
 ### <a name="filter-syntax"></a>Syntaxe de filtre
 
@@ -92,7 +92,7 @@ Le tableau suivant décrit les paires clé-valeur requises :
 |----------|--------------------------------------------------------------------------------------------------------------------------|
 | Champ    | Champ à filtrer. Les valeurs valides se trouvent dans [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
 | Valeur    | Valeur sur laquelle filtrer. La casse de la valeur est ignorée.                                                                |
-| Opérateur | Opérateur à appliquer. La seule valeur prise en charge pour ce scénario client est\_« commence par ».                            |
+| Opérateur | Opérateur à appliquer. La seule valeur prise en charge pour ce scénario client est « commence \_ par ».                            |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -115,7 +115,7 @@ Host: api.partnercenter.microsoft.com
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne une collection de ressources [client](customer-resources.md#customer) correspondantes dans le corps de la réponse.
 

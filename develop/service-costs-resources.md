@@ -1,17 +1,15 @@
 ---
 title: Ressources des coûts de service
 description: Décrit les ressources associées aux services achetés par un client.
-ms.assetid: 2916B7F3-06D5-4DC1-A137-CD8270258CDB
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: e61ef7e2d6c72938a365d28774a90b993c5d3e7b
-ms.sourcegitcommit: 59ac8346af04aa34f5d342002909d0b203654bfe
+ms.openlocfilehash: c0236329d93d8ddc9019a15fb67a81a3af3e7620
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81666308"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098495"
 ---
 # <a name="service-costs-resources"></a>Ressources des coûts de service
 

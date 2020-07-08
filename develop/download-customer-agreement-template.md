@@ -4,14 +4,14 @@ description: Obtenir un lien de téléchargement pour le modèle de contrat de c
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: fc7f96cf6518a3fc761270c8ae1d4ba3575abc90
-ms.sourcegitcommit: 33e48c19b6d05bacb1f8c2d8ce859e95c5373c61
+ms.openlocfilehash: 8c794d264ad64a42fa6ca823ddfc3841248c01cd
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "86022766"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098375"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Obtenir un lien de téléchargement pour le modèle de Contrat client Microsoft
 
@@ -109,8 +109,8 @@ Vous pouvez utiliser les paramètres URI suivants avec votre demande :
 | Nom                   | Type   | Obligatoire | Description                                 |
 |------------------------|--------|----------|---------------------------------------------|
 | ID de modèle d’accord  | string | Oui      | Identificateur unique du type de contrat. Vous pouvez obtenir la valeur de templateId du Contrat client Microsoft en récupérant les métadonnées du Contrat client Microsoft. Pour plus d’informations, consultez [obtenir les métadonnées de l’accord pour le contrat client Microsoft](./get-customer-agreement-metadata.md). Ce paramètre respecte la **casse**.|
-| country                | string | Non       | Indique le pays auquel le modèle de contrat s’applique. La requête est définie par défaut sur *US* si le paramètre n’est pas spécifié. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).|
-| langage               | string | Non       | Indique la langue dans laquelle le modèle d’accord doit être localisé. La requête prend par défaut la valeur en *-US* si le paramètre n’est pas spécifié ou si l’indicatif du pays spécifié in’t est pris en charge pour le pays spécifié. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).|
+| country                | string | No       | Indique le pays auquel le modèle de contrat s’applique. La requête est définie par défaut sur *US* si le paramètre n’est pas spécifié. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).|
+| langage               | string | No       | Indique la langue dans laquelle le modèle d’accord doit être localisé. La requête prend par défaut la valeur en *-US* si le paramètre n’est pas spécifié ou si l’indicatif du pays spécifié in’t est pris en charge pour le pays spécifié. Pour obtenir la liste des pays pris en charge, reportez-vous à la [liste des pays et des langues pris en charge](#list-of-supported-countries-and-languages).|
 
 ### <a name="request-headers"></a>En-têtes de requête
 

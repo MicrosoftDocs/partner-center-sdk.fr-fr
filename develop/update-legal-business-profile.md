@@ -1,17 +1,17 @@
 ---
 title: Mettre à jour le profil d’entreprise juridique du partenaire
 description: Comment mettre à jour le profil d’entreprise juridique partenaire.
-ms.assetid: DEB60680-145D-47C5-BB19-374752D45236
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 1bc87737d74aee56dcfb25872b055d4a5653f202
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+author: parthpandyaMSFT
+ms.author: parthp
+ms.openlocfilehash: f024c1742fda3ecf9e37aefae76234097b37e798
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157781"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098480"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>Mettre à jour le profil d’entreprise juridique du partenaire
 
@@ -26,7 +26,7 @@ Comment mettre à jour le profil d’entreprise juridique partenaire.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -51,7 +51,7 @@ var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfil
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                    |
+| Méthode  | URI de demande                                                                    |
 |---------|--------------------------------------------------------------------------------|
 | **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
 
@@ -125,7 +125,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, le corps de la réponse contient le **LegalBusinessProfile** mis à jour
 

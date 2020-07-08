@@ -1,17 +1,15 @@
 ---
 title: Mettre à jour le profil de prise en charge
 description: Met à jour le profil de support d’un utilisateur.
-ms.assetid: 3F98BD1D-2490-4F0B-A8FF-7D80B7E0690E
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: de7e1e5061fc696bd130b9dba4d29e205b6b24a5
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 1f22f01474cb6cb007f39a2aa1e978d2f7506ea6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157911"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86098464"
 ---
 # <a name="update-support-profile"></a>Mettre à jour le profil de prise en charge
 
@@ -26,7 +24,7 @@ Met à jour le profil de support d’un utilisateur.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application + utilisateur uniquement.
+- Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
 ## <a name="c"></a>C\#
 
@@ -52,7 +50,7 @@ SupportProfile updatedSupportProfile = partnerOperations.Profiles.SupportProfile
 
 ### <a name="request-syntax"></a>Syntaxe de la requête
 
-| Méthode  | URI de requête                                                                     |
+| Méthode  | URI de demande                                                                     |
 |---------|---------------------------------------------------------------------------------|
 | **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Profiles/supportprofile http/1.1 |
 
@@ -87,7 +85,7 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a>Response REST
+## <a name="rest-response"></a>Réponse REST
 
 En cas de réussite, cette méthode retourne les propriétés d’objet **SupportProfile** mises à jour dans le corps de la réponse.
 
