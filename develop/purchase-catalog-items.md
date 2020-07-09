@@ -19,7 +19,7 @@ ms.locfileid: "86094952"
 
 Le scénario suivant illustre le processus générique pour l’achat d’éléments à partir du catalogue à l’aide de l’API espace partenaires.
 
-## <a name="discovery"></a>découverte,
+## <a name="discovery"></a>Découverte
 
 Sélectionnez produits et références SKU, puis vérifiez leur disponibilité à l’aide des modèles d’API de l’espace partenaires suivants :
 

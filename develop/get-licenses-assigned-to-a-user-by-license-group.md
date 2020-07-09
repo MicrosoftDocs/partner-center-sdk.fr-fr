@@ -69,7 +69,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour ident
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | customer-id     | string | Oui      | Chaîne au format GUID qui identifie le client.                                                                                                                                                                                                                 |
 | user-id         | string | Oui      | Chaîne au format GUID qui identifie l’utilisateur.                                                                                                                                                                                                                     |
-| licenseGroupIds | string | No       | Valeur enum qui indique le groupe de licences des licences attribuées. Valeurs valides : Group1, Group2 Group1 : ce groupe contient tous les produits dont la licence peut être gérée dans le Azure Active Directory (AAD). Group2-ce groupe possède uniquement des licences de produits Minecraft. |
+| licenseGroupIds | string | Non       | Valeur enum qui indique le groupe de licences des licences attribuées. Valeurs valides : Group1, Group2 Group1 : ce groupe contient tous les produits dont la licence peut être gérée dans le Azure Active Directory (AAD). Group2-ce groupe possède uniquement des licences de produits Minecraft. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
