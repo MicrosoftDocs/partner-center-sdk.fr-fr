@@ -1,17 +1,15 @@
 ---
 title: Authentification auprès de l’Espace partenaires
 description: L’Espace partenaires utilise Azure AD pour l’authentification ; pour utiliser les API Espace partenaires, vous devez configurer correctement vos paramètres d’authentification.
-ms.assetid: 2307F2A8-7BD4-4442-BEF7-F065F16DA0B2
 ms.date: 11/13/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
-ms.localizationpriority: medium
-ms.openlocfilehash: 36292ac800f7722ce3b5b95c8af19e4690f60ad9
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 99601c043fe1b8d053bcaa5516cd4f7f4a244dc6
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82157101"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86094721"
 ---
 # <a name="partner-center-authentication"></a>Authentification auprès de l’Espace partenaires
 

@@ -4,13 +4,12 @@ description: Vérifiez l’acceptation du Contrat client Microsoft par les clien
 ms.date: 02/04/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.localizationpriority: medium
-ms.openlocfilehash: 2f59616191a4ce255a294e9c80c26a4e73eda267
-ms.sourcegitcommit: 89cdf326f5684fb447d91d817f32dfcbf08ada3a
+ms.openlocfilehash: 66ffa499594816fdcaa86ed805bb64c252663e4d
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2020
-ms.locfileid: "82154401"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86096393"
 ---
 # <a name="confirm-customer-acceptance-of-microsoft-customer-agreement"></a>Confirmer que le client a accepté le Contrat client Microsoft
 
