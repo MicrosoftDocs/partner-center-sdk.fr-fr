@@ -4,12 +4,12 @@ description: Obtient une collection d’éléments représentant des rubriques v
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dbc2197f47681b36cd66d0fd5d19732999f86066
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e16348d9342c0c3d60debd0bc6ea7d2146edca27
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097616"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261918"
 ---
 # <a name="get-service-request-support-topics"></a>Obtenir les rubriques de support des demandes de service
 
@@ -20,6 +20,10 @@ ms.locfileid: "86097616"
 - Espace partenaires de Microsoft Cloud for US Government
 
 Obtient une collection d’éléments représentant des rubriques valides pour les demandes de service.
+
+   > [!IMPORTANT]
+   > L’API obtenir les rubriques de support de demande de service n’est pas prise en charge et est désactivée avant le 31 août 2020. Cette API a été utilisée par les partenaires pour obtenir par programmation les données nécessaires à la création de l’API de demande de service, qui est également en cours de mise hors service. Les partenaires doivent utiliser l’interface utilisateur de l’espace partenaires pour créer des tickets de support partenaires. L’expérience utilisateur fournit aux partenaires des informations supplémentaires lors de la création de cas de support, comme les étapes et les documents recommandés concernant le domaine avec lequel ils rencontrent des problèmes. L’équipe de l’espace partenaires a également amélioré l’expérience utilisateur en personnalisant les formulaires de demande de service pour demander des informations spécifiques à la zone problématique dont les ingénieurs du support technique ont besoin pour résoudre plus rapidement et avec précision vos problèmes.
+
 
 ## <a name="prerequisites"></a>Prérequis
 

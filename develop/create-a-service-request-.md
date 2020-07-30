@@ -4,12 +4,12 @@ description: Comment créer une demande de service de l’espace partenaires.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dc38c613f19340b84389b82e939615504538ec97
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f1dc4899bd820f2807f426e063295e231e3afa2f
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094544"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261928"
 ---
 # <a name="create-a-service-request"></a>Créer une demande de service
 
@@ -20,6 +20,9 @@ ms.locfileid: "86094544"
 - Espace partenaires de Microsoft Cloud for US Government
 
 Comment créer une demande de service de l’espace partenaires.
+
+   > [!IMPORTANT]
+   > L’API de demande de création de service partenaire n’est pas prise en charge et est désaffectée le 31 août 2020. Les partenaires doivent utiliser l’interface utilisateur de l’espace partenaires pour créer des tickets de support partenaires. L’expérience utilisateur fournit aux partenaires des informations supplémentaires lors de la création de cas de support, comme les étapes et les documents recommandés concernant le domaine avec lequel ils rencontrent des problèmes. L’équipe de l’espace partenaires a également amélioré l’expérience utilisateur en personnalisant les formulaires de demande de service pour demander des informations spécifiques à la zone problématique dont les ingénieurs du support technique ont besoin pour résoudre plus rapidement et avec précision vos problèmes.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -82,10 +85,10 @@ Ce tableau décrit les propriétés obligatoires et facultatives dans le corps d
 |------------------|-----------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------|
 | Intitulé            | string                                                                      | O        | Titre de la demande de service.                                                           |
 | Description      | chaîne                                                                      | O        | Description.                                                                     |
-| severity         | string                                                                      | O        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
+| Gravité         | string                                                                      | O        | Gravité : « inconnu », « critique », « modéré » ou « minimal ».                       |
 | SupportTopicId   | string                                                                      | O        | ID de la rubrique de support.                                                         |
 | SupportTopicName | string                                                                      | N        | Nom de la rubrique de support.                                                       |
-| Id               | string                                                                      | N        | ID de la demande de service.                                                       |
+| id               | string                                                                      | N        | ID de la demande de service.                                                       |
 | Statut           | string                                                                      | N        | État de la demande de service : « None », « Open », « Closed » ou « attention \_ needed ». |
 | Organisation     | [ServiceRequestOrganization](service-request-resources.md#servicerequestorganization) | N        | Organisation pour laquelle la demande de service est créée.                               |
 | PrimaryContact   | [ServiceRequestContact](service-request-resources.md#servicerequestcontact)           | N        | Contact principal sur la demande de service.                                              |

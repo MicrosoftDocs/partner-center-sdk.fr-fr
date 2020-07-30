@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 1ff3631ed70b197a781d2ca30d71eb8fbf211509
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9fc7ad40e4ca8ec74dd3660c72ab359bbf5cc3ef
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097332"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261948"
 ---
 # <a name="partner-center-webhooks"></a>Webhooks de l’Espace partenaires
 
@@ -144,7 +144,7 @@ L’exemple suivant illustre la structure d’un événement de l’espace parte
 
 ### <a name="authentication"></a>Authentification
 
-Tous les appels aux API webhook sont authentifiés à l’aide du jeton de porteur dans l’en-tête Authorization. Obtenir un jeton d’accès pour accéder à https://api.partnercenter.microsoft.com . Ce jeton est le même que celui utilisé pour accéder au reste des API de l’espace partenaires.
+Tous les appels aux API webhook sont authentifiés à l’aide du jeton de porteur dans l’en-tête Authorization. Obtenir un jeton d’accès pour accéder à `https://api.partnercenter.microsoft.com` . Ce jeton est le même que celui utilisé pour accéder au reste des API de l’espace partenaires.
 
 ### <a name="get-a-list-of-events"></a>Obtenir une liste d’événements
 

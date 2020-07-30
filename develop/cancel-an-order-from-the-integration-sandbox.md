@@ -4,12 +4,12 @@ description: Annulez les commandes des comptes du bac à sable (sandbox) d’int
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9960ee5281d5681a9b93470796f7141ba195ffe1
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4bed678dc5f892dfe81d09daca820f24f177a91a
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096068"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261908"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande du bac à sable d’intégration
 
@@ -26,7 +26,7 @@ Procédure d’annulation des commandes d’abonnement de l’instance réservé
 >N’oubliez pas que les annulations de l’instance réservée, ou les commandes d’abonnement SaaS de la place de marché commercial, sont possibles uniquement à partir des comptes sandbox d’intégration.  
 
 Pour annuler les ordres de fabrication du logiciel via l’API, utilisez [Cancel-Software-Purchases](cancel-software-purchases.md).
-Vous pouvez également annuler des ordres de fabrication de logiciels via le tableau de bord à l’aide [d’annuler un achat](https://docs.microsoft.com/partner-center/csp-software-subscriptions.md).
+Vous pouvez également annuler des ordres de fabrication de logiciels via le tableau de bord à l’aide [d’annuler un achat](https://docs.microsoft.com/partner-center/csp-software-subscriptions).
 
 ## <a name="prerequisites"></a>Prérequis
 
