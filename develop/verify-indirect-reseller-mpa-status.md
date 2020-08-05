@@ -1,15 +1,15 @@
 ---
 title: Vérifier l’état de signature du Contrat Partenaire Microsoft d’un revendeur indirect
 description: Vous pouvez utiliser l’API AgreementStatus pour vérifier si un revendeur indirect a signé le Contrat Partenaire Microsoft.
-ms.date: 10/30/2019
+ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3140928e382309268eacff1516eaa7b83bcf269a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4836a5e0646e1f00807966d3d8d332c026276c61
+ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095914"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87261938"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Vérifier l’état de signature du Contrat Partenaire Microsoft d’un revendeur indirect
 
@@ -211,5 +211,145 @@ Connection: close
     "description": "Both MPN Id and Tenant Id should not be passed.",
     "data": [],
     "source": "ComplianceController"
+}
+```
+
+#### <a name="csp-indirect-reseller-mpn-id-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>L’ID MPN du CSP Indirect Reseller n’est pas valide ou n’est pas migré du Partner Membership Center vers l’Espace partenaires
+
+L’exemple de réponse suivant est retourné lorsque l’ID MPN du revendeur indirect transmis n’est pas valide ou n’est pas migré du Partner Membership Center vers l’Espace partenaires. [En savoir plus](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2200,
+    "description": "MPN Id 123456 is either invalid or not yet migrated to Partner Center. Please advise your reseller to migrate the reseller MPN ID to Partner Center to continue with this order.",
+    "data": [
+        "https://partner.microsoft.com/en-us/resources/detail/migrate-pmc-pc-mpa-guide-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>La région du CSP Indirect Provider et la région du CSP Indirect Reseller ne correspondent pas
+
+L’exemple de réponse suivant est retourné lorsque la région de l’ID MPN du revendeur indirect ne correspond pas à la région du fournisseur indirect. [En savoir plus](https://docs.microsoft.com/partner-center/regional-authorization-overview) sur les régions CSP.
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 119
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: b4e67a78-0692-45d1-b408-04b9178a8ac6
+MS-RequestId: aa04fb9d-c6b6-4754-8a6a-86e00cdd5ccb
+MS-CV: WTsLWK5UlUW9sZjH.0
+MS-ServerId: 0000005B
+Date: Wed, 16 Oct 2019 09:02:30 GMT
+Connection: close
+{
+    "code": 2201,
+    "description": "The CSP region of the MPN ID 1234567 doesn’t match the CSP region from where you are placing the order. Provide the MPN ID for the CSP region where you are placing the order.",
+    "data": [
+        "https://docs.microsoft.com/en-us/partner-center/regional-authorization-overview" 
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>Le compte du CSP Indirect Reseller existe dans l’Espace partenaires, mais n’a pas signé le MPA
+
+L’exemple de réponse suivant est retourné lorsque le compte du CSP Indirect Reseller dans l’Espace partenaires n’a pas signé le MPA. [En savoir plus](https://partner.microsoft.com/resources/detail/verify-mpa-acceptance-status-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2203,
+    "description": "MPN Id 123456 has not signed Microsoft Partner Agreement (MPA) for the CSP region where the order is being placed. Please advise your reseller to sign MPA to continue with the order.",
+    "data": [
+        "https://partner.microsoft.com/en-gb/resources/detail/verify-mpa-acceptance-status-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Aucun compte de CSP Indirect Reseller n’est associé à l’ID MPN donné
+
+L’exemple de réponse suivant est retourné lorsque l’Espace partenaires peut reconnaître l’ID MPN passé dans la demande, mais qu’aucune inscription CSP n’est associée à l’ID MPN donné. [En savoir plus](https://partner.microsoft.com/resources/detail/onboard-pc-csp-mpn-mpa-guide-pptx)
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2204,
+    "description": "MPN Id 123456 is not associated with a CSP Indirect Reseller account in Partner Center. Please advise your reseller to enroll into the CSP program as an indirect reseller in Partner Center.",
+    "data": [
+        "https://partner.microsoft.com/en-us/resources/detail/onboard-pc-csp-mpn-mpa-guide-pptx"
+    ],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="invalid-tenant-id"></a>ID de locataire non valide
+
+L’exemple de réponse suivant est retourné lorsque l’Espace partenaires ne trouve pas de compte associé à l’ID de locataire passé dans la demande.
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2205,
+    "description": "Partner Center doesn't find any account associated to the Tenant ID 12345678-ACBD-1234-ABCD-123456789ABC",
+    "data": [],
+    "source": "PartnerFD"
+}
+```
+
+#### <a name="no-mpa-found-with-the-given-tenant-id"></a>MPA introuvable avec l’ID de locataire donné
+
+L’exemple de réponse suivant est retourné lorsque l’Espace partenaires ne peut pas trouver de signature MPA avec l’ID de locataire donné.
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Length: 321
+Content-Type: application/json; charset=utf-8
+MS-CorrelationId: 9240230a-413f-4880-acbd-96d59a165474
+MS-RequestId: 92caacb1-8c9e-49af-8f85-83f271c85056
+MS-CV: V8eVMXvaBE6LHyq6.0
+MS-ServerId: 0000005B
+Date: Fri, 24 Jul 2020 11:56:46 GMT
+Connection: close
+{
+    "code": 2206,
+    "description": "Parnter Center Account associated to Tenant Id 12345678-ACBD-1234-ABCD-123456789ABC hasn't signed the agreement",
+    "data": [],
+    "source": "PartnerFD"
 }
 ```
