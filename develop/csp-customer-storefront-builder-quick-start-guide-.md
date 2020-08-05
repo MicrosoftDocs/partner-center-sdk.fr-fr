@@ -4,12 +4,12 @@ description: Créez une place de marché en ligne pour vendre des offres de four
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cc4b56e6fa51c2ebc8338559075c93e7eab4b378
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d64deff9b002b861c9f48d076feb5841af727e3d
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094341"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557330"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>Guide de démarrage rapide du créateur de vitrine pour les clients fournisseurs de solutions cloud
 
@@ -175,7 +175,7 @@ Pour déployer une vitrine cliente améliorée ou personnalisée :
 
 - Les partenaires peuvent à tout moment configurer des transactions pré-approuvées pour (a) tous les clients actuels et futurs ou (b) des clients spécifiques.
 
-  - Les clients préapprouvés ne sont pas tenus de payer sur le portail lorsqu’ils ajoutent de nouveaux abonnements, achètent des sièges supplémentaires à des abonnements existants ou renouvellent un abonnement.
+  - Les clients préapprouvés ne sont pas tenus de payer sur le portail lorsqu’ils ajoutent de nouveaux abonnements, achètent des licences supplémentaires à des abonnements existants ou renouvellent un abonnement.
 
   - Les clients préapprouvés ne seront pas redirigés vers PayPal ou PayU (pour l’Inde) à des fins de paiement durant ces transactions.
 
@@ -224,11 +224,11 @@ Pour déployer une vitrine cliente améliorée ou personnalisée :
 
 - Les clients peuvent accéder à la page **mes abonnements** où ils peuvent afficher tous les abonnements (basés sur des licences et basés sur l’utilisation), y compris ceux qui sont conservés dans l’espace partenaires.
 
-### <a name="add-seats-to-existing-subscriptions-scenario"></a>Ajouter des sièges à un scénario d’abonnements existants
+### <a name="add-licenses-to-existing-subscriptions-scenario"></a>Ajouter des licences à un scénario d’abonnements existants
 
-- Dans la section **Mes commandes** , les clients peuvent ajouter des sièges à des abonnements existants. Les clients peuvent ajouter des sièges à tout moment pendant l’année d’un abonnement.
+- Dans la section **Mes commandes** , les clients peuvent ajouter d’autres licences aux abonnements existants. Les clients peuvent ajouter d’autres licences à tout moment pendant une année d’abonnement.
 
-- Chaque siège ajouté ne change pas la date de fin de l’abonnement. Toutefois, le prix de l’abonnement change en fonction de la date à laquelle vous ajoutez le siège et de la date de l’année. La tarification est calculée au prorata sur une base quotidienne pour ne payer que les jours restants de l’année.
+- Chaque licence ajoutée ne modifie pas la date de fin de l’abonnement. Toutefois, le prix de l’abonnement change en fonction de la date à laquelle vous ajoutez la licence, et de la date de l’année. La tarification est calculée au prorata sur une base quotidienne pour ne payer que les jours restants de l’année.
 
 ### <a name="add-more-subscriptions-scenario"></a>Ajouter d’autres scénarios d’abonnements
 
@@ -250,7 +250,7 @@ Pour déployer une vitrine cliente améliorée ou personnalisée :
 
 - Si le client est pré-approuvé pour les transactions par l’administrateur, l’expérience de paiement n’est pas présentée dans les scénarios ci-dessus. Au lieu de cela, le partenaire peut envoyer la facture de paiement au client préalablement approuvé.
 
-- Pour tous les nouveaux achats, vous pouvez ajouter des sièges, ajouter des abonnements et les renouveler. Un client peut payer un partenaire à l’aide de ce site Web via PayPal ou PayU (pour l’Inde).
+- Pour tous les nouveaux achats, vous pouvez ajouter d’autres licences, ajouter des abonnements et renouveler les abonnements. Un client peut payer un partenaire à l’aide de ce site Web via PayPal ou PayU (pour l’Inde).
 
 - Ce site Web est intégré à PayPal ou PayU (pour l’Inde) et permet aux partenaires d’accepter des paiements de la part de leurs clients. PayPal ou PayU (pour l’Inde) crédite ce montant dans le compte d’un partenaire. PayPal ou PayU (pour l’Inde) la gestion des comptes bancaires est en dehors de ce site Web et est gérée respectivement sur PayPal.com ou PayUmoney.com.
 
@@ -258,8 +258,8 @@ Pour déployer une vitrine cliente améliorée ou personnalisée :
 
 ### <a name="prorated-pricing-scenario"></a>Scénario de tarification au prorata
 
-- Ce site Web prend en charge le tarif au prorata dans les cas où les clients ajoutent des sièges à un abonnement existant.
+- Ce site Web prend en charge le tarif au prorata dans les cas où les clients ajoutent des licences supplémentaires à un abonnement existant.
 
 - Chaque abonnement expire au bout d’un an et ne peut pas être modifié une fois l’abonnement acheté.
 
-- La date de fin de l’abonnement n’est pas modifiée par l’ajout de sièges supplémentaires. Les clients sont facturés pour le nombre de jours restants jusqu’à la date de fin. Par exemple, si le coût d’un abonnement est de $365, et que vous ajoutez un autre siège le deuxième jour, le prix du nouveau siège sera de $364. Si vous ajoutez un autre siège 10 jours plus tard, le prix sera de $354.
+- La date de fin de l’abonnement ne change pas en ajoutant des licences supplémentaires. Les clients sont facturés pour le nombre de jours restants jusqu’à la date de fin. Par exemple, si le coût d’un abonnement est de $365, et que vous ajoutez une licence supplémentaire le deuxième jour, le prix de la nouvelle licence sera de $364. Si vous ajoutez une licence supplémentaire 10 jours plus tard, le prix sera de $354.

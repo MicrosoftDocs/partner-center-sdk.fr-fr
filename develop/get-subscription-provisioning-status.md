@@ -4,12 +4,12 @@ description: Obtention de l’état d’approvisionnement de l’abonnement pour
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e347ed736e5b6cef070084749d6fabb7c05bcd5d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0811ad6d26cb96c057a96bd906e47238a0d97cce
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097533"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557350"
 ---
 # <a name="get-subscription-provisioning-status"></a>Obtenir l’état de provisionnement d’un abonnement
 
@@ -53,7 +53,7 @@ var provisioningStatus = partnerOperations.Customers.ById(customerId).Subscripti
 |---------|------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/provisioningstatus http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement.
 
@@ -113,8 +113,8 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 }
 ```
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
-- Pendant une attribution de modification de siège, le champ d’État dans [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) est défini sur « en attente ».
+- Pendant une attribution de modification de licence, le champ État dans [SubscriptionProvisioningStatus](subscription-resources.md#subscriptionprovisioningstatus) est défini sur « en attente ».
 
 - Le champ d’État est mis à jour toutes les quinze minutes.

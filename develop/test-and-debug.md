@@ -4,12 +4,12 @@ description: Pour tester votre code, vous devez utiliser votre compte de bac à 
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a5b78454c6c41a9e4401ad44a43ca233049498b8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ad5ee9e6e7045ecb9eb7e295bc4ec03737fdfe0a
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095974"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557340"
 ---
 # <a name="test-and-debug"></a>Tester et déboguer
 
@@ -24,9 +24,9 @@ Pour tester votre code, vous devez utiliser votre compte de bac à sable (sandbo
 
 ## <a name="integration-sandbox-constraints"></a>Contraintes du bac à sable d’intégration
 
-Si vous exécutez des tests de vérification de build automatisés, effectuez des tests en production ou effectuez des tests manuels dans le bac à sable d’intégration, vous pouvez atteindre les limites maximales du bac à sable d’intégration. Ces limites sont 75 clients, 5 abonnements par client et 25 sièges par abonnement.
+Si vous exécutez des tests de vérification de build automatisés, effectuez des tests en production ou effectuez des tests manuels dans le bac à sable d’intégration, vous pouvez atteindre les limites maximales du bac à sable d’intégration. Ces limites sont 75 clients, 5 abonnements par client et 25 licences par abonnement.
 
-- La limite de 25 sièges signifie que vous ne pouvez pas acquérir une offre dans le bac à sable (sandbox) qui a une exigence minimale de siège supérieure à 25 sièges. Cette limitation comprend des versions d’évaluation.
+- La limite de 25 licences signifie que vous ne pouvez pas acquérir une offre dans le bac à sable (sandbox) dont la licence minimale est supérieure à 25 licences. Cette limitation comprend des versions d’évaluation.
 
 - Le résumé de l’utilisation ne peut pas être obtenu sur les comptes sandbox, car ces comptes sont à des fins de test.
 
