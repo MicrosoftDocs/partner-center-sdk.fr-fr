@@ -4,12 +4,12 @@ description: Configurez des comptes permettant de développer des API à l’aid
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 111ec6e92bff1aff0184e1fbbd4d208720e014e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0d2d8ea9f92c84a0bf36642504458c918c1607bf
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095834"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557310"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>Configurer l’accès aux API dans l’Espace partenaires
 
@@ -36,7 +36,7 @@ Ce compte permet de tester votre code, ainsi que son intégration aux API de l�
 
 Le compte de sandbox d’intégration et le compte principal sont indépendants l’un de l’autre, et ne partagent pas leurs comptes d’administrateur, comptes d’utilisateur, clients, commandes, abonnements ni aucune autre donnée.
 
-Le sandbox d’intégration prend en charge les transactions, mais le nombre de clients, de commandes, d’abonnements ou d’utilisateurs qu’elles impliquent est toutefois limité.
+Le bac à sable d’intégration prend en charge les transactions, mais le nombre de clients, de commandes, d’abonnements et de licences est toutefois limité.
 
 Par stratégie, les comptes sandbox d’intégration doivent uniquement être utilisés pour tester l’intégration.
 

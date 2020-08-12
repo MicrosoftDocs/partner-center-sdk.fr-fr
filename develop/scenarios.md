@@ -4,12 +4,12 @@ description: Cette section décrit les manières dont les partenaires du program
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fc859b40cf2e8d017826d89e62d0d1dfe0fa2e89
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 12cd314c419e874225aed60f6a025f829098b37f
+ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098421"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87557320"
 ---
 # <a name="scenarios"></a>Scénarios
 
@@ -321,6 +321,6 @@ Microsoft fournit la liste des **offres**. Il s’agit de références SKU spéc
 
 Les partenaires du programme Fournisseur de solutions Cloud sont des revendeurs qui ont des clients auxquels ils vendent des produits Microsoft figurant dans la liste des offres en cours. Une fois que les clients ont signé leur contrat, le revendeur passe une **commande** d’une ou plusieurs offres. Certaines offres incluent des **extensions** comme de l’espace ou des fonctionnalités supplémentaires, suivies dans le cadre de l’offre parente. Les commandes sont traitées, puis le client peut utiliser ses **abonnements**. Microsoft facture le revendeur ou le distributeur chaque mois en fonction du nombre de licences et de l’utilisation de chaque client.
 
-Il est possible d’ajouter des abonnements et le nombre de postes ou d’extensions peut augmenter ou baisser. Si un client n’honore pas un paiement, utilise l’abonnement de manière incorrecte ou illégale, Microsoft, le distributeur ou le revendeur sont tous en mesure de suspendre l’abonnement. Cette suspension est définitive si l’abonnement n’est pas réactivé dans les délais stipulés par le programme Fournisseur de solutions Cloud.
+Il est possible d’ajouter des abonnements, et le nombre de postes ou d’extensions peut augmenter ou baisser. Si un client n’honore pas un paiement, utilise l’abonnement de manière incorrecte ou illégale, Microsoft, le distributeur ou le revendeur sont tous en mesure de suspendre l’abonnement. Cette suspension est définitive si l’abonnement n’est pas réactivé dans les délais stipulés par le programme Fournisseur de solutions Cloud.
 
 Vous pouvez vérifier quels abonnements un client est **autorisé** à utiliser (par ex., ceux qui ont été payés, qui ne sont pas suspendus ni remplacés par une commande plus récente).
