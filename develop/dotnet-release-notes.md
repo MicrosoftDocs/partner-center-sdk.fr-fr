@@ -4,19 +4,19 @@ description: Notes de publication de la dernière version du kit de développeme
 ms.date: 07/21/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ada4452830d1c947a288f1f990fcb6540d726e34
-ms.sourcegitcommit: 03e01928d229f73d1c2a61f0584d28f4a696bc72
+ms.openlocfilehash: 373b3b7b51ae040039b4468f9689167bc538442c
+ms.sourcegitcommit: 0822e16333fb6ef1804e4b6e7aaba547b1040d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88159756"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88227820"
 ---
 # <a name="net-sdk-release-notes"></a>Notes de publication du SDK .NET
 
 Les notes de publication suivantes sont disponibles pour les nouvelles versions du [Kit de développement logiciel (SDK) .net pour Microsoft Partner Center](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter). Vous trouverez des [exemples du kit de développement logiciel (SDK) .net](https://github.com/Microsoft/Partner-Center-DotNet-Samples) sur GitHub. Vous trouverez les informations de référence sur l' [API .net de l’espace partenaires](https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest) dans le navigateur de l’API .net.
 
-## <a name="version-1160"></a>Version 1.16.0
+## <a name="version-1161"></a>Version 1.16.1
 
-Le [Kit de développement logiciel (SDK) .net pour Microsoft Partner Center](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/) v 1.16.0 est désormais disponible. Des [exemples GitHub](https://github.com/Microsoft/Partner-Center-DotNet-Samples) mis à jour sont également disponibles. Les modifications suivantes sont incluses dans cette version :
+Le [Kit de développement logiciel (SDK) .net pour Microsoft Partner Center](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.16.1) v 1.16.1 est désormais disponible. Des [exemples GitHub](https://github.com/Microsoft/Partner-Center-DotNet-Samples) mis à jour sont également disponibles. Les modifications suivantes sont incluses dans cette version :
 
-Nous avons migré le kit de développement logiciel (SDK) Microsoft Partner Center existant de .NET Framework vers .NET Standard plateforme 2,0. Le kit de développement logiciel (SDK) sera compatible avec les applications existantes à l’aide de. .NET Framework 4.6.1 et versions ultérieures. Le kit de développement logiciel (SDK) prend en charge .NET Core 2,0 et versions ultérieures. Vérifiez la [prise en charge de l’implémentation .net](/dotnet/standard/net-standard) avant de la porter aux applications existantes.   
+Nous avons migré le kit de développement logiciel (SDK) Microsoft Partner Center existant de .NET Framework vers .NET Standard plateforme 2,0. Le kit de développement logiciel (SDK) sera compatible avec les applications existantes à l’aide de .NET Framework 4.6.1 et versions ultérieures. Le kit de développement logiciel (SDK) prend en charge .NET Core 2,0 et versions ultérieures. Vérifiez la [prise en charge de l’implémentation .net](/dotnet/standard/net-standard) avant de la porter aux applications existantes.   
