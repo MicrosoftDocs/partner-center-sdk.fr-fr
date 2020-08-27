@@ -4,12 +4,12 @@ description: Vérifiez l’inventaire pour un ensemble spécifique d’élément
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c0860c4840df6924ffb8e222b79efa28fa33d9ea
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b3b08dab42b74de9f5bcb23ad8acfcdb5aaca383
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096440"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937869"
 ---
 # <a name="check-inventory"></a>Vérifier l’inventaire
 
@@ -66,7 +66,7 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 Utilisez le paramètre de requête suivant pour vérifier l’inventaire.
 
-| Nom                   | Type     | Obligatoire | Description                                                     |
+| Name                   | Type     | Obligatoire | Description                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
 | pays-code           | string   | Oui      | ID de pays/région.                                            |
 
@@ -103,13 +103,6 @@ En cas de réussite, le corps de la réponse contient une collection d’objets 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
-
-Cette méthode retourne les codes d’erreur suivants :
-
-| Code d’état HTTP     | Code d'erreur   | Description                                                                                               |
-|----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2001         | Le corps de la demande est manquant.                                                                              |
-| 400                  | 400026       | Un élément de contexte d’inventaire requis est manquant.                                                             |
 
 ### <a name="response-example"></a>Exemple de réponse
 

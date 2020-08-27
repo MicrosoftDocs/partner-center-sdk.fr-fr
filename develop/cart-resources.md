@@ -1,15 +1,15 @@
 ---
 title: Ressources du panier
-description: Un partenaire passe une commande lorsqu’un client souhaite acheter un abonnement à partir d’une liste d’offres.
-ms.date: 07/12/2019
+description: Un partenaire passe une commande dans un panier lorsqu’un client souhaite acheter un abonnement à partir d’une liste d’offres.
+ms.date: 08/26/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 561bffb905becd1bfc699eb13fe4dc6e10e8e07a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3aea428064654077ae67974132ec05918edfee65
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096491"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937889"
 ---
 # <a name="cart-resources"></a>Ressources du panier
 
@@ -53,7 +53,7 @@ Représente un élément contenu dans un panier.
 | provisioningContext  | Dictionary<String, String>       | Contexte supplémentaire utilisé lors de la configuration de l’élément acheté. Pour déterminer les valeurs nécessaires pour un élément particulier, reportez-vous à la propriété provisioningVariables de la référence. |
 | orderGroup           | string                           | Groupe pour indiquer les éléments qui peuvent être envoyés ensemble dans le même ordre.                                                                          |
 | addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires. Ces éléments seront achetés pour l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier de la racine. |
-| erreur                | Object                           | Appliqué après la création du panier si une erreur s’est produite.                                                                                                    |
+| error                | Object                           | Appliqué après la création du panier si une erreur s’est produite.                                                                                                    |
 | renewsTo             | Tableau d’objets                 | Tableau de ressources [RenewsTo](#renewsto) .                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
@@ -62,7 +62,11 @@ Représente un élément contenu dans un élément de ligne de panier.
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | chaîne           | No              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
+| termDuration          | string           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
+
+### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
+
+Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
 
 ## <a name="carterror"></a>CartError
 
@@ -70,25 +74,8 @@ Représente une erreur qui se produit après la création d’un panier.
 
 | Propriété         | Type                                   | Description                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| errorCode        | [CartErrorCode](#carterrorcode) | Type d’erreur de panier.                                                                       |
+| errorCode        | [Codes d’erreur de l’espace partenaires](error-codes.md) | Type d’erreur de panier.                                                                       |
 | errorDescription | string                                 | Description de l’erreur, y compris les remarques sur les valeurs prises en charge, les valeurs par défaut ou les limites. |
-
-## <a name="carterrorcode"></a>CartErrorCode
-
-[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent un type d’erreur de panier.
-
-| Valeur                                | Position | Description                                             |
-|--------------------------------------|----------|---------------------------------------------------------|
-| Unknown                              | 0        | Valeur par défaut.                                          |
-| CurrencyIsNotSupported               | 10000    | La devise n’est pas prise en charge pour le marché spécifié. |
-| CatalogItemIdIsNotValid              | 10001    | L’ID d’élément de catalogue n’est pas valide.                       |
-| QuotaNotAvailable                    | 10002    | Le quota disponible est insuffisant.                    |
-| InventoryNotAvailable                | 10003    | L’inventaire n’est pas disponible pour l’offre sélectionnée.  |
-| ParticipantsIsNotSupportedForPartner | 10004    | La définition des participants n’est pas prise en charge pour ce partenaire. |
-| UnableToProcessCartLineItem          | 10006    | Impossible de traiter l’élément de ligne de panier.                   |
-| SubscriptionIsNotValid               | 10007    | L’abonnement n’est pas valide.                          |
-| SubscriptionIsNotEnabledForRI        | 10008    | L’abonnement n’est pas activé pour les réservations Azure. |
-| SandboxLimitExceeded                 | 10009    | La limite du bac à sable (sandbox) a été dépassée.                    |
 
 ## <a name="cartcheckoutresult"></a>CartCheckoutResult
 
@@ -108,51 +95,3 @@ Représente une erreur qui se produit pendant l’extraction d’un panier lors 
 | orderGroupId | string | ID du groupe de commandes avec l’erreur. |
 | code         | int    | Code d'erreur.                                 |
 | description  | string | Description de l'erreur.                   |
-
-## <a name="ordererrorcode"></a>OrderErrorCode
-
-[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent un type d’erreur de commande.
-
-| Valeur | Position | Description |
-| --- | --- | --- |
-| PartnerTokenMissing | 800001 | Jeton de partenaire manquant dans le contexte de la requête. |
-| InvalidInput | 800002 | Entrée de demande non valide. |
-| ServiceException | 800003 | Erreur de service inattendue. |
-| InvalidOfferId | 800004 | ID d’offre non valide. |
-| CreateOrderError | 800005 | Échec de la création d’une commande. |
-| ProvisioningStatusNotFound | 800007 | Impossible de récupérer les informations de configuration. |
-| CartIdNotFound | 800008 | Impossible de récupérer l’ID du panier. |
-| CartItemErrorInCreateOrder | 800009 | Erreur dans le ou les éléments du panier. |
-| InventoryNotAvailable | 800010 | L’inventaire n’est pas disponible pour cet élément de catalogue. |
-| AzureSubscriptionNotValid | 800011 | Cet abonnement n’est pas un abonnement Azure valide. |
-| SubscriptionIsNotActive | 800012 | Cet abonnement n’est pas un abonnement actif. |
-| SubscriptionIsNotEnabledForRI | 800013 | Cet abonnement n’est pas activé pour l’achat RI. |
-| PendingAdjustment | 800014 | Une modification en attente est demandée pour cette commande. |
-| MpnIdNotFound | 800015 | ID MPN introuvable. |
-| NotValidIndirectResellerMpnId | 800016 | L’ID MPN n’est pas un revendeur indirect valide. |
-| InvalidQuantity | 800017 | La quantité n’est pas disponible pour cet élément de catalogue. |
-| SandboxLimitExceeded | 800018 | La limite du bac à sable (sandbox) a été respectée. |
-| SandboxTenantOnly | 800019 | Cette opération est uniquement activée pour les locataires sandbox. |
-| CatalogItemNotEligibleForPurchase | 800020 | L’élément du catalogue ne peut pas être acheté. |
-| SubscriptionIsNotValid | 800021 | Cet abonnement n’est pas un abonnement valide. |
-| ManualReviewRequired | 800022 | Vous pouvez être éligible pour cette transaction. Veuillez contacter le support technique pour obtenir de l’aide.|
-| InsufficientFunds | 800023 | Vous n’êtes pas éligible à cette transaction, car votre ligne de crédit n’atteint pas le seuil minimal pour cet achat. Veuillez mettre à jour votre commande (ou) Contacter le support technique pour obtenir de l’aide. |
-| ReviewCancelled | 800024 | Vous n’êtes pas éligible pour cette transaction. |
-| LineOfCreditNotDefined | 800025 | Vous n’êtes pas éligible à cette transaction, car votre ligne de crédit n’atteint pas le seuil minimal pour cet achat. Veuillez mettre à jour votre commande (ou) Contacter le support technique pour obtenir de l’aide. |
-| RiskError | 800026 | Vous n’êtes pas éligible pour cette transaction. |
-| SubscriptionNotRegistered | 800030 | Cet abonnement n’est pas inscrit. |
-| PurchaseSystemNotSupported | 800031 | Le système d’achat n’est pas pris en charge. |
-| ConditionFailed | 800036 | Échec de la condition préalable. |
-| AssetIdNotFound | 800037 | ID d’élément multimédia introuvable. |
-| AssetFutureBillingInfoNotFound | 800038 | FutureBillingInfo de ressource introuvable. |
-| ResellerProgramStatusNotActive | 800039 | L’état du programme du revendeur n’est pas actif. |
-| AssetStatusChangeNotValid | 800040 | L’état de la ressource ne peut pas être remplacé **{0}** par **{1}** . |
-| ItemAlreadyActivated | 800041 | Cet élément a déjà été activé. |
-| NotSupported | 800042 | Non pris en charge. |
-| PricingAccessForbidden | 800043 | L’accès aux informations de tarification n’est pas accordé. |
-| OrderInProgress | 800060 | Votre commande est en cours. Veuillez consulter l’historique des commandes récemment en quelques minutes. |
-| OrderCannotBeCancelled | 800061 | Impossible d’annuler l’ordre. |
-| ReviewRejected | 800062 | Vous n’êtes pas éligible pour cette transaction. |
-| CancelLegacyOrder | 800063 | Cet ordre **{0}** ne peut pas être annulé. Utilisez `PATCH /customers/{1}/subscriptions/<subscriptionId>` pour suspendre des abonnements. |
-| CartProcessedByAnotherRequest | 800064 | Le panier **{0}** est en cours de traitement par une autre demande. |
-| CartCheckOutNotAllowedWhenStatusIsOrdered | 800065 | Impossible d’extraire un panier déjà envoyé **{0}** . |

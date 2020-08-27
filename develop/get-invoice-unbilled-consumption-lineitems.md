@@ -4,12 +4,12 @@ description: Vous pouvez obtenir une collection de détails sur la facturation c
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2a74029e1125616edf7a3be96d9f635dad56927c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7a18163cbbfd67bc9f4cc1ac08bad50eb5a083e2
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096890"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937899"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Obtient les éléments de ligne de facturation commerciale non facturés
 
@@ -123,18 +123,18 @@ Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &période = {period} &Size = {Size} http/1.1  | Utilisez cette syntaxe pour les factures volumineuses. Utilisez cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/unbilled/LineItems ? Provider = OneTime&invoicelineitemtype = usagelineitems&CurrencyCode = {currencycode} &période = {period} &Size = {size} &SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"` . |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Nom                   | Type   | Obligatoire | Description                                                                     |
+| Name                   | Type   | Obligatoire | Description                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | provider               | string | Oui      | Le fournisseur : «**OneTime**».                                                |
 | invoice-line-item-type | string | Oui      | Type de détail de la facture : «**UsageLineItems**», «**UsageLineItems**».               |
 | currencyCode           | string | Oui      | Code de la devise pour les éléments de ligne non facturés.                                  |
-| heures                 | string | Oui      | Période pour le rapprochement non facturé (par exemple : **actuel**, **précédent**).                      |
+| heures                 | string | Oui      | Période pour le rapprochement non facturé (par exemple : **actuel**, **précédent**).<br/><br/>**Précédent** : si le cycle de facturation est de 01/01/2020 – 01/31/2020, il est probable que votre facture soit générée entre 02/06/2020 et 02/08/2020 heure UTC. Si vous avez besoin d’interroger vos données d’utilisation non facturées du cycle de facturation (01/01/2020 – 01/31/2020) à tout moment entre 02/01/2020 et la date générée par la facture (qui est comprise entre 02/06/2020 et 02/08/2020 heure UTC), vous devez choisir période comme « précédent ».<br/><br/>**Actuel** : si le cycle de facturation est de 01/01/2020 – 01/31/2020, il est probable que votre facture soit générée entre 02/06/2020 et 02/08/2020 heure UTC. Si vous avez besoin d’interroger vos données d’utilisation non facturées du cycle de facturation (01/01/2020 – 01/31/2020) à tout moment entre 01/01/2020 et 01/31/2020 qui se trouve dans votre cycle de facturation, vous devez choisir période comme « en cours ». |
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000.                    |
-| seekOperation          | string | No       | Défini `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
+| seekOperation          | string | Non       | Défini `seekOperation=Next` pour afficher la page suivante des éléments de ligne de rapprochement.                |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

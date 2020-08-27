@@ -4,12 +4,12 @@ description: Comment créer une commande pour un client.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6938a1555ac40eb41d6ae7bbe245faf6b0512183
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d92c117d4fb29ec054302cbc9dfa21214135d086
+ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094409"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937929"
 ---
 # <a name="create-an-order"></a>Créer une commande
 
@@ -83,11 +83,11 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 |----------|----------------------------------------------------------------------------------------|
 | **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
-| Nom        | Type   | Obligatoire | Description                                                |
+| Name        | Type   | Obligatoire | Description                                                |
 |-------------|--------|----------|------------------------------------------------------------|
 | customer-id | string | Oui      | ID client au format GUID qui identifie le client. |
 
@@ -103,15 +103,15 @@ Ce tableau décrit les propriétés d' [ordre](order-resources.md) dans le corps
 
 | Propriété             | Type                        | Obligatoire                        | Description                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| id                   | string                      | No                              | Identificateur d’ordre qui est fourni lors de la création réussie de la commande.   |
-| referenceCustomerId  | string                      | No                              | Identificateur du client. |
-| billingCycle         | string                      | No                              | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). La valeur par défaut est « Monthly » ou « OneTime » lors de la création de la commande. Ce champ est appliqué lors de la création réussie de la commande. |
-| lineItems            | Tableau de ressources [OrderLineItem](order-resources.md#orderlineitem) | Yes      | Liste répertoriant les offres achetées par le client, y compris la quantité.        |
-| currencyCode         | string                      | No                              | Lecture seule. Devise utilisée lors de la mise en place de la commande. Appliqué en cas de création réussie de la commande.           |
-| creationDate         | DATETIME                    | No                              | Lecture seule. Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande.                                   |
-| status               | string                      | No                              | Lecture seule. État de la commande.  Les valeurs prises en charge sont les noms des membres trouvés dans [OrderStatus](order-resources.md#orderstatus).        |
-| liens                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | Liens de ressource correspondant à la commande. |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | Attributs de métadonnées correspondant à l’ordre. |
+| id                   | string                      | Non                              | Identificateur d’ordre qui est fourni lors de la création réussie de la commande.   |
+| referenceCustomerId  | string                      | Non                              | Identificateur du client. |
+| billingCycle         | string                      | Non                              | Indique la fréquence à laquelle le partenaire est facturé pour cette commande. Les valeurs prises en charge sont les noms des membres trouvés dans [BillingCycleType](product-resources.md#billingcycletype). La valeur par défaut est « Monthly » ou « OneTime » lors de la création de la commande. Ce champ est appliqué lors de la création réussie de la commande. |
+| lineItems            | Tableau de ressources [OrderLineItem](order-resources.md#orderlineitem) | Oui      | Liste répertoriant les offres achetées par le client, y compris la quantité.        |
+| currencyCode         | string                      | Non                              | Lecture seule. Devise utilisée lors de la mise en place de la commande. Appliqué en cas de création réussie de la commande.           |
+| creationDate         | DATETIME                    | Non                              | Lecture seule. Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande.                                   |
+| status               | string                      | Non                              | Lecture seule. État de la commande.  Les valeurs prises en charge sont les noms des membres trouvés dans [OrderStatus](order-resources.md#orderstatus).        |
+| liens                | [OrderLinks](utility-resources.md#resourcelinks)              | Non                              | Liens de ressource correspondant à la commande. |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Non                              | Attributs de métadonnées correspondant à l’ordre. |
 
 #### <a name="orderlineitem"></a>OrderLineItem
 
@@ -120,19 +120,19 @@ Ce tableau décrit les propriétés [OrderLineItem](order-resources.md#orderline
 >[!NOTE]
 >Le partnerIdOnRecord doit être fourni uniquement lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect. Il est utilisé pour stocker l’ID de Microsoft Partner Network du revendeur indirect uniquement (jamais l’ID du fournisseur indirect).
 
-| Nom                 | Type   | Obligatoire | Description                                                                                                                                                                                                                                |
+| Name                 | Type   | Obligatoire | Description                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | lineItemNumber       | int    | Oui      | Chaque élément de ligne dans la collection obtient un numéro de ligne unique, allant de 0 à nombre-1.                                                                                                                                                 |
-| offerId              | string | Yes      | Identificateur de l’offre.                                                                                                                                                                                                                      |
-| subscriptionId       | string | No       | Identificateur de l’abonnement.                                                                                                                                                                                                               |
+| offerId              | string | Oui      | Identificateur de l’offre.                                                                                                                                                                                                                      |
+| subscriptionId       | string | Non       | Identificateur de l’abonnement.                                                                                                                                                                                                               |
 | parentSubscriptionId | string | Non       | facultatif. ID de l’abonnement parent dans une offre de module complémentaire. S’applique uniquement à PATCH.                                                                                                                                                     |
 | friendlyName         | string | Non       | facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté.                                                                                                                                              |
 | quantité             | int    | Oui      | Nombre de licences pour un abonnement basé sur licence.                                                                                                                                                                                   |
-| partnerIdOnRecord    | string | No       | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une comptabilité appropriée des incitations. |
-| provisioningContext  | Dictionary<String, String>                | No       |  Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue.                  |
-| liens                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | No       |  Lecture seule. Liens de ressource correspondant à l’élément de ligne de commande.  |
-| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | No       | Attributs de métadonnées correspondant à OrderLineItem. |
-| renewsTo             | Tableau d’objets                          | No    |Tableau de ressources [RenewsTo](order-resources.md#renewsto) .                                                                            |
+| partnerIdOnRecord    | string | Non       | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une comptabilité appropriée des incitations. |
+| provisioningContext  | Dictionary<String, String>                | Non       |  Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue.                  |
+| liens                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | Non       |  Lecture seule. Liens de ressource correspondant à l’élément de ligne de commande.  |
+| attributs           | [ResourceAttributes](utility-resources.md#resourceattributes) | Non       | Attributs de métadonnées correspondant à OrderLineItem. |
+| renewsTo             | Tableau d’objets                          | Non    |Tableau de ressources [RenewsTo](order-resources.md#renewsto) .                                                                            |
 
 ##### <a name="renewsto"></a>RenewsTo
 
@@ -140,7 +140,7 @@ Ce tableau décrit les propriétés [RenewsTo](order-resources.md#renewsto) dans
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | No              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
+| termDuration          | string           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -177,14 +177,6 @@ En cas de réussite, la méthode retourne une ressource [Order](order-resources.
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 
 Chaque réponse est accompagnée d’un code d’état HTTP qui indique la réussite ou l’échec ainsi que des informations de débogage supplémentaires. Utilisez un outil de trace réseau pour lire ce code, le type d’erreur et des paramètres supplémentaires. Pour obtenir la liste complète, consultez Codes d’erreur de l' [espace partenaires](error-codes.md).
-
-Cette méthode retourne les codes d’erreur suivants :
-
-| Code d’état HTTP     | Code d'erreur   | Description                                                                                               |
-|----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 400                  | 2093         | L’inventaire n’est pas disponible pour l’élément de catalogue sélectionné.                                                 |
-| 400                  | 2094         | L’abonnement n’est pas un abonnement Azure valide. Applicable uniquement à l’achat d’une instance de machine virtuelle réservée Azure.     |
-| 400                  | 2095         | L’abonnement n’est pas activé pour une instance de machine virtuelle réservée Azure. |
 
 ### <a name="response-example"></a>Exemple de réponse
 
