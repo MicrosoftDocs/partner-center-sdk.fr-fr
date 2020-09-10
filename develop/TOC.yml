@@ -19,6 +19,8 @@
           href: console-test-app.md
     - name: Configurer l’accès aux API dans l’Espace partenaires
       href: set-up-api-access-in-partner-center.md
+    - name: Aide sur la limitation des API
+      href: api-throttling-guidance.md
     - name: Authentification auprès de l’Espace partenaires
       href: partner-center-authentication.md
     - name: Activer le modèle d’application sécurisé

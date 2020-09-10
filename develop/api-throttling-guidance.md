@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: b83e3ee7189cd0be9201d05d40d8959fa0644f34
-ms.sourcegitcommit: e55d630e82114754c385616be10d179544ad8470
+ms.openlocfilehash: a9fa70f8343ed51b288c1385540a247844e4659a
+ms.sourcegitcommit: b3a8b6db5fee1cb8756b94105f358ed4bc94d3a5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643996"
+ms.locfileid: "89666631"
 ---
 # <a name="api-throttling-guidance"></a>Aide sur la limitation des API 
 
@@ -37,9 +37,9 @@ Les causes les plus courantes de la limitation des clients sont entre autres :
 
 ## <a name="best-practices-to-avoid-throttling"></a>Meilleures pratiques pour éviter la limitation 
  
-Les pratiques de programmation telles que l’interrogation continue d’une ressource pour rechercher des mises à jour et l’analyse régulière des regroupements de ressources pour rechercher des ressources nouvelles ou supprimées sont plus susceptibles d’entraîner une limitation et dégradent les performances globales. Les appels d’API simultanés peuvent entraîner un nombre élevé de demandes par unité de temps, ce qui entraîne également la limitation des demandes. Au lieu de cela, vous devez utiliser le suivi des modifications et les notifications de modification. En outre, vous devez être en mesure de tirer parti des journaux d’activité pour la détection des modifications. pour plus d’informations, consultez les journaux d’activité de l' [espace partenaires](get-a-record-of-paratner-center-activity-by-user.md) .  Nous recommandons vivement aux partenaires d’utiliser l’API du journal d’activité pour améliorer l’efficacité et éviter la limitation. Consultez également l’exemple d’utilisation des journaux d’activité, ci-dessous.
+Les pratiques de programmation telles que l’interrogation continue d’une ressource pour rechercher des mises à jour et l’analyse régulière des regroupements de ressources pour rechercher des ressources nouvelles ou supprimées sont plus susceptibles d’entraîner une limitation et dégradent les performances globales. Les appels d’API simultanés peuvent entraîner un nombre élevé de demandes par unité de temps, ce qui entraîne également la limitation des demandes. Au lieu de cela, vous devez utiliser le suivi des modifications et les notifications de modification. En outre, vous devez être en mesure de tirer parti des journaux d’activité pour la détection des modifications. pour plus d’informations, consultez les journaux d’activité de l' [espace partenaires](get-a-record-of-partner-center-activity-by-user.md) .  Nous recommandons vivement aux partenaires d’utiliser l’API du journal d’activité pour améliorer l’efficacité et éviter la limitation. Consultez également l’exemple d’utilisation des journaux d’activité, ci-dessous.
 
-## <a name="best-practices-to-avoid-throttling"></a>Meilleures pratiques pour éviter la limitation
+## <a name="best-practices-to-handle-throttling"></a>Bonnes pratiques de gestion de la limitation
 
 Voici les meilleures pratiques pour la gestion de la limitation : 
 
@@ -141,54 +141,54 @@ Hôte : api.partnercenter.microsoft.com
 Connexion : Keep-Alive 
 
 **Réponse**:    
-
+```http
 { 
 
-    « totalCount » : 17, 
+    "totalCount": 17, 
 
-    « éléments » : [ 
+    "items": [ 
 
         { 
 
-            « ID » : « 9daaeb1c-4195-4DB5-9f1d-509eb70c8c2d_e905b566-4779-4E57-944C-7b1b5312705b_updatecustomeruserlicenses_637346859797753934 », 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_e905b566-4779-4e57-944c-7b1b5312705b_updatecustomeruserlicenses_637346859797753934", 
 
-            « Partenaire » : « 9daaeb1c-4195-4DB5-9f1d-509eb70c8c2d », 
+            "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            « participants » : [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
             ], 
 
-            « customerId » : « e905b566-4779-4E57-944C-7b1b5312705b », 
+            "customerId": "e905b566-4779-4e57-944c-7b1b5312705b", 
 
-            « userPrincipalName » : « admin@testsw09.onmicrosoft.com », 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
-            « applicationId » : « FulfillmentService », 
+            "applicationId": "FulfillmentService", 
 
-            « resourceType » : « licence », 
+            "resourceType": "license", 
 
-            « operationType » : « update_customer_user_licenses », 
+            "operationType": "update_customer_user_licenses", 
 
-            "operationDate" : "2020-09-02T23:26:19.7753934 Z", 
+            "operationDate": "2020-09-02T23:26:19.7753934Z", 
 
-            « operationStatus » : « réussite », 
+            "operationStatus": "succeeded", 
 
             "customizedData": [ 
 
                 { 
 
-                    « Key » : « CustomerUserId », 
+                    "key": "CustomerUserId", 
 
-                    « valeur » : « 933808c7-B165-496c-A24E-1a4b7846fab4 » 
+                    "value": "933808c7-b165-496c-a24e-1a4b7846fab4" 
 
                 } 
 
             ], 
 
-            "attributs" : { 
+            "attributes": { 
 
-                « objectType » : « AuditRecord » 
+                "objectType": "AuditRecord" 
 
             } 
 
@@ -196,107 +196,107 @@ Connexion : Keep-Alive
 
         { 
 
-            « ID » : « 9daaeb1c-4195-4DB5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_ia80zlkxp6ewoqpp35pbqjlhqv9iigvz1_createorder_637346662909268372 », 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_ia80zlkxp6ewoqpp35pbqjlhqv9iigvz1_createorder_637346662909268372", 
 
-            « Partenaire » : « 9daaeb1c-4195-4DB5-9f1d-509eb70c8c2d », 
+            "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            « participants » : [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
             ], 
 
-            « customerId » : « 86bddccf-9a53-40c6-907c-08067a3f8da7 », 
+            "customerId": "86bddccf-9a53-40c6-907c-08067a3f8da7", 
 
-            « customerName » : « CustomMetersStagingTest », 
+            "customerName": "CustomMetersStagingTest", 
 
-            « userPrincipalName » : « admin@testsw09.onmicrosoft.com », 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
-            « applicationId » : « 4990cffe-04e8-4e8b-808A-1175604b879f », 
+            "applicationId": "4990cffe-04e8-4e8b-808a-1175604b879f", 
 
-            « resourceType » : « Order », 
+            "resourceType": "order", 
 
-            "resourceNewValue" : "{ \" ID \" : \" Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" , \" AlternateId \" : \" 64144d300bde \" , \" ReferenceCustomerId \" : \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" , \" BillingCycle \" : \" Monthly \" , \" CurrencyCode \" : \" USD \" , \" CurrencySymbol \" : \" $ \" , \" LineItem \" : [{ \" LineItemNumber \" : 0, \" ProvisioningContext \" : null, \" OfferID \" : \" DZH318Z0C964:0001 : DZH318Z0BZDG \" , \" SubscriptionId \" : \" f428d44a-d08b-348b-579e-ce92a6362c7b \" , \" ParentSubscriptionId \" : null, \" TermDuration \" : \" p1m \" , \" transactionType \" : \" New \" , \" FriendlyName : la \" \" valeur de l’offre personnalisée Saas-bronze \" , \" quantité \" : 1, tarification : null, PartnerIdOnRecord : null, \" \" \" \" \" RenewsTo \" : null, \" liens \" : { \" Product \" : { \" URI \" : \" /Products/DZH318Z0C964 ? pays = US \" , \" méthode \" : \" Obtient \" , \" corps \" : null, \" en-têtes \" : []}, \" référence SKU \" : { \" URI \" : \" /Products/DZH318Z0C964/SKUs/0001 ? Country = US \" , \" méthode \" : \" Obtient \" , \" corps \" : null, \" en-têtes \" : []}, \" disponibilité \" : { \" URI \" : \" /Products/DZH318Z0C964/SKUs/0001/availabilities/DZH318Z0BZDG ? Country = US \" , \" méthode \" : \" Obtient \" , \" corps \" : null, \" en-têtes \" : []}, \" ActivationLinks \" : { \" URI \" : \" /Customers/86bddccf-9a53-40c6-907c-08067a3f8da7/Orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/LineItems/0/activationlinks \",\" Méthode \" : \" obtenir \" , \" corps \" : null, \" en-têtes \" : []}}}], \" CreationDate \" : \" 2020-09-02T17:58:01.7755853 z \" , \" état \" : \" en attente \" , \" transactionType \" : \" UserPurchase \" , \" liens \" : { \" Self \" : { \" URI \" : \" /Customers/86bddccf-9a53-40c6-907c-08067a3f8da7/Orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" , \" méthode \" : \" obtenir \" , \" corps \" : null, \" en-têtes \" : []}, \" ProvisioningStatus \" : { \" URI \" : \" /Customers/86bddccf-9a53-40c6-907c-08067a3f8da7/Orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/provisioningstatus \" , \" méthode \" : \" Obtient \" , \" corps \" : null, \" en-têtes \" : []}, \" PatchOperation \" : { \" URI \" : \" /Customers/86bddccf-9a53-40c6-907c-08067a3f8da7/Orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 \" , \" méthode \" : \" correctif \" , \" corps \" : null, \" en-têtes \" : []}}, \" client \" : { \" marketplaceCountry \" : \" US \" , \" deviceFamily \" : \" UniversalStore-PartnerCenter \" , \" nom \" : \" Web espace partenaires \" }, \" attributs \" : { \" ObjectType \" : \" Order \" }} ", 
+            "resourceNewValue": "{\"Id\":\"Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"AlternateId\":\"64144d300bde\",\"ReferenceCustomerId\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"BillingCycle\":\"monthly\",\"CurrencyCode\":\"USD\",\"CurrencySymbol\":\"$\",\"LineItems\":[{\"LineItemNumber\":0,\"ProvisioningContext\":null,\"OfferId\":\"DZH318Z0C964:0001:DZH318Z0BZDG\",\"SubscriptionId\":\"f428d44a-d08b-348b-579e-ce92a6362c7b\",\"ParentSubscriptionId\":null,\"TermDuration\":\"P1M\",\"TransactionType\":\"New\",\"FriendlyName\":\"SaaS custom meter offer - Bronze\",\"Quantity\":1,\"Pricing\":null,\"PartnerIdOnRecord\":null,\"RenewsTo\":null,\"Links\":{\"Product\":{\"Uri\":\"/products/DZH318Z0C964?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"Sku\":{\"Uri\":\"/products/DZH318Z0C964/skus/0001?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"Availability\":{\"Uri\":\"/products/DZH318Z0C964/skus/0001/availabilities/DZH318Z0BZDG?country=US\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"ActivationLinks\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/lineitems/0/activationlinks\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]}}}],\"CreationDate\":\"2020-09-02T17:58:01.7755853Z\",\"Status\":\"pending\",\"TransactionType\":\"UserPurchase\",\"Links\":{\"Self\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"ProvisioningStatus\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1/provisioningstatus\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]},\"PatchOperation\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/orders/Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1\",\"Method\":\"PATCH\",\"Body\":null,\"Headers\":[]}},\"Client\":{\"marketplaceCountry\":\"US\",\"deviceFamily\":\"UniversalStore-PartnerCenter\",\"name\":\"Partner Center Web\"},\"Attributes\":{\"ObjectType\":\"Order\"}}", 
 
-            « operationType » : « create_order », 
+            "operationType": "create_order", 
 
             "originalCorrelationId": "96514ebe-c1b2-4865-cb46-2c2d20a2e911", 
 
-            "operationDate" : "2020-09-02T17:58:10.9268372 Z", 
+            "operationDate": "2020-09-02T17:58:10.9268372Z", 
 
-            « operationStatus » : « réussite », 
+            "operationStatus": "succeeded", 
 
             "customizedData": [ 
 
                 { 
 
-                    « clé » : « OrderId », 
+                    "key": "OrderId", 
 
-                    « valeur » : « Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1 » 
+                    "value": "Ia80ZLkXp6eWOqpp35pBQJLhqv9IiGVZ1" 
 
                 }, 
 
                 { 
 
-                    « Key » : « AlternateId », 
+                    "key": "AlternateId", 
 
-                    « valeur » : « 64144d300bde » 
-
-                }, 
-
-                { 
-
-                    « Key » : « BillingCycle », 
-
-                    « valeur » : « mensuelle » 
+                    "value": "64144d300bde" 
 
                 }, 
 
                 { 
 
-                    « Key » : « OfferId-0 », 
+                    "key": "BillingCycle", 
 
-                    « valeur » : « DZH318Z0C964:0001 : DZH318Z0BZDG » 
-
-                }, 
-
-                { 
-
-                    « Key » : « SubscriptionId-0 », 
-
-                    « valeur » : « f428d44a-d08b-348b-579e-ce92a6362c7b » 
+                    "value": "Monthly" 
 
                 }, 
 
                 { 
 
-                    « Key » : « SubscriptionName-0 », 
+                    "key": "OfferId-0", 
 
-                    « valeur » : « offre de compteur personnalisé SaaS-bronze » 
-
-                }, 
-
-                { 
-
-                   « Key » : « Quantity-0 », 
-
-                    « valeur » : « 1 » 
+                    "value": "DZH318Z0C964:0001:DZH318Z0BZDG" 
 
                 }, 
 
                 { 
 
-                    « Key » : « PartnerOnRecord-0 », 
+                    "key": "SubscriptionId-0", 
 
-                    « valeur » : null 
+                    "value": "f428d44a-d08b-348b-579e-ce92a6362c7b" 
+
+                }, 
+
+                { 
+
+                    "key": "SubscriptionName-0", 
+
+                    "value": "SaaS custom meter offer - Bronze" 
+
+                }, 
+
+                { 
+
+                   "key": "Quantity-0", 
+
+                    "value": "1" 
+
+                }, 
+
+                { 
+
+                    "key": "PartnerOnRecord-0", 
+
+                    "value": null 
 
                 } 
 
             ], 
 
-            "attributs" : { 
+            "attributes": { 
 
-                « objectType » : « AuditRecord » 
+                "objectType": "AuditRecord" 
 
             } 
 
@@ -304,59 +304,59 @@ Connexion : Keep-Alive
 
                            { 
 
-            « ID » : « 9daaeb1c-4195-4DB5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_86bddccf-9a53-40c6-907c-08067a3f8da7_addcustomer_637346648528069005 », 
+            "id": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d_86bddccf-9a53-40c6-907c-08067a3f8da7_86bddccf-9a53-40c6-907c-08067a3f8da7_addcustomer_637346648528069005", 
 
-            « Partenaire » : « 9daaeb1c-4195-4DB5-9f1d-509eb70c8c2d », 
+            "partnerId": "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d", 
 
-            « participants » : [ 
+            "participants": [ 
 
                 "9daaeb1c-4195-4db5-9f1d-509eb70c8c2d" 
 
             ], 
 
-            « customerId » : « 86bddccf-9a53-40c6-907c-08067a3f8da7 », 
+            "customerId": "86bddccf-9a53-40c6-907c-08067a3f8da7", 
 
-            « customerName » : « CustomMetersStagingTest », 
+            "customerName": "CustomMetersStagingTest", 
 
-            « userPrincipalName » : « admin@testsw09.onmicrosoft.com », 
+            "userPrincipalName": "admin@testsw09.onmicrosoft.com", 
 
-            « applicationId » : « 4990cffe-04e8-4e8b-808A-1175604b879f », 
+            "applicationId": "4990cffe-04e8-4e8b-808a-1175604b879f", 
 
-            « resourceType » : « Customer », 
+            "resourceType": "customer", 
 
-            « resourceNewValue » : «{ \" ID \" : \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" , \" CommerceId \" : \" 9dd78b4f-F98A-44b4-a2fa-2b82ac58d24c \" , \" CompanyProfile \" : { \" TenantId \" : \" 86bddccf-9a53-40c6-907c-08067a3f8da7 \" , \" Domain \" : \" CustomMetersStagingTest.onmicrosoft.com \" , \" CompanyName \" : \" CustomMetersStagingTest \" , \" adresse \" : null, \" email \" : null, \" OrganizationRegistrationNumber \" : null, \" Links : \" { \" Self \" : { \" URI \" : \" /Customers/86bddccf-9a53-40c6-907c-08067a3f8da7/Profiles/Company \" , \" Method \" : \" obtenir \" , \" corps \" : null, \" en-têtes \" : []}}, \" attributs \" : { \" ObjectType \" : \" CustomerCompanyProfile \" }}, \" BillingProfile \" : { \" ID \" : \" 4beafd7b-CDAB-5bdc-52ed-02e16edf2e7a \" , \" FirstName \" : \" CustomMetersStagingTest \" , \" LastName \" : \" CustomMetersStagingTest \" , \" email \" : \" CustomMetersStagingTest@CustomMetersStagingTest.com \" , \" culture : en \" \" -US \" , \" Language \" : fr, \" \" \" CompanyName \" : \" CustomMetersStagingTest \" , \" DefaultAddress \" : { \" ID \" : null, \" Country \" : \" US \" , \" Region \" : null, \" City \" : \" Seattle \" , \" State \" : \" wa \" , \" district \" : null, AddressLine1 \" \" : CustomMetersStagingTest, AddressLine2 : \" \" \" \" null, \" AddressLine3 \" : null, \" PostalCode \" : \" 98122 \" , \" FirstName \" : \" CustomMetersStagingTest \" , \" LastName \" : \" CustomMetersStagingTest \" , \" EmailAddress \" : null, \" PhoneNumber \" : null, \" MiddleName \" : null}, \" attributs \" : { \" ETag \" : \" -2279334701316321663 \" , \" typeobjet \" : \" CustomerBillingProfile \" }}, \" RelationshipToPartner \" : \" Reseller \" , \" AllowDelegatedAccess \" : true, \" UserCredentials \" : { \" UserName \" : \" admin \" , \" password \" : \" \" }, \" AssociatedPartnerId \" : null, \" CustomDomains \" : null, \" attributs \" : { \" ObjectType \" : \" Customer \" }} ", 
+            "resourceNewValue": "{\"Id\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"CommerceId\":\"9dd78b4f-f98a-44b4-a2fa-2b82ac58d24c\",\"CompanyProfile\":{\"TenantId\":\"86bddccf-9a53-40c6-907c-08067a3f8da7\",\"Domain\":\"CustomMetersStagingTest.onmicrosoft.com\",\"CompanyName\":\"CustomMetersStagingTest\",\"Address\":null,\"Email\":null,\"OrganizationRegistrationNumber\":null,\"Links\":{\"Self\":{\"Uri\":\"/customers/86bddccf-9a53-40c6-907c-08067a3f8da7/profiles/company\",\"Method\":\"GET\",\"Body\":null,\"Headers\":[]}},\"Attributes\":{\"ObjectType\":\"CustomerCompanyProfile\"}},\"BillingProfile\":{\"Id\":\"4beafd7b-cdab-5bdc-52ed-02e16edf2e7a\",\"FirstName\":\"CustomMetersStagingTest\",\"LastName\":\"CustomMetersStagingTest\",\"Email\":\"CustomMetersStagingTest@CustomMetersStagingTest.com\",\"Culture\":\"en-US\",\"Language\":\"en\",\"CompanyName\":\"CustomMetersStagingTest\",\"DefaultAddress\":{\"Id\":null,\"Country\":\"US\",\"Region\":null,\"City\":\"Seattle\",\"State\":\"WA\",\"District\":null,\"AddressLine1\":\"CustomMetersStagingTest\",\"AddressLine2\":null,\"AddressLine3\":null,\"PostalCode\":\"98122\",\"FirstName\":\"CustomMetersStagingTest\",\"LastName\":\"CustomMetersStagingTest\",\"EmailAddress\":null,\"PhoneNumber\":null,\"MiddleName\":null},\"Attributes\":{\"Etag\":\"-2279334701316321663\",\"ObjectType\":\"CustomerBillingProfile\"}},\"RelationshipToPartner\":\"reseller\",\"AllowDelegatedAccess\":true,\"UserCredentials\":{\"userName\":\"admin\",\"password\":\"\"},\"AssociatedPartnerId\":null,\"CustomDomains\":null,\"Attributes\":{\"ObjectType\":\"Customer\"}}", 
 
-            « operationType » : « add_customer », 
+            "operationType": "add_customer", 
 
             "originalCorrelationId": "7550d9ea-e64a-416f-e49b-3670c516cf69", 
 
-            "operationDate" : "2020-09-02T17:34:12.8069005 Z", 
+            "operationDate": "2020-09-02T17:34:12.8069005Z", 
 
-            « operationStatus » : « réussite », 
+            "operationStatus": "succeeded", 
 
             "customizedData": [ 
 
                 { 
 
-                    « Key » : « PrimaryDomainName », 
+                    "key": "PrimaryDomainName", 
 
-                    « valeur » : « CustomMetersStagingTest.onmicrosoft.com » 
+                    "value": "CustomMetersStagingTest.onmicrosoft.com" 
 
                 }, 
 
                 { 
 
-                    « Key » : « relationship », 
+                    "key": "Relationship", 
 
-                    « valeur » : « revendeur » 
+                    "value": "Reseller" 
 
                 } 
 
             ], 
 
-            "attributs" : { 
+            "attributes": { 
 
-                « objectType » : « AuditRecord » 
+                "objectType": "AuditRecord" 
 
             } 
 
@@ -368,28 +368,28 @@ Connexion : Keep-Alive
 
     ], 
 
-    « Liens » : { 
+    "links": { 
 
-        « Self » : { 
+        "self": { 
 
-            « URI » : « /AuditRecords ? startDate = 2020-09-02&endDate = 2020-09-02&Size = 50 », 
+            "uri": "/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50", 
 
-            « méthode » : « obtient », 
+            "method": "GET", 
 
-            "en-têtes" : [] 
+            "headers": [] 
 
         } 
 
     }, 
 
-    "attributs" : { 
+    "attributes": { 
 
-        « objectType » : « collection » 
+        "objectType": "Collection" 
 
     } 
 
 } 
-
+```
  
 
   
