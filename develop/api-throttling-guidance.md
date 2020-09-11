@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a9fa70f8343ed51b288c1385540a247844e4659a
-ms.sourcegitcommit: b3a8b6db5fee1cb8756b94105f358ed4bc94d3a5
+ms.openlocfilehash: a3cdc238de6cd89a4542e9b7b54a9b22aca87e7a
+ms.sourcegitcommit: da2a0ef7f8525ea6f547079827a4f7f0b7b5ee97
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89666631"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023218"
 ---
 # <a name="api-throttling-guidance"></a>Aide sur la limitation des API 
 
@@ -25,7 +25,7 @@ Les limites varient selon les scénarios. Par exemple, si vous réalisez un volu
 
 ## <a name="what-happens-when-throttling-occurs"></a>Que se passe-t-il en cas de limitation ? 
 
-Lorsqu’un seuil de limitation est dépassé, l’espace partenaires limite les demandes ultérieures de ce client pendant un certain temps. Le comportement de limitation peut dépendre du type et du nombre de demandes.   
+Lorsqu’un seuil de limitation est dépassé, l’espace partenaires limite les demandes ultérieures de ce client pendant un certain temps. Le comportement de limitation dépend du type et du nombre de demandes.   
 
 ### <a name="common-throttling-scenarios"></a>Scénarios de limitation courants 
 
@@ -75,7 +75,7 @@ Pour utiliser le délai de nouvelle tentative, procédez comme suit :
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|obtenir la liste des droits Azure pour l’abonnement|    
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|créer une commande|     
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|afficher l’état d’inscription de l’abonnement|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|transition d’un abonnement|          
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|transition d’un abonnement|      
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/transfers|récupération de tous les clients|   
 |https://api.partnercenter.microsoft.com/v1/productUpgrades/{upgrade-id}/status|récupérer l’état de la mise à niveau du produit| 
 |https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|recevoir une commande par ID|           
@@ -85,10 +85,8 @@ Pour utiliser le délai de nouvelle tentative, procédez comme suit :
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|mettre à jour un panier|  
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|inscrire un abonnement|  
 |https://api.partnercenter.microsoft.com/v1/productupgrades|créer une entité de mise à niveau du produit|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|
-obtenir la liste des offres de conversion d’essai|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|
-convertir un abonnement d’évaluation en payant|   
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|obtenir la liste des offres de conversion d’essai|  
+|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|convertir un abonnement d’évaluation en payant|   
 |https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}|obtenir un client par ID|
 
 ### <a name="error-code-response"></a>Réponse du code d’erreur :
@@ -123,22 +121,23 @@ La liste des OperationType/ressources se trouve dans les documents d’API ci-de
 ### <a name="response-example"></a>Exemple de réponse
 
 **Demande**:  
+```http
+Http Get call:  https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50 
 
-Appel http : https://api.partnercenter.microsoft.com/v1/auditrecords?startDate=2020-09-02&endDate=2020-09-02&size=50 
-
-Autorisation : porteur <token> 
+Authorization: Bearer <token> 
 
 Accept: application/json 
 
-MS-RequestId : 127facaa-e389-41f8-8bb7-1d1af99db893 
+MS-RequestId: 127facaa-e389-41f8-8bb7-1d1af99db893 
 
-MS-CorrelationId : de9c2ccc-40DD-4186-9660-65b9b64c3d14 
+MS-CorrelationId: de9c2ccc-40dd-4186-9660-65b9b64c3d14 
 
-X-locale : en-US 
+X-Locale: en-US 
 
-Hôte : api.partnercenter.microsoft.com 
+Host: api.partnercenter.microsoft.com 
 
-Connexion : Keep-Alive 
+Connection: Keep-Alive 
+```
 
 **Réponse**:    
 ```http
