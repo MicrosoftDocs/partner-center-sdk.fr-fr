@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a3cdc238de6cd89a4542e9b7b54a9b22aca87e7a
-ms.sourcegitcommit: da2a0ef7f8525ea6f547079827a4f7f0b7b5ee97
+ms.openlocfilehash: 2531312e5f34a0c35220f009d7aa156331beee43
+ms.sourcegitcommit: aa7b12e0156404f64f576e09971ea3deb3529231
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023218"
+ms.locfileid: "90037504"
 ---
 # <a name="api-throttling-guidance"></a>Aide sur la limitation des API 
 
@@ -57,52 +57,41 @@ Pour utiliser le délai de nouvelle tentative, procédez comme suit :
 
 3. Si la demande échoue à nouveau avec un code d’erreur 429, vous êtes toujours limité. Réessayez avec une interruption exponentielle, utilisez le délai de nouvelle tentative recommandé, puis recommencez la demande jusqu’à ce qu’elle aboutisse.
 
-## <a name="apis-currently-impacted-by-throttling"></a>Les API sont actuellement affectées par la limitation
+## <a name="apis-currently-impacted-by-throttling"></a>API actuellement affectées par la limitation
 
-À long terme, chaque API de l’espace partenaires unique qui appelle le point de terminaison « api.partnercenter.microsoft.com/ » sera limitée. Actuellement, les limites de limitation ne sont appliquées que sur les quelques API répertoriées ci-dessous. L’espace partenaires va collecter les données de télémétrie sur chacune des API et ajustera dynamiquement les limites de limitation. Le tableau suivant répertorie les API pour lesquelles la limitation est actuellement appliquée.  
+À long terme, chaque API de l’espace partenaires unique qui appelle le point de terminaison « api.partnercenter.microsoft.com/ » sera limitée. Actuellement, les limites de limitation ne sont appliquées que sur les seules API répertoriées ci-dessous. L’espace partenaires va collecter les données de télémétrie sur chacune des API et ajustera dynamiquement les limites de limitation. Le tableau suivant répertorie les API pour lesquelles la limitation est actuellement appliquée.  
 
 
 |**opération**| **Documentation sur Espace partenaires**|       
 |------------------------|----------------------------|
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions|obtenir tous les abonnements client-s|    
-|https://api.partnercenter.microsoft.com/v1/productUpgrades/eligibility|obtenir-éligibilité-for-Product-mise à niveau|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}|obtenir un abonnement par ID|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|récupération de toutes les commandes client|     
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|recevoir une commande par ID|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}/provisioningstatus|Obtient l’état d’approvisionnement de l’abonnement|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}|gérer les commandes et gérer un abonnement|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/addons|obtenir la liste des modules complémentaires pour un abonnement|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|obtenir la liste des droits Azure pour l’abonnement|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders|créer une commande|     
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|afficher l’état d’inscription de l’abonnement|    
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|transition d’un abonnement|      
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/transfers|récupération de tous les clients|   
-|https://api.partnercenter.microsoft.com/v1/productUpgrades/{upgrade-id}/status|récupérer l’état de la mise à niveau du produit| 
-|https://api.partnercenter.microsoft.com/v1/customers/{customer_id}/orders/{order_id}|recevoir une commande par ID|           
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/orders/{order-id}|acheter un module complémentaire à un abonnement|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|créer un panier|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}/checkout|extraire un panier|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/carts/{cart-id}|mettre à jour un panier|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|inscrire un abonnement|  
-|https://api.partnercenter.microsoft.com/v1/productupgrades|créer une entité de mise à niveau du produit|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|obtenir la liste des offres de conversion d’essai|  
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|convertir un abonnement d’évaluation en payant|   
-|https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}|obtenir un client par ID|
+|{baseURL}/v1/Customers/{customer_id}/Orders|[créer une commande](create-an-order.md)|
+|{baseURL}/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription}/Upgrades|[transition d’un abonnement](transition-a-subscription.md)|
+|{baseURL}/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID}|[acheter un module complémentaire à un abonnement](purchase-an-add-on-to-a-subscription.md)|
+|{baseURL}/v1/Customers/{Customer-ID}/carts/{Cart-ID}|[créer un panier](create-a-cart.md)|
+|{baseURL}/v1/Customers/{Customer-ID}/carts/{Cart-ID}/Checkout|[extraire un panier](checkout-a-cart.md)|
+|{baseURL}/v1/Customers/{Customer-ID}/carts/{Cart-ID}|[mettre à jour un panier](update-a-cart.md)|
+|{baseURL}/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/Registrations|[inscrire un abonnement](register-a-subscription.md)|
+|{baseURL}/v1/productupgrades|[créer une entité de mise à niveau du produit](create-product-upgrade-entity.md)|
+|{baseURL}/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/conversions |[convertir un abonnement d’évaluation en payant](convert-a-trial-subscription-to-paid.md)|
+|{baseURL}/v1/Customers/{Customer-tenant-ID}|[obtenir un client par ID](get-a-customer-by-id.md)|
+|{baseURL}/v1/productUpgrades/eligibility|[obtenir l’éligibilité pour la mise à niveau du produit](get-eligibility-for-product-upgrade.md)|
+|{baseURL}/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription} |[gérer l’abonnement](manage-orders.md#manage-a-subscription)|
+
 
 ### <a name="error-code-response"></a>Réponse du code d’erreur :
+```http
+HTTP/1.1 429 Too Many Requests 
 
-HTTP/1.1 429 trop de requêtes 
-
-Content-Length : 84 
+Content-Length: 84 
 
 Content-Type: application/json 
 
-Nouvelle tentative-après : 57 
+Retry-After: 57 
 
-Date : Mar, 21 juillet 2020 04:10:58 GMT 
+Date: Tue, 21 Jul 2020 04:10:58 GMT 
 
-{"statusCode" : 429, "message" : "la limite du débit est dépassée. Réessayez dans 57 secondes.» } 
-
+{ "statusCode": 429, "message": "Rate limit is exceeded. Try again in 57 seconds." } 
+```
 
 ## <a name="example-of-activity-log"></a>Exemple de journal d’activité
 
