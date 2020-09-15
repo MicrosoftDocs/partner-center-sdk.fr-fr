@@ -4,12 +4,12 @@ description: Configurez des comptes permettant de développer des API à l’aid
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0d2d8ea9f92c84a0bf36642504458c918c1607bf
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: c2bd8e8f44084024effac6e80778ba34de1d3cac
+ms.sourcegitcommit: 30b5c61a75e40f5d08170f61094dbc5ea968c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87557310"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90064885"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>Configurer l’accès aux API dans l’Espace partenaires
 
@@ -52,7 +52,7 @@ Cette section explique comment configurer un compte de partenaire principal et u
 
 2. Dans le menu **Paramètres** (icône représentant une roue dentée), choisissez **Paramètres partenaire**.
 
-3. Dans la page **Paramètres du compte**, choisissez **Sandbox d’intégration**.
+3. Choisissez l’onglet **Sandbox d’intégration**.
 
     >[!NOTE]
     >Si vous ne voyez pas l’option Sandbox d’intégration, il est possible que vous n’ayez pas de compte d’administrateur général. Il est aussi possible que vous utilisiez un compte de sandbox d’intégration et qu’un sandbox d’intégration ait déjà été configuré.
