@@ -4,12 +4,12 @@ description: Comment acheter un module complémentaire à un abonnement existant
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 69c817cc89b97cea43533c170cef598df99095f7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ba490253092a1ba38382f2568bfd8e69d74a45da
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926845"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>Acheter une extension d’abonnement
 
@@ -35,7 +35,7 @@ Comment acheter un module complémentaire à un abonnement existant.
 
 Lorsque vous achetez un module complémentaire à un abonnement, vous mettez à jour l’ordre d’abonnement d’origine avec la commande du module complémentaire. Dans l’exemple ci-dessous, customerId est l’ID de client, subscriptionId est l’ID d’abonnement et addOnOfferId est l’ID d’offre du module complémentaire.
 
-Voici les étapes à suivre :
+Voici la procédure à suivre :
 
 1.  Obtenir une interface pour les opérations de l’abonnement.
 
@@ -49,7 +49,7 @@ Voici les étapes à suivre :
     var parentSubscription = subscriptionOperations.Get();
     ```
 
-3.  Instanciez un nouvel objet [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) . Cette instance de commande est utilisée pour mettre à jour la commande d’origine utilisée pour acheter l’abonnement. Ajoutez un seul élément de ligne à la commande qui représente le module complémentaire.
+3.  Instanciez un nouvel objet [**Order**/dotnet/API/Microsoft.Store.partnercenter.Models.Orders.Order). Cette instance de commande est utilisée pour mettre à jour la commande d’origine utilisée pour acheter l’abonnement. Ajoutez un seul élément de ligne à la commande qui représente le module complémentaire.
     ``` csharp
     var orderToUpdate = new Order()
     {
@@ -75,9 +75,9 @@ Voici les étapes à suivre :
 
 ## <a name="c"></a>C\#
 
-Pour acheter un module complémentaire, commencez par obtenir une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’abonnement qui a l’offre complémentaire. Utilisez cette [**interface**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) pour récupérer les détails de l’abonnement en appelant [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get). Pourquoi avez-vous besoin des détails de l’abonnement ? Car vous avez besoin de l’ID de commande de la commande d’abonnement. Il s’agit de l’ordre à mettre à jour avec le module complémentaire.
+Pour acheter un module complémentaire, commencez par obtenir une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client, et la méthode [**Subscriptions. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.BYID) pour identifier l’abonnement qui a l’offre complémentaire. Utilisez cette [**interface**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription) pour récupérer les détails de l’abonnement en appelant [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription.Get). Pourquoi avez-vous besoin des détails de l’abonnement ? Car vous avez besoin de l’ID de commande de la commande d’abonnement. Il s’agit de l’ordre à mettre à jour avec le module complémentaire.
 
-Ensuite, instanciez un nouvel objet [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) et renseignez-le avec une seule instance [**LineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) contenant les informations permettant d’identifier le module complémentaire, comme illustré dans l’extrait de code suivant. Vous utiliserez ce nouvel objet pour mettre à jour l’ordre d’abonnement avec le module complémentaire. Enfin, appelez la méthode [**patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) pour mettre à jour l’ordre d’abonnement, après avoir d’abord identifié le client avec [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) et la commande Order [**. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid).
+Ensuite, instanciez un nouvel objet [**Order**/dotnet/API/Microsoft.Store.partnercenter.Models.Orders.Order) et renseignez-le avec une seule instance [**LineItem**/dotnet/API/Microsoft.Store.partnercenter.Models.Orders.orderlineitem) qui contient les informations permettant d’identifier le module complémentaire, comme illustré dans l’extrait de code suivant. Vous utiliserez ce nouvel objet pour mettre à jour l’ordre d’abonnement avec le module complémentaire. Enfin, appelez la méthode [**patch**/dotnet/API/Microsoft.Store.partnercenter.Orders.iOrder.patch) pour mettre à jour l’ordre d’abonnement, après avoir d’abord identifié le client avec [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) et la commande avec [**Orders. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Orders.iordercollection.BYID).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -123,7 +123,7 @@ Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(pa
 |-----------|----------------------------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres suivants pour identifier le client et la commande.
 

@@ -4,12 +4,12 @@ description: Comment obtenir un regroupement des abonnements d’un client.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5aba8f127338a17db4d4e6708dd97c3d8da05e57
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a36d0bddb06c10f6d07a6ba44d6808fb9933c177
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927171"
 ---
 # <a name="get-a-customers-subscriptions"></a>Obtenir les abonnements d’un client
 
@@ -30,7 +30,7 @@ Comment obtenir un regroupement des abonnements d’un client.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la liste de tous les abonnements d’un client, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour identifier le client. Utilisez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) pour récupérer une interface pour les opérations de collecte d’abonnement. Enfin, appelez les méthodes d’extraction ou de [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) d’abonnements du client.
+Pour obtenir la liste de tous les abonnements d’un client, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’identificateur du client pour identifier le client. Utilisez ensuite la propriété [**Subscriptions**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscriptions) pour récupérer une interface pour les opérations de collecte d’abonnement. Enfin, appelez les méthodes [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.getasync) pour récupérer la collection d’abonnements du client.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

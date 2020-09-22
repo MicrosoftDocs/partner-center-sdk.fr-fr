@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 08892b69b73235b27203648fa6cb6efd2fcac9f0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c48704d12cfee49723e9932854f09eb34e59cb5f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926396"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>Obtenir les revendeurs indirects d’un client
 
@@ -29,7 +29,7 @@ Obtention d’une liste des revendeurs indirects qui ont une relation avec un cl
 
 ## <a name="c"></a>C\#
 
-Pour récupérer une liste des revendeurs indirects avec lesquels le client spécifié a une relation, commencez par obtenir une interface pour les opérations de regroupement client pour le client spécifique à partir de la propriété [**partnerOperations. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) en fournissant l’ID client pour identifier le client. Appelez ensuite la méthode [**relations. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) ou la méthode [** \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) pour récupérer la liste des revendeurs indirects.
+Pour récupérer une liste des revendeurs indirects avec lesquels le client spécifié a une relation, commencez par obtenir une interface pour les opérations de regroupement client pour le client spécifique à partir de la propriété [**partnerOperations. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Relationships) en fournissant l’ID client pour identifier le client. Appelez ensuite la méthode [**Relationships. obten**/dotnet/API/Microsoft.Store.partnercenter.Relationships.icustomerrelationshipcollection.Get) ou [**Obtient \_ Async**/dotnet/API/Microsoft.Store.partnercenter.Relationships.icustomerrelationshipcollection.getasync) pour récupérer la liste des revendeurs indirects.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

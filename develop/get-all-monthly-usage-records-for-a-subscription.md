@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: f97f950a139af40a47d7c91af69da80000708558
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8cbeb2b7264848ad88be13f0df063aa339a8dc13
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097076"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927206"
 ---
 # <a name="get-all-monthly-usage-records-for-a-subscription"></a>Récupération de tous les enregistrements d’utilisation mensuelle pour un abonnement.
 
@@ -21,7 +21,7 @@ ms.locfileid: "86097076"
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Vous pouvez utiliser la collection de ressources [**AzureResourceMonthlyUsageRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) pour obtenir la liste des services inclus dans l’abonnement d’un client et les informations d’utilisation évaluées qui lui sont associées.
+Vous pouvez utiliser la collection de ressources [**AzureResourceMonthlyUsageRecord**/dotnet/API/Microsoft.Store.partnercenter.Models.usage.azureresourcemonthlyusagerecord) pour obtenir la liste des services inclus dans l’abonnement d’un client et les informations d’utilisation évaluées qui lui sont associées.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,7 +64,7 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/subscriptions/{ID-for-subscription}/usagerecords/Resources http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir les informations d’utilisation évaluées.
 

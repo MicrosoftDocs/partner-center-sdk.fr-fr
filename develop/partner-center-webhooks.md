@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 9fc7ad40e4ca8ec74dd3660c72ab359bbf5cc3ef
-ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
+ms.openlocfilehash: 8225623ade7e922ac23ebf0ed9215686b0601244
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87261948"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925879"
 ---
 # <a name="partner-center-webhooks"></a>Webhooks de l’Espace partenaires
 
@@ -39,7 +39,7 @@ Les partenaires peuvent sélectionner des événements de webhook, comme dans le
 
 - **Événement de dépassement de seuil (« usagerecords-thresholdExceeded »)**
 
-    Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+    Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients/Partner-Center/Set-an-Azure-Pass-budget-for-your-clients).
 
 - **Événement créé par la référence (« référence créée »)**
 
@@ -120,10 +120,10 @@ Le tableau suivant décrit les propriétés d’un événement de l’espace par
 
 | Nom                      | Description                                                                           |
 |---------------------------|---------------------------------------------------------------------------------------|
-| **Protégée**             | Nom de l’événement. Sous la forme {Resource}-{action}. Par exemple, « test créé ».  |
+| **EventName**             | Nom de l’événement. Sous la forme {Resource}-{action}. Par exemple, « test créé ».  |
 | **URI**           | URI de la ressource qui a été modifiée.                                                 |
-| **Nom_ressource**          | Nom de la ressource qui a été modifiée.                                                |
-| **AuditUrl**              | facultatif. URI de l’enregistrement d’audit.                                                |
+| **ResourceName**          | Nom de la ressource qui a été modifiée.                                                |
+| **AuditUrl**              | Optionnel. URI de l’enregistrement d’audit.                                                |
 | **ResourceChangeUtcDate** | Date et heure, au format UTC, auxquelles la modification de ressource s’est produite.                  |
 
 ### <a name="sample"></a>Exemple

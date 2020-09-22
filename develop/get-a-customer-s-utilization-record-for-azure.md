@@ -4,12 +4,12 @@ description: Vous pouvez utiliser l’API d’utilisation d’Azure pour obtenir
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 478f91e85c0ab178804e24eaf77b8f7fd086ddf6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: bcdeb51b04039fd05b923150c85119385c0537e0
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098305"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927738"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Obtenir les enregistrements d’utilisation d’un client pour Azure
 
@@ -35,7 +35,7 @@ Cette API renvoie une consommation non classée quotidienne et horaire pour un i
 
 Cette API d’utilisation Azure fournit l’accès aux enregistrements d’utilisation pendant une période qui représente le moment où l’utilisation a été signalée dans le système de facturation. Il permet d’accéder aux mêmes données d’utilisation utilisées pour créer et calculer le fichier de réconciliation. Toutefois, il n’a pas connaissance de la logique du fichier de rapprochement du système de facturation. Vous ne devez pas vous attendre à ce que les résultats du résumé du fichier de rapprochement correspondent au résultat récupéré à partir de cette API pour la même période.
 
-Par exemple, le système de facturation utilise les mêmes données d’utilisation et applique des règles de retard pour déterminer ce qui est comptabilisé dans un fichier de réconciliation. Quand une période de facturation se ferme, toute utilisation jusqu’à la fin de la journée à laquelle la période de facturation se termine est incluse dans le fichier de réconciliation. Toute utilisation tardive au cours de la période de facturation qui est signalée dans les 24 heures suivant la fin de la période de facturation est comptabilisée dans le prochain fichier de rapprochement. Pour connaître les règles de mise en retard de la facturation du partenaire, consultez [obtenir des données de consommation pour un abonnement Azure](https://docs.microsoft.com/previous-versions/azure/reference/mt219001(v=azure.100)).
+Par exemple, le système de facturation utilise les mêmes données d’utilisation et applique des règles de retard pour déterminer ce qui est comptabilisé dans un fichier de réconciliation. Quand une période de facturation se ferme, toute utilisation jusqu’à la fin de la journée à laquelle la période de facturation se termine est incluse dans le fichier de réconciliation. Toute utilisation tardive au cours de la période de facturation qui est signalée dans les 24 heures suivant la fin de la période de facturation est comptabilisée dans le prochain fichier de rapprochement. Pour connaître les règles de mise en retard de la facturation du partenaire, consultez [obtenir des données de consommation pour un abonnement Azure](/previous-versions/azure/reference/mt219001(v=azure.100)).
 
 Cette API REST est paginée. Si la charge utile de la réponse est supérieure à une page unique, vous devez suivre le lien suivant pour obtenir la page suivante des enregistrements d’utilisation.
 
@@ -45,7 +45,7 @@ Pour obtenir les enregistrements d’utilisation Azure :
 
 1. Procurez-vous l’ID client et l’ID d’abonnement.
 
-2. Appelez la méthode [**IAzureUtilizationCollection. Query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) pour retourner un [**ResourceCollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) qui contient les enregistrements d’utilisation.
+2. Appelez la méthode [**IAzureUtilizationCollection. Query**](/dotnet/api/microsoft.store.partnercenter.utilization.iazureutilizationcollection.query) pour retourner un [**ResourceCollection**](/dotnet/api/microsoft.store.partnercenter.models.resourcecollection-1) qui contient les enregistrements d’utilisation.
 
 3. Obtenez un énumérateur d’enregistrements d’utilisation Azure pour parcourir les pages d’utilisation. Cette étape est requise, car la collection de ressources est paginée.
 
@@ -136,7 +136,7 @@ Get-PartnerCustomerSubscriptionUtilization -CustomerId $customerId -Subscription
 |------- | ----------- |
 | **GET** | *{baseURL}*/v1/Customers/{Customer-tenant-ID}/subscriptions/{subscription-ID}/utilizations/Azure ? Start \_ Time = {Start-Time} &\_ Time end = {end-Time} &Granularity = {granularité} &Show \_ Details = {true} |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour obtenir les enregistrements d’utilisation.
 
@@ -144,10 +144,10 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour obten
 | ---- | ---- | -------- | ----------- |
 | customer-tenant-id | string | Oui | Chaîne au format GUID qui identifie le client. |
 | subscription-id | string | Oui | Chaîne au format GUID qui identifie l’abonnement. |
-| start_time | chaîne au format de décalage de date/heure UTC | Yes | Début de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
-| end_time | chaîne au format de décalage de date/heure UTC | Yes | Fin de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
-| granularité | string | No | Granularité des agrégations d’utilisation. Les options disponibles sont les suivantes : `daily` (par défaut) et `hourly` .
-| show_details | boolean | No | Indique s’il faut récupérer les détails d’utilisation au niveau de l’instance. Par défaut, il s’agit de `true`. |
+| start_time | chaîne au format de décalage de date/heure UTC | Oui | Début de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
+| end_time | chaîne au format de décalage de date/heure UTC | Oui | Fin de l’intervalle de temps qui représente le moment où l’utilisation a été signalée dans le système de facturation. |
+| granularité | string | Non | Granularité des agrégations d’utilisation. Les options disponibles sont les suivantes : `daily` (par défaut) et `hourly` .
+| show_details | boolean | Non | Indique s’il faut récupérer les détails d’utilisation au niveau de l’instance. La valeur par défaut est `true`. |
 | taille | nombre | Non | Nombre d’agrégations retournées par un seul appel d’API. La valeur par défaut est 1000. Le maximum est 1000. |
 
 ### <a name="request-headers"></a>En-têtes de requête

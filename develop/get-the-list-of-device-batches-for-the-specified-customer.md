@@ -4,12 +4,12 @@ description: Comment récupérer une collection de lots d’appareils pour le cl
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d1667b1be4a3063f846b15052427ffdedb33754b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 30d4f5f8d53f21f68b70498d800087f5aa05f721
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097446"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927491"
 ---
 # <a name="get-a-list-of-device-batches-for-the-specified-customer"></a>Obtenir la liste des lots d’appareils pour le client spécifié
 
@@ -30,7 +30,7 @@ Chaque lot d’appareil contient des informations d’État récapitulatives sur
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la collection de lots d’appareils pour le client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, récupérez la valeur de la propriété [**DeviceBatches**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicebatches) pour obtenir une interface pour les opérations de collection par lots de périphériques. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.get) .
+Pour obtenir la collection de lots d’appareils pour le client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, récupérez la valeur de la propriété [**DeviceBatches**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.devicebatches) pour obtenir une interface pour les opérations de collection de traitement par lots de périphériques. Enfin, appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicesbatchcollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicesbatchcollection.getasync) pour récupérer la collection.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

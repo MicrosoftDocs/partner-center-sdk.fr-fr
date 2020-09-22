@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 60875f960c228c9eca90c21cc0c34f5747c04860
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: aad9524dbe2c9edbbd7c1d50da7a448f6872fcb9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098352"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927796"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Obtenir la liste des clients filtrée par un champ de recherche
 
@@ -32,11 +32,11 @@ Obtient une collection des ressources [client](customer-resources.md#customer) q
 
 ## <a name="c"></a>C\#
 
-Pour obtenir une collection de clients qui correspondent à un filtre, commencez par instancier un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) pour créer le filtre. Vous devez passer une chaîne qui contient le [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)et indiquer le type d’opération de filtre en tant que [**FieldFilterOperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation). Il s’agit de la seule opération de filtre de champ prise en charge par le point de terminaison Customers. Vous devez également fournir la chaîne de filtrage.
+Pour obtenir une collection de clients qui correspondent à un filtre, commencez par instancier un objet [**SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) pour créer le filtre. Vous devez passer une chaîne qui contient le [**CustomerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield)et indiquer le type d’opération de filtre en tant que [**FieldFilterOperation. StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation). Il s’agit de la seule opération de filtre de champ prise en charge par le point de terminaison Customers. Vous devez également fournir la chaîne de filtrage.
 
-Ensuite, instanciez un objet [**IQueryable**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) à passer à la requête en appelant la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) et en lui passant le filtre. BuildSimplyQuery n’est qu’un des types de requêtes pris en charge par la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
+Ensuite, instanciez un objet [**IQueryable**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) à passer à la requête en appelant la méthode [**BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) et en lui passant le filtre. BuildSimplyQuery n’est qu’un des types de requêtes pris en charge par la classe [**QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
 
-Enfin, pour exécuter le filtre et obtenir le résultat, utilisez d’abord [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour obtenir une interface pour les opérations du client du partenaire. Appelez ensuite la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) .
+Enfin, pour exécuter le filtre et obtenir le résultat, utilisez d’abord [**collection iaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour obtenir une interface pour les opérations du client du partenaire. Appelez ensuite la méthode [**query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) .
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -67,14 +67,14 @@ var customers = partnerOperations.Customers.Query(myQuery);
 |---------|-----------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers ? Size = {size} &filtre = {filter} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de requête suivants.
 
 | Nom   | Type   | Obligatoire | Description                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif. |
-| Filter | Filter | Yes      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
+| taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est optionnel. |
+| Filter | Filter | Oui      | Filtre à appliquer aux clients. Il doit s’agir d’une chaîne encodée.              |
 
 ### <a name="filter-syntax"></a>Syntaxe de filtre
 
@@ -90,7 +90,7 @@ Le tableau suivant décrit les paires clé-valeur requises :
 
 | Clé      | Valeur                                                                                                                    |
 |----------|--------------------------------------------------------------------------------------------------------------------------|
-| Champ    | Champ à filtrer. Les valeurs valides se trouvent dans [**CustomerSearchField**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
+| Champ    | Champ à filtrer. Les valeurs valides se trouvent dans [**CustomerSearchField**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield). |
 | Valeur    | Valeur sur laquelle filtrer. La casse de la valeur est ignorée.                                                                |
 | Opérateur | Opérateur à appliquer. La seule valeur prise en charge pour ce scénario client est « commence \_ par ».                            |
 

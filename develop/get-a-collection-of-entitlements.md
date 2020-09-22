@@ -4,12 +4,12 @@ description: Comment obtenir une collection de droits.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b57e493958386df7a493bcbdc79121b09fcd72e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d2cc485429941dd2080bd285553333a01fc0ffd1
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093960"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927291"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Obtenir une collection de droits
 
@@ -27,7 +27,7 @@ Comment obtenir une collection de droits.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir une collection de droits pour un client, obtenez une interface pour les opérations d' [**habilitation**](entitlement-resources.md#entitlement) en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez l’interface à partir de la propriété des **droits** et appelez la méthode **obtenir ()** ou **GetAsync ()** pour récupérer la collection de droits.
+Pour obtenir une collection de droits pour un client, obtenez une interface pour les opérations d' [**habilitation**](entitlement-resources.md#entitlement) en appelant la méthode  [**collection iaggregatepartner. Customers. méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez l’interface à partir de la propriété des **droits** et appelez la méthode **obtenir ()** ou **GetAsync ()** pour récupérer la collection de droits.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -50,14 +50,14 @@ Pour remplir les dates d’expiration des droits à récupérer, appelez les mê
 |--------|-------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{CustomerID}/Entitlements http/1.1                            |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants lors de la création de la demande.
 
 | Nom | Type | Obligatoire | Description |
 |------|------|----------|-------------|
 | customerId | string | Oui | GUID au format customerId qui identifie le client. |
-| entitlementType | string | No | Peut être utilisé pour spécifier le type de droits à récupérer (**Software** ou **reservedInstance** ). Si la valeur n’est pas définie, tous les types sont récupérés |
+| entitlementType | string | Non | Peut être utilisé pour spécifier le type de droits à récupérer (**Software** ou **reservedInstance** ). Si la valeur n’est pas définie, tous les types sont récupérés |
 | showExpiry | boolean | Non | Indicateur facultatif qui indique si les dates d’expiration des droits sont requises. |
 
 ### <a name="request-headers"></a>En-têtes de requête

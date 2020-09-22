@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 6528c83b64908d08f058f18a987c5b7362312551
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: bea4f9059bf494cd30f7daabf349669433a0e291
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096290"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927575"
 ---
 # <a name="create-a-cart-with-add-ons"></a>Créer un panier avec des extensions
 
@@ -19,7 +19,7 @@ ms.locfileid: "86096290"
 
 - Espace partenaires
 
-Vous pouvez acheter des modules complémentaires par le biais d’un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
+Vous pouvez acheter des modules complémentaires par le biais d’un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](/partner-center/csp-offers).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,15 +31,15 @@ Vous pouvez acheter des modules complémentaires par le biais d’un panier. Pou
 
 Un panier permet l’achat d’une offre de base et de ses modules complémentaires correspondants. Pour créer un panier, procédez comme suit :
 
-1. Instanciez un objet de [**panier**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart) .
+1. Instanciez un objet de [**panier**](/dotnet/api/microsoft.store.partnercenter.models.carts.cart) .
 
-2. Créez une liste d’objets [**CartLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) qui représentent les offres de base et attribuez la liste à [**la propriété de**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) liste de propriétés du panier.
+2. Créez une liste d’objets [**CartLineItem**](/dotnet/api/microsoft.store.partnercenter.models.carts.cartlineitem) qui représentent les offres de base et attribuez la liste à [**la propriété de**](/dotnet/api/microsoft.store.partnercenter.models.carts.cart.lineitems) liste de propriétés du panier.
 
 3. Sous l’élément de ligne de panier de chaque offre de base, renseignez la liste des **AddOnItems** avec d’autres objets **CartLineItem** qui représentent chacun un module complémentaire qui sera acheté dans le cadre de cette offre de base.
 
-4. Obtenez une interface pour les opérations de panier à l’aide de [**collection iaggregatepartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**ICustomerCollection. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérer l’interface à partir de la propriété **Cart** .
+4. Obtenez une interface pour les opérations de panier à l’aide de [**collection iaggregatepartner**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**ICustomerCollection. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérer l’interface à partir de la propriété **Cart** .
 
-5. Enfin, appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) pour créer le panier.
+5. Enfin, appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.carts.icartcollection.createasync) pour créer le panier.
 
 ### <a name="c-example"></a>\#Exemple C
 
@@ -141,12 +141,12 @@ Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | No              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
-| creationTimeStamp     | DateTime         | No              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
-| lastModifiedTimeStamp | DateTime         | No              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
-| expirationTimeStamp   | DateTime         | No              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
-| lastModifiedUser      | chaîne           | No              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
-| lineItems             | Tableau d’objets | Yes             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
+| id                    | string           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
+| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | string           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                             |
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
@@ -162,7 +162,7 @@ Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineite
 | provisioningContext  | Dictionary<String, String>       | Contexte utilisé pour l’approvisionnement de l’offre.                                                                                                             |
 | orderGroup           | string                           | Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                                               |
 | addonItems           | Liste d’objets **CartLineItem** | Collection d’éléments de ligne de panier pour les modules complémentaires qui seront achetés vers l’abonnement de base qui résulte de l’achat de l’élément de ligne de panier parent. |
-| erreur                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
+| error                | Object                           | Appliqué après la création du panier en cas d’erreur.                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>Exemple de requête (nouvel abonnement de base)
 

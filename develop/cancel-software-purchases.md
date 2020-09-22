@@ -4,12 +4,12 @@ description: Option libre-service pour annuler les abonnements logiciels et les 
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 364859172661832531e6d214e70dfeb6bc27a7fa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 25fd10a171fa6ca01f3442d49145443f2382cc18
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927406"
 ---
 # <a name="cancel-software-purchases"></a>Annuler des achats de logiciel
 
@@ -27,9 +27,9 @@ Vous pouvez utiliser les API de l’espace partenaires pour annuler les abonneme
 
 Pour annuler une commande de logiciel,
 
-1. Transmettez les informations d’identification de votre compte à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’accéder aux opérations du partenaire.
+1. Transmettez les informations d’identification de votre compte à la méthode [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) afin d’accéder aux opérations du partenaire.
 
-2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
+2. Sélectionnez une [commande](order-resources.md#order) spécifique que vous souhaitez annuler. Appelez la méthode [**Customers. méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client, suivi de **Orders. méthode BYID ()** avec l’identificateur Order.
 
 3. Appelez la méthode **obtenir** ou **GetAsync** pour récupérer la commande.
 
@@ -64,7 +64,7 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 |------------|----------------------------------------------------------------------------------------|
 | **PATCH** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{Order-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de requête suivants pour supprimer un client.
 

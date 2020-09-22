@@ -4,12 +4,12 @@ description: Vous pouvez obtenir une collection de détails sur la facturation c
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a18163cbbfd67bc9f4cc1ac08bad50eb5a083e2
-ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
+ms.openlocfilehash: a10ae8fb580b89c6e8bb95035620457f88046d6a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88937899"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927070"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Obtient les éléments de ligne de facturation commerciale non facturés
 
@@ -34,9 +34,9 @@ Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de dét
 
 Pour obtenir les lignes de la facture spécifiée :
 
-1. Appelez la méthode [**méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
+1. Appelez la méthode [**méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoicecollection.BYID) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
 
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour récupérer l’objet [**de la facture**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) .
+2. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.getasync) pour récupérer l’objet de la facture.
 
 L' **objet Invoice** contient toutes les informations relatives à la facture spécifiée. Le **fournisseur** identifie la source des informations de détail non facturées (par exemple, **OneTime**). **InvoiceLineItemType** spécifie le type (par exemple, **UsageLineItem**).
 
@@ -44,9 +44,9 @@ L’exemple de code suivant utilise une boucle **foreach** pour traiter la colle
 
 Pour obtenir une collection d’éléments de ligne qui correspondent à une instance **InvoiceDetail** :
 
-1. Transmettez le **BillingProvider** et le **InvoiceLineItemType** de l’instance à la méthode [**par**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
+1. Transmettez les **BillingProvider** et **InvoiceLineItemType** de l’instance à la méthode [**by**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.by).
 
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour [**récupérer les éléments**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) de ligne associés.
+2. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.getasync) pour récupérer les éléments de ligne associés.
 3. Créez un énumérateur pour parcourir la collection comme indiqué dans l’exemple suivant.
 
 ``` csharp
@@ -127,7 +127,7 @@ Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
-| Name                   | Type   | Obligatoire | Description                                                                     |
+| Nom                   | Type   | Obligatoire | Description                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
 | provider               | string | Oui      | Le fournisseur : «**OneTime**».                                                |
 | invoice-line-item-type | string | Oui      | Type de détail de la facture : «**UsageLineItems**», «**UsageLineItems**».               |

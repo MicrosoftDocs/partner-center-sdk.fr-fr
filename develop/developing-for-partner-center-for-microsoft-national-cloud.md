@@ -7,12 +7,12 @@ MS-HAID:
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6220b9f89f960f6d403e88e993c7e46444374cfc
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8ba9b639b56333bf4a8c2ebc259a67c89de79cee
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927336"
 ---
 # <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Développement pour l’espace partenaires pour les clouds Microsoft nationaux
 
@@ -55,14 +55,14 @@ Les *différences entre l’espace partenaires* et l' *espace partenaires pour M
 
 - Les partenaires ne peuvent pas créer d’utilisateurs pour l’organisation de leur client ou attribuer des rôles.
   - Les partenaires peuvent lire les champs, mais ils ne peuvent pas les écrire ou les mettre à jour.
-  - Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le centre d’administration Office 365 ou via le Portail Azure. Consultez [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/).
+  - Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le centre d’administration Office 365 ou via le Portail Azure. Consultez [Azure Active Directory documentation](/azure/active-directory/).
 
 - Vous ne pouvez pas gérer les licences des utilisateurs de vos clients à l’aide de l’espace partenaires pour Microsoft Cloud portail ou les API Allemagne. Au lieu de cela, vous devez utiliser le centre d’administration Office 365 ou la gestion des licences Azure active directement Group (bientôt disponible) pour gérer leurs licences.
   - (Facultatif) vous pouvez utiliser Azure AD API Graph. Voir [Ajouter ou supprimer des licences d’un utilisateur](https://msdn.microsoft.com/library/azure/ad/graph/api/functions-and-actions#assignLicense). Pour l’espace partenaires pour Microsoft Cloud Allemagne, veillez à utiliser le point `https://graph.cloudapi.de` de terminaison Graph au lieu de `https://graph.windows.net` .
 
 - Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. Utilisez le centre d’administration Office 365 ou Portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-users-reset-password-azure-portal/). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud Allemagne.
 
-- Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) de l’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud Allemagne. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds).
+- Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) de l’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud Allemagne. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds).
 
 ## <a name="partner-center-for-microsoft-cloud-for-us-government"></a>Espace partenaires de Microsoft Cloud for US Government
 
@@ -76,10 +76,10 @@ Les *différences entre l’espace partenaires* et l' *espace partenaires pour M
   - Les relations multicanaux et multipartenaires et de demande avec un client existant au sein de Microsoft Cloud pour les scénarios gouvernementaux des États-Unis ne s’appliquent pas. Cette limitation est due au fait qu’Office 365 n’est pas disponible actuellement.
 
 - Les partenaires ne peuvent pas créer d’utilisateurs pour l’organisation de leur client ou attribuer des rôles.
-  - Les partenaires peuvent lire les champs, mais ils ne peuvent pas les écrire ou les mettre à jour. Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le Portail Azure. Consultez [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/).
+  - Les partenaires peuvent lire les champs, mais ils ne peuvent pas les écrire ou les mettre à jour. Les partenaires doivent créer ou mettre à jour manuellement les utilisateurs de leurs clients dans le Portail Azure. Consultez [Azure Active Directory documentation](/azure/active-directory/).
 
-- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. utilisez le portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-users-reset-password-azure-portal). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud pour le gouvernement des États-Unis.
+- Vous ne pouvez pas réinitialiser par programmation un mot de passe pour un utilisateur client ou un utilisateur partenaire complet. Utilisez le portail Azure. Consultez [Réinitialiser le mot de passe d’un utilisateur dans Azure Active Directory](/azure/active-directory/active-directory-users-reset-password-azure-portal). Pour l’étape 1, vous devez vous connecter au Portail Azure pour Microsoft Cloud pour le gouvernement des États-Unis.
 
 - Les points de terminaison REST de l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis sont les mêmes que pour l’espace partenaires : `https://api.partnercenter.microsoft.com` .
 
-- Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) d’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](https://docs.microsoft.com/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds).
+- Les développeurs doivent inscrire manuellement leur ID d’application pour intégrer les fonctionnalités du kit de développement logiciel (SDK) d’API de l’espace partenaires dans leur application pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis. Pour plus d’informations, consultez [inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud](/partner-center/develop/create-apps-for-partner-center-for-microsoft-national-clouds).

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 513fe5d1372dfcc69c076b72c16cfe4d05147ccf
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: caf8a4ce707624672215e5b2a0c46659e0f9564b
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927082"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>Obtenir les clients d’un revendeur indirect
 
@@ -29,13 +29,13 @@ Obtention d’une liste des clients d’un revendeur indirect.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir une collection de clients qui ont une relation avec le revendeur indirect spécifié, commencez par instancier un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) pour créer le filtre. Vous devez passer le membre de l’énumération [**CustomerSearchField. IndirectReseller**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) converti en une chaîne et indiquer à [**FieldFilterOperation. StartsWith**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) comme type d’opération de filtre. Vous devez également fournir l’identificateur de locataire du revendeur indirect sur lequel filtrer.
+Pour obtenir une collection de clients qui ont une relation avec le revendeur indirect spécifié, commencez par instancier un objet [**SimpleFieldFilter**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.simplefieldfilter) pour créer le filtre. Vous devez passer le membre de l’énumération [**CustomerSearchField. IndirectReseller**/dotnet/API/Microsoft.Store.partnercenter.Models.Customers.customersearchfield) converti en une chaîne, et indiquer [**FieldFilterOperation. StartsWith**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.fieldfilteroperation) comme type d’opération de filtre. Vous devez également fournir l’identificateur de locataire du revendeur indirect sur lequel filtrer.
 
-Ensuite, instanciez un objet [**IQueryable**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) à passer à la requête en appelant la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) et en lui passant le filtre. BuildSimplyQuery n’est qu’un des types de requêtes pris en charge par la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
+Ensuite, instanciez un objet [**IQueryable**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.IQuery) à transmettre à la requête en appelant la méthode [**BuildSimpleQuery**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory.buildsimplequery) et en lui passant le filtre. BuildSimplyQuery n’est qu’un des types de requêtes pris en charge par la classe [**QueryFactory**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory).
 
-Pour exécuter le filtre et obtenir le résultat, utilisez d’abord [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour obtenir une interface pour les opérations du client du partenaire. Appelez ensuite la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) .
+Pour exécuter le filtre et obtenir le résultat, utilisez d’abord [**collection iaggregatepartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) pour obtenir une interface pour les opérations du client du partenaire. Appelez ensuite la méthode [**query**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.Query) ou [**QueryAsync**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.QueryAsync).
 
-Pour créer un énumérateur permettant de parcourir les résultats paginés, récupérez l’interface de fabrique d’énumérateur de la collection Customer à partir de la propriété [**collection iaggregatepartner. enumerates. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers) , puis appelez [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create), comme indiqué dans le code ci-dessous, en passant la variable qui contient la collection Customer.
+Pour créer un énumérateur pour parcourir les résultats paginés, récupérez l’interface de fabrique d’énumérateur de la collection Customer de la propriété [**collection iaggregatepartner. enumerates. Customers**/dotnet/API/Microsoft.Store.partnercenter.Enumerators.iresourcecollectionenumeratorcontainer.Customers), puis appelez [**Create**/dotnet/API/Microsoft.Store.partnercenter.Factory.iresourcecollectionenumeratorfactory-1.Create), comme indiqué dans le code ci-dessous, en passant la variable qui contient la collection Customer.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -86,8 +86,8 @@ Utilisez les paramètres de requête suivants pour créer la demande.
 
 | Nom   | Type   | Obligatoire | Description                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                                                                                                                                |
-| Filter | Filter | Yes      | Requête qui filtre la recherche. Pour récupérer les clients d’un revendeur indirect spécifié, vous devez insérer l’identificateur de revendeur indirect et inclure et encoder la chaîne suivante : {"Field" : "IndirectReseller", "value" : "{indirect Reseller identifier}", "Operator" : "commence \_ par"}. |
+| taille   | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est optionnel.                                                                                                                                                                                                                |
+| Filter | Filter | Oui      | Requête qui filtre la recherche. Pour récupérer les clients d’un revendeur indirect spécifié, vous devez insérer l’identificateur de revendeur indirect et inclure et encoder la chaîne suivante : {"Field" : "IndirectReseller", "value" : "{indirect Reseller identifier}", "Operator" : "commence \_ par"}. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

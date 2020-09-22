@@ -4,12 +4,12 @@ description: Réactive un abonnement qui a été précédemment suspendu pour no
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2d77b71803f788751c348651f74fc993ac0f0702
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9143df34d08b689654da41cc427fdf8527e06446
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096172"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926677"
 ---
 # <a name="reactivate-a-suspended-subscription"></a>Réactiver un abonnement suspendu
 
@@ -34,7 +34,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="c"></a>C\#
 
-Pour réactiver l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**État**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) de l’abonnement. Pour plus d’informations sur les codes d' **État** , consultez l' [énumération SubscriptionStatus](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus). Une fois la modification effectuée, utilisez votre collection [**collection ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode [**patch ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) .
+Pour réactiver l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Status**/dotnet/API/Microsoft.Store.partnercenter.Models.subscriptions.Subscription.Status) de l’abonnement. Pour plus d’informations sur les codes d' **État** , consultez [SubscriptionStatus Enumeration/dotnet/API/Microsoft. Store. partnercenter. Models. subscriptions. SubscriptionStatus). Une fois la modification effectuée, utilisez la collection [**collection ipartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID). Appelez ensuite la propriété [**Subscriptions**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscriptions), suivie de la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.BYID). Ensuite, terminez en appelant la méthode [**patch ()**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription.patch).
 
 ``` csharp
 // IPartner partnerOperations;

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 1a14a05c3db89320486a0e1eddca9169e4d3a596
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dd4301dbb6f749b675fe624daf7f63751806f856
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098381"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927814"
 ---
 # <a name="get-a-customer-by-id"></a>Récupérer un client par ID
 
@@ -32,7 +32,7 @@ Obtient une ressource **client** qui correspond à un ID client.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir un client par ID, utilisez votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) , appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) , puis appelez les méthodes [**obtenir ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.get) ou [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.getasync) .
+Pour obtenir un client par ID, utilisez votre collection [**collection iaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) , appelez la méthode [**méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) , puis appelez les méthodes [**obtenir ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.get) ou [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.getasync) .
 
 ``` csharp
 // IAggregatePartner partnerOperations;

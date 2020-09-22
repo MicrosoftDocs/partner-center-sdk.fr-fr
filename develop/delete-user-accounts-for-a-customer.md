@@ -4,12 +4,12 @@ description: Comment supprimer un compte d’utilisateur existant pour un client
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d26d04e2feb8c0d047f5ddb7bed61eec8634b196
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 77fc1a1c7264779ca549be8d52798e90c91138bb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094147"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927803"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>Créer un compte d’utilisateur pour un client
 
@@ -37,11 +37,11 @@ Vous pouvez [restaurer un compte d’utilisateur supprimé pour un client](resto
 
 Pour supprimer un compte d’utilisateur client existant :
 
-1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
 
-2. Appelez la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’utilisateur.
+2. Appelez la méthode [**users. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’utilisateur.
 
-3. Appelez la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) pour supprimer l’utilisateur et définir l’état utilisateur sur inactif.
+3. Appelez la méthode [**Delete**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) pour supprimer l’utilisateur et définir l’état utilisateur sur inactif.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -61,7 +61,7 @@ partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdTo
 |------------|--------------------------------------------------------------------------------------------------------|
 | Suppression     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Users/{User-ID} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de requête suivants pour identifier le client et l’utilisateur.
 

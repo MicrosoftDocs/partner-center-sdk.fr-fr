@@ -4,12 +4,12 @@ description: Comment attribuer des licences à un utilisateur client.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5b9d6b16daed2d93717466ee8f8bc12dc198f2fe
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8c0b01525f6865411cc069677b7a7481f20ba87c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927432"
 ---
 # <a name="assign-licenses-to-a-user"></a>Attribuer des licences à un utilisateur
 
@@ -31,13 +31,13 @@ Comment attribuer des licences à un utilisateur client.
 
 ## <a name="assigning-licenses-through-code"></a>Attribution de licences à l’aide de code
 
-Lorsque vous affectez des licences à un utilisateur, vous devez choisir parmi le regroupement du client des références (SKU) souscrites. Ensuite, après avoir identifié les produits que vous souhaitez affecter, vous devez obtenir l’ID de référence du produit pour chaque produit afin d’effectuer les attributions. Chaque instance [**SubscribedSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) contient une propriété [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) à partir de laquelle vous pouvez référencer l’objet [**ProductSku**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) et obtenir l' [**ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id).
+Lorsque vous affectez des licences à un utilisateur, vous devez choisir parmi le regroupement du client des références (SKU) souscrites. Ensuite, après avoir identifié les produits que vous souhaitez affecter, vous devez obtenir l’ID de référence du produit pour chaque produit afin d’effectuer les attributions. Chaque instance [**SubscribedSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) contient une propriété [**ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) à partir de laquelle vous pouvez référencer l’objet [**ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) et obtenir l' [**ID**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id).
 
-Une demande d’attribution de licence doit contenir des licences d’un seul groupe de licences. Par exemple, vous ne pouvez pas attribuer des licences du [**Group1**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) et du **Group2** dans la même demande. Toute tentative pour attribuer dans une seule demande des licences de plusieurs groupes échouera en générant l’erreur appropriée. Pour savoir quelles licences sont disponibles par groupe de licences, consultez [obtenir une liste des licences disponibles par groupe de licences](get-a-list-of-available-licenses-by-license-group.md).
+Une demande d’attribution de licence doit contenir des licences d’un seul groupe de licences. Par exemple, vous ne pouvez pas attribuer des licences du [**Group1**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) et du **Group2** dans la même demande. Toute tentative pour attribuer dans une seule demande des licences de plusieurs groupes échouera en générant l’erreur appropriée. Pour savoir quelles licences sont disponibles par groupe de licences, consultez [obtenir une liste des licences disponibles par groupe de licences](get-a-list-of-available-licenses-by-license-group.md).
 
 Voici les étapes à suivre pour attribuer des licences par le biais du code :
 
-1. Instanciez un objet [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) . Vous utilisez cet objet pour spécifier la référence SKU du produit et les plans de service à affecter.
+1. Instanciez un objet [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) . Vous utilisez cet objet pour spécifier la référence SKU du produit et les plans de service à affecter.
 
     ``` csharp
     LicenseAssignment license = new LicenseAssignment();
@@ -59,21 +59,21 @@ Voici les étapes à suivre pour attribuer des licences par le biais du code :
     license.ExcludedPlans = null;
     ```
 
-4. Ensuite, instanciez une nouvelle liste de type [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)et ajoutez l’objet de licence. Vous pouvez attribuer plusieurs licences en les ajoutant individuellement à la liste. Les licences incluses dans cette liste doivent provenir du même groupe de licences.
+4. Ensuite, instanciez une nouvelle liste de type [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)et ajoutez l’objet de licence. Vous pouvez attribuer plusieurs licences en les ajoutant individuellement à la liste. Les licences incluses dans cette liste doivent provenir du même groupe de licences.
 
     ```csharp
     List<LicenseAssignment> licenseList = new List<LicenseAssignment>();
     licenseList.Add(license);
     ```
 
-5. Créez une instance [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) et affectez la liste des attributions de licence à la propriété [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) .
+5. Créez une instance [**LicenseUpdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) et affectez la liste des attributions de licence à la propriété [**LicensesToAssign**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) .
 
     ```csharp
     LicenseUpdate updateLicense = new LicenseUpdate();
     updateLicense.LicensesToAssign = licenseList;
     ```
 
-6. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) et transmettez l’objet de mise à jour de licence comme indiqué ci-dessous pour affecter les licences.
+6. Appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) et transmettez l’objet de mise à jour de licence comme indiqué ci-dessous pour affecter les licences.
 
     ```csharp
     var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
@@ -81,11 +81,11 @@ Voici les étapes à suivre pour attribuer des licences par le biais du code :
 
 ## <a name="c"></a>C\#
 
-Pour attribuer une licence à un utilisateur client, commencez par instancier un objet [**LicenseAssignment**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) et renseignez les propriétés [**SkuID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) et [**ExcludedPlans**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) . Vous utilisez cet objet pour spécifier la référence SKU du produit à assigner et les plans de service à exclure. Ensuite, instanciez une nouvelle liste de type **LicenseAssignment**et ajoutez l’objet de licence à la liste. Créez ensuite une instance [**LicenseUpdate**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) et affectez la liste des attributions de licence à la propriété [**LicensesToAssign**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) .
+Pour attribuer une licence à un utilisateur client, commencez par instancier un objet [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) et renseignez les propriétés [**SkuID**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) et [**ExcludedPlans**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) . Vous utilisez cet objet pour spécifier la référence SKU du produit à assigner et les plans de service à exclure. Ensuite, instanciez une nouvelle liste de type **LicenseAssignment**et ajoutez l’objet de licence à la liste. Créez ensuite une instance [**LicenseUpdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) et affectez la liste des attributions de licence à la propriété [**LicensesToAssign**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) .
 
-Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’utilisateur pour identifier l’utilisateur. Ensuite, accédez à une interface pour les opérations de mise à jour de licence utilisateur client à partir de la propriété [**LicenseUpdates**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) .
+Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**users. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’utilisateur pour identifier l’utilisateur. Ensuite, accédez à une interface pour les opérations de mise à jour de licence utilisateur client à partir de la propriété [**LicenseUpdates**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) .
 
-Enfin, appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) et transmettez l’objet de mise à jour de licence pour affecter la licence.
+Enfin, appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) et transmettez l’objet de mise à jour de licence pour affecter la licence.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -120,7 +120,7 @@ var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.B
 |----------|----------------------------------------------------------------------------------------------------------------|
 | **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenseupdates http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’utilisateur.
 

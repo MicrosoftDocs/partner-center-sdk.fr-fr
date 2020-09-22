@@ -4,12 +4,12 @@ description: Obtient les éléments de ligne de coût du service d’un client p
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ada8dace056c6a369ac222767d3ab57254542895
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c2034eaf11342493797688b44b634b8e9598e2e4
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098321"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927762"
 ---
 # <a name="get-a-customers-service-costs-line-items"></a>Obtenir les éléments de la ligne des coûts de service d’un client
 
@@ -31,13 +31,13 @@ Obtient les éléments de ligne de coût du service d’un client pour la pério
 
 Pour récupérer un récapitulatif des coûts de service pour le client spécifié :
 
-1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
 
-2. Utilisez la propriété [**ServiceCosts**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts) pour accéder à une interface pour les opérations de collecte des coûts du service client.
+2. Utilisez la propriété [**ServiceCosts**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicecosts) pour accéder à une interface pour les opérations de collecte des coûts du service client.
 
-3. Appelez la méthode [**ByBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod) avec un membre de l’énumération [**ServiceCostsBillingPeriod**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod) pour retourner un [**méthode iservicecostscollection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection).
+3. Appelez la méthode [**ByBillingPeriod**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.icustomerservicecostscollection.bybillingperiod) avec un membre de l’énumération [**ServiceCostsBillingPeriod**](/dotnet/api/microsoft.store.partnercenter.models.servicecosts.servicecostsbillingperiod) pour retourner un [**méthode iservicecostscollection**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostscollection).
 
-4. Utilisez la méthode [**méthode iservicecostscollection. LineItem. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync) pour récupérer les éléments de ligne du service du client.
+4. Utilisez la méthode [**méthode iservicecostscollection. LineItem. obten**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.get) ou [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customers.servicecosts.iservicecostlineitemscollection.getasync) pour récupérer les éléments de ligne du service du client.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -54,13 +54,13 @@ var serviceCostsSummary = partnerOperations.Customers.ById(selectedCustomerId).S
 |---------|-------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/servicecosts/{Billing-period}/LineItems http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et la période de facturation.
 
 | Nom           | Type   | Obligatoire | Description                                                                                                                      |
 |----------------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------|
-| customer-id    | guid   | Yes      | ID de client au format GUID qui identifie le client.                                                                       |
+| customer-id    | guid   | Oui      | ID de client au format GUID qui identifie le client.                                                                       |
 | billing-period | string | Oui      | Indicateur qui représente la période de facturation. La seule valeur prise en charge est MostRecent. La casse de la chaîne n’a pas d’importance. |
 
 ### <a name="request-headers"></a>En-têtes de requête

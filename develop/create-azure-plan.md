@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: 213577f2235d58c4f1d91869b4f6405409369fc2
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 372b94ac7217899ca560cf943bf11a7e8906872d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927345"
 ---
 # <a name="create-an-azure-plan"></a>Créer un plan Azure
 
@@ -25,7 +25,7 @@ Vous pouvez acheter, créer et gérer un plan Azure à l’aide des API de l’e
 
 * Informations d' [authentification de l’espace partenaires](partner-center-authentication.md) . Ce scénario prend en charge l’authentification avec les informations d’identification de l’application autonome et de l’application + utilisateur.
 * Identificateur du client. Si vous n’avez pas d’identificateur de client, suivez les étapes de la section [obtenir une liste de clients](get-a-list-of-customers.md). Vous pouvez également vous connecter à l’espace partenaires, choisir le client dans la liste des clients, sélectionner un **compte**, puis enregistrer son **identifiant Microsoft**.
-* [Confirmation de l’acceptation par le client du contrat du client Microsoft](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
+* [Confirmation de l’acceptation par le client du contrat du client Microsoft](/partner-center/confirm-customer-agreement).
 
 ## <a name="get-the-catalog-item-for-azure-plan"></a>Obtenir l’élément de catalogue pour le plan Azure
 
@@ -73,16 +73,16 @@ Vous pouvez suspendre un plan Azure existant en suivant les étapes de la sectio
 
 *Vous ne pouvez suspendre un plan Azure existant que s’il n’a plus d’actifs d’utilisation actifs qui lui sont associés, y compris les abonnements d’utilisation Azure et les réservations Azure.*
 
-Pour plus d’informations sur la désactivation des abonnements d’utilisation Azure, consultez [API Azure sur la gestion du cycle de vie des abonnements](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Pour plus d’informations sur la désactivation des abonnements d’utilisation Azure, consultez [API Azure sur la gestion du cycle de vie des abonnements](/rest/api/resources/subscriptions).
 
-Pour supprimer des réservations Azure existantes, vous devez [annuler les réservations](https://docs.microsoft.com/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation).
+Pour supprimer des réservations Azure existantes, vous devez [annuler les réservations](/partner-center/azure-reservations-manage#cancel-or-exchange-a-reservation).
 Après avoir suspendu un plan Azure, vous pouvez le réactiver.
 
 Pour plus d’informations sur la réactivation d’un plan Azure, consultez [réactiver un abonnement suspendu](reactivate-a-suspended-a-subscription.md) .
 
 ## <a name="transition-existing-csp-offers-to-azure-plan"></a>Transition des offres CSP existantes vers le plan Azure
 
-Vous ne pouvez pas créer de plan Azure pour un client existant avec un abonnement Microsoft Azure (MS-AZR-0145P). Toutefois, vous pouvez [transférer un client à partir de ses offres Azure CSP existantes vers les services Azure sous le plan Azure](https://docs.microsoft.com/partner-center/azure-plan-transition) dans la nouvelle expérience de commerce dans le programme CSP à partir de l’espace partenaires. Pour effectuer la transition d’un client existant, utilisez les API de mise à niveau du produit pour suivre les étapes suivantes :
+Vous ne pouvez pas créer de plan Azure pour un client existant avec un abonnement Microsoft Azure (MS-AZR-0145P). Toutefois, vous pouvez [transférer un client à partir de ses offres Azure CSP existantes vers les services Azure sous le plan Azure](/partner-center/azure-plan-transition) dans la nouvelle expérience de commerce dans le programme CSP à partir de l’espace partenaires. Pour effectuer la transition d’un client existant, utilisez les API de mise à niveau du produit pour suivre les étapes suivantes :
 
 * [Vérifier si le client est éligible pour une transition vers le plan Azure](get-eligibility-for-product-upgrade.md)
 * [Lancer une mise à niveau du produit pour le client](create-product-upgrade-entity.md)

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 909dec77dd189005839d72caeb0e66a7ad5c8a1b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c6a404eb38c4c31d3e69bb598872b932d8985529
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097154"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927209"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Obtenir les métadonnées de contrat pour le contrat Microsoft Cloud
 
@@ -99,7 +99,7 @@ Un exemple complet est disponible dans la classe [GetAgreementDetails](https://g
 
 Pour récupérer les métadonnées d’accord pour l’accord de Microsoft Cloud :
 
-Utilisez la commande [**PartnerAgreementDetail**](https://docs.microsoft.com/powershell/module/partnercenter/get-partneragreementdetail) . Recherchez ensuite l’élément dans la collection, qui correspond au contrat de Microsoft Cloud :
+Utilisez la commande [**PartnerAgreementDetail**](/powershell/module/partnercenter/get-partneragreementdetail) . Recherchez ensuite l’élément dans la collection, qui correspond au contrat de Microsoft Cloud :
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1

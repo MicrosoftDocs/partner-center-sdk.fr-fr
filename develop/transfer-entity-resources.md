@@ -4,12 +4,12 @@ description: Un partenaire crée un transfert lorsqu’un client souhaite que so
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 467b113864b855b72626d6222e5e5b0980ee5de7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 96c43d255fcd31e6dc4de50baa0e19f5d8855685
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095769"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925781"
 ---
 # <a name="transferentity-resources"></a>Ressources TransferEntity
 
@@ -78,7 +78,7 @@ Représente une erreur qui se produit lorsqu’un transfert est accepté.
 
 ## <a name="transfererrorcode"></a>TransferErrorCode
 
-[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent un type d’erreur de commande.
+[Enum/dotnet/API/System. Enum] avec des valeurs qui indiquent un type d’erreur de commande.
 
 | Valeur | Position | Description |
 | --- | --- | --- |

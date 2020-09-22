@@ -4,12 +4,12 @@ description: Obtient un objet représentant le profil MPN du partenaire.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b5a65786bae048281966b42b3ec359c8264f3a3d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7cca35096befe46e1db1c04eeec03ac371406ba2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097769"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927519"
 ---
 # <a name="get-microsoft-partner-network-profile"></a>Obtenir le profil Microsoft Partner Network
 
@@ -28,7 +28,7 @@ Obtient un objet représentant le profil MPN du partenaire.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir un profil de réseau partenaire, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **MpnProfile** . Enfin, appelez les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) .
+Pour obtenir un profil de réseau partenaire, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **MpnProfile** . Enfin, appelez les méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.impnprofile.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.impnprofile.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

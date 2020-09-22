@@ -4,12 +4,12 @@ description: Obtient un objet qui représente le profil de facturation du parten
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5d0b8aaf904f3f4fd63e508d0c18756c2b9c5492
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f23c8dfeac6268d0a9ff1e67a5bf913b4070fa9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927066"
 ---
 # <a name="get-partner-billing-profile"></a>Obtenir le profil de facturation du partenaire
 
@@ -28,7 +28,7 @@ Obtient un objet qui représente le profil de facturation du partenaire.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir un profil de facturation de partenaire, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **BillingProfile** . Enfin, appelez les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) .
+Pour obtenir un profil de facturation de partenaire, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **BillingProfile** . Enfin, appelez les méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ibillingprofile.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ibillingprofile.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

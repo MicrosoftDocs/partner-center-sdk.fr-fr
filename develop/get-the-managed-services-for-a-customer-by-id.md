@@ -4,12 +4,12 @@ description: Obtient les services managés pour un client. En d’autres termes,
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 52002b3ff3f002b45dadf6321178933cd4476b4b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2b61d7ba59bc602e0a268ff746644dbe0c018fd9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927483"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>Obtenir les services managés d’un client par ID
 
@@ -29,7 +29,7 @@ Obtient les services managés pour un client. En d’autres termes, obtenir des 
 
 ## <a name="c"></a>C\#
 
-Pour afficher la liste de tous les services gérés pour un client, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**ManagedServices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) , suivie des méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) .
+Pour afficher la liste de tous les services gérés pour un client, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID). Appelez ensuite la propriété [**ManagedServices**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.managedservices), suivie des méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.managedservices.imanagedservicecollection.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.managedservices.imanagedservicecollection.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

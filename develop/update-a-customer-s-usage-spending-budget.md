@@ -4,12 +4,12 @@ description: Mettez à jour le budget de dépense alloué pour l’utilisation d
 ms.date: 02/05/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: aa33c15031132024a6a89a36ca0ce1c45a9b0840
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d1d18701f227897c55087eba576b5cd4b69817ff
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095619"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927594"
 ---
 # <a name="update-a-customers-usage-spending-budget"></a>Mettre à jour le budget des dépenses d’utilisation d’un client
 
@@ -29,7 +29,7 @@ Mettez à jour le [budget de dépense](customer-usage-resources.md#customerusage
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour le budget des dépenses d’utilisation d’un client, commencez par créer un objet [**SpendingBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) avec le montant mis à jour. Utilisez ensuite la collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID du client spécifié. Ensuite, accédez à la propriété [**UsageBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.usagebudget) et transmettez le budget d’utilisation mis à jour à la méthode [**patch ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patch) ou [**PatchAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.usage.icustomerusagespendingbudget.patchasync) .
+Pour mettre à jour le budget des dépenses d’utilisation d’un client, commencez par créer un objet [**SpendingBudget**/dotnet/API/Microsoft.Store.partnercenter.Models.usage.spendingbudget) avec le montant mis à jour. Utilisez ensuite la collection [**collection iaggregatepartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection) et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.PARTNERCENTER.Customers.ICUSTOMERCOLLECTION.BYID) avec l’ID du client spécifié. Accédez ensuite à la propriété [**UsageBudget**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.usagebudget) et transmettez le budget d’utilisation mis à jour à la méthode [**patch ()**/dotnet/API/Microsoft.Store.partnercenter.usage.icustomerusagespendingbudget.patch) ou [**PatchAsync ()**/dotnet/API/Microsoft.Store.partnercenter.usage.icustomerusagespendingbudget.patchasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 531d7a7adb6f987859dfcc4c42831ebb633495de
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a789fa1ce5db6371fbea223ac4e69252fab38d92
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097963"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927265"
 ---
 # <a name="get-a-subscription-by-id"></a>Obtenir un abonnement par ID
 
@@ -34,7 +34,7 @@ Obtient une ressource d' [abonnement](subscription-resources.md) qui correspond 
 
 ## <a name="c"></a>C\#
 
-Pour obtenir un abonnement par ID, commencez par obtenir une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’abonnement. Utilisez cette [**interface**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) pour récupérer les détails de l’abonnement en appelant [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get).
+Pour obtenir un abonnement par ID, commencez par obtenir une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client, ainsi que la méthode [**Subscriptions. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.BYID) pour identifier l’abonnement. Utilisez cette [**interface**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription) pour récupérer les détails de l’abonnement en appelant [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription.Get).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

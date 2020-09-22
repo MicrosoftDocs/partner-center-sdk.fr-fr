@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f79df59efe586d9067e3b39b1c51c44aa4561004
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 125d1b4e239f69ae2dfc9667f5d009bab9f415b2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098134"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927667"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Obtenir la liste des appareils pour le client et le lot spécifiés
 
@@ -34,13 +34,13 @@ Cet article explique comment récupérer un regroupement d’appareils dans un l
 
 Pour récupérer un regroupement des appareils dans un lot d’appareils spécifié pour le client spécifié :
 
-1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
 
-2. Appelez la méthode [**DeviceBatches. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) pour obtenir une interface pour les opérations de collection de lots de périphériques pour le lot spécifié.
+2. Appelez la méthode [**DeviceBatches. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicesbatchcollection.BYID) pour obtenir une interface pour les opérations de collection de lots de périphériques pour le lot spécifié.
 
-3. Récupérez la propriété [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) pour obtenir une interface pour les opérations de collecte d’appareils pour le lot.
+3. Récupérez la propriété [**Devices**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicesbatch.Devices) pour obtenir une interface pour les opérations de collecte d’appareils pour le lot.
 
-4. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) pour [**récupérer la collection**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) d’appareils.
+4. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicecollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicecollection.getasync) pour récupérer la collection d’appareils.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -65,7 +65,7 @@ Pour obtenir un exemple, consultez les rubriques suivantes :
 |---------|------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 

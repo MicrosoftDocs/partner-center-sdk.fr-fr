@@ -4,12 +4,12 @@ description: Comment récupérer la liste des offres de conversion d’évaluati
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 865b557dcfa275c3ec68dc7350b76c2fa9208d0f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ae5dbdc69ca477d8dc7773b21252ebea73a8dfed
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097203"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927619"
 ---
 # <a name="get-a-list-of-trial-conversion-offers"></a>Obtenir la liste des offres de conversion d’essai
 
@@ -29,7 +29,7 @@ Comment récupérer la liste des offres de conversion d’évaluation.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la liste des conversions d’évaluation disponibles, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement d’évaluation. Ensuite, utilisez la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions, puis [**appelez la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) pour récupérer une collection d’offres de [**conversion**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) disponibles.
+Pour obtenir la liste des conversions d’évaluation disponibles, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.BYID) avec l’ID d’abonnement d’évaluation. Ensuite, utilisez la propriété [**conversions**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions, puis appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptionconversioncollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) pour récupérer une collection d’offres [**conversion**/dotnet/API/Microsoft.Store.partnercenter.Models.subscriptions.conversion) disponibles.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

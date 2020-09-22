@@ -4,12 +4,12 @@ description: Comment récupérer la liste des revendeurs indirects du partenaire
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 92d79bb031fdf1cb132791ed9103451cf8ba32bf
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e8615438d8ecd011fd1f00a5672b78d53f7bd77d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096603"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926408"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>Récupérer la liste des revendeurs indirects
 
@@ -25,7 +25,7 @@ Comment récupérer la liste des revendeurs indirects du partenaire connecté.
 
 ## <a name="c"></a>C\#
 
-Pour récupérer une liste des revendeurs indirects avec lesquels le partenaire connecté a une relation, commencez par obtenir une interface pour les opérations de collection de relations à partir de la propriété [**partnerOperations. Relationships**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) . Appelez ensuite la [**Get**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) méthode [**Async ou obtenir \_ Async**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) , en passant un membre de l’énumération [**PartnerRelationshipType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) pour identifier le type de relation. Pour récupérer des revendeurs indirectes, vous devez utiliser IsIndirectCloudSolutionProviderOf.
+Pour récupérer une liste des revendeurs indirects avec lesquels le partenaire connecté a une relation, commencez par obtenir une interface pour les opérations de collection de relations à partir de la propriété [**partnerOperations. Relationships**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Relationships). Appelez ensuite la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Relationships.irelationshipcollection.Get) ou [**obtenir \_ Async**/dotnet/API/Microsoft.Store.partnercenter.Relationships.irelationshipcollection.getasync), en passant un membre de l’énumération [**PartnerRelationshipType**/dotnet/API/Microsoft.Store.partnercenter.Models.Relationships.partnerrelationshiptype) pour identifier le type de relation. Pour récupérer des revendeurs indirectes, vous devez utiliser IsIndirectCloudSolutionProviderOf.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 958bf512c9b9d087db7c480623b5ada92eea6407
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 23eec0c91d90f5e7b1dd1981b3566618fabc8c2c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097061"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927184"
 ---
 # <a name="get-all-of-a-customers-orders"></a>Obtenir toutes les commandes d’un client
 
@@ -34,9 +34,9 @@ Obtient une collection de toutes les commandes pour un client spécifié. Il y a
 
 Pour obtenir une collection de toutes les commandes d’un client :
 
-1. Utilisez votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) .
+1. Utilisez votre collection [**collection iaggregatepartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID).
 
-2. Appelez la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) , suivie par les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) ou [**de GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync) .
+2. Appelez la propriété [**Orders**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.Orders), suivie des méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iordercollection.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iordercollection.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: f024c1742fda3ecf9e37aefae76234097b37e798
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4a423a9eba7eeb270ede7a59c4773c9743e790f7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098480"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926698"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>Mettre à jour le profil d’entreprise juridique du partenaire
 
@@ -32,7 +32,7 @@ Comment mettre à jour le profil d’entreprise juridique partenaire.
 
 Pour mettre à jour le profil d’entreprise juridique partenaire, commencez par instancier un objet **LegalBusinessProfile** et le remplir avec le profil existant. Pour plus d’informations, consultez [obtenir le profil d’entreprise juridique partenaire](get-legal-business-profile.md). Ensuite, mettez à jour les propriétés que vous souhaitez modifier. L’exemple de code suivant illustre la modification de l’adresse et des numéros de téléphone du contact principal.
 
-Ensuite, obtenez une interface vers la collection d’opérations de profil du partenaire à partir de la propriété **IAggregatePartner.Profiles**. Récupérez alors la valeur de la propriété **LegalBusinessProfile** pour obtenir une interface vers les opérations de profil d’entreprise juridique. Enfin, appelez la méthode [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) ou [**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) avec l’objet modifié pour mettre à jour le profil.
+Ensuite, obtenez une interface vers la collection d’opérations de profil du partenaire à partir de la propriété **IAggregatePartner.Profiles**. Récupérez alors la valeur de la propriété **LegalBusinessProfile** pour obtenir une interface vers les opérations de profil d’entreprise juridique. Enfin, appelez la méthode [**Update**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ilegalbusinessprofile.Update) ou [**UpdateAsync**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ilegalbusinessprofile.UpdateAsync) avec l’objet modifié pour mettre à jour le profil.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

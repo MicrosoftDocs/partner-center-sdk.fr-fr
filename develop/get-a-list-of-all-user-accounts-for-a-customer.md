@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: d6b94a13e613bd7c0c4ce26d415efaade133b617
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f2b1bcf9926e02232b6e2cc68b71e992b015324
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927700"
 ---
 # <a name="get-a-list-of-all-user-accounts-for-a-customer"></a>Obtenir une liste de tous les comptes d’utilisateur d’un client
 
@@ -33,9 +33,9 @@ Pour rechercher un seul compte d’utilisateur par ID, consultez [obtenir un com
 
 Pour récupérer la collection de tous les comptes d’utilisateur pour un client spécifié :
 
-1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client spécifié pour identifier le client.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client spécifié pour identifier le client.
 
-2. Appelez la méthode [**users. obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) pour récupérer la collection.
+2. Appelez la méthode [**users. obtenir**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) ou [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) pour récupérer la collection.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

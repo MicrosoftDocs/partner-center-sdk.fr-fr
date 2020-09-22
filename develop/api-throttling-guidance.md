@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: 2531312e5f34a0c35220f009d7aa156331beee43
-ms.sourcegitcommit: aa7b12e0156404f64f576e09971ea3deb3529231
+ms.openlocfilehash: b4e9bbc4fbc6624ed1c63a2a25e9ffbf8979db27
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90037504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927443"
 ---
 # <a name="api-throttling-guidance"></a>Aide sur la limitation des API 
 
@@ -101,9 +101,9 @@ Dans la réponse, vous obtiendrez un résultat avec les modifications apportées
 
 La liste des OperationType/ressources se trouve dans les documents d’API ci-dessous.  
 
-- [Audit des ressources](https://docs.microsoft.com/partner-center/develop/auditing-resources)  
+- [Audit des ressources](/partner-center/develop/auditing-resources)  
 
-- [Obtenir un enregistrement d’une activité espace partenaires par utilisateur](https://docs.microsoft.com/partner-center/develop/get-a-record-of-partner-center-activity-by-user)  
+- [Obtenir un enregistrement d’une activité espace partenaires par utilisateur](/partner-center/develop/get-a-record-of-partner-center-activity-by-user)  
 
 
 

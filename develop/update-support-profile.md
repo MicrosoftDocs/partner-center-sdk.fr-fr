@@ -4,12 +4,12 @@ description: Met à jour le profil de support d’un utilisateur.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1f22f01474cb6cb007f39a2aa1e978d2f7506ea6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f0e92f7cc08d79a2d8f72dae6129a72d0aaba51c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098464"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925559"
 ---
 # <a name="update-support-profile"></a>Mettre à jour le profil de prise en charge
 
@@ -28,7 +28,7 @@ Met à jour le profil de support d’un utilisateur.
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour votre profil de prise en charge, commencez par [obtenir votre profil de prise en charge](get-support-profile.md) et apportez les modifications désirées. Utilisez ensuite votre collection [**collection ipartneroperations. Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) . Appelez la propriété [**SupportProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) , suivie par la méthode [**Update ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update) ou [**UpdateAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync) .
+Pour mettre à jour votre profil de prise en charge, commencez par [obtenir votre profil de prise en charge](get-support-profile.md) et apportez les modifications désirées. Utilisez ensuite votre collection [**collection ipartneroperations. Profiles**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Profiles). Appelez la propriété [**SupportProfile**/dotnet/API/Microsoft.Store.partnercenter.Profiles.isupportprofile), suivie de la méthode [**Update ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.isupportprofile.Update) ou [**UpdateAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.isupportprofile.UpdateAsync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

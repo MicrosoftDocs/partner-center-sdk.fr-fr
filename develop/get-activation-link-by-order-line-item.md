@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 110710650c758c9d38234566cd2c89a4b7f93a3e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c0e84888870571cf6bd21306f527863f2aa7ee85
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097880"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927233"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>Obtenir un lien d’activation par élément de ligne de commande
 
@@ -34,7 +34,7 @@ Dans le tableau de bord de l’espace partenaires, vous pouvez effectuer cette o
 
 ## <a name="c"></a>C\#
 
-Pour obtenir le lien d’activation d’un élément de ligne, utilisez votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client sélectionné. Appelez ensuite la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) et la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) avec le [**OrderID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)spécifié. Ensuite, appelez la méthode [**LineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) avec **méthode BYID ()** avec l’identificateur de numéro d’élément de ligne.  Enfin, appelez la méthode **ActivationLinks ()** .
+Pour obtenir le lien d’activation d’un élément de ligne, utilisez votre collection [**collection iaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client sélectionné. Appelez ensuite la propriété [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) et la méthode [**méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) avec le  [**OrderID**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)spécifié. Ensuite, appelez la méthode [**LineItem**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) avec **méthode BYID ()** avec l’identificateur de numéro d’élément de ligne.  Enfin, appelez la méthode **ActivationLinks ()** .
 
 ```csharp
 // IAggregatePartner partnerOperations;

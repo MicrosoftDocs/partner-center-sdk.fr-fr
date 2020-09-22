@@ -4,12 +4,12 @@ description: Comment supprimer une stratégie de configuration pour un client et
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c1a6a5d8a16eafb19dd84bc132c8a9d4caf3f852
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 586878367fc0873ef0fb1415799b2b7022954053
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094201"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927838"
 ---
 # <a name="delete-a-configuration-policy-for-the-specified-customer"></a>Supprimer une stratégie de configuration pour le client spécifié
 
@@ -32,11 +32,11 @@ Comment supprimer une stratégie de configuration pour un client et un identific
 
 Pour supprimer une stratégie de configuration pour un client spécifique :
 
-1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
 
-2. Appelez la méthode [**ConfigurationPolicies. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) avec l’ID de stratégie pour récupérer une interface pour les opérations de stratégie de configuration pour la stratégie spécifiée.
+2. Appelez la méthode [**ConfigurationPolicies. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) avec l’ID de stratégie pour récupérer une interface pour les opérations de stratégie de configuration pour la stratégie spécifiée.
 
-3. Appelez la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete) ou [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync) pour supprimer la stratégie de configuration.
+3. Appelez la méthode [**Delete**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.delete) ou [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.deleteasync) pour supprimer la stratégie de configuration.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -56,7 +56,7 @@ partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(
 |------------|------------------------------------------------------------------------------------------------------|
 | **DELETE** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Policies/{Policy-ID} http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 

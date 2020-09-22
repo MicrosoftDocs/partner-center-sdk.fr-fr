@@ -4,12 +4,12 @@ description: Décrit les ressources associées au droit.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d9dbba36fb8db8d040bd61d53483c56467987691
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 428ac6f8b4d67894092119a6246279045a04dac0
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094004"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927303"
 ---
 # <a name="entitlement-resources"></a>Ressources de droits
 
@@ -52,7 +52,7 @@ Représente les détails d’une quantité de droit.
 
 | Propriété | Type | Description |
 |----------|------|-------------|
-| quantité | int | Nombre d’éléments. |
+| quantité | int | Nombre d'éléments. |
 | status | string | État de la quantité. |
 
 ## <a name="entitlementtype"></a>EntitlementType
@@ -60,7 +60,7 @@ Représente les détails d’une quantité de droit.
 > [!IMPORTANT]
 > Déconseillé dans le kit de développement logiciel (SDK) v 1.9
 
-[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent le type de droit.
+[Énumération](/dotnet/api/system.enum) avec des valeurs qui indiquent le type de droit.
 
 | Valeur | Description |
 |-------|-------------|
@@ -81,7 +81,7 @@ Artefact associé au droit.
 > [!IMPORTANT]
 > Déconseillé dans le kit de développement logiciel (SDK) v 1.9
 
-[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent le type d’artefact d’habilitation.
+[Énumération](/dotnet/api/system.enum) avec des valeurs qui indiquent le type d’artefact d’habilitation.
 
 | Valeur                          | Description                                                                             |
 |--------------------------------| ----------------------------------------------------------------------------------------|

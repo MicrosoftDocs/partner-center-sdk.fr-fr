@@ -4,12 +4,12 @@ description: Comment récupérer la stratégie de configuration spécifiée pour
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 39d78dca2186a9839f3b62facadf852444c5774b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5272457b70d3e8c86139713182d29cd68ef61444
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926465"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>Récupérer la stratégie de configuration d’un client
 
@@ -30,7 +30,7 @@ Comment récupérer la stratégie de configuration spécifiée pour le client sp
 
 ## <a name="c"></a>C\#
 
-Pour récupérer une stratégie de configuration pour le client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**ConfigurationPolicies. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) avec l’ID de stratégie pour récupérer une interface pour les opérations de stratégie de configuration pour la stratégie spécifiée. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.getasync) pour [**récupérer la stratégie**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.get) de configuration.
+Pour récupérer une stratégie de configuration pour le client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**ConfigurationPolicies. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.iconfigurationpolicycollection.BYID) avec l’ID de stratégie pour récupérer une interface pour les opérations de stratégie de configuration pour la stratégie spécifiée. Enfin, appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.iconfigurationpolicy.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.iconfigurationpolicy.getasync) pour récupérer la stratégie de configuration.
 
 ``` csharp
 IAggregatePartner partnerOperations;

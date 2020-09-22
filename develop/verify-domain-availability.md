@@ -4,12 +4,12 @@ description: Comment déterminer si un domaine peut être utilisé.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f0ae17a7f929e74a32647c616bb35bc20ed9bcc3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3f2e3d551da30c7b9c25e1fc3f3280a425aff8f8
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093496"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925585"
 ---
 # <a name="verify-domain-availability"></a>Vérifier la disponibilité du domaine
 
@@ -30,7 +30,7 @@ Comment déterminer si un domaine peut être utilisé.
 
 ## <a name="c"></a>C\#
 
-Pour vérifier si un domaine est disponible, appelez d’abord [**collection iaggregatepartner. Domains**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.domains) pour obtenir une interface pour les opérations de domaine. Appelez ensuite la méthode [**ByDomain**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) avec le domaine à vérifier. Cette méthode récupère une interface pour les opérations disponibles pour un domaine spécifique. Enfin, appelez la méthode [**Exists**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) pour voir si le domaine existe déjà.
+Pour vérifier si un domaine est disponible, commencez par appeler [**collection iaggregatepartner. Domains**/dotnet/API/Microsoft.Store.partnercenter.ipartner.domains) pour obtenir une interface pour les opérations de domaine. Appelez ensuite la méthode [**ByDomain**/dotnet/API/Microsoft.Store.partnercenter.Domains.idomaincollection.bydomain) avec le domaine à vérifier. Cette méthode récupère une interface pour les opérations disponibles pour un domaine spécifique. Enfin, appelez la méthode [**Exists**/dotnet/API/Microsoft.Store.partnercenter.Domains.idomain.Exists) pour voir si le domaine existe déjà.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

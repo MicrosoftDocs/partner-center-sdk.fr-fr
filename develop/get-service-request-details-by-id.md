@@ -4,12 +4,12 @@ description: Comment récupérer les détails d’une demande de service client 
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93fd56931913d674591735d3da6f60a3b9b15607
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: cb02b051ef8cddd16a4574c49848caf96a43fb54
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097628"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926943"
 ---
 # <a name="get-service-request-details-by-id"></a>Obtenir les détails de la demande de service par ID
 
@@ -29,7 +29,7 @@ Comment récupérer les détails d’une demande de service client existante à 
 
 ## <a name="c"></a>C\#
 
-Pour récupérer les détails d’une demande de service client existante, appelez la méthode [**IServiceRequestCollection. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) , puis transmettez un [**ServiceRequest.ID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) pour identifier et retourner une interface à l’objet [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) spécifique.
+Pour récupérer les détails d’une demande de service client existante, appelez la méthode [**IServiceRequestCollection. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.servicerequests.iservicerequestcollection.BYID) et transmettez une [**ServiceRequest.Id**/dotnet/API/Microsoft.Store.partnercenter.Models.servicerequests.ServiceRequest.ID # Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) pour identifier et retourner une interface à l’objet [**ServiceRequest**/dotnet/API/Microsoft.Store.partnercenter.Models.servicerequests.ServiceRequest) spécifique.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

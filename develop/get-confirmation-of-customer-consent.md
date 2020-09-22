@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 aauthor: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d2a6b6d10d07abf8c3565fa568691a44691170e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 944f89df0d0f46512a769903d5086d9e45b74ad2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096972"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927115"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Obtenir une confirmation de l’acceptation du contrat Microsoft Cloud par le client
 
@@ -93,7 +93,7 @@ Un exemple complet est disponible dans la classe [GetCustomerAgreements](https:/
 
 Pour récupérer la confirmation de l’acceptation du client fournie précédemment :
 
-Utilisez la commande [**PartnerCustomerAgreement**](https://docs.microsoft.com/powershell/module/partnercenter/get-partnercustomeragreement) .
+Utilisez la commande [**PartnerCustomerAgreement**/PowerShell/module/partnercenter/Get-partnercustomeragreement).
 
 ```powershell
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'

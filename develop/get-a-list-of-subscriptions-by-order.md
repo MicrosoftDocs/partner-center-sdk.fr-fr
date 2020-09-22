@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 45e855d53ca93cd109383e2413879b30c9416aff
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b7fb7e101319fc2bc83425ff77f2f8ae9c9585d8
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097310"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927630"
 ---
 # <a name="get-a-list-of-subscriptions-by-order"></a>Obtenir une liste d’abonnements par commande
 
@@ -34,7 +34,7 @@ Obtient une collection de ressources d' [abonnement](subscription-resources.md) 
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la liste des abonnements par commande, utilisez votre collection **IAggregatePartner.Customers** et appelez la méthode **ById()**. Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode **ByOrder ()** . Terminez en appelant la [**GetAsync (**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) [**)**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) .
+Pour obtenir la liste des abonnements par commande, utilisez votre collection **IAggregatePartner.Customers** et appelez la méthode **ById()**. Appelez ensuite la propriété [**Subscriptions**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscriptions), suivie de la méthode **ByOrder ()** . Terminez en appelant [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: 5ad255dadb499fb6c311bb3a2e9d76892611a91b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d84a3d3c69d835e42565c4e6f1edb06ab338340a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097171"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927268"
 ---
 # <a name="get-a-partners-validation-codes"></a>Obtenir les codes de validation d’un partenaire
 
@@ -21,7 +21,7 @@ ms.locfileid: "86097171"
 
 Comment obtenir une collection de codes de validation Cloud de la communauté gouvernementale d’un partenaire. Un code de validation est nécessaire pour créer un client dans le Cloud de la communauté gouvernementale.
 
-Si vous souhaitez que votre organisation ou l’organisation de vos clients soit approuvée pour Office 365 Government GCC pour CSP, consultez [office 365 Government GCC pour le partenaire CSP et les critères d’éligibilité du client](https://docs.microsoft.com/partner-center/csp-gcc-validate).
+Si vous souhaitez que votre organisation ou l’organisation de vos clients soit approuvée pour Office 365 Government GCC pour CSP, consultez [Office 365 Government GCC for CSP Partner and client éligibilité Criterite/Partner-Center/CSP-GCC-Validate].
 
 ## <a name="prerequisites"></a>Prérequis
 

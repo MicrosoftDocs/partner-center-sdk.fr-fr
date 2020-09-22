@@ -4,12 +4,12 @@ description: Vous pouvez obtenir des détails sur une collection d’éléments 
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 77f1c7cda97d5511c87933449586a52b17c93e97
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f5f6f07ac58a9771f7c49bd00f681a1b06540ebc
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096877"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927552"
 ---
 # <a name="get-invoice-line-items"></a>Obtenir les éléments de ligne de facture
 
@@ -38,18 +38,18 @@ Cette API prend également en charge les types de **fournisseurs** **Azure** et 
 
 Pour obtenir les lignes de la facture spécifiée :
 
-1. Appelez la méthode [**méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
+1. Appelez la méthode [**méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoicecollection.BYID) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
 
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour récupérer l’objet [**de la facture**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) . L’objet Invoice contient toutes les informations relatives à la facture spécifiée.
-3. Utilisez la propriété [**InvoiceDetails**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails) de l’objet de facture pour obtenir l’accès à une collection d’objets [**InvoiceDetail**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail) , chacun contenant un [**BillingProvider**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider) et un [**InvoiceLineItemType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype). Le **BillingProvider** identifie la source des informations détaillées sur la facture (par exemple, **Office**, **Azure**, **OneTime**) et le **InvoiceLineItemType** spécifie le type (par exemple, **BillingLineItem**).
+2. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.getasync) pour récupérer l’objet de la facture. L’objet Invoice contient toutes les informations relatives à la facture spécifiée.
+3. Utilisez la propriété [**InvoiceDetails**/dotnet/API/Microsoft.Store.partnercenter.Models.Invoices.Invoice.InvoiceDetails) de l’objet de facture pour obtenir l’accès à une collection d’objets [**InvoiceDetail**/dotnet/API/Microsoft.Store.partnercenter.Models.Invoices.InvoiceDetail), chacun contenant un [**BillingProvider**/dotnet/API/Microsoft.Store.partnercenter.Models.Invoices.InvoiceDetail.billingprovider) et un [**InvoiceLineItemType**/dotnet/API/Microsoft.Store.partnercenter.Models.Invoices.InvoiceDetail.invoicelineitemtype). Le **BillingProvider** identifie la source des informations détaillées sur la facture (par exemple, **Office**, **Azure**, **OneTime**) et le **InvoiceLineItemType** spécifie le type (par exemple, **BillingLineItem**).
 
 L’exemple de code suivant utilise une boucle **foreach** pour traiter la collection **InvoiceDetails** . Une collection distincte d’éléments de ligne est récupérée pour chaque instance de **InvoiceDetail** .
 
 Pour obtenir une collection d’éléments de ligne qui correspondent à une instance **InvoiceDetail** :
 
-1. Transmettez le **BillingProvider** et le **InvoiceLineItemType** de l’instance à la méthode [**par**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
+1. Transmettez les **BillingProvider** et **InvoiceLineItemType** de l’instance à la méthode [**by**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.by).
 
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync) pour [**récupérer les éléments**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get) de ligne associés.
+2. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoicelineitemcollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoicelineitemcollection.getasync) pour récupérer les éléments de ligne associés.
 3. Créez un énumérateur pour parcourir la collection comme indiqué dans l’exemple suivant.
 
 ``` csharp
@@ -151,7 +151,7 @@ Vous devez utiliser **OneTime** pour interroger tous les Articles de la consomma
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/{Billing-Provider}/{Invoice-line-item-type} ? Size = {size} &offset = {offset} http/1.1  | Pour les factures volumineuses, vous pouvez utiliser cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
 | GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems/OneTime/{Invoice-line-item-type} ? SeekOperation = suivant                               | Vous pouvez utiliser cette syntaxe pour une facture avec une valeur de fournisseur de facturation de **OneTime** et définir **seekOperation** sur **Next** pour obtenir la page suivante d’éléments de ligne de facture. |
 
-##### <a name="uri-parameters"></a>Paramètres d’URI
+##### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
@@ -162,8 +162,8 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | invoice-line-item-type | string | Oui      | Type de détail de la facture : « BillingLineItems », « UsageLineItems ». |
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. Taille maximale par défaut = 2000    |
 | offset                 | nombre | Non       | Index de base zéro du premier élément de ligne à retourner.            |
-| seekOperation          | string | No       | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
-| hasPartnerEarnedCredit | bool | No | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
+| seekOperation          | string | Non       | Si le **fournisseur de facturation** est égal à **OneTime**, définissez **seekOperation** sur **suivant** pour afficher la page suivante d’éléments de ligne de facture. |
+| hasPartnerEarnedCredit | bool | Non | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur de facturation est OneTime et InvoiceLineItemType est UsageLineItems. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

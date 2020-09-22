@@ -4,12 +4,12 @@ description: Conversion d’un abonnement d’évaluation en un abonnement payan
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ac7b6c20c71e8af0e5cbd796aa4466056d780ce9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c1421c0dbb294d8d99d9b32ec9c81888aa14254d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096356"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927362"
 ---
 # <a name="convert-a-trial-subscription-to-paid"></a>Convertir un abonnement d’essai en abonnement payant
 
@@ -33,7 +33,7 @@ Vous pouvez convertir un abonnement d’évaluation en payant.
 
 Pour convertir un abonnement d’évaluation en un abonnement payant, vous devez d’abord obtenir un regroupement des conversions d’essai disponibles. Ensuite, vous devez choisir l’offre de conversion que vous souhaitez acheter.
 
-Les offres de conversion spécifient une quantité qui utilise par défaut le même nombre de licences que l’abonnement d’évaluation. Vous pouvez modifier cette quantité en affectant à la propriété [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) le nombre de licences que vous souhaitez acheter.
+Les offres de conversion spécifient une quantité qui utilise par défaut le même nombre de licences que l’abonnement d’évaluation. Vous pouvez modifier cette quantité en affectant à la propriété [**Quantity**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) le nombre de licences que vous souhaitez acheter.
 
 > [!NOTE]
 > Quel que soit le nombre de licences achetées, l’ID d’abonnement de l’essai est réutilisé pour les licences achetées. En conséquence, l’essai en vigueur disparaît et est remplacé par l’achat.
@@ -64,7 +64,7 @@ Procédez comme suit pour convertir un abonnement d’évaluation par le biais d
     selectedConversion.Quantity = 10;
     ```
 
-5. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour convertir l’abonnement d’évaluation en payant.
+5. Appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour convertir l’abonnement d’évaluation en payant.
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
@@ -74,15 +74,15 @@ Procédez comme suit pour convertir un abonnement d’évaluation par le biais d
 
 Pour convertir un abonnement d’évaluation en un abonnement payant :
 
-1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
 
-2. Procurez-vous une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement d’évaluation. Enregistrer une référence à l’interface des opérations d’abonnement dans une variable locale.
+2. Procurez-vous une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement d’évaluation. Enregistrer une référence à l’interface des opérations d’abonnement dans une variable locale.
 
-3. Utilisez la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions, puis [**appelez la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) pour récupérer une collection d’offres de [**conversion**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) disponibles. Vous devez en choisir un. L’exemple suivant est la première conversion disponible par défaut.
+3. Utilisez la propriété [**conversions**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions, puis [**appelez la méthode**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) pour récupérer une collection d’offres de [**conversion**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) disponibles. Vous devez en choisir un. L’exemple suivant est la première conversion disponible par défaut.
 
-4. Utilisez la référence à l’interface d’opérations d’abonnement que vous avez enregistrée dans une variable locale et la propriété [**conversions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions.
+4. Utilisez la référence à l’interface d’opérations d’abonnement que vous avez enregistrée dans une variable locale et la propriété [**conversions**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) pour obtenir une interface pour les opérations disponibles sur les conversions.
 
-5. Transmettez l’objet de l’offre de conversion sélectionné à la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour tenter la conversion de l’essai.
+5. Transmettez l’objet de l’offre de conversion sélectionné à la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) pour tenter la conversion de l’essai.
 
 ### <a name="c-example"></a>\#Exemple C
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: d41ff767699b55be7bdf92a073263042c7c073dd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2fc6436f253d2611e2ff8287a5d403b62ccbddf2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095657"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925615"
 ---
 # <a name="update-a-customers-billing-profile"></a>Mettre à jour le profil de facturation d’un client
 
@@ -32,7 +32,7 @@ Met à jour le profil de facturation d’un client, y compris l’adresse associ
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour le profil de facturation d’un client, récupérez le profil de facturation et mettez à jour les propriétés en fonction des besoins. Ensuite, récupérez votre collection [**collection ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) , puis appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) , suivie de la propriété [**Billing**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing) . Ensuite, terminez en appelant les méthodes [**Update ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.update) ou [**UpdateAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofile-1.updateasync) .
+Pour mettre à jour le profil de facturation d’un client, récupérez le profil de facturation et mettez à jour les propriétés en fonction des besoins. Ensuite, récupérez votre collection [**collection ipartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers), puis appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID). Appelez ensuite la propriété [**Profiles**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.Profiles), suivie de la propriété [**facturation**/dotnet/API/Microsoft.Store.partnercenter.Customers.Profiles.icustomerprofilecollection.Billing). Ensuite, terminez en appelant les méthodes [**Update ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.Profiles.icustomerprofile-1.Update) ou [**UpdateAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.Profiles.icustomerprofile-1.UpdateAsync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

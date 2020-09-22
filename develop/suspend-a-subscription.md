@@ -4,12 +4,12 @@ description: Interrompt une ressource d’abonnement qui correspond au client et
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4f37fcc51c3740d0354c2ecab6efd046fb1415d9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 69dd96aadc36e735575db93f2aa42abb50a2cc81
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095775"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925801"
 ---
 # <a name="suspend-a-subscription"></a>Suspendre un abonnement
 
@@ -34,7 +34,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="c"></a>C\#
 
-Pour suspendre l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**État**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) de l’abonnement. Pour plus d’informations sur les codes d' **État** , consultez l' [énumération SubscriptionStatus](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus). Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
+Pour suspendre l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Status**/dotnet/API/Microsoft.Store.partnercenter.Models.subscriptions.Subscription.Status) de l’abonnement. Pour plus d’informations sur les codes d' **État** , consultez [SubscriptionStatus Enumeration/dotnet/API/Microsoft. Store. partnercenter. Models. subscriptions. SubscriptionStatus). Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscriptions), suivie de la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.BYID). Ensuite, terminez en appelant la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;

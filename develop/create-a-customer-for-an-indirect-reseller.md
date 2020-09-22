@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: b11a952be19819a6c5acce17287c10a2e01e2421
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e3366f60aea9262b3d6532aded5c595b91eb9cb5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096250"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927857"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller"></a>Créer un client pour un revendeur indirect
 
@@ -33,11 +33,11 @@ Un fournisseur indirect peut créer un client pour un revendeur indirect.
 
 Pour ajouter un nouveau client pour un revendeur indirect :
 
-1. Instanciez un nouvel objet [**Customer**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer) , puis instanciez et remplissez [**BillingProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) et [**CompanyProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile). Veillez à attribuer l’ID de revendeur indirect à la propriété [**AssociatedPartnerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) .
+1. Instanciez un nouvel objet [**Customer**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) , puis instanciez et remplissez [**BillingProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) et [**CompanyProfile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile). Veillez à attribuer l’ID de revendeur indirect à la propriété [**AssociatedPartnerID**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer.associatedpartnerid) .
 
-2. Utilisez la propriété [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour accéder à une interface pour les opérations de collection client.
+2. Utilisez la propriété [**collection iaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour accéder à une interface pour les opérations de collection client.
 
-3. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) pour créer le client.
+3. Appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) pour créer le client.
 
 ### <a name="c-example"></a>\#Exemple C
 
@@ -99,7 +99,7 @@ Ce tableau décrit les propriétés requises dans le corps de la demande.
 |-----------------------------------------------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [BillingProfile](#billing-profile)             | object | Oui      | Les informations du profil de facturation du client.                                                                                                                                                                                                                                                                                                           |
 | [CompanyProfile](#company-profile)             | object | Oui      | Les informations du profil de l’entreprise du client.                                                                                                                                                                                                                                                                                                           |
-| [AssociatedPartnerId](customer-resources.md#customer) | string | Yes      | ID du revendeur indirect. Le revendeur indirect comme indiqué par l’ID fourni ici doit avoir un partenariat avec le fournisseur indirect, sinon la demande échoue. Notez également que si la valeur AssociatedPartnerId n’est pas fournie, le client est créé en tant que client direct du fournisseur indirect plutôt qu’en tant que revendeur indirect. |
+| [AssociatedPartnerId](customer-resources.md#customer) | string | Oui      | ID du revendeur indirect. Le revendeur indirect comme indiqué par l’ID fourni ici doit avoir un partenariat avec le fournisseur indirect, sinon la demande échoue. Notez également que si la valeur AssociatedPartnerId n’est pas fournie, le client est créé en tant que client direct du fournisseur indirect plutôt qu’en tant que revendeur indirect. |
 
 #### <a name="billing-profile"></a>Profil de facturation
 
@@ -107,11 +107,11 @@ Ce tableau décrit les champs obligatoires minimaux de la ressource [CustomerBil
 
 | Nom             | Type                                     | Obligatoire | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| email            | string                                   | Yes      | Adresse e-mail du client.                                                                                                                                                                                   |
-| culture          | string                                   | Yes      | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
-| langage         | string                                   | Yes      | Langue par défaut. Deux codes de langue de caractères (par exemple `en` ou `fr` ) sont pris en charge.                                                                                                                                |
-| nom de la société \_    | string                                   | Yes      | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
-| adresse par défaut \_ | [Adresse](utility-resources.md#address) | Yes      | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
+| email            | string                                   | Oui      | Adresse e-mail du client.                                                                                                                                                                                   |
+| culture          | string                                   | Oui      | La culture par défaut pour la communication et la monnaie, par exemple « en-US ». Consultez [prise en charge des langues et paramètres régionaux pris en charge par l’espace partenaires](partner-center-supported-languages-and-locales.md) pour les cultures prises en charge. |
+| langage         | string                                   | Oui      | Langue par défaut. Deux codes de langue de caractères (par exemple `en` ou `fr` ) sont pris en charge.                                                                                                                                |
+| nom de la société \_    | string                                   | Oui      | Nom de la société ou de l’Organisation inscrite.                                                                                                                                                                       |
+| adresse par défaut \_ | [Adresse](utility-resources.md#address) | Oui      | Adresse inscrite de l’entreprise ou de l’entreprise du client. Pour plus d’informations sur les limitations de longueur, consultez la ressource [Address](utility-resources.md#address) .                                             |
 
 #### <a name="company-profile"></a>Profil de l’entreprise
 

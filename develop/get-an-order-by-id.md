@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 3b98e9a462c7bcbdc20823ba7d6e1a249d6f8c14
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8911adba28836aa378260d8b61e2b6e23eabc096
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927137"
 ---
 # <a name="get-an-order-by-id"></a>Obtenir une commande par ID
 
@@ -38,8 +38,8 @@ Pour obtenir l’ID de commande d’un client :
 
 1. Utilisez votre collection **IAggregatePartner.Customers** et appelez la méthode **ById()**.
 
-2. Appelez la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) une fois de plus.
-3. Appelez la demande d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.get) ou [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iorder.getasync).
+2. Appelez la propriété [**Orders**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.Orders), suivie de la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iordercollection.BYID) une fois de plus.
+3. Appelez [**obtient ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iOrder.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iOrder.getasync).
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -91,7 +91,7 @@ Get-PartnerCustomerOrder -CustomerId $selectedCustomerId -OrderId $selectedOrder
 |---------|--------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders/{ID-for-order} http/1.1  |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir une commande par ID.
 

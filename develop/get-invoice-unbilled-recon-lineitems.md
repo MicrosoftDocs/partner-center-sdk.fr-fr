@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 6101ddd6ead66c78531273af959d53d37c71f678
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7fdd158877f291d663c210aea14385b8b1bd5015
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093628"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927564"
 ---
 # <a name="get-invoices-unbilled-reconciliation-line-items"></a>Récupérer les éléments de ligne de rapprochement non facturés de la facture
 
@@ -34,9 +34,9 @@ Vous pouvez utiliser les méthodes suivantes pour obtenir une collection de dét
 
 Pour obtenir les éléments de ligne de la facture spécifiée, récupérez l’objet de facture :
 
-1. Appelez la méthode [**méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
+1. Appelez la méthode [**méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoicecollection.BYID) pour obtenir une interface permettant de facturer les opérations pour la facture spécifiée.
 
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour récupérer l’objet [**de la facture**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) .
+2. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.getasync) pour récupérer l’objet de la facture.
 
 L’objet Invoice contient toutes les informations relatives à la facture spécifiée :
 
@@ -46,9 +46,9 @@ L’objet Invoice contient toutes les informations relatives à la facture spéc
 
 Pour obtenir une collection d’éléments de ligne qui correspondent à une instance **InvoiceDetail** :
 
-1. Transmettez le BillingProvider et le InvoiceLineItemType de l’instance à la méthode [**par**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) .
+1. Transmettez les BillingProvider et InvoiceLineItemType de l’instance à la méthode [**by**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.by).
 
-2. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) pour [**récupérer les éléments**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) de ligne associés.
+2. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Invoices.iinvoice.getasync) pour récupérer les éléments de ligne associés.
 
 3. Créez un énumérateur pour parcourir la collection. Pour obtenir un exemple, consultez l’exemple de code suivant.
 
@@ -128,7 +128,7 @@ Vous pouvez utiliser les syntaxes suivantes pour votre demande REST, en fonction
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = billinglineitems&CurrencyCode = {currencycode} &période = {period} &Size = {Size} http/1.1  | Pour les factures volumineuses, utilisez cette syntaxe avec une taille spécifiée et un décalage de base 0 pour retourner une liste paginée d’éléments de ligne. |
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices/{Invoice-ID}/LineItems ? Provider = OneTime&invoicelineitemtype = billinglineitems&CurrencyCode = {currencycode} &période = {period} &Size = {size} &SeekOperation = Next                               | Utilisez cette syntaxe pour accéder à la page suivante des éléments de ligne de rapprochement à l’aide de `seekOperation = "Next"` . |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez l’URI et les paramètres de requête suivants lors de la création de la demande.
 
@@ -137,11 +137,11 @@ Utilisez l’URI et les paramètres de requête suivants lors de la création de
 | ID de la facture             | string | Oui      | Chaîne qui identifie la facture. Utilisez « non facturé » pour recevoir des estimations non facturées. |
 | provider               | string | Oui      | Le fournisseur : « OneTime ».                                                |
 | invoice-line-item-type | string | Oui      | Type de détail de la facture : « BillingLineItems ».               |
-| hasPartnerEarnedCredit | bool   | No       | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur est OneTime et InvoiceLineItemType est UsageLineItems.
+| hasPartnerEarnedCredit | bool   | Non       | Valeur indiquant s’il faut retourner les lignes pour lesquelles un crédit gagné est appliqué. Remarque : ce paramètre est appliqué uniquement lorsque le type de fournisseur est OneTime et InvoiceLineItemType est UsageLineItems.
 | currencyCode           | string | Oui      | Code de la devise pour les éléments de ligne non facturés.                                  |
 | heures                 | string | Oui      | Période pour la conciliation non facturée. exemple : actuel, précédent.                      |
 | taille                   | nombre | Non       | Nombre maximal d’éléments à retourner. La taille par défaut est 2000                     |
-| seekOperation          | string | No       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement.                |
+| seekOperation          | string | Non       | Définissez seekOperation = Next pour afficher la page suivante des éléments de ligne de rapprochement.                |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

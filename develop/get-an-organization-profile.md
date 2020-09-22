@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: d0d4caed36b1ab58fdb40d32a7ccb159e3895207
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d5b372795b8e3ccda7443ce35076d2b70cbd74f2
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097053"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927118"
 ---
 # <a name="get-an-organization-profile"></a>Obtenir un profil d’organisation
 
@@ -30,7 +30,7 @@ Obtient un objet représentant le profil d’organisation du partenaire.
 
 ## <a name="c"></a>C\#
 
-Pour accéder au profil de votre organisation, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **OrganizationProfile** . Enfin, appelez les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.iorganizationprofile.getasync) .
+Pour accéder au profil de votre organisation, utilisez votre collection **collection iaggregatepartner. Profiles** et appelez la propriété **OrganizationProfile** . Enfin, appelez les méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.iorganizationprofile.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.iorganizationprofile.getasync).
 
 ```csharp
 // IAggregatePartner partnerOperations;

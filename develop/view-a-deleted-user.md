@@ -4,12 +4,12 @@ description: Obtient une liste de ressources CustomerUser supprimées pour un cl
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 849245b45c4cb763fb4da629caeb661c3f530fa7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dd7b573cca5810195d840fcb729850f981e55a51
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925543"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Afficher les utilisateurs supprimés d’un client
 
@@ -31,7 +31,7 @@ Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur e
 
 ## <a name="c"></a>C\#
 
-Pour récupérer une liste d’utilisateurs supprimés, construisez une requête qui filtre les utilisateurs dont l’État est défini sur inactif. Tout d’abord, créez le filtre en instanciant un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) avec les paramètres, comme indiqué dans l’extrait de code suivant. Ensuite, créez la requête à l’aide de la méthode [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) . Si vous ne souhaitez pas obtenir de résultats paginés, vous pouvez utiliser la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) à la place. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Enfin, appelez la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) pour envoyer la demande.
+Pour récupérer une liste d’utilisateurs supprimés, construisez une requête qui filtre les utilisateurs dont l’État est défini sur inactif. Tout d’abord, créez le filtre en instanciant un objet [**SimpleFieldFilter**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.simplefieldfilter) avec les paramètres, comme indiqué dans l’extrait de code suivant. Ensuite, créez la requête à l’aide de la méthode [**BuildIndexedQuery**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory.buildindexedquery). Si vous ne souhaitez pas obtenir de résultats paginés, vous pouvez utiliser la méthode [**BuildSimpleQuery**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory.buildsimplequery) à la place. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Enfin, appelez la méthode [**query**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.Query) pour envoyer la demande.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -63,9 +63,9 @@ Utilisez le chemin d’accès et les paramètres de requête suivants lors de la
 
 | Nom        | Type   | Obligatoire | Description                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| customer-id | guid   | Yes      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
-| taille        | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est facultatif.                                                                                                     |
-| Filter      | Filter | Yes      | La requête qui filtre la recherche de l’utilisateur. Pour récupérer des utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
+| customer-id | guid   | Oui      | La valeur est un ID client au format GUID qui identifie le client.                                                                                                            |
+| taille        | int    | Non       | Nombre de résultats à afficher en même temps. Ce paramètre est optionnel.                                                                                                     |
+| Filter      | Filter | Oui      | La requête qui filtre la recherche de l’utilisateur. Pour récupérer des utilisateurs supprimés, vous devez inclure et encoder la chaîne suivante : {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

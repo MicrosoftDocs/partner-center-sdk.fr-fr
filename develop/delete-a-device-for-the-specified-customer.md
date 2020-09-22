@@ -4,12 +4,12 @@ description: Comment supprimer un appareil qui appartient à un client spécifi�
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2e1727b36f7775f59c191172c5514f0accbf3091
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 69b5440f2cf07d3cb4ecd5addf429acd64530257
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094168"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927824"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>Supprimer un appareil pour le client spécifié
 
@@ -34,13 +34,13 @@ Cet article explique comment supprimer un appareil qui appartient à un client s
 
 Pour supprimer un appareil pour le client spécifié :
 
-1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client.
+1. Appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client.
 
-2. Appelez la méthode [**DeviceBatches. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) avec l’identificateur de lot de l’appareil pour obtenir une interface pour les opérations du lot spécifié.
+2. Appelez la méthode [**DeviceBatches. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) avec l’identificateur de lot de l’appareil pour obtenir une interface pour les opérations du lot spécifié.
 
-3. Appelez la méthode [**Devices. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) pour faire en sorte qu’une interface fonctionne sur l’appareil spécifié.
+3. Appelez la méthode [**Devices. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.byid) pour faire en sorte qu’une interface fonctionne sur l’appareil spécifié.
 
-4. Appelez la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) ou [**DeleteAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) pour supprimer l’appareil du lot.
+4. Appelez la méthode [**Delete**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.delete) ou [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevice.deleteasync) pour supprimer l’appareil du lot.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -61,7 +61,7 @@ partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selected
 |------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Suppression     | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/deviceBatches/{devicebatch-ID}/Devices/{Device-ID} http/1.1  |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 

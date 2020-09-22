@@ -4,12 +4,12 @@ description: Annulez les commandes des comptes du bac à sable (sandbox) d’int
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4bed678dc5f892dfe81d09daca820f24f177a91a
-ms.sourcegitcommit: 68a5497a7350e135358aeb7f2a54c75707f922c5
+ms.openlocfilehash: 3f9d2788153438b6373744d3f2690d8478800660
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87261908"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927411"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox"></a>Annuler une commande du bac à sable d’intégration
 
@@ -26,7 +26,7 @@ Procédure d’annulation des commandes d’abonnement de l’instance réservé
 >N’oubliez pas que les annulations de l’instance réservée, ou les commandes d’abonnement SaaS de la place de marché commercial, sont possibles uniquement à partir des comptes sandbox d’intégration.  
 
 Pour annuler les ordres de fabrication du logiciel via l’API, utilisez [Cancel-Software-Purchases](cancel-software-purchases.md).
-Vous pouvez également annuler des ordres de fabrication de logiciels via le tableau de bord à l’aide [d’annuler un achat](https://docs.microsoft.com/partner-center/csp-software-subscriptions).
+Vous pouvez également annuler des ordres de fabrication de logiciels via le tableau de bord à l’aide [d’annuler un achat](/partner-center/csp-software-subscriptions).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,9 +36,9 @@ Vous pouvez également annuler des ordres de fabrication de logiciels via le tab
 
 ## <a name="c"></a>C\#
 
-Pour annuler une commande à partir du bac à sable (sandbox) d’intégration, transmettez vos informations d’identification de compte à la [**`CreatePartnerOperations`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) méthode afin d’accéder à une [**`IPartner`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) interface permettant d’effectuer des opérations de partenaire.
+Pour annuler une commande à partir du bac à sable (sandbox) d’intégration, transmettez vos informations d’identification de compte à la [**`CreatePartnerOperations`**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) méthode afin d’accéder à une [**`IPartner`**](/dotnet/api/microsoft.store.partnercenter.ipartner) interface permettant d’effectuer des opérations de partenaire.
 
-Pour sélectionner un [ordre](order-resources.md#order)particulier, utilisez les opérations du partenaire et appelez la [**`Customers.ById()`**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) méthode avec l’identificateur du client pour spécifier le client, suivi de l' **`Orders.ById()`** identificateur de commande pour spécifier la commande et finally **`Get`** ou la **`GetAsync`** méthode pour la récupérer.
+Pour sélectionner un [ordre](order-resources.md#order)particulier, utilisez les opérations du partenaire et appelez la [**`Customers.ById()`**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) méthode avec l’identificateur du client pour spécifier le client, suivi de l' **`Orders.ById()`** identificateur de commande pour spécifier la commande et finally **`Get`** ou la **`GetAsync`** méthode pour la récupérer.
 
 Affectez à la propriété la valeur [**`Order.Status`**](order-resources.md#order) `cancelled` et utilisez la **`Patch()`** méthode pour mettre à jour la commande.
 

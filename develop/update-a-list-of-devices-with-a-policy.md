@@ -4,12 +4,12 @@ description: Comment mettre à jour une liste d’appareils avec une stratégie 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e7a39d25f72fca9b66ee29791c72e3bf50fa74d8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 18ec280995b978a5ac62d3d7288337c1307a6643
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095606"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927582"
 ---
 # <a name="update-a-list-of-devices-with-a-policy"></a>Mettre à jour une liste d’appareils avec une stratégie
 
@@ -32,11 +32,11 @@ Comment mettre à jour une liste d’appareils avec une stratégie de configurat
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour une liste d’appareils avec la stratégie de configuration spécifiée, commencez par instancier une [liste](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) de type [KeyValuePair](https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2)[**(PolicyCategory,**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)String) et ajoutez la stratégie à appliquer, comme indiqué dans l’exemple de code suivant. Vous aurez besoin de l’identificateur de stratégie de la stratégie.
+Pour mettre à jour une liste d’appareils avec la stratégie de configuration spécifiée, commencez par instancier un [list/dotnet/API/System. Collections. Generic. List 1) de type [KeyValuePair/dotnet/API/System. Collections. Generic. KeyValuePair-2) [**(PolicyCategory,**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.PolicyCategory) String) et ajoutez la stratégie à appliquer, comme illustré dans l’exemple de code suivant. Vous aurez besoin de l’identificateur de stratégie de la stratégie.
 
-Ensuite, créez une liste d’objets d' [**appareil**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) à mettre à jour avec la stratégie, en spécifiant l’identificateur de périphérique et la liste qui contient la stratégie à appliquer, pour chaque appareil. Ensuite, instanciez un objet [**DevicePolicyUpdateRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) et définissez la propriété [**Devices**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) sur la liste des objets Device.
+Ensuite, créez une liste d’objets [/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device d'**appareil**) à mettre à jour avec la stratégie, en spécifiant l’identificateur de périphérique et la liste qui contient la stratégie à appliquer pour chaque appareil. Ensuite, instanciez un objet [**DevicePolicyUpdateRequest**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.devicepolicyupdaterequest) et définissez la propriété [**Devices**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.devicebatchcreationrequest.Devices) sur la liste des objets d’appareil.
 
-Pour traiter la demande de mise à jour de la stratégie d’appareil, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, récupérez la propriété [**DevicePolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) pour obtenir une interface pour les opérations de regroupement d’appareils clients. Enfin, appelez la méthode [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) avec l’objet DevicePolicyUpdateRequest pour mettre à jour les appareils avec la stratégie.
+Pour traiter la demande de mise à jour de la stratégie d’appareil, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, récupérez la propriété [**DevicePolicy**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.devicepolicy) pour obtenir une interface pour les opérations de regroupement d’appareils clients. Enfin, appelez la méthode [**Update**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.icustomerdevicecollection.Update) avec l’objet DevicePolicyUpdateRequest pour mettre à jour les appareils avec la stratégie.
 
 ``` csharp
 IAggregatePartner partnerOperations;

@@ -4,12 +4,12 @@ description: Annulez une ressource d’abonnement de la place de marché commerc
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: de7a5ecee0d0f530e4e411c5d7de8ab95ed2a2f7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4ed311ba66dd9d1cf2bcacd45922a80440916f36
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094521"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927422"
 ---
 # <a name="cancel-a-commercial-marketplace-subscription"></a>Annuler un abonnement de la place de marché commerciale
 
@@ -43,11 +43,11 @@ Pour annuler l’abonnement d’un client :
 
 1. [Récupérez l’abonnement par ID](get-a-subscription-by-id.md).
 
-2. Modifiez la propriété [**État**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) de l’abonnement. Pour plus d’informations sur les codes **État**, consultez [Énumération SubscriptionStatus](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
+2. Modifiez la propriété [**État**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) de l’abonnement. Pour plus d’informations sur les codes **État**, consultez [Énumération SubscriptionStatus](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
 
 3. Une fois la modification effectuée, utilisez votre **`IAggregatePartner.Customers`** collection et appelez la méthode **méthode BYID ()** .
 
-4. Appelez la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) .
+4. Appelez la propriété [**Subscriptions**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) .
 
 5. Appelez la méthode **Patch()**.
 

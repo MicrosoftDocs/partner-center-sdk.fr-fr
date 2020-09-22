@@ -4,12 +4,12 @@ description: Comment créer une nouvelle stratégie de configuration pour le cli
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0c95136aa8769560660354d9be815f4f515c3e63
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5fc8770968de17ec298a14154dafadae0e163b0d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097355"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926443"
 ---
 # <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>Créer une stratégie de configuration pour le client spécifié
 
@@ -30,11 +30,11 @@ Comment créer une nouvelle stratégie de configuration pour le client spécifi�
 
 Pour créer une nouvelle stratégie de configuration pour le client spécifié :
 
-1. Instanciez un nouvel objet [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) comme indiqué dans l’extrait de code suivant. Appelez ensuite la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
+1. Instanciez un nouvel objet [**ConfigurationPolicy**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) comme indiqué dans l’extrait de code suivant. Appelez ensuite la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié.
 
-2. Récupérez la propriété [**ConfigurationPolicies**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) pour obtenir une interface pour les opérations de collecte de stratégie de configuration.
+2. Récupérez la propriété [**ConfigurationPolicies**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.configurationpolicies) pour obtenir une interface pour les opérations de collecte de stratégie de configuration.
 
-3. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) pour créer la stratégie de configuration.
+3. Appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) pour créer la stratégie de configuration.
 
 ### <a name="c-example"></a>\#Exemple C
 
@@ -69,7 +69,7 @@ var createdConfigurationPolicy =
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Name        | Type   | Obligatoire | Description                                           |
+| Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
 | customer-id | string | Oui      | Chaîne au format GUID qui identifie le client. |
 
@@ -81,12 +81,12 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Le corps de la demande doit contenir un objet avec les informations de stratégie de configuration, comme décrit dans le tableau suivant :
 
-| Name           | Type             | Obligatoire | Description                      |
+| Nom           | Type             | Obligatoire | Description                      |
 |----------------|------------------|----------|----------------------------------|
 | name           | string           | Oui      | Nom convivial de la stratégie. |
 | catégorie       | string           | Oui      | Catégorie de stratégie.             |
-| description    | string           | No       | Description de la stratégie.          |
-| policySettings | tableau de chaînes | Yes      | Paramètres de stratégie.             |
+| description    | string           | Non       | Description de la stratégie.          |
+| policySettings | tableau de chaînes | Oui      | Paramètres de stratégie.             |
 
 ### <a name="request-example"></a>Exemple de requête
 

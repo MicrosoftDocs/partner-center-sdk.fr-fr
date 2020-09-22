@@ -4,12 +4,12 @@ description: Un partenaire passe une commande lorsqu’un client souhaite achete
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 587333504742a303f7bf02b41b58e45c855d2c2d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9db07337a98214b4aaa93e2c8b43b84702249b77
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094738"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925873"
 ---
 # <a name="order-resources"></a>Commander des ressources
 
@@ -69,7 +69,7 @@ Représente les détails de la durée du terme de renouvellement.
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | No              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
+| termDuration          | string           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
 
 ## <a name="orderlinks"></a>OrderLinks
 
@@ -93,7 +93,7 @@ Représente l’abonnement complet associé à la commande.
 
 ## <a name="orderstatus"></a>OrderStatus
 
-[Enum](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent l’état de la commande.
+[Enum/dotnet/API/System. Enum] avec des valeurs qui indiquent l’état de la commande.
 
 | Valeur              | Position     | Description                                     |
 |--------------------|--------------|-------------------------------------------------|
@@ -118,5 +118,5 @@ Représente l’état d’approvisionnement par quantité.
 
 | Propriété                           | Type                                         | Description                                          |
 |------------------------------------|----------------------------------------------|------------------------------------------------------|
-| quantité                           | int                                          | Nombre d’éléments.                                 |
+| quantité                           | int                                          | Nombre d'éléments.                                 |
 | status                             | string                                       | État du nombre d’éléments.                   |

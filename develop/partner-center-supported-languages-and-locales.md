@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 38dad24ec1a10357bb60467dcdac2816aea89e91
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5f428bf9104fec3e4855706e8786ad3941875f3d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095033"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926888"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>Langues et paramètres régionaux pris en charge dans l’Espace partenaires
 
@@ -24,7 +24,7 @@ ms.locfileid: "86095033"
 
 Certaines API de l’espace partenaires requièrent une valeur indiquant les paramètres régionaux, le pays ou la région. Par exemple, l' [en-tête X de l’en-tête REST de l’espace partenaires](headers.md) requiert une valeur souvent au format « langue-pays » (« en-US » indique « anglais-États-Unis »).
 
-Dans les API gérées par l’espace partenaires, la classe [CountryValidationRules](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.countryvalidationrules.countryvalidationrules) et les propriétés [OfferCategory. locale](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.offercategory.locale), [ServiceRequest. CountryCode](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.countrycode)ou [CustomerBillingProfile. culture](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile.culture) requièrent des valeurs de chaîne qui indiquent une langue ou un pays/région (sous la forme d’un code de langue ISO2 ou d’un code de pays/région ISO3), des paramètres régionaux ou une culture (un ID de langue associé à un pays
+Dans les API gérées par l’espace partenaires, les classes [CountryValidationRules/dotnet/API/Microsoft. Store. partnercenter. Models. CountryValidationRules. CountryValidationRules) et [OfferCategory. locale/dotnet/API/Microsoft. Store. partnercenter. Models. offers. OfferCategory. locale), [ServiceRequest. CountryCode/dotnet/API/Microsoft. Store. partnercenter. Models. servicerequests. CountryCode), ou [CustomerBillingProfile. culture/dotnet/API/Microsoft. Store. partnercenter. Models. Customers. CustomerBillingProfile. culture) requièrent des valeurs de chaîne qui indiquent une langue ou un pays/région (sous la forme d’un code de langue ISO2 ou d’un code de pays/région ISO3), de paramètres régionaux ou de cultures
 
 Le tableau suivant répertorie les cultures et les codes de pays ISO (International Standards Organization) qui sont pris en charge dans les API de l’espace partenaires.
 

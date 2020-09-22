@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 38a784e4a4c295cdce7488bf4bded52a3f79d672
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b87755adb2ff098b27335fd68eddce723a065f46
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097812"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927188"
 ---
 # <a name="get-a-customers-billing-profile"></a>Obtenir le profil de facturation d’un client
 
@@ -34,7 +34,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="c"></a>C\#
 
-Pour obtenir le profil de facturation d’un client, utilisez votre collection [**collection ipartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) , suivie de la propriété [**Billing**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.billing) . Enfin, appelez les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) .
+Pour obtenir le profil de facturation d’un client, utilisez votre collection [**collection ipartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID). Appelez ensuite la propriété [**Profiles**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.Profiles), suivie de la propriété [**facturation**/dotnet/API/Microsoft.Store.partnercenter.Customers.Profiles.icustomerprofilecollection.Billing). Enfin, appelez les méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.Profiles.icustomerreadonlyprofile-1.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.Profiles.icustomerreadonlyprofile-1.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

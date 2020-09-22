@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: feff7ee333914fd578d5cf7024b2417548d58027
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8635fee3fc19887ba9da04da59dee20b57870908
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098156"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927696"
 ---
 # <a name="get-a-list-of-customers"></a>Obtenir la liste des clients
 
@@ -35,9 +35,9 @@ Cet article explique comment obtenir une collection de ressources qui représent
 
 Pour obtenir la liste de tous les clients :
 
-1. Utilisez la collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour créer un objet **collection ipartner** .
+1. Utilisez la collection [**collection iaggregatepartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) pour créer un objet **collection ipartner** .
 
-2. Récupérez la liste des clients à l’aide des méthodes [**query ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) ou [**QueryAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) . (Pour obtenir des instructions sur la création d’une requête, consultez la classe [**QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .)
+2. Récupérez la liste des clients à l’aide des méthodes [**query ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.Query) ou [**QueryAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.QueryAsync). (Pour obtenir des instructions sur la création d’une requête, consultez la classe [**QueryFactory**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory).)
 
 ``` csharp
 // IAggregatePartner partnerOperations;

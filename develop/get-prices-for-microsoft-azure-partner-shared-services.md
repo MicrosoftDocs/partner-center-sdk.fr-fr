@@ -4,12 +4,12 @@ description: Comment obtenir une carte de tarifs Azure avec des prix pour Micros
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 608520b8d0219e423eab35a8001e3d54d9ea7085
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c0cb6efbd8e05c540de13b51c6ac0fd53273c9c7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927051"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Obtenir les prix de Microsoft Azure Partner Shared Services
 
@@ -27,7 +27,7 @@ Les prix varient selon le marché et la devise, et cette API prend en compte l�
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la carte de tarifs Azure, appelez la méthode [**IAzureRateCard. GetShared**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) pour retourner une ressource [**AzureRateCard**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) qui contient les prix Azure.
+Pour obtenir la carte de tarifs Azure, appelez la méthode [**IAzureRateCard. GetShared**/dotnet/API/Microsoft.Store.partnercenter.ratecards.iazureratecard.getshared) pour retourner une ressource [**AzureRateCard**/dotnet/API/Microsoft.Store.partnercenter.Models.ratecards.azureratecard) qui contient les prix Azure.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -65,12 +65,12 @@ Get-PartnerAzureRateCard -SharedServices
 |---------|---------------------------------------------------------------------------|
 | **GET** | *{baseURL}*/v1/ratecards/Azure-Shared ? Currency = {currency} &region = {region} |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 | Nom     | Type   | Obligatoire | Description                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | string | No       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple `EUR` ). La valeur par défaut est la devise associée au marché dans le profil du partenaire. |
-| region   | string | No       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple `FR` ). La valeur par défaut est le code de pays/région défini dans le profil du partenaire.        |
+| currency | string | Non       | Code ISO à trois lettres facultatif pour la devise dans laquelle les taux de ressources seront fournis (par exemple `EUR` ). La valeur par défaut est la devise associée au marché dans le profil du partenaire. |
+| region   | string | Non       | Code de pays/région ISO à deux lettres facultatif qui indique le marché où l’offre est achetée (par exemple `FR` ). La valeur par défaut est le code de pays/région défini dans le profil du partenaire.        |
 
 Si l’en-tête X-locale facultatif est inclus dans la demande, sa valeur détermine la langue utilisée pour les détails dans la réponse.
 

@@ -4,12 +4,12 @@ description: Télécharger une liste d’informations sur les appareils dans un 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 43a40274540ce12e3ebcfbb499786dcbb2b1313c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a3f6522b31d296e10c66cb45b3684eae3e0c25ab
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926435"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>Charger la liste des appareils dans un lot existant pour le client spécifié
 
@@ -32,21 +32,21 @@ Télécharger une liste d’informations sur les appareils dans un lot existant 
 
 ## <a name="c"></a>C\#
 
-Pour télécharger une liste de périphériques sur un lot d’appareils existant, commencez par instancier une nouvelle [liste](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) de type [**Device**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) et remplissez la liste avec les périphériques. Les combinaisons suivantes de propriétés remplies sont requises au minimum pour identifier chaque appareil :
+Pour télécharger une liste de périphériques sur un lot d’appareils existant, vous devez d’abord instancier un nouveau [list/dotnet/API/System. Collections. Generic. List-1) de type [**Device**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device) et remplir la liste avec les périphériques. Les combinaisons suivantes de propriétés remplies sont requises au minimum pour identifier chaque appareil :
 
-- [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey).
+- [**HardwareHash**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.hardwarehash) + [**ProductKey**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.ProductKey).
 
-- [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
+- [**HardwareHash**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.hardwarehash) + [**SerialNumber**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.SerialNumber).
 
-- [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash)  +  [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey)  +  [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber).
+- [**HardwareHash**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.hardwarehash) + [**ProductKey**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.ProductKey) + [**SerialNumber**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.SerialNumber).
 
-- [**HardwareHash**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.hardwarehash) uniquement.
+- [**HardwareHash**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.hardwarehash) uniquement.
 
-- [**ProductKey**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.productkey) uniquement.
+- [**ProductKey**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.ProductKey) uniquement.
 
-- [**SerialNumber**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.serialnumber)  +  [**OemManufacturerName**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.oemmanufacturername)  +  [**Modelname**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device.modelname).
+- [**SerialNumber**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.SerialNumber) + [**OemManufacturerName**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.oemmanufacturername) + [**modelname**/dotnet/API/Microsoft.Store.partnercenter.Models.devicesdeployment.Device.ModelName).
 
-Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**DeviceBatches. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) avec l’identificateur de lot de l’appareil pour obtenir une interface pour les opérations du lot spécifié. Enfin, appelez la méthode [**Devices. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.createasync) avec la liste des appareils pour ajouter les périphériques au lot de l’appareil.
+Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’identificateur du client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**DeviceBatches. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicesbatchcollection.BYID) avec l’identificateur de lot de l’appareil pour obtenir une interface pour les opérations du lot spécifié. Enfin, appelez la méthode [**Devices. Create**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicecollection.Create) ou [**CreateAsync**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.idevicecollection.createasync) avec la liste des appareils pour ajouter les périphériques au lot d’appareils.
 
 ``` csharp
 IAggregatePartner partnerOperations;

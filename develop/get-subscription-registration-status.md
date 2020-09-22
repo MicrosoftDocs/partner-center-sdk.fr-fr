@@ -4,12 +4,12 @@ description: Obtenir l’état d’un abonnement inscrit pour une utilisation av
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a8683aa93702403ab6e6ae5912802ebfb1da4e7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 501c5d3cc2bd54b39c3767631c70dc3609033a06
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097510"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926933"
 ---
 # <a name="get-subscription-registration-status"></a>Obtenir l’état d’inscription d’un abonnement
 
@@ -31,7 +31,7 @@ Pour acheter une instance de machine virtuelle réservée Azure à l’aide de l
 
 ## <a name="c"></a>C\#
 
-Pour obtenir l’état d’inscription d’un abonnement, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**subscription. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) avec l’ID d’abonnement pour identifier l’abonnement. Ensuite, utilisez la propriété RegistrationStatus pour obtenir une interface pour les opérations d’état d’inscription de l’abonnement actuel et appelez la méthode **obtenir** ou **GetAsync** pour récupérer l’objet **SubscriptionRegistrationStatus** .
+Pour obtenir l’état d’inscription d’un abonnement, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**subscription. méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.BYID) avec l’ID d’abonnement pour identifier l’abonnement. Ensuite, utilisez la propriété RegistrationStatus pour obtenir une interface pour les opérations d’état d’inscription de l’abonnement actuel et appelez la méthode **obtenir** ou **GetAsync** pour récupérer l’objet **SubscriptionRegistrationStatus** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -50,7 +50,7 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
 | **GET**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/RegistrationStatus http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement.
 

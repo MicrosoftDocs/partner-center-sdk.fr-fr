@@ -4,12 +4,12 @@ description: Comment restaurer un utilisateur supprimé à l’aide d’un ID cl
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c908adaa8ae315003aff2ef3ca1ba1d54484767d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2d46983b487817fc7152420af1b9332b53dba77b
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096620"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926470"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>Restaurer un utilisateur supprimé pour un client
 
@@ -33,11 +33,11 @@ Lorsque vous supprimez un compte d’utilisateur, l’état de l’utilisateur e
 
 ## <a name="c"></a>C\#
 
-Pour restaurer un utilisateur, créez une nouvelle instance de la classe [**CustomerUser**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) et définissez la valeur de la propriété [**User. State**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.user.state) sur [**userState. active**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.users.userstate).
+Pour restaurer un utilisateur, créez une nouvelle instance de la classe [**CustomerUser**/dotnet/API/Microsoft.Store.partnercenter.Models.Users.customeruser) et affectez à la propriété [**User. State**/dotnet/API/Microsoft.Store.partnercenter.Models.Users.User.State) la valeur [**userState. active**/dotnet/API/Microsoft.Store.partnercenter.Models.Users.userState).
 
-Vous restaurez un utilisateur supprimé en définissant l’état de l’utilisateur sur actif. Vous n’avez pas besoin de remplir à nouveau les champs restants dans la ressource utilisateur. Ces valeurs seront automatiquement restaurées à partir de la ressource utilisateur inactive supprimée. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client et la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour identifier l’utilisateur.
+Vous restaurez un utilisateur supprimé en définissant l’état de l’utilisateur sur actif. Vous n’avez pas besoin de remplir à nouveau les champs restants dans la ressource utilisateur. Ces valeurs seront automatiquement restaurées à partir de la ressource utilisateur inactive supprimée. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client, ainsi que la méthode [**users. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.BYID) pour identifier l’utilisateur.
 
-Enfin, appelez la méthode [**patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) et transmettez l’instance **CustomerUser** pour envoyer la demande de restauration de l’utilisateur.
+Enfin, appelez la méthode [**patch**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomeruser.patch) et transmettez l’instance **CustomerUser** pour envoyer la demande de restauration de l’utilisateur.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

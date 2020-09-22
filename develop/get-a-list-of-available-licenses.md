@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 8837ab832fee888df57540f16cbaa4d656481df7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2757c3e40c8f50a251bb1c521ac36b2cde780a0d
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098163"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927673"
 ---
 # <a name="get-a-list-of-available-licenses"></a>Obtenir une liste des licences disponibles
 
@@ -33,11 +33,11 @@ Les exemples suivants retournent des licences disponibles à partir de **Group1*
 
 Pour récupérer la liste des licences disponibles dans le groupe de licences par défaut pour les utilisateurs d’un client :
 
-1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client.
+1. Utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client.
 
-2. Obtient la valeur de la propriété [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client.
+2. Obtient la valeur de la propriété [**SubscribedSkus**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client.
 
-3. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour [**récupérer la liste**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) des licences.
+3. Appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscribedskus.icustomersubscribedskucollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour récupérer la liste des licences.
 
 ``` csharp
 // string selectedCustomerId;

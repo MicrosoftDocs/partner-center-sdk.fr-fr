@@ -4,12 +4,12 @@ description: Comment vérifier l’identificateur de Microsoft Partner Network d
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5c35cfb024a8894d7f40208f8f93f6f41ee94121
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f2588a75975cce6afe48c252c495291c4ee34eb5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927024"
 ---
 # <a name="verify-a-partner-mpn-id"></a>Vérifier l’ID MPN d’un partenaire
 
@@ -32,7 +32,7 @@ La technique illustrée ici vérifie l’identificateur de Microsoft Partner Net
 
 ## <a name="c"></a>C\#
 
-Pour vérifier l’ID MPN d’un partenaire, commencez par récupérer une interface pour les opérations de collection de profils de partenaire à partir de la propriété [**collection iaggregatepartner. Profiles**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) . Ensuite, récupérez une interface avec les opérations de profil MPN à partir de la propriété [**MpnProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) . Enfin, appelez les méthodes d' [**extraction**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) ou de [**GETASYNC**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) avec l’ID MPN pour récupérer le profil MPN. Si vous omettez l’ID MPN de l’appel d’extraction ou de GetAsync, la demande tente de récupérer le profil MPN du partenaire connecté.
+Pour vérifier l’ID MPN d’un partenaire, commencez par récupérer une interface pour les opérations de collection de profils de partenaire à partir de la propriété [**collection iaggregatepartner. Profiles**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Profiles). Ensuite, récupérez une interface pour les opérations de profil MPN à partir de la propriété [**MpnProfile**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ipartnerprofilecollection.mpnprofile). Enfin, appelez les méthodes [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Profiles.impnprofile.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.PARTNERCENTER.Profiles.IMPNPROFILE.GETASYNC) avec l’ID MPN pour récupérer le profil MPN. Si vous omettez l’ID MPN de l’appel d’extraction ou de GetAsync, la demande tente de récupérer le profil MPN du partenaire connecté.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

@@ -4,12 +4,12 @@ description: Inscrire un abonnement existant afin qu’il soit activé pour la c
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9430c21e70c4eb67160bc21f4ee2c63a4ed42d1b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3cabfd9d2bba309d773f15b2de2a4b33e4575241
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094941"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926664"
 ---
 # <a name="register-a-subscription"></a>Inscrire un abonnement
 
@@ -31,7 +31,7 @@ Pour acheter une réservation Azure, vous devez disposer d’au moins un abonnem
 
 ## <a name="c"></a>C\#
 
-Pour inscrire l’abonnement d’un client, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, appelez la méthode [**subscription. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) avec l’ID d’abonnement pour identifier l’abonnement que vous inscrivez.
+Pour inscrire l’abonnement d’un client, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, appelez la méthode [**subscription. méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.BYID) avec l’ID d’abonnement pour identifier l’abonnement que vous inscrivez.
 
 Enfin, appelez la méthode **Registration. Register ()** pour inscrire l’abonnement et récupérer un URI qui peut être utilisé pour obtenir l’état d’inscription de l’abonnement. Pour plus d’informations, consultez [obtenir l’état de l’inscription de l’abonnement](get-subscription-registration-status.md).
 
@@ -52,7 +52,7 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
 | **POST**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions/{subscription-ID}/Registrations http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de chemin d’accès suivants pour identifier le client et l’abonnement.
 

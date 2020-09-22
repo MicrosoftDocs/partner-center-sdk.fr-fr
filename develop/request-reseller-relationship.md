@@ -4,12 +4,12 @@ description: Comment récupérer une URL de demande de relation à envoyer à un
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 90a749b7bb4e78391831aed162857d55e028158a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 32aaad7d5935971f8d06331bd023d7cdb8f7195f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096706"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926740"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>Récupérer une URL de demande de relation
 
@@ -27,7 +27,7 @@ Comment récupérer une URL de demande de relation à envoyer à un client.
 
 ## <a name="c"></a>C\#
 
-Pour récupérer une URL de demande de relation, utilisez d’abord [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) pour obtenir une interface pour les opérations du client du partenaire. Ensuite, utilisez la propriété [**RelationshipRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) pour obtenir une interface pour les opérations de demande de relation client. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) pour [**récupérer l’URL**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) .
+Pour récupérer une URL de demande de relation, utilisez d’abord [**collection iaggregatepartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) pour obtenir une interface pour les opérations du client du partenaire. Ensuite, utilisez la propriété [**RelationshipRequest**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.relationshiprequest) pour obtenir une interface pour les opérations de demande de relation client. Enfin, appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.relationshiprequests.icustomerrelationshiprequest.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) pour récupérer l’URL.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

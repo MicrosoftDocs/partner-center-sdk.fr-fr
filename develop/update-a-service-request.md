@@ -4,12 +4,12 @@ description: Procédure de mise à jour d’une demande de service client exista
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 96a856b8b246edbee516486641b478df485f91c4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a7330811c3be17d90015cfca7491b287852fbe86
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925532"
 ---
 # <a name="update-a-service-request"></a>Mettre à jour une demande de service
 
@@ -31,7 +31,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour la demande de service d’un client, appelez la méthode [**IServiceRequestCollection. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) avec l’ID de demande de service pour identifier et retourner l’interface de demande de service. Appelez ensuite la méthode [**IServiceRequest. patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) ou [**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) pour mettre à jour la demande de service. Pour fournir les valeurs mises à jour, créez un nouvel objet [**ServiceRequest**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) vide et définissez uniquement les valeurs de propriété que vous souhaitez modifier. Transmettez ensuite cet objet dans l’appel à la méthode patch ou PatchAsync.
+Pour mettre à jour la demande de service d’un client, appelez la méthode [**IServiceRequestCollection. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.servicerequests.iservicerequestcollection.BYID) avec l’ID de demande de service pour identifier et retourner l’interface de demande de service. Appelez ensuite la méthode [**IServiceRequest. patch**/dotnet/API/Microsoft.Store.partnercenter.servicerequests.iservicerequest.patch) ou [**PatchAsync**/dotnet/API/Microsoft.Store.partnercenter.servicerequests.iservicerequest.patchasync) pour mettre à jour la demande de service. Pour fournir les valeurs mises à jour, créez un nouvel objet vide [**ServiceRequest**/dotnet/API/Microsoft.Store.partnercenter.Models.servicerequests.ServiceRequest) et définissez uniquement les valeurs de propriété que vous souhaitez modifier. Transmettez ensuite cet objet dans l’appel à la méthode patch ou PatchAsync.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 873279de57960e98d617c4cc6fd01955aa702c70
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 41254bd0ff260862723a928212c5f57570dbfaa4
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927105"
 ---
 # <a name="get-customer-licenses-deployment-information"></a>Obtenir des informations sur le déploiement des licences client
 
@@ -30,7 +30,7 @@ Informations d’identification, comme décrit dans [Authentification auprès de
 
 ## <a name="c"></a>C\#
 
-Pour récupérer des données agrégées sur le déploiement d’un client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, accédez à une interface pour les opérations de collecte Analytics au niveau du client à partir de la propriété [**Analytics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) . Ensuite, récupérez une interface pour la collection d’analyse des licences au niveau du client à partir de la propriété [**licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) . Enfin, appelez la méthode [**Deployment. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) pour récupérer les données agrégées sur le déploiement de licences. Si la méthode est réussie, vous obtenez une collection d’objets [**CustomerLicensesDeploymentInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesdeploymentinsights) .
+Pour récupérer des données agrégées sur le déploiement d’un client spécifié, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, accédez à une interface pour les opérations de collecte Analytics au niveau du client à partir de la propriété [**Analytics**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.Analytics). Ensuite, récupérez une interface pour la collection d’analyse des licences au niveau du client à partir de la propriété [**licenses**/dotnet/API/Microsoft.Store.partnercenter.Analytics.icustomeranalyticscollection.licenses). Enfin, appelez la méthode [**Deployment. obten**/dotnet/API/Microsoft.Store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.Get) pour récupérer les données agrégées sur le déploiement de licences. Si la méthode est réussie, vous obtenez une collection d’objets [**CustomerLicensesDeploymentInsights**/dotnet/API/Microsoft.Store.partnercenter.Models.Analytics.customerlicensesdeploymentinsights).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,7 +53,7 @@ Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
 | Nom        | Type | Obligatoire | Description                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| customer-id | guid | Yes      | ID client au format GUID qui identifie le client. |
+| customer-id | guid | Oui      | ID client au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

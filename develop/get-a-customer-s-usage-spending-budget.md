@@ -4,12 +4,12 @@ description: Vous pouvez utiliser un budget de dépense (l’objet SpendingBudge
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5b031759fce2dcde484fe741109f1c9e7ed73e41
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8be9ceaab6b7546de8eacba1e52e8766719e5125
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098293"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927737"
 ---
 # <a name="get-a-customers-usage-spending-budget"></a>Obtenir le budget des dépenses d’utilisation d’un client
 
@@ -31,11 +31,11 @@ Vous pouvez mettre à jour le budget des dépenses (objet **SpendingBudget** ) d
 
 Pour mettre à jour le budget des dépenses d’utilisation d’un client :
 
-1. Créez un nouvel objet [**SpendingBudget**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) avec le montant mis à jour.
+1. Créez un nouvel objet [**SpendingBudget**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) avec le montant mis à jour.
 
-2. Utilisez la collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) pour appeler la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client spécifié.
+2. Utilisez la collection [**collection iaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) pour appeler la méthode [**méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client spécifié.
 
-3. Appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) [**pour connaître le**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) budget d’utilisation du client.
+3. Appelez la méthode [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) [**pour connaître le**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) budget d’utilisation du client.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

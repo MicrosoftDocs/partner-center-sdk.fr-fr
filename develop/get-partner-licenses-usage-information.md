@@ -4,12 +4,12 @@ description: Comment faire en sorte que les informations relatives à l’utilis
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a9bad2d4bc5d7b607bbc472068a47cfe7c156f94
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3774b5adcc8772da0c6f54c71ba0b21cd0ea0e0f
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926998"
 ---
 # <a name="get-partner-licenses-usage-information"></a>Obtenir des informations sur l’utilisation des licences partenaire
 
@@ -28,7 +28,7 @@ Informations d’identification, comme décrit dans [Authentification auprès de
 
 ## <a name="c"></a>C\#
 
-Pour récupérer des données agrégées sur le déploiement de licences, commencez par obtenir une interface pour les opérations de collection d’analyse de niveau partenaire à partir de la propriété [**collection iaggregatepartner. Analytics**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) . Ensuite, récupérez une interface vers la collection d’analyse des licences de niveau partenaire à partir de la propriété [**licenses**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) . Enfin, appelez la méthode [**usage. obten**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) pour récupérer les données agrégées sur l’utilisation des licences. Si la méthode est réussie, vous obtenez une collection d’objets [**PartnerLicensesUsageInsights**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) .
+Pour récupérer des données agrégées sur le déploiement de licences, commencez par obtenir une interface pour les opérations de collection d’analyse de niveau partenaire à partir de la propriété [**collection iaggregatepartner. Analytics**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Analytics). Ensuite, récupérez une interface vers la collection d’analyse des licences de niveau partenaire à partir de la propriété [**licenses**/dotnet/API/Microsoft.Store.partnercenter.Analytics.ipartneranalyticscollection.licenses). Enfin, appelez la méthode [**utilisation. obtient**/dotnet/API/Microsoft.Store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.Get) pour récupérer les données agrégées sur l’utilisation des licences. Si la méthode est réussie, vous obtenez une collection d’objets [**PartnerLicensesUsageInsights**/dotnet/API/Microsoft.Store.partnercenter.Models.Analytics.partnerlicensesusageinsights).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

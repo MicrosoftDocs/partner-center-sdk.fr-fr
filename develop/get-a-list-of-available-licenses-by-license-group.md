@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: e77c0bedc921f84d43ad80557bf7fde625b490f6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4a7d1e00ba82da1290f81b484956aef1467f2ec5
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098170"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927683"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>Obtenir la liste des licences disponibles par groupe de licences
 
@@ -31,7 +31,7 @@ Comment obtenir la liste des licences des groupes de licences spécifiés dispon
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la liste des licences disponibles pour les groupes de licences spécifiés, commencez par instancier une [liste](https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1) de type [**LicenseGroupId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid), puis ajoutez les groupes de licences à la liste. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez la valeur de la propriété [**SubscribedSkus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client. Enfin, transmettez la liste des groupes de licences [**à la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour récupérer la liste des références (SKU) souscrites avec des détails sur les unités de licence disponibles.
+Pour obtenir la liste des licences disponibles pour les groupes de licences spécifiés, commencez par instancier un [list/dotnet/API/System. Collections. Generic. List-1) de type [**LicenseGroupId**/dotnet/API/Microsoft.Store.partnercenter.Models.licenses.licensegroupid), puis ajoutez les groupes de licences à la liste. Ensuite, utilisez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, récupérez la valeur de la propriété [**SubscribedSkus**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscribedskus) pour récupérer une interface pour les opérations de collection de références SKU souscrites par le client. Enfin, transmettez la liste des groupes de licences à la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscribedskus.icustomersubscribedskucollection.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) pour récupérer la liste des références (SKU) souscrites avec des détails sur les unités de licence disponibles.
 
 ``` csharp
 // string selectedCustomerId;
@@ -67,7 +67,7 @@ Utilisez le chemin d’accès et les paramètres de requête suivants pour ident
 | Nom            | Type   | Obligatoire | Description                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | customer-id     | string | Oui      | Chaîne au format GUID qui identifie le client.                                                                                                                                                                                                                 |
-| licenseGroupIds | string | No       | Valeur enum qui indique le groupe de licences des licences attribuées. Valeurs valides : Group1, Group2 Group1 : ce groupe contient tous les produits dont la licence peut être gérée dans le Azure Active Directory (AAD). Group2-ce groupe possède uniquement des licences de produits Minecraft. |
+| licenseGroupIds | string | Non       | Valeur enum qui indique le groupe de licences des licences attribuées. Valeurs valides : Group1, Group2 Group1 : ce groupe contient tous les produits dont la licence peut être gérée dans le Azure Active Directory (AAD). Group2-ce groupe possède uniquement des licences de produits Minecraft. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

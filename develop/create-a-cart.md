@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: aa3bd159a850028a30ee88edc22bb3b263df310e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b0b064100a40ab265fca544822c86ead8a75629a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926494"
 ---
 # <a name="create-a-cart"></a>Créer un panier
 
@@ -22,7 +22,7 @@ ms.locfileid: "86096324"
 - Espace partenaires de Microsoft Cloud Germany
 - Espace partenaires de Microsoft Cloud for US Government
 
-Vous pouvez ajouter une commande pour un client dans un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
+Vous pouvez ajouter une commande pour un client dans un panier. Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](/partner-center/csp-offers).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -228,34 +228,34 @@ Ce tableau décrit les propriétés du [panier](cart-resources.md) dans le corps
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| id                    | string           | No              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
-| creationTimeStamp     | DateTime         | No              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
-| lastModifiedTimeStamp | DateTime         | No              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
-| expirationTimeStamp   | DateTime         | No              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
-| lastModifiedUser      | string           | No              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
-| lineItems             | Tableau d’objets | Yes             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                     |
+| id                    | string           | Non              | Identificateur de panier qui est fourni lors de la création réussie du panier.                                  |
+| creationTimeStamp     | DateTime         | Non              | Date à laquelle le panier a été créé, au format date/heure. Appliqué en cas de réussite de la création du panier.         |
+| lastModifiedTimeStamp | DateTime         | Non              | Date de la dernière mise à jour du panier, au format date/heure. Appliqué en cas de réussite de la création du panier.    |
+| expirationTimeStamp   | DateTime         | Non              | Date d’expiration du panier, au format date/heure.  Appliqué en cas de réussite de la création du panier.            |
+| lastModifiedUser      | string           | Non              | Utilisateur qui a mis à jour le panier pour la dernière fois. Appliqué en cas de réussite de la création du panier.                             |
+| lineItems             | Tableau d’objets | Oui             | Tableau de ressources [CartLineItem](cart-resources.md#cartlineitem) .                                     |
 
 Ce tableau décrit les propriétés [CartLineItem](cart-resources.md#cartlineitem) dans le corps de la demande.
 
 |      Propriété       |            Type             | Obligatoire |                                                                                         Description                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         id          |           string            |    No    |                                                     Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                     |
-|      catalogId      |           string            |   Yes    |                                                                                Identificateur de l’élément de catalogue.                                                                                 |
+|         id          |           string            |    Non    |                                                     Identificateur unique pour un élément de ligne de panier. Appliqué en cas de réussite de la création du panier.                                                     |
+|      catalogId      |           string            |   Oui    |                                                                                Identificateur de l’élément de catalogue.                                                                                 |
 |    friendlyName     |           string            |    Non    |                                                    facultatif. Nom convivial de l’élément défini par le partenaire pour aider à lever toute ambiguïté.                                                    |
-|      quantité       |             int             |   Yes    |                                                                            Nombre de licences ou d’instances.                                                                             |
-|    currencyCode     |           string            |    No    |                                                                                     Code de la devise.                                                                                      |
+|      quantité       |             int             |   Oui    |                                                                            Nombre de licences ou d’instances.                                                                             |
+|    currencyCode     |           string            |    Non    |                                                                                     Code de la devise.                                                                                      |
 |    billingCycle     |           Object            |   Oui    |                                                                    Type de cycle de facturation défini pour la période actuelle.                                                                    |
-|    participants     | Liste de paires de chaînes d’objets |    No    |                                                                Collection de partenaire sur l’enregistrement (MPNID) sur l’achat.                                                                 |
-| provisioningContext | Dictionary<String, String>  |    No    | Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue. |
-|     orderGroup      |           string            |    No    |                                                                   Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                   |
-|        erreur        |           Object            |    Non     |                                                                     Appliqué après la création du panier en cas d’erreur.                                                                      |
-|     renewsTo        | Tableau d’objets            |    No    |                                                    Tableau de ressources [RenewsTo](cart-resources.md#renewsto) .                                                                            |
+|    participants     | Liste de paires de chaînes d’objets |    Non    |                                                                Collection de partenaire sur l’enregistrement (MPNID) sur l’achat.                                                                 |
+| provisioningContext | Dictionary<String, String>  |    Non    | Informations requises pour l’approvisionnement de certains éléments du catalogue. La propriété provisioningVariables d’une référence (SKU) indique les propriétés requises pour des éléments spécifiques dans le catalogue. |
+|     orderGroup      |           string            |    Non    |                                                                   Groupe pour indiquer les éléments qui peuvent être placés ensemble.                                                                   |
+|        error        |           Object            |    Non    |                                                                     Appliqué après la création du panier en cas d’erreur.                                                                      |
+|     renewsTo        | Tableau d’objets            |    Non    |                                                    Tableau de ressources [RenewsTo](cart-resources.md#renewsto) .                                                                            |
 
 Ce tableau décrit les propriétés [RenewsTo](cart-resources.md#renewsto) dans le corps de la demande.
 
 | Propriété              | Type             | Obligatoire        | Description |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | string           | No              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
+| termDuration          | string           | Non              | Représentation ISO 8601 de la durée du terme de renouvellement. Les valeurs actuellement prises en charge sont **p1m** (1 mois) et **P1Y** (1 an). |
 
 ### <a name="request-example"></a>Exemple de requête
 

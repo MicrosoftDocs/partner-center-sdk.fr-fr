@@ -4,12 +4,12 @@ description: Comment récupérer un enregistrement d’opérations, tel qu’il 
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7a17e5e7dbded778e5938d9f8024cee4b507111e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7ca3736916f246301ad55f6a551a6849f79b389a
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097128"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927617"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>Obtenir un enregistrement le l’activité de l’Espace partenaires
 
@@ -29,13 +29,13 @@ Utilisez cette API pour récupérer les enregistrements d’audit des 30 jours p
 
 ## <a name="c"></a>C\#
 
-Pour récupérer un enregistrement des opérations de l’espace partenaires, commencez par établir la plage de dates pour les enregistrements que vous souhaitez récupérer. L’exemple de code suivant utilise uniquement une date de début, mais vous pouvez également inclure une date de fin. Pour plus d’informations, consultez la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) . Créez ensuite les variables dont vous avez besoin pour le type de filtre que vous souhaitez appliquer et assignez les valeurs appropriées. Par exemple, pour filtrer par sous-chaîne du nom de la société, créez une variable qui contiendra la sous-chaîne. Pour filtrer par ID de client, créez une variable qui contiendra l’ID.
+Pour récupérer un enregistrement des opérations de l’espace partenaires, commencez par établir la plage de dates pour les enregistrements que vous souhaitez récupérer. L’exemple de code suivant utilise uniquement une date de début, mais vous pouvez également inclure une date de fin. Pour plus d’informations, consultez la méthode [**query**/dotnet/API/Microsoft.Store.partnercenter.AuditRecords.iauditrecordscollection.Query). Créez ensuite les variables dont vous avez besoin pour le type de filtre que vous souhaitez appliquer et assignez les valeurs appropriées. Par exemple, pour filtrer par sous-chaîne du nom de la société, créez une variable qui contiendra la sous-chaîne. Pour filtrer par ID de client, créez une variable qui contiendra l’ID.
 
-Dans l’exemple suivant, un exemple de code est fourni pour filtrer par une sous-chaîne de nom de société, un ID de client ou un type de ressource. Choisissez-en un et commentez les autres. Dans chaque cas, vous devez d’abord instancier un objet [**SimpleFieldFilter**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) à l’aide de son [**constructeur**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) par défaut pour créer le filtre. Vous devez passer une chaîne qui contient le champ à rechercher et l’opérateur approprié à appliquer, comme indiqué. Vous devez également fournir la chaîne de filtrage.
+Dans l’exemple suivant, un exemple de code est fourni pour filtrer par une sous-chaîne de nom de société, un ID de client ou un type de ressource. Choisissez-en un et commentez les autres. Dans chaque cas, vous devez d’abord instancier un objet [**SimpleFieldFilter**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.simplefieldfilter) à l’aide de sa valeur par défaut [**constructor**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.simplefieldfilter.-ctor) pour créer le filtre. Vous devez passer une chaîne qui contient le champ à rechercher et l’opérateur approprié à appliquer, comme indiqué. Vous devez également fournir la chaîne de filtrage.
 
-Ensuite, utilisez la propriété [**AuditRecords**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) pour obtenir une interface pour auditer les opérations d’enregistrement, puis appelez la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) ou [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) pour exécuter le filtre et obtenir la collection de [**AuditRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) qui représente la première page du résultat. Transmettez à la méthode la date de début, une date de fin facultative non utilisée dans l’exemple ici et un objet [**IQueryable**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) qui représente une requête sur une entité. L’objet IQueryable est créé en passant le filtre créé ci-dessus à la méthode [**BuildSimpleQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) [**de QueryFactory**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) .
+Ensuite, utilisez la propriété [**AuditRecords**/dotnet/API/Microsoft.Store.partnercenter.ipartner.AuditRecords) pour obtenir une interface pour auditer les opérations d’enregistrement, et appelez la méthode [**query**/dotnet/API/Microsoft.Store.partnercenter.AuditRecords.iauditrecordscollection.Query) ou [**QueryAsync**/dotnet/API/Microsoft.Store.partnercenter.AuditRecords.iauditrecordscollection.QueryAsync) pour exécuter le filtre et obtenir la collection**de [AuditRecord/dotnet/API/Microsoft.Store.partnercenter.Models.Auditing.auditrecord)** qui représente la première page du résultat. Transmettez à la méthode la date de début, une date de fin facultative non utilisée dans l’exemple ici et un objet [**IQueryable**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.IQuery) qui représente une requête sur une entité. L’objet IQueryable est créé en passant le filtre créé ci-dessus à la méthode [**BuildSimpleQuery**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory.buildsimplequery) [**QueryFactory**/dotnet/API/Microsoft.Store.partnercenter.Models.Query.queryfactory).
 
-Une fois que vous avez la page initiale des éléments, utilisez la méthode [**enumerates. AuditRecords. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) pour créer un énumérateur que vous pouvez utiliser pour itérer au sein des pages restantes.
+Une fois que vous avez la page initiale des éléments, utilisez la méthode [**enumerates. AuditRecords. Create**/dotnet/API/Microsoft.Store.partnercenter.Factory.iresourcecollectionenumeratorfactory-1.Create) pour créer un énumérateur que vous pouvez utiliser pour itérer au sein des pages restantes.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -97,9 +97,9 @@ Utilisez les paramètres de requête suivants lors de la création de la demande
 
 | Nom      | Type   | Obligatoire | Description                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| startDate | Date   | No       | Date de début au format aaaa-mm-jj. Si aucune valeur n’est fournie, le jeu de résultats est défini par défaut sur 30 jours avant la date de la demande. Ce paramètre est facultatif lorsqu’un filtre est fourni.                                          |
-| endDate   | Date   | No       | Date de fin au format aaaa-mm-jj. Ce paramètre est facultatif lorsqu’un filtre est fourni. Lorsque la date de fin est omise ou définie sur null, la demande retourne la fenêtre Max ou utilise la date de fin du jour, selon la valeur la plus petite. |
-| Filter    | string | No       | Filtre à appliquer. Ce paramètre doit être une chaîne encodée. Ce paramètre est facultatif lorsque la date de début ou la date de fin sont fournies.                                                                                              |
+| startDate | Date   | Non       | Date de début au format aaaa-mm-jj. Si aucune valeur n’est fournie, le jeu de résultats est défini par défaut sur 30 jours avant la date de la demande. Ce paramètre est facultatif lorsqu’un filtre est fourni.                                          |
+| endDate   | Date   | Non       | Date de fin au format aaaa-mm-jj. Ce paramètre est facultatif lorsqu’un filtre est fourni. Lorsque la date de fin est omise ou définie sur null, la demande retourne la fenêtre Max ou utilise la date de fin du jour, selon la valeur la plus petite. |
+| Filter    | string | Non       | Filtre à appliquer. Ce paramètre doit être une chaîne encodée. Ce paramètre est facultatif lorsque la date de début ou la date de fin sont fournies.                                                                                              |
 
 ### <a name="filter-syntax"></a>Syntaxe des filtres
 Vous devez composer le paramètre de filtre sous la forme d’une série de paires clé-valeur séparées par des virgules. Chaque clé et valeur doit être placée entre des guillemets et séparée par deux points. La totalité du filtre doit être encodée.

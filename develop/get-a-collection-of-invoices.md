@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: d0237b02f3a4e8a837b70559f5858dff5ff08a33
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f56c3de8dd227f573921e5b969c2217c2f743a21
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927283"
 ---
 # <a name="get-a-collection-of-invoices"></a>Obtenir une collection de factures
 
@@ -30,11 +30,11 @@ Comment récupérer un regroupement des factures du partenaire.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir une collection de toutes les factures disponibles, utilisez la propriété [**factures**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) pour obtenir une interface pour facturer les opérations, puis [**appelez la méthode**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) pour récupérer la collection.
+Pour obtenir une collection de toutes les factures disponibles, utilisez la propriété [**factures**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) pour obtenir une interface pour facturer les opérations, puis [**appelez la méthode**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.get) [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.getasync) pour récupérer la collection.
 
-Pour obtenir une collection paginée de factures, appelez d’abord la méthode [**BuildIndexedQuery**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) et transmettez-lui la taille de page pour créer un objet [**IQueryable**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.query.iquery) . Ensuite, utilisez la propriété des [**factures**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) pour obtenir une interface pour facturer les opérations, puis transmettez l’objet IQueryable à la méthode [**query**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) ou [**QueryAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) pour envoyer la demande et obtenir la première page.
+Pour obtenir une collection paginée de factures, appelez d’abord la méthode [**BuildIndexedQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) et transmettez-lui la taille de page pour créer un objet [**IQueryable**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) . Ensuite, utilisez la propriété des [**factures**](/dotnet/api/microsoft.store.partnercenter.ipartner.invoices) pour obtenir une interface pour facturer les opérations, puis transmettez l’objet IQueryable à la méthode [**query**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.query) ou [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.queryasync) pour envoyer la demande et obtenir la première page.
 
-Ensuite, utilisez la propriété d' [**énumérateurs**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) pour obtenir une interface pour la collection d’énumérateurs de collections de ressources prises en charge, puis appelez [**factures. Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) pour créer un énumérateur qui parcourt la collection de factures. Enfin, utilisez l’énumérateur pour récupérer et utiliser chaque page de factures comme indiqué dans l’exemple de code suivant. Chaque appel à la méthode [**suivante**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) envoie une demande pour la page de factures suivante en fonction de la taille de la page.
+Ensuite, utilisez la propriété d' [**énumérateurs**](/dotnet/api/microsoft.store.partnercenter.ipartner.enumerators) pour obtenir une interface pour la collection d’énumérateurs de collections de ressources prises en charge, puis appelez [**factures. Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) pour créer un énumérateur qui parcourt la collection de factures. Enfin, utilisez l’énumérateur pour récupérer et utiliser chaque page de factures comme indiqué dans l’exemple de code suivant. Chaque appel à la méthode [**suivante**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumerator-1.next) envoie une demande pour la page de factures suivante en fonction de la taille de la page.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -88,13 +88,13 @@ Pour obtenir un exemple légèrement différent, consultez **exemple**: [applica
 |---------|----------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Invoices ? Size = {size} &offset = {offset} http/1.1  |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres de requête suivants lors de la création de la demande.
 
 | Nom   | Type | Obligatoire | Description                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| taille   | int  | Non       | Nombre de ressources de facture à retourner dans la réponse. Ce paramètre est facultatif. |
+| taille   | int  | Non       | Nombre de ressources de facture à retourner dans la réponse. Ce paramètre est optionnel. |
 | offset | int  | Non       | Index de base zéro de la première facture à retourner.                                   |
 
 ### <a name="request-headers"></a>En-têtes de requête

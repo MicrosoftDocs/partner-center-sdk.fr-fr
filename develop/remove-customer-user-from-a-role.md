@@ -4,12 +4,12 @@ description: Comment supprimer un utilisateur d’un rôle d’annuaire dans un 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8bb79a0b1b1c8ef7200e02f29483014326422cb3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 42c9894b50a253fe533acbe749527f1d5ff67486
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094899"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926452"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Supprimer un utilisateur client d’un rôle
 
@@ -27,7 +27,7 @@ Comment supprimer un utilisateur d’un rôle d’annuaire dans un compte client
 
 ## <a name="c"></a>C\#
 
-Pour supprimer un utilisateur d’un rôle d’annuaire, sélectionnez le client avec l’utilisateur à modifier à l’aide d’un appel à la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) , à partir de là, spécifiez le rôle à l’aide de la méthode [**DirectoryRoles. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) avec l’ID de rôle d’annuaire. Ensuite, accédez à la méthode [**UserMembers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) pour identifier l’utilisateur à supprimer et la méthode [**Delete**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) pour supprimer l’utilisateur du rôle.
+Pour supprimer un utilisateur d’un rôle d’annuaire, sélectionnez le client que l’utilisateur doit modifier à l’aide d’un appel à la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID), à partir de là, spécifiez le rôle à l’aide de la méthode [**DirectoryRoles. méthode BYID**/dotnet/API/Microsoft.Store.PARTNERCENTER.CUSTOMERDIRECTORYROLES.IDIRECTORYROLECOLLECTION.BYID) avec l’ID de rôle d’annuaire. Ensuite, accédez à la méthode [**UserMembers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerdirectoryroles.iusermembercollection.BYID) pour identifier l’utilisateur à supprimer, et la méthode [**Delete**/dotnet/API/Microsoft.Store.partnercenter.customerdirectoryroles.iusermember.Delete) pour supprimer l’utilisateur du rôle.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

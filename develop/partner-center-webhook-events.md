@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: c874a44e1b43cb05ee20834f9c7a14d221edcab6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5358aab8efdd68ad52c583936304f99ffae12708
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094997"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926853"
 ---
 # <a name="partner-center-webhook-events"></a>Événements du webhook de l’espace partenaires
 
@@ -90,7 +90,7 @@ Cet événement est déclenché lorsque l’abonnement spécifié est modifié. 
 
 ### <a name="threshold-exceeded-event"></a>Événement seuil dépassé
 
-Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients](https://docs.microsoft.com/partner-center/set-an-azure-spending-budget-for-your-customers).
+Cet événement se déclenche lorsque la quantité d’utilisation de Microsoft Azure d’un client dépasse son budget de dépenses d’utilisation (son seuil). Pour plus d’informations, consultez [définir un budget de dépenses Azure pour vos clients/Partner-Center/Set-an-Azure-Pass-budget-for-your-clients).
 
 #### <a name="properties"></a>Propriétés
 

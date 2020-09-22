@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 57ee728ae4f1a0ad66066bc88179bcbceb860a24
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 3cc486cc2f81f5708bf4b5d876bfd9bb74800365
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095626"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925590"
 ---
 # <a name="update-a-customers-qualification"></a>Mettre à jour la qualification d’un client
 
@@ -27,11 +27,11 @@ Un partenaire peut mettre à jour la qualification d’un client pour qu’il so
 
 - Informations d’identification, comme décrit dans [Authentification auprès de l’Espace partenaires](partner-center-authentication.md). Ce scénario prend en charge l’authentification avec les informations d’identification de l’application et de l’utilisateur uniquement.
 
-- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page du compte du client, recherchez l’**ID Microsoft** dans la section **Informations sur le compte client**. L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
+- ID du client (`customer-tenant-id`). Si vous ne connaissez pas l’ID du client, vous pouvez le rechercher dans le [tableau de bord](https://partner.microsoft.com/dashboard) de l’Espace partenaires. Sélectionnez **CSP** dans le menu Espace partenaires, puis **Clients**. Sélectionnez le client dans la liste des clients, puis **Compte**. Dans la page compte du client, recherchez l' **ID Microsoft** dans la section **informations sur le compte client** . L’ID Microsoft est le même que l’ID de client (`customer-tenant-id`).
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour la qualification d’un client vers « Education », appelez **[Update](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification.update)** sur un [**client**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customer?view=partnercenter-dotnet-latest)existant.
+Pour mettre à jour la qualification d’un client vers « Education », appelez **[Update/dotnet/API/Microsoft. Store. partnercenter. qualification. icustomerqualification. Update)** sur un [**Customer**/dotnet/API/Microsoft.Store.partnercenter.Models.Customers.Customer) existant.
 
 ``` csharp
 // CustomerQualification is an enum
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 ### <a name="request-body"></a>Corps de demande
 
-Valeur entière de l’énumération [**CustomerQualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) .
+Valeur entière de l’énumération [**CustomerQualification**/dotnet/API/Microsoft.Store.partnercenter.Models.Customers.customerqualification).
 
 ### <a name="request-example"></a>Exemple de requête
 
@@ -88,7 +88,7 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>Réponse REST
 
-En cas de réussite, cette méthode retourne la propriété de [**qualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) mise à jour dans le corps de la réponse.
+En cas de réussite, cette méthode retourne la propriété updated [**qualification**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.qualification) dans le corps de la réponse.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

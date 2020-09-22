@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 545eb08e54a5a74fb6e8ca27fd1f02d4ba5bf055
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a1d612a415ae2b3619efd17a13e1bde6a94c32fa
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093905"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927151"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>Obtenir les abonnements d’un client par l’ID MPN partenaire
 
@@ -34,7 +34,7 @@ Comment obtenir la liste des abonnements fournis par un partenaire donné à un 
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, vous pouvez obtenir une interface pour les opérations de collecte d’abonnement client à partir de la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , puis appeler la méthode [**BYPARTNER**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) avec l’ID MPN pour identifier le partenaire et récupérer une interface pour les opérations d’abonnement de partenaire. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) [**pour récupérer la**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) collection.
+Pour obtenir la liste des abonnements fournis par un partenaire donné à un client spécifié, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, vous pouvez obtenir une interface pour les opérations de collecte d’abonnement client à partir de la propriété [**Subscriptions**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscriptions) et appeler la méthode [**ByPartner**/dotnet/API/Microsoft.Store.PARTNERCENTER.SUBSCRIPTIONS.ISUBSCRIPTIONCOLLECTION.BYPARTNER) avec l’ID MPN pour identifier le partenaire et récupérer une interface pour les opérations d’abonnement de partenaire. Enfin, appelez la méthode [**obtient**/dotnet/API/Microsoft.Store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) pour récupérer la collection.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -81,13 +81,13 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 |---------|----------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/subscriptions ? MPN \_ ID = {MPN-ID} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez le chemin d’accès et les paramètres de requête suivants pour identifier le client et le partenaire.
 
 | Nom        | Type   | Obligatoire | Description                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | string | Yes      | Chaîne au format GUID qui identifie le client.       |
+| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client.       |
 | mpn-id      | int    | Oui      | ID de Microsoft Partner Network qui identifie le partenaire. |
 
 ### <a name="request-headers"></a>En-têtes de requête

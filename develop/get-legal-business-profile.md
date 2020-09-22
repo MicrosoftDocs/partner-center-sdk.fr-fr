@@ -4,12 +4,12 @@ description: Comment obtenir le profil d’entreprise juridique d’un partenair
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 27ee41a9b7ac3586c13f3675d8b688ab52103fca
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1c1b326e53211e875f74f16160a1ba45332ef4e9
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096828"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927538"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>Obtenir le profil d’entreprise juridique du partenaire
 
@@ -28,7 +28,7 @@ Comment obtenir le profil d’entreprise juridique d’un partenaire.
 
 ## <a name="c"></a>C\#
 
-Pour accéder au profil d’entreprise juridique partenaire, commencez par accéder à la collection d’opérations de profil de partenaire à partir de la propriété **collection iaggregatepartner. Profiles** . Ensuite, récupérez la valeur de la propriété **LegalBusinessProfile** pour récupérer une interface pour les opérations de profil d’entreprise juridique. Enfin, appelez la méthode [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync) pour récupérer le profil.
+Pour accéder au profil d’entreprise juridique partenaire, commencez par accéder à la collection d’opérations de profil de partenaire à partir de la propriété **collection iaggregatepartner. Profiles** . Ensuite, récupérez la valeur de la propriété **LegalBusinessProfile** pour récupérer une interface pour les opérations de profil d’entreprise juridique. Enfin, appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ilegalbusinessprofile.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.Profiles.ilegalbusinessprofile.getasync) pour récupérer le profil.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

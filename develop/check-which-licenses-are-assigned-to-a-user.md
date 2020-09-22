@@ -4,12 +4,12 @@ description: Obtenir la liste des licences attribuées à un utilisateur au sein
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b0cec89b5bcb7caa11c39f33bcf5ab38219edd6e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 5ef8e88faf3f08dad02850da24b21b0e2d9b22bb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096426"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927371"
 ---
 # <a name="get-licenses-assigned-to-a-user"></a>Obtenir les licences attribuées à un utilisateur
 
@@ -29,7 +29,7 @@ Comment obtenir la liste des licences attribuées à un utilisateur au sein d’
 
 ## <a name="c"></a>C\#
 
-Pour vérifier quelles licences sont attribuées à un utilisateur à partir du groupe de licences Group1 par défaut, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Appelez ensuite la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’utilisateur pour identifier l’utilisateur. Ensuite, récupérez une interface pour les opérations de licence utilisateur client à partir de la propriété [**licences**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) . Enfin, appelez la méthode [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) pour récupérer la collection de licences assignée à l’utilisateur.
+Pour vérifier quelles licences sont attribuées à un utilisateur à partir du groupe de licences Group1 par défaut, utilisez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Appelez ensuite la méthode [**users. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’utilisateur pour identifier l’utilisateur. Ensuite, récupérez une interface pour les opérations de licence utilisateur client à partir de la propriété [**licences**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) . Enfin, appelez la méthode [**obtenir**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) ou [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) pour récupérer la collection de licences assignée à l’utilisateur.
 
 ``` csharp
 // string selectedCustomerUserId;

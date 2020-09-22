@@ -4,12 +4,12 @@ description: Mettez à jour la propriété renouvellement autorenouvelé pour un
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0549f1066038594c9e2a8c30a5427cc94b5ac296
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a83b7ab5263e50f3957920994579d6a3a82e654
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095952"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925574"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>Mettre à jour le renouvellement automatique d’un abonnement de la place de marché commerciale
 
@@ -31,7 +31,7 @@ Dans le tableau de bord de l’espace partenaires, cette opération est effectu�
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis définissez la propriété [**autoRenewEnabled**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
+Pour mettre à jour l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis définissez la propriété [**autoRenewEnabled**/dotnet/API/Microsoft.Store.partnercenter.Models.subscriptions.Subscription.autoRenewEnabled) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.subscriptions), suivie de la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptioncollection.BYID). Ensuite, terminez en appelant la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;

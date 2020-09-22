@@ -4,12 +4,12 @@ description: Comment mettre à jour la stratégie de configuration spécifiée p
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5fe3b30dd62fb0d2653f52d875310ff302f36bd2
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d29319ebf8561487fa279ef3e87664f3007bb778
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095966"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925714"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Mettre à jour une stratégie de configuration pour le client spécifié
 
@@ -30,7 +30,7 @@ Comment mettre à jour la stratégie de configuration spécifiée pour le client
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour une stratégie de configuration existante pour le client spécifié, instanciez un nouvel objet [**ConfigurationPolicy**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) comme indiqué dans l’extrait de code suivant. Les valeurs de ce nouvel objet remplacent les valeurs correspondantes dans l’objet existant. Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**ConfigurationPolicies. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicycollection.byid) avec l’ID de stratégie pour récupérer une interface pour les opérations de stratégie de configuration pour la stratégie spécifiée. Enfin, appelez la méthode [**patch**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) ou [**PatchAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) pour mettre à jour la stratégie de configuration.
+Pour mettre à jour une stratégie de configuration existante pour le client spécifié, instanciez un nouvel objet [**ConfigurationPolicy**/dotnet/API/microsoft.store.partnercenter.models.devicesdeployment.configurationpolicy) comme indiqué dans l’extrait de code suivant. Les valeurs de ce nouvel objet remplacent les valeurs correspondantes dans l’objet existant. Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**ConfigurationPolicies. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.iconfigurationpolicycollection.BYID) avec l’ID de stratégie pour récupérer une interface pour les opérations de stratégie de configuration pour la stratégie spécifiée. Enfin, appelez la méthode [**patch**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.iconfigurationpolicy.patch) ou [**PatchAsync**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.iconfigurationpolicy.patchasync) pour mettre à jour la stratégie de configuration.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -64,10 +64,10 @@ ConfigurationPolicy updatedConfigurationPolicy =
 
 Utilisez les paramètres de chemin d’accès suivants lors de la création de la demande.
 
-| Name        | Type   | Obligatoire | Description                                                   |
+| Nom        | Type   | Obligatoire | Description                                                   |
 |-------------|--------|----------|---------------------------------------------------------------|
-| customer-id | string | Yes      | Chaîne au format GUID qui identifie le client.         |
-| ID de stratégie   | string | Yes      | Chaîne au format GUID qui identifie la stratégie à mettre à jour. |
+| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client.         |
+| ID de stratégie   | string | Oui      | Chaîne au format GUID qui identifie la stratégie à mettre à jour. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -77,14 +77,14 @@ Pour plus d’informations, consultez [En-têtes REST de l’Espace Partenaires]
 
 Le corps de la demande doit contenir un objet qui fournit les informations de stratégie.
 
-| Name            | Type             | Obligatoire | Peut être mise à jour | Description                                                                                                                                              |
+| Nom            | Type             | Obligatoire | Peut être mise à jour | Description                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | string           | Oui      | No        | Chaîne au format GUID qui identifie la stratégie.                                                                                                    |
-| name            | string           | Yes      | Yes       | Nom convivial de la stratégie.                                                                                                                         |
-| catégorie        | string           | Oui      | No        | Catégorie de stratégie.                                                                                                                                     |
-| description     | string           | No       | Oui       | Description de la stratégie.                                                                                                                                  |
+| id              | string           | Oui      | Non        | Chaîne au format GUID qui identifie la stratégie.                                                                                                    |
+| name            | string           | Oui      | Oui       | Nom convivial de la stratégie.                                                                                                                         |
+| catégorie        | string           | Oui      | Non        | Catégorie de stratégie.                                                                                                                                     |
+| description     | string           | Non       | Oui       | Description de la stratégie.                                                                                                                                  |
 | devicesAssigned | nombre           | Non       | Non        | Nombre d’appareils.                                                                                                                                   |
-| policySettings  | tableau de chaînes | Yes      | Yes       | Les paramètres de stratégie : « aucun », « supprimer les \_ \_ préinstallations OEM », \_ « \_ l’utilisateur OOBE n’est pas \_ \_ administrateur local », « ignorer les \_ \_ paramètres Express », « ignorer \_ \_ l’inscription OEM », ignorer le \_ CLUF. |
+| policySettings  | tableau de chaînes | Oui      | Oui       | Les paramètres de stratégie : « aucun », « supprimer les \_ \_ préinstallations OEM », \_ « \_ l’utilisateur OOBE n’est pas \_ \_ administrateur local », « ignorer les \_ \_ paramètres Express », « ignorer \_ \_ l’inscription OEM », ignorer le \_ CLUF. |
 
 ### <a name="request-example"></a>Exemple de requête
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: c94368219bce2242e79d142ae999d45b9145e2de
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ee42eb225469f0f7e55a86c8482f11b6eef2d6e7
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098122"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927653"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Obtenir la liste des catégories d’offre par marché
 
@@ -32,9 +32,9 @@ Cet article explique comment obtenir une collection qui contient toutes les cat�
 
 Pour obtenir la liste des catégories d’offres dans un pays/une région et des paramètres régionaux donnés :
 
-1. Utilisez votre collection [**collection iaggregatepartner. Operations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) pour appeler la méthode [**with ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) sur un contexte donné.
+1. Utilisez votre collection [**collection iaggregatepartner. Operations**/dotnet/API/Microsoft.Store.partnercenter.iaggregatepartner) pour appeler la méthode [**with ()**/dotnet/API/Microsoft.Store.partnercenter.iaggregatepartner.with) sur un contexte donné.
 
-2. Inspectez la propriété [**OfferCategories**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) de l’objet résultant.
+2. Inspectez la propriété [**OfferCategories**/dotnet/API/Microsoft.Store.partnercenter.ipartner.offercategories) de l’objet résultant.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

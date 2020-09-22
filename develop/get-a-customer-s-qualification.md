@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 7af840adcf8c6e3e16695297c34aa6f6e9c0629c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ac0d1ba8d17fbbfcd0d0c8870a4722fe89010749
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098336"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927775"
 ---
 # <a name="get-a-customers-qualification"></a>Obtenir la qualification d’un client
 
@@ -29,7 +29,7 @@ Comment obtenir la qualification d’un client.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir la qualification d’un client, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client. Utilisez ensuite la propriété [**qualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) pour récupérer une interface [**ICustomerQualification**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) . Enfin, appelez [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) pour récupérer la qualification du client.
+Pour obtenir la qualification d’un client, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client. Utilisez ensuite la propriété [**qualification**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) pour récupérer une interface [**ICustomerQualification**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) . Enfin, appelez [**obtenir**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) ou [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) pour récupérer la qualification du client.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

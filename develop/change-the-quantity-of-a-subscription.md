@@ -4,12 +4,12 @@ description: Mettez à jour un abonnement pour augmenter ou diminuer le nombre d
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b752f50f5f583489282d38df94d9baa8385b0620
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 40738486589276118591bf5e90e1e98592aa49fe
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86096056"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927378"
 ---
 # <a name="change-the-quantity-of-a-subscription"></a>Changer la quantité d’un abonnement
 
@@ -34,7 +34,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="c"></a>C\#
 
-Pour modifier la quantité de l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Quantity**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
+Pour modifier la quantité de l’abonnement d’un client, commencez par [obtenir l’abonnement](get-a-subscription-by-id.md), puis modifiez la propriété [**Quantity**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.quantity) de l’abonnement. Une fois la modification effectuée, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode **méthode BYID ()** . Appelez ensuite la propriété [**Subscriptions**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) , suivie de la méthode [**méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) . Ensuite, terminez en appelant la méthode **patch ()** .
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -115,7 +115,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>Réponse REST
 
-En cas de réussite, cette méthode retourne le code d’état **HTTP 200** et les propriétés de [ressource d’abonnement](subscription-resources.md) mises à jour dans le corps de la réponse.
+En cas de réussite, cette méthode retourne le code d’état **HTTP 200** et les propriétés de [ressource d’abonnement](subscription-resources.md)  mises à jour dans le corps de la réponse.
 
 ### <a name="response-success-and-error-codes"></a>Codes d’erreur et de réussite de la réponse
 

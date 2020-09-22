@@ -4,12 +4,12 @@ description: Ressources qui représentent des biens ou services pouvant être ac
 ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0474f2e7e089d8e637e18fa9bd7f77ffd5fb2f4e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6a3cfacd3654e85a9824759295f97792ff740d85
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097325"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925844"
 ---
 # <a name="products-resources"></a>Ressources de produits
 
@@ -41,7 +41,7 @@ Représente le type d’un produit.
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
 | id              | string                        | Identificateur de type.                                                                 |
 | displayName     | string                        | Nom complet de ce type.                                                      |
-| subtype         | [ItemType](#itemtype)         | facultatif. Objet qui décrit une catégorisation de sous-type pour ce type d’élément.     |
+| subtype         | [ItemType](#itemtype)         | Optionnel. Objet qui décrit une catégorisation de sous-type pour ce type d’élément.     |
 
 ## <a name="productlinks"></a>ProductLinks
 
@@ -134,7 +134,7 @@ Représente les détails d’une restriction d’inventaire. Cela s’applique u
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
-[Énumération](https://docs.microsoft.com/dotnet/api/system.enum) avec des valeurs qui indiquent un type de cycle de facturation.
+[Enum/dotnet/API/System. Enum] avec des valeurs qui indiquent un type de cycle de facturation.
 
 | Valeur              | Position     | Description                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|

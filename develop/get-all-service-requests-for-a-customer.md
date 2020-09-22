@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b58f70fa0aae5deb90356707bb601a7a77d33e9d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e9f34a77064bad090afac48b621546f2196a9e03
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097777"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927162"
 ---
 # <a name="get-all-service-requests-for-a-customer"></a>Obtenir des demandes de service pour un client
 
@@ -33,7 +33,7 @@ Dans le tableau de bord espace partenaires, vous pouvez effectuer cette opérati
 
 ## <a name="c"></a>C\#
 
-Pour afficher la liste de toutes les demandes de service d’un client, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) . Appelez ensuite la propriété [**ServiceRequests**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.servicerequests) , suivie des méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.getasync) .
+Pour afficher la liste de toutes les demandes de service d’un client, utilisez votre collection **collection iaggregatepartner. Customers** et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID). Appelez ensuite la propriété [**ServiceRequests**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.servicerequests), suivie des méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.servicerequests.iservicerequestcollection.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.servicerequests.iservicerequestcollection.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

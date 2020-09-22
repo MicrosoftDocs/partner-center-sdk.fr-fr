@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: brentserbus
 ms.author: brserbus
-ms.openlocfilehash: 2765859db2da91f544c926b264eeb7e32a22cd6c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 415723e0f792c4d6716998554dbf6e52c51b63d3
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86093830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927139"
 ---
 # <a name="get-an-offer-by-id"></a>Obtenir une offre par ID
 
@@ -32,7 +32,7 @@ Obtient une ressource d' **offre** qui correspond à l’ID de l’offre.
 
 ## <a name="c"></a>C\#
 
-Pour rechercher une offre spécifique par ID, utilisez votre collection **collection iaggregatepartner. offers** , établissez le pays avec un appel à **ByCountry ()**, puis appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) . Ensuite, appelez la méthode d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.get) ou d’accès [**asynchrone ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.getasync) .
+Pour rechercher une offre spécifique par ID, utilisez votre collection **collection iaggregatepartner. offers** , établissez le pays avec un appel à **ByCountry ()**, puis appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.partnercenter.offers.ioffercollection.BYID). Ensuite, appelez la méthode [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.offers.ioffercollection.Get) ou [**obtient Async ()**/dotnet/API/Microsoft.Store.partnercenter.offers.ioffercollection.getasync).
 
 ```csharp
 // IAggretagePartner partnerOperations;

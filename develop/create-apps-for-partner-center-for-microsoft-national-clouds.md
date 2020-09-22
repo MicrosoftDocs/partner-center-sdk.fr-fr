@@ -7,12 +7,12 @@ MS-HAID:
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: acb84caddfc42de957b4e45b781f650ec9640038
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 48eb5bf8c9fe473ae6fabe88ad2cc0767852dbe6
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927862"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud"></a>Inscrire les détails de l’application pour l’espace partenaires pour Microsoft national Cloud
 
@@ -23,13 +23,13 @@ ms.locfileid: "86094427"
 
 Les développeurs doivent inscrire des détails sur leur application avec Azure AD par le biais du Portail Azure. Cela permet de s’assurer que seules les applications spécifiées sont en mesure de se connecter aux données des partenaires et des clients.
 
-Pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis, vous devez actuellement gérer les applications via PowerShell. Pour plus d’informations, consultez la [documentation de référence Azure PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0#applications).
+Pour l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis, vous devez actuellement gérer les applications via PowerShell. Pour plus d’informations, consultez la [documentation de référence Azure PowerShell](/powershell/module/Azuread/?view=azureadps-2.0#applications).
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
 Tenez compte des conditions supplémentaires suivantes lorsque vous créez une application pour Partner Center pour Microsoft Cloud Allemagne ou l’espace partenaires pour Microsoft Cloud pour le gouvernement des États-Unis.
 
-## <a name="web-apps"></a>les applications web
+## <a name="web-apps"></a>Applications web
 
 Pour les applications Web, utilisez les procédures suivantes pour inscrire votre ID d’application.
 
@@ -37,7 +37,7 @@ Pour les applications Web, utilisez les procédures suivantes pour inscrire votr
 
 1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
-2. Sélectionnez **Nouvelle inscription**. Pour plus d’informations, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+2. Sélectionnez **Nouvelle inscription**. Pour plus d’informations, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](/azure/active-directory/develop/quickstart-register-app).
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>Configurer les autorisations d’accès à l’API pour l’application Web
 
@@ -91,7 +91,7 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 
 1. Accédez à la page de [inscriptions d’applications portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application. Connectez-vous au Portail Azure à l’aide d’un compte professionnel ou scolaire, ou d’un compte Microsoft personnel.
 
-2. Sélectionnez **Nouvelle inscription**. Pour plus d’informations, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+2. Sélectionnez **Nouvelle inscription**. Pour plus d’informations, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](/azure/active-directory/develop/quickstart-register-app).
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>Configurer les autorisations d’accès à l’API pour une application native
 
@@ -101,8 +101,8 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
 
 3. Choisissez **Windows Azure Active Directory autorisations**. Dans **autorisations déléguées**, sélectionnez les autorisations suivantes :
 
-    - **Connexion et lecture de profil utilisateur**
-    - **Lecture des données de l’annuaire**
+    - **Connecter et lire le profil utilisateur**
+    - **Lire les données du répertoire**
     - **Accès à l’annuaire en tant qu’utilisateur connecté**
     - **Lire tous les groupes**
 
@@ -122,7 +122,7 @@ Les applications natives n’ont pas besoin d’être inscrites auprès de l’e
     
     2. Choisissez **Sélectionner**.
 
-8. Choisissez **terminé**.
+8. Choisissez **Terminé**.
 
 >[!IMPORTANT]
 > Notez l’ID de l’application dans les propriétés de votre application.

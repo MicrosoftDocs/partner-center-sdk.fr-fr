@@ -4,12 +4,12 @@ description: Obtient un objet qui représente le profil de support d’un utilis
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6107288c0885a6baf6140e66ef1b423ab9b2940d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b0c76d219aa2cef36a7e790e2be4feafeb10f826
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927503"
 ---
 # <a name="get-support-profile"></a>Obtenir le profil de prise en charge
 
@@ -27,7 +27,7 @@ Obtient un objet qui représente le profil de support d’un utilisateur.
 
 ## <a name="c"></a>C\#
 
-Pour accéder à votre profil de support, utilisez votre collection **collection iaggregatepartner. Profiles** . Appelez la propriété [**SupportProfile**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) , suivie par les méthodes d' [**extraction ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get) ou de [**GetAsync ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync) .
+Pour accéder à votre profil de support, utilisez votre collection **collection iaggregatepartner. Profiles** . Appelez la propriété [**SupportProfile**/dotnet/API/Microsoft.Store.partnercenter.Profiles.isupportprofile), suivie des méthodes [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.isupportprofile.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Profiles.isupportprofile.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;

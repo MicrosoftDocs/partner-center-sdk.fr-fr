@@ -4,12 +4,12 @@ description: Obtention de l’état d’approvisionnement de l’abonnement pour
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0811ad6d26cb96c057a96bd906e47238a0d97cce
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: 7c35730d6b6734ca69f3ffa21a78ff209fbc5ecb
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87557350"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927515"
 ---
 # <a name="get-subscription-provisioning-status"></a>Obtenir l’état de provisionnement d’un abonnement
 
@@ -34,7 +34,7 @@ Obtention de l’état d’approvisionnement de l’abonnement pour un abonnemen
 
 ## <a name="c"></a>C\#
 
-Pour obtenir l’état d’approvisionnement d’un abonnement, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement. Ensuite, utilisez la propriété [**ProvisioningStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.provisioningstatus) pour obtenir une interface pour les opérations d’état d’approvisionnement de l’abonnement actuel, puis appelez la méthode [**obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) pour récupérer l’objet [**SubscriptionProvisioningStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionprovisioningstatus) .
+Pour obtenir l’état d’approvisionnement d’un abonnement, commencez par utiliser la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.BYID) avec l’ID d’abonnement. Ensuite, utilisez la propriété [**ProvisioningStatus**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription.provisioningstatus) pour obtenir une interface pour les opérations d’état d’approvisionnement de l’abonnement actuel, puis appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptionprovisioningstatus.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptionprovisioningstatus.getasync) pour récupérer l’objet [**SubscriptionProvisioningStatus**/dotnet/API/Microsoft.Store.partnercenter.Models.subscriptions.subscriptionprovisioningstatus).
 
 ``` csharp
 // IAggregatePartner partnerOperations.

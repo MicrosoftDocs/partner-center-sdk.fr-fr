@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 2fa1ee7ad360ad846d47fc9ac7bb64d5a96ab6c0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1a16a36b4730472a2a0d3da8ca0dba17ad522918
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098093"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927643"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Obtenir la liste des commandes par client et le type de cycle de facturation
 
@@ -34,10 +34,10 @@ Obtient une collection de ressources de commande qui correspondent à un type de
 
 Pour obtenir un regroupement des commandes d’un client :
 
-1. Utilisez votre collection [**collection iaggregatepartner. Customers**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner.customers) et appelez la méthode [**méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client sélectionné.
+1. Utilisez votre collection [**collection iaggregatepartner. Customers**/dotnet/API/Microsoft.Store.partnercenter.ipartner.Customers) et appelez la méthode [**méthode BYID ()**/dotnet/API/Microsoft.Store.PARTNERCENTER.Customers.ICUSTOMERCOLLECTION.BYID) avec l’ID de client sélectionné.
 
-2. Appelez la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) et la méthode **ByBillingCycleType ()** avec le [**BillingCycleType**](product-resources.md#billingcycletype)spécifié.
-3. Appelez la méthode [**Get()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) ou [**GetAsync()** ](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.getasync).
+2. Appelez la propriété [**Orders**/dotnet/API/Microsoft.Store.partnercenter.Customers.ICustomer.Orders) et la méthode **ByBillingCycleType ()** avec le  [**BillingCycleType**](product-resources.md#billingcycletype)spécifié.
+3. Appelez la méthode [**obten ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iordercollection.Get) ou [**GetAsync ()**/dotnet/API/Microsoft.Store.partnercenter.Orders.iordercollection.getasync).
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -55,14 +55,14 @@ var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.ByBilli
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-tenant-ID}/Orders ? billingType = {facturation-cycle-type} http/1.1  |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Ce tableau répertorie les paramètres de requête requis pour obtenir une collection de commandes par ID de client et type de cycle de facturation.
 
 | Nom                   | Type     | Obligatoire | Description                                               |
 |------------------------|----------|----------|-----------------------------------------------------------|
 | customer-tenant-id     | string   | Oui      | Chaîne au format GUID correspondant au client.    |
-| type de cycle de facturation     | string   | No       | Chaîne correspondant au type de cycle de facturation.         |
+| type de cycle de facturation     | string   | Non       | Chaîne correspondant au type de cycle de facturation.         |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

@@ -4,12 +4,12 @@ description: Comment mettre à jour le contact de support d’un abonnement à l
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 904ba53da372877be9ce89d8bf683d2a447db96a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 39275394b2fecd67a25c9315ed11b9333532f514
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925438"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>Mettre à jour le contact de support d’un abonnement 
 
@@ -33,7 +33,7 @@ Comment mettre à jour le contact de support d’un abonnement à l’un des rev
 
 ## <a name="c"></a>C\#
 
-Pour mettre à jour le contact de support d’un abonnement, commencez par instancier et remplir un objet [**SupportContact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) avec les nouvelles valeurs. Utilisez ensuite la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) avec l’ID d’abonnement. Ensuite, utilisez la propriété [**SupportContact**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) pour obtenir une interface afin de prendre en charge les opérations de contact. Enfin, appelez la méthode [**Update**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update) ou [**UpdateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) avec l’objet SupportContact rempli pour mettre à jour le contact de support.
+Pour mettre à jour le contact de support d’un abonnement, commencez par instancier et remplir un objet [**SupportContact**/dotnet/API/Microsoft.Store.partnercenter.Models.subscriptions.supportcontact) avec les nouvelles valeurs. Utilisez ensuite la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour identifier le client. Ensuite, récupérez une interface pour les opérations d’abonnement en appelant la méthode [**Subscriptions. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerusers.icustomerusercollection.BYID) avec l’ID d’abonnement. Ensuite, utilisez la propriété [**SupportContact**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.ISubscription.supportcontact) pour obtenir une interface afin de prendre en charge les opérations de contact. Enfin, appelez la méthode [**Update**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptionsupportcontact.Update) ou [**UpdateAsync**/dotnet/API/Microsoft.Store.partnercenter.subscriptions.isubscriptionsupportcontact.UpdateAsync) avec l’objet SupportContact rempli pour mettre à jour le contact de support.
 
 ``` csharp
 // IAggregatePartner partnerOperations.

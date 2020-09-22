@@ -4,12 +4,12 @@ description: Comment supprimer un compte client du bac à sable (sandbox) d’in
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f224960e3234222f6460020dd183da90d90d6740
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dc2ffbf79116b3de03b4f06656309c920868cef4
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094195"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927836"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Supprimer un compte client du bac à sable d’intégration
 
@@ -37,11 +37,11 @@ Cet article explique comment supprimer un compte client du bac à sable (sandbox
 
 Pour supprimer un client du bac à sable (sandbox) d’intégration Tip :
 
-1. Transmettez les informations d’identification de votre compte Tip à la méthode [**CreatePartnerOperations**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.ipartner) pour les opérations de partenaire.
+1. Transmettez les informations d’identification de votre compte Tip à la méthode [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) pour récupérer une interface [**collection ipartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) pour les opérations de partenaire.
 
 2. Utilisez l’interface opérateur partenaire pour récupérer la collection de droits :
 
-    1. Appelez la méthode [**Customers. méthode BYID ()**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client.
+    1. Appelez la méthode [**Customers. méthode BYID ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’identificateur du client pour spécifier le client.
 
     2. Appelez la propriété de **droits** .
 

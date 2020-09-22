@@ -4,12 +4,12 @@ description: Comment créer une commande pour un client d’un revendeur indirec
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: eba8c5e8610e3b6b551c6a00c563c115c94d8c16
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 880d626e6a7f4317575af8978348768e555a226e
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094439"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90926685"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Créer une commande pour un client d’un revendeur indirect
 
@@ -35,15 +35,15 @@ Pour créer une commande pour un client d’un revendeur indirect :
 
 1. Obtenez une collection des revendeurs indirects qui ont une relation avec le partenaire connecté.
 
-2. Obtenir une variable locale pour l’élément de la collection qui correspond à l’ID du revendeur indirect. Cette étape vous permet d’accéder à la propriété [**MpnId**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) du revendeur lorsque vous créez la commande.
+2. Obtenir une variable locale pour l’élément de la collection qui correspond à l’ID du revendeur indirect. Cette étape vous permet d’accéder à la propriété [**MpnId**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) du revendeur lorsque vous créez la commande.
 
-3. Instanciez un objet [**Order**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order) et définissez la propriété [**ReferenceCustomerID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) sur l’identificateur du client afin d’enregistrer le client.
+3. Instanciez un objet [**Order**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) et définissez la propriété [**ReferenceCustomerID**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) sur l’identificateur du client afin d’enregistrer le client.
 
-4. Créez une liste d’objets [**OrderLineItem**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) et assignez la liste à [**la propriété de l’ordre de tri**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) . Chaque élément de ligne de commande contient les informations d’achat relatives à une offre. Veillez à renseigner la propriété [**PartnerIdOnRecord**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) dans chaque élément de ligne avec l’ID MPN du revendeur indirect. Vous devez disposer d’au moins un élément de ligne de commande.
+4. Créez une liste d’objets [**OrderLineItem**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) et assignez la liste à [**la propriété de l’ordre de tri**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) . Chaque élément de ligne de commande contient les informations d’achat relatives à une offre. Veillez à renseigner la propriété [**PartnerIdOnRecord**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) dans chaque élément de ligne avec l’ID MPN du revendeur indirect. Vous devez disposer d’au moins un élément de ligne de commande.
 
-5. Obtenez une interface pour commander des opérations en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérez l’interface à partir de la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
+5. Obtenez une interface pour commander des opérations en appelant la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client, puis récupérez l’interface à partir de la propriété [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
 
-6. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) pour créer la commande.
+6. Appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) pour créer la commande.
 
 ### <a name="c-example"></a>\#Exemple C
 
@@ -91,13 +91,13 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 |----------|----------------------------------------------------------------------------------------|
 | **POST** | [*{baseURL}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Orders http/1.1 |
 
-#### <a name="uri-parameters"></a>Paramètres d’URI
+#### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
 | Nom        | Type   | Obligatoire | Description                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | string | Yes      | Chaîne au format GUID qui identifie le client. |
+| customer-id | string | Oui      | Chaîne au format GUID qui identifie le client. |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -111,11 +111,11 @@ Ce tableau décrit les propriétés d' **ordre** dans le corps de la demande.
 
 | Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
-| id | string | No | Identificateur d’ordre qui est fourni lors de la création réussie de la commande. |
-| referenceCustomerId | string | Yes | Identificateur du client. |
-| billingCycle | string | No | Fréquence à laquelle le partenaire est facturé pour cette commande. La valeur par défaut est &quot; mensuelle &quot; et est appliquée lors de la création réussie de la commande. Les valeurs prises en charge sont les noms des membres trouvés dans [**BillingCycleType**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Remarque : la fonctionnalité de facturation annuelle n’est pas encore disponible en général. La prise en charge de la facturation annuelle sera bientôt disponible. |
-| lineItems | tableau d’objets | Yes | Tableau de ressources [**OrderLineItem**](#orderlineitem) . |
-| creationDate | string | No | Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande. |
+| id | string | Non | Identificateur d’ordre qui est fourni lors de la création réussie de la commande. |
+| referenceCustomerId | string | Oui | Identificateur du client. |
+| billingCycle | string | Non | Fréquence à laquelle le partenaire est facturé pour cette commande. La valeur par défaut est &quot; mensuelle &quot; et est appliquée lors de la création réussie de la commande. Les valeurs prises en charge sont les noms des membres trouvés dans [**BillingCycleType**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype). Remarque : la fonctionnalité de facturation annuelle n’est pas encore disponible en général. La prise en charge de la facturation annuelle sera bientôt disponible. |
+| lineItems | tableau d’objets | Oui | Tableau de ressources [**OrderLineItem**](#orderlineitem) . |
+| creationDate | string | Non | Date à laquelle la commande a été créée, au format date/heure. Appliqué en cas de création réussie de la commande. |
 | attributs | object | Non | Contient « ObjectType » : « Order ». |
 
 #### <a name="orderlineitem"></a>OrderLineItem
@@ -125,12 +125,12 @@ Ce tableau décrit les propriétés **OrderLineItem** dans le corps de la demand
 | Nom | Type | Obligatoire | Description |
 | ---- | ---- | -------- | ----------- |
 | lineItemNumber | int | Oui | Chaque élément de ligne dans la collection obtient un numéro de ligne unique, allant de 0 à nombre-1. |
-| offerId | string | Yes | Identificateur de l’offre. |
-| subscriptionId | string | No | Identificateur de l’abonnement. |
-| parentSubscriptionId | string | No | facultatif. ID de l’abonnement parent dans une offre de module complémentaire. S’applique uniquement à PATCH. |
-| friendlyName | string | No | facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté. |
+| offerId | string | Oui | Identificateur de l’offre. |
+| subscriptionId | string | Non | Identificateur de l’abonnement. |
+| parentSubscriptionId | string | Non | facultatif. ID de l’abonnement parent dans une offre de module complémentaire. S’applique uniquement à PATCH. |
+| friendlyName | string | Non | facultatif. Nom convivial de l’abonnement défini par le partenaire pour aider à lever toute ambiguïté. |
 | quantité | int | Oui | Nombre de licences pour un abonnement basé sur licence. |
-| partnerIdOnRecord | string | No | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une comptabilité appropriée des incitations. **Si vous ne fournissez pas l’ID MPN du revendeur, cela ne provoque pas l’échec de la commande. Toutefois, le revendeur n’est pas enregistré et, par conséquent, les calculs de l’incentive peuvent ne pas inclure la vente.** |
+| partnerIdOnRecord | string | Non | Lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect, renseignez ce champ avec l’ID MPN du **revendeur indirect uniquement** (jamais l’ID du fournisseur indirect). Cela garantit une comptabilité appropriée des incitations. **Si vous ne fournissez pas l’ID MPN du revendeur, cela ne provoque pas l’échec de la commande. Toutefois, le revendeur n’est pas enregistré et, par conséquent, les calculs de l’incentive peuvent ne pas inclure la vente.** |
 | attributs | object | Non | Contient « ObjectType » : « OrderLineItem ». |
 
 ### <a name="request-example"></a>Exemple de requête

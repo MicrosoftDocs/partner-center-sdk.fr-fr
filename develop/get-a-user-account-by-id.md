@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 8da599368cb7158ba31bbfdd4330d0f4bccb0dc4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a2f42001365324a65376318cb1f2d57dc123df0c
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097942"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927239"
 ---
 # <a name="get-a-user-account-by-id"></a>Obtenir un compte utilisateur par ID
 
@@ -27,7 +27,7 @@ Obtenir un compte d’utilisateur spécifique pour un client.
 
 ## <a name="c"></a>C\#
 
-Pour récupérer un compte d’utilisateur pour un client, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, appelez la méthode [**users. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour récupérer l’utilisateur spécifique. Enfin, appelez la méthode [**users. obtenir**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) ou [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) pour récupérer le compte d’utilisateur.
+Pour récupérer un compte d’utilisateur pour un client, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, appelez la méthode [**users. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) pour récupérer l’utilisateur spécifique. Enfin, appelez la méthode [**users. obtenir**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.get) ou [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.getasync) pour récupérer le compte d’utilisateur.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

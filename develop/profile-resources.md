@@ -4,12 +4,12 @@ description: Décrit le comportement des profils d’un fournisseur de solutions
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bb3b4dab92091775a9a89bdf34ca33f7f378692f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: ef14eb0307dae0d58dc9903a867ec3bee4ebb323
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097258"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925823"
 ---
 # <a name="profile-resources"></a>Ressources de profil
 
@@ -49,8 +49,8 @@ Décrit le profil d’entreprise juridique d’un partenaire.
 | primaryContact         | [Contact](utility-resources.md#contact)                       | Contact principal de l’entreprise ou de l’organisation.                                                                                                                 |
 | companyApproverAddress | [Adresse](utility-resources.md#address)                       | Adresse de l’approbateur de l’entreprise.                                                                                                                                        |
 | companyApproverEmail   | string                                                         | E-mail de l’approbateur de l’entreprise.                                                                                                                                          |
-| vettingStatus          | string                                                         | État d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus).           |
-| vettingSubStatus       | string                                                         | Sous-état d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingSubStatus**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus). |
+| vettingStatus          | string                                                         | État d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingStatus**/dotnet/API/Microsoft.Store.partnercenter.Models.Partners.vettingstatus).           |
+| vettingSubStatus       | string                                                         | Sous-état d’instruction. Cette valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans [**VettingSubStatus**/dotnet/API/Microsoft.Store.partnercenter.Models.Partners.vettingsubstatus). |
 | profileType            | string                                                         | Type de profil du partenaire.                                                                                                                                            |
 | liens                  | [ResourceLinks](utility-resources.md#resourcelinks)           | Liens de ressource correspondant au profil.                                                                                                                     |
 | attributs             | [ResourceAttributes](utility-resources.md#resourceattributes) | Attributs de métadonnées correspondant au profil.                                                                                                                |

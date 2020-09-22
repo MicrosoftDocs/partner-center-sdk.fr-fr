@@ -4,12 +4,12 @@ description: Comment obtenir l’état d’un téléchargement par lots d’un a
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5639ab12b29c5d55c67b8f3375d96ab1d5979850
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 07dfe950e92fdd0141518c8cca746c8d958f2843
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86098432"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927459"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>Obtenir l’état d’un chargement de lot d’appareils
 
@@ -30,7 +30,7 @@ Comment obtenir l’état d’un téléchargement par lots d’un appareil pour 
 
 ## <a name="c"></a>C\#
 
-Pour obtenir l’état d’un téléchargement par lots d’appareils, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**BatchUploadStatus. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatuscollection.byid) avec l’ID de suivi batch pour récupérer une interface pour les opérations d’état de chargement par lots. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.getasync) pour [**récupérer l’État**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.devicesdeployment.ibatchjobstatus.get) .
+Pour obtenir l’état d’un téléchargement par lots d’appareils, appelez d’abord la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID client pour récupérer une interface pour les opérations sur le client spécifié. Ensuite, appelez la méthode [**BatchUploadStatus. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.ibatchjobstatuscollection.BYID) avec l’ID de suivi batch pour récupérer une interface pour les opérations d’état de chargement par lots. Enfin, appelez la méthode [**obtenir**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.ibatchjobstatus.Get) ou [**GetAsync**/dotnet/API/Microsoft.Store.partnercenter.devicesdeployment.ibatchjobstatus.getasync) pour récupérer l’État.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

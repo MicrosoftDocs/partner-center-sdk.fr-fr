@@ -4,12 +4,12 @@ description: Comprenez les API REST qui vous permettent d’appliquer l’authen
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: a09074637b887717fcbcb40cc91661420a6f226a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: dcd3ac364e0d86ecac2c51eb34de48f1d66e2158
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86094979"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90925851"
 ---
 # <a name="partner-security-requirements-status"></a>Statut des exigences de sécurité des partenaires
 
@@ -21,7 +21,7 @@ Cet article décrit les API REST associées à l’authentification multifacteur
 
 ## <a name="partner-security-requirements-overview"></a>Présentation des exigences de sécurité du partenaire
 
-- [Vue d'ensemble](https://docs.microsoft.com/partner-center/partner-security-requirements)
+- [Vue d’ensemble/partenaire-Center/Partner-Security-Requirements)
 
 ## <a name="understand-mfa-adoption-status"></a>Comprendre l’état d’adoption de l’authentification MFA
 

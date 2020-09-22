@@ -4,12 +4,12 @@ description: Dans un compte client, il existe un ensemble de rôles d’annuaire
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: eb5cbd80aa0bc35d5926b3b9f45084849f2f9d44
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: a40b60dddd2a29310c1c4aaefa689f6a8de71327
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86095786"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927604"
 ---
 # <a name="set-user-roles-for-a-customer"></a>Définir des rôles d’utilisateur pour un client
 
@@ -27,7 +27,7 @@ Dans un compte client, il existe un ensemble de rôles d’annuaire. Vous pouvez
 
 ## <a name="c"></a>C\#
 
-Pour affecter un rôle d’annuaire à un utilisateur client, créez un nouveau [**UserMember**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) avec les détails de l’utilisateur appropriés. Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID de client spécifié pour identifier le client. À partir de là, utilisez la méthode [**DirectoryRoles. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) avec l’ID de rôle d’annuaire pour spécifier le rôle. Ensuite, accédez à la collection **UserMembers** et utilisez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) pour ajouter le nouveau membre utilisateur à la collection de membres d’utilisateur affectés à ce rôle.
+Pour affecter un rôle d’annuaire à un utilisateur client, créez un nouveau [**UserMember**/dotnet/API/Microsoft.Store.partnercenter.Models.Roles.usermember) avec les détails de l’utilisateur appropriés. Ensuite, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.Customers.icustomercollection.BYID) avec l’ID de client spécifié pour identifier le client. À partir de là, utilisez la méthode [**DirectoryRoles. méthode BYID**/dotnet/API/Microsoft.Store.partnercenter.customerdirectoryroles.idirectoryrolecollection.BYID) avec l’ID de rôle d’annuaire pour spécifier le rôle. Ensuite, accédez à la collection **UserMembers** et utilisez la méthode [**Create**/dotnet/API/Microsoft.Store.partnercenter.customerdirectoryroles.iusermembercollection.Create) pour ajouter le nouveau membre utilisateur à la collection de membres d’utilisateur affectés à ce rôle.
 
 ``` csharp
 // UserMember createdUser;
@@ -77,7 +77,7 @@ Ce tableau décrit les propriétés requises dans le corps de la demande.
 | Nom                  | Type       | Obligatoire | Description                            |
 |-----------------------|------------|----------|----------------------------------------|
 | **Id**                | **string** | O        | ID de l’utilisateur à ajouter au rôle. |
-| **NomComplet**       | **string** | O        | Nom complet convivial de l’utilisateur. |
+| **DisplayName**       | **string** | O        | Nom complet convivial de l’utilisateur. |
 | **UserPrincipalName** | **string** | O        | Nom d’utilisateur principal.        |
 | **Attributs**        | **object** | O        | Contient « ObjectType » : « UserMember »     |
 

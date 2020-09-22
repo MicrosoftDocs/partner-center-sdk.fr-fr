@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: cff024700c3ab04986d468c839053cbfa7670a86
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9ee22712b323c7439a192ed2e5af8d5e7eaf92a3
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86097877"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927222"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>Obtenir les extensions d’un ID d’offre
 
@@ -32,7 +32,7 @@ Comment obtenir les modules complémentaires d’un ID d’offre.
 
 ## <a name="c"></a>C\#
 
-Pour obtenir les modules complémentaires pour une offre par ID, appelez d’abord la méthode [**collection iaggregatepartner. offers. ByCountry**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) avec l’indicatif de pays pour obtenir une interface permettant d’effectuer des opérations basées sur le pays donné. Appelez ensuite la méthode [**méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) avec l’ID de l’offre pour identifier l’offre dont vous souhaitez récupérer les modules complémentaires. Ensuite, utilisez la propriété [**addons**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) pour obtenir une interface pour les opérations de module complémentaire pour l’offre actuelle. Enfin, appelez la méthode [**GetAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) [**pour obtenir une**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) collection de tous les modules complémentaires de l’offre spécifiée.
+Pour obtenir les modules complémentaires pour une offre par ID, appelez d’abord la méthode [**collection iaggregatepartner. offers. ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) avec l’indicatif de pays pour obtenir une interface permettant d’effectuer des opérations basées sur le pays donné. Appelez ensuite la méthode [**méthode BYID**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) avec l’ID de l’offre pour identifier l’offre dont vous souhaitez récupérer les modules complémentaires. Ensuite, utilisez la propriété [**addons**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) pour obtenir une interface pour les opérations de module complémentaire pour l’offre actuelle. Enfin, appelez la méthode [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) [**pour obtenir une**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) collection de tous les modules complémentaires de l’offre spécifiée.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,14 +52,14 @@ var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).
 |---------|---------------------------------------------------------------------------------------------------------|
 | **GET** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-ID}/addons ? pays = {country-code} http/1.1 |
 
-### <a name="uri-parameters"></a>Paramètres d’URI
+### <a name="uri-parameters"></a>Paramètres URI
 
 Utilisez les paramètres suivants pour fournir l’ID de l’offre et le code du pays.
 
 | Nom         | Type       | Obligatoire | Description                       |
 |--------------|------------|----------|-----------------------------------|
 | **ID de l’offre** | **guid**   | O        | GUID qui identifie l’offre. |
-| **nationale**  | **string** | O        | Indicatif du pays (par exemple `US` ).       |
+| **country**  | **string** | O        | Indicatif du pays (par exemple `US` ).       |
 
 ### <a name="request-headers"></a>En-têtes de requête
 

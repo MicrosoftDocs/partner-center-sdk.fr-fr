@@ -4,12 +4,12 @@ description: Comment créer une commande pour un client.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d92c117d4fb29ec054302cbc9dfa21214135d086
-ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
+ms.openlocfilehash: eb4dcea0f07ac759e2fa1f9ccd91f58f680ee535
+ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88937929"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90927352"
 ---
 # <a name="create-an-order"></a>Créer une commande
 
@@ -23,7 +23,7 @@ La création d’une **commande pour les produits d’instance de machine virtue
 
 - Espace partenaires
 
-Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](https://docs.microsoft.com/partner-center/csp-offers).
+Pour plus d’informations sur ce qui est actuellement disponible pour la vente, consultez [offres partenaires dans le programme du fournisseur de solutions Cloud](/partner-center/csp-offers).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,9 +41,9 @@ Pour créer une commande pour un client :
 
 2. Créez une liste d’objets [**OrderLineItem**](order-resources.md#orderlineitem) et assignez la liste à **la propriété de l’ordre de tri** . Chaque élément de ligne de commande contient les informations d’achat relatives à une offre. Vous devez disposer d’au moins un élément de ligne de commande.
 
-3. Obtenez une interface pour commander des opérations. Tout d’abord, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez l’interface de la propriété [**Orders**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
+3. Obtenez une interface pour commander des opérations. Tout d’abord, appelez la méthode [**collection iaggregatepartner. Customers. méthode BYID**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) avec l’ID client pour identifier le client. Ensuite, récupérez l’interface de la propriété [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) .
 
-4. Appelez la méthode [**Create**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) ou [**CreateAsync**](https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) et transmettez l’objet [**Order**](order-resources.md) .
+4. Appelez la méthode [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) ou [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) et transmettez l’objet [**Order**](order-resources.md) .
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -87,7 +87,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 Utilisez le paramètre de chemin d’accès suivant pour identifier le client.
 
-| Name        | Type   | Obligatoire | Description                                                |
+| Nom        | Type   | Obligatoire | Description                                                |
 |-------------|--------|----------|------------------------------------------------------------|
 | customer-id | string | Oui      | ID client au format GUID qui identifie le client. |
 
@@ -120,7 +120,7 @@ Ce tableau décrit les propriétés [OrderLineItem](order-resources.md#orderline
 >[!NOTE]
 >Le partnerIdOnRecord doit être fourni uniquement lorsqu’un fournisseur indirect passe une commande pour le compte d’un revendeur indirect. Il est utilisé pour stocker l’ID de Microsoft Partner Network du revendeur indirect uniquement (jamais l’ID du fournisseur indirect).
 
-| Name                 | Type   | Obligatoire | Description                                                                                                                                                                                                                                |
+| Nom                 | Type   | Obligatoire | Description                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | lineItemNumber       | int    | Oui      | Chaque élément de ligne dans la collection obtient un numéro de ligne unique, allant de 0 à nombre-1.                                                                                                                                                 |
 | offerId              | string | Oui      | Identificateur de l’offre.                                                                                                                                                                                                                      |
