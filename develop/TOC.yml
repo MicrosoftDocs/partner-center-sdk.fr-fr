@@ -411,16 +411,12 @@
     - name: Fournir une assistance
       href: provide-support.md
       items:
-        - name: Créer une demande de service
-          href: create-a-service-request-.md
         - name: Obtenir le contact de support d’un abonnement
           href: get-a-subscription-s-support-contact.md
         - name: Obtenir des demandes de service pour un client
           href: get-all-service-requests-for-a-customer.md
         - name: Obtenir les détails de la demande de service par ID
           href: get-service-request-details-by-id.md
-        - name: Obtenir les rubriques de support des demandes de service
-          href: get-service-request-support-topics--pending-.md
         - name: Obtenir les services managés d’un client par ID
           href: get-the-managed-services-for-a-customer-by-id.md
         - name: Mettre à jour une demande de service
