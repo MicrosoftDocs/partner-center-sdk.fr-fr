@@ -424,16 +424,16 @@
         - name: 'Mettre à jour le contact de support d’un abonnement '
           href: update-a-subscription-s-support-contact.md
     - name: Références
-      href: 'https://docs.microsoft.com/partner/develop/referrals'
+      href: /partner/develop/referrals
       items:
         - name: Créer une référence
-          href: 'https://docs.microsoft.com/partner/develop/create-a-referral'
+          href: /partner/develop/create-a-referral
         - name: Obtenir une liste de références
-          href: 'https://docs.microsoft.com/partner/develop/get-a-list-of-referrals'
+          href: /partner/develop/get-a-list-of-referrals
         - name: Obtenir une référence par ID
-          href: 'https://docs.microsoft.com/partner/develop/get-a-referral-by-id'
+          href: /partner/develop/get-a-referral-by-id
         - name: Mettre à jour une référence
-          href: 'https://docs.microsoft.com/partner/develop/update-a-referral'
+          href: /partner/develop/update-a-referral
     - name: Outils
       href: utilities.md
       items:
@@ -535,11 +535,11 @@
     - name: Webhooks de l’Espace partenaires
       href: partner-center-webhooks.md
 - name: 'Informations de référence sur les API .NET managées de l’Espace partenaires '
-  href: 'https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest'
+  href: /dotnet/api/
   items:
     - name: Notes de publication de la version des API .NET de l’Espace partenaires
       href: dotnet-release-notes.md
 - name: Informations de référence sur l’API Java de l’Espace partenaires
-  href: 'https://docs.microsoft.com/java/partnercenter'
+  href: /java/partnercenter
 - name: Commandes PowerShell de l’Espace partenaires
-  href: 'https://docs.microsoft.com/powershell/partnercenter'
+  href: /powershell/partnercenter

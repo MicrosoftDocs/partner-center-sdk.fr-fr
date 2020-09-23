@@ -11,12 +11,12 @@ metadata:
   author: jasonwhowell
   ms.author: jasonh
   ms.date: 01/08/2020
-  ms.openlocfilehash: e21fded2d7b0219a0cdd1d41a89a910a17a019b6
-  ms.sourcegitcommit: 741cf2288ee4982400f51e7a21b2064d68d97323
+  ms.openlocfilehash: 12c6cba5f489b9ab7c3394629c319a43d2d9163b
+  ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86879314"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "91007667"
 landingContent:
 - title: Développer avec l’Espace partenaires
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Informations de référence de l’API .NET managée
-      url: https://docs.microsoft.com/dotnet/api/?view=partnercenter-dotnet-latest
+      url: /dotnet/api/
     - text: Notes de publication pour les versions du SDK .NET
       url: dotnet-release-notes.md
 - title: Utiliser les API REST
@@ -55,7 +55,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Informations de référence de l’API REST de l’Espace partenaires
-      url: https://docs.microsoft.com/partner-center/develop/partner-center-rest-api-reference
+      url: partner-center-rest-api-reference.md
 - title: Utiliser le SDK Java (open source)
   linkLists:
   - linkListType: download
@@ -67,7 +67,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Informations de référence de l’API Java
-      url: https://docs.microsoft.com/java/partnercenter/overview
+      url: /java/partnercenter/overview
 - title: Utiliser le module PowerShell (open source)
   linkLists:
   - linkListType: download
@@ -79,7 +79,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Commandes PowerShell
-      url: https://docs.microsoft.com/powershell/partnercenter
+      url: /powershell/partnercenter
 - title: Utiliser l’API Swagger pour les partenaires fournisseurs de solutions cloud
   linkLists:
   - linkListType: reference
