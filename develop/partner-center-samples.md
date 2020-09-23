@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: ec96f6d0655784379446a26d4f360b4bdbece6cd
-ms.sourcegitcommit: 3f00fd6e34fe25427cc8b41bd347f7fb4c6f65be
+ms.openlocfilehash: 2a672826262e73856bffc1eefe85028d4e7cb130
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89597872"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91007637"
 ---
 # <a name="partner-center-samples"></a>Exemples de l’Espace partenaires
 
@@ -62,7 +62,7 @@ Pour vous aider à être rapidement opérationnel avec les API de l’espace par
           <li><p>Personnalisation : logo et nom de l’entreprise.</p></li>
           <li><p>Message d’accueil.</p></li>
           <li><p>Offres, y compris les descriptions et les prix. L’application suppose que les prix de la liste incluent les taxes applicables. Vous pouvez également ajouter une logique supplémentaire pour calculer les taxes lors de la validation.</p></li>
-          <li><p>Informations de paiement : indiquez vos propres options de carte de crédit, PayPal ou tout autre type de paiement. Avant de configurer cette partie, veuillez lire le Guide de <a href="https://docs.microsoft.com/partner-center/non-payment-fraud-misuse">non-paiement, de fraude ou d’utilisation abusive</a>.</p></li>
+          <li><p>Informations de paiement : indiquez vos propres options de carte de crédit, PayPal ou tout autre type de paiement. Avant de configurer cette partie, veuillez lire le Guide de <a href="/partner-center/non-payment-fraud-misuse">non-paiement, de fraude ou d’utilisation abusive</a>.</p></li>
         </ul>
       </td>
     </tr>

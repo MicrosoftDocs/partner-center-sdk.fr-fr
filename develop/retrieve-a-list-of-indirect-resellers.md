@@ -4,12 +4,12 @@ description: Comment récupérer la liste des revendeurs indirects du partenaire
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e8615438d8ecd011fd1f00a5672b78d53f7bd77d
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 9d7b8962c24a00ac6892279e7b7c08c4144514f3
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90926408"
+ms.locfileid: "91007707"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>Récupérer la liste des revendeurs indirects
 
@@ -67,7 +67,7 @@ Utilisez le paramètre de requête suivant pour identifier le type de relation.
 <td>relationship_type</td>
 <td>string</td>
 <td>Oui</td>
-<td>La valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>.
+<td>La valeur est la représentation sous forme de chaîne de l’un des noms de membres trouvés dans <a href="/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype"><strong>PartnerRelationshipType</strong></a>.
 <p>Si le partenaire est connecté en tant que fournisseur et que vous souhaitez obtenir la liste des revendeurs indirects avec lesquels ils ont établi une relation, utilisez IsIndirectCloudSolutionProviderOf.</p>
 <p>Si le partenaire est connecté en tant que revendeur et que vous souhaitez obtenir la liste des fournisseurs indirects avec lesquels ils ont établi une relation, utilisez IsIndirectResellerOf.</p></td>
 </tr>

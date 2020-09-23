@@ -4,12 +4,12 @@ description: Comment récupérer un enregistrement d’opérations, tel qu’il 
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7ca3736916f246301ad55f6a551a6849f79b389a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 8f5795a87db1c4d1a5ca72eb55512aacc57bb949
+ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90927617"
+ms.locfileid: "91007647"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>Obtenir un enregistrement le l’activité de l’Espace partenaires
 
@@ -136,7 +136,7 @@ Le tableau suivant décrit les paires clé-valeur requises :
 <p>Exemple : &quot; valeur &quot; : &quot; BRI&quot;</p></li>
 <li><p>customerId-remplacez par une chaîne au format GUID qui représente l’identificateur du client.</p>
 <p>Exemple : &quot; valeur &quot; : &quot; 0c39d6d5-c70d-4C55-BC02-f620844f3fd1&quot;</p></li>
-<li><p>resourceType : remplacez par le type de ressource pour lequel récupérer les enregistrements d’audit (par exemple, abonnement). Les types de ressources disponibles sont définis dans <a href="https://docs.microsoft.com/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>resourceType</strong></a>.</p>
+<li><p>resourceType : remplacez par le type de ressource pour lequel récupérer les enregistrements d’audit (par exemple, abonnement). Les types de ressources disponibles sont définis dans <a href="/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype"><strong>resourceType</strong></a>.</p>
 <p>Exemple : &quot; valeur &quot; : &quot; abonnement&quot;</p></li>
 </ul></td>
 </tr>
